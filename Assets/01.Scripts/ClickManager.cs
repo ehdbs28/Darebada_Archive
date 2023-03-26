@@ -23,6 +23,8 @@ public class ClickManager : MonoBehaviour
             {
                 if(Input.GetMouseButtonDown(0))
                 {
+                    Debug.Log(hit.point);
+                    Debug.Log(mainCam.ScreenPointToRay(Input.mousePosition));
                     obj.OnClick();
                 }
                 else if(Input.GetMouseButton(0)) 
@@ -34,6 +36,7 @@ public class ClickManager : MonoBehaviour
                     obj.OnDragEnd();
                 }
             }
+            transform.position = hit.point;
         }
     }
 }
