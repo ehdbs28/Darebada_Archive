@@ -6,8 +6,12 @@ using UnityEngine;
 public class ClickManager : MonoBehaviour
 {
     public Ray mouseRay;
-    public Camera mainCam = Camera.main;
+    public Camera mainCam ;
     public LayerMask layerMask;
+    private void Awake()
+    {
+        mainCam= Camera.main;
+    }
     void Update()
     {
         mouseRay = mainCam.ScreenPointToRay(Input.mousePosition);
