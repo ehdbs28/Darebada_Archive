@@ -19,7 +19,6 @@ public class ZipperControll : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.LogError(pos);
         if(Input.GetMouseButton(0))
         {
             if(Physics.Raycast(pos,Vector3.forward, out hit, 20f,_zipperLayer))

@@ -4,8 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fronts : MonoBehaviour
+public class Fronts : MonoBehaviour, IsClickObj
 {
+    [SerializeField] bool isOver =false;
     [SerializeField]bool isHolding = false;
     public float max;
     public float min;
@@ -13,8 +14,18 @@ public class Fronts : MonoBehaviour
     public float angle;
     public float x;
     public float y;
+    private void Awake()
+    {
+        //x¶û y °ª Á¤ÇØÁà¾ßÇÔ'
+    }
     void LateUpdate()
     {
+        if(isOver)
+        {
+            isHolding = false;
+            GetComponent<ZIpperResult>().ShowResult();
+            this.enabled = false;
+        }
         if (isHolding)
         {
 
@@ -27,9 +38,28 @@ public class Fronts : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, deg);
 
         }
+        if (transform.localPosition.y >= y || transform.localPosition.x >= x) isOver = true;
     }
+
     public void Hold(bool value)
     {
         isHolding = value;
+    }
+
+    public void OnClick()
+    {
+        if(!isOver)
+            Hold(true);
+    }
+
+    public void OnDrag()
+    {
+        
+    }
+
+    public void OnDragEnd()
+    {
+        if(!isOver)
+            Hold(false);
     }
 }
