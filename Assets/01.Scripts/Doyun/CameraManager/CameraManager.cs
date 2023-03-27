@@ -36,13 +36,13 @@ public class CameraManager : MonoBehaviour
     private void CameraRotate(Vector3 mousePos)
     {
         if (mousePos.y > Screen.height - _camBorderThickness)
-            MainCam.transform.rotation = Quaternion.Lerp(MainCam.transform.rotation, Quaternion.Euler(20f, -45f, 0f), Time.deltaTime);
+            MainCam.transform.rotation = Quaternion.Lerp(MainCam.transform.rotation, Quaternion.Euler(20f, -45f, 0f), Time.deltaTime * _camRotateSpeed);
         else if (mousePos.y < _camBorderThickness)
-            MainCam.transform.rotation = Quaternion.Lerp(MainCam.transform.rotation, Quaternion.Euler(65f, -45f, 0f), Time.deltaTime);
+            MainCam.transform.rotation = Quaternion.Lerp(MainCam.transform.rotation, Quaternion.Euler(65f, -45f, 0f), Time.deltaTime * _camRotateSpeed);
 
         if (mousePos.x > Screen.width - _camBorderThickness)
-            MainCam.transform.rotation = Quaternion.Lerp(MainCam.transform.rotation, Quaternion.Euler(45f, -20f, 0f), Time.deltaTime);
+            MainCam.transform.rotation = Quaternion.Lerp(MainCam.transform.rotation, Quaternion.Euler(45f, -20f, 0f), Time.deltaTime * _camRotateSpeed);
         else if (mousePos.x < _camBorderThickness)
-            MainCam.transform.rotation = Quaternion.Lerp(MainCam.transform.rotation, Quaternion.Euler(45f, -65f, 0f), Time.deltaTime);
+            MainCam.transform.rotation = Quaternion.Lerp(MainCam.transform.rotation, Quaternion.Euler(45f, -65f, 0f), Time.deltaTime * _camRotateSpeed);
     }
 }
