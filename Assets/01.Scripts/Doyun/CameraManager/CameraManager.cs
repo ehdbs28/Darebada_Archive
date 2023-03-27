@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
+    public static CameraManager Instance = null;
+
     [Header("카메라 기초 세팅 값")]
     [SerializeField] private float _camBorderThickness = 10f;
 
@@ -18,6 +20,12 @@ public class CameraManager : MonoBehaviour
 
             return _mainCam;
         }
+    }
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
     }
 
     private void Update()
