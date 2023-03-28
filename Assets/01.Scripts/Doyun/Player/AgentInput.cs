@@ -1,0 +1,30 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AgentInput : MonoBehaviour
+{
+    public event Action<Vector3> OnMouseClickEvent = null;
+
+    private void Update()
+    {
+        MouseClick();
+    }
+
+    private void MouseClick()
+    {
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = CameraManager.Instance.MainCam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            bool isHit = Physics.Raycast(ray, out hit);
+
+            if (isHit)
+            {
+                OnMouseClickEvent?.Invoke(hit.point);
+            }
+        }
+    }
+}
