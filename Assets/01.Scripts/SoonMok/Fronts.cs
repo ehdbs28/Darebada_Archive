@@ -16,6 +16,7 @@ public class Fronts : MonoBehaviour, IsClickObj
     public float x;
     public float y;
     public Vector3 distance;
+    public LayerMask backLayerMask;
     private void Awake()
     {
         //x¶û y °ª Á¤ÇØÁà¾ßÇÔ'
@@ -36,17 +37,13 @@ public class Fronts : MonoBehaviour, IsClickObj
         {
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-            theta = Mathf.Atan2(hit.point.y, hit.point.x) * Mathf.Rad2Deg;
+            Physics.Raycast(ray, out hit,  Vector3.Distance(Camera.main.transform.position, transform.position) , backLayerMask);
+            //transform.localPosition = transform.position -new Vector3(pos.x, pos.y);
+            theta = Mathf.Atan2( hit.point.y - distance.y, hit.point.x - distance.x) * Mathf.Rad2Deg;
             if (theta < min || theta > max) return;
-                if (distance == Vector3.zero) { distance = transform.parent.position - hit.point; }
-                transform.localPosition = hit.point + distance;
-
-            }
-            transform.localPosition = new Vector3(Mathf.Clamp(hit.point.x, 0.1f, x), Mathf.Clamp(hit.point.y, 0.1f, y), 0);
+            transform.localPosition = new Vector3(Mathf.Clamp(hit.point.x- distance.x , 0.1f, x), Mathf.Clamp( hit.point.y- distance.y, 0.1f, y));
             float deg = -(45.0f - theta) * 2.0f;
             transform.eulerAngles = new Vector3(0, 0, deg);
 
@@ -66,7 +63,7 @@ public class Fronts : MonoBehaviour, IsClickObj
     {
         if(!isOver)
             Hold(true);
-        distance = Vector3.zero;
+        distance = transform.position;
     }
 
     public void OnDrag()
