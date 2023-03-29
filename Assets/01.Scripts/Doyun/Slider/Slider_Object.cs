@@ -60,14 +60,16 @@ public class Slider_Object : MonoBehaviour
             {
                 //오른쪽으로 가는 경우
                 Debug.Log(1);
-                float targetValue = _startValue + Mathf.Abs(rayPoint.x - _dragStartPos.x) / Mathf.Abs((_endPos.position.x - _startPos.position.x));
+                float targetValue = _startValue - Mathf.Abs(_dragStartPos.x - rayPoint.x) / Mathf.Abs((_endPos.localPosition.x - _startPos.localPosition.x));
+                //float targetValue = _startValue + Mathf.Abs(rayPoint.x - _dragStartPos.x) / Mathf.Abs((_endPos.localPosition.x - _startPos.localPosition.x));
                 Value = Mathf.Clamp(targetValue, 0f, 1f);
             }
             else
             {
                 //왼쪽으로 가는 경우
                 Debug.Log(2);
-                float targetValue = _startValue - Mathf.Abs(rayPoint.x - _dragStartPos.x) / Mathf.Abs((_endPos.position.x - _startPos.position.x));
+                float targetValue = _startValue + Mathf.Abs(_dragStartPos.x - rayPoint.x) / Mathf.Abs((_endPos.localPosition.x - _startPos.localPosition.x));
+                //float targetValue = _startValue - Mathf.Abs(rayPoint.x - _dragStartPos.x) / Mathf.Abs((_endPos.localPosition.x - _startPos.localPosition.x));
                 Value = Mathf.Clamp(targetValue, 0f, 1f);
             }
         }
