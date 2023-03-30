@@ -45,7 +45,8 @@ public class Fronts : MonoBehaviour, IsClickObj
             if (theta < min || theta > max) return;
             transform.localPosition = new Vector3(Mathf.Clamp(hit.point.x- distance.x , 0.1f, x), Mathf.Clamp( hit.point.y- distance.y, 0.1f, y));
             float deg = -(45.0f - theta) * 2.0f;
-            transform.eulerAngles = new Vector3(0, 0, deg);
+            //transform.eulerAngles = new Vector3(0, 0, deg);
+            transform.localRotation = Quaternion.Euler(0, 0, deg);
 
         }
         if (transform.localPosition.y >= y || transform.localPosition.x >= x) isOver = true;
