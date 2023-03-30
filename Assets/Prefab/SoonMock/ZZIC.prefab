@@ -477,16 +477,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOver: 0
   isHolding: 0
+  isHorizontal: 1
   max: 90
   min: 0
   theta: 45
   angle: 0
-  x: 8
-  y: 8
+  x: 6
+  y: 6
+  z: 0
   distance: {x: 0, y: 0, z: 0}
   backLayerMask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 1
 --- !u!23 &8062619985608904369
 MeshRenderer:
   m_ObjectHideFlags: 0

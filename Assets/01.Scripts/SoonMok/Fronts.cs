@@ -69,7 +69,6 @@ public class Fronts : MonoBehaviour, IsClickObj
     {
         isHolding = value;
     }
-
     public void OnClick()
     {
         if (!isOver)
