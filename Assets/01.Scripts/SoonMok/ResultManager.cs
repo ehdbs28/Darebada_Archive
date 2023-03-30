@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ResultManager : MonoBehaviour
 {
+    
+
     private void Awake()
     {
          ZIpperResult[] result = GameObject.FindObjectsOfType<ZIpperResult>();
@@ -16,7 +18,7 @@ public class ResultManager : MonoBehaviour
                 case 0:
                     {
                         sc.resultAction =()=> {
-                            Debug.Log("Â§•ð");
+                            
                         };
                     }
                     break;

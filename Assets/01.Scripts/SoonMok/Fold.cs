@@ -12,8 +12,8 @@ public class Fold : MonoBehaviour
         
         if(isMoving)
         {
-            transform.localPosition += (target - transform.position)* Time.deltaTime;
-            if ((transform.localPosition.y >= target.y - 0.005f && isUp)||(transform.localPosition.y <= target.y+0.005f && !isUp))
+            transform.localPosition += (target - transform.localPosition)* Time.deltaTime;
+            if ((transform.localPosition.y >= target.y + transform.parent.localPosition.y - 0.005f && isUp)||(transform.localPosition.y <= target.y + transform.parent.position.y+0.005f && !isUp))
             {
                 isMoving = false;
                 target = Vector3.zero;
