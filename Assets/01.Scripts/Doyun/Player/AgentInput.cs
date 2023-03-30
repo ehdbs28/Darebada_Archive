@@ -15,7 +15,7 @@ public class AgentInput : MonoBehaviour
     private void MouseClick()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             Ray ray = CameraManager.Instance.MainCam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
