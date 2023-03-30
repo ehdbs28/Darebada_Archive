@@ -4,32 +4,16 @@ using UnityEngine;
 
 public class BounceUI : MonoBehaviour
 {
-    Rigidbody rb;
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    private void Update()
-    {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-
-        transform.position += new Vector3(h, 0, v) * Time.deltaTime * 3;
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
-        }
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject && collision.gameObject.tag != "Ground")
+        Rigidbody rb;
+        rb = collision.gameObject.GetComponent<Rigidbody>();
+
+        if (collision.gameObject)
         {
-            StartCoroutine(BounceObj(collision.gameObject));
-            rb.AddForce(collision.contacts[0].normal * 10, ForceMode.Impulse);
+            StartCoroutine(BounceObj(gameObject));
+            rb.AddForce(collision.contacts[0].normal * -10, ForceMode.Impulse);
         }
     }
 
