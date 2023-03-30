@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Bolt
+  - Key
   layers:
   - Default
   - TransparentFX
