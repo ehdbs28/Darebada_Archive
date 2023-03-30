@@ -23,7 +23,6 @@ public class AgentInput : MonoBehaviour
 
             if (isHit)
             {
-                Debug.Log(hit.transform.name);
                 OnMouseClickEvent?.Invoke(hit.point);
             }
         }

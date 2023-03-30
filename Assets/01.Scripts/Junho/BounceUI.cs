@@ -10,7 +10,7 @@ public class BounceUI : MonoBehaviour
         Rigidbody rb;
         rb = collision.gameObject.GetComponent<Rigidbody>();
 
-        if (collision.gameObject)
+        if (rb != null && rb.CompareTag("Player"))
         {
             StartCoroutine(BounceObj(gameObject));
             rb.AddForce(collision.contacts[0].normal * -10, ForceMode.Impulse);
