@@ -14,8 +14,7 @@ public class BackMask : MonoBehaviour
         Vector3 pos = front.transform.localPosition /2;
         transform.localPosition = pos;
         float deg = -(angle - front.theta);
-        //transform.eulerAngles = new Vector3(0, 0, deg);
-        transform.localRotation = Quaternion.Euler(0, 0, deg);
+        transform.eulerAngles = new Vector3(0, 0, deg);
     }
 
     

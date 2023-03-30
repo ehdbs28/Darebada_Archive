@@ -3,14 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< Updated upstream
   tags: []
-=======
-  tags:
-  - Ground
-  - Driver
-  - Bolt
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -23,8 +16,8 @@ TagManager:
   - 
   - 
   - Slider_Handle
-  - Ground
-  - Driver
+  - 
+  - 
   - 
   - 
   - 

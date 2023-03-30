@@ -19,11 +19,10 @@ public class AgentInput : MonoBehaviour
         {
             Ray ray = CameraManager.Instance.MainCam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            bool isHit = Physics.Raycast(ray, out hit, CameraManager.Instance.MainCam.farClipPlane, LayerMask.GetMask("Ground"));
+            bool isHit = Physics.Raycast(ray, out hit);
 
             if (isHit)
             {
-                Debug.Log(hit.transform.name);
                 OnMouseClickEvent?.Invoke(hit.point);
             }
         }
