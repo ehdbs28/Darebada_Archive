@@ -14,12 +14,12 @@ public class AgentInput : MonoBehaviour
 
     private void MouseClick()
     {
-
         if (Input.GetMouseButtonDown(1))
         {
-            Ray ray = CameraManager.Instance.MainCam.ScreenPointToRay(Input.mousePosition);
+            // 나중에는 카메라 캐싱해서 사용해야 함
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            bool isHit = Physics.Raycast(ray, out hit, CameraManager.Instance.MainCam.farClipPlane, LayerMask.GetMask("Ground"));
+            bool isHit = Physics.Raycast(ray, out hit, Camera.main.farClipPlane, LayerMask.GetMask("Ground"));
 
             if (isHit)
             {
