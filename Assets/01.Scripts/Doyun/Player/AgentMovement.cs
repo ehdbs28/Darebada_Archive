@@ -33,4 +33,8 @@ public class AgentMovement : MonoBehaviour
         target.y = transform.position.y;
         _navMeshAgent.SetDestination(target);
     }
+
+    public void StopImmediately(){
+        SetDestination(transform.position);
+    }
 }

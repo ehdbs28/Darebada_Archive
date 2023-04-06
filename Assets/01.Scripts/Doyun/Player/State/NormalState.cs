@@ -5,16 +5,20 @@ using UnityEngine;
 public class NormalState : CommonState
 {
     public override void OnEnterState(){
-        _agentInput.OnMouseClickEvent += _agentMovement.SetDestination;
+        _agentInput.OnMouseClickEvent += SetDestination;
     }
 
     public override void OnExitState(){
-        _agentInput.OnMouseClickEvent -= _agentMovement.SetDestination;
+        _agentInput.OnMouseClickEvent -= SetDestination;
+    }
+
+    private void SetDestination(Vector3 target){
+        _agentMovement.StopImmediately();
+        _agentMovement.SetDestination(target);
     }
 
     public override void UpdateState(){
-        // 이 부분은 Nav 오류 해결한 다음에 다시 봐야할듯
-        _agentAnimator.SetWalkState(_agentMovement.NavMeshAgent.isStopped);
-        _agentAnimator.SetGroundState(_agentMovement.CharacterController.isGrounded);
+        _agentAnimator.SetWalkState(_agentMovement.NavMeshAgent.pathPending || _agentMovement.NavMeshAgent.remainingDistance > _agentMovement.NavMeshAgent.stoppingDistance);
+        _agentAnimator.SetGroundState(true);
     }
 }
