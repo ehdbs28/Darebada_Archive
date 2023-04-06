@@ -18,7 +18,7 @@ public class NormalState : CommonState
     }
 
     public override void UpdateState(){
-        _agentAnimator.SetWalkState(_agentMovement.NavMeshAgent.pathPending || _agentMovement.NavMeshAgent.remainingDistance > _agentMovement.NavMeshAgent.stoppingDistance);
-        _agentAnimator.SetGroundState(true);
+        _agentAnimator.SetWalkState(!_agentMovement.IsArrivedCheck());
+        _agentAnimator.SetGroundState(_agentMovement.IsGroundedCheck());
     }
 }

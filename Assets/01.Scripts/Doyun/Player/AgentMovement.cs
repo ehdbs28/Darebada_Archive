@@ -16,11 +16,12 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
+    [Header("For Redeem IsGrounded")]
+    [SerializeField] private LayerMask _whatIsGround;
+    [SerializeField] private float _groundCheckRayDistance = 0.3f;
+
     private CharacterController _characterController;
     private NavMeshAgent _navMeshAgent;
-
-    public CharacterController CharacterController => _characterController;
-    public NavMeshAgent NavMeshAgent => _navMeshAgent;
 
     private void Awake() {
         _characterController = GetComponent<CharacterController>();
@@ -36,5 +37,15 @@ public class AgentMovement : MonoBehaviour
 
     public void StopImmediately(){
         SetDestination(transform.position);
+    }
+
+    public bool IsArrivedCheck(){
+        return _navMeshAgent.pathPending == false && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance;
+    }
+
+    public bool IsGroundedCheck(){
+        if(_characterController.isGrounded) return true;
+
+        return Physics.Raycast(transform.position, Vector3.down, _groundCheckRayDistance, _whatIsGround);
     }
 }

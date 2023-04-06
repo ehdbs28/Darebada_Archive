@@ -110,7 +110,7 @@ NavMeshSettings:
     agentHeight: 1
     agentSlope: 45
     agentClimb: 0.75
-    ledgeDropHeight: 0
+    ledgeDropHeight: 5
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
@@ -445,6 +445,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 10
+  _whatIsGround:
+    serializedVersion: 2
+    m_Bits: 512
+  _groundCheckRayDistance: 0.3
 --- !u!114 &1089002155
 MonoBehaviour:
   m_ObjectHideFlags: 0
