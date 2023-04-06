@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using PlayerDefine;
 
 public class AgentMovement : MonoBehaviour
 {
@@ -19,6 +18,9 @@ public class AgentMovement : MonoBehaviour
 
     private CharacterController _characterController;
     private NavMeshAgent _navMeshAgent;
+
+    public CharacterController CharacterController => _characterController;
+    public NavMeshAgent NavMeshAgent => _navMeshAgent;
 
     private void Awake() {
         _characterController = GetComponent<CharacterController>();
