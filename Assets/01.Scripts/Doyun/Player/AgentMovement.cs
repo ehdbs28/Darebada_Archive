@@ -23,6 +23,9 @@ public class AgentMovement : MonoBehaviour
     private CharacterController _characterController;
     private NavMeshAgent _navMeshAgent;
 
+    public CharacterController CharacterController => _characterController;
+    public NavMeshAgent NavMeshAgent => _navMeshAgent;
+
     private void Awake() {
         _characterController = GetComponent<CharacterController>();
         _navMeshAgent = GetComponent<NavMeshAgent>();

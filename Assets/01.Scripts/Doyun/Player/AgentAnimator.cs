@@ -7,6 +7,7 @@ public class AgentAnimator : MonoBehaviour
 {
     private readonly int _isWalkHash = Animator.StringToHash("isWalk");
     private readonly int _isGround = Animator.StringToHash("isGround");
+    private readonly int _isClimb = Animator.StringToHash("isClimb");
 
     public event Action OnAnimationEndTrigger = null;
 
@@ -23,6 +24,10 @@ public class AgentAnimator : MonoBehaviour
 
     public void SetGroundState(bool state){
         _animator.SetBool(_isGround, state);
+    }
+
+    public void SetClimbState(bool state){
+        _animator.SetBool(_isClimb, state);
     }
 
     public void OnAnimationEnd(){
