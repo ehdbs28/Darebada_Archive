@@ -31,8 +31,19 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
             CameraRotate(Input.mousePosition);
+
+        if (MainCam.transform.rotation.x < -30)
+            MainCam.transform.rotation = Quaternion.Euler(0, MainCam.transform.rotation.y, 0);
+        if (MainCam.transform.rotation.x > 70)
+            MainCam.transform.rotation = Quaternion.Euler(70, MainCam.transform.rotation.y, 0);
+
+        if (MainCam.transform.rotation.y < -90)
+            MainCam.transform.rotation = Quaternion.Euler(MainCam.transform.rotation.x, -90, 0);
+        if (MainCam.transform.rotation.y > 30)
+            MainCam.transform.rotation = Quaternion.Euler(MainCam.transform.rotation.x, 30, 0);
+        //print(MainCam.ScreenToWorldPoint(Input.mousePosition));
     }
 
     // float x = 0, y = 0; // 2번
@@ -59,23 +70,29 @@ public class CameraManager : MonoBehaviour
             transform.localEulerAngles = new Vector3(-x, y, 0);
         */
 
-        Ray ray = MainCam.ScreenPointToRay(mousePos);
+        // 3.벽에 닿은 곳으로 이동하는 방법
+        // Pos = 13 10 -5
+        // Rot = 45 - 45 0
+        /*Ray ray = MainCam.ScreenPointToRay(mousePos);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, 100))
         {
+
             //MainCam.transform.LookAt(hit.point);
             Vector3 direction = hit.point - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 90 * Time.deltaTime * _camRotateSpeed);
-        }
+        }*/
 
         
+
+        MainCam.transform.LookAt(MainCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mousePos.z + 100)));
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(MainCam.ScreenPointToRay(Input.mousePosition));
+        Gizmos.DrawRay(MainCam.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z + 50)));
     }
 }
