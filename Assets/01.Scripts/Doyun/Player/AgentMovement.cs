@@ -34,7 +34,6 @@ public class AgentMovement : MonoBehaviour
     }
 
     public void SetDestination(Vector3 target){
-        target.y = transform.position.y;
         _navMeshAgent.SetDestination(target);
     }
 

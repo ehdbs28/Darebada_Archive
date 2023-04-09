@@ -43,7 +43,6 @@ public class AgentCondition : MonoBehaviour
     private void OnClimb(){
         if(_navMeshAgent.isOnOffMeshLink){
             OffMeshLinkData linkData = _navMeshAgent.currentOffMeshLinkData;
-            Debug.Log(linkData);
 
             if(linkData.offMeshLink != null && linkData.offMeshLink.area == _climbArea){
                 OnOffMeshClimb?.Invoke();

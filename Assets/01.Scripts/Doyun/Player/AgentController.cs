@@ -35,6 +35,8 @@ public class AgentController : MonoBehaviour
         _currentState?.OnExitState();
         _currentState = _stateDictionary[nextState];
         _currentState?.OnEnterState();
+
+        Debug.Log(_currentState); // For Debuging
     }
 
     private void Update() {

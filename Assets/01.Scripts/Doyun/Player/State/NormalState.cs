@@ -6,6 +6,8 @@ using PlayerDefine;
 public class NormalState : CommonState
 {
     public override void OnEnterState(){
+        _canUpdateState = true;
+
         _agentCondition.OnMouseClickEvent += SetDestination;
         _agentCondition.OnOffMeshClimb += HandleClimb;
     }

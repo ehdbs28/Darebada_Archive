@@ -14,9 +14,12 @@ public abstract class CommonState : MonoBehaviour, IPlayerState
     protected AgentAnimator _agentAnimator;
 
     protected bool _canUpdateState;
+    protected Transform _parent;
 
     public virtual void SetUp(Transform agentRoot) {
         _canUpdateState = true;
+        _parent = agentRoot;
+
         _agentController = agentRoot.GetComponent<AgentController>();
         _agentCondition = agentRoot.GetComponent<AgentCondition>();
         _agentMovement = agentRoot.GetComponent<AgentMovement>();

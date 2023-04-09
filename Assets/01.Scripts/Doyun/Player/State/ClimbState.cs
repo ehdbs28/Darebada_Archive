@@ -6,7 +6,7 @@ using PlayerDefine;
 
 public class ClimbState : CommonState
 {
-    [SerializeField] private float _climbSpeed = 1.5f;
+    [SerializeField] private float _climbSpeed = 0.5f;
 
     public override void OnEnterState()
     {
@@ -17,6 +17,7 @@ public class ClimbState : CommonState
     public override void OnExitState()
     {
         _agentAnimator.SetClimbState(false);
+        _agentAnimator.SetWalkState(false);
     }
 
     public override void UpdateState()
@@ -25,10 +26,16 @@ public class ClimbState : CommonState
     }
 
     private IEnumerator ClimbOnDescend(){
+        _agentMovement.NavMeshAgent.updateRotation = false;
+
         _agentMovement.NavMeshAgent.isStopped = true;
         OffMeshLinkData linkData = _agentMovement.NavMeshAgent.currentOffMeshLinkData;
         Vector3 start = linkData.startPos;
         Vector3 end = linkData.endPos;
+
+        Vector3 lookRotation = _parent.position + ((new Vector3(end.x, start.y, end.z) - start).normalized);
+        lookRotation.y = _parent.position.y;
+        _parent.LookAt(lookRotation);
 
         float climbTime = Mathf.Abs(end.y - start.y) / _climbSpeed;
 
@@ -38,13 +45,29 @@ public class ClimbState : CommonState
         while(percent < 1){
             currentTime += Time.deltaTime;
             percent = currentTime / climbTime;
-            transform.position = Vector3.Lerp(start, end, percent);
+            _parent.position = Vector3.Lerp(start, new Vector3(start.x, end.y, start.z), percent);
+
+            yield return null;
+        }
+
+        _agentAnimator.SetClimbState(false);
+        _agentAnimator.SetWalkState(true);
+
+        percent = 0f;
+        currentTime = 0f;
+
+        while(percent < 1){
+            currentTime += Time.deltaTime;
+            percent = currentTime / (climbTime / 2);
+            _parent.position = Vector3.Lerp(new Vector3(start.x, end.y, start.z), end, percent);
 
             yield return null;
         }
 
         _agentMovement.NavMeshAgent.CompleteOffMeshLink();
         _agentMovement.NavMeshAgent.isStopped = false;
+
+        _agentMovement.NavMeshAgent.updateRotation = true;
 
         _agentController.ChangeState(StateType.Normal);
     }
