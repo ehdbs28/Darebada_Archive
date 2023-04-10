@@ -11,6 +11,7 @@ public class NormalState : CommonState
         _agentMovement.StopImmediately();
 
         _agentCondition.OnMouseClickEvent += SetDestination;
+        _agentCondition.OnOffMeshJump += HandleJump;
         _agentCondition.OnOffMeshClimb += HandleClimb;
     }
 
@@ -18,6 +19,7 @@ public class NormalState : CommonState
         _canUpdateState = false;
 
         _agentCondition.OnMouseClickEvent -= SetDestination;
+        _agentCondition.OnOffMeshJump -= HandleJump;
         _agentCondition.OnOffMeshClimb -= HandleClimb;
 
         _agentAnimator.SetWalkState(false);
@@ -38,5 +40,9 @@ public class NormalState : CommonState
 
     private void HandleClimb(){
         _agentController.ChangeState(StateType.Climb);
+    }
+
+    private void HandleJump(){
+        _agentController.ChangeState(StateType.Jump);
     }
 }

@@ -40,6 +40,7 @@ public class ClimbState : CommonState
         Vector3 lookRotation = (new Vector3(end.x, start.y, end.z) - start).normalized;
         lookRotation.y = _parent.position.y;
         _parent.LookAt(_parent.position + lookRotation);
+
         
         if(!_isReverse){
             yield return StartCoroutine(ClimbUp(start, end, lookRotation, _isReverse));

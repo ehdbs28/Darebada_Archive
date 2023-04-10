@@ -8,6 +8,8 @@ public class AgentAnimator : MonoBehaviour
     private readonly int _isWalkHash = Animator.StringToHash("isWalk");
     private readonly int _isGround = Animator.StringToHash("isGround");
     private readonly int _isClimb = Animator.StringToHash("isClimb");
+    private readonly int _isJump = Animator.StringToHash("isJump");
+    private readonly int _jumpTrigger = Animator.StringToHash("jumpTrigger");
 
     public event Action OnAnimationEndTrigger = null;
 
@@ -28,6 +30,19 @@ public class AgentAnimator : MonoBehaviour
 
     public void SetClimbState(bool state){
         _animator.SetBool(_isClimb, state);
+    }
+
+    public void SetJumpState(bool state){
+        _animator.SetBool(_isJump, state);
+    }
+
+    public void SetJumpTrigger(bool state){
+        if(state){
+            _animator.SetTrigger(_jumpTrigger);
+        }
+        else{
+            _animator.ResetTrigger(_jumpTrigger);
+        }
     }
 
     public void OnAnimationEnd(){
