@@ -8,6 +8,8 @@ public class NormalState : CommonState
     public override void OnEnterState(){
         _canUpdateState = true;
 
+        _agentMovement.StopImmediately();
+
         _agentCondition.OnMouseClickEvent += SetDestination;
         _agentCondition.OnOffMeshClimb += HandleClimb;
     }
@@ -21,7 +23,6 @@ public class NormalState : CommonState
         _agentAnimator.SetWalkState(false);
         _agentAnimator.SetGroundState(true);
     }
-
 
     public override void UpdateState(){
         if(!_canUpdateState) return;

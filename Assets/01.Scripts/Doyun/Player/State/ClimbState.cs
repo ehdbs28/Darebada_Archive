@@ -7,10 +7,12 @@ using PlayerDefine;
 public class ClimbState : CommonState
 {
     [SerializeField] private float _climbSpeed = 0.5f;
+    [SerializeField] private float _moveSpeed = 1.5f;
+
+    [SerializeField]private bool _isReverse = false;
 
     public override void OnEnterState()
     {
-        _agentAnimator.SetClimbState(true);
         StartCoroutine(ClimbOnDescend());
     }
 
@@ -33,11 +35,34 @@ public class ClimbState : CommonState
         Vector3 start = linkData.startPos;
         Vector3 end = linkData.endPos;
 
-        Vector3 lookRotation = _parent.position + ((new Vector3(end.x, start.y, end.z) - start).normalized);
-        lookRotation.y = _parent.position.y;
-        _parent.LookAt(lookRotation);
+        // _isReverse = Vector3.Dot(start, end) < 0;
 
-        float climbTime = Mathf.Abs(end.y - start.y) / _climbSpeed;
+        Vector3 lookRotation = (new Vector3(end.x, start.y, end.z) - start).normalized;
+        lookRotation.y = _parent.position.y;
+        _parent.LookAt(_parent.position + lookRotation);
+        
+        if(!_isReverse){
+            yield return StartCoroutine(ClimbUp(start, end, lookRotation, _isReverse));
+            yield return StartCoroutine(MoveTo(start, end, _isReverse));
+        }
+        else{
+            yield return StartCoroutine(MoveTo(start, end, _isReverse));
+            yield return StartCoroutine(ClimbUp(start, end, lookRotation, _isReverse));
+        }
+        
+        _agentMovement.NavMeshAgent.CompleteOffMeshLink();
+        _agentMovement.NavMeshAgent.isStopped = false;
+
+        _agentMovement.NavMeshAgent.updateRotation = true;
+
+        _agentController.ChangeState(StateType.Normal);
+    }
+
+    private IEnumerator ClimbUp(Vector3 start, Vector3 end, Vector3 lookRotation, bool isReverse){
+        _agentAnimator.SetClimbState(true);
+        _parent.LookAt(_parent.position + lookRotation * (isReverse ? -1 : 1));
+
+        float climbTime = Mathf.Abs(end.y - start.y) / _moveSpeed;
 
         float currentTime = 0f;
         float percent = 0f;
@@ -45,30 +70,36 @@ public class ClimbState : CommonState
         while(percent < 1){
             currentTime += Time.deltaTime;
             percent = currentTime / climbTime;
-            _parent.position = Vector3.Lerp(start, new Vector3(start.x, end.y, start.z), percent);
+            if(!isReverse)
+                _parent.position = Vector3.Lerp(start, new Vector3(start.x, end.y, start.z), percent);
+            else
+                _parent.position = Vector3.Lerp(new Vector3(end.x, start.y, end.z), end, percent);
 
             yield return null;
         }
 
         _agentAnimator.SetClimbState(false);
+    }
+
+    private IEnumerator MoveTo(Vector3 start, Vector3 end, bool isReverse){
         _agentAnimator.SetWalkState(true);
 
-        percent = 0f;
-        currentTime = 0f;
+        float moveTime = Mathf.Abs(end.y - start.y) / _climbSpeed;
+
+        float currentTime = 0f;
+        float percent = 0f;
 
         while(percent < 1){
             currentTime += Time.deltaTime;
-            percent = currentTime / (climbTime / 2);
-            _parent.position = Vector3.Lerp(new Vector3(start.x, end.y, start.z), end, percent);
+            percent = currentTime / (moveTime / 2);
+            if(!isReverse)
+                _parent.position = Vector3.Lerp(new Vector3(start.x, end.y, start.z), end, percent);
+            else
+                _parent.position = Vector3.Lerp(start, new Vector3(end.x, start.y, end.z), percent);
 
             yield return null;
         }
-
-        _agentMovement.NavMeshAgent.CompleteOffMeshLink();
-        _agentMovement.NavMeshAgent.isStopped = false;
-
-        _agentMovement.NavMeshAgent.updateRotation = true;
-
-        _agentController.ChangeState(StateType.Normal);
+        
+        _agentAnimator.SetWalkState(false);
     }
 }
