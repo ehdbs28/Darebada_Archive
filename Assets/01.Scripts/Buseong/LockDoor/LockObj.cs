@@ -10,14 +10,16 @@ public class LockObj : MonoBehaviour
     public MeshRenderer meshRenderer;
     [SerializeField]
     float targetX;
+    [SerializeField]
+    GameObject moveDirObj;
 
     void Start()
     {
         _doorObjTransform = GetComponent<Transform>();
-        _doorObjPosX = transform.position.x;
+        _doorObjPosX = moveDirObj.transform.position.x;
         meshRenderer = GetComponent<MeshRenderer>();
         targetX = transform.position.x + transform.localScale.x;
-
+        targetX = moveDirObj.transform.position.x + transform.localScale.x;
     }
 
     void Update()
