@@ -9,7 +9,18 @@ public class BackMask : MonoBehaviour
     [SerializeField] float angle;
     private void LateUpdate()
     {
-        if (front.theta < front.min || front.theta > front.max) return;
+        switch(front.back)
+        {
+            case Fronts.BackPivot.x:
+            if (front.theta < front.min || front.theta > front.max) return;
+                break;
+            case Fronts.BackPivot.y:
+                break;
+            case Fronts.BackPivot.z:
+                if (front.theta < -180 || front.theta > -90) return;
+
+                break;
+        }
 
         Vector3 pos = front.transform.localPosition /2;
         transform.localPosition = pos;
