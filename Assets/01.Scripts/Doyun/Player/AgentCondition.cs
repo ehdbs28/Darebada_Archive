@@ -9,6 +9,7 @@ public class AgentCondition : MonoBehaviour
     public event Action<Vector3> OnMouseClickEvent = null;
     public event Action OnOffMeshClimb = null;
     public event Action OnOffMeshJump = null;
+    public event Action OnOffMeshDrop = null;
 
     private NavMeshAgent _navMeshAgent;
 
@@ -17,6 +18,9 @@ public class AgentCondition : MonoBehaviour
 
     [Header("Off Mesh Jump Area")]
     [SerializeField] private int _jumpArea;
+
+    [Header("Off Mesh Drop Area")]
+    [SerializeField] private int _dropArea;
 
     private void Awake() {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -27,6 +31,7 @@ public class AgentCondition : MonoBehaviour
         MouseClick();
         OnJump();
         OnClimb();
+        OnDrop();
     }
 
     private void MouseClick()
@@ -61,6 +66,16 @@ public class AgentCondition : MonoBehaviour
 
             if(linkData.offMeshLink != null && linkData.offMeshLink.area == _jumpArea){
                 OnOffMeshJump?.Invoke();
+            }
+        }
+    }
+
+    private void OnDrop(){
+        if(_navMeshAgent.isOnOffMeshLink){
+            OffMeshLinkData linkData = _navMeshAgent.currentOffMeshLinkData;
+
+            if(linkData.offMeshLink != null && linkData.offMeshLink.area == _dropArea){
+                OnOffMeshDrop?.Invoke();
             }
         }
     }
