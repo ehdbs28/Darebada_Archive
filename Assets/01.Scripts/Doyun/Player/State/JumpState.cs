@@ -42,6 +42,10 @@ public class JumpState : CommonState
 
         float v0 = (end - start).y - _gravity;
 
+        Vector3 lookRotation = (new Vector3(end.x, start.y, end.z) - start).normalized;
+        lookRotation.y = start.y;
+        _parent.LookAt(_parent.position + lookRotation);
+
         while(percent < 1)
         {
             currentTime += Time.deltaTime;
