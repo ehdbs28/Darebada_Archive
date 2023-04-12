@@ -35,7 +35,7 @@ public class ClimbState : CommonState
         Vector3 start = linkData.startPos;
         Vector3 end = linkData.endPos;
 
-        // _isReverse = Vector3.Dot(start, end) < 0;
+        _isReverse = end.y <= start.y;
 
         Vector3 lookRotation = (new Vector3(end.x, start.y, end.z) - start).normalized;
         lookRotation.y = _parent.position.y;
