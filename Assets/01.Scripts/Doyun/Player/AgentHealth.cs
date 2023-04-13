@@ -26,4 +26,8 @@ public class AgentHealth : MonoBehaviour
         if(_currentHp <= 0)
             OnPlayerDieEvent?.Invoke();
     }
+
+    public void ImmediatelyDie(){
+        DecreaseHp(_maxHp);
+    }
 }
