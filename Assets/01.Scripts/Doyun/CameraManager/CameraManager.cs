@@ -31,18 +31,10 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
             CameraRotate(Input.mousePosition);
 
-        if (MainCam.transform.rotation.x < -30)
-            MainCam.transform.rotation = Quaternion.Euler(0, MainCam.transform.rotation.y, 0);
-        if (MainCam.transform.rotation.x > 70)
-            MainCam.transform.rotation = Quaternion.Euler(70, MainCam.transform.rotation.y, 0);
-
-        if (MainCam.transform.rotation.y < -90)
-            MainCam.transform.rotation = Quaternion.Euler(MainCam.transform.rotation.x, -90, 0);
-        if (MainCam.transform.rotation.y > 30)
-            MainCam.transform.rotation = Quaternion.Euler(MainCam.transform.rotation.x, 30, 0);
+        
         //print(MainCam.ScreenToWorldPoint(Input.mousePosition));
     }
 
@@ -85,14 +77,39 @@ public class CameraManager : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 90 * Time.deltaTime * _camRotateSpeed);
         }*/
 
-        
+        /*실패
+        Quaternion targetRot = Quaternion.LookRotation(targetPos - MainCam.transform.position);
 
-        MainCam.transform.LookAt(MainCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mousePos.z + 100)));
-    }
+        MainCam.transform.rotation = Quaternion.Lerp(MainCam.transform.rotation, targetRot, _camRotateSpeed * 0.1f);
+        */
+        //MainCam.transform.LookAt(MainCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mousePos.z + 100)));
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(MainCam.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z + 50)));
+
+        Vector3 targetPos = MainCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mousePos.z + 100));
+        Vector3 dir = targetPos - MainCam.transform.position;
+
+        Vector3 rot = transform.eulerAngles;
+
+
+        Quaternion targetRot = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.RotateTowards(MainCam.transform.rotation, targetRot, 90 * Time.deltaTime * _camRotateSpeed);
+
+        // 제한 걸기
+        Vector3 euler = MainCam.transform.eulerAngles;
+
+        //if (euler.x < 5)
+        //    euler.x = 5f;
+        //if (euler.x > 70)
+        //    euler.x = 70f;
+
+        /*if (euler.y > 5f)
+            euler.y = 5f;*/
+
+        euler.y = Mathf.Clamp(euler.y, 270f, 359f);
+        //if (euler.y < 270f)
+        //    euler.y = 270f;
+
+
+        MainCam.transform.rotation = Quaternion.Euler(euler);
     }
 }
