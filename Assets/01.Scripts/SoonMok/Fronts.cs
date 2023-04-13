@@ -7,6 +7,11 @@ using UnityEngine;
 
 public class Fronts : MonoBehaviour, IsClickObj
 {
+    public enum BackPivot
+    {
+        x,y,z
+    }
+    public BackPivot back;
     [SerializeField] bool isOver = false;
     [SerializeField] bool isHolding = false;
     public bool isHorizontal;
@@ -23,6 +28,7 @@ public class Fronts : MonoBehaviour, IsClickObj
     {
         //x�� y �� ���������'
     }
+    public Vector3 hitPoint;
     private void Update()
     {
         transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x, 0.1f, x), Mathf.Clamp(transform.localPosition.y, 0.1f, y), Mathf.Clamp(transform.localPosition.z, 0f, z));
@@ -37,29 +43,42 @@ public class Fronts : MonoBehaviour, IsClickObj
         }
         if (isHolding)
         {
-
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (isHolding)
+            {
             RaycastHit hit;
-            Physics.Raycast(ray, out hit, Vector3.Distance(Camera.main.transform.position, transform.position), backLayerMask);
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, backLayerMask))
+                {
+                    if (distance == Vector3.zero) { distance = transform.position - hit.point; }
+                hitPoint = hit.point - distance;   
+
+                    switch (back)
+                    {
+                        case BackPivot.x:
+                            theta = Mathf.Atan2(hit.point.y , hit.point.x )* Mathf.Rad2Deg;
+                            transform.localPosition = new Vector3(Mathf.Clamp(hit.point.x, 0.1f, x), Mathf.Clamp(hit.point.y, 0.1f, y), Mathf.Clamp(hit.point.z, 0f, z));
+                             if (theta < min || theta > max) return;
+                            break;
+                        case BackPivot.y:
+                            break;
+                        case BackPivot.z:
+
+                            theta = Mathf.Atan2(hit.point.y - distance.y, hit.point.z - distance.z) * Mathf.Rad2Deg *-1;
+                            transform.localPosition = new Vector3(Mathf.Clamp(-hit.point.z, -x, x), Mathf.Clamp(hit.point.y, 0.1f, y), Mathf.Clamp(hit.point.z, 0f, z));
+                             if (theta  < -180 || theta > -90) return;
+                            
+                            break;
+
+                    }
+
+                    
+                    float deg = -(45.0f - theta) * 2.0f;
+                    transform.localRotation = Quaternion.Euler(0, 0, deg);
+                }
+            }
             //transform.localPosition = transform.position -new Vector3(pos.x, pos.y);
-            if (isHorizontal)
-            {
-                theta = Mathf.Atan2(hit.point.y - distance.y, hit.point.x - distance.x) * Mathf.Rad2Deg;
-                if (theta < min || theta > max) return;
-                transform.localPosition = new Vector3(Mathf.Clamp(hit.point.x - distance.x, 0.1f, x), Mathf.Clamp(hit.point.y - distance.y, 0.1f, y)); ; ;
-            }
-            else
-            {
-                theta = Mathf.Atan2(hit.point.y - distance.y, hit.point.z - distance.z) * Mathf.Rad2Deg;
-                if (theta < min || theta > max) return;
-                transform.localPosition = new Vector3(Mathf.Clamp(hit.point.z - distance.z, 0.1f, z), Mathf.Clamp(hit.point.y - distance.y, 0.1f, y)); ; ;
-            }
-            float deg = -(45.0f - theta) * 2.0f;
-            transform.localRotation = Quaternion.Euler(0, 0, deg);
 
         }
-        if (transform.localPosition.y >= y || transform.localPosition.x >= x) isOver = true;
 
 
 
@@ -86,5 +105,6 @@ public class Fronts : MonoBehaviour, IsClickObj
     {
         if (!isOver)
             Hold(false);
+        distance = Vector3.zero;
     }
 }
