@@ -1,58 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AgentMovement : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 1.5f;
+    [SerializeField] private float _movementSpeed = 10.0f;
+    public float MovementSpeed {
+        get => _movementSpeed;
+        set {
+            if(_navMeshAgent != null)
+                _navMeshAgent.speed = value;
 
-    private AgentInput _agentInput;
-    private IEnumerator _currentRunCoroutine = null;
-
-    private void Awake()
-    {
-        _agentInput = GetComponent<AgentInput>();
-    }
-
-    private void Start()
-    {
-        _agentInput.OnMouseClickEvent += OnMove;
-        _agentInput.OnMouseClickEvent += OnRotate;
-    }
-
-    private void OnMove(Vector3 mousePos)
-    {
-        DOMove(transform.position, mousePos, _moveSpeed);
-    }
-
-    private void OnRotate(Vector3 mousePos)
-    {
-        Vector3 lookPos = mousePos;
-        lookPos.y = 0;
-
-        transform.LookAt(lookPos);
-    }
-
-    private void DOMove(Vector3 start, Vector3 end, float duration)
-    {
-        if(_currentRunCoroutine != null)
-        {
-            StopCoroutine(_currentRunCoroutine);
+            _movementSpeed = value;
         }
-
-        _currentRunCoroutine = DOMoveCoroutine(start, end, duration);
-        StartCoroutine(_currentRunCoroutine);
     }
 
-    IEnumerator DOMoveCoroutine(Vector3 start, Vector3 end, float duration)
-    {
-        float currentTime = 0f;
-        while(currentTime <= duration)
-        {
-            transform.position = Vector3.Lerp(start, end, currentTime / duration);
+    [Header("For Redeem IsGrounded")]
+    [SerializeField] private LayerMask _whatIsGround;
+    [SerializeField] private float _groundCheckRayDistance = 0.3f;
 
-            currentTime += Time.deltaTime;
-            yield return null;
-        }
+    private CharacterController _characterController;
+    private NavMeshAgent _navMeshAgent;
+
+    private void Awake() {
+        _characterController = GetComponent<CharacterController>();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
+
+        MovementSpeed = _movementSpeed;
+    }
+
+    public void SetDestination(Vector3 target){
+        target.y = transform.position.y;
+        _navMeshAgent.SetDestination(target);
+    }
+
+    public void StopImmediately(){
+        SetDestination(transform.position);
+    }
+
+    public bool IsArrivedCheck(){
+        return _navMeshAgent.pathPending == false && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance;
+    }
+
+    public bool IsGroundedCheck(){
+        if(_characterController.isGrounded) return true;
+
+        return Physics.Raycast(transform.position, Vector3.down, _groundCheckRayDistance, _whatIsGround);
     }
 }
