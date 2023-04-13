@@ -4,5 +4,6 @@ namespace PlayerDefine{
         Climb = 1,
         Jump = 2,
         Drop = 3,
+        Disable = 99
     }
 }

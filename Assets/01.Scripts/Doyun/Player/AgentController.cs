@@ -42,4 +42,8 @@ public class AgentController : MonoBehaviour
     private void Update() {
         _currentState?.UpdateState();
     }
+
+    public void AgentDie(){
+        ChangeState(StateType.Disable);
+    }
 }
