@@ -105,10 +105,12 @@ public class CameraManager : MonoBehaviour
         /*if (euler.y > 5f)
             euler.y = 5f;*/
 
+        euler.x = Mathf.Clamp(euler.x, 5f, 70f);
         euler.y = Mathf.Clamp(euler.y, 270f, 359f);
+        euler.z = 0;
+
         //if (euler.y < 270f)
         //    euler.y = 270f;
-
 
         MainCam.transform.rotation = Quaternion.Euler(euler);
     }
