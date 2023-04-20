@@ -11,9 +11,9 @@ NavMeshProjectSettings:
     cost: 1
   - name: Jump
     cost: 2
-  - name: Climb
+  - name: 
     cost: 1
-  - name: Drop
+  - name: 
     cost: 1
   - name: 
     cost: 1
@@ -73,8 +73,8 @@ NavMeshProjectSettings:
   m_Settings:
   - serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.4
-    agentHeight: 1
+    agentRadius: 0.5
+    agentHeight: 2
     agentSlope: 45
     agentClimb: 0.75
     ledgeDropHeight: 0
@@ -85,9 +85,7 @@ NavMeshProjectSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-    maxJobWorkers: 0
-    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_SettingNames:
-  - Player
+  - Humanoid
