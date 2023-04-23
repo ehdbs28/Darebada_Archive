@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class BoatInputModule : CommonModule
 {
-    public event Action<Vector3> OnMovementKeyPress = null;
+    public event Action<float> OnMovementKeyPress = null;
     public event Action<float> OnRotateKeyPress = null;
-
 
     public override void UpdateModule()
     {
@@ -20,8 +19,7 @@ public class BoatInputModule : CommonModule
     }
 
     private void UpdateMoveInput(){
-        Vector3 moveInput = new Vector3(0, 0, Input.GetAxisRaw("Vertical"));
-        OnMovementKeyPress?.Invoke(moveInput);
+        OnMovementKeyPress?.Invoke(Input.GetAxisRaw("Vertical"));
     }
 
     private void UpdateRotateInput(){

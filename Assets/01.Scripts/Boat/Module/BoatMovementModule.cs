@@ -7,10 +7,11 @@ public class BoatMovementModule : CommonModule
     private Rigidbody _rigid;
 
     private Vector3 _movement = Vector3.zero;
-    private Vector3 _inputDir = Vector3.zero;
+    private float _inputDir = 0f;
 
     private float _moveMaxSpeed => _controller.BoatData.BoatMaxSpeed;
-    private float _acceleration => _controller.BoatData.BoatAcceleration;
+    private float _forwardAcceleration => _controller.BoatData.BoatForwardAcceleration;
+    private float _backwardAcceleration => _controller.BoatData.BoatBackwardAcceleration;
     private float _deceleration => _controller.BoatData.BoatDeceleration;
 
     private float _currentVelocity = 0f;
@@ -36,26 +37,32 @@ public class BoatMovementModule : CommonModule
     }
 
     private void AddEvent(){
-        _controller.GetModule<BoatInputModule>().OnMovementKeyPress += SetMovementVelocity;
+        _controller.GetModule<BoatInputModule>().OnMovementKeyPress += SetMovementValue;
     }
 
-    private void SetMovementVelocity(Vector3 value){
+    private void SetMovementValue(float value){
         _inputDir = value;
     }
 
     private void Movement(){
-        if(_inputDir.sqrMagnitude > 0){
-            if(Vector3.Dot(_inputDir, _movement) < 0){
+        if(Mathf.Abs(_inputDir) > 0){
+            if(Vector3.Dot(_controller.transform.forward * _inputDir, _movement) < 0){
                 _currentVelocity = 0f;
             }
-            _movement = _inputDir;
+            _movement = _controller.transform.forward * _inputDir;
         }
         _currentVelocity = CalcVelocity();
     }
 
     private float CalcVelocity(){
-        if(_inputDir.sqrMagnitude > 0){
-            _currentVelocity += _acceleration * Time.deltaTime;
+        if(Mathf.Abs(_inputDir) > 0){
+            if(_inputDir > 0){
+                _currentVelocity += _forwardAcceleration * Time.deltaTime;
+
+            }
+            else{
+                _currentVelocity += _backwardAcceleration * Time.deltaTime;
+            }
         }
         else{
             _currentVelocity -= _deceleration * Time.deltaTime; 
