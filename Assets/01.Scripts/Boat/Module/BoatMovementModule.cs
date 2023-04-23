@@ -49,7 +49,11 @@ public class BoatMovementModule : CommonModule
             if(Vector3.Dot(_controller.transform.forward * _inputDir, _movement) < 0){
                 _currentVelocity = 0f;
             }
+            _controller.BoatData.IsMoveBoat = true;
             _movement = _controller.transform.forward * _inputDir;
+        }
+        else{
+            _controller.BoatData.IsMoveBoat = false;
         }
         _currentVelocity = CalcVelocity();
     }
@@ -58,7 +62,6 @@ public class BoatMovementModule : CommonModule
         if(Mathf.Abs(_inputDir) > 0){
             if(_inputDir > 0){
                 _currentVelocity += _forwardAcceleration * Time.deltaTime;
-
             }
             else{
                 _currentVelocity += _backwardAcceleration * Time.deltaTime;
