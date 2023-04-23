@@ -12,4 +12,5 @@ public abstract class CommonModule : MonoBehaviour, BoatModule
     }
 
     public abstract void UpdateModule();
+    public abstract void FixedUpdateModule();
 }
