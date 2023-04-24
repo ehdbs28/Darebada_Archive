@@ -23,4 +23,9 @@ public class FishingActionData : MonoBehaviour
 
     [HideInInspector]
     public Vector3 LastThrowDirection;
+
+    [Header("찌 던지기 관련")]
+    
+    [Tooltip("던지는 속도")]
+    public float ThrowingSpeed;
 }
