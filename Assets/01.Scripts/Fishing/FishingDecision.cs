@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishingDecision : MonoBehaviour
+public abstract class FishingDecision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    protected FishingController _controller;
+
+    public bool IsReverse = false;
+
+    public virtual void SetUp(Transform agentRoot){
+        _controller = agentRoot.GetComponent<FishingController>();  
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract bool MakeADecision();
 }

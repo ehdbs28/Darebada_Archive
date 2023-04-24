@@ -10,7 +10,6 @@ public abstract class FishingState : MonoBehaviour, IState
     public abstract void EnterState();
     public abstract void ExitState();
 
-
     public virtual void SetUp(Transform agentRoot)
     {
         _controller = agentRoot.GetComponent<FishingController>();
@@ -24,7 +23,10 @@ public abstract class FishingState : MonoBehaviour, IState
     public virtual void UpdateState()
     {
         foreach(var t in _transitions){
-            
+            if(t.CheckDecision()){
+                _controller.ChangedState(t.NextState);
+                break;
+            }
         }
     }
 }
