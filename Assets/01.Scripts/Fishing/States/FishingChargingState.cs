@@ -17,6 +17,7 @@ public class FishingChargingState : FishingState
     {
         _mainCam = Camera.main;
         _playerTrm = _controller.transform.parent;
+        _actionData.IsFishing = true;
 
         _currentChargingPower = -_actionData.MaxChargingPower;
         _powerDir = 1f;

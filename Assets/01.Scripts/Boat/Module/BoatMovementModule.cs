@@ -5,6 +5,7 @@ using UnityEngine;
 public class BoatMovementModule : CommonModule
 {
     private Rigidbody _rigid;
+    private FishingController _fishingController;
 
     private Vector3 _movement = Vector3.zero;
     private float _inputDir = 0f;
@@ -21,6 +22,7 @@ public class BoatMovementModule : CommonModule
         base.SetUp(rootTrm);
 
         _rigid = rootTrm.GetComponent<Rigidbody>();
+        _fishingController = GameObject.Find("TestPlayer").GetComponentInChildren<FishingController>();
 
         AddEvent();
         StopImmediately();
@@ -28,6 +30,9 @@ public class BoatMovementModule : CommonModule
 
     public override void UpdateModule()
     {
+        if(_fishingController.ActionData.IsFishing)
+            return;
+
         Movement();
     }
 

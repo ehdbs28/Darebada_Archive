@@ -6,6 +6,7 @@ public class FishingIdleState : FishingState
 {
     public override void EnterState()
     {
+        _actionData.IsFishing = false;
     }
 
     public override void ExitState()

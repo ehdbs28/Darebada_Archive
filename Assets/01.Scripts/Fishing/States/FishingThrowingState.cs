@@ -24,7 +24,7 @@ public class FishingThrowingState : FishingState
 
     private IEnumerator ThrowTo(){
         Vector3 start = _bobberTrm.position;
-        Vector3 end = _actionData.LastThrowDirection.normalized * _actionData.LastChargingPower;
+        Vector3 end = _actionData.LastThrowDirection.normalized * (_actionData.LastChargingPower * _actionData.LastChargingPower);
 
         Debug.Log(start);
         Debug.Log(end);

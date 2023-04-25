@@ -7,9 +7,15 @@ public class FishingController : MonoBehaviour
     [SerializeField]
     private FishingState _currentState;
 
+    [SerializeField]
+    private FishingActionData _actionData;
+    public FishingActionData ActionData => _actionData;
+
     private void Awake() {
         List<FishingState> states = new List<FishingState>();
         transform.Find("StateManager").GetComponentsInChildren<FishingState>(states);
+
+        _actionData = transform.GetComponent<FishingActionData>();
 
         states.ForEach(s => s.SetUp(transform));
     }

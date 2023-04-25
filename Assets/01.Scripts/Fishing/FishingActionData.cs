@@ -28,4 +28,7 @@ public class FishingActionData : MonoBehaviour
     
     [Tooltip("던지는 속도")]
     public float ThrowingSpeed;
+
+    [HideInInspector]
+    public bool IsFishing = false;
 }
