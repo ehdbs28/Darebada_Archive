@@ -19,7 +19,7 @@ public class FishingChargingState : FishingState
         _playerTrm = _controller.transform.parent;
         _actionData.IsFishing = true;
 
-        _currentChargingPower = -_actionData.MaxChargingPower;
+        _currentChargingPower = 0f;
         _powerDir = 1f;
     }
 
@@ -35,7 +35,7 @@ public class FishingChargingState : FishingState
 
         _currentChargingPower += _powerDir * _actionData.ChargingSpeed * Time.deltaTime;
 
-        if(Mathf.Abs(_currentChargingPower) >= _actionData.MaxChargingPower)
+        if(_currentChargingPower >= _actionData.MaxChargingPower || _currentChargingPower <= 0f)
             _powerDir *= -1;
 
         Debug.Log(_currentChargingPower);
