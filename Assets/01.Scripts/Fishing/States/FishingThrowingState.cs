@@ -20,6 +20,7 @@ public class FishingThrowingState : FishingState
     public override void EnterState()
     {
         _playerTrm.LookAt(_controller.ActionData.LastThrowDirection);
+        _controller.ActionData.InitPosition = _bobberTrm.position;
         StartCoroutine(ThrowTo());
     }
 
