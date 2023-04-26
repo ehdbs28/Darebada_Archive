@@ -6,7 +6,6 @@ public abstract class FishingState : MonoBehaviour, IState
 {
     protected List<FishingTransition> _transitions;
     protected FishingController _controller;
-    protected FishingActionData _actionData;
 
     public abstract void EnterState();
     public abstract void ExitState();
@@ -14,7 +13,6 @@ public abstract class FishingState : MonoBehaviour, IState
     public virtual void SetUp(Transform agentRoot)
     {
         _controller = agentRoot.GetComponent<FishingController>();
-        _actionData = agentRoot.GetComponent<FishingActionData>();
 
         _transitions = new List<FishingTransition>();
         transform.GetComponentsInChildren<FishingTransition>(_transitions);

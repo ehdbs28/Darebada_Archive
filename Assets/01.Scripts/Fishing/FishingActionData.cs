@@ -21,9 +21,6 @@ public class FishingActionData : MonoBehaviour
     [Tooltip("회전 속도")]
     public float RotationSpeed;
 
-    [HideInInspector]
-    public Vector3 LastThrowDirection;
-
     [Header("찌 던지기 관련")]
     
     [Tooltip("던지는 속도")]
@@ -31,4 +28,13 @@ public class FishingActionData : MonoBehaviour
 
     [HideInInspector]
     public bool IsFishing = false;
+
+    [HideInInspector]
+    public bool IsUnderWater = false;
+
+    [HideInInspector]
+    public Vector3 LastThrowDirection;
+
+    [HideInInspector]
+    public Vector3 InitPosition;
 }

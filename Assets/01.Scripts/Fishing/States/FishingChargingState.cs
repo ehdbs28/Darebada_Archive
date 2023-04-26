@@ -17,7 +17,6 @@ public class FishingChargingState : FishingState
     {
         _mainCam = Camera.main;
         _playerTrm = _controller.transform.parent;
-        _actionData.IsFishing = true;
 
         _currentChargingPower = 0f;
         _powerDir = 1f;
@@ -25,20 +24,18 @@ public class FishingChargingState : FishingState
 
     public override void ExitState()
     {
-        _actionData.LastChargingPower = _currentChargingPower;
-        _actionData.LastThrowDirection = _currentDir;
+        _controller.ActionData.LastChargingPower = _currentChargingPower;
+        _controller.ActionData.LastThrowDirection = _currentDir;
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
 
-        _currentChargingPower += _powerDir * _actionData.ChargingSpeed * Time.deltaTime;
+        _currentChargingPower += _powerDir * _controller.ActionData.ChargingSpeed * Time.deltaTime;
 
-        if(_currentChargingPower >= _actionData.MaxChargingPower || _currentChargingPower <= 0f)
+        if(_currentChargingPower >= _controller.ActionData.MaxChargingPower || _currentChargingPower <= 0f)
             _powerDir *= -1;
-
-        Debug.Log(_currentChargingPower);
 
         _currentDir = GetMousePos() - _playerTrm.position;
         _currentDir.y = _playerTrm.position.y;
@@ -53,7 +50,7 @@ public class FishingChargingState : FishingState
             Vector3 result = Vector3.Cross(currentFrontVec, target);
 
             float sign = result.y > 0 ? 1 : -1;
-            _playerTrm.rotation = Quaternion.Euler(0, sign * _actionData.RotationSpeed * Time.deltaTime, 0) * _playerTrm.rotation;
+            _playerTrm.rotation = Quaternion.Euler(0, sign * _controller.ActionData.RotationSpeed * Time.deltaTime, 0) * _playerTrm.rotation;
         }
         else{
             // 다 돌아갔을 때 할 일인데 아직 없음

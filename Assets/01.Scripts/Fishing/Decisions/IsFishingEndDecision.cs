@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickFishingKeyDecision : FishingDecision
+public class IsFishingEndDecision : FishingDecision
 {
     public override bool MakeADecision()
     {
-        return Input.GetKeyDown(KeyCode.Space);
+        return !_controller.ActionData.IsFishing;
     }
 }
