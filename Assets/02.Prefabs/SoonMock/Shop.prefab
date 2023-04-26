@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 868333174685170989}
   - component: {fileID: 6661634396675987246}
   - component: {fileID: 3891527072640391737}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 2715803889422451801}
   - component: {fileID: 6161241883794733676}
   - component: {fileID: 2632374357701299916}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 6071261238567039848}
   - component: {fileID: 6686806225171268011}
   - component: {fileID: 4230438040271373686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 619062809470159790}
   - component: {fileID: 3338400598170293681}
   - component: {fileID: 4112783781860697400}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3335245054874600763}
   - component: {fileID: 3932636710824750129}
-  m_Layer: 0
+  - component: {fileID: 3078067917307225893}
+  m_Layer: 6
   m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,3 +437,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb82970667a54e4797d86123c3d02c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &3078067917307225893
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8346138428161303113}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 2.4843955, z: 2.5}
+  m_Center: {x: 0, y: -0.40174657, z: 0}

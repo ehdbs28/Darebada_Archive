@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 803397027680250734}
   - component: {fileID: 803397027680250735}
-  m_Layer: 0
+  - component: {fileID: 392519591382335137}
+  m_Layer: 6
   m_Name: Aqua
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,8 +48,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ffc8c7a3d208584ba87f692e9f622d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxAmount: 3
   tempKey: 0
   tempAmount: 0
+--- !u!65 &392519591382335137
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803397027680250729}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 3.5, z: 2.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &803397027901530643
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,7 +76,7 @@ GameObject:
   - component: {fileID: 803397027901530646}
   - component: {fileID: 803397027901530641}
   - component: {fileID: 803397027901530640}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +173,7 @@ GameObject:
   - component: {fileID: 803397028057804746}
   - component: {fileID: 803397028057804741}
   - component: {fileID: 803397028057804740}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +270,7 @@ GameObject:
   - component: {fileID: 803397029194448904}
   - component: {fileID: 803397029194448907}
   - component: {fileID: 803397029194448906}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

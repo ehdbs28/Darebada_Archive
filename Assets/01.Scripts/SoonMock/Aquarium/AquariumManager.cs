@@ -19,10 +19,16 @@ public class AquariumManager : MonoBehaviour
         set { _cleanScore = value; }
     }
     [SerializeField] private int _entrancefee;
-    public int Entrancefee
+    public int EntranceFee
     {
         get { return _entrancefee; }
         set { _entrancefee = value; }
+    }
+    [SerializeField] private int _entrancePercent;
+    public int EntrancePercent
+    {
+        get { return _entrancePercent; }
+        set { _entrancePercent= value; }
     }
     [SerializeField] private float _reputation;
     public float Reputation
@@ -47,6 +53,7 @@ public class AquariumManager : MonoBehaviour
     
     //아쿠아리움 내 시설들
     [SerializeField] GameObject fishBowlObject;
+    [SerializeField] GameObject fishObject;
     [SerializeField] GameObject snackShopObject;
     public List<GameObject> aquaObject = new List<GameObject>();
     public List<Facility> aqurium = new List<Facility>();
@@ -56,11 +63,7 @@ public class AquariumManager : MonoBehaviour
     {
         if(aquaObject.Count <=0)
         {
-            Fishbowl fishBowl = Instantiate(fishBowlObject).GetComponent<Fishbowl>();
-            aquaObject.Add(fishBowl.gameObject);
-            aqurium.Add(fishBowl);
-            Debug.Log("Asdf");
-            fishBowl.transform.localPosition = new Vector3(_floorSize.x, 0, 0);
+            AddFishBowl();
 
         }
         if (Instance == null)
@@ -72,6 +75,8 @@ public class AquariumManager : MonoBehaviour
     }
     private void Update()
     {
+        EntrancePercent = Mathf.Clamp((aquaObject.Count/EntranceFee)*100,0,100);
+        Reputation = (EntrancePercent/100f * CleanScore/100f * ArtScore/100f) * 100f;
         if(Input.GetKeyDown(KeyCode.K))
         {
             AddFishBowl();
@@ -119,5 +124,12 @@ public class AquariumManager : MonoBehaviour
             floor.transform.localPosition = new Vector3(_floorSize.x / 2 + 5, 0.5f, (_horizontalCount + 1) * 1.5f);
 
         }
+    }
+    public GameObject AddFish(int id, Transform parent)
+    {
+        GameObject fish = Instantiate(fishObject);
+        fish.transform.parent = parent;
+        fish.transform.localPosition = new Vector3(Random.Range(-0.8f,0.8f), 1f, Random.Range(-0.8f, 0.8f));
+        return fish;
     }
     }

@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 using UnityEngine.UI;
 
 public class UpgradeManager : MonoBehaviour
 {
-    public GameObject fishbowlUpgradePanel;
-    public GameObject shopUpgradePanel;
-    float handlingTime;
-    float limitTime;
+    public StatePanel fishbowlUpgradePanel;
+    public StatePanel shopUpgradePanel;
+    [SerializeField]float handlingTime;
+    [SerializeField]float limitTime;
     Camera mainCam;
     [SerializeField] LayerMask _layerMask;
     [SerializeField] private Vector3 _onTouchPos;
@@ -22,7 +23,7 @@ public class UpgradeManager : MonoBehaviour
         }else
             mainCam = Camera.main;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
@@ -30,18 +31,32 @@ public class UpgradeManager : MonoBehaviour
         }
         else if (Input.GetMouseButton(0))
         {
+            handlingTime += Time.deltaTime;
         }
         else if(Input.GetMouseButtonUp(0))
         {
             if(handlingTime <= limitTime)
             {
-                RaycastHit hit;
-                Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
-                Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask);
-                GameObject hitObj = hit.collider.gameObject.GetComponent<Facility>().OnTouched().gameObject;
-                if (hitObj)
+                if(!fishbowlUpgradePanel.gameObject.activeSelf && !shopUpgradePanel.gameObject.activeSelf)
                 {
-
+                    RaycastHit hit;
+                    Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+                    Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask);
+                    
+                    if (hit.collider.gameObject.GetComponent<Facility>())
+                    {
+                        GameObject hitObj = hit.collider.gameObject.GetComponent<Facility>().OnTouched().gameObject;
+                        if(hitObj.GetComponent<Fishbowl>())
+                        {
+                            fishbowlUpgradePanel.upgradeObj = hitObj;
+                            fishbowlUpgradePanel.gameObject.SetActive(true);
+                        }
+                        else if(hitObj.GetComponent<SnackShop>())
+                        {
+                            shopUpgradePanel.upgradeObj = hitObj;
+                            shopUpgradePanel.gameObject.SetActive(true);
+                        }
+                    }
                 }
             }
         }
