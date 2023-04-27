@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory : MonoBehaviour
+public class Inventory_Proto : MonoBehaviour
 {
     private Image _itemImage;
     private Button _itemButton;
@@ -33,20 +33,20 @@ public class Inventory : MonoBehaviour
     private void ChangeSlot()
     {
         Sprite temp = this._itemImage.sprite;
-        if (InventoryManager.Instance._isChange)
+        if (InventoryManager_Proto.Instance._isChange)
         {
-            this._itemImage.sprite = InventoryManager.Instance._beforeItem._itemImage.sprite;
-            InventoryManager.Instance._beforeItem._itemImage.sprite = temp;
+            this._itemImage.sprite = InventoryManager_Proto.Instance._beforeItem._itemImage.sprite;
+            InventoryManager_Proto.Instance._beforeItem._itemImage.sprite = temp;
 
-            InventoryManager.Instance._isChange = false;
+            InventoryManager_Proto.Instance._isChange = false;
         }
     }
 
     private void SelectSlot() // 인벤토리 클릭
     {
-        if (!InventoryManager.Instance._isChange)
+        if (!InventoryManager_Proto.Instance._isChange)
         {
-            InventoryManager.Instance.OnInventorySelect(this._itemImage, this);
+            InventoryManager_Proto.Instance.OnInventorySelect(this._itemImage, this);
         }
     }
 

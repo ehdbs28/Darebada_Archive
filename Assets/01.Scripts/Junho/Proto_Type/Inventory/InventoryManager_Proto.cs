@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager_Proto : MonoBehaviour
 {
-    public static InventoryManager Instance = null;
+    public static InventoryManager_Proto Instance = null;
 
     [SerializeField] private GameObject _inventory;
     [SerializeField] private GameObject _inventorySelect;
 
     [SerializeField] private List<Button> _inventorySlots;
 
-    public Inventory _item;
-    public Inventory _beforeItem;
+    public Inventory_Proto _item;
+    public Inventory_Proto _beforeItem;
     public bool _isChange = false;
 
     private Image _inventorySelectImage;
@@ -55,7 +55,7 @@ public class InventoryManager : MonoBehaviour
         _inventory.SetActive(_isInventoryActive);
     }
 
-    public void OnInventorySelect(Image selectImg, Inventory item)
+    public void OnInventorySelect(Image selectImg, Inventory_Proto item)
     {
         if (_inventorySelect.activeSelf)
         {

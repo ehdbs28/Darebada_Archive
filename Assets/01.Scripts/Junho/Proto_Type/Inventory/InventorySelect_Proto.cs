@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventorySelect : MonoBehaviour
+public class InventorySelect_Proto : MonoBehaviour
 {
     [SerializeField] private Image _inventoryMove;
 
@@ -18,15 +18,15 @@ public class InventorySelect : MonoBehaviour
 
     private void LooseFish() // 방생 버튼에 연결하기
     {
-        print($"{InventoryManager.Instance._item.name} 방생");
-        InventoryManager.Instance._item.GetComponent<Image>().sprite = null;
+        print($"{InventoryManager_Proto.Instance._item.name} 방생");
+        InventoryManager_Proto.Instance._item.GetComponent<Image>().sprite = null;
         gameObject.SetActive(false);
     }
 
     private void MoveFish() // 이동 버튼에 연결하기
     {
-        _inventoryMove.sprite = InventoryManager.Instance._item.GetComponent<Image>().sprite;
-        InventoryManager.Instance._isChange = true;
+        _inventoryMove.sprite = InventoryManager_Proto.Instance._item.GetComponent<Image>().sprite;
+        InventoryManager_Proto.Instance._isChange = true;
         gameObject.SetActive(false);
     }
 }
