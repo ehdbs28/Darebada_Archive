@@ -50,11 +50,11 @@ public class InventoryItem : MonoBehaviour
         GetComponent<RectTransform>().sizeDelta = size;
     }
 
-    public void Rotate() // 인벤토리 아이템 회전 90도 0도를 반복
+    public void Rotate(int clockwise = 1) // 인벤토리 아이템 회전 90도 0도를 반복
     {
         rotated = !rotated;
 
         RectTransform rectTransform = GetComponent<RectTransform>();
-        rectTransform.rotation = Quaternion.Euler(0, 0, rotated == true ? 90f : 0f);
+        rectTransform.rotation = Quaternion.Euler(0, 0, rotated == true ? clockwise * 90f : 0f);
     }
 }

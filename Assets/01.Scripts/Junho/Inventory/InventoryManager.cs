@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -18,6 +19,15 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] GameObject inventorySelectPanel;
     [SerializeField] GameObject inventoryMovePanel;
 
+    [SerializeField] Button inventoryRightRotateBtn;
+    [SerializeField] Button inventoryLeftRotateBtn;
+
+    private void Start()
+    {
+        inventoryLeftRotateBtn.onClick.AddListener(() => RotateItem(-1));
+        inventoryRightRotateBtn.onClick.AddListener(() => RotateItem(1));
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
@@ -29,7 +39,10 @@ public class InventoryManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            LeftMouseButtonPress();
+            if (inventorySelectPanel.activeSelf == false)
+            {
+                LeftMouseButtonPress();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -38,11 +51,11 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private void RotateItem() // 아이템 회전
+    private void RotateItem(int clockwise = 1) // 아이템 회전
     {
         if (selectedItem == null) { return; } // 집은 아이템이 없다면 실행 안함
 
-        selectedItem.Rotate();
+        selectedItem.Rotate(clockwise);
     }
 
     private void CreateRandomItem() // 랜덤 아이템 생성
@@ -61,7 +74,11 @@ public class InventoryManager : MonoBehaviour
     {
         Vector2 position = Input.mousePosition;
 
-        
+        if (inventorySelectPanel.activeSelf == false)
+        {
+            inventorySelectPanel.SetActive(true);
+            return;
+        }
 
         if (selectedItem != null) // 아이템을 집었다면
         {
