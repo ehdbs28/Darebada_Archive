@@ -58,7 +58,7 @@ public class FishingCatchingState : FishingState
                 }
             }
 
-            // 여기서 물고기 끌어와야 함
+            // 여기서 물고기 끌고오고 미니게임 들어가야 함
         }
         else{
             if(Input.GetKeyDown(KeyCode.Space)){
