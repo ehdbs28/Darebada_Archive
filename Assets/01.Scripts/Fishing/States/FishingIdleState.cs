@@ -20,7 +20,7 @@ public class FishingIdleState : FishingState
     public override void EnterState()
     {
         _bobberTrm.position = _controller.ActionData.InitPosition;
-        CameraManager.Instance.SetBoatVCam();
+        CameraManager.Instance.SetVCam<BoatFollowingVCam>();
     }
 
     public override void ExitState()

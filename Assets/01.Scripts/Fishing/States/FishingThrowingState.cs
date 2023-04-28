@@ -22,7 +22,7 @@ public class FishingThrowingState : FishingState
         _playerTrm.LookAt(_controller.ActionData.LastThrowDirection);
         _controller.ActionData.InitPosition = _bobberTrm.position;
 
-        CameraManager.Instance.SetBobberVCam();
+        CameraManager.Instance.SetVCam<BobberFollowingVCam>();
 
         StartCoroutine(ThrowTo());
     }

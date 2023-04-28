@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
@@ -10,37 +11,39 @@ public class CameraManager : MonoBehaviour
     // 일단 지금은 Awake에서 하자
 
     [SerializeField]
-    private CinemachineVirtualCamera _boatFollowVCam;
+    private List<VCam> _virtualCams = new List<VCam>();
 
-    [SerializeField]
-    private CinemachineVirtualCamera _bobberFollowVCam;
-
-    private CinemachineVirtualCamera _currentActiveVCam = null;
+    private VCam _currentActiveVCam = null;
 
     private void Awake() {
         if(Instance == null){
             Instance = this;
         }
+
+        _virtualCams.ForEach(cam => cam.Init());
+
+        // OnSwipeEvent 나중에 인풋매니저 이벤트에 더해주기
     }
 
     private void Start() {
-        Init();
+        SetVCam<BoatFollowingVCam>();
     }
 
-    private void Init(){
-        _currentActiveVCam = _boatFollowVCam;
-        SetBoatVCam();
+    public void SetVCam<T>() where T : VCam{
+        T virtualCam = null;
+
+        foreach(T cam in _virtualCams.OfType<T>()){
+            virtualCam = cam;
+        }
+
+        if(virtualCam == null) return;
+
+        _currentActiveVCam?.UnselectVCam();
+        _currentActiveVCam = virtualCam;
+        _currentActiveVCam?.SelectVCam();
     }
 
-    public void SetBoatVCam(){
-        _currentActiveVCam.Priority = 0;
-        _currentActiveVCam = _boatFollowVCam;
-        _currentActiveVCam.Priority = 10;
-    }
-
-    public void SetBobberVCam(){
-        _currentActiveVCam.Priority = 0;
-        _currentActiveVCam = _bobberFollowVCam;
-        _currentActiveVCam.Priority = 10;
+    private void OnSwipeEvent(){
+        _currentActiveVCam?.OnSwipeAction?.Invoke();
     }
 }
