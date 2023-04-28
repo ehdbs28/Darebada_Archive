@@ -16,11 +16,11 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] GameObject itemPrefab;
     [SerializeField] Transform canvasTransform;
 
-    [SerializeField] GameObject inventorySelectPanel;
-    [SerializeField] GameObject inventoryMovePanel;
-
     [SerializeField] Button inventoryRightRotateBtn;
     [SerializeField] Button inventoryLeftRotateBtn;
+
+    Vector2Int before;
+    InventoryItem beforeItem;
 
     private void Start()
     {
@@ -39,10 +39,7 @@ public class InventoryManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (inventorySelectPanel.activeSelf == false)
-            {
-                LeftMouseButtonPress();
-            }
+            LeftMouseButtonPress();
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -50,12 +47,20 @@ public class InventoryManager : MonoBehaviour
             RotateItem();
         }
     }
+    
 
     private void RotateItem(int clockwise = 1) // 아이템 회전
     {
         if (selectedItem == null) { return; } // 집은 아이템이 없다면 실행 안함
 
+        before = new Vector2Int(selectedItem.onGridPositionX, selectedItem.onGridPositionY);
+        beforeItem = selectedItem;
+
         selectedItem.Rotate(clockwise);
+
+        PlaceItem(before);
+        selectedItem = beforeItem;
+        PickUpItem(before);
     }
 
     private void CreateRandomItem() // 랜덤 아이템 생성
@@ -73,12 +78,6 @@ public class InventoryManager : MonoBehaviour
     private void LeftMouseButtonPress()
     {
         Vector2 position = Input.mousePosition;
-
-        if (inventorySelectPanel.activeSelf == false)
-        {
-            inventorySelectPanel.SetActive(true);
-            return;
-        }
 
         if (selectedItem != null) // 아이템을 집었다면
         {
