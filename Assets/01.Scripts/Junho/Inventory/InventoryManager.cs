@@ -28,8 +28,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] Button inventoryLeftRotateBtn;
     [SerializeField] Image inventoryMoveImage;
 
-    Vector2Int before;
-    InventoryItem beforeItem;
+    
 
     bool isMove = false;
 
@@ -68,8 +67,8 @@ public class InventoryManager : MonoBehaviour
     {
         if (selectedItem == null) { return; } // 집은 아이템이 없다면 실행 안함
 
-        before = new Vector2Int(selectedItem.onGridPositionX, selectedItem.onGridPositionY);
-        beforeItem = selectedItem;
+        Vector2Int before = new Vector2Int(selectedItem.onGridPositionX, selectedItem.onGridPositionY);
+        InventoryItem beforeItem = selectedItem;
 
         selectedItem.Rotate(clockwise);
 
@@ -171,5 +170,7 @@ public class InventoryManager : MonoBehaviour
         isMove = true;
         inventorySelectPanel.SetActive(false);
         inventoryMoveImage.sprite = selectedItem.itemData.itemicon;
+
+        // 밖을 누르면 loose 시키기
     }
 }
