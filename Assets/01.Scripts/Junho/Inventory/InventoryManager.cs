@@ -39,6 +39,8 @@ public class InventoryManager : MonoBehaviour
         
         inventoryDeleteBtn.onClick.AddListener(() => {
             inventorySelectPanel.SetActive(false);
+            Vector2Int select = new Vector2Int(selectedItem.onGridPositionX, selectedItem.onGridPositionY);
+            PlaceItem(select);
             selectedItem = null;
         });
 
@@ -65,12 +67,20 @@ public class InventoryManager : MonoBehaviour
 
     private void RotateItem(int clockwise = 1) // 아이템 회전
     {
-        if (selectedItem == null) { return; } // 집은 아이템이 없다면 실행 안함
-
         Vector2Int before = new Vector2Int(selectedItem.onGridPositionX, selectedItem.onGridPositionY);
         InventoryItem beforeItem = selectedItem;
+        
+        if (selectedItem == null) { return; } // 집은 아이템이 없다면 실행 안함
+        if (selectedItemGrid.OverlapCheck(selectedItem.onGridPositionX, selectedItem.onGridPositionY, selectedItem.HEIGHT, selectedItem.WIDTH, ref selectedItem) == false)
+        {
+            print("겹침");
+        }
+        else
+        {
+            selectedItem.Rotate(clockwise);
+            print("안겹침");
+        }
 
-        selectedItem.Rotate(clockwise);
 
         PlaceItem(before);
         selectedItem = beforeItem;
