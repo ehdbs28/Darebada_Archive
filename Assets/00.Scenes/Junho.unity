@@ -528,14 +528,13 @@ MonoBehaviour:
   itemPrefab: {fileID: 3544344355433292725, guid: f3fcd09394dd9d440ae9bf135142a7d8, type: 3}
   canvasTransform: {fileID: 1204482671}
   inventorySelectPanel: {fileID: 951481426}
-  selectImage: {fileID: 1762598119}
-  moveBtn: {fileID: 252221518}
-  looseBtn: {fileID: 1895519561}
-  deleteBtn: {fileID: 976962849}
-  inventoryMovePanel: {fileID: 105239846}
-  moveSelectImage: {fileID: 53993214}
+  inventorySelectImage: {fileID: 1762598119}
+  inventoryMoveBtn: {fileID: 252221518}
+  inventoryLooseBtn: {fileID: 1895519561}
+  inventoryDeleteBtn: {fileID: 976962849}
   inventoryRightRotateBtn: {fileID: 1420765315}
   inventoryLeftRotateBtn: {fileID: 546804674}
+  inventoryMoveImage: {fileID: 53993214}
 --- !u!1 &546804670
 GameObject:
   m_ObjectHideFlags: 0

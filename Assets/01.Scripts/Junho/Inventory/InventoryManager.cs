@@ -16,16 +16,35 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] GameObject itemPrefab;
     [SerializeField] Transform canvasTransform;
 
+    [Header("inventory Select Panel"), Space(10)]
+    [SerializeField] GameObject inventorySelectPanel;
+    [SerializeField] Image inventorySelectImage;
+    [SerializeField] Button inventoryMoveBtn;
+    [SerializeField] Button inventoryLooseBtn;
+    [SerializeField] Button inventoryDeleteBtn;
+    
+    [Header("inventory Move Panel")]
     [SerializeField] Button inventoryRightRotateBtn;
     [SerializeField] Button inventoryLeftRotateBtn;
+    [SerializeField] Image inventoryMoveImage;
 
     Vector2Int before;
     InventoryItem beforeItem;
+
+    bool isMove = false;
 
     private void Start()
     {
         inventoryLeftRotateBtn.onClick.AddListener(() => RotateItem(-1));
         inventoryRightRotateBtn.onClick.AddListener(() => RotateItem(1));
+        
+        inventoryDeleteBtn.onClick.AddListener(() => {
+            inventorySelectPanel.SetActive(false);
+            selectedItem = null;
+        });
+
+        inventoryLooseBtn.onClick.AddListener(LooseItem);
+        inventoryMoveBtn.onClick.AddListener(MoveItem);
     }
 
     private void Update()
@@ -40,11 +59,7 @@ public class InventoryManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             LeftMouseButtonPress();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RotateItem();
+            SelectItem();
         }
     }
     
@@ -61,6 +76,8 @@ public class InventoryManager : MonoBehaviour
         PlaceItem(before);
         selectedItem = beforeItem;
         PickUpItem(before);
+
+        MoveItem();
     }
 
     private void CreateRandomItem() // 랜덤 아이템 생성
@@ -93,7 +110,10 @@ public class InventoryManager : MonoBehaviour
         }
         else // 아이템을 집었다면
         {
-            PlaceItem(tileGridPosition); // 아이템 위치 정하기
+            if (isMove)
+            {
+                PlaceItem(tileGridPosition); // 아이템 위치 정하기
+            }
         }
     }
 
@@ -104,14 +124,20 @@ public class InventoryManager : MonoBehaviour
         if (complete) // 집은 아이템을 뒀다면
         {
             selectedItem = null; // 집은 아이템 없애기
+
+            isMove = false;
+            inventoryMoveImage.sprite = null;
+
             if (overlapItem != null) // 중복된 위치에 아이템이 있다면
             {
                 selectedItem = overlapItem; // 손에 집기
                 overlapItem = null; // 중복될 아이템 없애기
                 rectTransform = selectedItem.GetComponent<RectTransform>(); // 이동 시키도록 transform 받아오기
+
+                // 놓았을 때 겹친 아이템 select창 띄우고 이미지 띄우기 
             }
         }
-
+        
     }
 
     private void PickUpItem(Vector2Int tileGridPosition) // 아이템 집기 만약 집었다면 이동을 위한 transform 가져오기
@@ -121,5 +147,29 @@ public class InventoryManager : MonoBehaviour
         {
             rectTransform = selectedItem.GetComponent<RectTransform>();
         }
+    }
+
+    private void SelectItem()
+    {
+        InventoryItem select = selectedItem;
+        if (selectedItem != null && isMove == false)
+        {
+            inventorySelectPanel.SetActive(true);
+            selectedItem = select;
+            inventorySelectImage.sprite = selectedItem.itemData.itemicon;
+        }
+    }
+    
+    private void LooseItem()
+    {
+        inventorySelectPanel.SetActive(false);
+        Destroy(selectedItem.gameObject);
+    }
+
+    private void MoveItem()
+    {
+        isMove = true;
+        inventorySelectPanel.SetActive(false);
+        inventoryMoveImage.sprite = selectedItem.itemData.itemicon;
     }
 }

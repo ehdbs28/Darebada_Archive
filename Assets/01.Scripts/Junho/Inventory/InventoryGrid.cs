@@ -22,7 +22,7 @@ public class InventoryGrid : MonoBehaviour
         Init(gridSizeWidth, gridSizeHeight);
     }
 
-    private void Init(int width, int height) // 인벤토리 크기 조절 // 인벤토리 사이즈가 변하면 다시 불러줘야함
+    public void Init(int width, int height) // 인벤토리 크기 조절 // 인벤토리 사이즈가 변하면 다시 불러줘야함
     {
         inventoryItemSlot = new InventoryItem[width, height]; // 값 상으로 인벤토리가 몇인지 넣어줌
         Vector2 size = new Vector2(width * tileSizeWidth, height * tileSizeHeight); // 픽셀 수와 곱해준 사이즈
@@ -34,7 +34,7 @@ public class InventoryGrid : MonoBehaviour
         {
             for (int iy = 0; iy < item.HEIGHT; iy++) // 아이템의 세로길이
             {
-                inventoryItemSlot[item.onGridPositionX + ix, item.onGridPositionY + iy] = null; // 이 칸에는 아이템이 없음
+                inventoryItemSlot[item.onGridPositionX + ix, item.onGridPositionY + iy] = null; // 이 칸에 있는 아이템 지우기
             }
         }
     }
@@ -76,7 +76,7 @@ public class InventoryGrid : MonoBehaviour
             return false;
         }
 
-        if (overlapItem != null) // 집기 전 중복 확인하는 아이템이 집어져있다면 비워주기
+        if (overlapItem != null) // 겹친 아이템이 있다면 비워주기
         {
             CleanGridReference(overlapItem);
         }
@@ -127,11 +127,11 @@ public class InventoryGrid : MonoBehaviour
             }
         }
 
-        // 아이템이 있거나 아이템이 없고 같은 아이템이라면 
+        // 아이템이 있거나// 아이템이 없고 같은 아이템이라면 
         return true;
     }
 
-    bool PositionCheck(int posX, int posY) // 왼쪽 위, 인벤토리 제한 체크
+    private bool PositionCheck(int posX, int posY) // 왼쪽 위, 인벤토리 제한 체크
     {
         if (posX < 0 || posY < 0) // 왼쪽 위를 벗어났는가?
             return false;
@@ -142,7 +142,7 @@ public class InventoryGrid : MonoBehaviour
         return true;
     }
 
-    bool BoundryCheck(int posX, int posY, int width, int height) // 인벤토리 밖인지 확인하기
+    private bool BoundryCheck(int posX, int posY, int width, int height) // 인벤토리 밖인지 확인하기
     {
         if (PositionCheck(posX, posY) == false) // 현재 인벤토리 밖인가?
             return false;
