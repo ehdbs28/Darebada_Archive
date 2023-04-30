@@ -53,7 +53,7 @@ public class RotationVCam : VCam
                 _virtualCam.transform.position = _arcball.GetCartesianCoordinates(_spherical) + _arcball.Center;
 
                 // 타겟을 바라보게
-                _virtualCam.transform.rotation = Quaternion.LookRotation(_arcball.Center - _virtualCam.transform.position);
+                _virtualCam.transform.rotation = Quaternion.LookRotation(_arcball.Center + _offset - _virtualCam.transform.position);
             }
 
             _last = InputManager.Instance.MousePosition;

@@ -29,14 +29,14 @@ public class BoatFollowingVCam : VCam
 
     private void OnMouseClick(bool value){
         if(value == true){
-            CinemachineComposer composer = _virtualCam.GetCinemachineComponent<CinemachineComposer>();
-            Vector3 offset = composer.m_TrackedObjectOffset;
+            CinemachineFramingTransposer framingTransposer = _virtualCam.GetCinemachineComponent<CinemachineFramingTransposer>();
+            Vector3 offset = framingTransposer.m_TrackedObjectOffset;
 
             CameraManager.Instance.SetRotateCam(_target,
                                                 Vector3.Distance(_target.position, _virtualCam.transform.position),
                                                 _virtualCam.transform.position,
                                                 _virtualCam.transform.rotation,
-                                                offset,
+                                                new Vector3(0f, offset.y, 0f),
                                                 _state
             );
         }
