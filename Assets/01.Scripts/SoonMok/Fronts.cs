@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Fronts : MonoBehaviour, IsClickObj
+public class Fronts : MonoBehaviour//, IsClickObj
 {
     [SerializeField] bool isOver = false;
     [SerializeField] bool isHolding = false;
@@ -32,7 +32,7 @@ public class Fronts : MonoBehaviour, IsClickObj
         if (isOver)
         {
             isHolding = false;
-            GetComponent<ZIpperResult>().ShowResult();
+            //GetComponent<ZIpperResult>().ShowResult();
             this.enabled = false;
         }
         if (isHolding)
