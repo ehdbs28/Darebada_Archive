@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Core.CameraState;
 
 public class FishingThrowingState : FishingState
 {
@@ -22,7 +23,7 @@ public class FishingThrowingState : FishingState
         _playerTrm.LookAt(_controller.ActionData.LastThrowDirection);
         _controller.ActionData.InitPosition = _bobberTrm.position;
 
-        CameraManager.Instance.SetVCam<BobberFollowingVCam>();
+        CameraManager.Instance.SetVCam(BOBBER_FOLLOW);
 
         StartCoroutine(ThrowTo());
     }

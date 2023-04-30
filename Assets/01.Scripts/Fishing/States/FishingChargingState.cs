@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Core;
 
 public class FishingChargingState : FishingState
 {
     [SerializeField] private LayerMask _whatIsGround;
-    private Camera _mainCam;
     private Transform _playerTrm;
 
     private float _currentChargingPower = 0f;
@@ -15,7 +15,6 @@ public class FishingChargingState : FishingState
 
     public override void EnterState()
     {
-        _mainCam = Camera.main;
         _playerTrm = _controller.transform.parent;
 
         _currentChargingPower = 0f;
@@ -60,7 +59,7 @@ public class FishingChargingState : FishingState
     // 이것도 인풋 매니저로 빼자
     private Vector3 GetMousePos(){
         RaycastHit hit;
-        bool isHit = Physics.Raycast(_mainCam.ScreenPointToRay(Input.mousePosition), out hit, _whatIsGround);
+        bool isHit = Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, _whatIsGround);
 
         return (isHit) ? hit.point : _playerTrm.position;
     }

@@ -4,7 +4,36 @@ using UnityEngine;
 
 public class BobberFollowingVCam : VCam
 {
-    protected override void OnSwipeEvent()
+    [SerializeField]
+    private Transform _target;
+
+    public override void SelectVCam()
     {
+        base.SelectVCam();
+
+        InputManager.Instance.OnMouseClickEvent += OnMouseClick;
+    }
+
+    public override void UnselectVCam()
+    {
+        base.UnselectVCam();
+
+        InputManager.Instance.OnMouseClickEvent -= OnMouseClick;
+    }
+
+    public override void UpdateCam()
+    {
+    }
+
+    private void OnMouseClick(bool value){
+        if(value == true){
+            CameraManager.Instance.SetRotateCam(_target,
+                                                Vector3.Distance(_target.position, _virtualCam.transform.position),
+                                                _virtualCam.transform.position,
+                                                _virtualCam.transform.rotation,
+                                                Vector3.zero,
+                                                _state
+            );
+        }
     }
 }

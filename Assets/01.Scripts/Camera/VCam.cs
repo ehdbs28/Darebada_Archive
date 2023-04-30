@@ -3,19 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Core;
 
 public abstract class VCam : MonoBehaviour
 {
-    public Action OnSwipeAction = null;
-
     protected CinemachineVirtualCamera _virtualCam;
     public CinemachineVirtualCamera VirtualCam => _virtualCam;
 
-    public virtual void Init(){
+    protected Core.CameraState _state;
+
+    public virtual void Init(Core.CameraState state){
         _virtualCam = GetComponent<CinemachineVirtualCamera>();
         _virtualCam.Priority = 0;
-
-        OnSwipeAction += OnSwipeEvent;
+        _state = state;
     }
 
     public virtual void SelectVCam(){
@@ -26,5 +26,5 @@ public abstract class VCam : MonoBehaviour
         _virtualCam.Priority = 0;
     }
 
-    protected abstract void OnSwipeEvent();
+    public abstract void UpdateCam();
 }

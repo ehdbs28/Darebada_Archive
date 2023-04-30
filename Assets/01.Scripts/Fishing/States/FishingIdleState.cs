@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Core.CameraState;
 
 public class FishingIdleState : FishingState
 {
@@ -20,7 +21,7 @@ public class FishingIdleState : FishingState
     public override void EnterState()
     {
         _bobberTrm.position = _controller.ActionData.InitPosition;
-        CameraManager.Instance.SetVCam<BoatFollowingVCam>();
+        CameraManager.Instance.SetVCam(BOAT_FOLLOW);
     }
 
     public override void ExitState()
