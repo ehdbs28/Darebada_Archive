@@ -107,7 +107,7 @@ public class InventoryGrid : MonoBehaviour
         return true;
     }
 
-    private bool OverlapCheck(int posX, int posY, int width, int height, ref InventoryItem overlapItem) // 중복 체크
+    public bool OverlapCheck(int posX, int posY, int width, int height, ref InventoryItem overlapItem) // 중복 체크
     {
         for (int x = 0; x < width; x++)
         {
