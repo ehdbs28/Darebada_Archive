@@ -5,5 +5,5 @@ using System.IO;
 
 public class FishMovement : MonoBehaviour
 {
-    
+    private Fish _fish;
 }
