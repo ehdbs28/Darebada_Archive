@@ -6,11 +6,15 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    public InventoryGrid selectedItemGrid;
+    public static InventoryManager Instance;
 
+    public InventoryGrid selectedItemGrid;
+    
     InventoryItem selectedItem;
     InventoryItem overlapItem;
     RectTransform rectTransform;
+    
+    bool isMove = false;
 
     [SerializeField] List<ItemSO> items;
     [SerializeField] GameObject itemPrefab;
@@ -28,9 +32,14 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] Button inventoryLeftRotateBtn;
     [SerializeField] Image inventoryMoveImage;
 
-    
-
-    bool isMove = false;
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("Multy InventoryManager");
+        }
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -50,17 +59,12 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            CreateRandomItem();
-        }
-
         if (selectedItemGrid == null) return; // 인벤토리 칸이 없다면 실행 안시키기 위함
 
         if (Input.GetMouseButtonDown(0))
         {
             LeftMouseButtonPress();
-            SelectItem();
+            SelectItem(selectedItem);
         }
     }
     
@@ -89,7 +93,7 @@ public class InventoryManager : MonoBehaviour
         MoveItem();
     }
 
-    private void CreateRandomItem() // 랜덤 아이템 생성
+    private void CreateRandomItem() // 랜덤 아이템 생성 테스트용
     {
         InventoryItem inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
         selectedItem = inventoryItem; // 아이템 집었다 판정
@@ -158,9 +162,8 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private void SelectItem()
+    private void SelectItem(InventoryItem select)
     {
-        InventoryItem select = selectedItem;
         if (selectedItem != null && isMove == false)
         {
             inventorySelectPanel.SetActive(true);
