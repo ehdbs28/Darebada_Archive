@@ -11,21 +11,21 @@ public class BobberFollowingVCam : VCam
     {
         base.SelectVCam();
 
-        InputManager.Instance.OnMouseClickEvent += OnMouseClick;
+        InputManager.Instance.OnMouseClickEvent += OnScreenClick;
     }
 
     public override void UnselectVCam()
     {
         base.UnselectVCam();
 
-        InputManager.Instance.OnMouseClickEvent -= OnMouseClick;
+        InputManager.Instance.OnMouseClickEvent -= OnScreenClick;
     }
 
     public override void UpdateCam()
     {
     }
 
-    private void OnMouseClick(bool value){
+    private void OnScreenClick(bool value){
         if(value == true){
             CameraManager.Instance.SetRotateCam(_target,
                                                 Vector3.Distance(_target.position, _virtualCam.transform.position),

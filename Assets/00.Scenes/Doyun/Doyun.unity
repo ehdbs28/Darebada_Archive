@@ -735,6 +735,7 @@ GameObject:
   - component: {fileID: 622281470}
   - component: {fileID: 622281469}
   - component: {fileID: 622281471}
+  - component: {fileID: 622281472}
   m_Layer: 0
   m_Name: RotationVCam
   m_TagString: Untagged
@@ -808,8 +809,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3dd3204ff59234399a9803e83767f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offset: {x: 0, y: 0, z: 0}
-  _rotationSpeed: 1
+  _rotationSpeed: 0.2
+--- !u!114 &622281472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622281468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc2b39ae9b82c54d8643c80fb3917bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefix: "\u25C8"
+  backColor: {r: 1, g: 0.47547168, b: 0.47547168, a: 1}
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &629079860
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,6 +1001,7 @@ GameObject:
   - component: {fileID: 686429119}
   - component: {fileID: 686429118}
   - component: {fileID: 686429120}
+  - component: {fileID: 686429121}
   m_Layer: 0
   m_Name: BoatFollowingVCam
   m_TagString: Untagged
@@ -1060,6 +1076,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 976267093}
+--- !u!114 &686429121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686429117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc2b39ae9b82c54d8643c80fb3917bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefix: "\u25C8"
+  backColor: {r: 1, g: 0.47547168, b: 0.47547168, a: 1}
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &879427731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,6 +1477,7 @@ GameObject:
   - component: {fileID: 1267083146}
   - component: {fileID: 1267083145}
   - component: {fileID: 1267083147}
+  - component: {fileID: 1267083148}
   m_Layer: 0
   m_Name: BobberFollowingVCam
   m_TagString: Untagged
@@ -1520,6 +1552,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 321636307}
+--- !u!114 &1267083148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267083144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc2b39ae9b82c54d8643c80fb3917bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefix: "\u25C8"
+  backColor: {r: 1, g: 0.47547168, b: 0.47547168, a: 1}
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1394817951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,8 +1807,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb347b7d826f2440bd14d80687c97a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isReadyToCatch: 0
-  _percent: 0
 --- !u!1 &1763658930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,7 +2246,7 @@ GameObject:
   - component: {fileID: 2126564730}
   - component: {fileID: 2126564729}
   - component: {fileID: 2126564728}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: TestGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}

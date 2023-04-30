@@ -36,7 +36,7 @@ public class FishingChargingState : FishingState
         if(_currentChargingPower >= _controller.ActionData.MaxChargingPower || _currentChargingPower <= 0f)
             _powerDir *= -1;
 
-        _currentDir = GetMousePos() - _playerTrm.position;
+        _currentDir = InputManager.Instance.MousePositionToGroundRayPostion - _playerTrm.position;
         _currentDir.y = _playerTrm.position.y;
         Rotation(_currentDir);
     }
@@ -55,12 +55,4 @@ public class FishingChargingState : FishingState
             // 다 돌아갔을 때 할 일인데 아직 없음
         }
     }   
-
-    // 이것도 인풋 매니저로 빼자
-    private Vector3 GetMousePos(){
-        RaycastHit hit;
-        bool isHit = Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, _whatIsGround);
-
-        return (isHit) ? hit.point : _playerTrm.position;
-    }
 }

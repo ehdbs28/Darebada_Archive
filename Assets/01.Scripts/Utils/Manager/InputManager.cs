@@ -17,7 +17,18 @@ public class InputManager : MonoBehaviour
     public event Action<bool> OnMouseClickEvent = null;
 
     private Vector3 _mousePosition;
+
     public Vector3 MousePosition => _mousePosition;
+    public Vector3 MousePositionToGroundRayPostion{
+        get{
+            RaycastHit hit;
+            bool isHit = Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, _whatIsGround);
+
+            return (isHit) ? hit.point : Vector3.zero;
+        }
+    }
+
+    private LayerMask _whatIsGround;
 
     private void Awake() {
         if(Instance == null){
@@ -25,10 +36,13 @@ public class InputManager : MonoBehaviour
         }
 
         _playerInput = GetComponent<PlayerInput>();
+
+        // 나중에 바꾸기
+        _whatIsGround = LayerMask.GetMask("TestGroundLayer");
     }
 
     // new InputManager에서 Event 형식으로 넘겨서 실행되는 친구들임
-    
+
     public void OnMovement(InputValue value){
         OnMovementEvent?.Invoke(value.Get<float>());
     }

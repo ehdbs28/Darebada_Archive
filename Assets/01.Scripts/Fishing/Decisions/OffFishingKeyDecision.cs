@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class OffFishingKeyDecision : FishingDecision
 {
+    bool _result = false;
+
+    public override void SetUp(Transform agentRoot)
+    {
+        base.SetUp(agentRoot);
+
+        InputManager.Instance.OnMouseClickEvent += OnMouseClick;
+    }
+
     public override bool MakeADecision()
     {
-        return Input.GetKeyUp(KeyCode.Space);
+        return _result;
+    }
+
+    private void OnMouseClick(bool value){
+        _result = !value;
     }
 }

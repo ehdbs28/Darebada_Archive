@@ -9,7 +9,7 @@ public class RotationVCam : VCam
 
     private Vector3 _last;
     private Vector3 _spherical;
-    [SerializeField] private Vector3 _offset;
+    private Vector3 _offset;
 
     [SerializeField]
     private float _rotationSpeed; 

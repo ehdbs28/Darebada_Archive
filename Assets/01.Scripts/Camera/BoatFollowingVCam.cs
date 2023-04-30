@@ -13,21 +13,21 @@ public class BoatFollowingVCam : VCam
     {
         base.SelectVCam();
 
-        InputManager.Instance.OnMouseClickEvent += OnMouseClick;
+        InputManager.Instance.OnMouseClickEvent += OnScreenClick;
     }
 
     public override void UnselectVCam()
     {
         base.UnselectVCam();
 
-        InputManager.Instance.OnMouseClickEvent -= OnMouseClick;
+        InputManager.Instance.OnMouseClickEvent -= OnScreenClick;
     }
 
     public override void UpdateCam()
     {
     }
 
-    private void OnMouseClick(bool value){
+    private void OnScreenClick(bool value){
         if(value == true){
             CinemachineFramingTransposer framingTransposer = _virtualCam.GetCinemachineComponent<CinemachineFramingTransposer>();
             Vector3 offset = framingTransposer.m_TrackedObjectOffset;

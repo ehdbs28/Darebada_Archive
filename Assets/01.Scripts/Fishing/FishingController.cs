@@ -6,6 +6,7 @@ public class FishingController : MonoBehaviour
 {
     [SerializeField]
     private FishingState _currentState;
+    public FishingState CurrentState => _currentState;
 
     [SerializeField]
     private FishingActionData _actionData;

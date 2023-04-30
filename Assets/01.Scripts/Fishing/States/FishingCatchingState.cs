@@ -6,14 +6,14 @@ public class FishingCatchingState : FishingState
 {
     private Transform _bobberTrm;
 
-    [SerializeField] private bool _isReadyToCatch;
+    private bool _isReadyToCatch;
 
     private Vector3 _start;
     private Vector3 _end;
 
     private float _throwTime;
     private float _currentTime = 0f;
-    [SerializeField]private float _percent = 0f;
+    private float _percent = 0f;
 
     public override void SetUp(Transform agentRoot)
     {
@@ -48,6 +48,7 @@ public class FishingCatchingState : FishingState
     public override void UpdateState()
     {
         if(_isReadyToCatch){
+            // 나중에 조건 고치기
             if(Input.GetKey(KeyCode.Space)){
                 _percent -= _controller.ActionData.ThrowingSpeed * Time.deltaTime / _throwTime;
                 _bobberTrm.position = GetLerpPos();
@@ -61,6 +62,7 @@ public class FishingCatchingState : FishingState
             // 여기서 물고기 끌고오고 미니게임 들어가야 함
         }
         else{
+            // 나중에 조건 고치기
             if(Input.GetKeyDown(KeyCode.Space)){
                 _percent = 1f;
                 _isReadyToCatch = true;
