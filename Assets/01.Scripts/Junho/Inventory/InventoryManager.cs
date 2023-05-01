@@ -10,12 +10,6 @@ public class InventoryManager : MonoBehaviour
 
     public InventoryGrid selectedItemGrid;
     
-    InventoryItem selectedItem;
-    InventoryItem overlapItem;
-    RectTransform rectTransform;
-    
-    bool isMove = false;
-
     [SerializeField] List<ItemSO> items;
     [SerializeField] GameObject itemPrefab;
     [SerializeField] Transform canvasTransform;
@@ -31,6 +25,13 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] Button inventoryRightRotateBtn;
     [SerializeField] Button inventoryLeftRotateBtn;
     [SerializeField] Image inventoryMoveImage;
+    
+    private InventoryItem selectedItem;
+    private InventoryItem overlapItem;
+    private RectTransform rectTransform;
+    
+    private bool isMove = false;
+
 
     private void Awake()
     {
@@ -59,6 +60,11 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q)) 
+        {
+            CreateRandomItem();
+        }
+
         if (selectedItemGrid == null) return; // 인벤토리 칸이 없다면 실행 안시키기 위함
 
         if (Input.GetMouseButtonDown(0))
@@ -75,16 +81,18 @@ public class InventoryManager : MonoBehaviour
         InventoryItem beforeItem = selectedItem;
         
         if (selectedItem == null) { return; } // 집은 아이템이 없다면 실행 안함
-        if (selectedItemGrid.OverlapCheck(selectedItem.onGridPositionX, selectedItem.onGridPositionY, selectedItem.HEIGHT, selectedItem.WIDTH, ref selectedItem) == false)
+        selectedItemGrid.OverlapCheck(selectedItem.onGridPositionX, selectedItem.onGridPositionY, selectedItem.HEIGHT, selectedItem.WIDTH, ref overlapItem);
+        
+        if (overlapItem != null) 
         {
             print("겹침");
+            return;
         }
         else
         {
             selectedItem.Rotate(clockwise);
             print("안겹침");
         }
-
 
         PlaceItem(before);
         selectedItem = beforeItem;
