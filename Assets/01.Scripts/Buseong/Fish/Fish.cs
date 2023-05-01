@@ -5,12 +5,12 @@ using UnityEngine;
 public class Fish : MonoBehaviour
 {
     private BIOME _habitatBiome;
-    private float _habitatX; //¹«ºê¸ÕÆ®¿¡¼­
-    private float _habitatY; //¹«ºê¸ÕÆ®¿¡¼­
+    private float _habitatX; //ì„œì‹ì§€Xê°’
+    private float _habitatY; //ì„œì‹ì§€Yê°’
     private FISHSPECIES _fishSpecies;
-    private Vector3 _direction; //¹«ºê¸ÕÆ®¿¡¼­
-    private float _swimSpeed; //¹«ºê¸ÕÆ®¿¡¼­
-    private float _turnSpeed; //¹«ºê¸ÕÆ®¿¡¼­
+    private float _swimSpeed; //í—¤ì—„ ì†ë„
+    public float SwimSpeed => _swimSpeed;
+    private float _turnSpeed; //íšŒì „ ì†ë„
     private float _rarity;    
     private float _level;
     private float _cost;
@@ -33,6 +33,5 @@ public class Fish : MonoBehaviour
         _spawnPercent = data.SpawnPercent;
         _fishObject = Instantiate(data._fishPrefab, new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10)), Quaternion.identity);
         _fishObject.GetComponent<MeshRenderer>().material = data.TestMat;
-        //Instantiate(data._fishPrefab, new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10)), Quaternion.identity);
     }
 }

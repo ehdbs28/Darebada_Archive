@@ -25,4 +25,4 @@ MonoBehaviour:
   Size: 0
   SpawnPercent: 50
   TestMat: {fileID: 2100000, guid: e3a216be4dc669b4baf6af844da02a1c, type: 2}
-  _fishPrefab: {fileID: 2230876798875230356, guid: 108e7605a856e234ebc994cb4875bacd, type: 3}
+  _fishPrefab: {fileID: 2697259557522150742, guid: 108e7605a856e234ebc994cb4875bacd, type: 3}

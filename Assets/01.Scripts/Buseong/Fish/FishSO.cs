@@ -9,7 +9,6 @@ public class FishSO : ScriptableObject
     public float HabitatX;          //서식X값
     public float HabitatY;          //서식y값
     public FISHSPECIES FishSpecies; //어종
-    public Vector3 Direction;       //방향
     public float SwimSpeed;         //헤엄 속도
     public float TurnSpeed;         //방향 전환 속도
     public float Rarity;            //희귀도
