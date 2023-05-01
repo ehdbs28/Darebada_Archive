@@ -168,11 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491152c90602dd94db49861c54ca659b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
-  _controller: {fileID: 0}
-  _bobberTrm: {fileID: 0}
-  _playerTrm: {fileID: 0}
-  _gravity: -9.8
 --- !u!1 &304437218
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +557,7 @@ MonoBehaviour:
   BoatRotationDeceleration: 10
   MaxFule: 100
   MaxDurablity: 100
+  IsMoveBoat: 0
 --- !u!54 &413927581
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -727,7 +723,6 @@ MonoBehaviour:
   - {fileID: 686429120}
   - {fileID: 1267083147}
   - {fileID: 622281471}
-  _currentActiveVCam: {fileID: 0}
 --- !u!1 &622281468
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,15 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3dd3204ff59234399a9803e83767f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _virtualCam: {fileID: 0}
-  _state: 0
-  _last: {x: 0, y: 0, z: 0}
-  _spherical: {x: 0, y: 0, z: 0}
-  _offset: {x: 0, y: 0, z: 0}
   _rotationSpeed: 0.2
-  _radius: 0
-  _isRotate: 0
-  _lastVCamState: 0
 --- !u!114 &622281472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -835,16 +822,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefix: "\u25C8"
-  backColor:
-    r: 1
-    g: 0.47547168
-    b: 0.47547168
-    a: 1
-  fontColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
+  backColor: {r: 1, g: 0.47547168, b: 0.47547168, a: 1}
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &629079860
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,14 +869,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8ae36cef72c3449bf4dbea505c6615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
-  _controller: {fileID: 0}
   _whatIsGround:
+    serializedVersion: 2
     m_Bits: 32768
-  _playerTrm: {fileID: 0}
-  _currentChargingPower: 0
-  _powerDir: 1
-  _currentDir: {x: 0, y: 0, z: 0}
 --- !u!4 &632692387 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8989529067803825723, guid: f2cfc7cd690e6fe4f9678427228e5322, type: 3}
@@ -1056,8 +1030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54121598d5a9aaa4c8443f9dd0b7ea4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _virtualCam: {fileID: 0}
-  _state: 0
   _target: {fileID: 976267093}
 --- !u!114 &686429121
 MonoBehaviour:
@@ -1072,16 +1044,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefix: "\u25C8"
-  backColor:
-    r: 1
-    g: 0.47547168
-    b: 0.47547168
-    a: 1
-  fontColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
+  backColor: {r: 1, g: 0.47547168, b: 0.47547168, a: 1}
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &879427731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,10 +1091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa3df37f01355941a117345b1da745d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
-  _controller: {fileID: 0}
-  _bobberTrm: {fileID: 0}
-  _playerTrm: {fileID: 0}
 --- !u!1 &934988241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,10 +1136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d7a9e9cb544fa4b8ad56c9c8e5828c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerInput: {fileID: 0}
-  _mousePosition: {x: 0, y: 0, z: 0}
-  _whatIsGround:
-    m_Bits: 0
 --- !u!114 &934988244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,15 +1154,12 @@ MonoBehaviour:
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: PC
@@ -1441,7 +1394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3ec3a6ae16c184597de2b97331763e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controller: {fileID: 0}
   IsReverse: 1
 --- !u!114 &1198502767
 MonoBehaviour:
@@ -1456,7 +1408,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextState: {fileID: 879427733}
-  _decisions: []
 --- !u!114 &1198502768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1469,7 +1420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c230a8979436fe44993a2bd5d16ac961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controller: {fileID: 0}
   IsReverse: 0
 --- !u!1 &1267083144
 GameObject:
@@ -1556,8 +1506,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb2cdb6f1142544283672765db14ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _virtualCam: {fileID: 0}
-  _state: 0
   _target: {fileID: 321636307}
 --- !u!114 &1267083148
 MonoBehaviour:
@@ -1572,16 +1520,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefix: "\u25C8"
-  backColor:
-    r: 1
-    g: 0.47547168
-    b: 0.47547168
-    a: 1
-  fontColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
+  backColor: {r: 1, g: 0.47547168, b: 0.47547168, a: 1}
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1394817951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,9 +1568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca391decf6f9aa4d9dda99577a18783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controller: {fileID: 0}
   IsReverse: 0
-  _result: 0
 --- !u!114 &1394817954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1644,7 +1582,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextState: {fileID: 629079862}
-  _decisions: []
 --- !u!114 &1394817955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1657,9 +1594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06465761f00de3c44a885291fbbc7370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controller: {fileID: 0}
   IsReverse: 1
-  _boatController: {fileID: 0}
 --- !u!1001 &1428511097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1827,15 +1762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb347b7d826f2440bd14d80687c97a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
-  _controller: {fileID: 0}
-  _bobberTrm: {fileID: 0}
-  _isReadyToCatch: 0
-  _start: {x: 0, y: 0, z: 0}
-  _end: {x: 0, y: 0, z: 0}
-  _throwTime: 0
-  _currentTime: 0
-  _percent: 0
 --- !u!1 &1763658930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,7 +1808,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextState: {fileID: 115097192}
-  _decisions: []
 --- !u!114 &1763658934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1895,9 +1820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a811cdce833cf4ba00a6711e99a5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controller: {fileID: 0}
   IsReverse: 0
-  _result: 0
 --- !u!1 &1845419637
 GameObject:
   m_ObjectHideFlags: 3
@@ -2252,7 +2175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3ec3a6ae16c184597de2b97331763e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controller: {fileID: 0}
   IsReverse: 0
 --- !u!114 &2110163065
 MonoBehaviour:
@@ -2267,7 +2189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextState: {fileID: 1644358136}
-  _decisions: []
 --- !u!1 &2126564727
 GameObject:
   m_ObjectHideFlags: 0

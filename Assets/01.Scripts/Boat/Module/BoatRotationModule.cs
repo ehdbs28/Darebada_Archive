@@ -7,7 +7,6 @@ public class BoatRotationModule : CommonModule
     private Rigidbody _rigid;
 
     private float _dir = 0f;
-    private float _movementValue = 0f;
     private Vector3 _rotate = Vector3.zero;
 
     private float _rotationMaxSpeed => _controller.BoatData.BoatMaxRotationSpeed;
@@ -36,21 +35,15 @@ public class BoatRotationModule : CommonModule
     }
 
     private void AddEvent(){
-        _controller.GetModule<BoatInputModule>().OnRotateKeyPress += SetRotationValue;
-        _controller.GetModule<BoatInputModule>().OnMovementKeyPress += SetMovementValue;
-
+        InputManager.Instance.OnRotationEvent += SetRotationValue;
     }
 
     private void SetRotationValue(float value){
         _dir = value;
     }
 
-    private void SetMovementValue(float value){
-        _movementValue = value;
-    }
-
     private void Rotate(){
-        if(Mathf.Abs(_dir) > 0 && Mathf.Abs(_movementValue) > 0){
+        if(Mathf.Abs(_dir) > 0 && _controller.BoatData.IsMoveBoat){
             if(Vector3.Dot(_controller.transform.up * _dir, _rotate) < 0){
                 _currentRotateVelocity = 0f;
             }
@@ -61,7 +54,7 @@ public class BoatRotationModule : CommonModule
     }
 
     private float CalcVelocity(){
-        if(Mathf.Abs(_dir) > 0 && Mathf.Abs(_movementValue) > 0){
+        if(Mathf.Abs(_dir) > 0 && _controller.BoatData.IsMoveBoat){
             _currentRotateVelocity += _rotateAcceleration * Time.deltaTime;
         }
         else{

@@ -14,7 +14,9 @@ public class BoatController : MonoBehaviour
         _boatData = GetComponent<BoatData>();
 
         transform.Find("Modules").GetComponentsInChildren<CommonModule>(_modules);
+    }
 
+    private void Start() {        
         foreach(var module in _modules){
             module.SetUp(transform);
         }

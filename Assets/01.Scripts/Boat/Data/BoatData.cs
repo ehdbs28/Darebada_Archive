@@ -41,4 +41,7 @@ public class BoatData : MonoBehaviour
     [Header("보트 내구도 관련")]
     [Tooltip("보트의 최대 내구도이다")]
     public float MaxDurablity;
+
+    [HideInInspector]
+    public bool IsMoveBoat;
 }

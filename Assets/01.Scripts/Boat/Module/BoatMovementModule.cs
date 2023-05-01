@@ -5,6 +5,7 @@ using UnityEngine;
 public class BoatMovementModule : CommonModule
 {
     private Rigidbody _rigid;
+    private FishingController _fishingController;
 
     private Vector3 _movement = Vector3.zero;
     private float _inputDir = 0f;
@@ -21,6 +22,7 @@ public class BoatMovementModule : CommonModule
         base.SetUp(rootTrm);
 
         _rigid = rootTrm.GetComponent<Rigidbody>();
+        _fishingController = GameObject.Find("TestPlayer").GetComponentInChildren<FishingController>();
 
         AddEvent();
         StopImmediately();
@@ -28,6 +30,9 @@ public class BoatMovementModule : CommonModule
 
     public override void UpdateModule()
     {
+        if(_fishingController.ActionData.IsFishing)
+            return;
+
         Movement();
     }
 
@@ -37,7 +42,7 @@ public class BoatMovementModule : CommonModule
     }
 
     private void AddEvent(){
-        _controller.GetModule<BoatInputModule>().OnMovementKeyPress += SetMovementValue;
+        InputManager.Instance.OnMovementEvent += SetMovementValue;
     }
 
     private void SetMovementValue(float value){
@@ -49,7 +54,11 @@ public class BoatMovementModule : CommonModule
             if(Vector3.Dot(_controller.transform.forward * _inputDir, _movement) < 0){
                 _currentVelocity = 0f;
             }
+            _controller.BoatData.IsMoveBoat = true;
             _movement = _controller.transform.forward * _inputDir;
+        }
+        else{
+            _controller.BoatData.IsMoveBoat = false;
         }
         _currentVelocity = CalcVelocity();
     }
@@ -58,7 +67,6 @@ public class BoatMovementModule : CommonModule
         if(Mathf.Abs(_inputDir) > 0){
             if(_inputDir > 0){
                 _currentVelocity += _forwardAcceleration * Time.deltaTime;
-
             }
             else{
                 _currentVelocity += _backwardAcceleration * Time.deltaTime;
