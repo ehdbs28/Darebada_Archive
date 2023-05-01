@@ -7,6 +7,11 @@ public class FishIcon : MonoBehaviour
 {
     public FishInfoSO fishInfo;
     private Image _image;
+    private InfoPanel _panel;
+    private void Awake()
+    {
+        _panel = FindObjectOfType<InfoPanel>();
+    }
     private void OnEnable()
     {
         _image= GetComponent<Image>();
@@ -14,15 +19,14 @@ public class FishIcon : MonoBehaviour
     }
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.J)) SetDonate(!fishInfo.hadDonated);
     }
     public void OpenPanel()
     {
-        InfoPanel panel = FindObjectOfType<InfoPanel>();
-        if(!panel.gameObject.activeSelf)
+        if(!_panel.gameObject.activeSelf)
         {
-            panel.fishSO= fishInfo;
-            panel.gameObject.SetActive(true);
+            _panel.fishSO= fishInfo;
+            _panel.gameObject.SetActive(true);
         }
     }
     public void SetDonate(bool state)
@@ -33,7 +37,6 @@ public class FishIcon : MonoBehaviour
 
     public void Show()
     {
-        Debug.Log(fishInfo.hadDonated);
         if(fishInfo.hadDonated)
         {
             _image.sprite = fishInfo.icon;

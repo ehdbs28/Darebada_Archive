@@ -16,7 +16,10 @@ public class InfoPanel : MonoBehaviour
     [SerializeField] TextMeshProUGUI _habitatText;
     [SerializeField] TextMeshProUGUI _rarityText;
     [SerializeField] TextMeshProUGUI _necessityText;//필요한 장식 ID
-
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
     private void OnEnable()
     {
         _fishNameText.text = fishSO.fishName;
