@@ -13,6 +13,11 @@ TagManager:
   - UI
   - 
   - 
+  - Ground
+  - Slider_Handle
+  - Driver
+  - Heavy_weight_object
+  - LockedObj
   - 
   - 
   - 
