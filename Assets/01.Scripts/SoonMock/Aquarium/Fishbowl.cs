@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 public class Fishs
 {
-    public List<Fish> fishList;
+    public List<SoonMockFish> fishList;
 }
 public class Fishbowl :  Facility
 {
@@ -17,7 +17,7 @@ public class Fishbowl :  Facility
     public int MaxAmount = 3;
     
     Dictionary<int, Fishs> fishs = new Dictionary<int, Fishs>();
-    [SerializeField]List<int> Decorations = new List<int>();
+    [SerializeField]Dictionary<int,Deco> Decorations = new Dictionary<int, Deco>();
     [SerializeField] int tempKey, tempAmount;
     public void AddFish(int key, int amount)
     {        
@@ -28,18 +28,18 @@ public class Fishbowl :  Facility
             {
                 GameObject obj = AquariumManager.Instance.AddFish(key, transform);
                 
-                obj.GetComponent<Fish>().id = key;
-                obj.GetComponent<Fish>().ChangeName();
-                fishs[key].fishList.Add(obj.GetComponent<Fish>());
+                obj.GetComponent<SoonMockFish>().id = key;
+                obj.GetComponent<SoonMockFish>().ChangeName();
+                fishs[key].fishList.Add(obj.GetComponent<SoonMockFish>());
             }
         }else
         {
             GameObject obj = AquariumManager.Instance.AddFish(key, transform);
             fishs.Add(key, new Fishs());
-            fishs[key].fishList = new List<Fish>();
-            fishs[key].fishList.Add(obj.GetComponent<Fish>());
-            obj.GetComponent<Fish>().id = key;
-            obj.GetComponent<Fish>().ChangeName();
+            fishs[key].fishList = new List<SoonMockFish>();
+            fishs[key].fishList.Add(obj.GetComponent<SoonMockFish>());
+            obj.GetComponent<SoonMockFish>().id = key;
+            obj.GetComponent<SoonMockFish>().ChangeName();
         }
         
     }
@@ -57,11 +57,21 @@ public class Fishbowl :  Facility
         }
         Cost = 3 * MaxAmount * 300;
     }
-    public void AddDeco(int deco)
+    public void AddDeco(int id)
     {
-        if(!Decorations.Equals(deco))
+        if(!Decorations.ContainsKey(id))
         {
-            Decorations.Add(deco);
+            Deco deco = AquariumManager.Instance.AddDeco(id, transform).GetComponent<Deco>();
+            Decorations.Add(id, deco);
+            deco.gameObject.transform.localPosition = deco.pos;
+            AquariumManager.Instance.decoCount++;
+        }
+        else
+        {
+            Deco deco = Decorations[id];
+            Decorations.Remove(id);
+            Destroy(deco.gameObject);
+            AquariumManager.Instance.decoCount--;
         }
     }
     public override Facility OnTouched()

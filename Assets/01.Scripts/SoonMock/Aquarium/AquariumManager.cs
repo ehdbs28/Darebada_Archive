@@ -24,8 +24,8 @@ public class AquariumManager : MonoBehaviour
         get { return _entrancefee; }
         set { _entrancefee = value; }
     }
-    [SerializeField] private int _entrancePercent;
-    public int EntrancePercent
+    [SerializeField] private float _entrancePercent;
+    public float EntrancePercent
     {
         get { return _entrancePercent; }
         set { _entrancePercent= value; }
@@ -54,9 +54,11 @@ public class AquariumManager : MonoBehaviour
     //아쿠아리움 내 시설들
     [SerializeField] GameObject fishBowlObject;
     [SerializeField] GameObject fishObject;
+    [SerializeField] GameObject decoObject;
     [SerializeField] GameObject snackShopObject;
+    public int decoCount = 0;
     public List<GameObject> aquaObject = new List<GameObject>();
-    public List<Facility> aqurium = new List<Facility>();
+    public List<Facility> aquarium = new List<Facility>();
 
 
     private void Awake()
@@ -75,33 +77,26 @@ public class AquariumManager : MonoBehaviour
     }
     private void Update()
     {
-        EntrancePercent = Mathf.Clamp((aquaObject.Count/EntranceFee)*100,0,100);
+        EntrancePercent = Mathf.Clamp((float)((float)aquaObject.Count/(float)EntranceFee)*100f,0f,200f);
         Reputation = (EntrancePercent/100f * CleanScore/100f * ArtScore/100f) * 100f;
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            AddFishBowl();
-        }
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            AddSnackShop();
-        }
+        ArtScore = Mathf.Clamp(((float)(decoCount/2)/ aquarium.Count) * 100, 0, 100);
     }
     public void AddFishBowl()
     {
         Fishbowl fishBowl = Instantiate(fishBowlObject).GetComponent<Fishbowl>();
-            _floorSize.z = aqurium.Count % _horizontalCount * 5;
-        if(aqurium.Count%_horizontalCount==0)
+            _floorSize.z = aquarium.Count % _horizontalCount * 5;
+        if(aquarium.Count%_horizontalCount==0)
         {
             Debug.Log("Asdf");
             _floorSize.x += 5;
         }
         fishBowl.transform.localPosition = new Vector3(_floorSize.x, 0, _floorSize.z);
         aquaObject.Add(fishBowl.gameObject);
-        aqurium.Add(fishBowl);
+        aquarium.Add(fishBowl);
         if (aquaObject.Count % _horizontalCount != 0)
         {
-        floor.transform.localScale = new Vector3(aquaObject.Count / _horizontalCount * 5 + 5, 0.5f, (_horizontalCount + 1) *5);
-            floor.transform.localPosition = new Vector3(_floorSize.x / 2 + 5, 0.5f, (_horizontalCount + 1) *1.5f);
+        floor.transform.localScale = new Vector3(aquaObject.Count / _horizontalCount * 5 + 30, 0.5f, (_horizontalCount + 1) *5);
+            floor.transform.localPosition = new Vector3(_floorSize.x / 2 + 15, 0.5f, (_horizontalCount + 1) *1.5f);
 
         }
     //    else floor.transform.localPosition = new Vector3(_floorSize.x / 2+10, 0, 0);
@@ -109,19 +104,18 @@ public class AquariumManager : MonoBehaviour
     public void AddSnackShop()
     {
         SnackShop snackShop = Instantiate(snackShopObject).GetComponent<SnackShop>();
-        _floorSize.z = aqurium.Count % _horizontalCount * 5;
-        if (aqurium.Count % _horizontalCount == 0)
+        _floorSize.z = aquarium.Count % _horizontalCount * 5;
+        if (aquarium.Count % _horizontalCount == 0)
         {
             Debug.Log("Asdf");
             _floorSize.x += 5;
         }
         snackShop.transform.localPosition = new Vector3(_floorSize.x, 0.5f, _floorSize.z);
         aquaObject.Add(snackShop.gameObject);
-        aqurium.Add(snackShop);
         if (aquaObject.Count % _horizontalCount != 0)
         {
-            floor.transform.localScale = new Vector3(aquaObject.Count / _horizontalCount * 5 + 5, 0.5f, (_horizontalCount + 1) * 5);
-            floor.transform.localPosition = new Vector3(_floorSize.x / 2 + 5, 0.5f, (_horizontalCount + 1) * 1.5f);
+            floor.transform.localScale = new Vector3(aquaObject.Count / _horizontalCount * 5 + 30, 0.5f, (_horizontalCount + 1) * 5);
+            floor.transform.localPosition = new Vector3(_floorSize.x / 2 + 15, 0.5f, (_horizontalCount + 1) * 1.5f);
 
         }
     }
@@ -132,4 +126,12 @@ public class AquariumManager : MonoBehaviour
         fish.transform.localPosition = new Vector3(Random.Range(-0.8f,0.8f), 1f, Random.Range(-0.8f, 0.8f));
         return fish;
     }
+    public GameObject AddDeco(int id, Transform parent)
+    {
+        GameObject deco = Instantiate(decoObject);
+        deco.transform.parent = parent;
+        deco.GetComponent<Deco>().SetId(id);
+        deco.transform.localPosition = deco.GetComponent<Deco>().pos;
+        return deco;
     }
+}

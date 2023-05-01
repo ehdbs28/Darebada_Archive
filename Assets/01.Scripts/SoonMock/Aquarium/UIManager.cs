@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using System.Net.Sockets;
 
 public class UIManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _fishCostText;
     [SerializeField] private TextMeshProUGUI _shopCostText;
     [SerializeField] private TextMeshProUGUI _shopAmountText;
+    [SerializeField] private GameObject AddPanel;
     private void FixedUpdate()
     {
         _goldText.text = AquariumManager.Instance.Gold.ToString();
@@ -31,5 +33,9 @@ public class UIManager : MonoBehaviour
             _shopAmountText.text = shopStatePanel.upgradeObj.GetComponent<SnackShop>().amount.ToString();
         }
 
+    }
+    public void OnOffPanel()
+    {
+        AddPanel.SetActive(!AddPanel.activeSelf);
     }
 }

@@ -8,6 +8,7 @@ public class UpgradeManager : MonoBehaviour
 {
     public StatePanel fishbowlUpgradePanel;
     public StatePanel shopUpgradePanel;
+    public GameObject addPanel;
     [SerializeField]float handlingTime;
     [SerializeField]float limitTime;
     Camera mainCam;
@@ -37,7 +38,7 @@ public class UpgradeManager : MonoBehaviour
         {
             if(handlingTime <= limitTime)
             {
-                if(!fishbowlUpgradePanel.gameObject.activeSelf && !shopUpgradePanel.gameObject.activeSelf)
+                if(!fishbowlUpgradePanel.gameObject.activeSelf && !shopUpgradePanel.gameObject.activeSelf && !addPanel.activeSelf)
                 {
                     RaycastHit hit;
                     Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
