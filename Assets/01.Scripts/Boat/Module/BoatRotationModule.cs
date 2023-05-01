@@ -35,7 +35,7 @@ public class BoatRotationModule : CommonModule
     }
 
     private void AddEvent(){
-        _controller.GetModule<BoatInputModule>().OnRotateKeyPress += SetRotationValue;
+        InputManager.Instance.OnRotationEvent += SetRotationValue;
     }
 
     private void SetRotationValue(float value){

@@ -12,7 +12,6 @@ public class FishingIdleState : FishingState
     {
         base.SetUp(agentRoot);
 
-        _controller.ActionData.IsFishing = false;
         _bobberTrm = agentRoot.Find("Bobber");
         _playerTrm = agentRoot.parent;
         _controller.ActionData.InitPosition = _bobberTrm.position;
@@ -20,6 +19,7 @@ public class FishingIdleState : FishingState
 
     public override void EnterState()
     {
+        _controller.ActionData.IsFishing = false;
         _bobberTrm.position = _controller.ActionData.InitPosition;
         CameraManager.Instance.SetVCam(BOAT_FOLLOW);
     }
