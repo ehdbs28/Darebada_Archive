@@ -35,7 +35,7 @@ public class BoatRotationModule : CommonModule
     }
 
     private void AddEvent(){
-        InputManager.Instance.OnRotationEvent += SetRotationValue;
+        GameManager.Instance.GetManager<InputManager>().OnRotationEvent += SetRotationValue;
     }
 
     private void SetRotationValue(float value){

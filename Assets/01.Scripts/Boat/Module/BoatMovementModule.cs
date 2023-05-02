@@ -42,7 +42,7 @@ public class BoatMovementModule : CommonModule
     }
 
     private void AddEvent(){
-        InputManager.Instance.OnMovementEvent += SetMovementValue;
+        GameManager.Instance.GetManager<InputManager>().OnMovementEvent += SetMovementValue;
     }
 
     private void SetMovementValue(float value){

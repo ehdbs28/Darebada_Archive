@@ -36,7 +36,7 @@ public class FishingChargingState : FishingState
         if(_currentChargingPower >= _controller.ActionData.MaxChargingPower || _currentChargingPower <= 0f)
             _powerDir *= -1;
 
-        _currentDir = InputManager.Instance.MousePositionToGroundRayPostion - _playerTrm.position;
+        _currentDir = GameManager.Instance.GetManager<InputManager>().MousePositionToGroundRayPostion - _playerTrm.position;
         _currentDir.y = _playerTrm.position.y;
         Rotation(_currentDir);
     }

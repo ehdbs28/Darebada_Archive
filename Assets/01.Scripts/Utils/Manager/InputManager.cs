@@ -5,11 +5,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Core;
 
-public class InputManager : MonoBehaviour
+public class InputManager : MonoBehaviour, IManager
 {
-    public static InputManager Instance = null;
-    // 이것도 나중에 게임매니저에서 인스턴스 관리
-
     private PlayerInput _playerInput;
 
     public event Action<float> OnMovementEvent = null;
@@ -30,12 +27,12 @@ public class InputManager : MonoBehaviour
 
     private LayerMask _whatIsGround;
 
-    private void Awake() {
-        if(Instance == null){
-            Instance = this;
-        }
+    public InputManager(){
+        Reset();
+    }
 
-        _playerInput = GetComponent<PlayerInput>();
+    public void InitManager() {
+        _playerInput = GameManager.Instance.GetComponent<PlayerInput>();
 
         // 나중에 바꾸기
         _whatIsGround = LayerMask.GetMask("TestGroundLayer");
@@ -58,4 +55,7 @@ public class InputManager : MonoBehaviour
     public void OnMousePosition(InputValue value){
         _mousePosition = value.Get<Vector2>();
     }
+
+    public void Reset(){}
+    public void UpdateManager(){}
 }

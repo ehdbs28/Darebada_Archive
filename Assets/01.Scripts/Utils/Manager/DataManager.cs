@@ -6,22 +6,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core;
 
-public class DataManager : MonoBehaviour
+public class DataManager : IManager
 {
-    public static DataManager Instance = null;
-    // 나중에 게임 매니저에서 관리
-
     private Dictionary<DataType, DataUnit> _dataUnits;
 
     private string DATA_PATH = "";
 
     private float _autoSaveTime = 3f;
 
-    private void Awake() {
-        if(Instance == null){
-            Instance = this;
-        }
+    public DataManager(){
+        Reset();
+    }
 
+    public void InitManager() {
         _dataUnits = new Dictionary<DataType, DataUnit>();
 
         // 모바일 빌드 시에는 바꿔야 해
@@ -37,7 +34,7 @@ public class DataManager : MonoBehaviour
 
         LoadData();
 
-        InvokeRepeating("SaveDataAll", 0.5f, _autoSaveTime);
+        //GameManager.Instance.InvokeRepeating("SaveDataAll", 0.5f, _autoSaveTime);
     }
 
     private void LoadData(){
@@ -83,4 +80,7 @@ public class DataManager : MonoBehaviour
 
         return returnData;
     }
+
+    public void Reset(){}
+    public void UpdateManager(){}
 }
