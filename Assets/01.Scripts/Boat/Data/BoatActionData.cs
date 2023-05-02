@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoatData : MonoBehaviour
+public class BoatActionData : MonoBehaviour
 {
     [Header("보트 이동 관련")]
     [Tooltip("보트의 최대 이동속도")]
@@ -42,6 +42,8 @@ public class BoatData : MonoBehaviour
     [Tooltip("보트의 최대 내구도이다")]
     public float MaxDurablity;
 
-    [HideInInspector]
     public bool IsMoveBoat;
+
+    public float CurrentFule;
+    public float CurrentDurablity;
 }
