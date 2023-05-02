@@ -11,6 +11,7 @@ public class FishingController : MonoBehaviour
     [SerializeField]
     private FishingActionData _actionData;
     public FishingActionData ActionData => _actionData;
+    public FishingData FishingData => GameManager.Instance.GetManager<DataManager>().GetData(Core.DataType.FishingData) as FishingData;
 
     private void Awake() {
         List<FishingState> states = new List<FishingState>();

@@ -54,11 +54,11 @@ public class BoatMovementModule : CommonModule
             if(Vector3.Dot(_controller.transform.forward * _inputDir, _movement) < 0){
                 _currentVelocity = 0f;
             }
-            _controller.BoatData.IsMoveBoat = true;
+            _controller.BoatActionData.IsMoveBoat = true;
             _movement = _controller.transform.forward * _inputDir;
         }
         else{
-            _controller.BoatData.IsMoveBoat = false;
+            _controller.BoatActionData.IsMoveBoat = false;
         }
         _currentVelocity = CalcVelocity();
     }
