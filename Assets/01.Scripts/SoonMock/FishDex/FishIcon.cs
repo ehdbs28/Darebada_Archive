@@ -25,8 +25,7 @@ public class FishIcon : MonoBehaviour
     {
         if(!_panel.gameObject.activeSelf)
         {
-            _panel.fishSO= fishInfo;
-            _panel.gameObject.SetActive(true);
+            FishDexManager.Instance.OpenDex(fishInfo);
         }
     }
     public void SetDonate(bool state)

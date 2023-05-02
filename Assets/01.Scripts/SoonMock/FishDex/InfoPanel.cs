@@ -22,43 +22,59 @@ public class InfoPanel : MonoBehaviour
     }
     private void OnEnable()
     {
-        _fishNameText.text = fishSO.fishName;
-        _orderAndGenusText.text = fishSO.orderAndGenus;
         if(fishSO.hadDonated)
         {
-            _icon.sprite = fishSO.icon;
+            _fishNameText.text = fishSO.fishName;
+            _orderAndGenusText.text = fishSO.orderAndGenus;
+            if (fishSO.hadDonated)
+            {
+                _icon.sprite = fishSO.icon;
+            }
+            else
+            {
+                _icon.sprite = fishSO.obscuredIcon;
+            }
+            _featuresText.text = fishSO.features;
+            _biggestSizeText.text = fishSO.biggestSize + "mm";
+            _biggestWeightText.text = fishSO.biggestWeight + "Kg";
+            _habitatText.text = fishSO.habitat;
+            string rarity;
+            switch (fishSO.rarity)
+            {
+                case RARITY.S:
+                    rarity = "S";
+                    break;
+                case RARITY.A:
+                    rarity = "A";
+                    break;
+                case RARITY.B:
+                    rarity = "B";
+                    break;
+                case RARITY.C:
+                    rarity = "C";
+                    break;
+                case RARITY.D:
+                    rarity = "D";
+                    break;
+                default:
+                    rarity = "PARTY PA PARTY PARTY PARTY P A R T Y";
+                    break;
+            }
+            _rarityText.text = rarity;
+            _necessityText.text = fishSO.necessity;
+
         }else
         {
             _icon.sprite = fishSO.obscuredIcon;
+            _fishNameText.text = "??";
+            _orderAndGenusText.text = "??";
+
+            _featuresText.text = "??";
+            _biggestSizeText.text = "??";
+            _biggestWeightText.text = "??";
+            _habitatText.text = "??";
+            _rarityText.text = "??";
+            _necessityText.text = "??";
         }
-        _featuresText.text = fishSO.features;
-        _biggestSizeText.text = fishSO.biggestSize + "mm";
-        _biggestWeightText.text = fishSO.biggestWeight + "Kg";
-        _habitatText.text = fishSO.habitat;
-        string rarity;
-        switch (fishSO.rarity)
-        {
-            case RARITY.S:
-                rarity = "S";
-                break;
-            case RARITY.A:
-                rarity = "A";
-                break;
-            case RARITY.B:
-                rarity = "B";
-                break;
-            case RARITY.C:
-                rarity = "C";
-                break;
-            case RARITY.D:
-                rarity = "D";
-                break;
-            default:
-                rarity = "PARTY PA PARTY PARTY PARTY P A R T Y";
-                break;
-        }
-        _rarityText.text = rarity;
-        _necessityText.text = fishSO.necessity;
-        
     }
 }
