@@ -8,6 +8,11 @@ namespace Core{
         FINISH
     }
 
+    public enum DataType{
+        BoatData,
+        FishingData,
+    }
+
     public class Define{
         private static Camera _mainCam = null;
         public static Camera MainCam{

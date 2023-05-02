@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class BoatController : MonoBehaviour
 {
-    private BoatData _boatData;
-    public BoatData BoatData => _boatData;
+    private BoatActionData _boatActionData;
+    public BoatActionData BoatActionData => _boatActionData;
+    public BoatData BoatData => GameManager.Instance.GetManager<DataManager>().GetData(Core.DataType.BoatData) as BoatData;
 
     private readonly List<CommonModule> _modules = new List<CommonModule>();
 
     private void Awake() {
-        _boatData = GetComponent<BoatData>();
+        _boatActionData = GetComponent<BoatActionData>();
 
         transform.Find("Modules").GetComponentsInChildren<CommonModule>(_modules);
     }

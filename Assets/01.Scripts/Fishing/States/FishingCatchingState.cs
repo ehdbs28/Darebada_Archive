@@ -27,12 +27,12 @@ public class FishingCatchingState : FishingState
         _start = _bobberTrm.position;
         _end = _start + _controller.ActionData.LastThrowDirection.normalized; 
 
-        float stringLength = 10 - _controller.ActionData.LastChargingPower * 10 / _controller.ActionData.MaxChargingPower + 1; 
+        float stringLength = 10 - _controller.ActionData.LastChargingPower * 10 / _controller.FishingData.MaxChargingPower + 1; 
         // 10 이라는 상수 값은 후에 최대 낚시 찌가 들어갈 거리로 바꿔줘야 함
         
         _end.y = -stringLength;
 
-        _throwTime = Mathf.Max(0.3f, Vector3.Distance(_start, _end)) / _controller.ActionData.ThrowingSpeed;
+        _throwTime = Mathf.Max(0.3f, Vector3.Distance(_start, _end)) / _controller.FishingData.ThrowingSpeed;
         _currentTime = 0f;
         _percent = 0f;
 
@@ -50,7 +50,7 @@ public class FishingCatchingState : FishingState
         if(_isReadyToCatch){
             // 나중에 조건 고치기
             if(Input.GetKey(KeyCode.Space)){
-                _percent -= _controller.ActionData.ThrowingSpeed * Time.deltaTime / _throwTime;
+                _percent -= _controller.FishingData.ThrowingSpeed * Time.deltaTime / _throwTime;
                 _bobberTrm.position = GetLerpPos();
 
                 if(_percent <= 0){
@@ -74,7 +74,7 @@ public class FishingCatchingState : FishingState
 
     private IEnumerator ToThrow(){
         while(_percent < 1 && _isReadyToCatch == false){
-            _currentTime += _controller.ActionData.ThrowingSpeed * Time.deltaTime;
+            _currentTime += _controller.FishingData.ThrowingSpeed * Time.deltaTime;
             _percent = _currentTime / _throwTime;
 
             _bobberTrm.position = GetLerpPos();

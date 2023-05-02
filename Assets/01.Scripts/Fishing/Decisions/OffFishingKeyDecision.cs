@@ -10,7 +10,7 @@ public class OffFishingKeyDecision : FishingDecision
     {
         base.SetUp(agentRoot);
 
-        InputManager.Instance.OnMouseClickEvent += OnMouseClick;
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnMouseClick;
     }
 
     public override bool MakeADecision()
