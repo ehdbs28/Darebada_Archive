@@ -9,28 +9,31 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
 
     public InventoryGrid selectedItemGrid;
-    
-    InventoryItem selectedItem;
-    InventoryItem overlapItem;
-    RectTransform rectTransform;
-    
-    bool isMove = false;
 
     [SerializeField] List<ItemSO> items;
     [SerializeField] GameObject itemPrefab;
     [SerializeField] Transform canvasTransform;
 
+    [SerializeField] GameObject inventoryPanel;
     [Header("inventory Select Panel"), Space(10)]
     [SerializeField] GameObject inventorySelectPanel;
     [SerializeField] Image inventorySelectImage;
     [SerializeField] Button inventoryMoveBtn;
     [SerializeField] Button inventoryLooseBtn;
     [SerializeField] Button inventoryDeleteBtn;
-    
+
     [Header("inventory Move Panel")]
     [SerializeField] Button inventoryRightRotateBtn;
     [SerializeField] Button inventoryLeftRotateBtn;
     [SerializeField] Image inventoryMoveImage;
+
+    private InventoryItem selectedItem;
+    private InventoryItem overlapItem;
+    private RectTransform rectTransform;
+
+    private bool isMove = false;
+    private bool isActive = false;
+
 
     private void Awake()
     {
@@ -45,7 +48,7 @@ public class InventoryManager : MonoBehaviour
     {
         inventoryLeftRotateBtn.onClick.AddListener(() => RotateItem(-1));
         inventoryRightRotateBtn.onClick.AddListener(() => RotateItem(1));
-        
+
         inventoryDeleteBtn.onClick.AddListener(() => {
             inventorySelectPanel.SetActive(false);
             Vector2Int select = new Vector2Int(selectedItem.onGridPositionX, selectedItem.onGridPositionY);
@@ -55,10 +58,17 @@ public class InventoryManager : MonoBehaviour
 
         inventoryLooseBtn.onClick.AddListener(LooseItem);
         inventoryMoveBtn.onClick.AddListener(MoveItem);
+
+        // isActive = inventoryPanel.activeSelf;
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            CreateRandomItem();
+        }
+
         if (selectedItemGrid == null) return; // 인벤토리 칸이 없다면 실행 안시키기 위함
 
         if (Input.GetMouseButtonDown(0))
@@ -66,25 +76,30 @@ public class InventoryManager : MonoBehaviour
             LeftMouseButtonPress();
             SelectItem(selectedItem);
         }
+
+        // isActive = !inventoryPanel.activeSelf;
     }
-    
+
+    private void OnInventory() => inventoryPanel.SetActive(isActive);
 
     private void RotateItem(int clockwise = 1) // 아이템 회전
     {
         Vector2Int before = new Vector2Int(selectedItem.onGridPositionX, selectedItem.onGridPositionY);
         InventoryItem beforeItem = selectedItem;
-        
+
         if (selectedItem == null) { return; } // 집은 아이템이 없다면 실행 안함
-        if (selectedItemGrid.OverlapCheck(selectedItem.onGridPositionX, selectedItem.onGridPositionY, selectedItem.HEIGHT, selectedItem.WIDTH, ref selectedItem) == false)
+        selectedItemGrid.OverlapCheck(selectedItem.onGridPositionX, selectedItem.onGridPositionY, selectedItem.HEIGHT, selectedItem.WIDTH, ref overlapItem);
+
+        if (overlapItem != null)
         {
             print("겹침");
+            return;
         }
         else
         {
             selectedItem.Rotate(clockwise);
             print("안겹침");
         }
-
 
         PlaceItem(before);
         selectedItem = beforeItem;
@@ -150,7 +165,7 @@ public class InventoryManager : MonoBehaviour
                 // 놓았을 때 겹친 아이템 select창 띄우고 이미지 띄우기 
             }
         }
-        
+
     }
 
     private void PickUpItem(Vector2Int tileGridPosition) // 아이템 집기 만약 집었다면 이동을 위한 transform 가져오기
@@ -171,7 +186,7 @@ public class InventoryManager : MonoBehaviour
             inventorySelectImage.sprite = selectedItem.itemData.itemicon;
         }
     }
-    
+
     private void LooseItem()
     {
         inventorySelectPanel.SetActive(false);

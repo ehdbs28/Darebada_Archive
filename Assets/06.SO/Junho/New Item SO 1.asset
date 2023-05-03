@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11d4e9747290fb47b522544891f965c, type: 3}
   m_Name: New Item SO 1
   m_EditorClassIdentifier: 
-  width: 1
-  height: 4
-  itemicon: {fileID: 21300000, guid: df3bacfbe47778e42b9570d9115aeb4d, type: 3}
+  width: 3
+  height: 3
+  itemicon: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}

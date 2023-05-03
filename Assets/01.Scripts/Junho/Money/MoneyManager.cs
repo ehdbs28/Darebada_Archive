@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class MoneyManager : MonoBehaviour
 {
     public static MoneyManager Instance;
 
     public long money;
+
+    [SerializeField] private TextMeshProUGUI goldTxt;
 
     private void Awake()
     {
@@ -17,25 +21,39 @@ public class MoneyManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    { 
+
+    }
+
     private void Update()
     {
         if (money < 0) money = 0;
+        goldTxt.text = $"Gold : {money}";
     }
 
-    public void ItemSell()
+    public void ItemSell(int cost)
     {
+        if (cost < 0) return;
+
+        money += cost;
+
         /*
-         매개변수로 팔 아이템 가져오기
-         매개변수로 가져온 아이템의 가격을 돈에 더하기
+         아이템 가격만큼 돈 추가시키기
          */
     }
 
-    public void ItemUpgrade()
+    public void ItemUpgrade(ref int upgrade, int cost)
     {
+        if (cost > money) return;
+
+        upgrade++;    
+        money -= cost;
+
         /*
-         매개변수로 업그레이드 가져오기
-         업그레이드 비용보다 돈이 많으면 업그레이드
-         아니면 취소
+         업그레이드 가격이 돈보다 높거나 업그레이드 수치가 이미 최대면 취소
+         업그레이드 수치 올리기
+         가격만큼 돈에서 빼기
          */
     }
 }

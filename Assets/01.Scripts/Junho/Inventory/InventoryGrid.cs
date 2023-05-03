@@ -8,9 +8,9 @@ public class InventoryGrid : MonoBehaviour
     public const float tileSizeWidth = 32;  // 타일 가로
     public const float tileSizeHeight = 32; // 타일 세로
 
-    InventoryItem[,] inventoryItemSlot; // 인벤토리 칸에 넣거나 집거나 겹치는거 확인하기 위함
+    private InventoryItem[,] inventoryItemSlot; // 인벤토리 칸에 넣거나 집거나 겹치는거 확인하기 위함
 
-    RectTransform rectTransform;
+    private RectTransform rectTransform;
 
     [SerializeField] private int gridSizeWidth = 20; // 인벤토리 가로가 몇인지
     [SerializeField] private int gridSizeHeight = 10; // 인벤토리 세로가 몇인지
@@ -39,8 +39,8 @@ public class InventoryGrid : MonoBehaviour
         }
     }
 
-    Vector2 positionOnTheGrid = new Vector2();
-    Vector2Int tileGridPosition = new Vector2Int();
+    private Vector2 positionOnTheGrid = new Vector2();
+    private Vector2Int tileGridPosition = new Vector2Int();
 
     public Vector2Int GetTileGridPosition(Vector2 mousePosition) // 마우스가 인벤토리 타일이 어디있는지 확인하는 것
     {
