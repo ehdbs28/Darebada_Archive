@@ -16,8 +16,7 @@ MonoBehaviour:
   HabitatX: 0
   HabitatY: 0
   FishSpecies: 2
-  Direction: {x: 0, y: 0, z: 0}
-  SwimSpeed: 0
+  SwimSpeed: 5
   TurnSpeed: 0
   Rarity: 0
   Level: 0

@@ -16,9 +16,8 @@ public class Fish : MonoBehaviour
     private float _cost;
     private float _size;
     private float _spawnPercent;
-    public GameObject _fishObject;
 
-    public Fish(FishSO data)
+    public void Init(FishSO data)
     {
         _habitatBiome = data.HabitatBiome;
         _habitatX = data.HabitatX;
@@ -31,7 +30,5 @@ public class Fish : MonoBehaviour
         _cost = data.Cost;
         _size = data.Size;
         _spawnPercent = data.SpawnPercent;
-        _fishObject = Instantiate(data._fishPrefab, new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10)), Quaternion.identity);
-        _fishObject.GetComponent<MeshRenderer>().material = data.TestMat;
     }
 }

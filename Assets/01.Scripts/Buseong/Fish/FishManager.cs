@@ -17,6 +17,9 @@ public class FishManager : MonoBehaviour
     private List<FishSO> _currentBiomeFishesData;
 
     [SerializeField]
+    private GameObject _fishPrefabs;
+
+    [SerializeField]
     private float _maxFishNum = 30f;
 
     private void Awake()
@@ -77,7 +80,10 @@ public class FishManager : MonoBehaviour
             }
         }
 
-        Fish newFish = new Fish(spawnFishData);
-        _fishes.Add(newFish._fishObject);
+        //Fish newFish = new Fish(spawnFishData);
+        Fish newFish = Instantiate(_fishPrefabs, new Vector3(Random.Range(0, 50), Random.Range(0, 50), Random.Range(0, 50)), Quaternion.identity).GetComponent<Fish>();
+        newFish.Init(spawnFishData);
+        newFish.GetComponent<MeshRenderer>().material = spawnFishData.TestMat;
+        _fishes.Add(newFish.gameObject);
     }
 }

@@ -13,34 +13,61 @@ public class FishMovement : MonoBehaviour
 
     private Vector3 _dir;
 
+    private float _timer;
+    private float _setTime = 3f;
+
+    private float _xPosMinLimit = -30f;
+    private float _xPosMaxLimit = 30f;
+    private float _yPosMinLimit = -30f;
+    private float _yPosMaxLimit = 30f;
+    private float _zPosMinLimit = -30f;
+    private float _zPosMaxLimit = 30f;
+
+    private void Start()
+    {
+        _fish = GetComponent<Fish>();
+        _rigidbody = GetComponent<Rigidbody>();
+
+        _dir = SetRandomDirection(_dir);
+    }
+
     private void Update()
     {
-        RaycastHit hit;
-        if (Physics.SphereCast(transform.position, 2f, transform.forward, out hit, _rayMaxDistance))
-            _canMoveForward = false;
-        else
+        _timer += Time.deltaTime;
+        if (_setTime < _timer)
         {
-            _canMoveForward = true;
-        }
+            _setTime = _timer + 3f;
+            _dir = SetRandomDirection(_dir);
+            
+            if((transform.position.x > _xPosMaxLimit || transform.position.x < _xPosMinLimit)
+                ||(transform.position.y > _yPosMaxLimit || transform.position.y < _yPosMinLimit)
+                ||(transform.position.z > _zPosMaxLimit || transform.position.z < _zPosMinLimit))
+            {
+                _dir = GameObject.Find("FishManager").transform.position - transform.position;
+            }
 
-        if (_canMoveForward)
-        {
-            FishMove();
+            Debug.Log(_dir);
+            _rigidbody.AddForce(_dir.normalized * _fish.SwimSpeed, ForceMode.Impulse);
         }
-        else
-        {
-            SetDirection();
-            FishMove();
-        }
+        //_rigidbody.velocity = _dir * _fish.SwimSpeed;
     }
 
-    private void FishMove()
+    private Vector3 SetRandomDirection(Vector3 direction)
     {
-        _rigidbody.velocity = _dir * Time.deltaTime * _fish.SwimSpeed;
+        //float randomX = 0f;
+        //float randomY = 0f;
+        //direction.x = Mathf.Clamp(randomX, -45f, 25f);
+        //direction.y = Mathf.Clamp(randomY, direction.y - 90f, direction.y + 90f);
+
+        direction.x = Random.Range(-45f, 25f);
+        direction.y = Random.Range(direction.y - 90f, direction.y + 90f);
+
+        return direction.normalized;
     }
 
-    private void SetDirection()
+    private void FixedUpdate()
     {
-        _dir += new Vector3(0f, _dir.y + 1f, 0f);
+        
+        
     }
 }
