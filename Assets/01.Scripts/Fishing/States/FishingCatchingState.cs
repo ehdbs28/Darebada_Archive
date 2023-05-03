@@ -15,11 +15,16 @@ public class FishingCatchingState : FishingState
     private float _currentTime = 0f;
     private float _percent = 0f;
 
+    private LayerMask _fishLayer;
+
+    private Fish _currentCatchFish = null;
+
     public override void SetUp(Transform agentRoot)
     {
         base.SetUp(agentRoot);
 
         _bobberTrm = agentRoot.Find("Bobber");
+        _fishLayer = LayerMask.GetMask("Fish");
     }
 
     public override void EnterState()
@@ -48,18 +53,24 @@ public class FishingCatchingState : FishingState
     public override void UpdateState()
     {
         if(_isReadyToCatch){
-            // 나중에 조건 고치기
-            if(Input.GetKey(KeyCode.Space)){
-                _percent -= _controller.FishingData.ThrowingSpeed * Time.deltaTime / _throwTime;
-                _bobberTrm.position = GetLerpPos();
+            // 여기서 물고기 끌고오고 미니게임 들어가야 함
+            if(_currentCatchFish == null){
+                //Collider[]_aroundFish = Physics.OverlapSphere(_bobberTrm.position, 5f, _fishLayer);
 
-                if(_percent <= 0){
-                    _controller.ActionData.IsFishing = false;
-                    _controller.ActionData.IsUnderWater = false;
+                // 나중에 조건 고치기
+                if(Input.GetKey(KeyCode.Space)){
+                    _percent -= _controller.FishingData.ThrowingSpeed * Time.deltaTime / _throwTime;
+                    _bobberTrm.position = GetLerpPos();
+
+                    if(_percent <= 0){
+                        _controller.ActionData.IsFishing = false;
+                        _controller.ActionData.IsUnderWater = false;
+                    }
                 }
             }
+            else{
 
-            // 여기서 물고기 끌고오고 미니게임 들어가야 함
+            }
         }
         else{
             // 나중에 조건 고치기
