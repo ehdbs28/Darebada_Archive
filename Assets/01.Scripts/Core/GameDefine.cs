@@ -11,6 +11,7 @@ namespace Core{
     public enum DataType{
         BoatData,
         FishingData,
+        GameData,
     }
 
     public class Define{
