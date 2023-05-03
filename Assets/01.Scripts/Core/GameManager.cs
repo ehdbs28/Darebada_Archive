@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         _managers.Add(new DataManager());
         _managers.Add(GetComponent<InputManager>());
         _managers.Add(GetComponent<CameraManager>());
+        _managers.Add(new TimeManager());
     }
 
     public T GetManager<T>() where T : IManager{

@@ -36,5 +36,7 @@ namespace Core{
                 return _screenSize;
             }
         }
+
+        public static readonly float DayCycle = 720f;
     }
 }
