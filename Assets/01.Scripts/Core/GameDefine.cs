@@ -37,6 +37,9 @@ namespace Core{
             }
         }
 
-        public static readonly float DayCycle = 720f;
+        public static readonly float DayDelay = 720f;
+        public static float HourDelay => DayDelay / 24;
+        public static float MinuteDelay => HourDelay / 60;
+        public static float SecondDelay => MinuteDelay / 60;
     }
 }

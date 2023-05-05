@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Core;
+using static Core.Define;
 
 public class TimeManager : IManager
 {
@@ -24,6 +25,10 @@ public class TimeManager : IManager
         }
     }
 
+    public int Hour => Mathf.FloorToInt(_currentTime / HourDelay);
+    public int Minute => Mathf.FloorToInt(_currentTime / MinuteDelay % 60);
+    public int Second => Mathf.FloorToInt(_currentTime / SecondDelay % 60);
+
     public void InitManager()
     {
         GameData gameData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData;
@@ -36,9 +41,10 @@ public class TimeManager : IManager
     {
         _currentTime += Time.deltaTime * _timeScale;
 
-        if(_currentTime >= ((_currentDay + 1) * Define.DayCycle)){
+        if(_currentTime >= DayDelay){
             // 하루가 지남
             ++_currentDay;
+            _currentTime = 0f;
             Debug.Log($"DDAY - {_currentDay}");
         }
     }
