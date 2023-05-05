@@ -10,8 +10,9 @@ public class BoatData : SaveData
     public float BoatRotationAcceleration = 10f;
     public float BoatRotationDeceleration = 10f;
 
-    public float MaxFule = 100f;
+    public float MaxFuel = 100f;
     public float MaxDurablity = 100f;
 
     public override void Reset(){}
 }
+
