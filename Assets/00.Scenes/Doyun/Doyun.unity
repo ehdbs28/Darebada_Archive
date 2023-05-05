@@ -548,15 +548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bfea93c28000954490770f576c3eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoatMaxSpeed: 5
-  BoatForwardAcceleration: 10
-  BoatBackwardAcceleration: 3
-  BoatDeceleration: 5
-  BoatMaxRotationSpeed: 1
-  BoatRotationAcceleration: 10
-  BoatRotationDeceleration: 10
-  MaxFule: 100
-  MaxDurablity: 100
   IsMoveBoat: 0
   CurrentFule: 0
   CurrentDurablity: 0
@@ -823,9 +814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8ae36cef72c3449bf4dbea505c6615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _whatIsGround:
-    serializedVersion: 2
-    m_Bits: 32768
 --- !u!4 &632692387 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8989529067803825723, guid: f2cfc7cd690e6fe4f9678427228e5322, type: 3}
@@ -1937,11 +1925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0731f640b319e4a9a6e8f5420d2824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChargingSpeed: 5
-  MaxChargingPower: 10
   LastChargingPower: 0
-  RotationSpeed: 360
-  ThrowingSpeed: 3
   IsFishing: 0
   IsUnderWater: 0
   LastThrowDirection: {x: 0, y: 0, z: 0}
@@ -1997,7 +1981,7 @@ Camera:
   m_GameObject: {fileID: 2058602492}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
