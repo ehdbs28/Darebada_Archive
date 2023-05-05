@@ -25,9 +25,10 @@ public class TimeManager : IManager
         }
     }
 
-    public int Hour => Mathf.FloorToInt(_currentTime / HourDelay);
-    public int Minute => Mathf.FloorToInt(_currentTime / MinuteDelay % 60);
-    public int Second => Mathf.FloorToInt(_currentTime / SecondDelay % 60);
+    // 수치적인 시간 [ 사용 할 때에는 Mathf.floorToInt 해줘야 정상적으로 출력 됨 ]
+    public float Hour =>_currentTime / HourDelay;
+    public float Minute => _currentTime / MinuteDelay % 60;
+    public float Second => _currentTime / SecondDelay % 60;
 
     public void InitManager()
     {

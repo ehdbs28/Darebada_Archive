@@ -1045,6 +1045,7 @@ GameObject:
   - component: {fileID: 934988245}
   - component: {fileID: 934988246}
   - component: {fileID: 934988247}
+  - component: {fileID: 934988248}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1137,6 +1138,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d7a9e9cb544fa4b8ad56c9c8e5828c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &934988248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934988241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70da03cd73e963246a5e47776a74a05a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _directionalLight: {fileID: 0}
+  _lightingPreset: {fileID: 11400000, guid: d72a7b19128c3044bb5066b89064d502, type: 2}
 --- !u!1001 &976267092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1981,7 +1996,7 @@ Camera:
   m_GameObject: {fileID: 2058602492}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
