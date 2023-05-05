@@ -8,14 +8,17 @@ public class MiniGameBall : MonoBehaviour
 
     private Vector3 retVector;
     private float degree;
-    
+
     private void Update()
     {
+        range = MiniGameManager.Instance.SetRange();
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             for (int i= 0; i < MiniGameManager.Instance.hitPoint.Count; i++)
             {
-                if (MiniGameManager.Instance.hitPoint[i].transform.position.x + range > retVector.x && MiniGameManager.Instance.hitPoint[i].transform.position.x - range < retVector.x)
+                if (MiniGameManager.Instance.hitPoint[i].transform.position.x + range > retVector.x 
+                    && MiniGameManager.Instance.hitPoint[i].transform.position.x - range < retVector.x)
                 {
                     print("°ãÄ§");
                     MiniGameManager.Instance.radius += 100;

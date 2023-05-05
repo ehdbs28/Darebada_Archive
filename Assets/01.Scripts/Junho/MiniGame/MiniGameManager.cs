@@ -10,6 +10,10 @@ public class MiniGameManager : MonoBehaviour
     public GameObject roundArea;
     public float radius;
 
+    [SerializeField]
+    private BaitSO _currentBait;
+    public Vector3 HitPointIncreaseValue;
+
     private void Awake()
     {
         if (Instance != null)
@@ -17,6 +21,18 @@ public class MiniGameManager : MonoBehaviour
             Debug.LogError("Multy MiniGameManager");
         }
         Instance = this;
+    }
+
+    public float SetRange()
+    {
+        //HitPointIncreaseValue
+
+        for(int i = 0; i < hitPoint.Count; i++)
+        {
+            hitPoint[i].transform.localScale += HitPointIncreaseValue;
+        }
+
+        return HitPointIncreaseValue.y;
     }
 
     public void PointRandomSpawn()
