@@ -44,7 +44,7 @@ public class LightingManager : MonoBehaviour, IManager
         }
     }
 
-    public void Reset()
+    public void ResetManager()
     {
     }
 }

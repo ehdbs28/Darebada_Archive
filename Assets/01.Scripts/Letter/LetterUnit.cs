@@ -1,24 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public abstract class LetterUnit : MonoBehaviour
+[System.Serializable]
+public class LetterUnit
 {
-    private LetterType _type;
-    private string _title;
-    private string _desc;
-    private string _date;
-    private string _from;
-
-    
-
-    public LetterUnit(LetterData data){
-        _type = data.Type;
-        _title = data.Title;
-        _desc = data.Desc;
-        _date = data.Date;
-        _from = data.From;
+    public LetterUnit(LetterType type, string title, string desc, string date, string from){
+        Type = type;
+        Title = title;
+        Desc = desc;
+        Date = date;
+        From = from;
     }
 
-    
+    public LetterType Type { get; private set; }
+    public string Title { get; private set; }
+    public string Desc { get; private set; }
+    public string Date { get; private set; }
+    public string From { get; private set; }
+    public bool IsChecked { get; set; }
 }

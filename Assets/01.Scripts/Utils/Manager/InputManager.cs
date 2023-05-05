@@ -28,7 +28,7 @@ public class InputManager : MonoBehaviour, IManager
     private LayerMask _whatIsGround;
 
     public InputManager(){
-        Reset();
+        ResetManager();
     }
 
     public void InitManager() {
@@ -56,6 +56,6 @@ public class InputManager : MonoBehaviour, IManager
         _mousePosition = value.Get<Vector2>();
     }
 
-    public void Reset(){}
+    public void ResetManager(){}
     public void UpdateManager(){}
 }

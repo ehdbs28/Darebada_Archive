@@ -12,10 +12,8 @@ public class DataManager : IManager
 
     private string DATA_PATH = "";
 
-    private float _autoSaveTime = 3f;
-
     public DataManager(){
-        Reset();
+        ResetManager();
     }
 
     public void InitManager() {
@@ -33,8 +31,6 @@ public class DataManager : IManager
         }
 
         LoadData();
-
-        //GameManager.Instance.InvokeRepeating("SaveDataAll", 0.5f, _autoSaveTime);
     }
 
     private void LoadData(){
@@ -91,6 +87,6 @@ public class DataManager : IManager
         return returnData;
     }
 
-    public void Reset(){}
+    public void ResetManager(){}
     public void UpdateManager(){}
 }
