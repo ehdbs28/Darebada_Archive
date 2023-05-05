@@ -1,4 +1,3 @@
-[System.Serializable]
 public class LetterUnit
 {
     public LetterUnit(LetterType type, string title, string desc, string date, string from){
