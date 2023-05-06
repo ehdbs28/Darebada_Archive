@@ -41,6 +41,9 @@ public class DataManager : IManager
                     case DataType.BoatData:
                         data.Value.SaveData = JsonUtility.FromJson<BoatData>(stringData);
                         break;
+                    case DataType.PlayerData:
+                        data.Value.SaveData = JsonUtility.FromJson<PlayerData>(stringData);
+                        break;
                     case DataType.FishingData:
                         data.Value.SaveData = JsonUtility.FromJson<FishingData>(stringData);
                         break;
@@ -53,6 +56,9 @@ public class DataManager : IManager
                 switch(data.Key){
                     case DataType.BoatData:
                         data.Value.SaveData = new BoatData();
+                        break;
+                    case DataType.PlayerData:
+                        data.Value.SaveData = new PlayerData();
                         break;
                     case DataType.FishingData:
                         data.Value.SaveData = new FishingData();
