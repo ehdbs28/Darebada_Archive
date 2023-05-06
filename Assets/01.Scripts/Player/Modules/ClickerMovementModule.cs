@@ -12,6 +12,9 @@ public class ClickerMovementModule : CommonModule<PlayerController>
         base.SetUp(rootTrm);
 
         _navAgent = rootTrm.GetComponent<NavMeshAgent>();
+        _navAgent.speed = _controller.PlayerData.MaxSpeed;
+
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnMouseClick;
     }
 
     public override void FixedUpdateModule()
@@ -20,5 +23,19 @@ public class ClickerMovementModule : CommonModule<PlayerController>
 
     public override void UpdateModule()
     {
+    }
+
+    private void OnMouseClick(bool value){
+        if(value && _controller.ActionData.PlayerState == PlayerState.CLICKER){
+            Movement(GameManager.Instance.GetManager<InputManager>().MousePositionToGroundRayPostion);
+        }
+    }
+
+    private void Movement(Vector3 dest){
+        _navAgent.SetDestination(dest);
+    }
+
+    private void StopImmedietely(){
+        Movement(transform.position);
     }
 }
