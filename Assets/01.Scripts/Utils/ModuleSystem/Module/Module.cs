@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public interface BoatModule
+public interface Module
 {
     public void SetUp(Transform rootTrm);
     public void UpdateModule();

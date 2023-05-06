@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoatMovementModule : CommonModule
+public class BoatMovementModule : CommonModule<BoatController>
 {
     private Rigidbody _rigid;
     private FishingController _fishingController;
