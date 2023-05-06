@@ -15,7 +15,7 @@ public class CameraManager : MonoBehaviour, IManager
     private readonly Dictionary<Core.CameraState, VCam> _virtualVCams = new Dictionary<Core.CameraState, VCam>();
 
     public CameraManager(){
-        Reset();
+        ResetManager();
     }
 
     public void InitManager() {
@@ -52,5 +52,5 @@ public class CameraManager : MonoBehaviour, IManager
         rotVCam.SetRotateValue(target, radius, pos, rot, offset, lastState);
     }
 
-    public void Reset(){}
+    public void ResetManager(){}
 }

@@ -2,7 +2,7 @@
     "name": "GameInputControls",
     "maps": [
         {
-            "name": "Boat",
+            "name": "Play",
             "id": "e86b111a-60fd-43d9-aeb7-e01c21899655",
             "actions": [
                 {
@@ -18,7 +18,7 @@
                     "name": "Rotation",
                     "type": "Value",
                     "id": "3021ecf9-5e49-46ff-b4ae-e8e1245aafc3",
-                    "expectedControlType": "",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
