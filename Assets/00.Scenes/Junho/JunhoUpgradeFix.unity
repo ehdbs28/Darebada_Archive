@@ -316,7 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Upgrade : speed'
+  m_text: 'Upgrade : Leng'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 250637109}
   - component: {fileID: 250637108}
   m_Layer: 5
-  m_Name: UpgradeBtn
+  m_Name: LengthUpgradeBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -573,7 +573,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Upgrade : speed'
+  m_text: 'Upgrade : Power'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -708,7 +708,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Upgrade : speed'
+  m_text: 'Upgrade : Inven'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1460,7 +1460,7 @@ GameObject:
   - component: {fileID: 639998384}
   - component: {fileID: 639998383}
   m_Layer: 5
-  m_Name: UpgradeBtn
+  m_Name: FishRodFixBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1582,7 +1582,7 @@ GameObject:
   - component: {fileID: 643866127}
   - component: {fileID: 643866126}
   m_Layer: 5
-  m_Name: UpgradeBtn
+  m_Name: SpeedUpgradeBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2133,7 +2133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Upgrade : speed'
+  m_text: 'Fix : ship'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2262,7 +2262,7 @@ GameObject:
   - component: {fileID: 865440905}
   - component: {fileID: 865440904}
   m_Layer: 5
-  m_Name: UpgradeBtn
+  m_Name: DuraUpgradeBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2429,7 +2429,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Upgrade : speed'
+  m_text: 'Upgrade : Dura
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3138,7 +3140,7 @@ GameObject:
   - component: {fileID: 1712439534}
   - component: {fileID: 1712439533}
   m_Layer: 5
-  m_Name: UpgradeBtn
+  m_Name: PowerUpgradeBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3340,7 +3342,7 @@ GameObject:
   - component: {fileID: 1826678848}
   - component: {fileID: 1826678847}
   m_Layer: 5
-  m_Name: UpgradeBtn
+  m_Name: ShipFixBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3507,7 +3509,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Upgrade : speed'
+  m_text: 'Fix : FishRod'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3886,13 +3888,14 @@ MonoBehaviour:
   fixUIpanel: {fileID: 2068584062}
   upgradeDefaultUI: {fileID: 1956188588}
   fixDefaultUI: {fileID: 581984850}
-  shipSpeedUpgradeBtn: {fileID: 0}
-  shipInventoryUpgradeBtn: {fileID: 0}
-  shipDurablityUpgradeBtn: {fileID: 0}
-  shipFixBtn: {fileID: 0}
-  fishingRodPowerUpgradeBtn: {fileID: 0}
-  fishingRodLengthUpgradeBtn: {fileID: 0}
-  fishingRodFixBtn: {fileID: 0}
+  shipSpeedUpgradeBtn: {fileID: 643866126}
+  shipInventoryUpgradeBtn: {fileID: 2107115169}
+  shipDurablityUpgradeBtn: {fileID: 865440904}
+  shipFixBtn: {fileID: 1826678847}
+  fishingRodPowerUpgradeBtn: {fileID: 1712439533}
+  fishingRodLengthUpgradeBtn: {fileID: 250637108}
+  fishingRodFixBtn: {fileID: 639998383}
+  inventoryGrid: {fileID: 7211768567461034221, guid: db4d58bbd22f84242a7a2ddd5778ac0d, type: 3}
 --- !u!4 &1952524295
 Transform:
   m_ObjectHideFlags: 0
@@ -3999,7 +4002,7 @@ GameObject:
   - component: {fileID: 2107115170}
   - component: {fileID: 2107115169}
   m_Layer: 5
-  m_Name: UpgradeBtn
+  m_Name: InvenUpgradeBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

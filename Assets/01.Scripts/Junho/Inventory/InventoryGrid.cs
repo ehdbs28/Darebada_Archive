@@ -12,8 +12,8 @@ public class InventoryGrid : MonoBehaviour
 
     private RectTransform rectTransform;
 
-    public int gridSizeWidth = 7; // 초기 인벤토리 가로가 몇인지 최대 7
-    public int gridSizeHeight = 1; // 초기 인벤토리 세로가 몇인지 최대 7
+    public float gridSizeWidth = 7; // 초기 인벤토리 가로가 몇인지 최대 7
+    public float gridSizeHeight = 1; // 초기 인벤토리 세로가 몇인지 최대 7
 
     private void Start() // 초기화
     {
@@ -21,9 +21,9 @@ public class InventoryGrid : MonoBehaviour
         Init(gridSizeWidth, gridSizeHeight);
     }
 
-    public void Init(int width, int height) // 인벤토리 크기 조절 // 인벤토리 사이즈가 변하면 다시 불러줘야함
+    public void Init(float width, float height) // 인벤토리 크기 조절 // 인벤토리 사이즈가 변하면 다시 불러줘야함
     {
-        inventoryItemSlot = new InventoryItem[width, height]; // 값 상으로 인벤토리가 몇인지 넣어줌
+        inventoryItemSlot = new InventoryItem[(int)width, (int)height]; // 값 상으로 인벤토리가 몇인지 넣어줌
         Vector2 size = new Vector2(width * tileSizeWidth, height * tileSizeHeight); // 픽셀 수와 곱해준 사이즈
         rectTransform.sizeDelta = size;
     }
