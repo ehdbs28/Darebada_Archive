@@ -7,6 +7,7 @@ public class BiomeIcon : MonoBehaviour
 {
     public static bool alreadyEntered;
     [SerializeField] string bieomeName;
+    public string BiomeName => bieomeName;
     private void OnCollisionEnter(Collision collision)
     {
         if(!alreadyEntered)
