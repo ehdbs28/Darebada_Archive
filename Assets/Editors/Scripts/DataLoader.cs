@@ -15,33 +15,30 @@ public class DataLoader
 {
     public DataLoaderUI DataLoaderUI;
 
-    private void CreateSourceCode(string[] dataArr){
+    private void CreateSourceCode(string[] dataArr, string line){
         // string code = string.Format(CodeFormat.CharacterFormat, dataArr[1], dataArr[0], dataArr[2]);
         // string path = $"{Application.dataPath}/01.Scripts/Characters/";
         // statusLabel.text += $"ClassName : {dataArr[1]}.cs\n";
         // File.WriteAllText($"{path}{dataArr[1]}.cs", code);
     }
 
-    private void CreateScriptableObject(string[] dataArr)
+    private void CreateScriptableObject<T>(string[] dataArr, string line) where T : LoadableData
     {
-        // string assetPath = $"Assets/Resources/WeaponData/{dataArr[0]}Data.asset";
-        // WeaponData asset = AssetDatabase.LoadAssetAtPath<WeaponData>(assetPath);
+        string assetPath = $"Assets/Resources/{dataArr[0]}Data.asset";
+        T asset = AssetDatabase.LoadAssetAtPath<T>(assetPath);
 
-        // if(asset == null)
-        // {
-        //     asset = ScriptableObject.CreateInstance<WeaponData>();
-        //     string fileName = AssetDatabase.GenerateUniqueAssetPath(assetPath);
-        //     AssetDatabase.CreateAsset(asset, fileName);
-        // }
+        if(asset == null)
+        {
+            asset = ScriptableObject.CreateInstance<T>();
+            string fileName = AssetDatabase.GenerateUniqueAssetPath(assetPath);
+            AssetDatabase.CreateAsset(asset, fileName);
+        }
 
-        // asset.attackSpeed = float.Parse(dataArr[1]);
-        // asset.damage = float.Parse(dataArr[2]);
-        // asset.weight = float.Parse(dataArr[3]);
-        // asset.combo = int.Parse(dataArr[4]);
+        asset.SetUp(dataArr);
 
-        // DataLoaderUI.CreateDataUI(DataType.ScriptableObject, dataArr, assetPath);
+        DataLoaderUI.CreateDataUI(DataLoadType.ScriptableObject, dataArr, line, assetPath);
         
-        // AssetDatabase.SaveAssets();
+        AssetDatabase.SaveAssets();
     }
 
     public void HandleData(string data, DataLoadType type, out int lineNum){
@@ -52,10 +49,10 @@ public class DataLoader
             string[] dataArr = lines[lineNum].Split("\t");
             switch(type){
                 case DataLoadType.Script:
-                    CreateSourceCode(dataArr);
+                    CreateSourceCode(dataArr, lines[lineNum]);
                     break;
                 case DataLoadType.ScriptableObject:
-                    CreateScriptableObject(dataArr);
+                    CreateScriptableObject<FishSO>(dataArr, lines[lineNum]);
                     break;
             }
         }

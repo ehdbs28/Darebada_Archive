@@ -30,11 +30,11 @@
 }
 
 .data.cs #icon {
-    background-image: url('project://database/Assets/02.Sprites/EditorIcon/cs%20Script%20Icon.png?fileID=21300000&guid=8b31a18d8b175974580aef1f48d0fcea&type=3#cs Script Icon');
+    background-image: url('project://database/Assets/Editors/UI/Icon/cs%20Script%20Icon.png?fileID=21300000&guid=f58d2a4553b196d49a0cdb30adfb258a&type=3#cs Script Icon');
 }
 
 .data.so #icon {
-    background-image: url('project://database/Assets/02.Sprites/EditorIcon/SO%20icon.png?fileID=21300000&guid=3579f251ded180e488929d7c22e98cf9&type=3#SO icon');
+    background-image: url('project://database/Assets/Editors/UI/Icon/SO%20icon.png?fileID=21300000&guid=b40583acdc618cd4d9d3d4157078f029&type=3#SO icon');
 }
 
 .data > #text-box > #name-text {

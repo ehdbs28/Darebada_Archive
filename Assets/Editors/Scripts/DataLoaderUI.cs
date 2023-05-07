@@ -84,7 +84,7 @@ public class DataLoaderUI : EditorWindow
         });
     }
 
-    public void CreateDataUI(DataLoadType type, string[] data, string path){
+    public void CreateDataUI(DataLoadType type, string[] data, string line, string path){
         VisualTreeAsset dataContent = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Editors/UI/DataContent.uxml");
         VisualElement rootData = dataContent.Instantiate().Q(className: "data");
         rootData.AddToClassList((type == DataLoadType.Script) ? "cs" : "so");
@@ -93,7 +93,7 @@ public class DataLoaderUI : EditorWindow
             otherData.ForEach(data => data.RemoveFromClassList("on"));
 
             rootData.AddToClassList("on");
-            LogDataSet(data[0], path, type);
+            LogDataSet(data[0], path, type, line);
         });
         
         Label nameText = rootData.Q<Label>("name-text");
@@ -114,7 +114,7 @@ public class DataLoaderUI : EditorWindow
 
     public void AddLog(string log){
         Debug.Log(log);
-        //_logLabel.text += $"{log}\n";
+        _logLabel.text += $"{log}\n";
     }
 }
 

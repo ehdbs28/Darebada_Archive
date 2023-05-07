@@ -1,5 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Template name="DataViewer" src="project://database/Assets/Editors/UI/DataViewer.uxml?fileID=9197481963319205126&amp;guid=ef4fdc439977d3d46a081ce1cbd38cdd&amp;type=3#DataViewer" />
     <Style src="project://database/Assets/Editors/UI/DataLoader.uss?fileID=7433441132597879392&amp;guid=ace39e2c308a53b419f3b8a44ba78fd8&amp;type=3#DataLoader" />
+    <Style src="project://database/Assets/Editors/UI/DataContent.uss?fileID=7433441132597879392&amp;guid=de9431ef483c5d949a993113de4f1d19&amp;type=3#DataContent" />
     <ui:VisualElement name="container">
         <ui:VisualElement name="input_box">
             <ui:Label text="Input your spreadsheed ID" display-tooltip-when-elided="true" name="input_info_label" />
@@ -14,7 +16,9 @@
                     <ui:Foldout text="Foldout" name="data_list" class="fold-out" />
                 </ui:ScrollView>
             </ui:VisualElement>
-            <ui:VisualElement name="log-box" />
+            <ui:VisualElement name="log-box">
+                <ui:Instance template="DataViewer" name="DataViewer" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
