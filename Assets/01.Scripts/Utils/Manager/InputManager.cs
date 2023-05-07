@@ -8,7 +8,7 @@ using Core;
 public class InputManager : MonoBehaviour
 {
     public static InputManager Instance = null;
-    // 이것도 나중에 게임매니저에서 인스턴스 관리
+    // ?�것???�중??게임매니?�?�서 ?�스?�스 관�?
 
     private PlayerInput _playerInput;
 
@@ -22,8 +22,7 @@ public class InputManager : MonoBehaviour
     public Vector3 MousePositionToGroundRayPostion{
         get{
             RaycastHit hit;
-            bool isHit = Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, _whatIsGround);
-
+            bool isHit = Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, _whatIsGround);
             return (isHit) ? hit.point : Vector3.zero;
         }
     }
@@ -37,11 +36,11 @@ public class InputManager : MonoBehaviour
 
         _playerInput = GetComponent<PlayerInput>();
 
-        // 나중에 바꾸기
+        // ?�중??바꾸�?
         _whatIsGround = LayerMask.GetMask("TestGroundLayer");
     }
 
-    // new InputManager에서 Event 형식으로 넘겨서 실행되는 친구들임
+    // new InputManager?�서 Event ?�식?�로 ?�겨???�행?�는 친구?�임
 
     public void OnMovement(InputValue value){
         OnMovementEvent?.Invoke(value.Get<float>());

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,7 +26,21 @@ public class FishIcon : MonoBehaviour
     {
         if(!_panel.gameObject.activeSelf)
         {
-            FishDexManager.Instance.OpenDex(fishInfo);
+            try
+            {
+                if(FishDexManager.Instance.gameObject.activeSelf)
+                {
+
+                    FishDexManager.Instance.OpenDex(fishInfo);
+                }
+
+            }catch(Exception exp)
+            {
+                if (AchievementManager.Instance.gameObject.activeSelf)
+                {
+                    AchievementManager.Instance.OpenDex(fishInfo);
+                }
+            }
         }
     }
     public void SetDonate(bool state)

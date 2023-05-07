@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac0a7391251e4b4b861c30b73b1b5f0, type: 3}
+  m_Name: SuperSO 3
+  m_EditorClassIdentifier: 
+  achievenemtName: SUPER3
+  completedList:
+  - {fileID: 11400000, guid: 06a6abe63d10c854ab07535c4e1f9cd9, type: 2}
+  - {fileID: 11400000, guid: 4e3aee5b3d63f9b4a99558f0d84d7456, type: 2}
+  - {fileID: 11400000, guid: f51ef8dca33cfcd43aa4b6ef463b79e9, type: 2}
+  infoList:
+  - {fileID: 11400000, guid: 06a6abe63d10c854ab07535c4e1f9cd9, type: 2}
+  - {fileID: 11400000, guid: 4e3aee5b3d63f9b4a99558f0d84d7456, type: 2}
+  - {fileID: 11400000, guid: f51ef8dca33cfcd43aa4b6ef463b79e9, type: 2}
+  isCompleted: 1

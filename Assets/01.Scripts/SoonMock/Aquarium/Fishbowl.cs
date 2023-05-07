@@ -7,12 +7,21 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
 public class Fishs
 {
     public List<SoonMockFish> fishList;
 }
 public class Fishbowl :  Facility
 {
+    private void Update()
+    {
+        CheckCollision();
+    }
+    private void Awake()
+    {
+        _collider = GetComponent<Collider>();
+    }
     public int Cost;
     public int MaxAmount = 3;
     
@@ -50,11 +59,6 @@ public class Fishbowl :  Facility
 
     public void Upgrade()
     {
-        if (AquariumManager.Instance.Gold >= Cost)
-        {
-            MaxAmount++;
-            AquariumManager.Instance.Gold -= Cost;
-        }
         Cost = 3 * MaxAmount * 300;
     }
     public void AddDeco(int id)
@@ -78,4 +82,17 @@ public class Fishbowl :  Facility
     {
         return this;
     }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    Debug.Log(other.name);
+    //    if(other.gameObject.layer == _layerMask)
+    //    {
+    //        Debug.Log(isCollision);
+    //        isCollision = true;
+    //    }
+    //}
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    isCollision = false;
+    //}
 }

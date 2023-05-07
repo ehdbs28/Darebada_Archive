@@ -60,4 +60,9 @@ public class StatePanel : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    public void ChangePos()
+    {
+        gameObject.SetActive(false);
+        AquariumManager.Instance.ChangeFacilityPos(upgradeObj.GetComponent<Facility>());
+    }
 }
