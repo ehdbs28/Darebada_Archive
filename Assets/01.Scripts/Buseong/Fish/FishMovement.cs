@@ -23,6 +23,11 @@ public class FishMovement : MonoBehaviour
     private float _zPosMinLimit = -30f;
     private float _zPosMaxLimit = 30f;
 
+    public bool IsSelected { get; set; }
+    public bool IsCatched { get; private set; }
+
+    public Transform Target { get; set; }
+
     private void Start()
     {
         _fish = GetComponent<Fish>();
@@ -33,23 +38,41 @@ public class FishMovement : MonoBehaviour
 
     private void Update()
     {
-        _timer += Time.deltaTime;
-        if (_setTime < _timer)
-        {
-            _setTime = _timer + 3f;
-            _dir = SetRandomDirection(_dir);
-            
-            if((transform.position.x > _xPosMaxLimit || transform.position.x < _xPosMinLimit)
-                ||(transform.position.y > _yPosMaxLimit || transform.position.y < _yPosMinLimit)
-                ||(transform.position.z > _zPosMaxLimit || transform.position.z < _zPosMinLimit))
+        if(IsSelected == false){
+            _timer += Time.deltaTime;
+            if (_setTime < _timer)
             {
-                _dir = GameObject.Find("FishManager").transform.position - transform.position;
+                _setTime = _timer + 3f;
+                _dir = SetRandomDirection(_dir);
+                
+                if((transform.position.x > _xPosMaxLimit || transform.position.x < _xPosMinLimit)
+                    ||(transform.position.y > _yPosMaxLimit || transform.position.y < _yPosMinLimit)
+                    ||(transform.position.z > _zPosMaxLimit || transform.position.z < _zPosMinLimit))
+                {
+                    _dir = GameObject.Find("FishManager").transform.position - transform.position;
+                }
+
+                Debug.Log(_dir);
+            }
+            //_rigidbody.velocity = _dir * _fish.SwimSpeed;
+        }
+        else{
+            if(Vector3.Distance(Target.position, transform.position) <= 0.1f){
+                IsCatched = true;
+            }
+            else{
+                IsCatched = false;
             }
 
-            Debug.Log(_dir);
+            _dir = (Target.position - transform.position).normalized;
+        }
+
+        if(IsCatched == false){
             _rigidbody.AddForce(_dir.normalized * _fish.SwimSpeed, ForceMode.Impulse);
         }
-        //_rigidbody.velocity = _dir * _fish.SwimSpeed;
+        else{
+            transform.position = Target.position;
+        }
     }
 
     private Vector3 SetRandomDirection(Vector3 direction)
