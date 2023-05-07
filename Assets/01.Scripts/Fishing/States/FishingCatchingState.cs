@@ -17,8 +17,6 @@ public class FishingCatchingState : FishingState
 
     private LayerMask _fishLayer;
 
-    private Fish _currentCatchFish = null;
-
     public override void SetUp(Transform agentRoot)
     {
         base.SetUp(agentRoot);
@@ -54,8 +52,22 @@ public class FishingCatchingState : FishingState
     {
         if(_isReadyToCatch){
             // 여기서 물고기 끌고오고 미니게임 들어가야 함
-            if(_currentCatchFish == null){
-                //Collider[]_aroundFish = Physics.OverlapSphere(_bobberTrm.position, 5f, _fishLayer);
+            if(_controller.ActionData.CurrentCatchFish == null){
+                Collider[] aroundFish = Physics.OverlapSphere(_bobberTrm.position, 5f, _fishLayer);
+
+                if(aroundFish.Length > 0){
+                    float minDistance = float.MaxValue;
+                    FishMovement selectFish = null;
+
+                    foreach(var fish in aroundFish){
+                        if(minDistance > Vector3.Distance(fish.transform.position, _bobberTrm.position)){
+                            minDistance = Vector3.Distance(fish.transform.position, _bobberTrm.position);
+                            selectFish = fish.GetComponent<FishMovement>();
+                        }
+                    }
+
+                    _controller.ActionData.CurrentCatchFish = selectFish;
+                }
 
                 // 나중에 조건 고치기
                 if(Input.GetKey(KeyCode.Space)){
@@ -69,7 +81,12 @@ public class FishingCatchingState : FishingState
                 }
             }
             else{
+                _controller.ActionData.CurrentCatchFish.Target = _bobberTrm;
+                _controller.ActionData.CurrentCatchFish.IsSelected = true;
 
+                if(_controller.ActionData.CurrentCatchFish.IsCatched){
+                    Debug.Log("미니게임 시작");
+                }
             }
         }
         else{

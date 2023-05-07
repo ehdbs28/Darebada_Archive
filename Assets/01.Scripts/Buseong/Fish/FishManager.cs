@@ -34,21 +34,9 @@ public class FishManager : MonoBehaviour
             ChangeBiome(_nextBiomeTest);
         }
 
-        /*if(_fishes.Count < _maxFishNum)
+        if(_fishes.Count < _maxFishNum)
         {
             CreateFish();
-        }*/
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CreateFish();
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            int rand = Random.Range(0, _fishes.Count);
-            Destroy(_fishes[rand].gameObject);
-            _fishes.RemoveAt(rand);
         }
     }
 
@@ -72,10 +60,10 @@ public class FishManager : MonoBehaviour
         
         foreach(var data in _currentBiomeFishesData)
         {
-            // ¿©±â¼­ ÃÖÀûÀÇ µ¥ÀÌÅÍ¸¦ Ã£¾Æ¼­
-            // °¡Á¤ )
-            // ÇöÀç ¹ÙÀÌ¿È¿¡¼­ »ý¼º µÉ ¸ðµç fishÀÇ ½ºÆù È®·üÀÇ ÇÕÀº 100ÀÌ´Ù.
-            // _currentBiomeFishedData´Â ³»¸²Â÷¼øÀ¸·Î Á¤·Ä µÇ¾î ÀÖ¾î¾ß ÇÑ´Ù.
+            // ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ Ã£ï¿½Æ¼ï¿½
+            // ï¿½ï¿½ï¿½ï¿½ )
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¿È¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ fishï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 100ï¿½Ì´ï¿½.
+            // _currentBiomeFishedDataï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½Ñ´ï¿½.
             sumPercent += data.SpawnPercent;
 
             if(sumPercent >= targetPercent)
@@ -90,5 +78,11 @@ public class FishManager : MonoBehaviour
         newFish.Init(spawnFishData);
         newFish.GetComponent<MeshRenderer>().material = spawnFishData.TestMat;
         _fishes.Add(newFish.gameObject);
+    }
+
+    public void DeleteFish(GameObject fish){
+        int index = _fishes.IndexOf(fish);
+        Destroy(fish);
+        _fishes.RemoveAt(index);
     }
 }
