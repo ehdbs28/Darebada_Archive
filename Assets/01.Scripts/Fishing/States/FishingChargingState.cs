@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Core;
 
 public class FishingChargingState : FishingState
 {
-    [SerializeField] private LayerMask _whatIsGround;
     private Transform _playerTrm;
 
     private float _currentChargingPower = 0f;

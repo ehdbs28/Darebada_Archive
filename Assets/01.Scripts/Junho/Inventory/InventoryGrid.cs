@@ -12,9 +12,8 @@ public class InventoryGrid : MonoBehaviour
 
     private RectTransform rectTransform;
 
-    [SerializeField] private int gridSizeWidth = 20; // 인벤토리 가로가 몇인지
-    [SerializeField] private int gridSizeHeight = 10; // 인벤토리 세로가 몇인지
-
+    public int gridSizeWidth = 7; // 초기 인벤토리 가로가 몇인지 최대 7
+    public int gridSizeHeight = 1; // 초기 인벤토리 세로가 몇인지 최대 7
 
     private void Start() // 초기화
     {

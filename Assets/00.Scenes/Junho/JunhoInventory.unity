@@ -527,7 +527,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6bd55345f5df5e2438222346b8b4edf8, type: 2}
   itemPrefab: {fileID: 3544344355433292725, guid: f3fcd09394dd9d440ae9bf135142a7d8, type: 3}
   canvasTransform: {fileID: 1204482671}
-  inventoryPanel: {fileID: 0}
+  inventoryPanel: {fileID: 255454227}
   inventorySelectPanel: {fileID: 951481426}
   inventorySelectImage: {fileID: 1762598119}
   inventoryMoveBtn: {fileID: 252221518}

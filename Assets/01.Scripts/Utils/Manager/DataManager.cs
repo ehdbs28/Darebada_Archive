@@ -12,10 +12,8 @@ public class DataManager : IManager
 
     private string DATA_PATH = "";
 
-    private float _autoSaveTime = 3f;
-
     public DataManager(){
-        Reset();
+        ResetManager();
     }
 
     public void InitManager() {
@@ -33,27 +31,41 @@ public class DataManager : IManager
         }
 
         LoadData();
-
-        //GameManager.Instance.InvokeRepeating("SaveDataAll", 0.5f, _autoSaveTime);
     }
 
     private void LoadData(){
         foreach(var data in _dataUnits){
             if(File.Exists(data.Value.SAVE_PATH)){
                 string stringData = File.ReadAllText(data.Value.SAVE_PATH);
-                if(data.Key == Core.DataType.BoatData){
-                    data.Value.SaveData = JsonUtility.FromJson<BoatData>(stringData);
-                }
-                else if(data.Key == Core.DataType.FishingData){
-                    data.Value.SaveData = JsonUtility.FromJson<FishingData>(stringData);
+                switch(data.Key){
+                    case DataType.BoatData:
+                        data.Value.SaveData = JsonUtility.FromJson<BoatData>(stringData);
+                        break;
+                    case DataType.PlayerData:
+                        data.Value.SaveData = JsonUtility.FromJson<PlayerData>(stringData);
+                        break;
+                    case DataType.FishingData:
+                        data.Value.SaveData = JsonUtility.FromJson<FishingData>(stringData);
+                        break;
+                    case DataType.GameData:
+                        data.Value.SaveData = JsonUtility.FromJson<GameData>(stringData);
+                        break;
                 }
             }
             else{
-                if(data.Key == Core.DataType.BoatData){
-                    data.Value.SaveData = new BoatData();
-                }
-                else if(data.Key == Core.DataType.FishingData){
-                    data.Value.SaveData = new FishingData();
+                switch(data.Key){
+                    case DataType.BoatData:
+                        data.Value.SaveData = new BoatData();
+                        break;
+                    case DataType.PlayerData:
+                        data.Value.SaveData = new PlayerData();
+                        break;
+                    case DataType.FishingData:
+                        data.Value.SaveData = new FishingData();
+                        break;
+                    case DataType.GameData:
+                        data.Value.SaveData = new GameData();
+                        break;
                 }
                 SaveData(data.Value);
             }
@@ -81,6 +93,6 @@ public class DataManager : IManager
         return returnData;
     }
 
-    public void Reset(){}
+    public void ResetManager(){}
     public void UpdateManager(){}
 }
