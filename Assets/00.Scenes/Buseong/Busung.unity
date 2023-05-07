@@ -276,6 +276,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 54e3ce1eaa98fb242997b4fe72b4b7d6, type: 2}
   - {fileID: 11400000, guid: 024990d47473c044fbd404694341f9a8, type: 2}
   _currentBiomeFishesData: []
+  _fishPrefabs: {fileID: 2697259557522150742, guid: 108e7605a856e234ebc994cb4875bacd, type: 3}
   _maxFishNum: 30
 --- !u!4 &1413539704
 Transform:

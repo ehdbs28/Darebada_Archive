@@ -15,11 +15,16 @@ public class FishingCatchingState : FishingState
     private float _currentTime = 0f;
     private float _percent = 0f;
 
+    private LayerMask _fishLayer;
+
+    private Fish _currentCatchFish = null;
+
     public override void SetUp(Transform agentRoot)
     {
         base.SetUp(agentRoot);
 
         _bobberTrm = agentRoot.Find("Bobber");
+        _fishLayer = LayerMask.GetMask("Fish");
     }
 
     public override void EnterState()
@@ -27,12 +32,12 @@ public class FishingCatchingState : FishingState
         _start = _bobberTrm.position;
         _end = _start + _controller.ActionData.LastThrowDirection.normalized; 
 
-        float stringLength = 10 - _controller.ActionData.LastChargingPower * 10 / _controller.ActionData.MaxChargingPower + 1; 
+        float stringLength = 10 - _controller.ActionData.LastChargingPower * 10 / _controller.FishingData.MaxChargingPower + 1; 
         // 10 이라는 상수 값은 후에 최대 낚시 찌가 들어갈 거리로 바꿔줘야 함
         
         _end.y = -stringLength;
 
-        _throwTime = Mathf.Max(0.3f, Vector3.Distance(_start, _end)) / _controller.ActionData.ThrowingSpeed;
+        _throwTime = Mathf.Max(0.3f, Vector3.Distance(_start, _end)) / _controller.FishingData.ThrowingSpeed;
         _currentTime = 0f;
         _percent = 0f;
 
@@ -48,18 +53,24 @@ public class FishingCatchingState : FishingState
     public override void UpdateState()
     {
         if(_isReadyToCatch){
-            // 나중에 조건 고치기
-            if(Input.GetKey(KeyCode.Space)){
-                _percent -= _controller.ActionData.ThrowingSpeed * Time.deltaTime / _throwTime;
-                _bobberTrm.position = GetLerpPos();
+            // 여기서 물고기 끌고오고 미니게임 들어가야 함
+            if(_currentCatchFish == null){
+                //Collider[]_aroundFish = Physics.OverlapSphere(_bobberTrm.position, 5f, _fishLayer);
 
-                if(_percent <= 0){
-                    _controller.ActionData.IsFishing = false;
-                    _controller.ActionData.IsUnderWater = false;
+                // 나중에 조건 고치기
+                if(Input.GetKey(KeyCode.Space)){
+                    _percent -= _controller.FishingData.ThrowingSpeed * Time.deltaTime / _throwTime;
+                    _bobberTrm.position = GetLerpPos();
+
+                    if(_percent <= 0){
+                        _controller.ActionData.IsFishing = false;
+                        _controller.ActionData.IsUnderWater = false;
+                    }
                 }
             }
+            else{
 
-            // 여기서 물고기 끌고오고 미니게임 들어가야 함
+            }
         }
         else{
             // 나중에 조건 고치기
@@ -74,7 +85,7 @@ public class FishingCatchingState : FishingState
 
     private IEnumerator ToThrow(){
         while(_percent < 1 && _isReadyToCatch == false){
-            _currentTime += _controller.ActionData.ThrowingSpeed * Time.deltaTime;
+            _currentTime += _controller.FishingData.ThrowingSpeed * Time.deltaTime;
             _percent = _currentTime / _throwTime;
 
             _bobberTrm.position = GetLerpPos();

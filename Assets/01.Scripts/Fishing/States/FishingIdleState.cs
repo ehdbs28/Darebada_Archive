@@ -21,7 +21,7 @@ public class FishingIdleState : FishingState
     {
         _controller.ActionData.IsFishing = false;
         _bobberTrm.position = _controller.ActionData.InitPosition;
-        CameraManager.Instance.SetVCam(BOAT_FOLLOW);
+        GameManager.Instance.GetManager<CameraManager>().SetVCam(BOAT_FOLLOW);
     }
 
     public override void ExitState()

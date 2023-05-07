@@ -20,7 +20,7 @@ public class RotationVCam : VCam
     private Core.CameraState _lastVCamState;
 
     public void SetRotateValue(Transform target, float radius, Vector3 pos, Quaternion rot, Vector3 offset, Core.CameraState lastVCamState){
-        _last = InputManager.Instance.MousePosition;
+        _last = GameManager.Instance.GetManager<InputManager>().MousePosition;
         _lastVCamState = lastVCamState;
         _offset = offset;
         _arcball = new Arcball(radius, target);
@@ -29,7 +29,7 @@ public class RotationVCam : VCam
         _virtualCam.transform.rotation = rot;
         _spherical = _arcball.GetSphericalCoordinates(_virtualCam.transform.position);
 
-        InputManager.Instance.OnMouseClickEvent += OnMouseClick;
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnMouseClick;
 
         _isRotate = true;
     }
@@ -37,14 +37,14 @@ public class RotationVCam : VCam
     public override void UnselectVCam()
     {
         base.UnselectVCam();
-        InputManager.Instance.OnMouseClickEvent -= OnMouseClick;
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= OnMouseClick;
         _isRotate = false;
     }
 
     public override void UpdateCam()
     {
         if(_isRotate){
-            float dx = (_last.x - InputManager.Instance.MousePosition.x) * _rotationSpeed;
+            float dx = (_last.x - GameManager.Instance.GetManager<InputManager>().MousePosition.x) * _rotationSpeed;
 
             if(dx != 0f){
                 _spherical.y += dx * Time.deltaTime;
@@ -56,13 +56,13 @@ public class RotationVCam : VCam
                 _virtualCam.transform.rotation = Quaternion.LookRotation(_arcball.Center + _offset - _virtualCam.transform.position);
             }
 
-            _last = InputManager.Instance.MousePosition;
+            _last = GameManager.Instance.GetManager<InputManager>().MousePosition;
         }
     }
 
     private void OnMouseClick(bool value){
         if(value == false){
-            CameraManager.Instance.SetVCam(_lastVCamState);
+            GameManager.Instance.GetManager<CameraManager>().SetVCam(_lastVCamState);
         }
     }
 

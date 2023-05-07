@@ -5,11 +5,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Core;
 
-public class InputManager : MonoBehaviour
+public class InputManager : MonoBehaviour, IManager
 {
-    public static InputManager Instance = null;
-    // ?�것???�중??게임매니?�?�서 ?�스?�스 관�?
-
     private PlayerInput _playerInput;
 
     public event Action<float> OnMovementEvent = null;
@@ -22,25 +19,26 @@ public class InputManager : MonoBehaviour
     public Vector3 MousePositionToGroundRayPostion{
         get{
             RaycastHit hit;
-            bool isHit = Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, _whatIsGround);
+            bool isHit = Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, _whatIsGround);
+
             return (isHit) ? hit.point : Vector3.zero;
         }
     }
 
     private LayerMask _whatIsGround;
 
-    private void Awake() {
-        if(Instance == null){
-            Instance = this;
-        }
+    public InputManager(){
+        ResetManager();
+    }
 
-        _playerInput = GetComponent<PlayerInput>();
+    public void InitManager() {
+        _playerInput = GameManager.Instance.GetComponent<PlayerInput>();
 
-        // ?�중??바꾸�?
+        // 나중에 바꾸기
         _whatIsGround = LayerMask.GetMask("TestGroundLayer");
     }
 
-    // new InputManager?�서 Event ?�식?�로 ?�겨???�행?�는 친구?�임
+    // new InputManager에서 Event 형식으로 넘겨서 실행되는 친구들임
 
     public void OnMovement(InputValue value){
         OnMovementEvent?.Invoke(value.Get<float>());
@@ -57,4 +55,7 @@ public class InputManager : MonoBehaviour
     public void OnMousePosition(InputValue value){
         _mousePosition = value.Get<Vector2>();
     }
+
+    public void ResetManager(){}
+    public void UpdateManager(){}
 }

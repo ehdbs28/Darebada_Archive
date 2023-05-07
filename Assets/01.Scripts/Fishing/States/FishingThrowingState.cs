@@ -23,7 +23,7 @@ public class FishingThrowingState : FishingState
         _playerTrm.LookAt(_controller.ActionData.LastThrowDirection);
         _controller.ActionData.InitPosition = _bobberTrm.position;
 
-        CameraManager.Instance.SetVCam(BOBBER_FOLLOW);
+        GameManager.Instance.GetManager<CameraManager>().SetVCam(BOBBER_FOLLOW);
 
         StartCoroutine(ThrowTo());
     }
@@ -37,7 +37,7 @@ public class FishingThrowingState : FishingState
         Vector3 end = _bobberTrm.position + (_playerTrm.position + _controller.ActionData.LastThrowDirection.normalized * _controller.ActionData.LastChargingPower);
         end.y = 0;
 
-        float throwTime = Mathf.Max(0.3f, Vector3.Distance(start, end)) / _controller.ActionData.ThrowingSpeed;
+        float throwTime = Mathf.Max(0.3f, Vector3.Distance(start, end)) / _controller.FishingData.ThrowingSpeed;
 
         float currentTime = 0f;
         float percent = 0f;
@@ -45,7 +45,7 @@ public class FishingThrowingState : FishingState
         float v0 = (end - start).y - _gravity;
 
         while(percent < 1){
-            currentTime += _controller.ActionData.ThrowingSpeed * Time.deltaTime;
+            currentTime += _controller.FishingData.ThrowingSpeed * Time.deltaTime;
             percent = currentTime / throwTime;
 
             Vector3 pos = Vector3.Lerp(start, end, percent);

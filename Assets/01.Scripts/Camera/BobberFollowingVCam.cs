@@ -11,14 +11,14 @@ public class BobberFollowingVCam : VCam
     {
         base.SelectVCam();
 
-        InputManager.Instance.OnMouseClickEvent += OnScreenClick;
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnScreenClick;
     }
 
     public override void UnselectVCam()
     {
         base.UnselectVCam();
 
-        InputManager.Instance.OnMouseClickEvent -= OnScreenClick;
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= OnScreenClick;
     }
 
     public override void UpdateCam()
@@ -27,12 +27,13 @@ public class BobberFollowingVCam : VCam
 
     private void OnScreenClick(bool value){
         if(value == true){
-            CameraManager.Instance.SetRotateCam(_target,
-                                                Vector3.Distance(_target.position, _virtualCam.transform.position),
-                                                _virtualCam.transform.position,
-                                                _virtualCam.transform.rotation,
-                                                Vector3.zero,
-                                                _state
+            GameManager.Instance.GetManager<CameraManager>().SetRotateCam(
+                _target,
+                Vector3.Distance(_target.position, _virtualCam.transform.position),
+                _virtualCam.transform.position,
+                _virtualCam.transform.rotation,
+                Vector3.zero,
+                _state
             );
         }
     }

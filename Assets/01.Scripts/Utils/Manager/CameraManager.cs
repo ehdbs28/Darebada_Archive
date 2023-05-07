@@ -5,12 +5,8 @@ using Cinemachine;
 using UnityEngine;
 using static Core.CameraState;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : MonoBehaviour, IManager
 {
-    public static CameraManager Instance = null;
-    // 나중에 게임 매니저에서 인스턴스 생성해줄거임
-    // 일단 지금은 Awake에서 하자
-
     [SerializeField]
     private List<VCam> _virtualCamList = new List<VCam>();
 
@@ -18,22 +14,20 @@ public class CameraManager : MonoBehaviour
 
     private readonly Dictionary<Core.CameraState, VCam> _virtualVCams = new Dictionary<Core.CameraState, VCam>();
 
-    private void Awake() {
-        if(Instance == null){
-            Instance = this;
-        }
+    public CameraManager(){
+        ResetManager();
+    }
 
+    public void InitManager() {
         for(int i = 0; i < (int)FINISH; i++){
             _virtualCamList[i].Init((Core.CameraState)i);
             _virtualVCams.Add((Core.CameraState)i, _virtualCamList[i]);
         }
-    }
 
-    private void Start() {
         SetVCam(Core.CameraState.BOAT_FOLLOW);
     }
 
-    private void Update() {
+    public void UpdateManager() {
         _currentActiveVCam?.UpdateCam();
     }
 
@@ -57,4 +51,6 @@ public class CameraManager : MonoBehaviour
         RotationVCam rotVCam = (RotationVCam)SetVCam(Core.CameraState.ROTATE);
         rotVCam.SetRotateValue(target, radius, pos, rot, offset, lastState);
     }
+
+    public void ResetManager(){}
 }

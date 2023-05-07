@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoatRotationModule : CommonModule
+public class BoatRotationModule : CommonModule<BoatController>
 {
     private Rigidbody _rigid;
 
@@ -35,7 +35,7 @@ public class BoatRotationModule : CommonModule
     }
 
     private void AddEvent(){
-        InputManager.Instance.OnRotationEvent += SetRotationValue;
+        GameManager.Instance.GetManager<InputManager>().OnRotationEvent += SetRotationValue;
     }
 
     private void SetRotationValue(float value){
@@ -43,7 +43,7 @@ public class BoatRotationModule : CommonModule
     }
 
     private void Rotate(){
-        if(Mathf.Abs(_dir) > 0 && _controller.BoatData.IsMoveBoat){
+        if(Mathf.Abs(_dir) > 0 && _controller.BoatActionData.IsMoveBoat){
             if(Vector3.Dot(_controller.transform.up * _dir, _rotate) < 0){
                 _currentRotateVelocity = 0f;
             }
@@ -54,7 +54,7 @@ public class BoatRotationModule : CommonModule
     }
 
     private float CalcVelocity(){
-        if(Mathf.Abs(_dir) > 0 && _controller.BoatData.IsMoveBoat){
+        if(Mathf.Abs(_dir) > 0 && _controller.BoatActionData.IsMoveBoat){
             _currentRotateVelocity += _rotateAcceleration * Time.deltaTime;
         }
         else{
