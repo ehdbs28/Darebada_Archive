@@ -51,10 +51,7 @@ public class FishMovement : MonoBehaviour
                 {
                     _dir = GameObject.Find("FishManager").transform.position - transform.position;
                 }
-
-                Debug.Log(_dir);
             }
-            //_rigidbody.velocity = _dir * _fish.SwimSpeed;
         }
         else{
             if(Vector3.Distance(Target.position, transform.position) <= 0.1f){
@@ -68,7 +65,7 @@ public class FishMovement : MonoBehaviour
         }
 
         if(IsCatched == false){
-            _rigidbody.AddForce(_dir.normalized * _fish.SwimSpeed, ForceMode.Impulse);
+            _rigidbody.velocity = _dir.normalized * _fish.SwimSpeed;
         }
         else{
             transform.position = Target.position;

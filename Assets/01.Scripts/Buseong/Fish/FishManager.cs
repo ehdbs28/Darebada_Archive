@@ -34,12 +34,7 @@ public class FishManager : MonoBehaviour
             ChangeBiome(_nextBiomeTest);
         }
 
-        /*if(_fishes.Count < _maxFishNum)
-        {
-            CreateFish();
-        }*/
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(_fishes.Count < _maxFishNum)
         {
             CreateFish();
         }
