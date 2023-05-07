@@ -14,8 +14,10 @@ public class BiomeIcon : MonoBehaviour
         {
             StartCoroutine(ChangeScene());
             alreadyEntered = true;
+            
         }
     }
+
     IEnumerator ChangeScene()
     {
         yield return new WaitForSeconds(1f);
