@@ -1,0 +1,58 @@
+.data {
+    height: 33px;
+    background-color: rgb(56, 56, 56);
+    border-left-color: rgb(34, 34, 34);
+    border-right-color: rgb(34, 34, 34);
+    border-top-color: rgb(34, 34, 34);
+    border-bottom-color: rgb(34, 34, 34);
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    flex-direction: row;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+.data > #icon-box {
+    flex-basis: 15%;
+    align-items: center;
+    justify-content: center;
+}
+
+.data > #icon-box > #icon {
+    width: 20px;
+    height: 20px;
+}
+
+.data > #text-box {
+    flex-basis: 50%;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.data.cs #icon {
+    background-image: url('project://database/Assets/02.Sprites/EditorIcon/cs%20Script%20Icon.png?fileID=21300000&guid=8b31a18d8b175974580aef1f48d0fcea&type=3#cs Script Icon');
+}
+
+.data.so #icon {
+    background-image: url('project://database/Assets/02.Sprites/EditorIcon/SO%20icon.png?fileID=21300000&guid=3579f251ded180e488929d7c22e98cf9&type=3#SO icon');
+}
+
+.data > #text-box > #name-text {
+    font-size: 11px;
+    color: rgb(229, 229, 229);
+    -unity-font-style: bold;
+}
+
+.data > #text-box > #type-text {
+    font-size: 8px;
+    -unity-font-style: normal;
+    color: rgb(200, 200, 200);
+}
+
+.data:hover {
+    background-color: rgb(82, 82, 82);
+}
+
+.data.on {
+    background-color: rgb(82, 82, 82);
+}
