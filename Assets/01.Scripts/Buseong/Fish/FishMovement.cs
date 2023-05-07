@@ -23,10 +23,10 @@ public class FishMovement : MonoBehaviour
     private float _zPosMinLimit = -30f;
     private float _zPosMaxLimit = 30f;
 
-    public bool IsSelected { get; set; }
-    public bool IsCatched { get; private set; }
+    public bool IsSelected { get; set; } = false;
+    public bool IsCatched { get; private set; } = false;
 
-    public Transform Target { get; set; }
+    public Transform Target { get; set; } = null;
 
     private void Start()
     {
