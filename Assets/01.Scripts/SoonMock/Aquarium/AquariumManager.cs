@@ -70,6 +70,7 @@ public class AquariumManager : MonoBehaviour
         BUILD
     }
     public STATE state = STATE.NORMAL;
+    public InputManager inputManager;
     private void Awake()
     {
         if(aquaObject.Count <=0)
@@ -83,6 +84,7 @@ public class AquariumManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
         else Destroy(this);
+        inputManager = FindObjectOfType<InputManager>();
         _build = GetComponent<BuildFacility>();
     }
     private void Update()
@@ -92,7 +94,7 @@ public class AquariumManager : MonoBehaviour
         ArtScore = Mathf.Clamp(((float)(decoCount/2)/ aquarium.Count) * 100, 0, 100);
         if(state == STATE.BUILD)
         {
-            if(Input.GetMouseButton(0) && InputManager.Instance.MousePositionToGroundRayPostion != Vector3.zero )
+            if(Input.GetMouseButton(0) && GameManager.Instance.GetManager<InputManager>().MousePositionToGroundRayPostion != Vector3.zero )
             {
                 _facilityObj.transform.position =  _build.GetFacilityPos();
             }
