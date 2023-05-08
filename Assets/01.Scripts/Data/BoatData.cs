@@ -12,6 +12,7 @@ public class BoatData : SaveData
 
     public float MaxFuel = 100f;
     public float MaxDurablity = 100f;
+    public float CurrentDurablity = 0f;
 
     public override void Reset(){}
 }

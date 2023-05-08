@@ -43,11 +43,11 @@ public class MoneyManager : MonoBehaviour
          */
     }
 
-    public void ItemUpgrade(ref int upgrade, int cost)
+    public void ItemUpgrade(ref float upgrade, float upgradeValue, int cost)
     {
         if (cost > money) return;
 
-        upgrade++;    
+        upgrade += upgradeValue;    
         money -= cost;
 
         /*

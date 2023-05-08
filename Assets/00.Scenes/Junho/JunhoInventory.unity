@@ -436,7 +436,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 690, y: -185}
+  m_AnchoredPosition: {x: 777.125, y: -948.5}
   m_SizeDelta: {x: 850, y: 370}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &255454229
@@ -693,7 +693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 580, y: -25}
+  m_AnchoredPosition: {x: 667.125, y: -788.5}
   m_SizeDelta: {x: 224, y: 224}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &576920176
@@ -747,7 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSizeWidth: 7
-  gridSizeHeight: 7
+  gridSizeHeight: 1
 --- !u!1 &672760441
 GameObject:
   m_ObjectHideFlags: 0
