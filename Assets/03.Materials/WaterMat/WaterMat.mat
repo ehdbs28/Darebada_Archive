@@ -7,11 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Toon Water Mobile Fast
-  m_Shader: {fileID: -6465566751694194690, guid: 550017bf155e702489e4eee4d320ebeb, type: 3}
+  m_Name: WaterMat
+  m_Shader: {fileID: -6465566751694194690, guid: b4a6b41e114133b4d8eb40ab1d879de6, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -20,16 +20,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_662AC62F:
-        m_Texture: {fileID: 2800000, guid: e0e8561a19db1b841b346944d8b13461, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_A0A6C9A8:
-        m_Texture: {fileID: 2800000, guid: e1301069de86bdd439c7a3182ed21c3c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_CC12F70E:
-        m_Texture: {fileID: 2800000, guid: e1301069de86bdd439c7a3182ed21c3c, type: 3}
+    - Texture2D_821B987A:
+        m_Texture: {fileID: 2800000, guid: ce0b76e65ef10314d9f55a9dd2284336, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -74,21 +66,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - BOOLEAN_537AC313: 0
-    - BOOLEAN_765B4C2: 0
-    - BOOLEAN_A060AF44: 0
-    - BOOLEAN_EC1EAD31: 0
-    - Boolean_2918AA79: 0
-    - Vector1_20DB7652: 0.157
-    - Vector1_301E02E2: 200
-    - Vector1_31894ABB: 0.0485
-    - Vector1_45F25267: 2.36
-    - Vector1_7AF1AC78: 0.964
-    - Vector1_854A7D8C: 0.9
-    - Vector1_9C73072A: 0
-    - Vector1_A524D234: 0.288
-    - Vector1_B9CC1720: 0.0319
-    - Vector1_E71BB35E: 1
+    - Boolean_2918AA79: 1
+    - Vector1_20DB7652: 0.158
+    - Vector1_24CAEF48: 1
+    - Vector1_301E02E2: 240
+    - Vector1_31894ABB: 0.0613
+    - Vector1_3632ABA2: 0
+    - Vector1_45F25267: 15
+    - Vector1_738B39CF: 0
+    - Vector1_854A7D8C: 0.96
+    - Vector1_9C73072A: 0.88
+    - Vector1_A524D234: 3
+    - Vector1_B9CC1720: 0.03
+    - Vector1_E4F66A0: 0.03
+    - Vector1_E71BB35E: 1.05
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -112,20 +103,20 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_1139F668: {r: 0, g: 0.5380234, b: 0.83, a: 0.5803922}
-    - Color_198818EE: {r: 0.35279235, g: 0.9320378, b: 0.95699996, a: 0.9490196}
-    - Color_626750DD: {r: 2, g: 2, b: 2, a: 1}
-    - Color_77A2EDE9: {r: 0.8947124, g: 0.8947124, b: 0.8947124, a: 1}
-    - Vector2_1E1B6943: {r: 0.1, g: 0.5, b: 0, a: 0}
+    - Color_1139F668: {r: 0.22241013, g: 0.80931354, b: 0.9622642, a: 0.5254902}
+    - Color_198818EE: {r: 0.055846523, g: 0.39760458, b: 1.7411011, a: 1}
+    - Color_626750DD: {r: 0.7053244, g: 0.7053244, b: 0.7053244, a: 1}
+    - Color_77A2EDE9: {r: 31.626795, g: 31.626795, b: 31.626795, a: 1}
+    - Vector2_1E1B6943: {r: 1, g: 5, b: 0, a: 0}
     - Vector2_D06E76BC: {r: 0.1, g: 0.05, b: 0, a: 0}
-    - Vector2_D26C9C89: {r: 0.03, g: 0, b: 0, a: 0}
+    - Vector2_D26C9C89: {r: 1, g: 0, b: 0, a: 0}
     - Vector2_F678228C: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &5467701122665808439
+--- !u!114 &7820507843188541201
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
