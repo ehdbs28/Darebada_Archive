@@ -12,5 +12,6 @@ public class SoonMockFish : MonoBehaviour
     public void ChangeName()
     {
         fishName = fishSO.names[id];
+        Instantiate(fishSO.modifys[id], transform).transform.localScale = Vector3.one;
     }
 }

@@ -60,6 +60,11 @@ public class Fishbowl :  Facility
     public void Upgrade()
     {
         Cost = 3 * MaxAmount * 300;
+        if(Cost <= MoneyManager.Instance.money)
+        {
+            MoneyManager.Instance.money -= Cost;
+            MaxAmount++;
+        }
     }
     public void AddDeco(int id)
     {

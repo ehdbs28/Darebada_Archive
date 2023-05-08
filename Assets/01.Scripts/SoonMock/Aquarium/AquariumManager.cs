@@ -157,7 +157,8 @@ public class AquariumManager : MonoBehaviour
     {
         GameObject fish = Instantiate(_fishObject);
         fish.transform.parent = parent;
-        fish.transform.localPosition = new Vector3(Random.Range(-0.8f,0.8f), 1f, Random.Range(-0.8f, 0.8f));
+        fish.transform.localPosition = new Vector3(Random.Range(-0.8f,0.8f), Random.Range(0.2f,1f), Random.Range(-0.8f, 0.8f));
+        fish.transform.rotation = Quaternion.Euler(0, Random.Range(0,360), 0);
         return fish;
     }
     public GameObject AddDeco(int id, Transform parent)

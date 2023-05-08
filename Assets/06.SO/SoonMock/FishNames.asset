@@ -16,3 +16,7 @@ MonoBehaviour:
   - "\uCC38\uB3D4"
   - "\uC5F0\uC5B4"
   - "\uC0C8\uC6B0\uD280\uAE40"
+  modifys:
+  - {fileID: 1293964168320832, guid: 4516ae3fa1245b84cbfe81e998ad8402, type: 3}
+  - {fileID: 1752391428025164, guid: 99c54e74e45ad6047a27da50a88fa4d7, type: 3}
+  - {fileID: 1540631100845930, guid: 54c5273bc77d8cf4b96c910beb453c5d, type: 3}
