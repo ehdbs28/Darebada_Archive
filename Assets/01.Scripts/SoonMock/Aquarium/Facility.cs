@@ -22,9 +22,4 @@ public abstract class Facility :MonoBehaviour
         }
         return true;
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawCube(_collider.bounds.center, _collider.bounds.size);
-    }
 }

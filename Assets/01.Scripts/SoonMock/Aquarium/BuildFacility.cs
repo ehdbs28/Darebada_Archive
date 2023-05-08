@@ -14,7 +14,7 @@ public class BuildFacility : MonoBehaviour
     }
     public Vector3 GetFacilityPos()
     {
-        Vector3 point = AquariumManager.Instance..MousePositionToGroundRayPostion;
+        Vector3 point = AquariumManager.Instance.inputManager.MousePositionToGroundRayPostion;
         _objectPosition = new Vector3(Mathf.RoundToInt(point.x), Mathf.RoundToInt(point.y), Mathf.RoundToInt(point.z));
         return _objectPosition;
     }

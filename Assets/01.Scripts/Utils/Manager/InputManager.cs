@@ -19,7 +19,7 @@ public class InputManager : MonoBehaviour, IManager
     public Vector3 MousePositionToGroundRayPostion{
         get{
             RaycastHit hit;
-            bool isHit = Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, _whatIsGround);
+            bool isHit = Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit,Mathf.Infinity, _whatIsGround);
 
             return (isHit) ? hit.point : Vector3.zero;
         }

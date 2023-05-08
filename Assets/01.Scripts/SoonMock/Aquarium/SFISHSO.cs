@@ -5,5 +5,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class SFISHSO : ScriptableObject
 {
-    public List<string> names;  
+    public List<string> names;
+    public List<GameObject> modifys;
 }

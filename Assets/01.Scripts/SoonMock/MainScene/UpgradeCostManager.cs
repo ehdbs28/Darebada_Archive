@@ -44,26 +44,26 @@ public class UpgradeCostManager : MonoBehaviour
     }
     public void OnUpgradeButton(UPGRADETYPE upgradeType)
     {
-        switch (upgradeType)
-        {
-            case UPGRADETYPE.SPEED:
-                MoneyManager.Instance.ItemUpgrade(ref speed, _calculater.CalcShipSpeedCost(speed));
-                break;
-            case UPGRADETYPE.STORAGE:
-                MoneyManager.Instance.ItemUpgrade(ref storage, _calculater.CalcShipStorageCost(storage));
-                break;
-            case UPGRADETYPE.DURABILITY:
-                MoneyManager.Instance.ItemUpgrade(ref durability, _calculater.CalcShipDurability(durability));
-                break;
-            case UPGRADETYPE.POWER:
-                MoneyManager.Instance.ItemUpgrade(ref power, _calculater.CalcFishingStickWeight(power));
-                break;
-            case UPGRADETYPE.LENGTH:
-                MoneyManager.Instance.ItemUpgrade(ref length, _calculater.CalcFishingStickLength(length));
-                break;
-            case UPGRADETYPE.STRENGTH:
-                MoneyManager.Instance.ItemUpgrade(ref strength, _calculater.CalcFishingStickStrength(strength));
-                break;
-        }
+        //switch (upgradeType)
+        //{
+        //    case UPGRADETYPE.SPEED:
+        //        MoneyManager.Instance.ItemUpgrade(ref speed, _calculater.CalcShipSpeedCost(speed));
+        //        break;
+        //    case UPGRADETYPE.STORAGE:
+        //        MoneyManager.Instance.ItemUpgrade(ref storage, _calculater.CalcShipStorageCost(storage));
+        //        break;
+        //    case UPGRADETYPE.DURABILITY:
+        //        MoneyManager.Instance.ItemUpgrade(ref durability, _calculater.CalcShipDurability(durability));
+        //        break;
+        //    case UPGRADETYPE.POWER:
+        //        MoneyManager.Instance.ItemUpgrade(ref power, _calculater.CalcFishingStickWeight(power));
+        //        break;
+        //    case UPGRADETYPE.LENGTH:
+        //        MoneyManager.Instance.ItemUpgrade(ref length, _calculater.CalcFishingStickLength(length));
+        //        break;
+        //    case UPGRADETYPE.STRENGTH:
+        //        MoneyManager.Instance.ItemUpgrade(ref strength, _calculater.CalcFishingStickStrength(strength));
+        //        break;
+        //}
     }
 }
