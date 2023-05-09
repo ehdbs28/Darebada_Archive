@@ -22,7 +22,7 @@ public class BoatMovementModule : CommonModule<BoatController>
         base.SetUp(rootTrm);
 
         _rigid = rootTrm.GetComponent<Rigidbody>();
-        _fishingController = GameObject.Find("TestPlayer").GetComponentInChildren<FishingController>();
+        _fishingController = GameObject.Find("Player").GetComponentInChildren<FishingController>();
 
         AddEvent();
         StopImmediately();
