@@ -11,9 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00.Scenes/Junho/UITest/MainTestScene.unity
     guid: 596c95a61004b9a4aaca2d01033d6f94
-  - enabled: 1
-    path: Assets/00.Scenes/Junho/UITest/OceanTestScene.unity
-    guid: 290280c0cb98ada45af14c692b485ec1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

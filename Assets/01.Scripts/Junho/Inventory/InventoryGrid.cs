@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryGrid : MonoBehaviour
-{
+{//
     public const float tileSizeWidth = 32;  // 타일 가로
     public const float tileSizeHeight = 32; // 타일 세로
 
