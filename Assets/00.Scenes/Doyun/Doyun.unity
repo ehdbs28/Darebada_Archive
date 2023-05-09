@@ -6399,7 +6399,7 @@ GameObject:
   - component: {fileID: 2126564730}
   - component: {fileID: 2126564729}
   - component: {fileID: 2126564728}
-  m_Layer: 15
+  m_Layer: 20
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
