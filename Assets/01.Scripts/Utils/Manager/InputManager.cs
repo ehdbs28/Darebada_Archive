@@ -32,7 +32,7 @@ public class InputManager : MonoBehaviour, IManager
     }
 
     public void InitManager() {
-        _playerInput = GameManager.Instance.GetComponent<PlayerInput>();
+        //_playerInput = GameManager.Instance.GetComponent<PlayerInput>();
 
         // ?˜ì¤‘??ë°”ê¾¸ê¸?
         _whatIsGround = LayerMask.GetMask("TestGroundLayer");

@@ -60,7 +60,7 @@ public class AquariumManager : MonoBehaviour
     public List<GameObject> aquaObject = new List<GameObject>();
     public List<Facility> aquarium = new List<Facility>();
 
-    [SerializeField] private Facility _facilityObj;
+    public Facility facilityObj;
 
     [SerializeField] private BuildFacility _build;
 
@@ -96,26 +96,26 @@ public class AquariumManager : MonoBehaviour
         if(state == STATE.BUILD)
         {
             Debug.Log(inputManager.MousePositionToGroundRayPostion);
-            if(Input.GetMouseButton(0) && inputManager.MousePositionToGroundRayPostion != Vector3.zero )
+            if(Input.GetMouseButton(0) && inputManager.MousePositionToGroundRayPostion != Vector3.zero  )
             {
-                _facilityObj.transform.position =  _build.GetFacilityPos();
+                facilityObj.transform.position =  _build.GetFacilityPos();
             }
         }
     }
     public void SetFacilityPos()
     {
-        Debug.Log(_facilityObj.transform.position);
+        Debug.Log(facilityObj.transform.position);
 
-        if (_facilityObj.CheckCollision()) 
+        if (facilityObj.CheckCollision()) 
         {
 
             state = STATE.NORMAL;
-            aquaObject.Add(_facilityObj.gameObject);
-            if (_facilityObj.GetComponent<Fishbowl>())
+            aquaObject.Add(facilityObj.gameObject);
+            if (facilityObj.GetComponent<Fishbowl>())
             {
-                aquarium.Add(_facilityObj);
+                aquarium.Add(facilityObj);
             }
-            _facilityObj = null;
+            facilityObj = null;
         }
     }
     public void AddFishBowl()
@@ -129,7 +129,7 @@ public class AquariumManager : MonoBehaviour
             _floorSize.x += 5;
         }
         fishBowl.transform.localPosition = new Vector3(_floorSize.x, 0, _floorSize.z);
-        _facilityObj = fishBowl;
+        facilityObj = fishBowl;
 
         state = STATE.BUILD;
         //    else floor.transform.localPosition = new Vector3(_floorSize.x / 2+10, 0, 0);
@@ -145,12 +145,12 @@ public class AquariumManager : MonoBehaviour
             _floorSize.x += 5;
         }
         snackShop.transform.localPosition = new Vector3(_floorSize.x, 0.5f, _floorSize.z);
-        _facilityObj = snackShop;
+        facilityObj = snackShop;
         state = STATE.BUILD;
     }
     public void ChangeFacilityPos(Facility obj)
     {
-        _facilityObj = obj;
+        facilityObj = obj;
         state = STATE.BUILD;
     }
     public GameObject AddFish(int id, Transform parent)
