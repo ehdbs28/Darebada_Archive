@@ -1,6 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/07.UI/MainUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#MainUI" />
     <ui:VisualElement name="container">
-        <ui:VisualElement name="ui-container" />
+        <ui:VisualElement name="ui-container" style="align-items: center;">
+            <ui:VisualElement name="droptable-btn" class="btn" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Buttons/White%20Round%20Outline%20Button.png?fileID=21300000&amp;guid=361685eeac9f141b09b365c40e020b2a&amp;type=3#White Round Outline Button&apos;);">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Menu%202%20Icon.png?fileID=21300000&amp;guid=0e89f78e71f5979439b0c05bb022f87b&amp;type=3#Free Flat Menu 2 Icon&apos;);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="center-line" style="background-color: rgba(255, 255, 255, 255);" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
