@@ -7,7 +7,7 @@
     padding-bottom: 20px;
 }
 
-#ui-container {
+#header-container {
     flex-direction: row-reverse;
     flex-basis: 15%;
     align-items: center;
@@ -86,8 +86,8 @@
 
 #date-n-time > #date {
     font-size: 30px;
-    margin-bottom: 30px;
     letter-spacing: 7px;
+    margin-bottom: 30px;
 }
 
 #date-n-time > #time {
@@ -223,4 +223,146 @@
     top: 50%;
     bottom: 50%;
     -unity-text-align: middle-center;
+}
+
+.challenge {
+    width: 350px;
+    height: 80%;
+    position: absolute;
+    left: 0;
+    top: 50px;
+}
+
+.challenge.clear {
+}
+
+.challenge > #name-box {
+    flex-basis: 25%;
+    flex-direction: row;
+    align-items: center;
+    background-image: url('project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Middle)%20Icon.png?fileID=2800000&guid=c0c6236a6ab80ef4a976fb36399ec076&type=3#Free Flat Gradient Horizontal (Middle) Icon');
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.39);
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.challenge.clear > #name-box {
+    -unity-background-image-tint-color: rgba(109, 255, 190, 0.39);
+}
+
+.challenge #name {
+    font-size: 30px;
+    flex-basis: 80%;
+}
+
+.challenge #complete-box {
+    flex-basis: 20%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.challenge #complete {
+    width: 45px;
+    height: 45px;
+    background-color: rgb(38, 38, 38);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.challenge.clear #complete {
+    background-color: rgba(0, 197, 118, 255);
+}
+
+.challenge #image {
+    width: 100%;
+    height: 100%;
+    background-image: url('project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Question.png?fileID=21300000&guid=8878f6aeee8f5456ba946015221cdc65&type=3#White Question');
+}
+
+.challenge.clear #image {
+    background-image: url('project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Checkmark.png?fileID=21300000&guid=bf28281279a5e479c8105c959d2268aa&type=3#White Checkmark');
+}
+
+.challenge > #element-box {
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+.challenge-fish-element {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    background-color: rgba(255, 255, 255, 0.29);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.challenge-fish-element > #inner {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.49);
+    overflow: hidden;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.challenge-fish-element #fish-image {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background-image: url('project://database/Assets/05.Assets/Junho/image_7.png?fileID=21300000&guid=c908cdb7a9a3ef148a811d8db13bfcab&type=3#image_7');
+    scale: -1 1;
+    right: 0;
+}
+
+.challenge-fish-element #star-container {
+    flex-basis: 20%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.challenge-fish-element #star {
+    width: 15px;
+    height: 15px;
+    background-image: url('project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Star%20Filled%20Icon.png?fileID=21300000&guid=0579b86233f138a43b5a174d669f362b&type=3#Free Flat Star Filled Icon');
+    margin-right: 3px;
+}
+
+.challenge-fish-element #check {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 35px;
+    height: 25px;
+    background-image: url('project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Checkmark.png?fileID=21300000&guid=bf28281279a5e479c8105c959d2268aa&type=3#White Checkmark');
+    -unity-background-image-tint-color: rgb(114, 114, 114);
+}
+
+.challenge-fish-element.check #check {
+    -unity-background-image-tint-color: rgba(0, 197, 118, 255);
 }
