@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/07.UI/MainUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#MainUI" />
+    <Style src="project://database/Assets/07.UI/OceneUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceneUI" />
     <ui:VisualElement name="container">
         <ui:VisualElement name="header-container">
             <ui:VisualElement name="setting-btn" class="btn" style="justify-content: flex-end;">
@@ -13,6 +13,10 @@
             <ui:VisualElement name="dictionary-btn" class="btn" style="justify-content: flex-end;">
                 <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Edit%20Icon.png?fileID=21300000&amp;guid=8cd55c5b366c4574d93e99269b8a01d9&amp;type=3#Free Flat Edit Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
                 <ui:Label text="도감" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="inventory-btn" class="btn" style="justify-content: flex-end;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Bag%201%20Icon.png?fileID=21300000&amp;guid=09ff2c9da44bcb740befe466a832c257&amp;type=3#Free Flat Bag 1 Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
+                <ui:Label text="인벤토리" display-tooltip-when-elided="true" name="btn-text" class="text" />
             </ui:VisualElement>
             <ui:VisualElement name="chllenge-box" class="challenge">
                 <ui:VisualElement name="name-box">

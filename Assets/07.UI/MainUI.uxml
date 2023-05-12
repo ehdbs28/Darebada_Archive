@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/MainUI.uss?fileID=7433441132597879392&amp;guid=870c7f81e78494c4794883e1a9367d4b&amp;type=3#MainUI" />
+    <Style src="project://database/Assets/07.UI/OceneUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceneUI" />
+    <ui:VisualElement name="container">
+        <ui:VisualElement name="header-container">
+            <ui:VisualElement name="setting-btn" class="btn" style="justify-content: flex-end;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Gear.png?fileID=21300000&amp;guid=f55f75488890d4747835fc8299828fe7&amp;type=3#White Gear&apos;); width: 120%; height: 120%; bottom: -10px;" />
+                <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="letter-btn" class="btn" style="justify-content: flex-end;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Cloud%20Icon.png?fileID=21300000&amp;guid=dabc19380a76426458ac691061a1a10a&amp;type=3#Free Flat Cloud Icon&apos;); bottom: 2px;" />
+                <ui:Label text="편지함" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="dictionary-btn" class="btn" style="justify-content: flex-end;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Edit%20Icon.png?fileID=21300000&amp;guid=8cd55c5b366c4574d93e99269b8a01d9&amp;type=3#Free Flat Edit Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
+                <ui:Label text="도감" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="time-n-date" style="position: absolute; left: 0; width: 350px; height: 140px; top: 25%;">
+                <ui:Label text="n년째, n월n일" display-tooltip-when-elided="true" name="date-text" class="text" style="font-size: 45px; letter-spacing: 7px; margin-bottom: 20px;" />
+                <ui:Label text="nn:nn" display-tooltip-when-elided="true" name="time-text" class="text" style="font-size: 35px; letter-spacing: 7px; margin-bottom: 5px;" />
+                <ui:VisualElement name="line" style="background-color: rgba(255, 255, 255, 0.59); height: 5px; width: 100%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
