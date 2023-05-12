@@ -59,6 +59,7 @@ public class AquariumManager : MonoBehaviour
     public int decoCount = 0;
     public List<GameObject> aquaObject = new List<GameObject>();
     public List<Facility> aquarium = new List<Facility>();
+    public Transform endTarget;
 
     public Facility facilityObj;
 
