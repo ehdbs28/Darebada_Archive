@@ -15,7 +15,16 @@
                 <ui:Label text="도감" display-tooltip-when-elided="true" name="btn-text" class="text" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="game-container" style="flex-basis: 65%;" />
+        <ui:VisualElement name="game-container">
+            <ui:VisualElement name="boat-controller" style="position: absolute; width: 52px; height: 502px; right: 20px; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.78); border-top-left-radius: 10px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 10px;">
+                <ui:VisualElement name="inner" style="width: 46px; height: 496px; background-color: rgba(63, 60, 60, 0.78); border-top-left-radius: 8px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 8px; flex-direction: column-reverse; align-items: center;">
+                    <ui:VisualElement name="inner-design" style="width: 100%; height: 98%; background-color: rgba(149, 149, 149, 0.78); border-top-left-radius: 8px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 8px;" />
+                    <ui:VisualElement name="handle" class="btn" style="position: absolute; width: 75px; height: 30px; bottom: 50%; background-color: rgb(65, 65, 65); border-top-left-radius: 10px; border-bottom-left-radius: 20px; border-top-right-radius: 10px; border-bottom-right-radius: 20px; align-items: center; overflow: hidden; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+                        <ui:VisualElement name="handle-design" style="width: 50%; background-color: rgba(72, 72, 72, 255); border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; border-top-left-radius: 50%; position: absolute; height: 50px; border-top-right-radius: 50%; top: -30px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
         <ui:VisualElement name="footer-container" style="flex-basis: 20%;">
             <ui:VisualElement name="data-circle">
                 <ui:VisualElement name="date-n-time">
