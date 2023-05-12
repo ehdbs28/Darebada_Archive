@@ -22,7 +22,7 @@ public class BoatMovementModule : CommonModule<BoatController>
         base.SetUp(rootTrm);
 
         _rigid = rootTrm.GetComponent<Rigidbody>();
-        _fishingController = GameObject.Find("TestPlayer").GetComponentInChildren<FishingController>();
+        _fishingController = GameObject.Find("Player").GetComponentInChildren<FishingController>();
 
         AddEvent();
         StopImmediately();
@@ -30,6 +30,8 @@ public class BoatMovementModule : CommonModule<BoatController>
 
     public override void UpdateModule()
     {
+        _controller.BoatActionData.IsMoveBoat = _currentVelocity > 0;
+
         if(_fishingController.ActionData.IsFishing)
             return;
 
@@ -54,11 +56,7 @@ public class BoatMovementModule : CommonModule<BoatController>
             if(Vector3.Dot(_controller.transform.forward * _inputDir, _movement) < 0){
                 _currentVelocity = 0f;
             }
-            _controller.BoatActionData.IsMoveBoat = true;
             _movement = _controller.transform.forward * _inputDir;
-        }
-        else{
-            _controller.BoatActionData.IsMoveBoat = false;
         }
         _currentVelocity = CalcVelocity();
     }
