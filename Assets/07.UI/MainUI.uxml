@@ -40,6 +40,12 @@
                         <ui:Label text="W" display-tooltip-when-elided="true" name="west" class="text" />
                     </ui:VisualElement>
                 </ui:VisualElement>
+                <ui:VisualElement name="boat-data" style="left: 100px; position: absolute; width: 200px; height: 200px; align-items: center; justify-content: center;">
+                    <ui:VisualElement name="outer-circle" style="width: 135px; height: 145px; background-color: rgba(255, 255, 255, 0.59); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; rotate: -70deg; position: absolute;" />
+                    <ui:VisualElement name="durability" style="width: 125px; height: 135px; rotate: -70deg; background-color: rgba(0, 255, 110, 0.78); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; position: absolute;" />
+                    <ui:VisualElement name="inner-circle" style="position: absolute; width: 110px; height: 120px; rotate: -70deg; background-color: rgba(53, 33, 40, 0.9); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%;" />
+                    <ui:VisualElement name="boat-image" style="position: absolute; width: 80px; height: 80px; background-image: url(&apos;project://database/Assets/05.Assets/UI/boatImage.png?fileID=21300000&amp;guid=2e54a477946f7104981b7751c7b9f272&amp;type=3#boatImage&apos;); bottom: 65px; -unity-background-image-tint-color: rgba(0, 255, 110, 0.78);" />
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
