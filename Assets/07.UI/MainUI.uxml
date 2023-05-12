@@ -7,11 +7,11 @@
                 <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" />
             </ui:VisualElement>
             <ui:VisualElement name="letter-btn" class="btn" style="justify-content: flex-end;">
-                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Cloud%20Icon.png?fileID=21300000&amp;guid=dabc19380a76426458ac691061a1a10a&amp;type=3#Free Flat Cloud Icon&apos;); bottom: 2px;" />
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Cloud%20Icon.png?fileID=21300000&amp;guid=dabc19380a76426458ac691061a1a10a&amp;type=3#Free Flat Cloud Icon&apos;); bottom: 2px;" />
                 <ui:Label text="편지함" display-tooltip-when-elided="true" name="btn-text" class="text" />
             </ui:VisualElement>
             <ui:VisualElement name="dictionary-btn" class="btn" style="justify-content: flex-end;">
-                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Edit%20Icon.png?fileID=21300000&amp;guid=8cd55c5b366c4574d93e99269b8a01d9&amp;type=3#Free Flat Edit Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Edit%20Icon.png?fileID=21300000&amp;guid=8cd55c5b366c4574d93e99269b8a01d9&amp;type=3#Free Flat Edit Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
                 <ui:Label text="도감" display-tooltip-when-elided="true" name="btn-text" class="text" />
             </ui:VisualElement>
         </ui:VisualElement>
@@ -24,6 +24,21 @@
                         <ui:Label text="nn:nn" display-tooltip-when-elided="true" name="time-text" class="text q" />
                     </ui:VisualElement>
                     <ui:VisualElement name="line" />
+                </ui:VisualElement>
+                <ui:VisualElement name="compass">
+                    <ui:VisualElement name="outer-circle" />
+                    <ui:VisualElement name="inner-circle" />
+                    <ui:VisualElement name="needle">
+                        <ui:VisualElement name="top" />
+                        <ui:VisualElement name="bottom" />
+                        <ui:VisualElement name="middle" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="direction">
+                        <ui:Label text="N" display-tooltip-when-elided="true" name="north" class="text" />
+                        <ui:Label text="S" display-tooltip-when-elided="true" name="south" class="text" />
+                        <ui:Label text="E" display-tooltip-when-elided="true" name="east" class="text" />
+                        <ui:Label text="W" display-tooltip-when-elided="true" name="west" class="text" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
