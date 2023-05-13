@@ -26,7 +26,7 @@
                         </ui:VisualElement>
                         <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element" style="width: 135px; height: 135px; margin-bottom: 10px;">
                             <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/image_6.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#image_6&apos;);" />
+                                <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/BlueTang.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#BlueTang&apos;);" />
                                 <ui:VisualElement name="star-container">
                                     <ui:VisualElement name="star" />
                                 </ui:VisualElement>
@@ -34,7 +34,7 @@
                         </ui:VisualElement>
                         <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
                             <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
+                                <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/Croaker.png?fileID=21300000&amp;guid=c908cdb7a9a3ef148a811d8db13bfcab&amp;type=3#Croaker&apos;);" />
                                 <ui:VisualElement name="star-container">
                                     <ui:VisualElement name="star" />
                                 </ui:VisualElement>
@@ -42,7 +42,7 @@
                         </ui:VisualElement>
                         <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
                             <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
+                                <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/Croaker.png?fileID=21300000&amp;guid=c908cdb7a9a3ef148a811d8db13bfcab&amp;type=3#Croaker&apos;);" />
                                 <ui:VisualElement name="star-container">
                                     <ui:VisualElement name="star" />
                                 </ui:VisualElement>
@@ -155,7 +155,7 @@
                         </ui:VisualElement>
                         <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
                             <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/image_6.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#image_6&apos;);" />
+                                <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/BlueTang.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#BlueTang&apos;);" />
                                 <ui:VisualElement name="star-container">
                                     <ui:VisualElement name="star" />
                                 </ui:VisualElement>
@@ -284,7 +284,7 @@
                         </ui:VisualElement>
                         <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
                             <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/image_6.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#image_6&apos;);" />
+                                <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/BlueTang.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#BlueTang&apos;);" />
                                 <ui:VisualElement name="star-container">
                                     <ui:VisualElement name="star" />
                                 </ui:VisualElement>
