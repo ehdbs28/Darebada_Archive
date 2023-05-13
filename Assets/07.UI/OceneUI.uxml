@@ -6,6 +6,10 @@
                 <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Gear.png?fileID=21300000&amp;guid=f55f75488890d4747835fc8299828fe7&amp;type=3#White Gear&apos;); width: 120%; height: 120%; bottom: -10px;" />
                 <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" />
             </ui:VisualElement>
+            <ui:VisualElement name="goto-btn" class="btn" style="justify-content: flex-end;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Home%20Icon.png?fileID=21300000&amp;guid=2776e7415ee80d54b8ba0b71a8f22d19&amp;type=3#Free Flat Home Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
+                <ui:Label text="집으로" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
             <ui:VisualElement name="letter-btn" class="btn" style="justify-content: flex-end;">
                 <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Cloud%20Icon.png?fileID=21300000&amp;guid=dabc19380a76426458ac691061a1a10a&amp;type=3#Free Flat Cloud Icon&apos;); bottom: 2px;" />
                 <ui:Label text="편지함" display-tooltip-when-elided="true" name="btn-text" class="text" />
