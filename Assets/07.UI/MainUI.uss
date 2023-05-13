@@ -1,25 +1,26 @@
-#time-n-date {
+#game-data {
     position: absolute;
     left: 0;
     width: 350px;
-    height: 140px;
-    top: 25%;
+    height: 200px;
+    top: 15%;
 }
 
-#time-n-date > #date-text {
+#game-data > #date-text {
     font-size: 45px;
     letter-spacing: 7px;
     margin-bottom: 20px;
 }
 
-#time-n-date > #time-text {
+#game-data > #time-text {
     font-size: 35px;
     letter-spacing: 7px;
-    margin-bottom: 5px;
 }
 
-#time-n-date > #line {
+#game-data > #line {
     background-color: rgba(255, 255, 255, 0.59);
     height: 5px;
     width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
