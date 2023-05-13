@@ -32,7 +32,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="element-box">
-                    <ui:VisualElement name="test-fish-one" class="challenge-fish-element">
+                    <ui:VisualElement name="test-fish-one" class="fish-element">
                         <ui:VisualElement name="inner">
                             <ui:VisualElement name="fish-image" />
                             <ui:VisualElement name="star-container">
@@ -41,7 +41,7 @@
                             <ui:VisualElement name="check" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement name="test-fish-two" class="challenge-fish-element">
+                    <ui:VisualElement name="test-fish-two" class="fish-element">
                         <ui:VisualElement name="inner">
                             <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/image_6.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#image_6&apos;);" />
                             <ui:VisualElement name="star-container">

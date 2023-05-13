@@ -41,7 +41,7 @@
 }
 
 Scroller {
-    width: 10px;
+    width: 0;
 }
 
 Scroller > #unity-low-button {

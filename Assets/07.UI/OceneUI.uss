@@ -280,7 +280,7 @@
 }
 
 .challenge.clear #complete {
-    background-color: rgba(0, 197, 118, 255);
+    background-color: rgb(0, 197, 118);
 }
 
 .challenge #image {
@@ -298,7 +298,7 @@
     flex-direction: row;
 }
 
-.challenge-fish-element {
+.fish-element {
     width: 100px;
     height: 100px;
     margin-right: 10px;
@@ -315,7 +315,7 @@
     padding-bottom: 3px;
 }
 
-.challenge-fish-element > #inner {
+.fish-element > #inner {
     width: 100%;
     height: 100%;
     border-top-left-radius: 8px;
@@ -330,7 +330,7 @@
     padding-bottom: 2px;
 }
 
-.challenge-fish-element #fish-image {
+.fish-element #fish-image {
     position: absolute;
     width: 200%;
     height: 100%;
@@ -339,21 +339,21 @@
     right: 0;
 }
 
-.challenge-fish-element #star-container {
+.fish-element #star-container {
     flex-basis: 20%;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
 }
 
-.challenge-fish-element #star {
+.fish-element #star {
     width: 15px;
     height: 15px;
     background-image: url('project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Star%20Filled%20Icon.png?fileID=21300000&guid=0579b86233f138a43b5a174d669f362b&type=3#Free Flat Star Filled Icon');
     margin-right: 3px;
 }
 
-.challenge-fish-element #check {
+.fish-element #check {
     position: absolute;
     bottom: 2px;
     right: 2px;
@@ -363,6 +363,6 @@
     -unity-background-image-tint-color: rgb(114, 114, 114);
 }
 
-.challenge-fish-element.check #check {
-    -unity-background-image-tint-color: rgba(0, 197, 118, 255);
+.fish-element.check #check {
+    -unity-background-image-tint-color: rgb(0, 197, 118);
 }
