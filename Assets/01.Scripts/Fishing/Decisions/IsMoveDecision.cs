@@ -15,6 +15,7 @@ public class IsMoveDecision : FishingDecision
 
     public override bool MakeADecision()
     {
+        Debug.Log(_boatController.BoatActionData.IsMoveBoat);
         return _boatController.BoatActionData.IsMoveBoat;
     }
 }
