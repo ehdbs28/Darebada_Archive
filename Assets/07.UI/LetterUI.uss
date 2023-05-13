@@ -1,0 +1,15 @@
+.letter-unit {
+    width: 100%;
+    height: 150px;
+    flex-direction: column;
+    background-color: rgba(51, 51, 51, 0.78);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.letter-unit.check {
+    background-color: rgba(51, 51, 51, 0.39);
+}

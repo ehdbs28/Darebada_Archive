@@ -5440,7 +5440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 418245c775aa77048b7a365ac93af9be, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 1c1c8e34c5d83f74cabf824287d4e77a, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: 4801d7ffb1bbe5d46be7ea18f68f07a0, type: 3}
   m_SortingOrder: 0
 --- !u!4 &1879970572
 Transform:
