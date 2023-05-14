@@ -19,7 +19,7 @@ public class InputManager : MonoBehaviour, IManager
     public Vector3 MousePositionToGroundRayPostion{
         get{
             RaycastHit hit;
-            bool isHit = Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, _whatIsGround);
+            bool isHit = Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit,Mathf.Infinity, _whatIsGround);
 
             return (isHit) ? hit.point : Vector3.zero;
         }
@@ -32,13 +32,13 @@ public class InputManager : MonoBehaviour, IManager
     }
 
     public void InitManager() {
-        _playerInput = GameManager.Instance.GetComponent<PlayerInput>();
+        //_playerInput = GameManager.Instance.GetComponent<PlayerInput>();
 
-        // 나중에 바꾸기
+        // ?�중??바꾸�?
         _whatIsGround = LayerMask.GetMask("TestGroundLayer");
     }
 
-    // new InputManager에서 Event 형식으로 넘겨서 실행되는 친구들임
+    // new InputManager?�서 Event ?�식?�로 ?�겨???�행?�는 친구?�임
 
     public void OnMovement(InputValue value){
         OnMovementEvent?.Invoke(value.Get<float>());

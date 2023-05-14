@@ -14,17 +14,22 @@ public class FishDexManager : MonoBehaviour
     public Dictionary<string, FishInfoSO> fishInfos = new Dictionary<string, FishInfoSO>();
     private void Awake()
     {
-        foreach(FishInfoSO so in infoSOList)
+        Init();
+    }
+    public void Init()
+    {
+
+        foreach (FishInfoSO so in infoSOList)
         {
             fishInfos.Add(so.fishName, so);
         }
-        if(Instance!=null)
+        if (Instance != null)
         {
             Destroy(this);
         }
         Instance = this;
         List<string> keys = fishInfos.Keys.ToList<string>();
-        for(int i = 0; i < keys.Count; i++)
+        for (int i = 0; i < keys.Count; i++)
         {
             GameObject obj = Instantiate(fishIconObject, iconParent);
             FishIcon icon = obj.GetComponent<FishIcon>();

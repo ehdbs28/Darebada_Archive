@@ -8,8 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Toon Water Material 3
-  m_Shader: {fileID: -6465566751694194690, guid: b4a6b41e114133b4d8eb40ab1d879de6,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: b4a6b41e114133b4d8eb40ab1d879de6, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -53,6 +52,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - Boolean_2918AA79: 1
@@ -60,7 +71,9 @@ Material:
     - Vector1_24CAEF48: 1
     - Vector1_301E02E2: 240
     - Vector1_31894ABB: 0.009
+    - Vector1_3632ABA2: 0
     - Vector1_45F25267: 1.14
+    - Vector1_738B39CF: 0
     - Vector1_854A7D8C: 0.93
     - Vector1_9C73072A: 0.97
     - Vector1_A524D234: 0
@@ -79,6 +92,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
+    - _QueueControl: -1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
@@ -89,8 +103,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_1139F668: {r: 0.25143114, g: 1.7815307, b: 2.1828797, a: 1}
-    - Color_198818EE: {r: 0, g: 0.34509805, b: 1.4980392, a: 0.92156863}
+    - Color_1139F668: {r: 0.25143114, g: 1.7815307, b: 2.1828797, a: 0.14117648}
+    - Color_198818EE: {r: 0, g: 0.34509805, b: 1.4980392, a: 0.14901961}
     - Color_626750DD: {r: 2, g: 2, b: 2, a: 1}
     - Color_77A2EDE9: {r: 31.626795, g: 31.626795, b: 31.626795, a: 1}
     - Vector2_1E1B6943: {r: 1, g: 5, b: 0, a: 0}
