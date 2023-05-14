@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/CastingUI.uss?fileID=7433441132597879392&amp;guid=d42b8236218386449a4cc99d1fc4b2b1&amp;type=3#CastingUI" />
+    <ui:VisualElement name="castring-graph" style="position: absolute; width: 75px; height: 500px; left: 275px; bottom: 450px; background-color: rgba(255, 255, 255, 0.39); border-bottom-left-radius: 50%; border-bottom-right-radius: 50%; overflow: hidden; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
+        <ui:VisualElement name="value" style="width: 100%; height: 100%; transform-origin: bottom; scale: 1 0.7; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgb(255, 254, 129); border-top-left-radius: 5px; border-bottom-left-radius: 50%; border-top-right-radius: 5px; border-bottom-right-radius: 50%;" />
+    </ui:VisualElement>
+</ui:UXML>
