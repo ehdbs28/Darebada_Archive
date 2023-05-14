@@ -1,18 +1,60 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/BusungUI/AquariumUpgradesy.uss?fileID=7433441132597879392&amp;guid=71878df49f8ca784c99eee85be9f2546&amp;type=3#AquariumUpgradesy" />
-    <ui:VisualElement name="InfoContainer" style="align-items: center; width: 100%; height: 40%; flex-direction: column; justify-content: flex-start;">
-        <ui:Label text="n년째, n월 n일" display-tooltip-when-elided="true" name="YearAndDateTxt" style="color: rgba(255, 255, 255, 255); font-size: 50px; margin-right: 0; align-items: center; translate: -360px 60px; transform-origin: center;" />
-        <ui:Label text="nn:nn" display-tooltip-when-elided="true" name="TIme" style="color: rgb(255, 255, 255); font-size: 40px; margin-right: 0; align-items: center; translate: -470px 70px;" />
-        <ui:VisualElement name="Line" />
+    <Style src="project://database/Assets/07.UI/OceneUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceneUI" />
+    <ui:VisualElement name="InfoContainer" style="align-items: center; width: 100%; height: 1000px; flex-direction: column; justify-content: flex-start; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px;">
+        <ui:Label text="n년째, n월 n일" display-tooltip-when-elided="true" name="YearAndDateTxt" class="text" style="color: rgb(255, 255, 255); font-size: 50px; margin-right: 0; align-items: center; translate: -360px 40px; transform-origin: center;" />
+        <ui:Label text="nn:nn" display-tooltip-when-elided="true" name="TIme" class="text" style="color: rgb(255, 255, 255); font-size: 40px; margin-right: 0; align-items: center; translate: -470px 50px;" />
+        <ui:VisualElement name="Line" style="width: 37%; height: 7px; background-color: rgba(255, 255, 255, 0.45); translate: -328px 55px;" />
+        <ui:VisualElement name="money-container" style="width: 350px; height: 75px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Left)%20Icon.png?fileID=21300000&amp;guid=ddab5934254f1ae49921cf4eeb754ddc&amp;type=3#Free Flat Gradient Horizontal (Left) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); flex-direction: row; align-items: center; padding-left: 10px; translate: -100% 90%;">
+            <ui:VisualElement name="icon-image" style="width: 60px; height: 60px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 20px;" />
+            <ui:Label text="5,678$" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px; color: rgb(255, 255, 255);" />
+        </ui:VisualElement>
+        <ui:Label text="★★★★★" display-tooltip-when-elided="true" name="Star" style="color: rgb(255, 255, 255); font-size: 60px; margin-right: 0; align-items: center; translate: -375px 83px; -unity-font-style: normal; margin-bottom: 20px;" />
+        <ui:VisualElement name="ReputableInfo" style="width: 25%; height: 50%; align-items: flex-start; translate: -380px 84px; padding-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; margin-bottom: 0;">
+            <ui:Label text="가격" display-tooltip-when-elided="true" class="text" style="font-size: 30px; color: rgb(255, 255, 255); -unity-font-style: bold;" />
+            <ui:VisualElement name="PriceGauge" style="height: 10px; background-color: rgba(221, 221, 221, 0.49); width: 200px; translate: -5px 0; margin-left: 0; margin-top: 0; flex-direction: row; margin-bottom: 30px;">
+                <ui:VisualElement name="PriceGauge" style="height: 10px; background-color: rgb(255, 255, 255); width: 166px; translate: -5px 0; margin-left: 0; margin-top: 0;" />
+            </ui:VisualElement>
+            <ui:Label text="청결도" display-tooltip-when-elided="true" class="text" style="font-size: 30px; color: rgb(255, 255, 255); -unity-font-style: normal;" />
+            <ui:VisualElement name="PriceGauge" style="height: 10px; background-color: rgba(221, 221, 221, 0.49); width: 200px; translate: -5px 0; margin-left: 0; margin-top: 0; flex-direction: row; margin-bottom: 30px;">
+                <ui:VisualElement name="PriceGauge" style="height: 10px; background-color: rgb(255, 255, 255); width: 70%; translate: -5px 0; margin-left: 0; margin-top: 0;" />
+            </ui:VisualElement>
+            <ui:Label text="미관" display-tooltip-when-elided="true" class="text" style="font-size: 30px; color: rgb(255, 255, 255); -unity-font-style: normal;" />
+            <ui:VisualElement name="PriceGauge" style="height: 10px; background-color: rgba(221, 221, 221, 0.49); width: 200px; translate: -5px 0; margin-left: 0; margin-top: 0; flex-direction: row;">
+                <ui:VisualElement name="PriceGauge" style="height: 10px; background-color: rgb(255, 255, 255); width: 70%; translate: -5px 0; margin-left: 0; margin-top: 0;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="header-container" style="translate: 240px -765px; padding-right: 10px; padding-left: 10px; margin-right: 50px; margin-top: 80px;">
+            <ui:VisualElement name="setting-btn" class="btn" style="justify-content: flex-end; width: 120px; height: 120px;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Gear.png?fileID=21300000&amp;guid=f55f75488890d4747835fc8299828fe7&amp;type=3#White Gear&apos;); width: 120%; height: 120%; bottom: -10px;" />
+                <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="goto-btn" class="btn" style="justify-content: flex-end; width: 120px; height: 120px;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Home%20Icon.png?fileID=21300000&amp;guid=2776e7415ee80d54b8ba0b71a8f22d19&amp;type=3#Free Flat Home Icon&apos;); width: 70%; height: 70%; bottom: 5px; margin-bottom: 10px;" />
+                <ui:Label text="집으로" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="letter-btn" class="btn" style="justify-content: flex-end; width: 120px; height: 120px;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Cloud%20Icon.png?fileID=21300000&amp;guid=dabc19380a76426458ac691061a1a10a&amp;type=3#Free Flat Cloud Icon&apos;); bottom: 2px; width: 90%; height: 90%;" />
+                <ui:Label text="편지함" display-tooltip-when-elided="true" name="btn-text" class="text" style="translate: 0 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="dictionary-btn" class="btn" style="justify-content: flex-end; width: 120px; height: 120px;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Edit%20Icon.png?fileID=21300000&amp;guid=8cd55c5b366c4574d93e99269b8a01d9&amp;type=3#Free Flat Edit Icon&apos;); width: 80%; height: 80%; bottom: 5px;" />
+                <ui:Label text="도감" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="inventory-btn" class="btn" style="justify-content: flex-end; width: 120px; height: 120px;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Bag%201%20Icon.png?fileID=21300000&amp;guid=09ff2c9da44bcb740befe466a832c257&amp;type=3#Free Flat Bag 1 Icon&apos;); width: 80%; height: 80%; bottom: 5px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+                <ui:Label text="인벤토리" display-tooltip-when-elided="true" name="btn-text" class="text" style="margin-right: 0; margin-left: 0; translate: -10px 0;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="Container" style="flex-grow: 0; justify-content: flex-end; flex-direction: row; align-items: flex-end; padding-bottom: 50px; margin-top: 1500px; height: auto;">
-        <ui:Button text="&lt;" display-tooltip-when-elided="true" name="OpenBtn" style="height: 180px; border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); width: 7%; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 0; border-bottom-right-radius: 0; background-color: rgba(255, 255, 255, 0.52); font-size: 100px; color: rgb(255, 255, 255); padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0; align-items: center; margin-bottom: 100px; -unity-text-align: middle-center; -unity-font-style: normal;" />
-        <ui:VisualElement name="UpgradeBar" style="background-color: rgba(255, 255, 255, 0.52); justify-content: space-around; width: 55%; height: 280px; color: rgb(255, 255, 255); flex-direction: row; align-items: center; transition-property: width; transition-duration: 1s; border-top-left-radius: 0; border-bottom-left-radius: 20px; border-top-right-radius: 0; border-bottom-right-radius: 0;">
-            <ui:Button text="수조 증설" display-tooltip-when-elided="true" name="Button" style="width: 220px; height: 240px; margin-left: 0; background-color: rgba(0, 0, 0, 0.94); -unity-text-align: lower-center; font-size: 35px; -unity-font-style: bold; flex-direction: column; align-items: center; justify-content: flex-start; margin-right: 0; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
-                <ui:VisualElement style="background-image: url(&apos;project://database/Assets/BusungUI/watertank.png?fileID=2800000&amp;guid=30d61f3bdcc3e2340b6359830420e719&amp;type=3#watertank&apos;); width: 190px; height: 190px;" />
+    <ui:VisualElement name="Container" style="flex-grow: 0; justify-content: flex-end; flex-direction: row; align-items: flex-end; padding-bottom: 50px; margin-top: 0; height: 500px; translate: 0 300px;">
+        <ui:Button text="&lt;" display-tooltip-when-elided="true" name="OpenBtn" style="height: 180px; border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); width: 7%; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 0; border-bottom-right-radius: 0; background-color: rgba(255, 255, 255, 0.52); font-size: 50px; color: rgb(255, 255, 255); padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0; align-items: center; margin-bottom: 0; -unity-text-align: middle-center; -unity-font-style: normal;" />
+        <ui:VisualElement name="UpgradeBar" style="background-color: rgba(255, 255, 255, 0.39); justify-content: space-around; width: 30%; height: 180px; color: rgb(255, 255, 255); flex-direction: row; align-items: center; transition-property: width; transition-duration: 1s; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;">
+            <ui:Button text="수조 증설" display-tooltip-when-elided="true" name="Button" class="text" style="width: 130px; height: 140px; margin-left: 0; background-color: rgba(0, 0, 0, 0.69); -unity-text-align: lower-center; font-size: 20px; -unity-font-style: bold; flex-direction: column; align-items: center; justify-content: flex-start; margin-right: 0; border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
+                <ui:VisualElement style="background-image: url(&apos;project://database/Assets/BusungUI/watertank.png?fileID=2800000&amp;guid=30d61f3bdcc3e2340b6359830420e719&amp;type=3#watertank&apos;); width: 90px; height: 90px;" />
             </ui:Button>
-            <ui:Button text="시설 증설" display-tooltip-when-elided="true" name="Button" style="width: 220px; height: 240px; margin-left: 0; background-color: rgba(0, 0, 0, 0.94); -unity-text-align: lower-center; font-size: 35px; -unity-font-style: bold; flex-direction: column; align-items: center; justify-content: flex-start; margin-right: 0; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
-                <ui:VisualElement style="background-image: url(&apos;project://database/Assets/BusungUI/shopim.png?fileID=2800000&amp;guid=b12954b40f19f6648ba16581d08046a8&amp;type=3#shopim&apos;); width: 150px; height: 150px; margin-top: 10px;" />
+            <ui:Button text="시설 증설" display-tooltip-when-elided="true" name="Button" class="text" style="width: 130px; height: 140px; margin-left: 0; background-color: rgba(0, 0, 0, 0.69); -unity-text-align: lower-center; font-size: 20px; -unity-font-style: bold; flex-direction: column; align-items: center; justify-content: flex-start; margin-right: 0; border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
+                <ui:VisualElement style="background-image: url(&apos;project://database/Assets/BusungUI/shopim.png?fileID=2800000&amp;guid=b12954b40f19f6648ba16581d08046a8&amp;type=3#shopim&apos;); width: 60px; height: 65px; margin-top: 10px; translate: 0 5px;" />
             </ui:Button>
         </ui:VisualElement>
     </ui:VisualElement>

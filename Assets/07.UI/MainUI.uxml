@@ -21,7 +21,7 @@
                 <ui:VisualElement name="line" />
                 <ui:VisualElement name="money-container" style="width: 350px; height: 75px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Left)%20Icon.png?fileID=21300000&amp;guid=ddab5934254f1ae49921cf4eeb754ddc&amp;type=3#Free Flat Gradient Horizontal (Left) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); flex-direction: row; align-items: center; padding-left: 10px;">
                     <ui:VisualElement name="icon-image" style="width: 60px; height: 60px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 20px;" />
-                    <ui:Label text="5,678$" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px; color: rgba(255, 255, 255, 255);" />
+                    <ui:Label text="5,678$" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px; color: rgb(255, 255, 255);" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
