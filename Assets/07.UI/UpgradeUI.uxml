@@ -223,64 +223,85 @@
                             </ui:VisualElement>
                         </ui:ScrollView>
                     </ui:VisualElement>
-                    <ui:VisualElement name="buy-content" style="width: 50%; height: 100%;">
-                        <ui:VisualElement name="gold-content" style="width: 100%; flex-basis: 5%; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Middle)%20Icon.png?fileID=21300000&amp;guid=c0c6236a6ab80ef4a976fb36399ec076&amp;type=3#Free Flat Gradient Horizontal (Middle) Icon&apos;); -unity-background-image-tint-color: rgba(0, 0, 0, 0.78); margin-bottom: 20px; flex-direction: row; align-items: center; justify-content: center;">
+                    <ui:VisualElement name="fishing-content" style="width: 50%; height: 100%;">
+                        <ui:VisualElement name="gold-content" style="width: 100%; flex-basis: 5%; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Middle)%20Icon.png?fileID=21300000&amp;guid=c0c6236a6ab80ef4a976fb36399ec076&amp;type=3#Free Flat Gradient Horizontal (Middle) Icon&apos;); -unity-background-image-tint-color: rgba(0, 0, 0, 0.78); margin-bottom: 20px; flex-direction: row; align-items: center; justify-content: center; flex-shrink: 0;">
                             <ui:VisualElement name="gold-image" style="width: 50px; height: 50px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
                             <ui:Label text="1,418 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 30px; left: -25px;" />
                         </ui:VisualElement>
-                        <ui:ScrollView name="buy-items" style="width: 100%;">
-                            <ui:VisualElement name="division-header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center;">
-                                <ui:Label text="고급 미끼" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
-                            </ui:VisualElement>
-                            <ui:VisualElement name="test-item" class="buy-item">
-                                <ui:VisualElement name="info">
-                                    <ui:VisualElement name="item-image" style="width: 125px; height: 125px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Level-one-lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#Level-one-lure&apos;); margin-right: 30px;" />
-                                    <ui:VisualElement name="info-text">
-                                        <ui:Label text="★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="font-size: 40px; margin-bottom: 10px;" />
-                                        <ui:Label text="★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="font-size: 30px; -unity-font-style: normal;" />
+                        <ui:VisualElement name="upgrade-items" style="flex-grow: 1;">
+                            <ui:VisualElement name="max-power" class="fishing-item">
+                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
+                                    <ui:Label text="낚싯대" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="info" style="flex-basis: 70%;">
+                                    <ui:VisualElement name="fishing-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Fishing-rod.png?fileID=21300000&amp;guid=f7e5fb72670dbdc4ea71c359ad0f1d6f&amp;type=3#Fishing-rod&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
+                                        <ui:Label text="Lv 18" display-tooltip-when-elided="true" name="level" class="text" style="font-size: 45px;" />
+                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px;">
+                                            <ui:Label text="힘" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 35px;" />
+                                            <ui:Label text="20" display-tooltip-when-elided="true" name="value-text" class="text" style="position: absolute; font-size: 35px; right: 0;" />
+                                            <ui:VisualElement name="graph" style="width: 100%; height: 25px; background-color: rgba(0, 0, 0, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 10px;">
+                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.59); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; transform-origin: left; scale: 0.25 1;" />
+                                            </ui:VisualElement>
+                                        </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
-                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center;">
-                                    <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
-                                        <ui:VisualElement name="gold-image" style="width: 40px; height: 40px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 15px; right: 15px;" />
-                                        <ui:Label text="70 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 35px;" />
+                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
+                                    <ui:VisualElement name="price" style="width: 100%; height: 60px; align-items: center; justify-content: center; flex-direction: row;">
+                                        <ui:VisualElement name="gold-image" />
+                                        <ui:Label text="253 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
                                     </ui:VisualElement>
-                                    <ui:Label text="구매" display-tooltip-when-elided="true" name="buy-text" class="text" style="font-size: 30px;" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                            <ui:VisualElement name="test-item" class="buy-item">
-                                <ui:VisualElement name="info">
-                                    <ui:VisualElement name="item-image" style="width: 125px; height: 125px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Level-two-lure.png?fileID=21300000&amp;guid=0d5b6570bc1f225489c9cbc767116bef&amp;type=3#Level-two-lure&apos;); margin-right: 30px;" />
-                                    <ui:VisualElement name="info-text">
-                                        <ui:Label text="★★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="font-size: 40px; margin-bottom: 10px;" />
-                                        <ui:Label text="★★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="font-size: 30px; -unity-font-style: normal;" />
-                                    </ui:VisualElement>
-                                </ui:VisualElement>
-                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center;">
-                                    <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
-                                        <ui:VisualElement name="gold-image" style="width: 40px; height: 40px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 15px; right: 15px;" />
-                                        <ui:Label text="310 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 35px;" />
-                                    </ui:VisualElement>
-                                    <ui:Label text="구매" display-tooltip-when-elided="true" name="buy-text" class="text" style="font-size: 30px;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
-                            <ui:VisualElement name="test-item" class="buy-item">
-                                <ui:VisualElement name="info">
-                                    <ui:VisualElement name="item-image" style="width: 125px; height: 125px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Level-three-lure.png?fileID=21300000&amp;guid=603211899841ffd49b3f5f35f4ab1809&amp;type=3#Level-three-lure&apos;); margin-right: 30px;" />
-                                    <ui:VisualElement name="info-text">
-                                        <ui:Label text="★★★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="font-size: 40px; margin-bottom: 10px;" />
-                                        <ui:Label text="★★★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="font-size: 30px; -unity-font-style: normal;" />
+                            <ui:VisualElement name="max-length" class="fishing-item">
+                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
+                                    <ui:Label text="릴" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="info" style="flex-basis: 70%;">
+                                    <ui:VisualElement name="fishing-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Fishing-reel.png?fileID=21300000&amp;guid=a3458b45071e89d4b830abafe96d68df&amp;type=3#Fishing-reel&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
+                                        <ui:Label text="Lv 20" display-tooltip-when-elided="true" name="level" class="text" style="font-size: 45px;" />
+                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px;">
+                                            <ui:Label text="길이" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 35px;" />
+                                            <ui:Label text="13.5" display-tooltip-when-elided="true" name="value-text" class="text" style="position: absolute; font-size: 35px; right: 0;" />
+                                            <ui:VisualElement name="graph" style="width: 100%; height: 25px; background-color: rgba(0, 0, 0, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 10px;">
+                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.59); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; transform-origin: left; scale: 0.4 1;" />
+                                            </ui:VisualElement>
+                                        </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
-                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center;">
-                                    <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
-                                        <ui:VisualElement name="gold-image" style="width: 40px; height: 40px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 15px; right: 15px;" />
-                                        <ui:Label text="1,000 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 35px;" />
+                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
+                                    <ui:VisualElement name="price" style="width: 100%; height: 60px; align-items: center; justify-content: center; flex-direction: row;">
+                                        <ui:VisualElement name="gold-image" />
+                                        <ui:Label text="393 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
                                     </ui:VisualElement>
-                                    <ui:Label text="구매" display-tooltip-when-elided="true" name="buy-text" class="text" style="font-size: 30px;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
-                        </ui:ScrollView>
+                            <ui:VisualElement name="max-power" class="fishing-item">
+                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
+                                    <ui:Label text="낚싯줄" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="info" style="flex-basis: 70%;">
+                                    <ui:VisualElement name="fishing-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Fishing-string.png?fileID=21300000&amp;guid=62776454d24056943b0ed92406d2c7ee&amp;type=3#Fishing-string&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
+                                        <ui:Label text="Lv 16" display-tooltip-when-elided="true" name="level" class="text" style="font-size: 45px;" />
+                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px;">
+                                            <ui:Label text="견고함" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 35px;" />
+                                            <ui:Label text="16" display-tooltip-when-elided="true" name="value-text" class="text" style="position: absolute; font-size: 35px; right: 0;" />
+                                            <ui:VisualElement name="graph" style="width: 100%; height: 25px; background-color: rgba(0, 0, 0, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 10px;">
+                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.59); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; transform-origin: left; scale: 0.15 1;" />
+                                            </ui:VisualElement>
+                                        </ui:VisualElement>
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
+                                    <ui:VisualElement name="price" style="width: 100%; height: 60px; align-items: center; justify-content: center; flex-direction: row;">
+                                        <ui:VisualElement name="gold-image" />
+                                        <ui:Label text="167 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
