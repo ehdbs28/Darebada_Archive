@@ -44,7 +44,7 @@ public class UpgradeManager : MonoBehaviour
                     Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
                     Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask);
                     
-                    if (hit.collider.gameObject.GetComponent<Facility>())
+                    if (hit.collider.gameObject.GetComponent<Facility>() && AquariumManager.Instance.state != AquariumManager.STATE.BUILD)
                     {
                         GameObject hitObj = hit.collider.gameObject.GetComponent<Facility>().OnTouched().gameObject;
                         if(hitObj.GetComponent<Fishbowl>())

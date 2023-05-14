@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _shopCostText;
     [SerializeField] private TextMeshProUGUI _shopAmountText;
     [SerializeField] private GameObject AddPanel;
+    [SerializeField] private GameObject SetPosButton;
     private void FixedUpdate()
     {
         _goldText.text = AquariumManager.Instance.Gold.ToString();
@@ -32,6 +33,7 @@ public class UIManager : MonoBehaviour
             _shopCostText.text = shopStatePanel.upgradeObj.GetComponent<SnackShop>().cost.ToString();
             _shopAmountText.text = shopStatePanel.upgradeObj.GetComponent<SnackShop>().amount.ToString();
         }
+        SetPosButton.SetActive(AquariumManager.Instance.state == AquariumManager.STATE.BUILD);
 
     }
     public void OnOffPanel()

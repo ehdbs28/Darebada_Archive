@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 
            // gameData.LastWorldTime = GetManager<TimeManager>();
 
-            // 저장 할 데이터 더 추가해야 하긴 함
+            // ?�?????�이????추�??�야 ?�긴 ??
             yield return new WaitForSecondsRealtime(delay);
         }
     }

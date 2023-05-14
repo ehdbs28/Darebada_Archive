@@ -6,19 +6,20 @@ using UnityEngine.SceneManagement;
 public class BiomeIcon : MonoBehaviour
 {
     public static bool alreadyEntered;
-    [SerializeField] string bieomeName;
-    public string BiomeName => bieomeName;
+    [SerializeField] BIOME _bieome;
+
+    public BIOME BiomeName => _bieome;
     private void OnCollisionEnter(Collision collision)
     {
         if(!alreadyEntered)
         {
-            StartCoroutine(ChangeScene());
+            StartCoroutine(ChangeScene(collision.gameObject.GetComponent<BoatInput>().item));
             alreadyEntered = true;
         }
     }
-    IEnumerator ChangeScene()
+    IEnumerator ChangeScene(ItemSO item)
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(bieomeName);
+        item.HabitatBiome = _bieome;
     }
 }

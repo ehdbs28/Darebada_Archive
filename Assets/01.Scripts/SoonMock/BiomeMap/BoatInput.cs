@@ -7,6 +7,7 @@ public class BoatInput : MonoBehaviour
 {
     [SerializeField] NavMeshAgent _agent;
     [SerializeField] LayerMask _layerMask;
+    public ItemSO item;
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
