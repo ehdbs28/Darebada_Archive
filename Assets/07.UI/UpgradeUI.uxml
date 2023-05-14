@@ -19,7 +19,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden;">
-                <ui:VisualElement name="contents" style="flex-direction: row; width: 200%; height: 100%; right: 0;">
+                <ui:VisualElement name="contents" style="flex-direction: row; width: 200%; height: 100%; right: 100%;">
                     <ui:VisualElement name="boat-content" style="height: 100%; width: 50%; align-items: center;">
                         <ui:VisualElement name="gold-content" style="width: 100%; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Middle)%20Icon.png?fileID=21300000&amp;guid=c0c6236a6ab80ef4a976fb36399ec076&amp;type=3#Free Flat Gradient Horizontal (Middle) Icon&apos;); -unity-background-image-tint-color: rgba(0, 0, 0, 0.78); margin-bottom: 20px; flex-direction: row; align-items: center; justify-content: center; flex-basis: 5%; flex-shrink: 0;">
                             <ui:VisualElement name="gold-image" style="width: 50px; height: 50px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
