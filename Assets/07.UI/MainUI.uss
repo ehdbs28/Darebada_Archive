@@ -1,0 +1,26 @@
+#game-data {
+    position: absolute;
+    left: 0;
+    width: 350px;
+    height: 200px;
+    top: 15%;
+}
+
+#game-data > #date-text {
+    font-size: 45px;
+    letter-spacing: 7px;
+    margin-bottom: 20px;
+}
+
+#game-data > #time-text {
+    font-size: 35px;
+    letter-spacing: 7px;
+}
+
+#game-data > #line {
+    background-color: rgba(255, 255, 255, 0.59);
+    height: 5px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
