@@ -5,7 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using System.Net.Sockets;
 
-public class UIManager : MonoBehaviour
+public class UIManager_test : MonoBehaviour
 {
     [SerializeField] public StatePanel fishStatePanel;
     [SerializeField] public StatePanel shopStatePanel;
