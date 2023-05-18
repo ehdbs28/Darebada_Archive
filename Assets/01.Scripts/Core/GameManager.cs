@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         _managers.Add(GetComponent<InputManager>());
         _managers.Add(GetComponent<CameraManager>());
         _managers.Add(new TimeManager());
+        _managers.Add(transform.Find("UIManager").GetComponent<UIManager>());
         //_managers.Add(GetComponent<LightingManager>());
         _managers.Add(new LetterManager());
     }
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour
 
            // gameData.LastWorldTime = GetManager<TimeManager>();
 
-            // ?€?????°ì´????ì¶”ê??´ì•¼ ?˜ê¸´ ??
+            // ?ï¿½?????ï¿½ì´????ì¶”ï¿½??ï¿½ì•¼ ?ï¿½ê¸´ ??
             yield return new WaitForSecondsRealtime(delay);
         }
     }

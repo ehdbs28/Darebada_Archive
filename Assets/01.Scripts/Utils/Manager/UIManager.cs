@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour, IManager
 {
-    private readonly Dictionary<ScreenType, UIScreen> _screens;
+    private readonly Dictionary<ScreenType, UIScreen> _screens = new Dictionary<ScreenType, UIScreen>();
     public Dictionary<ScreenType, UIScreen> Screens => _screens;
 
     private UIDocument _document;
@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour, IManager
 
             _screens.Add(type, screen);
         }
+
+        ChangeScreen(ScreenType.Ocene);
     }
 
     public void ChangeScreen(ScreenType type, bool clearScreen = true){

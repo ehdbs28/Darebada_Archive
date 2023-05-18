@@ -15,8 +15,11 @@ public abstract class UIScreen : MonoBehaviour
             root.Clear();
 
         VisualElement generatedRoot = GenerateRoot();
-        AddEvent(root);
-        root.Add(generatedRoot);
+
+        if(generatedRoot != null){
+            AddEvent(generatedRoot);
+            root.Add(generatedRoot);
+        }
     }
 
     public abstract VisualElement GenerateRoot();
