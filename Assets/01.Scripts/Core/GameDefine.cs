@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Core{
@@ -50,6 +52,13 @@ namespace Core{
 
         public static bool IsLeapYear(int year){
             return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+        }
+    }
+
+    public struct UtilFunc{
+        static IEnumerator DelayCoroutine(float delay, Action Callback){
+            yield return new WaitForSeconds(delay);
+            Callback?.Invoke();
         }
     }
 }
