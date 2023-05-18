@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour, IManager
             _screens.Add(type, screen);
         }
 
+        // For debuging
         ChangeScreen(ScreenType.Ocene);
     }
 
