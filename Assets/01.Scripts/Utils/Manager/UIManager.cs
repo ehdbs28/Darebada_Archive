@@ -36,6 +36,10 @@ public class UIManager : MonoBehaviour, IManager
         _screens[type]?.SetUp(_document, clearScreen);
     }
 
+    public UIScreen GetScreen(ScreenType type){
+        return _screens[type];
+    }
+
     public void UpdateManager() {}
     public void ResetManager() {}
 }

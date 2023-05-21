@@ -14,30 +14,12 @@ public class OceneScreen : UIScreen
     private VisualElement _dictionaryBtn;
     private VisualElement _inventoryBtn;
 
-    public override void AddEvent(VisualElement root)
+    protected override void AddEvent(VisualElement root)
     {
-        _settingBtn.RegisterCallback<ClickEvent>(e => {
-            Debug.Log("세팅 클릭");
-        });
-
-        _gobackBtn.RegisterCallback<ClickEvent>(e => {
-            Debug.Log("집으로 클릭");
-        });
-
-        _letterBtn.RegisterCallback<ClickEvent>(e => {
-            Debug.Log("편지 클릭");
-        });
-
-        _dictionaryBtn.RegisterCallback<ClickEvent>(e => {
-            Debug.Log("도감 클릭");
-        });
-
-        _inventoryBtn.RegisterCallback<ClickEvent>(e => {
-            Debug.Log("인벤 클릭");
-        });
+        
     }
 
-    public override VisualElement GenerateRoot()
+    protected override VisualElement GenerateRoot()
     {
         VisualElement root = _treeAsset.Instantiate();
         root = root.Q<VisualElement>("container");
@@ -49,5 +31,9 @@ public class OceneScreen : UIScreen
         _inventoryBtn = root.Q<VisualElement>("inventory-btn");
 
         return root;
+    }
+
+    public void OnChangedTime(int hour, int minute, int second){
+        
     }
 }

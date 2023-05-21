@@ -22,6 +22,6 @@ public abstract class UIScreen : MonoBehaviour
         }
     }
 
-    public abstract VisualElement GenerateRoot();
-    public abstract void AddEvent(VisualElement root);
+    protected abstract VisualElement GenerateRoot();
+    protected abstract void AddEvent(VisualElement root);
 }

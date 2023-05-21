@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core;
 using static Core.GameTime;
+using System;
 
 public class TimeManager : IManager
 {
@@ -34,6 +35,10 @@ public class TimeManager : IManager
     public int Month { get; private set; } = 3;
     public int Day { get; private set; } = 1;
 
+    // 이벤트
+    public event Action<float, float, float> OnTimeChangedEvent = null;
+    public event Action<int, int, int> OnDayChangedEvent = null; 
+
     public void InitManager()
     {
         GameData gameData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData;
@@ -49,12 +54,14 @@ public class TimeManager : IManager
     public void UpdateManager()
     {
         _currentTime += Time.deltaTime * _timeScale;
+        OnTimeChangedEvent?.Invoke(Hour, Minute, Second);
         CheckDayCount();
     }
 
     private void CheckDayCount(){
         if(_currentTime >= _totalDay * DayDelay){
             // 하루가 지남
+            OnDayChangedEvent?.Invoke(Year, Month, Day);
             GameManager.Instance.GetManager<LetterManager>().SendReportLetter();
 
             ++Day;
@@ -69,8 +76,6 @@ public class TimeManager : IManager
                     Month = 1; 
                 }
             }
-            
-            Debug.Log($"{Year}년째 {Month}월 {Day}일");
         }
     }
 
