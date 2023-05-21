@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class InventoryGrid : MonoBehaviour
 {//
-    public const float tileSizeWidth = 32;  // 타일 가로
-    public const float tileSizeHeight = 32; // 타일 세로
+    public const float tileSizeWidth = 128;  // 타일 가로
+    public const float tileSizeHeight = 128; // 타일 세로
 
     private InventoryItem[,] inventoryItemSlot; // 인벤토리 칸에 넣거나 집거나 겹치는거 확인하기 위함
 
@@ -27,6 +27,7 @@ public class InventoryGrid : MonoBehaviour
         Vector2 size = new Vector2(width * tileSizeWidth, height * tileSizeHeight); // 픽셀 수와 곱해준 사이즈
         rectTransform.sizeDelta = size;
     }
+
     private void CleanGridReference(InventoryItem item) // item의 위치에서 item 사이즈 만큼 비우기
     {
         for (int ix = 0; ix < item.WIDTH; ix++) // 아이템의 가로길이
