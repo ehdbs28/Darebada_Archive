@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FishManager : MonoBehaviour
 {
+    public static FishManager Instance;
+
     [SerializeField]
     private BIOME _currentBiome;
     [SerializeField]
@@ -24,6 +26,12 @@ public class FishManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Debug.LogError("Multy MiniGameManager");
+        }
+        Instance = this;
+
         ChangeBiome(_currentBiome);
     }
 
@@ -40,7 +48,7 @@ public class FishManager : MonoBehaviour
         }
     }
 
-    private void ChangeBiome(BIOME selectBiome)
+    public void ChangeBiome(BIOME selectBiome)
     {
         _currentBiome = selectBiome;
         for(int i = 0; i < _fishDatas.Count; i++)
