@@ -12,8 +12,8 @@ public class InventoryGrid : MonoBehaviour
 
     private RectTransform rectTransform;
 
-    public float gridSizeWidth = 7; // 초기 인벤토리 가로가 몇인지 최대 7
-    public float gridSizeHeight = 1; // 초기 인벤토리 세로가 몇인지 최대 7
+    public float gridSizeWidth = 7; // 초기 인벤토리. 가로가 몇인지 최대 7
+    public float gridSizeHeight = 1; // 초기 인벤토리. 세로가 몇인지 최대 7
 
     private void Start() // 초기화
     {
