@@ -3,7 +3,7 @@
     <Style src="project://database/Assets/07.UI/OceneUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceneUI" />
     <Style src="project://database/Assets/07.UI/InventoryUI.uss?fileID=7433441132597879392&amp;guid=0ca47a3b021bcbe4fab0fb3d1ecc47d5&amp;type=3#InventoryUI" />
     <Style src="project://database/Assets/07.UI/LetterUI.uss?fileID=7433441132597879392&amp;guid=0ff408542c843224b959d6961bacb71f&amp;type=3#LetterUI" />
-    <ui:VisualElement name="shop-container" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.2);">
+    <ui:VisualElement name="shop-container" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.2); position: absolute;">
         <ui:VisualElement name="header" style="flex-basis: 5.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0;">
             <ui:VisualElement name="exit-btn" style="width: 45px; height: 45px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); position: absolute; right: 30px;" />
             <ui:Label text="잡화점" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 50px; position: absolute; color: rgb(255, 255, 255);" />

@@ -7,8 +7,7 @@ using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour, IManager
 {
-    private readonly Dictionary<ScreenType, UIScreen> _screens = new Dictionary<ScreenType, UIScreen>();
-    public Dictionary<ScreenType, UIScreen> Screens => _screens;
+    private readonly Dictionary<ScreenType, UIScreen> _panels = new Dictionary<ScreenType, UIScreen>();
 
     private UIDocument _document;
 
@@ -25,7 +24,18 @@ public class UIManager : MonoBehaviour, IManager
                 return;
             }
 
-            _screens.Add(type, screen);
+            _panels.Add(type, screen);
+        }
+
+        foreach(ScreenType type in Enum.GetValues(typeof(PopupType))){
+            UIPopup popup = screenTrm.GetComponent($"{type}Popup") as UIPopup;
+
+            if(popup == null){
+                Debug.LogError($"There is no script : {type}");
+                return;
+            }
+
+            _panels.Add(type, popup);
         }
 
         // For debuging
@@ -33,11 +43,11 @@ public class UIManager : MonoBehaviour, IManager
     }
 
     public void ChangeScreen(ScreenType type, bool clearScreen = true){
-        _screens[type]?.SetUp(_document, clearScreen);
+        _panels[type]?.SetUp(_document, clearScreen);
     }
 
     public UIScreen GetScreen(ScreenType type){
-        return _screens[type];
+        return _panels[type];
     }
 
     public void UpdateManager() {}
