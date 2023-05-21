@@ -67,7 +67,7 @@
         <ui:VisualElement name="footer-container" style="flex-basis: 20%;">
             <ui:VisualElement name="data-circle">
                 <ui:VisualElement name="date-n-time">
-                    <ui:Label text="n년째, n월n일" display-tooltip-when-elided="true" name="date" class="text" />
+                    <ui:Label text="n년째, n월n일" display-tooltip-when-elided="true" name="date-text" class="text" />
                     <ui:VisualElement name="time">
                         <ui:Label text="nn:nn" display-tooltip-when-elided="true" name="time-text" class="text q" />
                     </ui:VisualElement>

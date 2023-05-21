@@ -22,6 +22,15 @@ public abstract class UIScreen : MonoBehaviour
         }
     }
 
-    protected abstract VisualElement GenerateRoot();
+    protected virtual VisualElement GenerateRoot(){
+        VisualElement root = _treeAsset.Instantiate();
+        root = root.Q<VisualElement>("container");
+        
+        FindElement(root);
+
+        return root;
+    }
+
     protected abstract void AddEvent(VisualElement root);
+    protected abstract void FindElement(VisualElement root);
 }

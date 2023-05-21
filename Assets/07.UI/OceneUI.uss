@@ -14,7 +14,7 @@
     width: 400px;
 }
 
-#date-n-time > #date {
+#date-n-time > #date-text {
     font-size: 30px;
     letter-spacing: 7px;
     margin-bottom: 30px;
@@ -264,7 +264,7 @@
     position: absolute;
     width: 200%;
     height: 100%;
-    background-image: url('project://database/Assets/05.Assets/Junho/image_7.png?fileID=21300000&guid=c908cdb7a9a3ef148a811d8db13bfcab&type=3#image_7');
+    background-image: url('project://database/Assets/05.Assets/FishIcon/Croaker.png?fileID=21300000&guid=c908cdb7a9a3ef148a811d8db13bfcab&type=3#Croaker');
     scale: -1 1;
     right: 0;
 }
