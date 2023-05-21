@@ -10,12 +10,12 @@
         </ui:VisualElement>
         <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.2);">
             <ui:VisualElement name="menu-selecter" style="flex-basis: 8%; flex-direction: row; align-items: center; justify-content: center; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Middle)%20Icon.png?fileID=21300000&amp;guid=c0c6236a6ab80ef4a976fb36399ec076&amp;type=3#Free Flat Gradient Horizontal (Middle) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 40px; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); border-bottom-width: 2px; border-top-width: 2px;">
-                <ui:VisualElement name="sell-btn" style="flex-basis: 20%; margin-right: 50px; margin-left: 50px;">
-                    <ui:Label text="판매" display-tooltip-when-elided="true" name="sell-text" class="text" style="font-size: 40px; -unity-text-align: middle-center;" />
+                <ui:VisualElement name="sell-btn" style="flex-basis: 50%; margin-right: 50px; margin-left: 50px; height: 100%; justify-content: center;">
+                    <ui:Label text="판매" display-tooltip-when-elided="true" name="sell-text" class="text" style="font-size: 40px; -unity-text-align: middle-right;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="line" style="width: 3px; height: 70px; background-color: rgb(255, 255, 255);" />
-                <ui:VisualElement name="buy-btn" style="flex-basis: 20%; margin-right: 50px; margin-left: 50px;">
-                    <ui:Label text="구매" display-tooltip-when-elided="true" name="buy-text" class="text" style="font-size: 40px; -unity-text-align: middle-center;" />
+                <ui:VisualElement name="buy-btn" style="flex-basis: 50%; margin-right: 50px; margin-left: 50px; height: 100%; justify-content: center;">
+                    <ui:Label text="구매" display-tooltip-when-elided="true" name="buy-text" class="text" style="font-size: 40px; -unity-text-align: middle-left;" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden;">
