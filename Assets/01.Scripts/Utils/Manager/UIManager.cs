@@ -7,7 +7,8 @@ using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour, IManager
 {
-    private readonly Dictionary<ScreenType, UIScreen> _panels = new Dictionary<ScreenType, UIScreen>();
+    private readonly Dictionary<ScreenType, UIScreen> _screens = new Dictionary<ScreenType, UIScreen>();
+    private readonly Dictionary<PopupType, UIScreen> _popups = new Dictionary<PopupType, UIScreen>();
 
     private UIDocument _document;
 
@@ -15,6 +16,7 @@ public class UIManager : MonoBehaviour, IManager
     {
         _document =  GetComponent<UIDocument>();
         Transform screenTrm = transform.Find("Screens");
+        Transform popupTrm = transform.Find("Popups");
 
         foreach(ScreenType type in Enum.GetValues(typeof(ScreenType))){
             UIScreen screen = screenTrm.GetComponent($"{type}Screen") as UIScreen;
@@ -24,30 +26,38 @@ public class UIManager : MonoBehaviour, IManager
                 return;
             }
 
-            _panels.Add(type, screen);
+            _screens.Add(type, screen);
         }
 
-        foreach(ScreenType type in Enum.GetValues(typeof(PopupType))){
-            UIPopup popup = screenTrm.GetComponent($"{type}Popup") as UIPopup;
+        foreach(PopupType type in Enum.GetValues(typeof(PopupType))){
+            UIPopup popup = popupTrm.GetComponent($"{type}Popup") as UIPopup;
 
             if(popup == null){
                 Debug.LogError($"There is no script : {type}");
                 return;
             }
 
-            _panels.Add(type, popup);
+            _popups.Add(type, popup);
         }
 
         // For debuging
-        ChangeScreen(ScreenType.Ocene);
+        ShowPanel(ScreenType.Ocene);
     }
 
-    public void ChangeScreen(ScreenType type, bool clearScreen = true){
-        _panels[type]?.SetUp(_document, clearScreen);
+    public void ShowPanel(ScreenType type, bool clearScreen = true){
+        _screens[type]?.SetUp(_document, clearScreen);
     }
 
-    public UIScreen GetScreen(ScreenType type){
-        return _panels[type];
+    public void ShowPanel(PopupType type, bool clearScreen = false){
+        _popups[type]?.SetUp(_document, clearScreen);
+    }
+
+    public UIScreen GetPanel(ScreenType type){
+        return _screens[type];
+    }
+
+    public UIScreen GetPanel(PopupType type){
+        return _popups[type];
     }
 
     public void UpdateManager() {}
