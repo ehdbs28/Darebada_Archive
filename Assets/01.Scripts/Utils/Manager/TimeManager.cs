@@ -9,7 +9,7 @@ public class TimeManager : IManager
 {
     // 하루에 12분
     private float _currentTime = 0f;
-    private int _totalDay = 1;
+    private int _totalDay = 0;
 
     private float _timeScale = 1f;
     public float TimeScale {
@@ -27,16 +27,15 @@ public class TimeManager : IManager
     }
 
     // 수치적인 시간 [ 사용 할 때에는 Mathf.floorToInt 해줘야 정상적으로 출력 됨 ]
-    public float Hour =>_currentTime % DayDelay / HourDelay;
-    public float Minute => _currentTime % DayDelay / MinuteDelay % 60;
-    public float Second => _currentTime % DayDelay / SecondDelay % 60;
+    public int Hour => (int)(_currentTime % DayDelay / HourDelay);
+    public int Minute => (int)(_currentTime % DayDelay / MinuteDelay % 12) * 5;
 
     public int Year { get; private set; } = 0;
     public int Month { get; private set; } = 3;
-    public int Day { get; private set; } = 1;
+    public int Day { get; private set; } = 0;
 
     // 이벤트
-    public event Action<float, float, float> OnTimeChangedEvent = null;
+    public event Action<int, int> OnTimeChangedEvent = null;
     public event Action<int, int, int> OnDayChangedEvent = null; 
 
     public void InitManager()
@@ -54,14 +53,13 @@ public class TimeManager : IManager
     public void UpdateManager()
     {
         _currentTime += Time.deltaTime * _timeScale;
-        OnTimeChangedEvent?.Invoke(Hour, Minute, Second);
+        OnTimeChangedEvent?.Invoke(Hour, Minute);
         CheckDayCount();
     }
 
     private void CheckDayCount(){
         if(_currentTime >= _totalDay * DayDelay){
             // 하루가 지남
-            OnDayChangedEvent?.Invoke(Year, Month, Day);
             GameManager.Instance.GetManager<LetterManager>().SendReportLetter();
 
             ++Day;
@@ -76,6 +74,8 @@ public class TimeManager : IManager
                     Month = 1; 
                 }
             }
+
+            OnDayChangedEvent?.Invoke(Year, Month, Day);
         }
     }
 

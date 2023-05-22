@@ -16,7 +16,8 @@ public class OceneScreen : UIScreen
 
     protected override void AddEvent(VisualElement root)
     {
-        
+        GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
+        GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
     }
 
     protected override void FindElement(VisualElement root)
@@ -31,7 +32,11 @@ public class OceneScreen : UIScreen
         _inventoryBtn = root.Q<VisualElement>("inventory-btn");
     }
 
-    public void OnChangedTime(int hour, int minute, int second){
-        
+    private void OnChangedTime(int hour, int minute){
+        _timeText.text = $"{hour.ToString("D2")}:{minute.ToString("D2")}";
+    }
+
+    private void OnChangedDay(int year, int month, int day){
+        _dateText.text = $"{year}년째, {month}월{day}일";
     }
 }
