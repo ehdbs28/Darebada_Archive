@@ -28,18 +28,18 @@ public class FishIcon : MonoBehaviour
         {
             try
             {
-                if(FishDexManager.Instance.gameObject.activeSelf)
-                {
+                //if(FishDexManager.Instance.gameObject.activeSelf)
+                //{
 
-                    FishDexManager.Instance.OpenDex(fishInfo);
-                }
+                //    FishDexManager.Instance.OpenDex(fishInfo);
+                //}
 
             }catch(Exception exp)
             {
-                if (AchievementManager.Instance.gameObject.activeSelf)
-                {
-                    AchievementManager.Instance.OpenDex(fishInfo);
-                }
+                //if (AchievementManager.Instance.gameObject.activeSelf)
+                //{
+                //    AchievementManager.Instance.OpenDex(fishInfo);
+                //}
             }
         }
     }

@@ -5,7 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using System.Net.Sockets;
 
-public class UIManager : MonoBehaviour
+public class UIManager_test : MonoBehaviour
 {
     [SerializeField] public StatePanel fishStatePanel;
     [SerializeField] public StatePanel shopStatePanel;
@@ -20,20 +20,20 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject SetPosButton;
     private void FixedUpdate()
     {
-        _goldText.text = AquariumManager.Instance.Gold.ToString();
-        _cleanScoreText.text = AquariumManager.Instance.CleanScore.ToString();
-        _artScoreText.text = AquariumManager.Instance.ArtScore.ToString();
-        _reputationText.text = AquariumManager.Instance.Reputation.ToString();
-        if (fishStatePanel.upgradeObj)
-        {
-            _fishCostText.text = fishStatePanel.upgradeObj.GetComponent<Fishbowl>().Cost.ToString();
-        }
-        if(shopStatePanel.upgradeObj)
-        {
-            _shopCostText.text = shopStatePanel.upgradeObj.GetComponent<SnackShop>().cost.ToString();
-            _shopAmountText.text = shopStatePanel.upgradeObj.GetComponent<SnackShop>().amount.ToString();
-        }
-        SetPosButton.SetActive(AquariumManager.Instance.state == AquariumManager.STATE.BUILD);
+        //_goldText.text = AquariumManager.Instance.Gold.ToString();
+        //_cleanScoreText.text = AquariumManager.Instance.CleanScore.ToString();
+        //_artScoreText.text = AquariumManager.Instance.ArtScore.ToString();
+        //_reputationText.text = AquariumManager.Instance.Reputation.ToString();
+        //if (fishStatePanel.upgradeObj)
+        //{
+        //    _fishCostText.text = fishStatePanel.upgradeObj.GetComponent<Fishbowl>().Cost.ToString();
+        //}
+        //if(shopStatePanel.upgradeObj)
+        //{
+        //    _shopCostText.text = shopStatePanel.upgradeObj.GetComponent<SnackShop>().cost.ToString();
+        //    _shopAmountText.text = shopStatePanel.upgradeObj.GetComponent<SnackShop>().amount.ToString();
+        //}
+        //SetPosButton.SetActive(AquariumManager.Instance.state == AquariumManager.STATE.BUILD);
 
     }
     public void OnOffPanel()
