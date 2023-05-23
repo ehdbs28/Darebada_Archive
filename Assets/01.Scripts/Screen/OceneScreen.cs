@@ -18,6 +18,10 @@ public class OceneScreen : UIScreen
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
+
+        _letterBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Letter);
+        });
     }
 
     protected override void FindElement(VisualElement root)

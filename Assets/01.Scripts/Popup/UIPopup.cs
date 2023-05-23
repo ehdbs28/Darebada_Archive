@@ -12,12 +12,12 @@ public abstract class UIPopup : UIScreen
 
     protected override VisualElement GenerateRoot()
     {
-        VisualElement root = _treeAsset.Instantiate();
-        root = root.ElementAt(0);
+        _root = _treeAsset.Instantiate();
+        _root = _root.ElementAt(0);
         
-        FindElement(root);
+        FindElement(_root);
 
-        return root;
+        return _root;
     }
 
     protected override abstract void AddEvent(VisualElement root);

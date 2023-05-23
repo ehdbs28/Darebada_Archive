@@ -8,27 +8,38 @@ public abstract class UIScreen : MonoBehaviour
     [SerializeField]
     protected VisualTreeAsset _treeAsset;
 
+    protected VisualElement _documentRoot = null;
+    protected VisualElement _root = null;
+
     public virtual void SetUp(UIDocument document, bool clearScreen = true){
-        VisualElement root = document.rootVisualElement;
+        _documentRoot = document.rootVisualElement;
 
         if(clearScreen)
-            root.Clear();
+            _documentRoot.Clear();
 
         VisualElement generatedRoot = GenerateRoot();
 
         if(generatedRoot != null){
             AddEvent(generatedRoot);
-            root.Add(generatedRoot);
+            _documentRoot.Add(generatedRoot);
         }
     }
 
     protected virtual VisualElement GenerateRoot(){
-        VisualElement root = _treeAsset.Instantiate();
-        root = root.Q<VisualElement>("container");
+        _root = _treeAsset.Instantiate();
+        _root = _root.Q<VisualElement>("container");
         
-        FindElement(root);
+        FindElement(_root);
 
-        return root;
+        return _root;
+    }
+
+    public virtual void RemoveRoot(){
+        if(_documentRoot == null || _root == null){
+            return;
+        }
+
+        _documentRoot.Remove(_root);
     }
 
     protected abstract void AddEvent(VisualElement root);
