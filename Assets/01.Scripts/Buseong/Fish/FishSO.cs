@@ -16,6 +16,7 @@ public class FishSO : LoadableData
     public float Cost;              //가격
     public float Size;              //사이즈
     public float SpawnPercent;      //스폰 확률
+    public bool IsFlock;            //뭉쳐다니는지 아닌지
 
     public Material TestMat;        //테스트용
     [SerializeField]

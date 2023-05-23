@@ -6,7 +6,51 @@ public class FishManager : MonoBehaviour
 {
     public static FishManager Instance;
 
+    public GameObject FishPrefab;
+    public int NumFish = 30;
+    public GameObject[] AllFish;
+    public Vector3 SwimLimits = new Vector3(5, 5, 5);
+
+    [Range(0.0f, 5.0f)]
+    public float MinSpeed;
+    [Range(0.0f, 5.0f)]
+    public float MaxSpeed;
+
     [SerializeField]
+    private FishSO[] _fishSO;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("Multy FishManager");
+        }
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        AllFish = new GameObject[NumFish];
+        for (int i = 0; i < NumFish; i++)
+        {
+            Vector3 pos = this.transform.position + new Vector3(Random.Range(-SwimLimits.x, SwimLimits.x),
+                                                                Random.Range(-SwimLimits.y, SwimLimits.y),
+                                                                Random.Range(-SwimLimits.z, SwimLimits.z));
+            AllFish[i] = Instantiate(FishPrefab, pos, Quaternion.identity);
+        }
+    }
+
+    private void Update()
+    {
+
+    }
+
+    private void ResetSO()
+    {
+        
+    }
+
+    /*[SerializeField]
     private BIOME _currentBiome;
     [SerializeField]
     private BIOME _nextBiomeTest = BIOME.TEST1;
@@ -26,12 +70,6 @@ public class FishManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
-        {
-            Debug.LogError("Multy MiniGameManager");
-        }
-        Instance = this;
-
         ChangeBiome(_currentBiome);
     }
 
@@ -42,7 +80,7 @@ public class FishManager : MonoBehaviour
             ChangeBiome(_nextBiomeTest);
         }
 
-        if(_fishes.Count < _maxFishNum)
+        if (_fishes.Count < _maxFishNum)
         {
             CreateFish();
         }
@@ -51,9 +89,9 @@ public class FishManager : MonoBehaviour
     public void ChangeBiome(BIOME selectBiome)
     {
         _currentBiome = selectBiome;
-        for(int i = 0; i < _fishDatas.Count; i++)
+        for (int i = 0; i < _fishDatas.Count; i++)
         {
-            if(_fishDatas[i].HabitatBiome == _currentBiome)
+            if (_fishDatas[i].HabitatBiome == _currentBiome)
             {
                 _currentBiomeFishesData.Add(_fishDatas[i]);
             }
@@ -65,8 +103,8 @@ public class FishManager : MonoBehaviour
         FishSO spawnFishData = null;
         float targetPercent = Random.Range(0, 100);
         float sumPercent = 0f;
-        
-        foreach(var data in _currentBiomeFishesData)
+
+        foreach (var data in _currentBiomeFishesData)
         {
             // ���⼭ ������ �����͸� ã�Ƽ�
             // ���� )
@@ -74,7 +112,7 @@ public class FishManager : MonoBehaviour
             // _currentBiomeFishedData�� ������������ ���� �Ǿ� �־�� �Ѵ�.
             sumPercent += data.SpawnPercent;
 
-            if(sumPercent >= targetPercent)
+            if (sumPercent >= targetPercent)
             {
                 spawnFishData = data;
                 break;
@@ -88,9 +126,10 @@ public class FishManager : MonoBehaviour
         _fishes.Add(newFish.gameObject);
     }
 
-    public void DeleteFish(GameObject fish){
+    public void DeleteFish(GameObject fish)
+    {
         int index = _fishes.IndexOf(fish);
         Destroy(fish);
         _fishes.RemoveAt(index);
-    }
+    }*/
 }

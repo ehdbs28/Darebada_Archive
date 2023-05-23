@@ -81,12 +81,12 @@ public class FishingCatchingState : FishingState
                 }
             }
             else{
-                _controller.ActionData.CurrentCatchFish.Target = _bobberTrm;
-                _controller.ActionData.CurrentCatchFish.IsSelected = true;
+                //_controller.ActionData.CurrentCatchFish.Target = _bobberTrm;
+                //_controller.ActionData.CurrentCatchFish.IsSelected = true;
 
-                if(_controller.ActionData.CurrentCatchFish.IsCatched){
-                    Debug.Log("미니게임 시작");
-                }
+                //if(_controller.ActionData.CurrentCatchFish.IsCatched){
+                //    Debug.Log("미니게임 시작");
+                //}
             }
         }
         else{
