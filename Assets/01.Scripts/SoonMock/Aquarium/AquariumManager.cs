@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AquariumManager : MonoBehaviour
+public class AquariumManager : MonoBehaviour, IManager
 {
     #region "자원 및 요소들"
 
@@ -75,36 +75,9 @@ public class AquariumManager : MonoBehaviour
     public InputManager inputManager;
     private void Awake()
     {
-        if(aquaObject.Count <=0)
-        {
-            AddFishBowl();
-
-        }
-        inputManager = FindObjectOfType<InputManager>();
-        _build = GetComponent<BuildFacility>();
-        inputManager.InitManager();
     }
     private void Update()
     {
-        EntrancePercent = Mathf.Clamp((float)((float)aquaObject.Count/(float)EntranceFee)*100f,0f,200f);
-        Reputation = (EntrancePercent/100f * CleanScore/100f * ArtScore/100f) * 100f;
-        ArtScore = Mathf.Clamp(((float)(decoCount/2)/ aquarium.Count) * 100, 0, 100);
-        if(state == STATE.BUILD)
-        {
-            RaycastHit hit; 
-            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
-            if(Input.GetMouseButtonDown(0))
-            {
-                if(Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
-                {
-                    facilityObj = hit.collider.GetComponent<Facility>();
-                }
-            }
-            if (Input.GetMouseButton(0) && Physics.Raycast(ray, out hit, Mathf.Infinity,facilityLayer))
-            {
-                facilityObj.transform.position = _build.GetFacilityPos();
-            }
-        }
     }
     public void SetFacilityPos()
     {
@@ -163,5 +136,42 @@ public class AquariumManager : MonoBehaviour
         deco.transform.localPosition = deco.GetComponent<Deco>().pos;
         return deco;
     }
-    
+
+    public void ResetManager()
+    {
+    }
+
+    public void InitManager()
+    {
+        if (aquaObject.Count <= 0)
+        {
+            AddFishBowl();
+
+        }
+        inputManager = FindObjectOfType<InputManager>();
+        _build = GetComponent<BuildFacility>();
+    }
+
+    public void UpdateManager()
+    {
+        EntrancePercent = Mathf.Clamp((float)((float)aquaObject.Count / (float)EntranceFee) * 100f, 0f, 200f);
+        Reputation = (EntrancePercent / 100f * CleanScore / 100f * ArtScore / 100f) * 100f;
+        ArtScore = Mathf.Clamp(((float)(decoCount / 2) / aquarium.Count) * 100, 0, 100);
+        if (state == STATE.BUILD)
+        {
+            RaycastHit hit;
+            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+                {
+                    facilityObj = hit.collider.GetComponent<Facility>();
+                }
+            }
+            if (Input.GetMouseButton(0) && Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+            {
+                facilityObj.transform.position = _build.GetFacilityPos();
+            }
+        }
+    }
 }
