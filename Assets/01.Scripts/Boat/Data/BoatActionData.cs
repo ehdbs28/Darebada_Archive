@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BoatActionData : MonoBehaviour
 {
+    public Vector3 Forward;
+
     public bool IsMoveBoat;
 
     public float CurrentFule;

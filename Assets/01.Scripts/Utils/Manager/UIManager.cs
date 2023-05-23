@@ -12,6 +12,12 @@ public class UIManager : MonoBehaviour, IManager
 
     private UIDocument _document;
 
+    private ScreenType _activeScreen;
+    private PopupType _activePopup;
+
+    public ScreenType ActiveScreen => _activeScreen;
+    public PopupType ActivePopup => _activePopup;
+
     public void InitManager()
     {
         _document =  GetComponent<UIDocument>();
@@ -45,11 +51,17 @@ public class UIManager : MonoBehaviour, IManager
     }
 
     public void ShowPanel(ScreenType type, bool clearScreen = true){
-        _screens[type]?.SetUp(_document, clearScreen);
+        if(_screens[type] != null){
+            _screens[type]?.SetUp(_document, clearScreen);
+            _activeScreen = type;
+        }
     }
 
     public void ShowPanel(PopupType type, bool clearScreen = false){
-        _popups[type]?.SetUp(_document, clearScreen);
+        if(_popups[type] != null){
+            _popups[type]?.SetUp(_document, clearScreen);
+            _activePopup = type;
+        }
     }
 
     public UIScreen GetPanel(ScreenType type){

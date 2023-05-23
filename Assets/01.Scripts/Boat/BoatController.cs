@@ -14,4 +14,11 @@ public class BoatController : ModuleController
 
         _boatActionData = GetComponent<BoatActionData>();
     }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        _boatActionData.Forward = transform.forward;
+    }
 }

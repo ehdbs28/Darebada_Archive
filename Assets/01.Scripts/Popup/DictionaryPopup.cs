@@ -10,6 +10,9 @@ public class DictionaryPopup : UIPopup
 
     protected override void AddEvent(VisualElement root)
     {
+        _exitBtn.RegisterCallback<ClickEvent>(e => {
+            RemoveRoot();
+        });
     }
 
     protected override void FindElement(VisualElement root)

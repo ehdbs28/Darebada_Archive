@@ -39,6 +39,9 @@ namespace Core{
                 return _screenSize;
             }
         }
+
+        private static Vector3 _north = Vector3.forward;
+        public static Vector3 North => _north;
     }
 
     public class GameTime{

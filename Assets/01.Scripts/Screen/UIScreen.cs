@@ -33,7 +33,7 @@ public abstract class UIScreen : MonoBehaviour
 
         return _root;
     }
-    
+
     protected abstract void AddEvent(VisualElement root);
     protected abstract void FindElement(VisualElement root);
 }

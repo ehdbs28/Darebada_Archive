@@ -1,7 +1,7 @@
 public enum PopupType{
     // Casting = 0,
-    // Dictionary,
-    // Inventory,
+    Dictionary,
+    Inventory,
     Letter,
     // Shop,
     // Upgrade,

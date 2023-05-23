@@ -20,12 +20,14 @@ public abstract class UIPopup : UIScreen
         return _root;
     }
 
-    protected virtual void RemoveRoot(){
+    public virtual void RemoveRoot(){
         if(_documentRoot == null || _root == null){
             return;
         }
 
         _documentRoot.Remove(_root);
+        _documentRoot = null;
+        _root = null;
     }
 
 
