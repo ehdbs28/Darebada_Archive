@@ -33,15 +33,7 @@ public abstract class UIScreen : MonoBehaviour
 
         return _root;
     }
-
-    public virtual void RemoveRoot(){
-        if(_documentRoot == null || _root == null){
-            return;
-        }
-
-        _documentRoot.Remove(_root);
-    }
-
+    
     protected abstract void AddEvent(VisualElement root);
     protected abstract void FindElement(VisualElement root);
 }
