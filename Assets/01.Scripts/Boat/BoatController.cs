@@ -14,4 +14,17 @@ public class BoatController : ModuleController
 
         _boatActionData = GetComponent<BoatActionData>();
     }
+
+    protected override void Update()
+    {
+        if(_boatActionData.IsDestroy == true)
+            return;
+
+        base.Update();
+        _boatActionData.Forward = transform.forward;
+
+        if(Input.GetKeyDown(KeyCode.K)){
+            GetModule<BoatDurabilityModule>().SetDurability(-20);
+        }
+    }
 }
