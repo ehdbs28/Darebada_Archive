@@ -15,7 +15,7 @@ public class LimitZone : MonoBehaviour
     {
         if(other.GetComponent<BoatActionData>())
         {
-            boat.CurrentDurablity -= Time.deltaTime * durablityDamageAmount;
+            boat.CurrentDurability -= Time.deltaTime * durablityDamageAmount;
         }
     }
 }

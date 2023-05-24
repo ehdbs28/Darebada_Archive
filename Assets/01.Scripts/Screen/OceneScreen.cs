@@ -16,6 +16,10 @@ public class OceneScreen : UIScreen
     private VisualElement _inventoryBtn;
 
     private UICompass _compass;
+    private UIBoatDurability _boatDurability;
+
+    [SerializeField]
+    private Gradient _boatDurabilityGradient;
 
     private BoatActionData _boatData;
 
@@ -37,8 +41,6 @@ public class OceneScreen : UIScreen
         if(Vector3.Cross(_boatData.Forward, North).y < 0f){
             theta *= -1f;
         }
-
-        Debug.Log(theta);
 
         _compass.SetRotate(theta);
     }
@@ -82,6 +84,13 @@ public class OceneScreen : UIScreen
 
         VisualElement compassRoot = root.Q<VisualElement>("compass");
         _compass = new UICompass(compassRoot);
+
+        VisualElement boatDurabilityRoot = root.Q<VisualElement>("boat-data");
+        _boatDurability = new UIBoatDurability(boatDurabilityRoot, _boatDurabilityGradient, _boatData);
+    }
+
+    public void OnReduceBoatDurability(){
+        _boatDurability.SetColor();
     }
 
     private void OnChangedTime(int hour, int minute){

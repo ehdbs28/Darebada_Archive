@@ -17,8 +17,14 @@ public class BoatController : ModuleController
 
     protected override void Update()
     {
-        base.Update();
+        if(_boatActionData.IsDestroy == true)
+            return;
 
+        base.Update();
         _boatActionData.Forward = transform.forward;
+
+        if(Input.GetKeyDown(KeyCode.K)){
+            GetModule<BoatDurabilityModule>().SetDurability(-20);
+        }
     }
 }

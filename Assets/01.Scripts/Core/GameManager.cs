@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     }   
 
     private void Start() {
+        GetManager<UIManager>().ShowPanel(ScreenType.Ocene);
         StartCoroutine(AutoSave(_autoSaveDelay));
     }
 

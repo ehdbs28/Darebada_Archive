@@ -45,9 +45,6 @@ public class UIManager : MonoBehaviour, IManager
 
             _popups.Add(type, popup);
         }
-
-        // For debuging
-        ShowPanel(ScreenType.Ocene);
     }
 
     public void ShowPanel(ScreenType type, bool clearScreen = true){
