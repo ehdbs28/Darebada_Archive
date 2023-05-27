@@ -69,6 +69,15 @@ public class UIManager : MonoBehaviour, IManager
         return _popups[type];
     }
 
+    public bool OnElement(Vector3 screenPos){
+        IPanel panel = _document.rootVisualElement.panel;
+
+        Vector3 panelPos = RuntimePanelUtils.ScreenToPanel(panel, screenPos);
+        VisualElement pick = panel.Pick(panelPos);
+
+        return pick != null;
+    }
+
     public void UpdateManager() {}
     public void ResetManager() {}
 }

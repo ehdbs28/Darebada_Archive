@@ -1,0 +1,44 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/SettingUI.uss?fileID=7433441132597879392&amp;guid=13d6884cee4b145448657ba29fec3299&amp;type=3#SettingUI" />
+    <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
+    <ui:VisualElement name="inventory-container" style="position: absolute; width: 70%; height: 60%; left: 15%; top: 20%; background-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+        <ui:VisualElement name="header" style="flex-basis: 7.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); border-bottom-width: 2px;">
+            <ui:VisualElement name="exit-btn" style="width: 35px; height: 35px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); right: 30px; position: absolute;" />
+            <ui:Label text="설정" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 40px; position: absolute;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="body" style="flex-basis: 74.5%; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; align-items: center; justify-content: flex-start; flex-shrink: 0; flex-grow: 1;">
+            <ui:VisualElement name="blank" style="width: 100%; flex-basis: 5%;" />
+            <ui:VisualElement name="sound-setting" style="width: 100%; flex-basis: 50%;">
+                <ui:VisualElement name="background-sound" style="flex-grow: 1; flex-direction: row; align-items: center; justify-content: center;">
+                    <ui:Label text="배경음" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px; margin-right: 150px;" />
+                    <ui:VisualElement name="sound-btn" class="sound-btn" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Music%20Icon.png?fileID=21300000&amp;guid=cfeb52c1158468445be82e5c877e4f1a&amp;type=3#Free Flat Music Icon&apos;);" />
+                    <ui:VisualElement name="mute-btn" class="sound-btn disable" style="width: 85px; height: 85px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Music%20No%20Icon.png?fileID=21300000&amp;guid=a631e872ceb8c434ead7ead22b772b24&amp;type=3#Free Flat Music No Icon&apos;); margin-right: 0; -unity-background-image-tint-color: rgba(255, 255, 255, 0.59);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="effect-sound" style="flex-grow: 1; flex-direction: row; align-items: center; justify-content: center;">
+                    <ui:Label text="효과음" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px; margin-right: 150px;" />
+                    <ui:VisualElement name="sound-btn" class="sound-btn" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Sound.png?fileID=-843994510&amp;guid=e7ff8ffb2f30c4a898a73e447e53cc36&amp;type=3#White Sound_0&apos;);" />
+                    <ui:VisualElement name="mute-btn" class="sound-btn disable" style="width: 85px; height: 85px; background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Mute.png?fileID=-881143443&amp;guid=bc560b3b0ac724b68ad7810f7dcaad73&amp;type=3#White Mute_7&apos;); margin-right: 0; -unity-background-image-tint-color: rgba(255, 255, 255, 0.59);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="nature-sound" style="flex-grow: 1; flex-direction: row; align-items: center; justify-content: center;">
+                    <ui:Label text="자연음" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px; margin-right: 150px;" />
+                    <ui:VisualElement name="sound-btn" class="sound-btn" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Mic%20Icon.png?fileID=21300000&amp;guid=f2f9800a1d8f6624db87fcc401513e95&amp;type=3#Free Flat Mic Icon&apos;);" />
+                    <ui:VisualElement name="mute-btn" class="sound-btn disable" style="width: 85px; height: 85px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Mic%20Off%20Icon.png?fileID=21300000&amp;guid=e4a9e167cc90cae43bb03120ccbe26ef&amp;type=3#Free Flat Mic Off Icon&apos;); margin-right: 0; -unity-background-image-tint-color: rgba(255, 255, 255, 0.59);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="blank" style="flex-basis: 5%;" />
+            <ui:VisualElement name="contact-twitter-btn" style="width: 90%; flex-basis: 15%; background-color: rgba(255, 255, 255, 0.78); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; flex-direction: row; align-items: center; justify-content: center;">
+                <ui:Label text="Find us on" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 50px; color: rgb(29, 155, 240); margin-right: 30px;" />
+                <ui:VisualElement name="logo" style="width: 75px; height: 75px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Twitter-icon.png?fileID=21300000&amp;guid=4a4c4a1d7be78c741adc95b1eb680c9f&amp;type=3#Twitter-icon&apos;);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="blank" style="width: 100%; flex-basis: 5%;" />
+            <ui:VisualElement name="show-license-btn" style="width: 90%; flex-basis: 15%; background-color: rgba(255, 255, 255, 0.78); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; flex-direction: row; align-items: center; justify-content: center;">
+                <ui:Label text="Check license" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 50px; color: rgb(255, 0, 0); margin-right: 30px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="footer" style="flex-basis: 10%; flex-direction: row; flex-shrink: 0; border-bottom-color: rgba(0, 0, 0, 0.39); border-top-width: 2px; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39);">
+            <ui:VisualElement name="version" style="align-items: flex-end; justify-content: flex-end; width: 100%; height: 100%; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px;">
+                <ui:Label text="ver 0.0.1" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 30px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
