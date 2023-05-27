@@ -18,14 +18,9 @@ TagManager:
   - Driver
   - Heavy_weight_object
   - LockedObj
+  - PostProcessing
+  - PostProcessing_Blur
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - TestGroundLayer
   - 
   - 
   - 
@@ -45,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 3304441957
     locked: 0

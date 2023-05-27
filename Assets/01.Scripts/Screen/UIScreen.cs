@@ -12,16 +12,16 @@ public abstract class UIScreen : MonoBehaviour
     protected VisualElement _root = null;
 
     public virtual void SetUp(UIDocument document, bool clearScreen = true){
-        _documentRoot = document.rootVisualElement;
+        _documentRoot = document.rootVisualElement.Q("main-container");
 
-        if(clearScreen)
-            _documentRoot.Clear();
+        if(clearScreen && _documentRoot.childCount >= 2)
+            _documentRoot.RemoveAt(0);
 
         VisualElement generatedRoot = GenerateRoot();
 
         if(generatedRoot != null){
             AddEvent(generatedRoot);
-            _documentRoot.Add(generatedRoot);
+            _documentRoot.Insert(0, generatedRoot);
         }
     }
 
