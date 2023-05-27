@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/07.UI/CampUI.uss?fileID=7433441132597879392&amp;guid=870c7f81e78494c4794883e1a9367d4b&amp;type=3#CampUI" />
     <Style src="project://database/Assets/07.UI/OceneUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceneUI" />
     <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
-    <ui:VisualElement name="container">
+    <ui:VisualElement name="container" picking-mode="Ignore">
         <ui:VisualElement name="header-container">
             <ui:VisualElement name="setting-btn" class="btn" style="justify-content: flex-end;">
                 <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Gear.png?fileID=21300000&amp;guid=f55f75488890d4747835fc8299828fe7&amp;type=3#White Gear&apos;); width: 120%; height: 120%; bottom: -10px;" />
@@ -16,7 +16,7 @@
                 <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Edit%20Icon.png?fileID=21300000&amp;guid=8cd55c5b366c4574d93e99269b8a01d9&amp;type=3#Free Flat Edit Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
                 <ui:Label text="도감" display-tooltip-when-elided="true" name="btn-text" class="text" />
             </ui:VisualElement>
-            <ui:VisualElement name="game-data">
+            <ui:VisualElement name="game-data" picking-mode="Ignore">
                 <ui:Label text="1년째 7월14일" display-tooltip-when-elided="true" name="date-text" class="text" />
                 <ui:Label text="08:22" display-tooltip-when-elided="true" name="time-text" class="text" />
                 <ui:VisualElement name="line" />
