@@ -26,10 +26,29 @@ public class LetterPopup : UIPopup
             });
         }
 
-        /*_selectAllToggle.RegisterCallback<ClickEvent>(e =>
+        _selectAllToggle.RegisterCallback<ClickEvent>(e =>
         {
-            _selectAllToggle.
-        })*/
+            foreach(VisualElement letter in _letters)
+            {
+                letter.AddToClassList("on");
+            }
+        });
+
+        _exitBtn.RegisterCallback<ClickEvent>(e =>
+        {
+            RemoveRoot();
+        });
+
+        _deleteBtn.RegisterCallback<ClickEvent>(e =>
+        {
+            foreach(VisualElement letter in _letters)
+            {
+                if (letter.ClassListContains("on"))
+                {
+                    letter.RemoveFromHierarchy();
+                }
+            }
+        });
     }
 
     protected override void FindElement(VisualElement root)

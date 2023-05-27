@@ -13,6 +13,15 @@ public class DictionaryPopup : UIPopup
         _exitBtn.RegisterCallback<ClickEvent>(e => {
             RemoveRoot();
         });
+
+        foreach(VisualElement fishes in _fishElements)
+        {
+            fishes.RegisterCallback<ClickEvent>(e =>
+            {
+                //나중에 추가되면 넣어야함.
+                //fishes.AddToClassList("");
+            });
+        }
     }
 
     protected override void FindElement(VisualElement root)

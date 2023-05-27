@@ -10,7 +10,15 @@ public class ShopPopup : UIPopup
 
     protected override void AddEvent(VisualElement root)
     {
+        _sellBtn.RegisterCallback<ClickEvent>(e =>
+        {
 
+        });
+
+        _buyBtn.RegisterCallback<ClickEvent>(e =>
+        {
+
+        });
     }
 
     protected override void FindElement(VisualElement root)
