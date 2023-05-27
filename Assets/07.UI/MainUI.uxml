@@ -9,7 +9,7 @@
     <Style src="project://database/Assets/07.UI/ShopUI.uss?fileID=7433441132597879392&amp;guid=117492bc78fab3f4aa683150d95bda77&amp;type=3#ShopUI" />
     <Style src="project://database/Assets/07.UI/UpgradeUI.uss?fileID=7433441132597879392&amp;guid=60dd650f3094eb54d8dccfa431f11e5c&amp;type=3#UpgradeUI" />
     <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
-    <ui:VisualElement name="main-container" style="width: 100%; height: 100%;">
+    <ui:VisualElement name="main-container" picking-mode="Ignore" style="width: 100%; height: 100%;">
         <ui:VisualElement name="blur-panel" class="blur-panel" />
     </ui:VisualElement>
 </ui:UXML>
