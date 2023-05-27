@@ -20,13 +20,8 @@ TagManager:
   - LockedObj
   - TestFish
   - TestObstacle
-  - 
-  - 
-  - 
-  - 
-  - 
-  - TestGroundLayer
-  - 
+  - PostProcessing
+  - PostProcessing_Blur
   - 
   - 
   - 
@@ -40,4 +35,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 3304441957
     locked: 0

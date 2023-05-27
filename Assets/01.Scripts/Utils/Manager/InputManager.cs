@@ -35,7 +35,7 @@ public class InputManager : MonoBehaviour, IManager
         //_playerInput = GameManager.Instance.GetComponent<PlayerInput>();
 
         // ?�중??바꾸�?
-        _whatIsGround = LayerMask.GetMask("TestGroundLayer");
+        _whatIsGround = LayerMask.GetMask("Ground");
     }
 
     // new InputManager?�서 Event ?�식?�로 ?�겨???�행?�는 친구?�임

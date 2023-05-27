@@ -8,9 +8,14 @@ public abstract class UIPopup : UIScreen
     private bool _isOpenPopup = false;
     public bool IsOpenPopup => _isOpenPopup;
 
+    VisualElement _blurPanel = null;
+
     protected override VisualElement GenerateRoot()
     {
         _isOpenPopup = true;
+
+        _blurPanel = _documentRoot.Q(className: "blur-panel");
+        _blurPanel.AddToClassList("on");
 
         _root = _treeAsset.Instantiate();
         _root = _root.ElementAt(0);
@@ -21,13 +26,16 @@ public abstract class UIPopup : UIScreen
     }
 
     public virtual void RemoveRoot(){
-        if(_documentRoot == null || _root == null){
+        if(_documentRoot == null || _root == null || _blurPanel == null){
             return;
         }
 
         _documentRoot.Remove(_root);
+        _blurPanel.RemoveFromClassList("on");
+
         _documentRoot = null;
         _root = null;
+        _blurPanel = null;
 
         _isOpenPopup = false;
     }
