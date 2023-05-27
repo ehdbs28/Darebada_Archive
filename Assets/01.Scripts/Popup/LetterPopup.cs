@@ -16,6 +16,20 @@ public class LetterPopup : UIPopup
         _exitBtn.RegisterCallback<ClickEvent>(e => {
             RemoveRoot();
         });
+
+        foreach(VisualElement letter in _letters)
+        {
+            letter.RegisterCallback<ClickEvent>(e =>
+            {
+                letter.AddToClassList("on");
+                letter.AddToClassList("check");
+            });
+        }
+
+        /*_selectAllToggle.RegisterCallback<ClickEvent>(e =>
+        {
+            _selectAllToggle.
+        })*/
     }
 
     protected override void FindElement(VisualElement root)

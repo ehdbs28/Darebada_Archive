@@ -10,7 +10,7 @@ public class MoneyManager : MonoBehaviour
 
     public long money;
 
-    [SerializeField] private TextMeshProUGUI goldTxt;
+    [SerializeField] public TextMeshProUGUI goldTxt;
 
     private void Awake()
     {
