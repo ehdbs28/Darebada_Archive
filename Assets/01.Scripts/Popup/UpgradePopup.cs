@@ -10,6 +10,7 @@ public class UpgradePopup : UIPopup
 
     protected override void AddEvent(VisualElement root)
     {
+
     }
 
     protected override void FindElement(VisualElement root)
