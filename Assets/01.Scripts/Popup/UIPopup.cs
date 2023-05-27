@@ -5,13 +5,13 @@ using UnityEngine.UIElements;
 
 public abstract class UIPopup : UIScreen
 {
-    public override void SetUp(UIDocument document, bool clearScreen = false)
-    {
-        base.SetUp(document, clearScreen);
-    }
+    private bool _isOpenPopup = false;
+    public bool IsOpenPopup => _isOpenPopup;
 
     protected override VisualElement GenerateRoot()
     {
+        _isOpenPopup = true;
+
         _root = _treeAsset.Instantiate();
         _root = _root.ElementAt(0);
         
@@ -28,8 +28,9 @@ public abstract class UIPopup : UIScreen
         _documentRoot.Remove(_root);
         _documentRoot = null;
         _root = null;
-    }
 
+        _isOpenPopup = false;
+    }
 
     protected override abstract void AddEvent(VisualElement root);
     protected override abstract void FindElement(VisualElement root);

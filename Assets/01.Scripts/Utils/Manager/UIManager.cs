@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class UIManager : MonoBehaviour, IManager
 {
     private readonly Dictionary<ScreenType, UIScreen> _screens = new Dictionary<ScreenType, UIScreen>();
-    private readonly Dictionary<PopupType, UIScreen> _popups = new Dictionary<PopupType, UIScreen>();
+    private readonly Dictionary<PopupType, UIPopup> _popups = new Dictionary<PopupType, UIPopup>();
 
     private UIDocument _document;
 
@@ -55,7 +55,7 @@ public class UIManager : MonoBehaviour, IManager
     }
 
     public void ShowPanel(PopupType type, bool clearScreen = false){
-        if(_popups[type] != null){
+        if(_popups[type] != null && _popups[type].IsOpenPopup == false){
             _popups[type]?.SetUp(_document, clearScreen);
             _activePopup = type;
         }
@@ -65,8 +65,17 @@ public class UIManager : MonoBehaviour, IManager
         return _screens[type];
     }
 
-    public UIScreen GetPanel(PopupType type){
+    public UIPopup GetPanel(PopupType type){
         return _popups[type];
+    }
+
+    public bool OnElement(Vector3 screenPos){
+        IPanel panel = _document.rootVisualElement.panel;
+
+        Vector3 panelPos = RuntimePanelUtils.ScreenToPanel(panel, screenPos);
+        VisualElement pick = panel.Pick(panelPos);
+
+        return pick != null;
     }
 
     public void UpdateManager() {}
