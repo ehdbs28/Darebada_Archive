@@ -10,27 +10,12 @@ public abstract class UIPopup : UIScreen
 
     VisualElement _blurPanel = null;
 
-    public override void SetUp(UIDocument document, bool clearScreen = true)
-    {
-        _documentRoot = document.rootVisualElement.Q("main-container");
-
-        _blurPanel = _documentRoot.Q(className: "blur-panel");
-        _blurPanel.AddToClassList("on");
-
-        if(clearScreen && _documentRoot.childCount >= 2)
-            _documentRoot.RemoveAt(0);
-
-        VisualElement generatedRoot = GenerateRoot();
-
-        if(generatedRoot != null){
-            AddEvent(generatedRoot);
-            _documentRoot.Add(generatedRoot);
-        }
-    }
-
     protected override VisualElement GenerateRoot()
     {
         _isOpenPopup = true;
+
+        _blurPanel = _documentRoot.Q(className: "blur-panel");
+        _blurPanel.AddToClassList("on");
 
         _root = _treeAsset.Instantiate();
         _root = _root.ElementAt(0);
