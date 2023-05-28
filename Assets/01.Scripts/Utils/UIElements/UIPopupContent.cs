@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UIUpgradeContent
+public class UIPopupContent
 {
     private int _index;
     public int Index => _index;
 
     private Label _goldLabel;
 
-    protected List<UIBuyContent> _buyContent = new List<UIBuyContent>();
+    protected List<UIBuyElement> _buyContent = new List<UIBuyElement>();
 
-    public UIUpgradeContent(VisualElement root, int index){
+    public UIPopupContent(VisualElement root, int index){
         _index = index;
         _goldLabel = root.Q<Label>("gold-text");
-
-        AddEvent();
     }
 
-    private void AddEvent(){
-        
+    protected virtual void AddEvent(){
+        // connect gold event
     }
 }

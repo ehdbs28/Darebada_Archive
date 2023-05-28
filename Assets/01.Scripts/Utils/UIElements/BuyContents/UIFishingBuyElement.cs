@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UIFishingBuyContent : UIBuyContent
+public class UIFishingBuyElement : UIBuyElement
 {
     private VisualElement _valueElement;
 
     private float _value;
     public float Vlaue => _value;
 
-    public UIFishingBuyContent(VisualElement elementRoot) : base(elementRoot)
+    public UIFishingBuyElement(VisualElement elementRoot) : base(elementRoot)
     {
         
     }

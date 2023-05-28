@@ -12,8 +12,8 @@ public class UpgradePopup : UIPopup
 
     private VisualElement _contents;
 
-    UIBoatUpgradeContent _boatUpgrade;
-    UIFishingUpgradeContent _fishingUpgrade;
+    private UIBoatUpgradeContent _boatUpgrade;
+    private UIFishingUpgradeContent _fishingUpgrade;
 
     protected override void AddEvent(VisualElement root)
     {

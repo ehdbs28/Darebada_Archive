@@ -84,7 +84,7 @@ public class UIManager : MonoBehaviour, IManager
 
     public void UpdateManager() {
         if(Input.GetKeyDown(KeyCode.B)){
-            ShowPanel(PopupType.Upgrade);
+            ShowPanel(PopupType.Shop);
         }
     }
     public void ResetManager() {}

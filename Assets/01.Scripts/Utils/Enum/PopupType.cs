@@ -3,7 +3,7 @@ public enum PopupType{
     Dictionary,
     Inventory,
     Letter,
-    // Shop,
+    Shop,
     Upgrade,
 }
 

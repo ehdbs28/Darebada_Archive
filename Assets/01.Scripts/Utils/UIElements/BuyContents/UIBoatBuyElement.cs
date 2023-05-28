@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UIBoatBuyContent : UIBuyContent
+public class UIBoatBuyElement : UIBuyElement
 {
     private BoatBuyState _buyState;
     public BoatBuyState BuyState => _buyState;
 
-    public UIBoatBuyContent(VisualElement elementRoot) : base(elementRoot)
+    public UIBoatBuyElement(VisualElement elementRoot) : base(elementRoot)
     {
         _buyState = BoatBuyState.SALE;
     }
