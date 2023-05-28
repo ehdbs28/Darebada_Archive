@@ -58,9 +58,9 @@ public class UIManager : MonoBehaviour, IManager
         }
     }
 
-    public void ShowPanel(PopupType type, bool clearScreen = false){
+    public void ShowPanel(PopupType type, bool clearScreen = false, bool blur = true, bool timeStop = true){
         if(_popups[type] != null && _popups[type].IsOpenPopup == false){
-            _popups[type]?.SetUp(_document, clearScreen);
+            _popups[type]?.SetUp(_document, clearScreen, blur, timeStop);
             _activePopup = type;
         }
     }
