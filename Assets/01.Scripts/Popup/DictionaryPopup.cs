@@ -20,6 +20,7 @@ public class DictionaryPopup : UIPopup
             {
                 //나중에 추가되면 넣어야함.
                 //fishes.AddToClassList("");
+                Debug.Log("Dictionary");
             });
         }
     }
