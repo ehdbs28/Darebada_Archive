@@ -18,11 +18,13 @@ public class TimeManager : IManager
         }
         set{
             if(value < 0f){
+                Time.timeScale = 0f;
                 _timeScale = 0f;
                 return;
             }
 
             _timeScale = value;
+            Time.timeScale = _timeScale;
         }
     }
 

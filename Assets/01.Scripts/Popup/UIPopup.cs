@@ -25,6 +25,8 @@ public abstract class UIPopup : UIScreen
     {
         _isOpenPopup = true;
 
+        GameManager.Instance.GetManager<TimeManager>().TimeScale = 0f;
+
         _blurPanel = _documentRoot.Q(className: "blur-panel");
         _blurPanel.AddToClassList("on");
 
@@ -47,6 +49,8 @@ public abstract class UIPopup : UIScreen
         _documentRoot = null;
         _root = null;
         _blurPanel = null;
+
+        GameManager.Instance.GetManager<TimeManager>().TimeScale = 1f;
 
         _isOpenPopup = false;
     }
