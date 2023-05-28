@@ -49,12 +49,14 @@ public class InputManager : MonoBehaviour, IManager
     }
 
     public void OnMouseClick(InputValue value){
+        if(GameManager.Instance.GetManager<UIManager>().OnElement(_mousePosition))
+            return;
+
         OnMouseClickEvent?.Invoke(value.Get<float>() > 0);
     }
 
     public void OnMousePosition(InputValue value){
         _mousePosition = value.Get<Vector2>();
-        Debug.Log(GameManager.Instance.GetManager<UIManager>().OnElement(_mousePosition));
     }
 
     public void ResetManager(){}

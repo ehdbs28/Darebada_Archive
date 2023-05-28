@@ -82,6 +82,10 @@ public class UIManager : MonoBehaviour, IManager
         return pick != null;
     }
 
-    public void UpdateManager() {}
+    public void UpdateManager() {
+        if(Input.GetKeyDown(KeyCode.B)){
+            ShowPanel(PopupType.Shop);
+        }
+    }
     public void ResetManager() {}
 }
