@@ -15,7 +15,12 @@ public class FishingScreen : UIScreen
 
     protected override void FindElement(VisualElement root)
     {
-        _heightCursor = root.Q<Label>("height-text");
+        _heightText = root.Q<Label>("height-text");
         _heightCursor = root.Q<VisualElement>("cursor");
+    }
+
+    public void SetHeight(float percent, float height){
+        _heightCursor.style.top = new StyleLength(new Length(percent * 100, LengthUnit.Percent));
+        _heightText.text = $"{(int)height}M";
     }
 }

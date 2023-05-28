@@ -52,13 +52,14 @@ public class UIManager : MonoBehaviour, IManager
 
     public void ShowPanel(ScreenType type, bool clearScreen = true){
         if(_screens[type] != null){
-            _screens[type]?.SetUp(_document, clearScreen);
             _screens[type]?.SetUp(_blurDocument, clearScreen);
+            _screens[type]?.SetUp(_document, clearScreen);
             _activeScreen = type;
         }
     }
 
     public void ShowPanel(PopupType type, bool clearScreen = false, bool blur = true, bool timeStop = true){
+        Debug.Log(_popups[type].IsOpenPopup);
         if(_popups[type] != null && _popups[type].IsOpenPopup == false){
             _popups[type]?.SetUp(_document, clearScreen, blur, timeStop);
             _activePopup = type;

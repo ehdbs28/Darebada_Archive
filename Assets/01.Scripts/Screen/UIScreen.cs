@@ -14,8 +14,12 @@ public abstract class UIScreen : MonoBehaviour
     public virtual void SetUp(UIDocument document, bool clearScreen = true){
         _documentRoot = document.rootVisualElement.Q("main-container");
 
-        if(clearScreen && _documentRoot.childCount >= 2)
-            _documentRoot.RemoveAt(0);
+        if(clearScreen && _documentRoot.childCount >= 2){
+            for(int i = 0; i < _documentRoot.childCount; i++){
+                if(_documentRoot.ElementAt(i).ClassListContains("blur-panel")) continue;
+                _documentRoot.RemoveAt(i);
+            }
+        }
 
         VisualElement generatedRoot = GenerateRoot();
 
