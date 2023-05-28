@@ -21,8 +21,13 @@ public class LetterPopup : UIPopup
         {
             letter.RegisterCallback<ClickEvent>(e =>
             {
-                letter.AddToClassList("on");
-                letter.AddToClassList("check");
+                if (letter.ClassListContains("on"))
+                    letter.RemoveFromClassList("on");
+                else
+                {
+                    letter.AddToClassList("on");
+                    letter.AddToClassList("check");
+                }
             });
         }
 
