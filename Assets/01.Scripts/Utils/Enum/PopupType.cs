@@ -4,6 +4,6 @@ public enum PopupType{
     Inventory,
     Letter,
     // Shop,
-    // Upgrade,
+    Upgrade,
 }
 
