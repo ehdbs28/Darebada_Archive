@@ -69,15 +69,18 @@ public class AquariumManager : MonoBehaviour, IManager
     public enum STATE
     {
         NORMAL,
+        MOVE,
         BUILD
     }
     public STATE state = STATE.NORMAL;
     public InputManager inputManager;
     private void Awake()
     {
+        InitManager();
     }
     private void Update()
     {
+        UpdateManager();
     }
     public void SetFacilityPos()
     {
@@ -85,7 +88,7 @@ public class AquariumManager : MonoBehaviour, IManager
         if (check = facilityObj.CheckCollision()) 
         {
             Debug.Log(check);
-            state = STATE.NORMAL;
+            state = STATE.MOVE;
             Debug.Log(state);
 
             aquaObject.Add(facilityObj.gameObject);
@@ -168,7 +171,7 @@ public class AquariumManager : MonoBehaviour, IManager
                     facilityObj = hit.collider.GetComponent<Facility>();
                 }
             }
-            if (Input.GetMouseButton(0) && Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+            else if (Input.GetMouseButton(0) && Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
             {
                 facilityObj.transform.position = _build.GetFacilityPos();
             }

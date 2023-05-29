@@ -24,13 +24,11 @@ public class UpgradeManager : MonoBehaviour
     private void Awake()
     {
         mainCam = Define.MainCam;
+        
     }
     private void Update()
     {
         
-        if(Input.GetMouseButtonDown(0) && !sysl.IsPointerOverGameObject())
-        {
-
             if (Input.GetMouseButtonDown(0))
             {
                 handlingTime = 0;
@@ -39,6 +37,9 @@ public class UpgradeManager : MonoBehaviour
             }
             else if (Input.GetMouseButton(0))
             {
+            if(GameManager.Instance.GetManager<AquariumManager>().state == AquariumManager.STATE.MOVE)
+            {
+
                 handlingTime += Time.deltaTime;
                 _onMovedPos = GameManager.Instance.GetManager<InputManager>().MousePosition;
                 Vector3 temp = _onTouchPos - _onMovedPos;
@@ -46,19 +47,20 @@ public class UpgradeManager : MonoBehaviour
                 mainCam.transform.position += (_dir);
                 _onTouchPos = _onMovedPos;
             }
+            }
             else if (Input.GetMouseButtonUp(0))
             {
                 if (handlingTime <= limitTime)
                 {
 
-                    if (!fishbowlUpgradePanel.gameObject.activeSelf && !shopUpgradePanel.gameObject.activeSelf && !addPanel.activeSelf)
+                    if (!fishbowlUpgradePanel.gameObject.activeSelf && !shopUpgradePanel.gameObject.activeSelf && !addPanel.activeSelf && GameManager.Instance.GetManager<AquariumManager>().state == AquariumManager.STATE.MOVE)
                     {
                         RaycastHit hit;
                         Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
-                        Debug.Log(GameManager.Instance.GetManager<AquariumManager>().state);
 
-                        if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask) && GameManager.Instance.GetManager<AquariumManager>().state == AquariumManager.STATE.BUILD)
+                        if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask) )
                         {
+                        Debug.Log(GameManager.Instance.GetManager<AquariumManager>().state);
 
                             if (hit.collider.GetComponent<Fishbowl>())
                             {
@@ -75,6 +77,6 @@ public class UpgradeManager : MonoBehaviour
                     }
                 }
             }
-        }
+        
     }
 }

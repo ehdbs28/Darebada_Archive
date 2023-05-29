@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         _managers.Add(GetComponent<InputManager>());
         _managers.Add(GetComponent<CameraManager>());
         _managers.Add(new TimeManager());
+        _managers.Add(FindObjectOfType<AquariumManager>());
         //_managers.Add(GetComponent<LightingManager>());
         _managers.Add(new LetterManager());
     }

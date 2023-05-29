@@ -1364,6 +1364,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5097820844283302089, guid: 550cb67d9b6996148a6f41b81b60a5c4, type: 3}
+      propertyPath: state
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097820844283302089, guid: 550cb67d9b6996148a6f41b81b60a5c4, type: 3}
       propertyPath: facilityLayer.m_Bits
       value: 64
       objectReference: {fileID: 0}
