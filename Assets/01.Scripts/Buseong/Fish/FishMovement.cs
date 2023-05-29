@@ -5,89 +5,35 @@ using System.IO;
 
 public class FishMovement : MonoBehaviour
 {
-    private Fish _fish;
-    private Rigidbody _rigidbody;
+    private float _radius = 5f;
+    private float _maxDistance = 50f;
+    [SerializeField]
+    private LayerMask _layerMask;
+    private Vector3 _direction;
 
-    private bool _canMoveForward = true;
-    private float _rayMaxDistance = 5f;
+    [SerializeField]
+    private float _swimSpeed;
 
-    private Vector3 _dir;
+    private float timeTest;
+    private float timeTest2 = 3f;
 
-    private float _timer;
-    private float _setTime = 3f;
-
-    private float _xPosMinLimit = -30f;
-    private float _xPosMaxLimit = 30f;
-    private float _yPosMinLimit = -30f;
-    private float _yPosMaxLimit = 30f;
-    private float _zPosMinLimit = -30f;
-    private float _zPosMaxLimit = 30f;
-
-    public bool IsSelected { get; set; } = false;
-    public bool IsCatched { get; private set; } = false;
-
-    public Transform Target { get; set; } = null;
-
-    private void Start()
-    {
-        _fish = GetComponent<Fish>();
-        _rigidbody = GetComponent<Rigidbody>();
-
-        _dir = SetRandomDirection(_dir);
-    }
+    float additionalSpeed = 0;
 
     private void Update()
     {
-        if(IsSelected == false){
-            _timer += Time.deltaTime;
-            if (_setTime < _timer)
-            {
-                _setTime = _timer + 3f;
-                _dir = SetRandomDirection(_dir);
-                
-                if((transform.position.x > _xPosMaxLimit || transform.position.x < _xPosMinLimit)
-                    ||(transform.position.y > _yPosMaxLimit || transform.position.y < _yPosMinLimit)
-                    ||(transform.position.z > _zPosMaxLimit || transform.position.z < _zPosMinLimit))
-                {
-                    _dir = GameObject.Find("FishManager").transform.position - transform.position;
-                }
-            }
-        }
-        else{
-            if(Vector3.Distance(Target.position, transform.position) <= 0.1f){
-                IsCatched = true;
-            }
-            else{
-                IsCatched = false;
-            }
-
-            _dir = (Target.position - transform.position).normalized;
-        }
-
-        if(IsCatched == false){
-            _rigidbody.velocity = _dir.normalized * _fish.SwimSpeed;
-        }
-        else{
-            transform.position = Target.position;
-        }
+        RaycastHit hit;
+        Physics.SphereCast(transform.position, _radius, transform.forward, out hit, _maxDistance, _layerMask);
     }
 
-    private Vector3 SetRandomDirection(Vector3 direction)
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
     {
-        //float randomX = 0f;
-        //float randomY = 0f;
-        //direction.x = Mathf.Clamp(randomX, -45f, 25f);
-        //direction.y = Mathf.Clamp(randomY, direction.y - 90f, direction.y + 90f);
-
-        direction.x = Random.Range(-45f, 25f);
-        direction.y = Random.Range(direction.y - 90f, direction.y + 90f);
-
-        return direction.normalized;
+        if (UnityEditor.Selection.activeGameObject == gameObject)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, _maxDistance);
+            Gizmos.color = Color.white;
+        }
     }
-
-    private void FixedUpdate()
-    {
-        
-        
-    }
+#endif
 }

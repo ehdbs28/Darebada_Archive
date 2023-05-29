@@ -64,6 +64,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             CreateRandomItem();
@@ -131,6 +132,8 @@ public class InventoryManager : MonoBehaviour
         }
 
         Vector2Int tileGridPosition = selectedItemGrid.GetTileGridPosition(position); // 마우스 위치 받아오기 
+
+        print(tileGridPosition);
 
         if (selectedItem == null) // 아이템을 안집었다면
         {

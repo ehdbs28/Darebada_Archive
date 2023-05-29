@@ -11,13 +11,23 @@ public class MiniGameBall : MonoBehaviour
 
     private void Update()
     {
+        CrossBall();
+    }
+
+    private void FixedUpdate()
+    {
+        SpinBall();
+    }
+
+    private void CrossBall()
+    {
         range = MiniGameManager.Instance.SetRange();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            for (int i= 0; i < MiniGameManager.Instance.hitPoint.Count; i++)
+            for (int i = 0; i < MiniGameManager.Instance.hitPoint.Count; i++)
             {
-                if (MiniGameManager.Instance.hitPoint[i].transform.position.x + range > retVector.x 
+                if (MiniGameManager.Instance.hitPoint[i].transform.position.x + range > retVector.x
                     && MiniGameManager.Instance.hitPoint[i].transform.position.x - range < retVector.x)
                 {
                     print("겹침");
@@ -26,23 +36,18 @@ public class MiniGameBall : MonoBehaviour
                     {
                         MiniGameManager.Instance.hitPoint[j].transform.localScale /= 2;
                     }
-                    
+
                     // 대충 여기서 물고기 위치 값 올리면 될듯
                     // 포인트 없애기
                 }
                 else
                 {
                     // 물고기 위치 낮추기
-    
+
                 }
             }
         }
         // 거리가 0이면 인벤토리로 그 물고기 넣어버림
-    }
-
-    private void FixedUpdate()
-    {
-        SpinBall();
     }
 
     private void SpinBall()

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Core{
@@ -37,19 +39,28 @@ namespace Core{
                 return _screenSize;
             }
         }
+
+        private static Vector3 _north = Vector3.forward;
+        public static Vector3 North => _north;
     }
 
     public class GameTime{
-        public static readonly float DayDelay = 10f;
+        public static readonly float DayDelay = 720f;
         public static float HourDelay => DayDelay / 24;
-        public static float MinuteDelay => HourDelay / 60;
-        public static float SecondDelay => MinuteDelay / 60;
+        public static float MinuteDelay => HourDelay / 12;
         
         // 12월 부터 시작
         public static int[] DayPerMonth = { 31, 31, IsLeapYear(GameManager.Instance.GetManager<TimeManager>().Year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30 };
 
         public static bool IsLeapYear(int year){
             return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+        }
+    }
+
+    public struct UtilFunc{
+        static IEnumerator DelayCoroutine(float delay, Action Callback){
+            yield return new WaitForSeconds(delay);
+            Callback?.Invoke();
         }
     }
 }

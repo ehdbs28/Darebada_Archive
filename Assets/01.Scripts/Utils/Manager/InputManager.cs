@@ -34,11 +34,11 @@ public class InputManager : MonoBehaviour, IManager
     public void InitManager() {
         //_playerInput = GameManager.Instance.GetComponent<PlayerInput>();
 
-        // ?�중??바꾸�?
-        _whatIsGround = LayerMask.GetMask("TestGroundLayer");
+        // ?�중??바꾸�?
+        _whatIsGround = LayerMask.GetMask("Ground");
     }
 
-    // new InputManager?�서 Event ?�식?�로 ?�겨???�행?�는 친구?�임
+    // new InputManager?�서 Event ?�식?�로 ?�겨???�행?�는 친구?�임
 
     public void OnMovement(InputValue value){
         OnMovementEvent?.Invoke(value.Get<float>());
@@ -49,6 +49,9 @@ public class InputManager : MonoBehaviour, IManager
     }
 
     public void OnMouseClick(InputValue value){
+        if(GameManager.Instance.GetManager<UIManager>().OnElement(_mousePosition))
+            return;
+
         OnMouseClickEvent?.Invoke(value.Get<float>() > 0);
     }
 

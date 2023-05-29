@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core;
 using static Core.GameTime;
+using System;
 
 public class TimeManager : IManager
 {
     // 하루에 12분
     private float _currentTime = 0f;
-    private int _totalDay = 1;
+    private int _totalDay = 0;
 
     private float _timeScale = 1f;
     public float TimeScale {
@@ -17,22 +18,27 @@ public class TimeManager : IManager
         }
         set{
             if(value < 0f){
+                Time.timeScale = 0f;
                 _timeScale = 0f;
                 return;
             }
 
             _timeScale = value;
+            Time.timeScale = _timeScale;
         }
     }
 
     // 수치적인 시간 [ 사용 할 때에는 Mathf.floorToInt 해줘야 정상적으로 출력 됨 ]
-    public float Hour =>_currentTime % DayDelay / HourDelay;
-    public float Minute => _currentTime % DayDelay / MinuteDelay % 60;
-    public float Second => _currentTime % DayDelay / SecondDelay % 60;
+    public int Hour => (int)(_currentTime % DayDelay / HourDelay);
+    public int Minute => (int)(_currentTime % DayDelay / MinuteDelay % 12) * 5;
 
     public int Year { get; private set; } = 0;
     public int Month { get; private set; } = 3;
-    public int Day { get; private set; } = 1;
+    public int Day { get; private set; } = 0;
+
+    // 이벤트
+    public event Action<int, int> OnTimeChangedEvent = null;
+    public event Action<int, int, int> OnDayChangedEvent = null; 
 
     public void InitManager()
     {
@@ -49,6 +55,7 @@ public class TimeManager : IManager
     public void UpdateManager()
     {
         _currentTime += Time.deltaTime * _timeScale;
+        OnTimeChangedEvent?.Invoke(Hour, Minute);
         CheckDayCount();
     }
 
@@ -69,8 +76,8 @@ public class TimeManager : IManager
                     Month = 1; 
                 }
             }
-            
-            Debug.Log($"{Year}년째 {Month}월 {Day}일");
+
+            OnDayChangedEvent?.Invoke(Year, Month, Day);
         }
     }
 

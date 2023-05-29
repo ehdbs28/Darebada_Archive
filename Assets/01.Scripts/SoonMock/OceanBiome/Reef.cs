@@ -9,7 +9,7 @@ public class Reef : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<BoatActionData>())
         {
-            collision.gameObject.GetComponent<BoatActionData>().CurrentDurablity -= fuelDamage;
+            collision.gameObject.GetComponent<BoatActionData>().CurrentDurability -= fuelDamage;
         }
     }
 }
