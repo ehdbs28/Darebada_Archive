@@ -19,6 +19,8 @@ public class FishingIdleState : FishingState
 
     public override void EnterState()
     {
+        GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Ocene);
+
         _controller.ActionData.IsFishing = false;
         _bobberTrm.position = _controller.ActionData.InitPosition;
         GameManager.Instance.GetManager<CameraManager>().SetVCam(BOAT_FOLLOW);
