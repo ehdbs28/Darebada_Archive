@@ -33,7 +33,7 @@ public class FishingThrowingState : FishingState
 
     private IEnumerator ThrowTo(){
         Vector3 start = _bobberTrm.position;
-        Vector3 end = _bobberTrm.position + (_playerTrm.position + _controller.ActionData.LastThrowDirection.normalized * _controller.ActionData.LastChargingPower);
+        Vector3 end = _bobberTrm.position + (_controller.ActionData.LastThrowDirection.normalized * _controller.ActionData.LastChargingPower);
         end.y = 0;
 
         float throwTime = Mathf.Max(0.3f, Vector3.Distance(start, end)) / _controller.FishingData.ThrowingSpeed;

@@ -42,8 +42,9 @@ public class FishingChargingState : FishingState
 
         (GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Casting) as CastingPopup).SetValue(_currentChargingPower / _maxChargingPower);
 
-        _currentDir = GameManager.Instance.GetManager<InputManager>().MousePositionToGroundRayPostion - _playerTrm.position;
-        _currentDir.y = _playerTrm.position.y;
+        Vector3 mousePos = GameManager.Instance.GetManager<InputManager>().MousePositionToGroundRayPostion;
+        mousePos.y = _playerTrm.position.y;
+        _currentDir = mousePos - _playerTrm.position;
         Rotation(_currentDir);
     }
 
