@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private const float _autoSaveDelay = 3f;
 
+    [SerializeField]
+    private Transform _poolingTrm;
+
+    [SerializeField]
+    private PoolingListSO _poolingList;
+
     private void Awake() {
         if(Instance != null){
             Debug.Log("ERROR : Multiple GameManager is Running");
@@ -42,6 +48,8 @@ public class GameManager : MonoBehaviour
     }
 
     private void AddManager(){
+        _managers.Add(new PoolManager(_poolingTrm));
+        _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
         _managers.Add(new DataManager());
         _managers.Add(GetComponent<InputManager>());
         _managers.Add(GetComponent<CameraManager>());
