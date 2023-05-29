@@ -6,24 +6,15 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour, IManager
 {
-    [SerializeField]
-    private List<VCam> _virtualCamList = new List<VCam>();
-
     private VCam _currentActiveVCam = null;
 
-    private readonly Dictionary<CameraState, VCam> _virtualVCams = new Dictionary<CameraState, VCam>();
+    [SerializeField]
+    private VCam _rotateVCam;
 
-    public CameraManager(){
-        ResetManager();
-    }
+    private List<VCam> _virtualCams = new List<VCam>();
 
     public void InitManager() {
-        for(int i = 0; i < (int)CameraState.FINISH; i++){
-            _virtualCamList[i].Init((CameraState)i);
-            _virtualVCams.Add((CameraState)i, _virtualCamList[i]);
-        }
-
-        SetVCam(CameraState.BOAT_FOLLOW);
+        _rotateVCam.Init(CameraState.ROTATE);
     }
 
     public void UpdateManager() {
@@ -33,8 +24,8 @@ public class CameraManager : MonoBehaviour, IManager
     public VCam SetVCam(CameraState state){
         VCam virtualCam = null;
 
-        foreach(var key in _virtualVCams.Keys.Where(key => key == state)){
-            virtualCam = _virtualVCams[key];
+        foreach(var vCam in _virtualCams.Where(vCam => vCam.State == state)){
+            virtualCam = vCam;
         }
 
         if(virtualCam == null) return null;
@@ -49,6 +40,11 @@ public class CameraManager : MonoBehaviour, IManager
     public void SetRotateCam(Transform target, float radius, Vector3 pos, Quaternion rot, Vector3 offset, CameraState lastState){
         RotationVCam rotVCam = (RotationVCam)SetVCam(CameraState.ROTATE);
         rotVCam.SetRotateValue(target, radius, pos, rot, offset, lastState);
+    }
+
+    public void SetVCamList(List<VCam> vCamList){
+        _virtualCams = vCamList;
+        _virtualCams.Add(_rotateVCam);
     }
 
     public void ResetManager(){}

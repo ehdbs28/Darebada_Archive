@@ -11,6 +11,7 @@ public abstract class VCam : MonoBehaviour
     public CinemachineVirtualCamera VirtualCam => _virtualCam;
 
     protected CameraState _state;
+    public CameraState State => _state;
 
     public virtual void Init(CameraState state){
         _virtualCam = GetComponent<CinemachineVirtualCamera>();

@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     }   
 
     private void Start() {
-        GetManager<UIManager>().ShowPanel(ScreenType.Ocean);
+        GetManager<GameSceneManager>().ChangeScene(GameSceneType.Ocean);
         StartCoroutine(AutoSave(_autoSaveDelay));
     }
 
@@ -48,8 +48,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void AddManager(){
-        _managers.Add(new PoolManager(_poolingTrm));
-        _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
+        _managers.Add(new GameSceneManager());
         _managers.Add(new DataManager());
         _managers.Add(GetComponent<InputManager>());
         _managers.Add(GetComponent<CameraManager>());
@@ -57,6 +56,8 @@ public class GameManager : MonoBehaviour
         _managers.Add(transform.Find("UIManager").GetComponent<UIManager>());
         //_managers.Add(GetComponent<LightingManager>());
         _managers.Add(new LetterManager());
+        _managers.Add(new PoolManager(_poolingTrm));
+        _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
     }
 
     private IEnumerator AutoSave(float delay){

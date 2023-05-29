@@ -48,7 +48,7 @@ namespace QuantumTek.QuantumUI
         {
             if (sceneToLoad.Length > 0)
             {
-                if (SceneManager.GetActiveScene().name == sceneToLoad)
+                if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == sceneToLoad)
                 {
                     sceneToLoad = "";
 
@@ -56,7 +56,7 @@ namespace QuantumTek.QuantumUI
                         animator.PlayAnimation(enterSceneAnimation);
                 }
 
-                if (loadType == QUI_LoadType.LoadingScene && SceneManager.GetActiveScene().name == loadingSceneName)
+                if (loadType == QUI_LoadType.LoadingScene && UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == loadingSceneName)
                     StartLoad();
             }
         }
@@ -68,10 +68,10 @@ namespace QuantumTek.QuantumUI
         {
             if (sceneToLoad.Length == 0)
                 return;
-            if (loadType == QUI_LoadType.LoadingUI || (loadType == QUI_LoadType.LoadingScene && SceneManager.GetActiveScene().name == loadingSceneName))
+            if (loadType == QUI_LoadType.LoadingUI || (loadType == QUI_LoadType.LoadingScene && UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == loadingSceneName))
                 StartCoroutine(LoadSceneAsync(sceneToLoad));
-            else if (loadType == QUI_LoadType.LoadingScene && SceneManager.GetActiveScene().name != sceneToLoad)
-                SceneManager.LoadScene(loadingSceneName);
+            else if (loadType == QUI_LoadType.LoadingScene && UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != sceneToLoad)
+                UnityEngine.SceneManagement.SceneManager.LoadScene(loadingSceneName);
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace QuantumTek.QuantumUI
         public void LoadScene(string sceneName)
         {
             if (loadType == QUI_LoadType.Instant)
-                SceneManager.LoadScene(sceneName);
+                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
             else if (loadType == QUI_LoadType.LoadingUI)
             {
                 sceneToLoad = sceneName;
@@ -102,7 +102,7 @@ namespace QuantumTek.QuantumUI
 
         protected IEnumerator LoadSceneAsync(string sceneName)
         {
-            AsyncOperation loadOperation = SceneManager.LoadSceneAsync(sceneName);
+            AsyncOperation loadOperation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
 
             while (!loadOperation.isDone)
             {

@@ -7,6 +7,6 @@ public class TestUIScript : MonoBehaviour
 {
     public void OnSceneChange(string a)
     {
-        SceneManager.LoadScene(a);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(a);
     }
 }

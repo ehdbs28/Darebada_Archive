@@ -1,6 +1,6 @@
 public enum GameSceneType
 {
-    CAMP = 0,
-    OCEAN,
-    AQUARIUM,
+    Camp = 0,
+    Ocean,
+    Aquarium,
 }
