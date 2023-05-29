@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static Core.Define;
 
-public class OceneScreen : UIScreen
+public class OceanScreen : UIScreen
 {
     private Label _timeText;
     private Label _dateText;
