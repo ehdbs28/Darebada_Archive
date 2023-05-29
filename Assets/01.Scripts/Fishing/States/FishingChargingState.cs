@@ -7,7 +7,7 @@ public class FishingChargingState : FishingState
 {
     private Transform _playerTrm;
 
-    private float _maxChargingPower => (GameManager.Instance.GetManager<DataManager>().GetData(Core.DataType.FishingData) as FishingData).MaxChargingPower;
+    private float _maxChargingPower => (GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData) as FishingData).MaxChargingPower;
     private float _currentChargingPower = 0f;
     private float _powerDir = 1f;
 

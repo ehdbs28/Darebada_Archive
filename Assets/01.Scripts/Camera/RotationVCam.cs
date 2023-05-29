@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Core;
 
 public class RotationVCam : VCam
 {
@@ -17,9 +16,9 @@ public class RotationVCam : VCam
     
     private bool _isRotate = false;
 
-    private Core.CameraState _lastVCamState;
+    private CameraState _lastVCamState;
 
-    public void SetRotateValue(Transform target, float radius, Vector3 pos, Quaternion rot, Vector3 offset, Core.CameraState lastVCamState){
+    public void SetRotateValue(Transform target, float radius, Vector3 pos, Quaternion rot, Vector3 offset, CameraState lastVCamState){
         _last = GameManager.Instance.GetManager<InputManager>().MousePosition;
         _lastVCamState = lastVCamState;
         _offset = offset;

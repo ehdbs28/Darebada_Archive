@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
-using static Core.CameraState;
 
 public class CameraManager : MonoBehaviour, IManager
 {
@@ -12,26 +11,26 @@ public class CameraManager : MonoBehaviour, IManager
 
     private VCam _currentActiveVCam = null;
 
-    private readonly Dictionary<Core.CameraState, VCam> _virtualVCams = new Dictionary<Core.CameraState, VCam>();
+    private readonly Dictionary<CameraState, VCam> _virtualVCams = new Dictionary<CameraState, VCam>();
 
     public CameraManager(){
         ResetManager();
     }
 
     public void InitManager() {
-        for(int i = 0; i < (int)FINISH; i++){
-            _virtualCamList[i].Init((Core.CameraState)i);
-            _virtualVCams.Add((Core.CameraState)i, _virtualCamList[i]);
+        for(int i = 0; i < (int)CameraState.FINISH; i++){
+            _virtualCamList[i].Init((CameraState)i);
+            _virtualVCams.Add((CameraState)i, _virtualCamList[i]);
         }
 
-        SetVCam(Core.CameraState.BOAT_FOLLOW);
+        SetVCam(CameraState.BOAT_FOLLOW);
     }
 
     public void UpdateManager() {
         _currentActiveVCam?.UpdateCam();
     }
 
-    public VCam SetVCam(Core.CameraState state){
+    public VCam SetVCam(CameraState state){
         VCam virtualCam = null;
 
         foreach(var key in _virtualVCams.Keys.Where(key => key == state)){
@@ -47,8 +46,8 @@ public class CameraManager : MonoBehaviour, IManager
         return virtualCam;
     }
 
-    public void SetRotateCam(Transform target, float radius, Vector3 pos, Quaternion rot, Vector3 offset, Core.CameraState lastState){
-        RotationVCam rotVCam = (RotationVCam)SetVCam(Core.CameraState.ROTATE);
+    public void SetRotateCam(Transform target, float radius, Vector3 pos, Quaternion rot, Vector3 offset, CameraState lastState){
+        RotationVCam rotVCam = (RotationVCam)SetVCam(CameraState.ROTATE);
         rotVCam.SetRotateValue(target, radius, pos, rot, offset, lastState);
     }
 

@@ -28,7 +28,7 @@ public class OceanScreen : UIScreen
     }
 
     private void Update() {
-        if(GameManager.Instance.GetManager<UIManager>().ActiveScreen != ScreenType.Ocene){
+        if(GameManager.Instance.GetManager<UIManager>().ActiveScreen != ScreenType.Ocean){
             return;
         }
 

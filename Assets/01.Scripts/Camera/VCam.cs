@@ -10,9 +10,9 @@ public abstract class VCam : MonoBehaviour
     protected CinemachineVirtualCamera _virtualCam;
     public CinemachineVirtualCamera VirtualCam => _virtualCam;
 
-    protected Core.CameraState _state;
+    protected CameraState _state;
 
-    public virtual void Init(Core.CameraState state){
+    public virtual void Init(CameraState state){
         _virtualCam = GetComponent<CinemachineVirtualCamera>();
         _virtualCam.Priority = 0;
         _state = state;

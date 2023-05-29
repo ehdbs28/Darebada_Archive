@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     }   
 
     private void Start() {
-        GetManager<UIManager>().ShowPanel(ScreenType.Ocene);
+        GetManager<UIManager>().ShowPanel(ScreenType.Ocean);
         StartCoroutine(AutoSave(_autoSaveDelay));
     }
 
