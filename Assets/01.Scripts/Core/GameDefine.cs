@@ -3,20 +3,6 @@ using System.Collections;
 using UnityEngine;
 
 namespace Core{
-    public enum CameraState{
-        BOAT_FOLLOW = 0,
-        BOBBER_FOLLOW,
-        ROTATE,
-        FINISH
-    }
-
-    public enum DataType{
-        BoatData,
-        PlayerData,
-        FishingData,
-        GameData,
-    }
-
     public class Define{
         private static Camera _mainCam = null;
         public static Camera MainCam{

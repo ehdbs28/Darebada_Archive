@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Core;
 
 public class RotationVCam : VCam
 {
@@ -17,9 +16,9 @@ public class RotationVCam : VCam
     
     private bool _isRotate = false;
 
-    private Core.CameraState _lastVCamState;
+    private CameraState _lastVCamState;
 
-    public void SetRotateValue(Transform target, float radius, Vector3 pos, Quaternion rot, Vector3 offset, Core.CameraState lastVCamState){
+    public void SetRotateValue(Transform target, float radius, Vector3 pos, Quaternion rot, Vector3 offset, CameraState lastVCamState){
         _last = GameManager.Instance.GetManager<InputManager>().MousePosition;
         _lastVCamState = lastVCamState;
         _offset = offset;
@@ -50,7 +49,7 @@ public class RotationVCam : VCam
                 _spherical.y += dx * Time.deltaTime;
 
                 // 여기서 카메라 돌려주기
-                _virtualCam.transform.position = _arcball.GetCartesianCoordinates(_spherical) + _arcball.Center;
+                _virtualCam.transform.position = _arcball.Center + _arcball.GetCartesianCoordinates(_spherical);
 
                 // 타겟을 바라보게
                 _virtualCam.transform.rotation = Quaternion.LookRotation(_arcball.Center + _offset - _virtualCam.transform.position);

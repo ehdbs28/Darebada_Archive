@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Core.CameraState;
 
 public class FishingThrowingState : FishingState
 {
@@ -23,7 +22,7 @@ public class FishingThrowingState : FishingState
         _playerTrm.LookAt(_controller.ActionData.LastThrowDirection);
         _controller.ActionData.InitPosition = _bobberTrm.position;
 
-        GameManager.Instance.GetManager<CameraManager>().SetVCam(BOBBER_FOLLOW);
+        GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.BOBBER_FOLLOW);
 
         StartCoroutine(ThrowTo());
     }
@@ -34,7 +33,7 @@ public class FishingThrowingState : FishingState
 
     private IEnumerator ThrowTo(){
         Vector3 start = _bobberTrm.position;
-        Vector3 end = _bobberTrm.position + (_playerTrm.position + _controller.ActionData.LastThrowDirection.normalized * _controller.ActionData.LastChargingPower);
+        Vector3 end = _bobberTrm.position + (_controller.ActionData.LastThrowDirection.normalized * _controller.ActionData.LastChargingPower);
         end.y = 0;
 
         float throwTime = Mathf.Max(0.3f, Vector3.Distance(start, end)) / _controller.FishingData.ThrowingSpeed;

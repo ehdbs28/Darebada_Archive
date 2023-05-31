@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static Core.Define;
 
-public class OceneScreen : UIScreen
+public class OceanScreen : UIScreen
 {
     private Label _timeText;
     private Label _dateText;
@@ -23,16 +23,15 @@ public class OceneScreen : UIScreen
 
     private BoatActionData _boatData;
 
-    private void Awake() {
+    public override void SetUp(UIDocument document, bool clearScreen = true)
+    {
+        base.SetUp(document, clearScreen);
+
         _boatData = GameObject.Find("Boat").GetComponent<BoatActionData>();
     }
 
     private void Update() {
-        if(GameManager.Instance.GetManager<UIManager>().ActiveScreen != ScreenType.Ocene){
-            return;
-        }
-
-        if(_compass == null || _boatData == null){
+        if(GameManager.Instance.GetManager<UIManager>().ActiveScreen != ScreenType.Ocean || _boatData == null || _compass == null || _boatData == null){
             return;
         }
 

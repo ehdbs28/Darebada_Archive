@@ -7,7 +7,7 @@ public class BoatController : ModuleController
 {
     private BoatActionData _boatActionData;
     public BoatActionData BoatActionData => _boatActionData;
-    public BoatData BoatData => GameManager.Instance.GetManager<DataManager>().GetData(Core.DataType.BoatData) as BoatData;
+    public BoatData BoatData => GameManager.Instance.GetManager<DataManager>().GetData(DataType.BoatData) as BoatData;
 
     protected override void Awake() {
         base.Awake();

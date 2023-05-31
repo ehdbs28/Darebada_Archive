@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private const float _autoSaveDelay = 3f;
 
+    [SerializeField]
+    private Transform _poolingTrm;
+
+    [SerializeField]
+    private PoolingListSO _poolingList;
+
     private void Awake() {
         if(Instance != null){
             Debug.Log("ERROR : Multiple GameManager is Running");
@@ -27,6 +33,7 @@ public class GameManager : MonoBehaviour
     }   
 
     private void Start() {
+        GetManager<GameSceneManager>().ChangeScene(GameSceneType.Ocean);
         StartCoroutine(AutoSave(_autoSaveDelay));
     }
 
@@ -41,13 +48,16 @@ public class GameManager : MonoBehaviour
     }
 
     private void AddManager(){
+        _managers.Add(new GameSceneManager());
         _managers.Add(new DataManager());
         _managers.Add(GetComponent<InputManager>());
         _managers.Add(GetComponent<CameraManager>());
         _managers.Add(new TimeManager());
-        _managers.Add(FindObjectOfType<AquariumManager>());
+        _managers.Add(transform.Find("UIManager").GetComponent<UIManager>());
         //_managers.Add(GetComponent<LightingManager>());
         _managers.Add(new LetterManager());
+        _managers.Add(new PoolManager(_poolingTrm));
+        _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
     }
 
     private IEnumerator AutoSave(float delay){
@@ -57,7 +67,7 @@ public class GameManager : MonoBehaviour
 
            // gameData.LastWorldTime = GetManager<TimeManager>();
 
-            // ?€?????°ì´????ì¶”ê??´ì•¼ ?˜ê¸´ ??
+            // ?ï¿½?????ï¿½ì´????ì¶”ï¿½??ï¿½ì•¼ ?ï¿½ê¸´ ??
             yield return new WaitForSecondsRealtime(delay);
         }
     }
