@@ -160,7 +160,7 @@ public class AquariumManager : MonoBehaviour, IManager
         EntrancePercent = Mathf.Clamp((float)((float)aquaObject.Count / (float)EntranceFee) * 100f, 0f, 200f);
         Reputation = (EntrancePercent / 100f * CleanScore / 100f * ArtScore / 100f) * 100f;
         ArtScore = Mathf.Clamp(((float)(decoCount / 2) / aquarium.Count) * 100, 0, 100);
-        if (state == STATE.BUILD)
+        if (state == STATE.BUILD)   
         {
             RaycastHit hit;
             Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
