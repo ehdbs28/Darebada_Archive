@@ -249,75 +249,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
   m_PrefabInstance: {fileID: 1229351808}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &357593360
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 357593362}
-  - component: {fileID: 357593361}
-  m_Layer: 0
-  m_Name: Boids (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &357593361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357593360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc2730c2346bb1f47bf1b8fbe5d74c6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boidUnitPrefab: {fileID: 9147861060137583284, guid: cffdb2e138b65104cadadc3b394ed578, type: 3}
-  boidCount: 5
-  spawnRange: 20
-  speedRange: {x: 2.5, y: 2.5}
-  cohesionWeight: 0
-  alignmentWeight: 0
-  separationWeight: 2
-  boundsWeight: 1
-  obstacleWeight: 10
-  egoWeight: 1
-  currUnit: {fileID: 0}
-  unitLayer:
-    serializedVersion: 2
-    m_Bits: 8192
-  originCam: {fileID: 0}
-  unitCam: {fileID: 0}
-  ShowBounds: 0
-  cameraFollowUnit: 0
-  randomColor: 0
-  blackAndWhite: 0
-  protectiveColor: 0
-  enemyPercentage: 0.01
-  GizmoColors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0.0537467, b: 1, a: 1}
---- !u!4 &357593362
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357593360}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 39.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &450292509 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1792769641870444, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -770,7 +701,7 @@ Transform:
   - {fileID: 1032305462}
   - {fileID: 1053198514}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1032305457 stripped
 GameObject:
@@ -1398,75 +1329,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
   m_PrefabInstance: {fileID: 1641950460}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1377381516
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1377381518}
-  - component: {fileID: 1377381517}
-  m_Layer: 0
-  m_Name: Boids
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1377381517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377381516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc2730c2346bb1f47bf1b8fbe5d74c6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boidUnitPrefab: {fileID: 534943259181922396, guid: 91aa7801238b4c346bef00a96ad14e6c, type: 3}
-  boidCount: 10
-  spawnRange: 10
-  speedRange: {x: 1.5, y: 1.5}
-  cohesionWeight: 1
-  alignmentWeight: 1
-  separationWeight: 0
-  boundsWeight: 1
-  obstacleWeight: 10
-  egoWeight: 1
-  currUnit: {fileID: 0}
-  unitLayer:
-    serializedVersion: 2
-    m_Bits: 8192
-  originCam: {fileID: 0}
-  unitCam: {fileID: 0}
-  ShowBounds: 0
-  cameraFollowUnit: 0
-  randomColor: 0
-  blackAndWhite: 0
-  protectiveColor: 0
-  enemyPercentage: 0.01
-  GizmoColors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0.0537467, b: 1, a: 1}
---- !u!4 &1377381518
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377381516}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 39.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1406334139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1861,7 +1723,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1555836120
 PrefabInstance:
@@ -2526,13 +2388,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boidUnitPrefab: {fileID: 6458884287292012828, guid: 79c38e7a8d6b59149816ab0b05434922, type: 3}
-  boidCount: 15
+  boidCount: 10
   spawnRange: 10
-  speedRange: {x: 2, y: 2}
-  cohesionWeight: 2
-  alignmentWeight: 2
-  separationWeight: 1
-  boundsWeight: 1
+  speedRange: {x: 10, y: 10}
+  cohesionWeight: 10
+  alignmentWeight: 0
+  separationWeight: 0
+  boundsWeight: 26.2
   obstacleWeight: 10
   egoWeight: 1
   currUnit: {fileID: 0}
@@ -2541,7 +2403,7 @@ MonoBehaviour:
     m_Bits: 8192
   originCam: {fileID: 0}
   unitCam: {fileID: 0}
-  ShowBounds: 0
+  ShowBounds: 1
   cameraFollowUnit: 0
   randomColor: 0
   blackAndWhite: 0
@@ -2563,7 +2425,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2040647797
 PrefabInstance:

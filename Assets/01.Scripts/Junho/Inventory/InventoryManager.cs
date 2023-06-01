@@ -34,7 +34,6 @@ public class InventoryManager : MonoBehaviour
     private bool isMove = false;
     private bool isActive = false;
 
-
     private void Awake()
     {
         if (Instance != null)
