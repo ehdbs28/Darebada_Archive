@@ -11,16 +11,20 @@
     flex-direction: row-reverse;
     flex-basis: 15%;
     align-items: center;
+    flex-shrink: 0;
 }
 
 #game-container {
     flex-basis: 65%;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 #footer-container {
     align-items: center;
     justify-content: flex-end;
+    flex-grow: 1;
+    flex-shrink: 0;
 }
 
 .btn {

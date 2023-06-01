@@ -1,0 +1,36 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/TankUpgradeUI.uss?fileID=7433441132597879392&amp;guid=b6bb269a970172f49b2af574c33765cc&amp;type=3#TankUpgradeUI" />
+    <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
+    <ui:VisualElement name="upgrade-container" style="position: absolute; left: 15%; top: 20%; width: 70%; height: 60%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; background-color: rgba(255, 255, 255, 0.2);">
+        <ui:VisualElement name="header" style="flex-basis: 7.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); border-bottom-width: 2px;">
+            <ui:VisualElement name="exit-btn" style="width: 35px; height: 35px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); right: 30px; position: absolute;" />
+            <ui:Label text="업그레이드" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 40px; position: absolute;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="body" style="flex-basis: 70%; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; align-items: center; justify-content: flex-start; flex-shrink: 0; flex-grow: 1;">
+            <ui:VisualElement name="tank-image" style="width: 400px; height: 400px; background-image: url(&apos;project://database/Assets/03.Materials/image_3.png?fileID=21300000&amp;guid=53f76709cc98bba42bb80952b2aee9fd&amp;type=3#image_3&apos;);" />
+            <ui:VisualElement name="upgrade-btn" style="width: 60%; height: 100px; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.86); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
+                    <ui:VisualElement name="gold-image" style="width: 40px; height: 40px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 15px; right: 15px;" />
+                    <ui:Label text="2,500 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 35px;" />
+                </ui:VisualElement>
+                <ui:Label text="업그레이드" display-tooltip-when-elided="true" name="buy-text" class="text" style="font-size: 30px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="blank" style="width: 100%; flex-basis: 10%;" />
+            <ui:VisualElement name="element-list" style="width: 80%; height: 150px; background-color: rgba(255, 255, 255, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 0; border-top-right-radius: 10px; border-bottom-right-radius: 0; flex-direction: row; align-items: center; justify-content: space-around;">
+                <ui:VisualElement name="element" class="tank-element" style="background-image: url(&apos;project://database/Assets/03.Materials/Green.png?fileID=21300000&amp;guid=b8aa545fc6f1e054e8930ccf366c4efb&amp;type=3#Green&apos;); -unity-background-image-tint-color: rgb(255, 255, 255);" />
+                <ui:VisualElement name="element" class="tank-element" style="background-image: url(&apos;project://database/Assets/03.Materials/Purple.png?fileID=21300000&amp;guid=afe700cc917c7ba429b307bff459d69b&amp;type=3#Purple&apos;);" />
+                <ui:VisualElement name="element" class="tank-element" style="background-image: url(&apos;project://database/Assets/03.Materials/Corals.png?fileID=2800000&amp;guid=859401baae4db5841910364ee16a81fa&amp;type=3#Corals&apos;);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="element-buy-btn" style="width: 80%; height: 100px; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.86); border-top-left-radius: 0; border-bottom-left-radius: 10px; border-top-right-radius: 0; border-bottom-right-radius: 10px;">
+                <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
+                    <ui:VisualElement name="gold-image" style="width: 40px; height: 40px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 15px; right: 15px;" />
+                    <ui:Label text="750 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 35px;" />
+                </ui:VisualElement>
+                <ui:Label text="구매" display-tooltip-when-elided="true" name="buy-text" class="text" style="font-size: 30px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="footer" style="flex-basis: 15%; flex-direction: row-reverse; flex-shrink: 0; border-bottom-color: rgba(0, 0, 0, 0.39); border-top-width: 2px; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); align-items: center; padding-right: 20px;">
+            <ui:VisualElement name="move-btn" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Windows/NOGADA.png?fileID=21300000&amp;guid=ac922c1f0112b094db5f1a2eebb964f4&amp;type=3#NOGADA&apos;); border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

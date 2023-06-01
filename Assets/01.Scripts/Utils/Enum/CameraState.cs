@@ -6,6 +6,9 @@ public enum CameraState
     BOAT_FOLLOW,
     BOBBER_FOLLOW,
     OCEAN_FINISH,
+
+    PLAYER_FOLLOW,
+    AQUARIUM_FINISH,
     
     ROTATE,
 }

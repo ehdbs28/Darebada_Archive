@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     }   
 
     private void Start() {
-        GetManager<GameSceneManager>().ChangeScene(GameSceneType.Ocean);
+        GetManager<GameSceneManager>().ChangeScene(GameSceneType.Aquarium);
         StartCoroutine(AutoSave(_autoSaveDelay));
     }
 
