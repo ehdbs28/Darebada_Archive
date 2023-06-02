@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AquariumManager : MonoBehaviour, IManager
 {
-    #region "ÀÚ¿ø ¹× ¿ä¼Òµé"
+    #region "ï¿½Ú¿ï¿½ ï¿½ï¿½ ï¿½ï¿½Òµï¿½"
 
     public long Gold
     {
@@ -43,14 +43,14 @@ public class AquariumManager : MonoBehaviour, IManager
         set { _artScore = value; }
     }
     #endregion
-    //½Ì±ÛÅæ
-    //ÇØ¾ßÇÒ °Í= ½Ì±ÛÅæ ¾ø¾Ö±â
-    //Å©±â °ü·Ã
+    //ï¿½Ì±ï¿½ï¿½ï¿½
+    //ï¿½Ø¾ï¿½ï¿½ï¿½ ï¿½ï¿½= ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö±ï¿½
+    //Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField] GameObject floor;
     [SerializeField] Vector3 _floorSize;
     [SerializeField] private int _horizontalCount = 5;
     
-    //¾ÆÄí¾Æ¸®¿ò ³» ½Ã¼³µé
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Æ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã¼ï¿½ï¿½ï¿½
     [SerializeField] GameObject _fishBowlObject;
     [SerializeField] GameObject _fishObject;
     [SerializeField] GameObject _decoObject;
@@ -73,11 +73,7 @@ public class AquariumManager : MonoBehaviour, IManager
         BUILD
     }
     public STATE state = STATE.NORMAL;
-    public InputManager inputManager;
-    private void Awake()
-    {
-        InitManager();
-    }
+
     private void Update()
     {
         UpdateManager();
@@ -140,8 +136,21 @@ public class AquariumManager : MonoBehaviour, IManager
         return deco;
     }
 
-    public void ResetManager()
-    {
+    private void MouseClickHandle(bool value){
+        if(value){
+            RaycastHit hit;
+            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+            {
+                facilityObj = hit.collider.GetComponent<Facility>();
+            }
+            else{
+                facilityObj = null;
+            }
+        }
+        else{
+            facilityObj = null;
+        }
     }
 
     public void InitManager()
@@ -149,10 +158,15 @@ public class AquariumManager : MonoBehaviour, IManager
         if (aquaObject.Count <= 0)
         {
             AddFishBowl();
-
         }
-        inputManager = FindObjectOfType<InputManager>();
         _build = GetComponent<BuildFacility>();
+
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += MouseClickHandle;
+    }
+
+    public void ResetManager()
+    {
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= MouseClickHandle;
     }
 
     public void UpdateManager()
@@ -164,14 +178,7 @@ public class AquariumManager : MonoBehaviour, IManager
         {
             RaycastHit hit;
             Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
-                {
-                    facilityObj = hit.collider.GetComponent<Facility>();
-                }
-            }
-            else if (Input.GetMouseButton(0) && Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+            if (facilityObj != null && Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
             {
                 facilityObj.transform.position = _build.GetFacilityPos();
             }

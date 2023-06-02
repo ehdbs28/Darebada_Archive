@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameScene : PoolableMono
 {   
-    [Header("Screen Type")][SerializeField]
+    [Header("Screen Type")]
+    [SerializeField]
     private GameSceneType _sceneType;
 
-    [Header("씬이 시작될 때 기본 스크린")][SerializeField]
+    [Header("씬이 시작될 때 기본 스크린")]
+    [SerializeField]
     private ScreenType _initScreenType;
 
     [Header("Virtual Cam 설정용")]
@@ -18,15 +21,20 @@ public class GameScene : PoolableMono
     [SerializeField]
     private List<VCam> _vCamList = new List<VCam>();
 
-    public virtual void EnterScene(){
+    [SerializeField]
+    private UnityEvent OnEnterScene = null, OnExitScene = null;
+
+    public void EnterScene(){
+        OnEnterScene?.Invoke();
+
         GameManager.Instance.GetManager<CameraManager>().SetVCamList(_vCamList);
 
         GameManager.Instance.GetManager<UIManager>().ShowPanel(_initScreenType);
         GameManager.Instance.GetManager<CameraManager>().SetVCam(_initCamState);
     }
     
-    public virtual void ExitScene(){
-
+    public void ExitScene(){
+        OnExitScene?.Invoke();
     }
 
     public override void Init(){
