@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private PoolingListSO _poolingList;
 
+    [SerializeField]
+    private GameSceneType _startSceneType;
+
     private void Awake() {
         if(Instance != null){
             Debug.Log("ERROR : Multiple GameManager is Running");
@@ -33,7 +36,7 @@ public class GameManager : MonoBehaviour
     }   
 
     private void Start() {
-        GetManager<GameSceneManager>().ChangeScene(GameSceneType.Aquarium);
+        GetManager<GameSceneManager>().ChangeScene(_startSceneType);
         StartCoroutine(AutoSave(_autoSaveDelay));
     }
 

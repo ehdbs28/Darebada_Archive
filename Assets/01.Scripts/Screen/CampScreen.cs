@@ -33,7 +33,7 @@ public class CampScreen : UIScreen
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Dictionary);
         });
 
-        _goldText.text = $"{MoneyManager.Instance.goldTxt.text}";
+        //_goldText.text = $"{MoneyManager.Instance.goldTxt.text}";
     }
 
     protected override void FindElement(VisualElement root)
