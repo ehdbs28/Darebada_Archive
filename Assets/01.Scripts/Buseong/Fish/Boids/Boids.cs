@@ -10,7 +10,7 @@ public class Boids : MonoBehaviour
     [SerializeField] private BoidUnit boidUnitPrefab;
     [Range(5, 5000)]
     public int boidCount;
-    [Range(10, 100)]
+    
     public float spawnRange = 30;
     public Vector2 speedRange;
 

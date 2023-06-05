@@ -25,6 +25,7 @@ public class InputManager : MonoBehaviour, IManager
         }
     }
 
+    [SerializeField]
     private LayerMask _whatIsGround;
 
     public InputManager(){
@@ -35,7 +36,6 @@ public class InputManager : MonoBehaviour, IManager
         //_playerInput = GameManager.Instance.GetComponent<PlayerInput>();
 
         // ?�중??바꾸�?
-        _whatIsGround = LayerMask.GetMask("Ground");
     }
 
     // new InputManager?�서 Event ?�식?�로 ?�겨???�행?�는 친구?�임
@@ -49,6 +49,7 @@ public class InputManager : MonoBehaviour, IManager
     }
 
     public void OnMouseClick(InputValue value){
+        Debug.Log(GameManager.Instance.GetManager<UIManager>().OnElement(_mousePosition));
         if(GameManager.Instance.GetManager<UIManager>().OnElement(_mousePosition))
             return;
 

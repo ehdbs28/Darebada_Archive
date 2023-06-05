@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class AchievementManager : MonoBehaviour
 {
-    static public AchievementManager Instance;
     public List<AchievementSO> achievementSOs= new List<AchievementSO>();//추가할 도전과제들
     public Dictionary<string, Achievement> achievementWithNames = new Dictionary<string, Achievement>();//도전과제들을 관리하기 위한 딕셔너리
 
@@ -29,11 +28,6 @@ public class AchievementManager : MonoBehaviour
     }
     private void Init()
     {
-        if(Instance != null)
-        {
-            Destroy(this);
-        }
-        Instance = this;
         foreach(AchievementSO so in achievementSOs)
         {
             Debug.Log("ASdf");

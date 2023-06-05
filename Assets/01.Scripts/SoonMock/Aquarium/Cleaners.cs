@@ -17,10 +17,10 @@ public class Cleaners : MonoBehaviour
     }
     public void AddCleaners()
     {
-        if(AquariumManager.Instance.Gold >= cleanersAmount * cleanersAmount * 100)
-        {
-            AquariumManager.Instance.Gold -= cleanersAmount * cleanersAmount * 100;
-            cleanersAmount++;
-        }
+        //if(AquariumManager.Instance.Gold >= cleanersAmount * cleanersAmount * 100)
+        //{
+        //    AquariumManager.Instance.Gold -= cleanersAmount * cleanersAmount * 100;
+        //    cleanersAmount++;
+        //}
     }
 }

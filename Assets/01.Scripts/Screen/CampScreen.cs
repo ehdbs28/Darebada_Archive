@@ -20,7 +20,7 @@ public class CampScreen : UIScreen
 
         _settingBtn.RegisterCallback<ClickEvent>(e =>
         {
-            Debug.Log("¼³Á¤");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½");
         });
 
         _letterBtn.RegisterCallback<ClickEvent>(e =>
@@ -54,6 +54,6 @@ public class CampScreen : UIScreen
 
     private void OnChangedDay(int year, int month, int day)
     {
-        _dateText.text = $"{year}³âÂ°, {month}¿ù{day}ÀÏ";
+        _dateText.text = $"{year}ï¿½ï¿½Â°, {month}ï¿½ï¿½{day}ï¿½ï¿½";
     }
 }

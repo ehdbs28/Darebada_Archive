@@ -7,7 +7,7 @@ public class PlayerController : ModuleController
     private PlayerActionData _actionData;
     public PlayerActionData ActionData => _actionData;
     
-    public PlayerData PlayerData => GameManager.Instance.GetManager<DataManager>().GetData(Core.DataType.PlayerData) as PlayerData;
+    public PlayerData PlayerData => GameManager.Instance.GetManager<DataManager>().GetData(DataType.PlayerData) as PlayerData;
 
     private readonly Dictionary<PlayerState, Module> _playerModules = new Dictionary<PlayerState, Module>();
 

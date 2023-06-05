@@ -1,0 +1,100 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/OceanUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceanUI" />
+    <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
+    <ui:VisualElement name="container" picking-mode="Ignore">
+        <ui:VisualElement name="header-container" picking-mode="Ignore">
+            <ui:VisualElement name="setting-btn" class="btn" style="justify-content: flex-end;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Gear.png?fileID=21300000&amp;guid=f55f75488890d4747835fc8299828fe7&amp;type=3#White Gear&apos;); width: 120%; height: 120%; bottom: -10px;" />
+                <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="goto-btn" class="btn" style="justify-content: flex-end;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Home%20Icon.png?fileID=21300000&amp;guid=2776e7415ee80d54b8ba0b71a8f22d19&amp;type=3#Free Flat Home Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
+                <ui:Label text="집으로" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="letter-btn" class="btn" style="justify-content: flex-end;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Cloud%20Icon.png?fileID=21300000&amp;guid=dabc19380a76426458ac691061a1a10a&amp;type=3#Free Flat Cloud Icon&apos;); bottom: 2px;" />
+                <ui:Label text="편지함" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="dictionary-btn" class="btn" style="justify-content: flex-end;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Edit%20Icon.png?fileID=21300000&amp;guid=8cd55c5b366c4574d93e99269b8a01d9&amp;type=3#Free Flat Edit Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
+                <ui:Label text="도감" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="inventory-btn" class="btn" style="justify-content: flex-end;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Bag%201%20Icon.png?fileID=21300000&amp;guid=09ff2c9da44bcb740befe466a832c257&amp;type=3#Free Flat Bag 1 Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
+                <ui:Label text="인벤토리" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="chllenge-box" picking-mode="Ignore" class="challenge">
+                <ui:VisualElement name="name-box" picking-mode="Ignore">
+                    <ui:Label text="나보단 작지" display-tooltip-when-elided="true" name="name" picking-mode="Ignore" class="text" style="height: 100%; -unity-text-align: middle-left;" />
+                    <ui:VisualElement name="complete-box" picking-mode="Ignore">
+                        <ui:VisualElement name="complete" picking-mode="Ignore">
+                            <ui:VisualElement name="image" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="element-box" picking-mode="Ignore">
+                    <ui:VisualElement name="test-fish-one" class="fish-element">
+                        <ui:VisualElement name="inner">
+                            <ui:VisualElement name="fish-image" />
+                            <ui:VisualElement name="star-container">
+                                <ui:VisualElement name="star" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="check" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="test-fish-two" class="fish-element">
+                        <ui:VisualElement name="inner">
+                            <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/BlueTang.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#BlueTang&apos;);" />
+                            <ui:VisualElement name="star-container">
+                                <ui:VisualElement name="star" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="check" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="game-container" picking-mode="Ignore">
+            <ui:VisualElement name="boat-controller" style="position: absolute; width: 52px; height: 502px; right: 20px; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.78); border-top-left-radius: 10px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 10px;">
+                <ui:VisualElement name="inner" style="width: 46px; height: 496px; background-color: rgba(63, 60, 60, 0.78); border-top-left-radius: 8px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 8px; flex-direction: column-reverse; align-items: center;">
+                    <ui:VisualElement name="inner-design" style="width: 100%; height: 98%; background-color: rgba(149, 149, 149, 0.78); border-top-left-radius: 8px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 8px;" />
+                    <ui:VisualElement name="handle" class="btn" style="position: absolute; width: 75px; height: 30px; bottom: 50%; background-color: rgb(65, 65, 65); border-top-left-radius: 10px; border-bottom-left-radius: 20px; border-top-right-radius: 10px; border-bottom-right-radius: 20px; align-items: center; overflow: hidden; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+                        <ui:VisualElement name="handle-design" style="width: 50%; background-color: rgb(72, 72, 72); border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; border-top-left-radius: 50%; position: absolute; height: 50px; border-top-right-radius: 50%; top: -30px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="footer-container" picking-mode="Ignore">
+            <ui:VisualElement name="data-circle" picking-mode="Ignore">
+                <ui:VisualElement name="date-n-time">
+                    <ui:Label text="n년째, n월n일" display-tooltip-when-elided="true" name="date-text" class="text" />
+                    <ui:VisualElement name="time">
+                        <ui:Label text="nn:nn" display-tooltip-when-elided="true" name="time-text" class="text q" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="line" />
+                </ui:VisualElement>
+                <ui:VisualElement name="compass">
+                    <ui:VisualElement name="outer-circle" />
+                    <ui:VisualElement name="inner-circle" />
+                    <ui:VisualElement name="needle">
+                        <ui:VisualElement name="top" />
+                        <ui:VisualElement name="bottom" />
+                        <ui:VisualElement name="middle" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="direction">
+                        <ui:Label text="N" display-tooltip-when-elided="true" name="north" class="text" />
+                        <ui:Label text="S" display-tooltip-when-elided="true" name="south" class="text" />
+                        <ui:Label text="E" display-tooltip-when-elided="true" name="east" class="text" />
+                        <ui:Label text="W" display-tooltip-when-elided="true" name="west" class="text" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="boat-data" style="left: 100px; position: absolute; width: 200px; height: 200px; align-items: center; justify-content: center;">
+                    <ui:VisualElement name="outer-circle" style="width: 135px; height: 145px; background-color: rgba(255, 255, 255, 0.59); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; rotate: -70deg; position: absolute;" />
+                    <ui:VisualElement name="durability" style="width: 125px; height: 135px; rotate: -70deg; background-color: rgba(0, 255, 110, 0.78); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; position: absolute;" />
+                    <ui:VisualElement name="inner-circle" style="position: absolute; width: 110px; height: 120px; rotate: -70deg; background-color: rgba(53, 33, 40, 0.9); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%;" />
+                    <ui:VisualElement name="boat-image" style="position: absolute; width: 80px; height: 80px; background-image: url(&apos;project://database/Assets/05.Assets/UI/boatImage.png?fileID=21300000&amp;guid=2e54a477946f7104981b7751c7b9f272&amp;type=3#boatImage&apos;); bottom: 65px; -unity-background-image-tint-color: rgba(0, 255, 110, 0.78);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -22,7 +22,7 @@ public class UIBoatDurability
     }
 
     public void SetColor(){
-        BoatData boatData = GameManager.Instance.GetManager<DataManager>().GetData(Core.DataType.BoatData) as BoatData;
+        BoatData boatData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.BoatData) as BoatData;
 
         float percent = _boatData.CurrentDurability / boatData.MaxDurablity;
         Color color = _durabilityGradient.Evaluate(1 - percent);

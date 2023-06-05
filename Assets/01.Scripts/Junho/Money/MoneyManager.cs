@@ -28,8 +28,8 @@ public class MoneyManager : MonoBehaviour
 
     private void Update()
     {
-        if (money < 0) money = 0;
-        goldTxt.text = $"Gold : {money}";
+       // if (money < 0) money = 0;
+     //   goldTxt.text = $"Gold : {money}";
     }
 
     public void ItemSell(int cost)

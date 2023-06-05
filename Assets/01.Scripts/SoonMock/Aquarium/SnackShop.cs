@@ -19,12 +19,12 @@ public class SnackShop : Facility
     public void Upgrade()
     {
         cost = level * 900;
-        if(AquariumManager.Instance.Gold >= cost)
-        {
-            AquariumManager.Instance.Gold -= cost;
-            level++;
-            amount = level * 120;
-        }
+        //if(AquariumManager.Instance.Gold >= cost)
+        //{
+        //    AquariumManager.Instance.Gold -= cost;
+        //    level++;
+        //    amount = level * 120;
+        //}
         cost = level * 900;
     }
 }
