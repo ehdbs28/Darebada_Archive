@@ -8,7 +8,9 @@ public class FishingData : SaveData
 
     public float ThrowingSpeed = 3f;
 
-    public float fishingRodLength = 1f;
+    public float StringLength = 10f;
+
+    public float StringStrength = 1f;
 
     public override void Reset(){}
 }

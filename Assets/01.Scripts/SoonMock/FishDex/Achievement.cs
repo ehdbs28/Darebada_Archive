@@ -70,7 +70,7 @@ public class Achievement : MonoBehaviour
     }
     public void TakeReward()
     {
-        MoneyManager.Instance.money += arcSO.rewardAmount;
+        //MoneyManager.Instance.money += arcSO.rewardAmount;
         arcSO.isRewardTaked = true;
     }
 }

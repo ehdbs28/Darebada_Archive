@@ -6,12 +6,6 @@ using UnityEngine;
 public class AquariumManager : MonoBehaviour, IManager
 {
     #region "�ڿ� �� ��ҵ�"
-
-    public long Gold
-    {
-        get { return MoneyManager.Instance.money; }
-        set { MoneyManager.Instance.money = value; }
-    }
     [SerializeField] private int _cleanScore;
     public int CleanScore
     {

@@ -12,7 +12,7 @@ public class ClickerMovementModule : CommonModule<PlayerController>
         base.SetUp(rootTrm);
 
         _navAgent = rootTrm.GetComponent<NavMeshAgent>();
-        _navAgent.speed = _controller.PlayerData.MaxSpeed;
+        _navAgent.speed = _controller.GetModule<PlayableMovementModule>().MaxSpeed;
 
         GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnMouseClick;
     }

@@ -13,11 +13,18 @@ public class PlayableMovementModule : CommonModule<PlayerController>
 
     private bool _isMovement = false;
 
-    private float _maxSpeed => _controller.PlayerData.MaxSpeed;
-    private float _acceleration => _controller.PlayerData.Acceleration;
-    private float _deceleration => _controller.PlayerData.Deceleration;
+    [SerializeField]
+    private float _maxSpeed = 5f;
+
+    [SerializeField]
+    private float _acceleration = 10f;
+
+    [SerializeField]
+    private float _deceleration = 10f;
 
     private float _currentVelocity = 0f;
+
+    public float MaxSpeed => _maxSpeed;
 
     public override void SetUp(Transform rootTrm)
     {

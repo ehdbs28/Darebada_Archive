@@ -29,26 +29,26 @@ public class UpgradeFixUI : MonoBehaviour
 
     private void Start()
     {
-        shipSpeedUpgradeBtn.onClick.AddListener(() => MoneyManager.Instance.ItemUpgrade(ref boatData.BoatMaxSpeed, 5 ,1000));
-        shipInventoryUpgradeBtn.onClick.AddListener(() =>
-        {
-            MoneyManager.Instance.ItemUpgrade(ref inventoryGrid.gridSizeHeight, 1, 1000);
-            //inventoryGrid.Init(inventoryGrid.gridSizeWidth, inventoryGrid.gridSizeHeight);
-        });
-        shipDurablityUpgradeBtn.onClick.AddListener(() => MoneyManager.Instance.ItemUpgrade(ref boatData.MaxDurablity, 5 ,1000));
+        // shipSpeedUpgradeBtn.onClick.AddListener(() => MoneyManager.Instance.ItemUpgrade(ref boatData.BoatMaxSpeed, 5 ,1000));
+        // shipInventoryUpgradeBtn.onClick.AddListener(() =>
+        // {
+        //     MoneyManager.Instance.ItemUpgrade(ref inventoryGrid.gridSizeHeight, 1, 1000);
+        //     //inventoryGrid.Init(inventoryGrid.gridSizeWidth, inventoryGrid.gridSizeHeight);
+        // });
+        // shipDurablityUpgradeBtn.onClick.AddListener(() => MoneyManager.Instance.ItemUpgrade(ref boatData.MaxDurablity, 5 ,1000));
 
-        fishingRodPowerUpgradeBtn.onClick.AddListener(() => MoneyManager.Instance.ItemUpgrade(ref fishingData.MaxChargingPower, 5, 1000));
-        fishingRodLengthUpgradeBtn.onClick.AddListener(() => MoneyManager.Instance.ItemUpgrade(ref fishingData.fishingRodLength, 5, 1000));
+        // fishingRodPowerUpgradeBtn.onClick.AddListener(() => MoneyManager.Instance.ItemUpgrade(ref fishingData.MaxChargingPower, 5, 1000));
+        // fishingRodLengthUpgradeBtn.onClick.AddListener(() => MoneyManager.Instance.ItemUpgrade(ref fishingData.fishingRodLength, 5, 1000));
 
-        shipFixBtn.onClick.AddListener(() => {
-            if (boatData.CurrentDurablity == 0)
-            {
-                shipFixBtn.enabled = false;
-            }
-            boatData.CurrentDurablity = boatData.MaxDurablity;
-        });
+        // shipFixBtn.onClick.AddListener(() => {
+        //     if (boatData.CurrentDurablity == 0)
+        //     {
+        //         shipFixBtn.enabled = false;
+        //     }
+        //     boatData.CurrentDurablity = boatData.MaxDurablity;
+        // });
 
-        alreadyOpenUI = upgradeDefaultUI;
+        // alreadyOpenUI = upgradeDefaultUI;
     }
 
     public void OnUpgradeUI() {
