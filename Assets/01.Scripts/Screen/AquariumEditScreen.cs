@@ -42,6 +42,10 @@ public class AquariumEditScreen : UIScreen
 
     public override void RemoveEvent()
     {
+        GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent -= OnChangedTime;
+        GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent -= OnChangedDay;
+
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= OnClickHandle;
     }
 
     protected override void FindElement(VisualElement root)

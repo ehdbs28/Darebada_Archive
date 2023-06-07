@@ -72,6 +72,8 @@ public class OceanScreen : UIScreen
 
     public override void RemoveEvent()
     {
+        GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent -= OnChangedTime;
+        GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent -= OnChangedDay;
     }
 
     protected override void FindElement(VisualElement root)
