@@ -6,7 +6,7 @@ public class Fish : MonoBehaviour
 {
     //private BIOME _habitatBiome;
     //private float _habitatX; //?œì‹ì§€Xê°?
-    private float _spawnHeight; //?œì‹ì§€Yê°?
+    //private float _spawnHeight; //?œì‹ì§€Yê°?
     //private FISHSPECIES _fishSpecies;
     //[SerializeField]private float _swimSpeed; //?¤ì—„ ?ë„
     //public float SwimSpeed => _swimSpeed;
@@ -28,7 +28,7 @@ public class Fish : MonoBehaviour
     {
         //_habitatBiome = data.HabitatBiome;
         //_habitatX = data.HabitatX;
-        _spawnHeight = data.spawnHeight;
+        //_spawnHeight = data.spawnHeight;
         //_fishSpecies = data.FishSpecies;
         //_swimSpeed = data.SwimSpeed;
         //_turnSpeed = data.TurnSpeed;
