@@ -1,10 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
-    <Style src="project://database/Assets/07.UI/AquariumEditUI.uss?fileID=7433441132597879392&amp;guid=ac84073f61c7dc04a81e859695f19072&amp;type=3#AquariumEdit" />
+    <Style src="project://database/Assets/07.UI/AquariumEditUI.uss?fileID=7433441132597879392&amp;guid=ac84073f61c7dc04a81e859695f19072&amp;type=3#AquariumEditUI" />
     <Style src="project://database/Assets/07.UI/CampUI.uss?fileID=7433441132597879392&amp;guid=870c7f81e78494c4794883e1a9367d4b&amp;type=3#CampUI" />
     <Style src="project://database/Assets/07.UI/AquariumUI.uss?fileID=7433441132597879392&amp;guid=71878df49f8ca784c99eee85be9f2546&amp;type=3#AquariumUI" />
-    <ui:VisualElement name="container">
-        <ui:VisualElement name="header-container">
+    <ui:VisualElement name="container" picking-mode="Ignore">
+        <ui:VisualElement name="header-container" picking-mode="Ignore">
             <ui:VisualElement name="setting-btn" class="btn" style="justify-content: flex-end;">
                 <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Gear.png?fileID=21300000&amp;guid=f55f75488890d4747835fc8299828fe7&amp;type=3#White Gear&apos;); width: 120%; height: 120%; bottom: -10px;" />
                 <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" />
@@ -23,8 +23,8 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="game-container" style="justify-content: flex-start;" />
-        <ui:VisualElement name="footer-container" style="justify-content: flex-end; overflow: visible;">
+        <ui:VisualElement name="game-container" picking-mode="Ignore" style="justify-content: flex-start;" />
+        <ui:VisualElement name="footer-container" picking-mode="Ignore" style="justify-content: flex-end; overflow: visible;">
             <ui:VisualElement name="controll-panel" style="width: 104%; height: 250px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.39); position: absolute; bottom: -20px; left: -20px; right: -20px; flex-direction: row; align-items: center; justify-content: space-around;">
                 <ui:VisualElement name="add-tank-btn" class="facility-btn">
                     <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/03.Materials/image_3.png?fileID=21300000&amp;guid=53f76709cc98bba42bb80952b2aee9fd&amp;type=3#image_3&apos;);" />

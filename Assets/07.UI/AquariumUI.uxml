@@ -3,8 +3,8 @@
     <Style src="project://database/Assets/07.UI/OceanUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceanUI" />
     <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
     <Style src="project://database/Assets/07.UI/CampUI.uss?fileID=7433441132597879392&amp;guid=870c7f81e78494c4794883e1a9367d4b&amp;type=3#CampUI" />
-    <ui:VisualElement name="container">
-        <ui:VisualElement name="header-container">
+    <ui:VisualElement name="container" picking-mode="Ignore">
+        <ui:VisualElement name="header-container" picking-mode="Ignore">
             <ui:VisualElement name="setting-btn" class="btn" style="justify-content: flex-end;">
                 <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Gear.png?fileID=21300000&amp;guid=f55f75488890d4747835fc8299828fe7&amp;type=3#White Gear&apos;); width: 120%; height: 120%; bottom: -10px;" />
                 <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" />
@@ -31,8 +31,8 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="game-container" style="justify-content: flex-start;">
-            <ui:VisualElement name="rating-panel" style="flex-basis: 40%;">
+        <ui:VisualElement name="game-container" picking-mode="Ignore" style="justify-content: flex-start;">
+            <ui:VisualElement name="rating-panel" picking-mode="Ignore" style="flex-basis: 40%;">
                 <ui:Label text="★★★★★" display-tooltip-when-elided="true" name="reputable-star" style="color: rgb(255, 255, 255); font-size: 60px; margin-right: 0; align-items: center; -unity-font-style: normal; margin-bottom: 20px;" />
                 <ui:VisualElement name="reputable-info" style="width: 25%; height: 50%; align-items: flex-start; padding-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; margin-bottom: 0;">
                     <ui:VisualElement name="price-reputable" class="reputable">
@@ -56,6 +56,6 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="footer-container" style="justify-content: center;" />
+        <ui:VisualElement name="footer-container" picking-mode="Ignore" style="justify-content: center;" />
     </ui:VisualElement>
 </ui:UXML>
