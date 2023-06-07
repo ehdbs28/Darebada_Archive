@@ -15,7 +15,7 @@
             </ui:VisualElement>
             <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden;">
                 <ui:VisualElement name="contents" style="flex-direction: row; width: 500%; height: 100%; right: 0;">
-                    <ui:VisualElement name="sea-of-fertility" class="biome lock" style="justify-content: center;">
+                    <ui:VisualElement name="sea-of-fertility" class="biome lock" style="justify-content: center; background-image: url(&apos;project://database/Assets/05.Assets/UI/BiomeImage/testbiome.png?fileID=21300000&amp;guid=c10db83013ad7d14a9b26769e950b3d2&amp;type=3#testbiome&apos;);">
                         <ui:VisualElement name="selected-mark" style="position: absolute; width: 50%; height: 10%; align-items: center; justify-content: center;">
                             <ui:Label text="현재위치" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px;" />
                         </ui:VisualElement>

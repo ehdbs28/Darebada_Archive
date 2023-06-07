@@ -20,7 +20,7 @@ public class CampScreen : UIScreen
 
         _settingBtn.RegisterCallback<ClickEvent>(e =>
         {
-            Debug.Log("����");
+            
         });
 
         _letterBtn.RegisterCallback<ClickEvent>(e =>
@@ -54,6 +54,6 @@ public class CampScreen : UIScreen
 
     private void OnChangedDay(int year, int month, int day)
     {
-        _dateText.text = $"{year}��°, {month}��{day}��";
+        _dateText.text = $"{year}년째, {month}월{day}일";
     }
 }

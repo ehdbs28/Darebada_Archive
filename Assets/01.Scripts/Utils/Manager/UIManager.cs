@@ -82,6 +82,14 @@ public class UIManager : MonoBehaviour, IManager
         return pick != null;
     }
 
-    public void UpdateManager() {}
+    public void UpdateManager() {
+        if(Input.GetKeyDown(KeyCode.B)){
+            ShowPanel(ScreenType.AquariumEdit);
+        }
+
+        if(Input.GetKeyDown(KeyCode.K)){
+            ShowPanel(PopupType.TankUpgrade);
+        }
+    }
     public void ResetManager() {}
 }

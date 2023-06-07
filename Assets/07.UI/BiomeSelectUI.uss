@@ -9,7 +9,7 @@
 }
 
 .biome.lock {
-    background-color: rgba(0, 0, 0, 0.2);
+    -unity-background-image-tint-color: rgb(202, 202, 202);
 }
 
 .biome.lock > #selected-mark {
