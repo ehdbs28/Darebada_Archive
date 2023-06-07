@@ -50,55 +50,26 @@ public class UpgradeManager : MonoBehaviour
             }
             else if (Input.GetMouseButtonUp(0))
             {
-<<<<<<< Updated upstream
-                if (handlingTime <= limitTime)
-                {
-
-                    if (!fishbowlUpgradePanel.gameObject.activeSelf && !shopUpgradePanel.gameObject.activeSelf && !addPanel.activeSelf && GameManager.Instance.GetManager<AquariumManager>().state == AquariumManager.STATE.MOVE)
-                    {
-                        RaycastHit hit;
-                        Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
-
-                        if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask) )
-                        {
-                        Debug.Log(GameManager.Instance.GetManager<AquariumManager>().state);
-
-                            if (hit.collider.GetComponent<Fishbowl>())
-                            {
-                                fishbowlUpgradePanel.upgradeObj = hit.collider.gameObject;
-                                fishbowlUpgradePanel.gameObject.SetActive(true);
-                            }
-                            else if (hit.collider.GetComponent<SnackShop>())
-                            {
-                                shopUpgradePanel.upgradeObj = hit.collider.gameObject;
-                                shopUpgradePanel.gameObject.SetActive(true);
-                            }
-                        }
-
-                    }
-                }
-=======
                 OpenUpgradePanel();
->>>>>>> Stashed changes
             }
         
     }
     
     public void OpenUpgradePanel()
     {
-        //¸¸¾à ÀÌ¹Ì ¾÷±×·¹ÀÌµå ÆÇ³ÚÀÌ ¿­·ÁÀÖÁö ¾ÊÀ» ¶§
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½Ç³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         if (!fishbowlUpgradePanel.gameObject.activeSelf && !shopUpgradePanel.gameObject.activeSelf && !addPanel.activeSelf && GameManager.Instance.GetManager<AquariumManager>().state == AquariumManager.STATE.MOVE)
         {
             RaycastHit hit;
             Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
-            //·¹ÀÌÄÉ½ºÆ® »ã
+            //ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½Æ® ï¿½ï¿½
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask))
             {
-                //¼öÁ¶¸é?
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
                 if (hit.collider.GetComponent<Fishbowl>())
                 {
                     OpenPanel(fishbowlUpgradePanel, hit.collider.gameObject);
-                }//»óÁ¡ÀÌ¸é?
+                }//ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½?
                 else if (hit.collider.GetComponent<SnackShop>())
                 {
                     OpenPanel(shopUpgradePanel, hit.collider.gameObject);
