@@ -26,4 +26,19 @@ MonoBehaviour:
   - {x: -0.8, y: -0.7, z: -0.6}
   - {x: -0.38, y: -0.69, z: 0.53}
   - {x: 0.5, y: -0.69, z: -0.4}
-  - {x: -0.55, y: -0.69, z: -0.42}
+  - {x: -0.55, y: -0.69, z: -0.4}
+  objects:
+  - {fileID: 1140780935176036, guid: 869355f23eb008041b09785dd07d2189, type: 3}
+  - {fileID: 1335468801681114, guid: f72661ebe93b327499d5313b19529920, type: 3}
+  - {fileID: 1827979745022620, guid: 608432af94ce26d4c82cf54dc84f5cf2, type: 3}
+  - {fileID: 1926941432595038, guid: ff7e2c3a748808c4eb977a225b7406ca, type: 3}
+  - {fileID: 1660434503199212, guid: 7926cb64a4f16794c8761c2fd9d77447, type: 3}
+  - {fileID: 1801101416205808, guid: e346d9b83f0951f4c9eba7e6513518d3, type: 3}
+  - {fileID: 1406678444795924, guid: ae35605d7316aa347be3644f85e07a9b, type: 3}
+  - {fileID: 1132805035528742, guid: b75f31250bda1464a9be71da8b689613, type: 3}
+  - {fileID: 1955124685972642, guid: f659da7def2d4394db18972c61347e13, type: 3}
+  - {fileID: 1405911546429030, guid: 697631c789518cd4eac67689d430df45, type: 3}
+  - {fileID: 1392000088161684, guid: ddd5834e240234e43b56bb0958eae39f, type: 3}
+  - {fileID: 1835345629982590, guid: 925f4f4a5e225954da4d31a8496c7344, type: 3}
+  - {fileID: 1605247834812328, guid: 5c0315c1133b4ae49a9c9ea79e16ac41, type: 3}
+  - {fileID: 1938232290201272, guid: 96299c210398e0248934f0e357544e41, type: 3}

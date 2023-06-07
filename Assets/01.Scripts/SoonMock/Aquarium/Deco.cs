@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SubsystemsImplementation;
 
 public class Deco : MonoBehaviour
 {
@@ -13,6 +14,15 @@ public class Deco : MonoBehaviour
     {
         this.id = id;
         this.pos = posList.trs[id];
+        if(GetComponentsInChildren<GameObject>().Length>=2)
+        {
+            GameObject[] childrens= GetComponentsInChildren<GameObject>();
+            for(int i = 1; i < childrens.Length;i++)
+            {
+                Destroy(childrens[i]);
+            }
+        }
+        Instantiate(posList.objects[id]);
         //스프라이트 또는 모델링 변경해야함
     }
 }
