@@ -5,4 +5,5 @@ using UnityEngine;
 public class TransformsSO : ScriptableObject
 {
     public List<Vector3> trs;
+    public List<GameObject> objects;
 }

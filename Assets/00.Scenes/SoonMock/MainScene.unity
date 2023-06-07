@@ -731,8 +731,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d3584ef33ec144e9a8bc7d40965f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThanksTemplate: {fileID: 11400000, guid: 38cedfd03413428449552d91a1913d57, type: 2}
-  RequestTemplate: {fileID: 0}
+  ThanksTemplate: {fileID: 11400000, guid: 159fe55d68cee3b4788c0e686fc4e24d, type: 2}
+  RequestTemplate: {fileID: 11400000, guid: c93ff49bf95c66847bfda072ae3d375a, type: 2}
 --- !u!4 &1565614797
 Transform:
   m_ObjectHideFlags: 0
@@ -1729,7 +1729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a46d777783140546a921eb57e9de995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _treeAsset: {fileID: 9197481963319205126, guid: 67c1f846014e52749b918f65931f583e, type: 3}
 --- !u!114 &9157046240493696213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2560,7 +2559,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _poolingTrm: {fileID: 754774583}
   _poolingList: {fileID: 11400000, guid: 57e991df2432a8b46b588910f77011fb, type: 2}
-  _startSceneType: 0
 --- !u!114 &9157046241563192771
 MonoBehaviour:
   m_ObjectHideFlags: 0
