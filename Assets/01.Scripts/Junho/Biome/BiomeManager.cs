@@ -67,7 +67,12 @@ public class BiomeManager : MonoBehaviour
         
         if (rand <= 0.1f * extra)
         {
-            Instantiate(FindRarityFish(5)._fishPrefab, spawnVec, Quaternion.identity, _fishSpawner.transform); 
+            Instantiate(FindRarityFish(5)._fishPrefab, spawnVec, Quaternion.identity, _fishSpawner.transform);
+
+            //GameManager.Instance.GetManager<PoolManager>().Pop(FindRarityFish(5)._fishPrefab.name);
+
+            //Fish fish = GameManager.Instance.GetManager<PoolManager>().Pop(FindRarityFish(5)._fishPrefab.name) as Fish;
+            //fish.transform.position = spawnVec;
         }
         else if (rand <= 1.0f * extra) 
         { 
