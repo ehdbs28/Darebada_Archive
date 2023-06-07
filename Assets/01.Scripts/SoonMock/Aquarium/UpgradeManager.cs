@@ -50,6 +50,7 @@ public class UpgradeManager : MonoBehaviour
             }
             else if (Input.GetMouseButtonUp(0))
             {
+<<<<<<< Updated upstream
                 if (handlingTime <= limitTime)
                 {
 
@@ -76,7 +77,40 @@ public class UpgradeManager : MonoBehaviour
 
                     }
                 }
+=======
+                OpenUpgradePanel();
+>>>>>>> Stashed changes
             }
         
+    }
+    
+    public void OpenUpgradePanel()
+    {
+        //만약 이미 업그레이드 판넬이 열려있지 않을 때
+        if (!fishbowlUpgradePanel.gameObject.activeSelf && !shopUpgradePanel.gameObject.activeSelf && !addPanel.activeSelf && GameManager.Instance.GetManager<AquariumManager>().state == AquariumManager.STATE.MOVE)
+        {
+            RaycastHit hit;
+            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
+            //레이케스트 삠
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask))
+            {
+                //수조면?
+                if (hit.collider.GetComponent<Fishbowl>())
+                {
+                    OpenPanel(fishbowlUpgradePanel, hit.collider.gameObject);
+                }//상점이면?
+                else if (hit.collider.GetComponent<SnackShop>())
+                {
+                    OpenPanel(shopUpgradePanel, hit.collider.gameObject);
+                }
+            }
+
+        }
+
+    }
+    public void OpenPanel(StatePanel statePanel, GameObject selectedObject)
+    {
+        statePanel.upgradeObj = selectedObject;
+        statePanel.gameObject.SetActive(true);
     }
 }

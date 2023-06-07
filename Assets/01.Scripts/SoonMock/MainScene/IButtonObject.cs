@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IButtonObject 
 {
-    public void OnClick();
+    public void OnTouch();
     
 }
