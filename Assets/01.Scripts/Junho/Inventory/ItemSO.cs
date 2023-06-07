@@ -4,9 +4,10 @@ using UnityEngine;
 
 public enum BIOME
 {
-    TEST1,
-    TEST2,
-    TEST3
+    CLOUD,
+    SOUTH,
+    COLD,
+    SILENCE
 }
 
 public enum FISHSPECIES

@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour
 {
-    private BIOME _habitatBiome;
-    private float _habitatX; //서식지X값
-    private float _habitatY; //서식지Y값
-    private FISHSPECIES _fishSpecies;
-    [SerializeField]private float _swimSpeed; //헤엄 속도
-    public float SwimSpeed => _swimSpeed;
-    private float _turnSpeed; //회전 속도
+    //private BIOME _habitatBiome;
+    //private float _habitatX; //?�식지X�?
+    private float _spawnHeight; //?�식지Y�?
+    //private FISHSPECIES _fishSpecies;
+    //[SerializeField]private float _swimSpeed; //?�엄 ?�도
+    //public float SwimSpeed => _swimSpeed;
+    //private float _turnSpeed; //?�전 ?�도
     private float _rarity;    
-    private float _level;
-    private float _cost;
-    private float _size;
-    private float _spawnPercent;
+    //private float _level;
+    //private float _cost;
+    //private float _size;
+    //private float _spawnPercent;
     private float additionalSpeed = 10f;
     [SerializeField] private float obstacleDistance;
 
@@ -26,17 +26,17 @@ public class Fish : MonoBehaviour
 
     public void Init(FishSO data)
     {
-        _habitatBiome = data.HabitatBiome;
-        _habitatX = data.HabitatX;
-        _habitatY = data.HabitatY;
-        _fishSpecies = data.FishSpecies;
-        _swimSpeed = data.SwimSpeed;
-        _turnSpeed = data.TurnSpeed;
+        //_habitatBiome = data.HabitatBiome;
+        //_habitatX = data.HabitatX;
+        _spawnHeight = data.spawnHeight;
+        //_fishSpecies = data.FishSpecies;
+        //_swimSpeed = data.SwimSpeed;
+        //_turnSpeed = data.TurnSpeed;
         _rarity = data.Rarity;
-        _level = data.Level;
-        _cost = data.Cost;
-        _size = data.Size;
-        _spawnPercent = data.SpawnPercent;
+        //_level = data.Level;
+        //_cost = data.Cost;
+        //_size = data.Size;
+        //_spawnPercent = data.SpawnPercent;
     }
 
     public void Awake()
@@ -62,7 +62,7 @@ public class Fish : MonoBehaviour
         Vector3 dir =Vector3.Lerp((transform.forward + ctrl.normalized).normalized, 
             Cohesion()*_cohPow+ Alignment()*_aliPow + Separation() * 
             _sepPow,Time.deltaTime).normalized;
-        transform.position += dir * _swimSpeed * Time.deltaTime;
+        //transform.position += dir * _swimSpeed * Time.deltaTime;
         
         transform.rotation = Quaternion.LookRotation(dir);
 
@@ -72,7 +72,7 @@ public class Fish : MonoBehaviour
         Vector3 cohesionVec = Vector3.zero;
         if (fishes.Count > 0)
         {
-            // 이웃 unit들의 위치 더하기
+            // ?�웃 unit?�의 ?�치 ?�하�?
             for (int i = 0; i < fishes.Count; i++)
             {
                 cohesionVec += fishes[i].transform.position;
@@ -80,11 +80,11 @@ public class Fish : MonoBehaviour
         }
         else
         {
-            // 이웃이 없으면 vector3.zero 반환
+            // ?�웃???�으�?vector3.zero 반환
             return cohesionVec;
         }
 
-        // 중심 위치로의 벡터 찾기
+        // 중심 ?�치로의 벡터 찾기
         cohesionVec /= fishes.Count;
         cohesionVec -= transform.position;
         cohesionVec.Normalize();
@@ -95,7 +95,7 @@ public class Fish : MonoBehaviour
         Vector3 alignmentVec = transform.forward;
         if (fishes.Count > 0)
         {
-            // 이웃들이 향하는 방향의 평균 방향으로 이동
+            // ?�웃?�이 ?�하??방향???�균 방향?�로 ?�동
             for (int i = 0; i < fishes.Count; i++)
             {
                 alignmentVec += fishes[i].transform.forward;
@@ -103,7 +103,7 @@ public class Fish : MonoBehaviour
         }
         else
         {
-            // 이웃이 없으면 그냥 forward로 이동
+            // ?�웃???�으�?그냥 forward�??�동
             return alignmentVec;
         }
 
@@ -116,7 +116,7 @@ public class Fish : MonoBehaviour
         Vector3 separationVec = Vector3.zero;
         if (fishes.Count > 0)
         {
-            // 이웃들을 피하는 방향으로 이동
+            // ?�웃?�을 ?�하??방향?�로 ?�동
             for (int i = 0; i < fishes.Count; i++)
             {
                 separationVec += (transform.position - fishes[i].transform.position);
@@ -124,7 +124,7 @@ public class Fish : MonoBehaviour
         }
         else
         {
-            // 이웃이 없으면 vector.zero 반환
+            // ?�웃???�으�?vector.zero 반환
             return separationVec;
         }
         separationVec /= fishes.Count;
