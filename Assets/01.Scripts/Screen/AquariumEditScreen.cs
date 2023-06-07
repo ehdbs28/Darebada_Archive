@@ -20,11 +20,14 @@ public class AquariumEditScreen : UIScreen
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
 
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnClickHandle;
+
         _settingBtn.RegisterCallback<ClickEvent>(e => {
             //GameManager.Instance.GetManager<UIManager>().ShowPanel()
         });
 
         _backBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.PLAYER_FOLLOW);
             GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Aquarium);
         });
 
@@ -35,6 +38,10 @@ public class AquariumEditScreen : UIScreen
         _addPlantBtn.RegisterCallback<ClickEvent>(e => {
 
         });
+    }
+
+    public override void RemoveEvent()
+    {
     }
 
     protected override void FindElement(VisualElement root)
@@ -58,5 +65,16 @@ public class AquariumEditScreen : UIScreen
     private void OnChangedDay(int year, int month, int day)
     {
         _dateText.text = $"{year}년째, {month}월{day}일";
+    }
+
+    private void OnClickHandle(bool value){
+        if(value == false)
+            return;
+
+        Vector3 point = GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint("Facility");
+
+        if(point != Vector3.zero){
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.TankUpgrade);
+        }
     }
 }

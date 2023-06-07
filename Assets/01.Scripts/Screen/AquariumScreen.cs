@@ -28,8 +28,13 @@ public class AquariumScreen : UIScreen
         });
 
         _editorBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.AQUARIUM_EDIT);
             GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.AquariumEdit);
         });
+    }
+
+    public override void RemoveEvent()
+    {
     }
 
     protected override void FindElement(VisualElement root)

@@ -53,6 +53,8 @@ public abstract class UIPopup : UIScreen
             return;
         }
 
+        RemoveEvent();
+
         _documentRoot.Remove(_root);
 
         if(_blurPanel != null)
@@ -66,7 +68,4 @@ public abstract class UIPopup : UIScreen
 
         _isOpenPopup = false;
     }
-
-    protected override abstract void AddEvent(VisualElement root);
-    protected override abstract void FindElement(VisualElement root);
 }

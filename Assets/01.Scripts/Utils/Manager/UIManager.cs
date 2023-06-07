@@ -51,6 +51,8 @@ public class UIManager : MonoBehaviour, IManager
     }
 
     public void ShowPanel(ScreenType type, bool clearScreen = true){
+        _screens[_activeScreen].RemoveEvent();
+
         if(_screens[type] != null){
             _screens[type]?.SetUp(_blurDocument, clearScreen);
             _screens[type]?.SetUp(_document, clearScreen);

@@ -70,6 +70,10 @@ public class OceanScreen : UIScreen
         });
     }
 
+    public override void RemoveEvent()
+    {
+    }
+
     protected override void FindElement(VisualElement root)
     {
         _timeText = root.Q<Label>("time-text");

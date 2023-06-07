@@ -40,6 +40,10 @@ public class InventoryPopup : UIPopup
             _selectedItem.transform.rotation = Quaternion.Euler(_itemQuaternion.x, _itemQuaternion.y, _itemQuaternion.z - 90f);
         });
     }
+    
+    public override void RemoveEvent()
+    {
+    }
 
     protected override void FindElement(VisualElement root)
     {

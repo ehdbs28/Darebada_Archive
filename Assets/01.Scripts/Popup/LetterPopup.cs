@@ -55,6 +55,10 @@ public class LetterPopup : UIPopup
             }
         });
     }
+    
+    public override void RemoveEvent()
+    {
+    }
 
     protected override void FindElement(VisualElement root)
     {

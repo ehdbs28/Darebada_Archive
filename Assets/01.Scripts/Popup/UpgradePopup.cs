@@ -29,6 +29,10 @@ public class UpgradePopup : UIPopup
             _contents.style.right = new StyleLength(new Length(_fishingUpgrade.Index * 100, LengthUnit.Percent));
         });
     }
+    
+    public override void RemoveEvent()
+    {
+    }
 
     protected override void FindElement(VisualElement root)
     {

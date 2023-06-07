@@ -28,9 +28,9 @@ public class GameScene : PoolableMono
         OnEnterScene?.Invoke();
 
         GameManager.Instance.GetManager<CameraManager>().SetVCamList(_vCamList);
+        GameManager.Instance.GetManager<CameraManager>().SetVCam(_initCamState);
 
         GameManager.Instance.GetManager<UIManager>().ShowPanel(_initScreenType);
-        GameManager.Instance.GetManager<CameraManager>().SetVCam(_initCamState);
     }
     
     public void ExitScene(){

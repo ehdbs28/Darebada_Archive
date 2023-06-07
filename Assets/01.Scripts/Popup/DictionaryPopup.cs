@@ -18,11 +18,15 @@ public class DictionaryPopup : UIPopup
         {
             fishes.RegisterCallback<ClickEvent>(e =>
             {
-                //³ªÁß¿¡ Ãß°¡µÇ¸é ³Ö¾î¾ßÇÔ.
+                //ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ß°ï¿½ï¿½Ç¸ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½.
                 //fishes.AddToClassList("");
                 Debug.Log("Dictionary");
             });
         }
+    }
+    
+    public override void RemoveEvent()
+    {
     }
 
     protected override void FindElement(VisualElement root)

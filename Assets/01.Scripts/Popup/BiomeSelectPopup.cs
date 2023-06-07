@@ -32,6 +32,10 @@ public class BiomeSelectPopup : UIPopup
             _contents.style.right = new StyleLength(new Length(_currentIndex * 100, LengthUnit.Percent));
         });
     }
+    
+    public override void RemoveEvent()
+    {
+    }
 
     protected override void FindElement(VisualElement root)
     {

@@ -13,6 +13,10 @@ public class FishingScreen : UIScreen
 
     }
 
+    public override void RemoveEvent()
+    {
+    }
+
     protected override void FindElement(VisualElement root)
     {
         _heightText = root.Q<Label>("height-text");

@@ -31,7 +31,7 @@
                     <ui:Label text="수조 증설" display-tooltip-when-elided="true" name="text" class="text" />
                 </ui:VisualElement>
                 <ui:VisualElement name="add-plant-btn" class="facility-btn">
-                    <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/03.Materials/image_3.png?fileID=21300000&amp;guid=53f76709cc98bba42bb80952b2aee9fd&amp;type=3#image_3&apos;);" />
+                    <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/image_4.png?fileID=21300000&amp;guid=4ae1c72df5f422942bd31b073ec52b3f&amp;type=3#image_4&apos;);" />
                     <ui:Label text="시설 증설" display-tooltip-when-elided="true" name="text" class="text" />
                 </ui:VisualElement>
             </ui:VisualElement>

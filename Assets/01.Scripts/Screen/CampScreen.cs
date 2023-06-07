@@ -35,6 +35,10 @@ public class CampScreen : UIScreen
 
         //_goldText.text = $"{MoneyManager.Instance.goldTxt.text}";
     }
+    
+    public override void RemoveEvent()
+    {
+    }
 
     protected override void FindElement(VisualElement root)
     {
