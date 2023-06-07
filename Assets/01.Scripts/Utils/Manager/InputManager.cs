@@ -35,7 +35,7 @@ public class InputManager : MonoBehaviour, IManager
     public void InitManager() {
         //_playerInput = GameManager.Instance.GetComponent<PlayerInput>();
 
-        // ?�중??바꾸�?
+        // ?�중??바꾸�?
     }
 
     // new InputManager?�서 Event ?�식?�로 ?�겨???�행?�는 친구?�임
