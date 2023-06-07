@@ -14,13 +14,9 @@ public class Deco : MonoBehaviour
     {
         this.id = id;
         this.pos = posList.trs[id];
-        if(GetComponentsInChildren<GameObject>().Length>=2)
+        for(int i = 0; i<transform.childCount;i++)
         {
-            GameObject[] childrens= GetComponentsInChildren<GameObject>();
-            for(int i = 1; i < childrens.Length;i++)
-            {
-                Destroy(childrens[i]);
-            }
+            Destroy(transform.GetChild(i).gameObject);
         }
         Instantiate(posList.objects[id]);
         //스프라이트 또는 모델링 변경해야함
