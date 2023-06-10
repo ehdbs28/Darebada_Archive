@@ -48,10 +48,7 @@ public class RotationVCam : VCam
             if(dx != 0f){
                 _spherical.y += dx * Time.deltaTime;
 
-                // ?�기??카메???�려주기
                 _virtualCam.transform.position = _arcball.Center + _arcball.GetCartesianCoordinates(_spherical);
-
-                // ?�겟을 바라보게
                 _virtualCam.transform.rotation = Quaternion.LookRotation(_arcball.Center + _offset - _virtualCam.transform.position);
             }
 

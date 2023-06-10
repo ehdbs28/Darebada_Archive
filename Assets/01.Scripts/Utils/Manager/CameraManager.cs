@@ -22,7 +22,6 @@ public class CameraManager : MonoBehaviour, IManager
     }
 
     public VCam SetVCam(CameraState state){
-        Debug.Log(state);
         VCam virtualCam = null;
 
         foreach(var vCam in _virtualCams.Where(vCam => vCam.State == state)){

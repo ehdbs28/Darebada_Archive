@@ -10,8 +10,9 @@ public class FishingActionData : MonoBehaviour
     public bool IsFishing = false;
     public bool IsUnderWater = false;
 
+    public bool IsThrowing = false;
+
     public Vector3 LastThrowDirection;
-    public Vector3 InitPosition;
 
     // 나중에 fish 구조를 바꾸던지 하자
     public FishMovement CurrentCatchFish = null;

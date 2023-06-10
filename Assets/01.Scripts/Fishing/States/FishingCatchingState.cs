@@ -129,7 +129,7 @@ public class FishingCatchingState : FishingState
 
         _isReadyToCatch = true;
 
-        _start = new Vector3(_controller.ActionData.InitPosition.x, 0, _controller.ActionData.InitPosition.z);
+        //_start = new Vector3(_controller.ActionData.InitPosition.x, 0, _controller.ActionData.InitPosition.z);
     }
 
     private Vector3 GetLerpPos(){

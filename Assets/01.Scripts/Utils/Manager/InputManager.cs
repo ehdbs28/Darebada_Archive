@@ -41,6 +41,7 @@ public class InputManager : MonoBehaviour, IManager
     }
 
     public void OnMousePosition(InputValue value){
+        Debug.Log(_mousePosition);
         _mousePosition = value.Get<Vector2>();
     }
 
