@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 103666354}
   - component: {fileID: 103666353}
   - component: {fileID: 103666352}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,8 +213,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103666351}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79.9167, y: 49.7322, z: -183.89445}
-  m_LocalScale: {x: 4.3385, y: 3.9207, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 39.41}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -240,10 +240,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &217440227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -269,10 +265,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &450292514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -298,10 +290,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &527387558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -400,10 +388,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &623539300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -502,10 +486,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &646510895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -531,10 +511,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &786794483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -723,10 +699,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &1032305462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -752,10 +724,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &1053198514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -854,10 +822,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &1107620815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -883,10 +847,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &1116992247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -1218,10 +1178,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &1278621764 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -1320,10 +1276,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &1344955431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -1619,10 +1571,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &1475221318 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -1936,10 +1884,6 @@ MonoBehaviour:
   _swimSpeed: 5
   obstacleDistance: 5
   cols: []
-  _cohPow: 1
-  _aliPow: 0.3
-  _sepPow: 0.25
-  ctrl: {x: 0, y: 0, z: 0}
 --- !u!4 &1599906244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673383449080782, guid: 0289ae27db542b4428686576d2559f6b, type: 3}
@@ -2387,16 +2331,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2730c2346bb1f47bf1b8fbe5d74c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidUnitPrefab: {fileID: 6458884287292012828, guid: 79c38e7a8d6b59149816ab0b05434922, type: 3}
-  boidCount: 10
-  spawnRange: 10
-  speedRange: {x: 10, y: 10}
-  cohesionWeight: 10
-  alignmentWeight: 0
-  separationWeight: 0
-  boundsWeight: 26.2
-  obstacleWeight: 10
-  egoWeight: 1
+  boidUnitPrefab: {fileID: 7427873566843236574, guid: d3316b1f37e2d7941b045dd3f0a1d4ba, type: 3}
+  boidCount: 500
+  spawnRange: 20
+  speedRange: {x: 20, y: 20}
+  cohesionWeight: 3.2
+  alignmentWeight: 5.38
+  separationWeight: 1.2
+  boundsWeight: 77.5
+  obstacleWeight: 0
+  egoWeight: 3.16
   currUnit: {fileID: 0}
   unitLayer:
     serializedVersion: 2
