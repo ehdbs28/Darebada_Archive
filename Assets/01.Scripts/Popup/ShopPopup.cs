@@ -30,6 +30,10 @@ public class ShopPopup : UIPopup
         });
     }
 
+    public override void RemoveEvent()
+    {
+    }
+
     protected override void FindElement(VisualElement root)
     {
         _exitBtn = root.Q<VisualElement>("exit-btn");

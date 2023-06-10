@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/07.UI/FishingUI.uss?fileID=7433441132597879392&amp;guid=29867eabdce6ad54f8950f3c56199a91&amp;type=3#FishingUI" />
-    <Style src="project://database/Assets/07.UI/OceneUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceneUI" />
+    <Style src="project://database/Assets/07.UI/OceanUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceanUI" />
     <ui:VisualElement name="container" picking-mode="Ignore" style="align-items: center;">
         <ui:VisualElement name="depth-of-water-container" picking-mode="Ignore" style="position: absolute; left: 20px; width: 100px; height: 35%; align-items: center; top: 20%;">
             <ui:VisualElement name="start" style="flex-basis: 1%; width: 40px; background-color: rgba(255, 255, 255, 0.59);" />

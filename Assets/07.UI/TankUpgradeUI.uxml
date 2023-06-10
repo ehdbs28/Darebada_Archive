@@ -17,9 +17,9 @@
             </ui:VisualElement>
             <ui:VisualElement name="blank" style="width: 100%; flex-basis: 10%;" />
             <ui:VisualElement name="element-list" style="width: 80%; height: 150px; background-color: rgba(255, 255, 255, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 0; border-top-right-radius: 10px; border-bottom-right-radius: 0; flex-direction: row; align-items: center; justify-content: space-around;">
-                <ui:VisualElement name="element" class="tank-element" style="background-image: url(&apos;project://database/Assets/03.Materials/Green.png?fileID=21300000&amp;guid=b8aa545fc6f1e054e8930ccf366c4efb&amp;type=3#Green&apos;); -unity-background-image-tint-color: rgb(255, 255, 255);" />
-                <ui:VisualElement name="element" class="tank-element" style="background-image: url(&apos;project://database/Assets/03.Materials/Purple.png?fileID=21300000&amp;guid=afe700cc917c7ba429b307bff459d69b&amp;type=3#Purple&apos;);" />
-                <ui:VisualElement name="element" class="tank-element" style="background-image: url(&apos;project://database/Assets/03.Materials/Corals.png?fileID=2800000&amp;guid=859401baae4db5841910364ee16a81fa&amp;type=3#Corals&apos;);" />
+                <ui:VisualElement name="element" class="tank-element" style="background-image: url(&apos;project://database/Assets/03.Materials/Green.png?fileID=21300000&amp;guid=b8aa545fc6f1e054e8930ccf366c4efb&amp;type=3#Green&apos;); width: 125px; height: 125px;" />
+                <ui:VisualElement name="element" class="tank-element" style="background-image: url(&apos;project://database/Assets/03.Materials/Purple.png?fileID=21300000&amp;guid=afe700cc917c7ba429b307bff459d69b&amp;type=3#Purple&apos;); width: 125px; height: 125px;" />
+                <ui:VisualElement name="element" class="tank-element" style="background-image: url(&apos;project://database/Assets/03.Materials/Corals.png?fileID=21300000&amp;guid=859401baae4db5841910364ee16a81fa&amp;type=3#Corals&apos;); width: 125px; height: 125px;" />
             </ui:VisualElement>
             <ui:VisualElement name="element-buy-btn" style="width: 80%; height: 100px; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.86); border-top-left-radius: 0; border-bottom-left-radius: 10px; border-top-right-radius: 0; border-bottom-right-radius: 10px;">
                 <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">

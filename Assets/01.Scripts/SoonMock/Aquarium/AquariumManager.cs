@@ -74,10 +74,8 @@ public class AquariumManager : MonoBehaviour, IManager
     }
     public void SetFacilityPos()
     {
-        bool check;
-        if (check = facilityObj.CheckCollision()) 
+        if (facilityObj.CheckCollision()) 
         {
-            Debug.Log(check);
             state = STATE.MOVE;
             Debug.Log(state);
 

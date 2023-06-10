@@ -8,6 +8,7 @@ public enum CameraState
     OCEAN_FINISH,
 
     PLAYER_FOLLOW,
+    AQUARIUM_EDIT,
     AQUARIUM_FINISH,
     
     ROTATE,

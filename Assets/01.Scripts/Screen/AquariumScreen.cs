@@ -18,6 +18,25 @@ public class AquariumScreen : UIScreen
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
+
+        _letterBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Letter);
+        });
+
+        _dictionaryBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Dictionary);
+        });
+
+        _editorBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.AQUARIUM_EDIT);
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.AquariumEdit);
+        });
+    }
+
+    public override void RemoveEvent()
+    {
+        GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent -= OnChangedTime;
+        GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent -= OnChangedDay;
     }
 
     protected override void FindElement(VisualElement root)
