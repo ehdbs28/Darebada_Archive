@@ -2,13 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightingManager : MonoBehaviour, IManager
+public class DayCycleManager : MonoBehaviour, IManager
 {
     [SerializeField]
     private Light _directionalLight;
 
     [SerializeField]
     private LightingPreset _lightingPreset;
+
+    [SerializeField]
+    private ParticleSystem _shotingStar;
+
+    [SerializeField]
+    private Transform _cloudParent;
+
+    [SerializeField]
+    private Transform _cloudBoundFront, _cloudBoundBack;
+
+    private bool _isDay = false;
 
     public void InitManager()
     {
@@ -24,6 +35,10 @@ public class LightingManager : MonoBehaviour, IManager
                 }
             }
         }
+
+        foreach(var cloud in _cloudParent.GetComponentsInChildren<Cloud>()){
+            cloud.SetUp(Random.Range(15f, 20f), _cloudBoundFront.position.z, _cloudBoundBack.position.z);
+        }
     }
 
     public void UpdateManager()
@@ -31,7 +46,10 @@ public class LightingManager : MonoBehaviour, IManager
         if(_lightingPreset == null)
             return;
 
-        UpdateLighting(GameManager.Instance.GetManager<TimeManager>().Hour / 24);
+        _isDay = (GameManager.Instance.GetManager<TimeManager>().Hour >= 5 && GameManager.Instance.GetManager<TimeManager>().Hour <= 20);
+
+        PlayNightParticle();
+        UpdateLighting(GameManager.Instance.GetManager<TimeManager>().Hour / 24f);
     }
 
     private void UpdateLighting(float timePercent){
@@ -41,6 +59,17 @@ public class LightingManager : MonoBehaviour, IManager
         if(_directionalLight != null){
             _directionalLight.color = _lightingPreset.DirectionalColor.Evaluate(timePercent);
             _directionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 170f, 0f)); 
+        }
+    }
+
+    private void PlayNightParticle(){
+        if(_isDay){
+            if(_shotingStar.isPlaying)
+                _shotingStar.Stop();
+        }
+        else{
+            if(_shotingStar.isStopped)
+                _shotingStar.Play();
         }
     }
 

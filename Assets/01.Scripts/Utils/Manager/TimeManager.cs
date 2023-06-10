@@ -7,7 +7,7 @@ using System;
 
 public class TimeManager : IManager
 {
-    // ?˜ë£¨??12ë¶?
+    // ?ï¿½ë£¨??12ï¿½?
     private float _currentTime = 0f;
     private int _totalDay = 0;
 
@@ -28,15 +28,13 @@ public class TimeManager : IManager
         }
     }
 
-    // ?˜ì¹˜?ì¸ ?œê°„ [ ?¬ìš© ???Œì—??Mathf.floorToInt ?´ì¤˜???•ìƒ?ìœ¼ë¡?ì¶œë ¥ ??]
-    public int Hour => (int)(_currentTime % DayDelay / HourDelay);
-    public int Minute => (int)(_currentTime % DayDelay / MinuteDelay % 12) * 5;
+    public float Hour => _currentTime % DayDelay / HourDelay;
+    public float Minute => (int)(_currentTime % DayDelay / MinuteDelay % 12) * 5;
 
     public int Year { get; private set; } = 0;
     public int Month { get; private set; } = 3;
     public int Day { get; private set; } = 0;
 
-    // ?´ë²¤??
     public event Action<int, int> OnTimeChangedEvent = null;
     public event Action<int, int, int> OnDayChangedEvent = null; 
 
@@ -55,13 +53,13 @@ public class TimeManager : IManager
     public void UpdateManager()
     {
         _currentTime += Time.deltaTime * _timeScale;
-        OnTimeChangedEvent?.Invoke(Hour, Minute);
+        OnTimeChangedEvent?.Invoke(Mathf.FloorToInt(Hour), Mathf.FloorToInt(Minute));
         CheckDayCount();
     }
 
     private void CheckDayCount(){
         if(_currentTime >= _totalDay * DayDelay){
-            // ?˜ë£¨ê°€ ì§€??
+            // ?ï¿½ë£¨ê°€ ì§€??
             //GameManager.Instance.GetManager<LetterManager>().SendReportLetter();
 
             ++Day;
