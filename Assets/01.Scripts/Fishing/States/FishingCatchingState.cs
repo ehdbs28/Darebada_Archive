@@ -24,7 +24,7 @@ public class FishingCatchingState : FishingState
         }
         set{
             _percent = value;
-            (GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.Fishing) as FishingScreen).SetHeight(_percent, _percent * _stringLength);
+            (GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.Fishing) as FishingScreen).SetHeight(_percent, _percent * _lenght);
         }
     }
 
