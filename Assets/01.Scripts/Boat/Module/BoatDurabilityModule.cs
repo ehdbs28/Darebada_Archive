@@ -8,7 +8,7 @@ public class BoatDurabilityModule : CommonModule<BoatController>
 {
     private float _maxDurability{
         get{
-            BoatData data = GameManager.Instance.GetManager<DataManager>().GetData(Core.DataType.BoatData) as BoatData;
+            BoatData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.BoatData) as BoatData;
             return data.MaxDurablity;
         }
     }

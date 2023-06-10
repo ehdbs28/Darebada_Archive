@@ -14,10 +14,6 @@ public class Fishs
 }
 public class Fishbowl :  Facility
 {
-    private void Update()
-    {
-        CheckCollision();
-    }
     private void Awake()
     {
         _collider = GetComponent<Collider>();
@@ -35,20 +31,20 @@ public class Fishbowl :  Facility
             Debug.Log(fishs[key].fishList.Count);
             for(int i = 0; i < amount - fishs[key].fishList.Count;i++)
             {
-                GameObject obj = AquariumManager.Instance.AddFish(key, transform);
+                //GameObject obj = AquariumManager.Instance.AddFish(key, transform);
                 
-                obj.GetComponent<SoonMockFish>().id = key;
-                obj.GetComponent<SoonMockFish>().ChangeName();
-                fishs[key].fishList.Add(obj.GetComponent<SoonMockFish>());
+               // obj.GetComponent<SoonMockFish>().id = key;
+                //obj.GetComponent<SoonMockFish>().ChangeName();
+               // fishs[key].fishList.Add(obj.GetComponent<SoonMockFish>());
             }
         }else
         {
-            GameObject obj = AquariumManager.Instance.AddFish(key, transform);
-            fishs.Add(key, new Fishs());
-            fishs[key].fishList = new List<SoonMockFish>();
-            fishs[key].fishList.Add(obj.GetComponent<SoonMockFish>());
-            obj.GetComponent<SoonMockFish>().id = key;
-            obj.GetComponent<SoonMockFish>().ChangeName();
+          //  GameObject obj = AquariumManager.Instance.AddFish(key, transform);
+          //  fishs.Add(key, new Fishs());
+         //   fishs[key].fishList = new List<SoonMockFish>();
+            //fishs[key].fishList.Add(obj.GetComponent<SoonMockFish>());
+           // obj.GetComponent<SoonMockFish>().id = key;
+           // obj.GetComponent<SoonMockFish>().ChangeName();
         }
         
     }
@@ -60,27 +56,27 @@ public class Fishbowl :  Facility
     public void Upgrade()
     {
         Cost = 3 * MaxAmount * 300;
-        if(Cost <= MoneyManager.Instance.money)
-        {
-            MoneyManager.Instance.money -= Cost;
-            MaxAmount++;
-        }
+        // if(Cost <= MoneyManager.Instance.money)
+        // {
+        //     MoneyManager.Instance.money -= Cost;
+        //     MaxAmount++;
+        // }
     }
     public void AddDeco(int id)
     {
         if(!Decorations.ContainsKey(id))
         {
-            Deco deco = AquariumManager.Instance.AddDeco(id, transform).GetComponent<Deco>();
-            Decorations.Add(id, deco);
-            deco.gameObject.transform.localPosition = deco.pos;
-            AquariumManager.Instance.decoCount++;
+           // Deco deco = AquariumManager.Instance.AddDeco(id, transform).GetComponent<Deco>();
+           // Decorations.Add(id, deco);
+           // deco.gameObject.transform.localPosition = deco.pos;
+            //AquariumManager.Instance.decoCount++;
         }
         else
         {
             Deco deco = Decorations[id];
             Decorations.Remove(id);
             Destroy(deco.gameObject);
-            AquariumManager.Instance.decoCount--;
+            //AquariumManager.Instance.decoCount--;
         }
     }
     public override Facility OnTouched()

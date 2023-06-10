@@ -1,16 +1,11 @@
+using Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AquariumManager : MonoBehaviour
+public class AquariumManager : MonoBehaviour, IManager
 {
-    #region "ÀÚ¿ø ¹× ¿ä¼Òµé"
-
-    public long Gold
-    {
-        get { return MoneyManager.Instance.money; }
-        set { MoneyManager.Instance.money = value; }
-    }
+    #region "ï¿½Ú¿ï¿½ ï¿½ï¿½ ï¿½ï¿½Òµï¿½"
     [SerializeField] private int _cleanScore;
     public int CleanScore
     {
@@ -42,15 +37,14 @@ public class AquariumManager : MonoBehaviour
         set { _artScore = value; }
     }
     #endregion
-    //½Ì±ÛÅæ
-    public static AquariumManager Instance;
-
-    //Å©±â °ü·Ã
+    //ï¿½Ì±ï¿½ï¿½ï¿½
+    //ï¿½Ø¾ï¿½ï¿½ï¿½ ï¿½ï¿½= ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö±ï¿½
+    //Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField] GameObject floor;
     [SerializeField] Vector3 _floorSize;
     [SerializeField] private int _horizontalCount = 5;
     
-    //¾ÆÄí¾Æ¸®¿ò ³» ½Ã¼³µé
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Æ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã¼ï¿½ï¿½ï¿½
     [SerializeField] GameObject _fishBowlObject;
     [SerializeField] GameObject _fishObject;
     [SerializeField] GameObject _decoObject;
@@ -61,6 +55,7 @@ public class AquariumManager : MonoBehaviour
     public List<Facility> aquarium = new List<Facility>();
     public Transform endTarget;
 
+    public LayerMask facilityLayer;
     public Facility facilityObj;
 
     [SerializeField] private BuildFacility _build;
@@ -68,49 +63,22 @@ public class AquariumManager : MonoBehaviour
     public enum STATE
     {
         NORMAL,
+        MOVE,
         BUILD
     }
     public STATE state = STATE.NORMAL;
-    public InputManager inputManager;
-    private void Awake()
-    {
-        if(aquaObject.Count <=0)
-        {
-            AddFishBowl();
 
-        }
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else Destroy(this);
-        inputManager = FindObjectOfType<InputManager>();
-        _build = GetComponent<BuildFacility>();
-        inputManager.InitManager();
-    }
     private void Update()
     {
-        EntrancePercent = Mathf.Clamp((float)((float)aquaObject.Count/(float)EntranceFee)*100f,0f,200f);
-        Reputation = (EntrancePercent/100f * CleanScore/100f * ArtScore/100f) * 100f;
-        ArtScore = Mathf.Clamp(((float)(decoCount/2)/ aquarium.Count) * 100, 0, 100);
-        if(state == STATE.BUILD)
-        {
-            Debug.Log(inputManager.MousePositionToGroundRayPostion);
-            if(Input.GetMouseButton(0) && inputManager.MousePositionToGroundRayPostion != Vector3.zero  )
-            {
-                facilityObj.transform.position =  _build.GetFacilityPos();
-            }
-        }
+        UpdateManager();
     }
     public void SetFacilityPos()
     {
-        Debug.Log(facilityObj.transform.position);
-
         if (facilityObj.CheckCollision()) 
         {
+            state = STATE.MOVE;
+            Debug.Log(state);
 
-            state = STATE.NORMAL;
             aquaObject.Add(facilityObj.gameObject);
             if (facilityObj.GetComponent<Fishbowl>())
             {
@@ -123,13 +91,7 @@ public class AquariumManager : MonoBehaviour
     {
         _buildPanel.SetActive(false);
         Fishbowl fishBowl = Instantiate(_fishBowlObject).GetComponent<Fishbowl>();
-            _floorSize.z = aquaObject.Count % _horizontalCount * 5;
-        if(aquaObject.Count%_horizontalCount==0)
-        {
-            Debug.Log("Asdf");
-            _floorSize.x += 5;
-        }
-        fishBowl.transform.localPosition = new Vector3(_floorSize.x, 0, _floorSize.z);
+        fishBowl.transform.localPosition = Vector3.zero;
         facilityObj = fishBowl;
 
         state = STATE.BUILD;
@@ -139,13 +101,8 @@ public class AquariumManager : MonoBehaviour
     {
         _buildPanel.SetActive(false);
         SnackShop snackShop = Instantiate(_snackShopObject).GetComponent<SnackShop>();
-        _floorSize.z = aquaObject.Count % _horizontalCount * 5;
-        if (aquaObject.Count % _horizontalCount == 0)
-        {
-            Debug.Log("Asdf");
-            _floorSize.x += 5;
-        }
-        snackShop.transform.localPosition = new Vector3(_floorSize.x, 0.5f, _floorSize.z);
+        
+        snackShop.transform.localPosition = Vector3.zero;
         facilityObj = snackShop;
         state = STATE.BUILD;
     }
@@ -170,5 +127,53 @@ public class AquariumManager : MonoBehaviour
         deco.transform.localPosition = deco.GetComponent<Deco>().pos;
         return deco;
     }
-    
+
+    private void MouseClickHandle(bool value){
+        if(value){
+            RaycastHit hit;
+            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+            {
+                facilityObj = hit.collider.GetComponent<Facility>();
+            }
+            else{
+                facilityObj = null;
+            }
+        }
+        else{
+            facilityObj = null;
+        }
+    }
+
+    public void InitManager()
+    {
+        if (aquaObject.Count <= 0)
+        {
+            AddFishBowl();
+        }
+        _build = GetComponent<BuildFacility>();
+
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += MouseClickHandle;
+    }
+
+    public void ResetManager()
+    {
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= MouseClickHandle;
+    }
+
+    public void UpdateManager()
+    {
+        EntrancePercent = Mathf.Clamp((float)((float)aquaObject.Count / (float)EntranceFee) * 100f, 0f, 200f);
+        Reputation = (EntrancePercent / 100f * CleanScore / 100f * ArtScore / 100f) * 100f;
+        ArtScore = Mathf.Clamp(((float)(decoCount / 2) / aquarium.Count) * 100, 0, 100);
+        if (state == STATE.BUILD)   
+        {
+            RaycastHit hit;
+            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
+            if (facilityObj != null && Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+            {
+                facilityObj.transform.position = _build.GetFacilityPos();
+            }
+        }
+    }
 }

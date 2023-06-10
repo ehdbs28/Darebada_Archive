@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Core;
+using Unity.VisualScripting;
 
-public class LetterManager : IManager
+public class LetterManager : MonoBehaviour,IManager
 {
-    private List<LetterUnit> _letters;
-
+    [SerializeField]private List<LetterUnit> _letters;
+    [SerializeField] private LetterTemplateSO ThanksTemplate;
+    [SerializeField] private LetterTemplateSO RequestTemplate;
     public LetterManager(){
         ResetManager();
     }
@@ -19,16 +21,58 @@ public class LetterManager : IManager
     public void UpdateManager()
     {
     }
+    public void SendRequestLetter(int requestId)
+    {
+        Debug.Log("�ο� �߰���-�̽�-");
 
-    public void SendReportLetter(){
-        string title = $"{GameManager.Instance.GetManager<TimeManager>().Year}년째 {GameManager.Instance.GetManager<TimeManager>().Month}월 {GameManager.Instance.GetManager<TimeManager>().Day}일 아쿠아리움 명세서";
-        string desc = $"대충 명세서 내용";
-        string date = $"{GameManager.Instance.GetManager<TimeManager>().Year}년째 {GameManager.Instance.GetManager<TimeManager>().Month}월 {GameManager.Instance.GetManager<TimeManager>().Day}일";
-        string from = $"아쿠아리움 관리인";
+        string title = RequestTemplate.titles[requestId];
+        string desc = RequestTemplate.descs[requestId];
+        string date = $"{GameManager.Instance.GetManager<TimeManager>().Month}M {GameManager.Instance.GetManager<TimeManager>().Day}D";
+        string from = "AquariumManager";
+        LetterUnit letter = new LetterUnit();
+        letter.Setup(LetterType.REQUEST, title, desc, date, from);
+        AddLetter(letter);
+    }
+    public void SendReviewLetter()
+    {
+        Debug.Log("���� �߰���-�̽�-");
+        int id = Random.Range(0, ThanksTemplate.titles.Count);
+        string title = ThanksTemplate.titles[id];
+        string desc = ThanksTemplate.descs[id];
+        string date = $"{GameManager.Instance.GetManager<TimeManager>().Month}M {GameManager.Instance.GetManager<TimeManager>().Day}D";
+        string from = ThanksTemplate.froms[Random.Range(0,ThanksTemplate.froms.Count)];
+        LetterUnit letter = new LetterUnit();
+        letter.Setup(LetterType.THANKS,title, desc, date, from);
+        AddLetter(letter);
+    }
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
 
-        LetterUnit report = new LetterUnit(LetterType.REPORT, title, desc, date, from);
+            SendReviewLetter();
+        }else if(Input.GetKeyDown(KeyCode.J))
+        {
+            SendRequestLetter(0);
+        }else if(Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log(_letters[0].Date);
+            Debug.Log(_letters[0].Title);
+            Debug.Log(_letters[0].Desc);
+            Debug.Log(_letters[0].From);
+            _letters.RemoveAt(0);
+        }
+    }
+    public void SendReportLetter(int entranceRevenue, int etcRevenue, int managerSalary, int employeeSalary, int manageCost)
+    {
 
-        AddLetter(report);
+        string date = $"{GameManager.Instance.GetManager<TimeManager>().Month}M {GameManager.Instance.GetManager<TimeManager>().Day}D";
+        string title = date + "";//InsertTitle
+        string desc = $"{entranceRevenue}\n{etcRevenue}\n\n{managerSalary}\n{employeeSalary}\n{manageCost}";//InsertDesc
+        string from = "AquariumManager";
+        LetterUnit letter = new LetterUnit();
+        letter.Setup(LetterType.THANKS, title, desc, date, from);
+        AddLetter(letter);
     }
 
     private void AddLetter(LetterUnit data){

@@ -7,17 +7,20 @@ public class CastingPopup : UIPopup
 {
     private VisualElement _valueBar;
     
-    private Vector3 _valueScale;
-    private float _heigthSetValue = 0.5f;
-
     protected override void AddEvent(VisualElement root)
     {
-        _valueScale = _valueBar.transform.scale;
-        _valueBar.transform.scale = new Vector3(_valueScale.x, Mathf.Sin(Time.deltaTime * 0.5f) * _heigthSetValue + _heigthSetValue, _valueScale.z);
+    }
+    
+    public override void RemoveEvent()
+    {
     }
 
     protected override void FindElement(VisualElement root)
     {
         _valueBar = root.Q<VisualElement>("value");
+    }
+
+    public void SetValue(float value){
+        _valueBar.style.scale = new StyleScale(new Scale(new Vector3(1, value)));
     }
 }  

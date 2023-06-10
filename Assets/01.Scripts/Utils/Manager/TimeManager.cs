@@ -7,7 +7,7 @@ using System;
 
 public class TimeManager : IManager
 {
-    // 하루에 12분
+    // ?�루??12�?
     private float _currentTime = 0f;
     private int _totalDay = 0;
 
@@ -28,7 +28,7 @@ public class TimeManager : IManager
         }
     }
 
-    // 수치적인 시간 [ 사용 할 때에는 Mathf.floorToInt 해줘야 정상적으로 출력 됨 ]
+    // ?�치?�인 ?�간 [ ?�용 ???�에??Mathf.floorToInt ?�줘???�상?�으�?출력 ??]
     public int Hour => (int)(_currentTime % DayDelay / HourDelay);
     public int Minute => (int)(_currentTime % DayDelay / MinuteDelay % 12) * 5;
 
@@ -36,7 +36,7 @@ public class TimeManager : IManager
     public int Month { get; private set; } = 3;
     public int Day { get; private set; } = 0;
 
-    // 이벤트
+    // ?�벤??
     public event Action<int, int> OnTimeChangedEvent = null;
     public event Action<int, int, int> OnDayChangedEvent = null; 
 
@@ -61,8 +61,8 @@ public class TimeManager : IManager
 
     private void CheckDayCount(){
         if(_currentTime >= _totalDay * DayDelay){
-            // 하루가 지남
-            GameManager.Instance.GetManager<LetterManager>().SendReportLetter();
+            // ?�루가 지??
+            //GameManager.Instance.GetManager<LetterManager>().SendReportLetter();
 
             ++Day;
             ++_totalDay;

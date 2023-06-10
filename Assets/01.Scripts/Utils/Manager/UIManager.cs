@@ -51,16 +51,18 @@ public class UIManager : MonoBehaviour, IManager
     }
 
     public void ShowPanel(ScreenType type, bool clearScreen = true){
+        _screens[_activeScreen].RemoveEvent();
+
         if(_screens[type] != null){
-            _screens[type]?.SetUp(_document, clearScreen);
             _screens[type]?.SetUp(_blurDocument, clearScreen);
+            _screens[type]?.SetUp(_document, clearScreen);
             _activeScreen = type;
         }
     }
 
-    public void ShowPanel(PopupType type, bool clearScreen = false){
+    public void ShowPanel(PopupType type, bool clearScreen = false, bool blur = true, bool timeStop = true){
         if(_popups[type] != null && _popups[type].IsOpenPopup == false){
-            _popups[type]?.SetUp(_document, clearScreen);
+            _popups[type]?.SetUp(_document, clearScreen, blur, timeStop);
             _activePopup = type;
         }
     }
@@ -82,6 +84,14 @@ public class UIManager : MonoBehaviour, IManager
         return pick != null;
     }
 
-    public void UpdateManager() {}
+    public void UpdateManager() {
+        if(Input.GetKeyDown(KeyCode.B)){
+            ShowPanel(ScreenType.AquariumEdit);
+        }
+
+        if(Input.GetKeyDown(KeyCode.K)){
+            ShowPanel(PopupType.TankUpgrade);
+        }
+    }
     public void ResetManager() {}
 }

@@ -8,7 +8,6 @@ public class FishDexManager : MonoBehaviour
 {
     [SerializeField] InfoPanel infoPanel;
     [SerializeField] Transform iconParent;
-    public static FishDexManager Instance;
     public GameObject fishIconObject;
     [SerializeField] List<FishInfoSO> infoSOList;
     public Dictionary<string, FishInfoSO> fishInfos = new Dictionary<string, FishInfoSO>();
@@ -23,11 +22,6 @@ public class FishDexManager : MonoBehaviour
         {
             fishInfos.Add(so.fishName, so);
         }
-        if (Instance != null)
-        {
-            Destroy(this);
-        }
-        Instance = this;
         List<string> keys = fishInfos.Keys.ToList<string>();
         for (int i = 0; i < keys.Count; i++)
         {

@@ -22,6 +22,11 @@ TagManager:
   - TestObstacle
   - PostProcessing
   - PostProcessing_Blur
+  - BlurScreen
+  - Obstacle
+  - 
+  - 
+  - 
   - 
   - 
   - 

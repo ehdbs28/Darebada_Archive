@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/07.UI/DictionaryUI.uss?fileID=7433441132597879392&amp;guid=1f2b4b5cbf925ee40bb912cbc9d3a094&amp;type=3#DictionaryUI" />
-    <Style src="project://database/Assets/07.UI/OceneUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceneUI" />
+    <Style src="project://database/Assets/07.UI/OceanUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceanUI" />
     <Style src="project://database/Assets/07.UI/LetterUI.uss?fileID=7433441132597879392&amp;guid=0ff408542c843224b959d6961bacb71f&amp;type=3#LetterUI" />
     <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
     <ui:VisualElement name="dictionary-container" style="width: 70%; height: 60%; left: 15%; top: 20%; background-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; position: absolute;">
@@ -9,7 +9,7 @@
             <ui:Label text="도감" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 40px; position: absolute;" />
         </ui:VisualElement>
         <ui:VisualElement name="contents" style="flex-grow: 1; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); border-top-width: 2px;">
-            <ui:VisualElement name="content-detail" style="position: absolute; width: 100%; height: 100%; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; overflow: hidden; display: none;">
+            <ui:VisualElement name="content-detail" style="position: absolute; width: 100%; height: 100%; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; overflow: hidden; display: none; visibility: hidden;">
                 <ui:VisualElement name="header" style="height: 75px; width: 100%; justify-content: center; align-items: center; margin-bottom: 20px; flex-basis: 7%;">
                     <ui:Label text="붕어" display-tooltip-when-elided="true" name="name-text" class="text" style="-unity-text-align: middle-center; font-size: 45px; width: 100px;" />
                     <ui:VisualElement name="back-btn" style="position: absolute; width: 50px; height: 50px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Arrow%204%20W%20Icon.png?fileID=21300000&amp;guid=539a4c67d1d328e4ab6c8f533d26a90b&amp;type=3#Free Flat Arrow 4 W Icon&apos;); left: 0;" />
@@ -64,7 +64,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:ScrollView name="content-scroll" style="width: 100%; height: 100%;">
+            <ui:ScrollView name="content-scroll" style="width: 100%; height: 100%; visibility: visible;">
                 <ui:VisualElement name="biome1" style="width: 100%; height: 500px; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; margin-bottom: 20px;">
                     <ui:VisualElement name="biome-name" style="height: 75px; padding-bottom: 20px; width: 100%;">
                         <ui:VisualElement name="name-box" style="background-color: rgba(0, 0, 0, 0.78); width: 100%; height: 100%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">

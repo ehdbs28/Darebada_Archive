@@ -123,6 +123,10 @@ public class InventoryPopup : UIPopup
             ++i;
         }
     }
+    
+    public override void RemoveEvent()
+    {
+    }
 
     protected override void FindElement(VisualElement root)
     {

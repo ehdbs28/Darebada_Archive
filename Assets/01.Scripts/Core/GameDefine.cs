@@ -3,20 +3,6 @@ using System.Collections;
 using UnityEngine;
 
 namespace Core{
-    public enum CameraState{
-        BOAT_FOLLOW = 0,
-        BOBBER_FOLLOW,
-        ROTATE,
-        FINISH
-    }
-
-    public enum DataType{
-        BoatData,
-        PlayerData,
-        FishingData,
-        GameData,
-    }
-
     public class Define{
         private static Camera _mainCam = null;
         public static Camera MainCam{
@@ -49,7 +35,7 @@ namespace Core{
         public static float HourDelay => DayDelay / 24;
         public static float MinuteDelay => HourDelay / 12;
         
-        // 12월 부터 시작
+        // 12??부???�작
         public static int[] DayPerMonth = { 31, 31, IsLeapYear(GameManager.Instance.GetManager<TimeManager>().Year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30 };
 
         public static bool IsLeapYear(int year){

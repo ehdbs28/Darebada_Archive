@@ -1,5 +1,7 @@
 public enum ScreenType{
-    // Camp = 0,
-    Ocene,
-    // Fishing,
+    Camp = 0,
+    Ocean,
+    Fishing,
+    Aquarium,
+    AquariumEdit,
 }

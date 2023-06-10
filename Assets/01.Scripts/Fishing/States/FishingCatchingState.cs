@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,20 @@ public class FishingCatchingState : FishingState
     private Vector3 _start;
     private Vector3 _end;
 
+    private float _stringLength;
+
     private float _throwTime;
     private float _currentTime = 0f;
     private float _percent = 0f;
+    private float percent {
+        get {
+            return _percent;
+        }
+        set{
+            _percent = value;
+            (GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.Fishing) as FishingScreen).SetHeight(_percent, _percent * _stringLength);
+        }
+    }
 
     private LayerMask _fishLayer;
 
@@ -27,17 +39,19 @@ public class FishingCatchingState : FishingState
 
     public override void EnterState()
     {
+        GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Fishing);
+
         _start = _bobberTrm.position;
         _end = _start + _controller.ActionData.LastThrowDirection.normalized; 
 
-        float stringLength = 10 - _controller.ActionData.LastChargingPower * 10 / _controller.FishingData.MaxChargingPower + 1; 
+        _stringLength = 10 - _controller.ActionData.LastChargingPower * 10 / _controller.FishingData.MaxChargingPower + 1; 
         // 10 이라는 상수 값은 후에 최대 낚시 찌가 들어갈 거리로 바꿔줘야 함
         
-        _end.y = -stringLength;
+        _end.y = -_stringLength;
 
         _throwTime = Mathf.Max(0.3f, Vector3.Distance(_start, _end)) / _controller.FishingData.ThrowingSpeed;
         _currentTime = 0f;
-        _percent = 0f;
+        percent = 0f;
 
         _isReadyToCatch = false;
 
@@ -71,10 +85,10 @@ public class FishingCatchingState : FishingState
 
                 // 나중에 조건 고치기
                 if(Input.GetKey(KeyCode.Space)){
-                    _percent -= _controller.FishingData.ThrowingSpeed * Time.deltaTime / _throwTime;
+                    percent -= _controller.FishingData.ThrowingSpeed * Time.deltaTime / _throwTime;
                     _bobberTrm.position = GetLerpPos();
 
-                    if(_percent <= 0){
+                    if(percent <= 0){
                         _controller.ActionData.IsFishing = false;
                         _controller.ActionData.IsUnderWater = false;
                     }
@@ -92,7 +106,7 @@ public class FishingCatchingState : FishingState
         else{
             // 나중에 조건 고치기
             if(Input.GetKeyDown(KeyCode.Space)){
-                _percent = 1f;
+                percent = 1f;
                 _isReadyToCatch = true;
             }
         }
@@ -101,16 +115,16 @@ public class FishingCatchingState : FishingState
     }
 
     private IEnumerator ToThrow(){
-        while(_percent < 1 && _isReadyToCatch == false){
+        while(percent < 1 && _isReadyToCatch == false){
             _currentTime += _controller.FishingData.ThrowingSpeed * Time.deltaTime;
-            _percent = _currentTime / _throwTime;
+            percent = _currentTime / _throwTime;
 
             _bobberTrm.position = GetLerpPos();
 
             yield return null;
         }
 
-        _percent = 1f;
+        percent = 1f;
         _bobberTrm.position = GetLerpPos();
 
         _isReadyToCatch = true;
@@ -119,6 +133,6 @@ public class FishingCatchingState : FishingState
     }
 
     private Vector3 GetLerpPos(){
-        return Vector3.Lerp(_start, _end, _percent);
+        return Vector3.Lerp(_start, _end, percent);
     }
 }

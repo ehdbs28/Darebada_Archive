@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ReportLetterUnit : LetterUnit
 {
-    public ReportLetterUnit(LetterType type, string title, string desc, string date, string from) : base(type, title, desc, date, from)
+    public ReportLetterUnit(LetterType type, string title, int a, int b, string date, string from)
     {
+        //base.Setup(type, title, templete(a, b), date, from);
     }
 }

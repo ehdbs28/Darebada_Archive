@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class UiButtonObject : MonoBehaviour, IButtonObject
 {
-    [SerializeField] GameObject _upgradeUI;
-    public void OnClick()
+    [SerializeField] PopupType popType;
+    public void OnTouch()
     {
-        _upgradeUI.SetActive(true);
+        GameManager.Instance.GetManager<UIManager>().ShowPanel(popType);
     }
     
 }

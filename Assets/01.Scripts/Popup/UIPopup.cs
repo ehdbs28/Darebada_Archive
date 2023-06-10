@@ -10,8 +10,25 @@ public abstract class UIPopup : UIScreen
 
     VisualElement _blurPanel = null;
 
-    public override void SetUp(UIDocument document, bool clearScreen = true){
+    public void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true){
+        _isOpenPopup = true;
+
         _documentRoot = document.rootVisualElement.Q("main-container");
+
+        if(clearScreen && _documentRoot.childCount >= 2){
+            for(int i = 0; i < _documentRoot.childCount; i++){
+                if(_documentRoot.ElementAt(i).ClassListContains("blur-panel")) continue;
+                _documentRoot.RemoveAt(i);
+            }
+        }
+
+        if(timeStop)
+            GameManager.Instance.GetManager<TimeManager>().TimeScale = 0f;
+
+        if(blur){
+            _blurPanel = _documentRoot.Q(className: "blur-panel");
+            _blurPanel.AddToClassList("on");
+        }
 
         VisualElement generatedRoot = GenerateRoot();
 
@@ -23,13 +40,6 @@ public abstract class UIPopup : UIScreen
 
     protected override VisualElement GenerateRoot()
     {
-        _isOpenPopup = true;
-
-        GameManager.Instance.GetManager<TimeManager>().TimeScale = 0f;
-
-        _blurPanel = _documentRoot.Q(className: "blur-panel");
-        _blurPanel.AddToClassList("on");
-
         _root = _treeAsset.Instantiate();
         _root = _root.ElementAt(0);
         
@@ -39,12 +49,16 @@ public abstract class UIPopup : UIScreen
     }
 
     public virtual void RemoveRoot(){
-        if(_documentRoot == null || _root == null || _blurPanel == null){
+        if(_documentRoot == null || _root == null){
             return;
         }
 
+        RemoveEvent();
+
         _documentRoot.Remove(_root);
-        _blurPanel.RemoveFromClassList("on");
+
+        if(_blurPanel != null)
+            _blurPanel.RemoveFromClassList("on");
 
         _documentRoot = null;
         _root = null;
@@ -54,7 +68,4 @@ public abstract class UIPopup : UIScreen
 
         _isOpenPopup = false;
     }
-
-    protected override abstract void AddEvent(VisualElement root);
-    protected override abstract void FindElement(VisualElement root);
 }

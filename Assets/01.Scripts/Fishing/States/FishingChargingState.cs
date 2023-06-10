@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class FishingChargingState : FishingState
 {
     private Transform _playerTrm;
 
+    private float _maxChargingPower => (GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData) as FishingData).MaxChargingPower;
     private float _currentChargingPower = 0f;
     private float _powerDir = 1f;
 
@@ -13,6 +15,8 @@ public class FishingChargingState : FishingState
 
     public override void EnterState()
     {
+        GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Casting, true, false, false);
+
         _playerTrm = _controller.transform.parent;
 
         _currentChargingPower = 0f;
@@ -21,6 +25,8 @@ public class FishingChargingState : FishingState
 
     public override void ExitState()
     {
+        GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Casting).RemoveRoot();
+        
         _controller.ActionData.LastChargingPower = _currentChargingPower;
         _controller.ActionData.LastThrowDirection = _currentDir;
     }
@@ -34,8 +40,11 @@ public class FishingChargingState : FishingState
         if(_currentChargingPower >= _controller.FishingData.MaxChargingPower || _currentChargingPower <= 0f)
             _powerDir *= -1;
 
-        _currentDir = GameManager.Instance.GetManager<InputManager>().MousePositionToGroundRayPostion - _playerTrm.position;
-        _currentDir.y = _playerTrm.position.y;
+        (GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Casting) as CastingPopup).SetValue(_currentChargingPower / _maxChargingPower);
+
+        Vector3 mousePos = GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint();
+        mousePos.y = _playerTrm.position.y;
+        _currentDir = mousePos - _playerTrm.position;
         Rotation(_currentDir);
     }
 

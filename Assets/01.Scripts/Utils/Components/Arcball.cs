@@ -17,14 +17,8 @@ public class Arcball
 
     public Vector3 GetSphericalCoordinates(Vector3 cartesian)
     {
-        float r = Mathf.Sqrt(
-            Mathf.Pow(cartesian.x, 2) + 
-            Mathf.Pow(cartesian.y, 2) + 
-            Mathf.Pow(cartesian.z, 2)
-        );
-
-        float phi = Mathf.Atan2(cartesian.z / cartesian.x, cartesian.x);
-        float theta = Mathf.Acos(cartesian.y / r);
+        float phi = Mathf.Atan2(cartesian.y, cartesian.x);
+        float theta = Mathf.Acos(cartesian.z / _radius);
 
         if (cartesian.x < 0)
             phi += Mathf.PI;

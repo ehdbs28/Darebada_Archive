@@ -22,7 +22,7 @@ public class Consumer : MonoBehaviour
         {
             targets.Add(facilities[Random.Range(0,facilities.Count)].transform);
         }
-        targets.Add(AquariumManager.Instance.endTarget);
+        //targets.Add(AquariumManager.Instance.endTarget);
     }
     NavMeshAgent _agent;
     private void Update()
