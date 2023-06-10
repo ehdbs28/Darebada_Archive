@@ -3970,7 +3970,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544189282}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.48, y: -0.96, z: 33.009}
+  m_LocalPosition: {x: -4.46, y: -0.13, z: 33.009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3991,8 +3991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boidUnitPrefab: {fileID: 6458884287292012828, guid: 79c38e7a8d6b59149816ab0b05434922, type: 3}
   boidCount: 5
-  spawnRange: 3.5
-  speedRange: {x: 1, y: 0.5}
+  spawnRange: 4
+  speedRange: {x: 1.5, y: 0.8}
   cohesionWeight: 0.3
   alignmentWeight: 6
   separationWeight: 1.5
