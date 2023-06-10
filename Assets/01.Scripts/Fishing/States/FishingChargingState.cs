@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class FishingChargingState : FishingState
 {
+    [SerializeField]
+    private Transform _bobberPos;
+
+    private Transform _bobberTrm;
     private Transform _playerTrm;
 
     private float _maxChargingPower => (GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData) as FishingData).MaxChargingPower;
@@ -13,11 +17,17 @@ public class FishingChargingState : FishingState
 
     private Vector3 _currentDir;
 
+    public override void SetUp(Transform agentRoot)
+    {
+        base.SetUp(agentRoot);
+
+        _bobberTrm = agentRoot.Find("Bobber");
+        _playerTrm = agentRoot;
+    }
+
     public override void EnterState()
     {
         GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Casting, true, false, false);
-
-        _playerTrm = _controller.transform.parent;
 
         _currentChargingPower = 0f;
         _powerDir = 1f;
@@ -34,6 +44,8 @@ public class FishingChargingState : FishingState
     public override void UpdateState()
     {
         base.UpdateState();
+
+        _bobberTrm.position = _bobberPos.position;
 
         _currentChargingPower += _powerDir * _controller.FishingData.ChargingSpeed * Time.deltaTime;
 
@@ -62,4 +74,8 @@ public class FishingChargingState : FishingState
             // 다 돌아갔을 때 할 일인데 아직 없음
         }
     }   
+
+    private void SetThrowingHandle(){
+        _controller.ActionData.IsThrowing = true;
+    }
 }
