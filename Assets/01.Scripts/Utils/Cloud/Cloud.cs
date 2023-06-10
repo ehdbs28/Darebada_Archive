@@ -9,11 +9,8 @@ public class Cloud : MonoBehaviour
 
     private Vector2 _bound;
 
-    private void Awake() {
-        _rigid = GetComponent<Rigidbody>();
-    }
-
     public void SetUp(float speed, float bound_front, float bound_back){
+        _rigid = GetComponent<Rigidbody>();
         _speed = speed;
         _rigid.velocity = Vector3.forward * _speed;
         _bound = new Vector2(bound_front, bound_back);

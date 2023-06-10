@@ -17,9 +17,15 @@
             </ui:VisualElement>
             <ui:VisualElement name="blank" style="width: 100%; flex-basis: 10%;" />
             <ui:VisualElement name="element-list" style="width: 80%; height: 150px; background-color: rgba(255, 255, 255, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 0; border-top-right-radius: 10px; border-bottom-right-radius: 0; flex-direction: row; align-items: center; justify-content: space-around;">
-                <ui:VisualElement name="element" class="tank-element" style="background-image: url(&apos;project://database/Assets/03.Materials/Green.png?fileID=21300000&amp;guid=b8aa545fc6f1e054e8930ccf366c4efb&amp;type=3#Green&apos;); width: 125px; height: 125px;" />
-                <ui:VisualElement name="element" class="tank-element" style="background-image: url(&apos;project://database/Assets/03.Materials/Purple.png?fileID=21300000&amp;guid=afe700cc917c7ba429b307bff459d69b&amp;type=3#Purple&apos;); width: 125px; height: 125px;" />
-                <ui:VisualElement name="element" class="tank-element" style="background-image: url(&apos;project://database/Assets/03.Materials/Corals.png?fileID=21300000&amp;guid=859401baae4db5841910364ee16a81fa&amp;type=3#Corals&apos;); width: 125px; height: 125px;" />
+                <ui:VisualElement name="element" class="tank-element" style="width: 125px; height: 125px; align-items: center; justify-content: center;">
+                    <ui:VisualElement name="image" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/coral.png?fileID=21300000&amp;guid=40c63252c1a0c554b8dae69499826731&amp;type=3#coral&apos;);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="element" class="tank-element" style="width: 125px; height: 125px; align-items: center; justify-content: center;">
+                    <ui:VisualElement name="image" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/animals.png?fileID=21300000&amp;guid=cfeb8ea8f2cb690428687588ddc03744&amp;type=3#animals&apos;);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="element" class="tank-element" style="width: 125px; height: 125px; align-items: center; justify-content: center;">
+                    <ui:VisualElement name="image" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/granite.png?fileID=21300000&amp;guid=e12f801a6c297ad46aa0e9c9f5628cc2&amp;type=3#granite&apos;);" />
+                </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="element-buy-btn" style="width: 80%; height: 100px; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.86); border-top-left-radius: 0; border-bottom-left-radius: 10px; border-top-right-radius: 0; border-bottom-right-radius: 10px;">
                 <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
