@@ -39,109 +39,109 @@ public class Fish : MonoBehaviour
         _spawnPercent = data.SpawnPercent;
     }
 
-    public void Awake()
-    {
-    }
-    public void SetTargets()
-    {
+    //public void Awake()
+    //{
+    //}
+    //public void SetTargets()
+    //{
 
-        fishes = new List<Fish>();
-        cols = Physics.OverlapSphere(transform.position, 10f);
-        foreach(Collider col in cols)
-        {
-            fishes.Add(col.GetComponent<Fish>());
-        }
-    }
-    [SerializeField] float _cohPow;
-    [SerializeField] float _aliPow;
-    [SerializeField] float _sepPow;
-    public Vector3 ctrl;
-    public void Update()
-    {
-        SetTargets();
-        Vector3 dir =Vector3.Lerp((transform.forward + ctrl.normalized).normalized, 
-            Cohesion()*_cohPow+ Alignment()*_aliPow + Separation() * 
-            _sepPow,Time.deltaTime).normalized;
-        transform.position += dir * _swimSpeed * Time.deltaTime;
+    //    fishes = new List<Fish>();
+    //    cols = Physics.OverlapSphere(transform.position, 10f);
+    //    foreach(Collider col in cols)
+    //    {
+    //        fishes.Add(col.GetComponent<Fish>());
+    //    }
+    //}
+    //[SerializeField] float _cohPow;
+    //[SerializeField] float _aliPow;
+    //[SerializeField] float _sepPow;
+    //public Vector3 ctrl;
+    //public void Update()
+    //{
+    //    SetTargets();
+    //    Vector3 dir =Vector3.Lerp((transform.forward + ctrl.normalized).normalized, 
+    //        Cohesion()*_cohPow+ Alignment()*_aliPow + Separation() * 
+    //        _sepPow,Time.deltaTime).normalized;
+    //    transform.position += dir * _swimSpeed * Time.deltaTime;
         
-        transform.rotation = Quaternion.LookRotation(dir);
+    //    transform.rotation = Quaternion.LookRotation(dir);
 
-    }
-    Vector3 Cohesion()
-    {
-        Vector3 cohesionVec = Vector3.zero;
-        if (fishes.Count > 0)
-        {
-            // 이웃 unit들의 위치 더하기
-            for (int i = 0; i < fishes.Count; i++)
-            {
-                cohesionVec += fishes[i].transform.position;
-            }
-        }
-        else
-        {
-            // 이웃이 없으면 vector3.zero 반환
-            return cohesionVec;
-        }
+    //}
+    //Vector3 Cohesion()
+    //{
+    //    Vector3 cohesionVec = Vector3.zero;
+    //    if (fishes.Count > 0)
+    //    {
+    //        // 이웃 unit들의 위치 더하기
+    //        for (int i = 0; i < fishes.Count; i++)
+    //        {
+    //            cohesionVec += fishes[i].transform.position;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        // 이웃이 없으면 vector3.zero 반환
+    //        return cohesionVec;
+    //    }
 
-        // 중심 위치로의 벡터 찾기
-        cohesionVec /= fishes.Count;
-        cohesionVec -= transform.position;
-        cohesionVec.Normalize();
-        return cohesionVec;
-    }
-    Vector3 Alignment()
-    {
-        Vector3 alignmentVec = transform.forward;
-        if (fishes.Count > 0)
-        {
-            // 이웃들이 향하는 방향의 평균 방향으로 이동
-            for (int i = 0; i < fishes.Count; i++)
-            {
-                alignmentVec += fishes[i].transform.forward;
-            }
-        }
-        else
-        {
-            // 이웃이 없으면 그냥 forward로 이동
-            return alignmentVec;
-        }
+    //    // 중심 위치로의 벡터 찾기
+    //    cohesionVec /= fishes.Count;
+    //    cohesionVec -= transform.position;
+    //    cohesionVec.Normalize();
+    //    return cohesionVec;
+    //}
+    //Vector3 Alignment()
+    //{
+    //    Vector3 alignmentVec = transform.forward;
+    //    if (fishes.Count > 0)
+    //    {
+    //        // 이웃들이 향하는 방향의 평균 방향으로 이동
+    //        for (int i = 0; i < fishes.Count; i++)
+    //        {
+    //            alignmentVec += fishes[i].transform.forward;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        // 이웃이 없으면 그냥 forward로 이동
+    //        return alignmentVec;
+    //    }
 
-        alignmentVec /= fishes.Count;
-        alignmentVec.Normalize();
-        return alignmentVec;
-    }
-    Vector3 Separation()
-    {
-        Vector3 separationVec = Vector3.zero;
-        if (fishes.Count > 0)
-        {
-            // 이웃들을 피하는 방향으로 이동
-            for (int i = 0; i < fishes.Count; i++)
-            {
-                separationVec += (transform.position - fishes[i].transform.position);
-            }
-        }
-        else
-        {
-            // 이웃이 없으면 vector.zero 반환
-            return separationVec;
-        }
-        separationVec /= fishes.Count;
-        return separationVec;
+    //    alignmentVec /= fishes.Count;
+    //    alignmentVec.Normalize();
+    //    return alignmentVec;
+    //}
+    //Vector3 Separation()
+    //{
+    //    Vector3 separationVec = Vector3.zero;
+    //    if (fishes.Count > 0)
+    //    {
+    //        // 이웃들을 피하는 방향으로 이동
+    //        for (int i = 0; i < fishes.Count; i++)
+    //        {
+    //            separationVec += (transform.position - fishes[i].transform.position);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        // 이웃이 없으면 vector.zero 반환
+    //        return separationVec;
+    //    }
+    //    separationVec /= fishes.Count;
+    //    return separationVec;
 
-    }
+    //}
 
-    private Vector3 CalculateObstacleVector()
-    {
-        Vector3 obstacleVec = Vector3.zero;
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, obstacleDistance))
-        {
-            Debug.DrawLine(transform.position, hit.point, Color.black);
-            obstacleVec = hit.normal;
-            additionalSpeed = 10;
-        }
-        return obstacleVec;
-    }
+    //private Vector3 CalculateObstacleVector()
+    //{
+    //    Vector3 obstacleVec = Vector3.zero;
+    //    RaycastHit hit;
+    //    if (Physics.Raycast(transform.position, transform.forward, out hit, obstacleDistance))
+    //    {
+    //        Debug.DrawLine(transform.position, hit.point, Color.black);
+    //        obstacleVec = hit.normal;
+    //        additionalSpeed = 10;
+    //    }
+    //    return obstacleVec;
+    //}
 }
