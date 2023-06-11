@@ -17,6 +17,10 @@
                 <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Edit%20Icon.png?fileID=21300000&amp;guid=8cd55c5b366c4574d93e99269b8a01d9&amp;type=3#Free Flat Edit Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
                 <ui:Label text="도감" display-tooltip-when-elided="true" name="btn-text" class="text" />
             </ui:VisualElement>
+            <ui:VisualElement name="manage-btn" class="btn" style="justify-content: flex-end;">
+                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Person%20Icon.png?fileID=21300000&amp;guid=cac9f704575bbe744b68791d16b1806a&amp;type=3#Free Flat Person Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
+                <ui:Label text="관리" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            </ui:VisualElement>
             <ui:VisualElement name="editor-btn" class="btn" style="justify-content: flex-end;">
                 <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Menu%2010%20Icon.png?fileID=21300000&amp;guid=461c7ab371b3c814e836b1682d4162b3&amp;type=3#Free Flat Menu 10 Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
                 <ui:Label text="에디터" display-tooltip-when-elided="true" name="btn-text" class="text" />

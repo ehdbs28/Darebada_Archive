@@ -12,6 +12,7 @@ public class AquariumScreen : UIScreen
     private VisualElement _settingBtn;
     private VisualElement _letterBtn;
     private VisualElement _dictionaryBtn;
+    private VisualElement _manageBtn;
     private VisualElement _editorBtn;
 
     protected override void AddEvent(VisualElement root)
@@ -25,6 +26,10 @@ public class AquariumScreen : UIScreen
 
         _dictionaryBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Dictionary);
+        });
+
+        _manageBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.AquariumManage);
         });
 
         _editorBtn.RegisterCallback<ClickEvent>(e => {
@@ -48,6 +53,7 @@ public class AquariumScreen : UIScreen
         _settingBtn = root.Q<VisualElement>("setting-btn");
         _letterBtn = root.Q<VisualElement>("letter-btn");
         _dictionaryBtn = root.Q<VisualElement>("dictionary-btn");
+        _manageBtn = root.Q<VisualElement>("manage-btn");
         _editorBtn = root.Q<VisualElement>("editor-btn");
     }
 
