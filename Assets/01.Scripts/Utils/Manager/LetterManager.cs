@@ -23,11 +23,11 @@ public class LetterManager : MonoBehaviour,IManager
     }
     public void SendRequestLetter(int requestId)
     {
-        Debug.Log("¹Î¿ø Ãß°¡µÊ-ÄÌ½Ã-");
+        Debug.Log("ï¿½Î¿ï¿½ ï¿½ß°ï¿½ï¿½ï¿½-ï¿½Ì½ï¿½-");
 
         string title = RequestTemplate.titles[requestId];
         string desc = RequestTemplate.descs[requestId];
-        string date = $"{GameManager.Instance.GetManager<TimeManager>().Month}M {GameManager.Instance.GetManager<TimeManager>().Day}D";
+        string date = $"{GameManager.Instance.GetManager<TimeManager>().DateTime.Month}M {GameManager.Instance.GetManager<TimeManager>().DateTime.Day}D";
         string from = "AquariumManager";
         LetterUnit letter = new LetterUnit();
         letter.Setup(LetterType.REQUEST, title, desc, date, from);
@@ -35,11 +35,11 @@ public class LetterManager : MonoBehaviour,IManager
     }
     public void SendReviewLetter()
     {
-        Debug.Log("ÆíÁö Ãß°¡µÊ-ÄÌ½Ã-");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½-ï¿½Ì½ï¿½-");
         int id = Random.Range(0, ThanksTemplate.titles.Count);
         string title = ThanksTemplate.titles[id];
         string desc = ThanksTemplate.descs[id];
-        string date = $"{GameManager.Instance.GetManager<TimeManager>().Month}M {GameManager.Instance.GetManager<TimeManager>().Day}D";
+        string date = $"{GameManager.Instance.GetManager<TimeManager>().DateTime.Month}M {GameManager.Instance.GetManager<TimeManager>().DateTime.Day}D";
         string from = ThanksTemplate.froms[Random.Range(0,ThanksTemplate.froms.Count)];
         LetterUnit letter = new LetterUnit();
         letter.Setup(LetterType.THANKS,title, desc, date, from);
@@ -66,7 +66,7 @@ public class LetterManager : MonoBehaviour,IManager
     public void SendReportLetter(int entranceRevenue, int etcRevenue, int managerSalary, int employeeSalary, int manageCost)
     {
 
-        string date = $"{GameManager.Instance.GetManager<TimeManager>().Month}M {GameManager.Instance.GetManager<TimeManager>().Day}D";
+        string date = $"{GameManager.Instance.GetManager<TimeManager>().DateTime.Month}M {GameManager.Instance.GetManager<TimeManager>().DateTime.Day}D";
         string title = date + "";//InsertTitle
         string desc = $"{entranceRevenue}\n{etcRevenue}\n\n{managerSalary}\n{employeeSalary}\n{manageCost}";//InsertDesc
         string from = "AquariumManager";
