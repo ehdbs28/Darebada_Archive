@@ -18,7 +18,7 @@ public class Deco : MonoBehaviour
         {
             Destroy(transform.GetChild(i).gameObject);
         }
-        Instantiate(posList.objects[id]);
+        Instantiate(posList.objects[id], transform);
         //스프라이트 또는 모델링 변경해야함
     }
 }
