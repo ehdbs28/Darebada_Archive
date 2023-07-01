@@ -10,6 +10,10 @@ public class CastingPopup : UIPopup
     protected override void AddEvent(VisualElement root)
     {
     }
+    
+    public override void RemoveEvent()
+    {
+    }
 
     protected override void FindElement(VisualElement root)
     {

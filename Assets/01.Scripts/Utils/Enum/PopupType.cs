@@ -5,5 +5,8 @@ public enum PopupType{
     Letter,
     Shop,
     Upgrade,
+    BiomeSelect,
+    TankUpgrade,
+    AquariumManage,
 }
 

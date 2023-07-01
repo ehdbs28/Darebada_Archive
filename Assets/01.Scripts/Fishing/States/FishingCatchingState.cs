@@ -12,7 +12,8 @@ public class FishingCatchingState : FishingState
     private Vector3 _start;
     private Vector3 _end;
 
-    private float _stringLength;
+    private float _stringLength => (GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData) as FishingData).StringLength;
+    private float _lenght;
 
     private float _throwTime;
     private float _currentTime = 0f;
@@ -23,7 +24,7 @@ public class FishingCatchingState : FishingState
         }
         set{
             _percent = value;
-            (GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.Fishing) as FishingScreen).SetHeight(_percent, _percent * _stringLength);
+            (GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.Fishing) as FishingScreen).SetHeight(_percent, _percent * _lenght);
         }
     }
 
@@ -44,10 +45,9 @@ public class FishingCatchingState : FishingState
         _start = _bobberTrm.position;
         _end = _start + _controller.ActionData.LastThrowDirection.normalized; 
 
-        _stringLength = 10 - _controller.ActionData.LastChargingPower * 10 / _controller.FishingData.MaxChargingPower + 1; 
-        // 10 이라는 상수 값은 후에 최대 낚시 찌가 들어갈 거리로 바꿔줘야 함
+        _lenght = _stringLength - _controller.ActionData.LastChargingPower * 10 / _controller.FishingData.MaxChargingPower + 1; 
         
-        _end.y = -_stringLength;
+        _end.y = -_lenght;
 
         _throwTime = Mathf.Max(0.3f, Vector3.Distance(_start, _end)) / _controller.FishingData.ThrowingSpeed;
         _currentTime = 0f;
@@ -129,7 +129,7 @@ public class FishingCatchingState : FishingState
 
         _isReadyToCatch = true;
 
-        _start = new Vector3(_controller.ActionData.InitPosition.x, 0, _controller.ActionData.InitPosition.z);
+        //_start = new Vector3(_controller.ActionData.InitPosition.x, 0, _controller.ActionData.InitPosition.z);
     }
 
     private Vector3 GetLerpPos(){

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FishingIdleState : FishingState
 {
+    [SerializeField]
+    private Transform _bobberPos;
+
     private Transform _bobberTrm;
     private Transform _playerTrm;
 
@@ -12,8 +15,7 @@ public class FishingIdleState : FishingState
         base.SetUp(agentRoot);
 
         _bobberTrm = agentRoot.Find("Bobber");
-        _playerTrm = agentRoot.parent;
-        _controller.ActionData.InitPosition = _bobberTrm.position;
+        _playerTrm = agentRoot;
     }
 
     public override void EnterState()
@@ -21,8 +23,15 @@ public class FishingIdleState : FishingState
         GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Ocean);
 
         _controller.ActionData.IsFishing = false;
-        _bobberTrm.position = _controller.ActionData.InitPosition;
         GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.BOAT_FOLLOW);
+    }
+
+    public override void UpdateState()
+    {
+        base.UpdateState();
+
+        _bobberTrm.position = _bobberPos.position;
+        _bobberTrm.rotation = Quaternion.LookRotation(Vector3.down);
     }
 
     public override void ExitState()

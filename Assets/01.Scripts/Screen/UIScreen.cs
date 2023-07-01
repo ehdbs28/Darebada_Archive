@@ -39,5 +39,6 @@ public abstract class UIScreen : MonoBehaviour
     }
 
     protected abstract void AddEvent(VisualElement root);
+    public abstract void RemoveEvent();
     protected abstract void FindElement(VisualElement root);
 }

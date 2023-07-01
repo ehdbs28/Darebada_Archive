@@ -13,3 +13,7 @@
     margin-top: 1px;
     margin-bottom: 1px;
 }
+
+.fish-item {
+    transform-origin: left top;
+}

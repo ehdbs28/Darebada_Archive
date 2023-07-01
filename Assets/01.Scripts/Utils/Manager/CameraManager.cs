@@ -38,13 +38,15 @@ public class CameraManager : MonoBehaviour, IManager
     }
 
     public void SetRotateCam(Transform target, float radius, Vector3 pos, Quaternion rot, Vector3 offset, CameraState lastState){
-        RotationVCam rotVCam = (RotationVCam)SetVCam(CameraState.ROTATE);
-        rotVCam.SetRotateValue(target, radius, pos, rot, offset, lastState);
+        _currentActiveVCam?.UnselectVCam();
+        _currentActiveVCam = _rotateVCam;
+        _currentActiveVCam?.SelectVCam();
+
+        ((RotationVCam)_currentActiveVCam).SetRotateValue(target, radius, pos, rot, offset, lastState);
     }
 
     public void SetVCamList(List<VCam> vCamList){
         _virtualCams = vCamList;
-        _virtualCams.Add(_rotateVCam);
     }
 
     public void ResetManager(){}

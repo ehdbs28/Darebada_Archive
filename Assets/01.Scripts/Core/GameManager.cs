@@ -57,8 +57,8 @@ public class GameManager : MonoBehaviour
         _managers.Add(GetComponent<CameraManager>());
         _managers.Add(new TimeManager());
         _managers.Add(transform.Find("UIManager").GetComponent<UIManager>());
-        //_managers.Add(GetComponent<LightingManager>());
-        _managers.Add(new LetterManager());
+        //_managers.Add(GetComponent<DayCycleManager>());
+        //_managers.Add(FindObjectOfType< LetterManager>());
         _managers.Add(new PoolManager(_poolingTrm));
         _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
     }

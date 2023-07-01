@@ -14,31 +14,15 @@ public class InputManager : MonoBehaviour, IManager
     public event Action<bool> OnMouseClickEvent = null;
 
     private Vector3 _mousePosition;
-
     public Vector3 MousePosition => _mousePosition;
-    public Vector3 MousePositionToGroundRayPostion{
-        get{
-            RaycastHit hit;
-            bool isHit = Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit,Mathf.Infinity, _whatIsGround);
-
-            return (isHit) ? hit.point : Vector3.zero;
-        }
-    }
-
-    [SerializeField]
-    private LayerMask _whatIsGround;
 
     public InputManager(){
         ResetManager();
     }
 
     public void InitManager() {
-        //_playerInput = GameManager.Instance.GetComponent<PlayerInput>();
 
-        // ?�중??바꾸�?
     }
-
-    // new InputManager?�서 Event ?�식?�로 ?�겨???�행?�는 친구?�임
 
     public void OnMovement(InputValue value){
         OnMovementEvent?.Invoke(value.Get<float>());
@@ -58,6 +42,14 @@ public class InputManager : MonoBehaviour, IManager
 
     public void OnMousePosition(InputValue value){
         _mousePosition = value.Get<Vector2>();
+    }
+
+    public Vector3 GetMouseRayPoint(string layerName = "Ground"){
+        Ray ray = Define.MainCam.ScreenPointToRay(_mousePosition);
+        RaycastHit hit;
+        bool isHit = Physics.Raycast(ray, out hit,Mathf.Infinity, LayerMask.GetMask(layerName));
+
+        return (isHit) ? hit.point : Vector3.zero;
     }
 
     public void ResetManager(){}

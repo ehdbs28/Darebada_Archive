@@ -8,7 +8,7 @@ public class BuildFacility : MonoBehaviour
     
     public Vector3 GetFacilityPos()
     {
-        Vector3 point = GameManager.Instance.GetManager<InputManager>().MousePositionToGroundRayPostion;
+        Vector3 point = GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint();
         _objectPosition = new Vector3(Mathf.RoundToInt(point.x), Mathf.RoundToInt(point.y), Mathf.RoundToInt(point.z));
         return _objectPosition;
     }

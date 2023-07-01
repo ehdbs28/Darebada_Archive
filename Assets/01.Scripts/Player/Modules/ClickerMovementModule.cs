@@ -27,7 +27,7 @@ public class ClickerMovementModule : CommonModule<PlayerController>
 
     private void OnMouseClick(bool value){
         if(value && _controller.ActionData.PlayerState == PlayerState.CLICKER){
-            Movement(GameManager.Instance.GetManager<InputManager>().MousePositionToGroundRayPostion);
+            Movement(GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint());
         }
     }
 
