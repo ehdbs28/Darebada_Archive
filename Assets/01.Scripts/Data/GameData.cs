@@ -1,17 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
+[System.Serializable]
 public class GameData : SaveData
 {
-    public float LastWorldTime = 0.0f;
-    public int LastTotalDay = 0;
-
-    public int LastYear = 0;
-    public int LastMonth = 3;
-    public int LastDay = 0;
+    public float GameTime = 0.0f;
+    public int TotalDay = 0;
+    //public GameDate GameDateTi,e = null;
+    public int HoldingGold = 0;
+    public List<LetterUnit> HoldingLetter = null;
 
     public override void Reset()
     {
+        GameTime = 0.0f;
+        TotalDay = 0;
+        //GameDateTime = null;
+        HoldingGold = 0;
+        HoldingLetter = null;
     }
 }
