@@ -1,16 +1,14 @@
 [System.Serializable]
 public class FishingData : SaveData
 {
-    public float ChargingSpeed = 5f;
-    public float MaxChargingPower = 10f;
+    public int ThrowPower_Lever = 1;
+    public int StringLength_Lever = 1;
+    public int StringStrength_Level = 1;
 
-    public float RotationSpeed = 360f;
-
-    public float ThrowingSpeed = 3f;
-
-    public float StringLength = 10f;
-
-    public float StringStrength = 1f;
-
-    public override void Reset(){}
+    public override void Reset()
+    {
+        ThrowPower_Lever = 1;
+        StringLength_Lever = 1;
+        StringStrength_Level = 1;
+    }
 }

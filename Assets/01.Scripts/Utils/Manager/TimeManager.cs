@@ -30,10 +30,6 @@ public class TimeManager : IManager
     public float Hour => _currentTime % DayDelay / HourDelay;
     public float Minute => (int)(_currentTime % DayDelay / MinuteDelay % 12) * 5;
 
-    // public int Year { get; private set; } = 0;
-    // public int Month { get; private set; } = 3;
-    // public int Day { get; private set; } = 0;
-
     public GameDate DateTime { get; private set; } = new GameDate(0, 3, 0);
 
     public event Action<int, int> OnTimeChangedEvent = null;
@@ -43,14 +39,10 @@ public class TimeManager : IManager
     {
         GameData gameData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData;
         
-        _currentTime = gameData.LastWorldTime;
-        _totalDay = gameData.LastTotalDay;
+        _currentTime = gameData.GameTime;
+        _totalDay = gameData.TotalDay;
 
-        // Year = gameData.LastYear;
-        // Month = gameData.LastMonth;
-        // Day = gameData.LastDay;
-
-        DateTime = new GameDate(gameData.LastYear, gameData.LastMonth, gameData.LastDay);
+        DateTime = new GameDate(gameData.GameDateTime.Year, gameData.GameDateTime.Month, gameData.GameDateTime.Day);
     }
 
     public void UpdateManager()

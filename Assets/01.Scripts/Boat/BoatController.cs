@@ -7,6 +7,11 @@ public class BoatController : ModuleController
 {
     private BoatActionData _boatActionData;
     public BoatActionData BoatActionData => _boatActionData;
+    
+    [SerializeField]
+    private BoatDataSO _dataSO;
+    public BoatDataSO DataSO => _dataSO;
+
     public BoatData BoatData => GameManager.Instance.GetManager<DataManager>().GetData(DataType.BoatData) as BoatData;
 
     protected override void Awake() {
@@ -22,9 +27,5 @@ public class BoatController : ModuleController
 
         base.Update();
         _boatActionData.Forward = transform.forward;
-
-        if(Input.GetKeyDown(KeyCode.K)){
-            GetModule<BoatDurabilityModule>().SetDurability(-20);
-        }
     }
 }
