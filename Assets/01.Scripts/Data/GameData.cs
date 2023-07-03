@@ -6,7 +6,7 @@ public class GameData : SaveData
 {
     public float GameTime = 0.0f;
     public int TotalDay = 0;
-    public GameDate GameDateTime = default(GameDate);
+    public GameDate GameDateTime = null;
     public int HoldingGold = 0;
     public List<LetterUnit> HoldingLetter = null;
 
@@ -14,7 +14,7 @@ public class GameData : SaveData
     {
         GameTime = 0.0f;
         TotalDay = 0;
-        GameDateTime = default(GameDate); 
+        GameDateTime = null;
         HoldingGold = 0;
         HoldingLetter = null;
     }
