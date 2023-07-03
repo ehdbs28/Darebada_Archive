@@ -9,10 +9,11 @@ public class GameData : SaveData
     public int TotalDay = 0;
     public GameDate GameDateTime = null;
     public int HoldingGold = 0;
-    public List<LetterUnit> HoldingLetter = new List<LetterUnit>();
+    public SerializeList<LetterUnit> HoldingLetter = new SerializeList<LetterUnit>();
 
     public GameData(string FILE_PATH, string name) : base(FILE_PATH, name)
     {
+        Reset();
     }
 
     protected override void LoadData(string json)
@@ -29,8 +30,8 @@ public class GameData : SaveData
     {
         GameTime = 0.0f;
         TotalDay = 0;
-        GameDateTime = null;
+        GameDateTime = new GameDate(0, 3, 0);
         HoldingGold = 0;
-        HoldingLetter = new List<LetterUnit>();
+        HoldingLetter = new SerializeList<LetterUnit>();
     }
 }

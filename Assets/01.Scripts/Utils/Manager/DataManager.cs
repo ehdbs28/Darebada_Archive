@@ -26,10 +26,11 @@ public class DataManager : IManager
             Directory.CreateDirectory(DATA_PATH);
 
         _dataUnits.Add(DataType.BoatData, new BoatData(DATA_PATH, "BoatData"));
-        _dataUnits.Add(DataType.FishingData, new BoatData(DATA_PATH, "FishingData"));
-        _dataUnits.Add(DataType.GameData, new BoatData(DATA_PATH, "GameData"));
+        _dataUnits.Add(DataType.FishingData, new FishingData(DATA_PATH, "FishingData"));
+        _dataUnits.Add(DataType.GameData, new GameData(DATA_PATH, "GameData"));
 
         LoadData();
+        SaveDataAll();
     }
 
     private void LoadData(){
