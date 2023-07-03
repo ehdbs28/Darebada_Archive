@@ -53,7 +53,7 @@ public class FishingThrowingState : FishingState
         Vector3 end = _startPos + (_controller.ActionData.LastThrowDirection.normalized * _controller.ActionData.LastChargingPower);
         end.y = 0;
 
-        float throwTime = Mathf.Max(0.3f, Vector3.Distance(start, end)) / _controller.FishingData.ThrowingSpeed;
+        float throwTime = Mathf.Max(0.3f, Vector3.Distance(start, end)) / _controller.DataSO.ThrowingSpeed;
 
         float currentTime = 0f;
         float percent = 0f;
@@ -61,7 +61,7 @@ public class FishingThrowingState : FishingState
         float v0 = (end - start).y - _gravity;
 
         while(percent < 1){
-            currentTime += _controller.FishingData.ThrowingSpeed * Time.deltaTime;
+            currentTime += _controller.DataSO.ThrowingSpeed * Time.deltaTime;
             percent = currentTime / throwTime;
 
             Vector3 pos = Vector3.Lerp(start, end, percent);

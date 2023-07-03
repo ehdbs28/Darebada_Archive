@@ -35,7 +35,7 @@ namespace Core{
         public static float HourDelay => DayDelay / 24;
         public static float MinuteDelay => HourDelay / 12;
         
-        // 12??부???�작
+        // 12??부???�작
         public static int[] DayPerMonth = { 31, 31, IsLeapYear(GameManager.Instance.GetManager<TimeManager>().Year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30 };
 
         public static bool IsLeapYear(int year){
@@ -48,5 +48,11 @@ namespace Core{
             yield return new WaitForSeconds(delay);
             Callback?.Invoke();
         }
+    }
+
+    public struct GameDate{
+        public int Year;
+        public int Month;
+        public int Day;
     }
 }

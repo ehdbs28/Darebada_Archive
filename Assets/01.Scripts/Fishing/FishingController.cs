@@ -11,6 +11,11 @@ public class FishingController : MonoBehaviour
     [SerializeField]
     private FishingActionData _actionData;
     public FishingActionData ActionData => _actionData;
+
+    [SerializeField]
+    private FishingDataSO _dataSO;
+    public FishingDataSO DataSO => _dataSO;
+
     public FishingData FishingData => GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData) as FishingData;
 
     private FishingAnimationController _animatorController;

@@ -42,12 +42,12 @@ public class TimeManager : IManager
     {
         GameData gameData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData;
         
-        _currentTime = gameData.LastWorldTime;
-        _totalDay = gameData.LastTotalDay;
+        _currentTime = gameData.GameTime;
+        _totalDay = gameData.TotalDay;
 
-        Year = gameData.LastYear;
-        Month = gameData.LastMonth;
-        Day = gameData.LastDay;
+        Year = gameData.GameDateTime.Year;
+        Month = gameData.GameDateTime.Month;
+        Day = gameData.GameDateTime.Day;
     }
 
     public void UpdateManager()

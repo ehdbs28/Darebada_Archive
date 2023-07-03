@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UIBoatDurability
+public class UIBoatFuel
 {
     private Gradient _durabilityGradient;
     
     private VisualElement _circle;
     private VisualElement _boatImage;
 
-    private BoatActionData _boatData;
+    private BoatController _boatController;
 
-    public UIBoatDurability(VisualElement durabilityRoot, Gradient durabilityGradient, BoatActionData boatData){
+    public UIBoatFuel(VisualElement durabilityRoot, Gradient durabilityGradient, BoatController boatController){
         _durabilityGradient = durabilityGradient;
 
         _circle = durabilityRoot.Q<VisualElement>("durability");
         _boatImage = durabilityRoot.Q<VisualElement>("boat-image");
 
-        _boatData = boatData;
+        _boatController = boatController;
     }
 
     public void SetColor(){
         BoatData boatData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.BoatData) as BoatData;
 
-        float percent = _boatData.CurrentDurability / boatData.MaxDurablity;
+        float percent = _boatController.BoatActionData.CurrentFuel / _boatController.DataSO.MaxFuel;
         Color color = _durabilityGradient.Evaluate(1 - percent);
         color.a = 200f / 256f;
 
