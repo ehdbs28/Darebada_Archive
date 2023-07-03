@@ -13,18 +13,7 @@ public class PlayableMovementModule : CommonModule<PlayerController>
 
     private bool _isMovement = false;
 
-    [SerializeField]
-    private float _maxSpeed = 5f;
-
-    [SerializeField]
-    private float _acceleration = 10f;
-
-    [SerializeField]
-    private float _deceleration = 10f;
-
     private float _currentVelocity = 0f;
-
-    public float MaxSpeed => _maxSpeed;
 
     public override void SetUp(Transform rootTrm)
     {
@@ -61,13 +50,13 @@ public class PlayableMovementModule : CommonModule<PlayerController>
 
     private float CalcVelocity(){
         if(_isMovement){
-            _currentVelocity += _acceleration * Time.deltaTime;
+            _currentVelocity += _controller.DataSO.Acceleration * Time.deltaTime;
         }
         else{
-            _currentVelocity -= _deceleration * Time.deltaTime; 
+            _currentVelocity -= _controller.DataSO.Deceleration * Time.deltaTime; 
         }
 
-        return Mathf.Clamp(_currentVelocity, 0f, _maxSpeed);
+        return Mathf.Clamp(_currentVelocity, 0f, _controller.DataSO.MaxSpeed);
     }
 
     private void OnMouseClick(bool value){

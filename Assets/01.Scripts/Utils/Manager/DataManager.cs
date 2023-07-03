@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class DataManager : IManager
 {
-    private Dictionary<DataType, DataUnit> _dataUnits;
+    private Dictionary<DataType, SaveData> _dataUnits;
 
     private string DATA_PATH = "";
 
@@ -16,7 +16,7 @@ public class DataManager : IManager
     }
 
     public void InitManager() {
-        _dataUnits = new Dictionary<DataType, DataUnit>();
+        _dataUnits = new Dictionary<DataType, SaveData>();
 
         // 모바일 빌드 시에는 바꿔야 해
         // DATA_PATH = Application.persistentDataPath + "/Save";
@@ -25,55 +25,22 @@ public class DataManager : IManager
         if(!Directory.Exists(DATA_PATH))
             Directory.CreateDirectory(DATA_PATH);
 
-        foreach(var type in Enum.GetValues(typeof(DataType))){
-            _dataUnits.Add( (DataType)type, new DataUnit(DATA_PATH, type.ToString()));
-        }
+        _dataUnits.Add(DataType.BoatData, new BoatData(DATA_PATH, "BoatData"));
+        _dataUnits.Add(DataType.FishingData, new BoatData(DATA_PATH, "FishingData"));
+        _dataUnits.Add(DataType.GameData, new BoatData(DATA_PATH, "GameData"));
 
         LoadData();
     }
 
     private void LoadData(){
-        foreach(var data in _dataUnits){
-            if(File.Exists(data.Value.SAVE_PATH)){
-                string stringData = File.ReadAllText(data.Value.SAVE_PATH);
-                switch(data.Key){
-                    case DataType.BoatData:
-                        data.Value.SaveData = JsonUtility.FromJson<BoatData>(stringData);
-                        break;
-                    case DataType.PlayerData:
-                        data.Value.SaveData = JsonUtility.FromJson<PlayerData>(stringData);
-                        break;
-                    case DataType.FishingData:
-                        data.Value.SaveData = JsonUtility.FromJson<FishingData>(stringData);
-                        break;
-                    case DataType.GameData:
-                        data.Value.SaveData = JsonUtility.FromJson<GameData>(stringData);
-                        break;
-                }
-            }
-            else{
-                switch(data.Key){
-                    case DataType.BoatData:
-                        data.Value.SaveData = new BoatData();
-                        break;
-                    case DataType.PlayerData:
-                        data.Value.SaveData = new PlayerData();
-                        break;
-                    case DataType.FishingData:
-                        data.Value.SaveData = new FishingData();
-                        break;
-                    case DataType.GameData:
-                        data.Value.SaveData = new GameData();
-                        break;
-                }
-                SaveData(data.Value);
-            }
+        foreach(var data in _dataUnits.Values){
+            data.Load();
         }
     }
 
-    private void SaveData(DataUnit data){
-        string stringData = JsonUtility.ToJson(data.SaveData);
-        File.WriteAllText(data.SAVE_PATH, stringData);
+    private void SaveData(SaveData data){
+        string stringData = JsonUtility.ToJson(data);
+        data.Save(stringData);
     }
 
     private void SaveDataAll(){
@@ -83,13 +50,7 @@ public class DataManager : IManager
     }
 
     public SaveData GetData(DataType type){
-        SaveData returnData = null;
-        
-        foreach(var data in _dataUnits.Where(data => data.Key == type)){
-            returnData = data.Value.SaveData;
-        }
-
-        return returnData;
+        return _dataUnits[type];
     }
 
     public void ResetManager(){}

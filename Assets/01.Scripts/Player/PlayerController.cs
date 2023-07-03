@@ -7,7 +7,9 @@ public class PlayerController : ModuleController
     private PlayerActionData _actionData;
     public PlayerActionData ActionData => _actionData;
     
-    public PlayerData PlayerData => GameManager.Instance.GetManager<DataManager>().GetData(DataType.PlayerData) as PlayerData;
+    [SerializeField]
+    private PlayerDataSO _dataSO;
+    public PlayerDataSO DataSO => _dataSO;
 
     private readonly Dictionary<PlayerState, Module> _playerModules = new Dictionary<PlayerState, Module>();
 
