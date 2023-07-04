@@ -8,7 +8,7 @@ using UnityEngine.Rendering.UI;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
-public class UpgradeManager : MonoBehaviour
+public class AquariumUpgradeManager : MonoBehaviour
 {
     [SerializeField]float handlingTime;
     [SerializeField]float limitTime;
