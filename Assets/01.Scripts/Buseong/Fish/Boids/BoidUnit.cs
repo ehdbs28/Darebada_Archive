@@ -72,7 +72,7 @@ public class BoidUnit : MonoBehaviour
         if (additionalSpeed > 0)
             additionalSpeed -= Time.deltaTime;
 
-        if (!myBoids.IsBite && Vector3.Distance(myBoids.Bait.transform.position, transform.position) < 5f)
+        if (!myBoids.IsBite && Vector3.Distance(myBoids.Bait.transform.position, transform.position) < 3f)
         {
             myBoids.IsBite = true;
             Debug.Log("minigame start");

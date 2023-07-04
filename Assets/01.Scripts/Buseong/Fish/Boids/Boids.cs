@@ -68,11 +68,12 @@ public class Boids : MonoBehaviour
     {
         Bait = GameObject.Find("Bait");
         BaitSenseArea = GameObject.Find("BaseBait");
-        NonSpawnArea = GameObject.Find("Non Spawn Area");
+        //NonSpawnArea = GameObject.Find("Non Spawn Area");
         boundMR = GetComponentInChildren<MeshRenderer>();
         for (int i = 0; i < boidCount; i++)
         {
-            Vector3 randomVec = Random.insideUnitSphere - NonSpawnArea.transform.position;
+            Vector3 randomVec = Random.insideUnitSphere;
+            //Vector3 randomVec = Random.insideUnitSphere - NonSpawnArea.transform.position;
             randomVec *= spawnRange;
             Quaternion randomRot = Quaternion.Euler(0, Random.Range(0, 360f), 0);
             BoidUnit currUnit = Instantiate(boidUnitPrefab, this.transform.position + randomVec, randomRot);
