@@ -42,7 +42,8 @@ public class CameraManager : MonoBehaviour, IManager
         _currentActiveVCam = _rotateVCam;
         _currentActiveVCam?.SelectVCam();
 
-        ((RotationVCam)_currentActiveVCam).SetRotateValue(target, radius, pos, rot, offset, lastState);
+        ((RotateCam)_currentActiveVCam).SetCamValue(target);
+        //((RotationVCam)_currentActiveVCam).SetRotateValue(target, radius, pos, rot, offset, lastState);
     }
 
     public void SetVCamList(List<VCam> vCamList){

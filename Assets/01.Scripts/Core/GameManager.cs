@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 
            // gameData.LastWorldTime = GetManager<TimeManager>();
 
-            // ?�?????�이????추�??�야 ?�긴 ??
+            // ?�?????�이????추�??�야 ?�긴 ??
             yield return new WaitForSecondsRealtime(delay);
         }
     }
