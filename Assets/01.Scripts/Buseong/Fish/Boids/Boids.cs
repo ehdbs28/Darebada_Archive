@@ -5,9 +5,13 @@ using Cinemachine;
 
 public class Boids : MonoBehaviour
 {
+    public static Boids Instance;
+
     #region Variables & Initializer
     [Header("Boid Options")]
     [SerializeField] private BoidUnit boidUnitPrefab;
+    [SerializeField]
+    private List<BoidUnit> _boidUnitPrefabList;
     [Range(5, 5000)]
     public int boidCount;
     
@@ -46,18 +50,36 @@ public class Boids : MonoBehaviour
     public float enemyPercentage = 0.01f;
     public Color[] GizmoColors;
 
+    [SerializeField]
+    private FishSO _fishData;
+
+    public bool IsBite = true;
+    public GameObject Bait;
+    public GameObject BaitSenseArea;
+
+    public GameObject NonSpawnArea;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
+        Bait = GameObject.Find("Bait");
+        BaitSenseArea = GameObject.Find("BaseBait");
+        NonSpawnArea = GameObject.Find("Non Spawn Area");
         boundMR = GetComponentInChildren<MeshRenderer>();
         for (int i = 0; i < boidCount; i++)
         {
-            Vector3 randomVec = Random.insideUnitSphere;
+            Vector3 randomVec = Random.insideUnitSphere - NonSpawnArea.transform.position;
             randomVec *= spawnRange;
             Quaternion randomRot = Quaternion.Euler(0, Random.Range(0, 360f), 0);
             BoidUnit currUnit = Instantiate(boidUnitPrefab, this.transform.position + randomVec, randomRot);
             currUnit.transform.SetParent(this.transform);
-            currUnit.InitializeUnit(this, Random.Range(speedRange.x, speedRange.y), i);
+            currUnit.InitializeUnit(this, Random.Range(speedRange.x, speedRange.y), i, _fishData);
         }
+        IsBite = false;
     }
     #endregion
 }

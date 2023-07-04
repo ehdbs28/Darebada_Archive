@@ -6,42 +6,63 @@ public class BoidUnit : MonoBehaviour
 {
     #region Variables & Initializer
     [Header("Info")]
-    Boids myBoids;
-    List<BoidUnit> neighbours = new List<BoidUnit>();
-
-    Vector3 targetVec;
-    Vector3 egoVector;
-    float speed;
-
-    float additionalSpeed = 0;
-    bool isEnemy;
-
-    MeshRenderer myMeshRenderer;
-    TrailRenderer myTrailRenderer;
+    private Boids myBoids;
+    private List<BoidUnit> neighbours = new List<BoidUnit>();
+    
+    private Vector3 targetVec;
+    private Vector3 egoVector;
+    private float speed;
+    
+    private float additionalSpeed = 0;
+    private bool isEnemy;
+    
+    private MeshRenderer myMeshRenderer;
+    private TrailRenderer myTrailRenderer;
     [SerializeField] private Color myColor;
 
     [Header("Neighbour")]
-    [SerializeField] float obstacleDistance;
-    [SerializeField] float FOVAngle = 120;
-    [SerializeField] float maxNeighbourCount = 50;
-    [SerializeField] float neighbourDistance = 10;
+    [SerializeField] private float obstacleDistance;
+    [SerializeField] private float FOVAngle = 120;
+    [SerializeField] private float maxNeighbourCount = 50;
+    [SerializeField] private float neighbourDistance = 10;
 
     [Header("ETC")]
-    [SerializeField] LayerMask boidUnitLayer;
-    [SerializeField] LayerMask obstacleLayer;
+    [SerializeField] private LayerMask boidUnitLayer;
+    [SerializeField] private LayerMask obstacleLayer;
 
-    Coroutine findNeighbourCoroutine;
-    Coroutine calculateEgoVectorCoroutine;
-    public void InitializeUnit(Boids _boids, float _speed, int _myIndex)
+    private Coroutine findNeighbourCoroutine;
+    private Coroutine calculateEgoVectorCoroutine;
+
+    private float _radius = 3f;
+    private float _maxDistance = 10f;
+    [SerializeField]
+    private LayerMask _layerMask;
+
+    [SerializeField]
+    private GameObject _bait;
+    [SerializeField]
+    private GameObject _baseBait;
+
+    private RaycastHit hit;
+
+    public bool IsBite = false;
+    public bool IsSense = false;
+
+    [SerializeField]
+    private FishSO _fishData;
+
+    public void InitializeUnit(Boids _boids, float _speed, int _myIndex, FishSO _fishSO)
     {
         myBoids = _boids;
         speed = _speed;
-
+        _fishData = _fishSO;
         myTrailRenderer = GetComponentInChildren<TrailRenderer>();
         myMeshRenderer = GetComponentInChildren<MeshRenderer>();
 
         findNeighbourCoroutine = StartCoroutine("FindNeighbourCoroutine");
         calculateEgoVectorCoroutine = StartCoroutine("CalculateEgoVectorCoroutine");
+        _bait = myBoids.BaitSenseArea;
+        _baseBait = myBoids.Bait;
     }
 
     #endregion
@@ -51,22 +72,40 @@ public class BoidUnit : MonoBehaviour
         if (additionalSpeed > 0)
             additionalSpeed -= Time.deltaTime;
 
-        //필요한 모든 벡터
-        Vector3 cohesionVec = CalculateCohesionVector() * myBoids.cohesionWeight;
-        Vector3 alignmentVec = CalculateAlignmentVector() * myBoids.alignmentWeight;
-        Vector3 separationVec = CalculateSeparationVector() * myBoids.separationWeight;
-        // 추가적인 방향
-        Vector3 boundsVec = CalculateBoundsVector() * myBoids.boundsWeight;
-        Vector3 obstacleVec = CalculateObstacleVector() * myBoids.obstacleWeight;
-        Vector3 egoVec = egoVector * myBoids.egoWeight;
-
-        if (isEnemy)
+        if (!myBoids.IsBite && Vector3.Distance(myBoids.Bait.transform.position, transform.position) < 5f)
         {
-            targetVec = boundsVec + obstacleVec + egoVector;
+            myBoids.IsBite = true;
+            Debug.Log("minigame start");
+            Destroy(gameObject);
+            Destroy(myBoids.Bait);
+            Destroy(myBoids.BaitSenseArea);
+        }
+
+        //미끼의 감지 범위에 들어왔을 경우 그 방향을 향하도록 해주고 아니면 각자 알아서
+        IsBite = Physics.SphereCast(transform.position, _radius, transform.forward, out hit, _maxDistance, _layerMask);
+        if (IsBite && !myBoids.IsBite)
+        {
+            targetVec = _baseBait.transform.position - transform.position;
         }
         else
         {
-            targetVec = cohesionVec + alignmentVec + separationVec + boundsVec + obstacleVec + egoVec;
+            //필요한 모든 벡터
+            Vector3 cohesionVec = CalculateCohesionVector() * myBoids.cohesionWeight;
+            Vector3 alignmentVec = CalculateAlignmentVector() * myBoids.alignmentWeight;
+            Vector3 separationVec = CalculateSeparationVector() * myBoids.separationWeight;
+            // 추가적인 방향
+            Vector3 boundsVec = CalculateBoundsVector() * myBoids.boundsWeight;
+            Vector3 obstacleVec = CalculateObstacleVector() * myBoids.obstacleWeight;
+            Vector3 egoVec = egoVector * myBoids.egoWeight;
+
+            if (isEnemy)
+            {
+                targetVec = boundsVec + obstacleVec + egoVector;
+            }
+            else
+            {
+                targetVec = cohesionVec + alignmentVec + separationVec + boundsVec + obstacleVec + egoVec;
+            }
         }
 
         targetVec = Vector3.Lerp(this.transform.forward, targetVec, Time.deltaTime);
@@ -205,4 +244,12 @@ public class BoidUnit : MonoBehaviour
             Debug.DrawLine(this.transform.position, this.transform.position + targetVec, myBoids.GizmoColors[0]);
         }
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(hit.point, _radius);
+    }
+#endif 
 }
