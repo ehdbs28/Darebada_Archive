@@ -9,7 +9,7 @@ public class BoidUnit : MonoBehaviour
     private Boids myBoids;
     private List<BoidUnit> neighbours = new List<BoidUnit>();
     
-    private Vector3 targetVec;
+    public Vector3 targetVec;
     private Vector3 egoVector;
     private float speed;
     
@@ -40,13 +40,16 @@ public class BoidUnit : MonoBehaviour
 
     [SerializeField]
     private GameObject _bait;
-    [SerializeField]
-    private GameObject _baseBait;
 
     private RaycastHit hit;
 
+    [SerializeField]
     public bool IsBite = false;
-    public bool IsSense = false;
+    [SerializeField]
+    public bool IsSensed = false;
+
+    [SerializeField]
+    private Vector3 _baitVec;
 
     [SerializeField]
     private FishSO _fishData;
@@ -61,8 +64,8 @@ public class BoidUnit : MonoBehaviour
 
         findNeighbourCoroutine = StartCoroutine("FindNeighbourCoroutine");
         calculateEgoVectorCoroutine = StartCoroutine("CalculateEgoVectorCoroutine");
-        _bait = myBoids.BaitSenseArea;
-        _baseBait = myBoids.Bait;
+        _bait = GameObject.Find("BaseBait");
+        _baitVec = _bait.transform.position;
     }
 
     #endregion
@@ -71,50 +74,41 @@ public class BoidUnit : MonoBehaviour
     {
         if (additionalSpeed > 0)
             additionalSpeed -= Time.deltaTime;
+        
+        //필요한 모든 벡터
+        Vector3 cohesionVec = CalculateCohesionVector() * myBoids.cohesionWeight;
+        Vector3 alignmentVec = CalculateAlignmentVector() * myBoids.alignmentWeight;
+        Vector3 separationVec = CalculateSeparationVector() * myBoids.separationWeight;
+        // 추가적인 방향
+        Vector3 boundsVec = CalculateBoundsVector() * myBoids.boundsWeight;
+        Vector3 obstacleVec = CalculateObstacleVector() * myBoids.obstacleWeight;
+        Vector3 egoVec = egoVector * myBoids.egoWeight;
 
-        if (!myBoids.IsBite && Vector3.Distance(myBoids.Bait.transform.position, transform.position) < 3f)
+        if (IsSensed)
         {
-            myBoids.IsBite = true;
-            Debug.Log("minigame start");
-            Destroy(gameObject);
-            Destroy(myBoids.Bait);
-            Destroy(myBoids.BaitSenseArea);
-        }
-
-        //미끼의 감지 범위에 들어왔을 경우 그 방향을 향하도록 해주고 아니면 각자 알아서
-        IsBite = Physics.SphereCast(transform.position, _radius, transform.forward, out hit, _maxDistance, _layerMask);
-        if (IsBite && !myBoids.IsBite)
-        {
-            targetVec = _baseBait.transform.position - transform.position;
+            targetVec = _bait.transform.position - transform.position;
         }
         else
         {
-            //필요한 모든 벡터
-            Vector3 cohesionVec = CalculateCohesionVector() * myBoids.cohesionWeight;
-            Vector3 alignmentVec = CalculateAlignmentVector() * myBoids.alignmentWeight;
-            Vector3 separationVec = CalculateSeparationVector() * myBoids.separationWeight;
-            // 추가적인 방향
-            Vector3 boundsVec = CalculateBoundsVector() * myBoids.boundsWeight;
-            Vector3 obstacleVec = CalculateObstacleVector() * myBoids.obstacleWeight;
-            Vector3 egoVec = egoVector * myBoids.egoWeight;
-
-            if (isEnemy)
-            {
-                targetVec = boundsVec + obstacleVec + egoVector;
-            }
-            else
-            {
-                targetVec = cohesionVec + alignmentVec + separationVec + boundsVec + obstacleVec + egoVec;
-            }
+            targetVec = cohesionVec + alignmentVec + separationVec + boundsVec + obstacleVec + egoVec;
         }
 
-        targetVec = Vector3.Lerp(this.transform.forward, targetVec, Time.deltaTime);
-        targetVec = targetVec.normalized;
-        if (targetVec == Vector3.zero)
-            targetVec = egoVector;
+        if (!IsBite)
+        {
+            targetVec = Vector3.Lerp(this.transform.forward, targetVec, Time.deltaTime);
+            targetVec = targetVec.normalized;
+            if (targetVec == Vector3.zero)
+                targetVec = egoVector;
 
-        this.transform.rotation = Quaternion.LookRotation(targetVec);
-        this.transform.position += targetVec * (speed + additionalSpeed) * Time.deltaTime;
+            this.transform.rotation = Quaternion.LookRotation(targetVec);
+            this.transform.position += targetVec * (speed + additionalSpeed) * Time.deltaTime;
+        }
+        else
+        {
+            this.transform.rotation = Quaternion.LookRotation(targetVec);
+            this.transform.position = _bait.transform.position;
+        }
+        
     }
 
 
