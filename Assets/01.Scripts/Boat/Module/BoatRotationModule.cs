@@ -9,9 +9,9 @@ public class BoatRotationModule : CommonModule<BoatController>
     private float _dir = 0f;
     private Vector3 _rotate = Vector3.zero;
 
-    private float _rotationMaxSpeed => _controller.DataSO.BoatMaxRotationSpeed;
-    private float _rotateAcceleration => _controller.DataSO.BoatRotationAcceleration;
-    private float _rotateDeceleration => _controller.DataSO.BoatRotationDeceleration;
+    private float _rotationMaxSpeed => _controller.CurBoatData.RotationSpeed;
+    private float _rotateAcceleration => _controller.CurBoatData.RotationAcceleration;
+    private float _rotateDeceleration => _controller.CurBoatData.RotationDeceleration;
 
     private float _currentRotateVelocity;
 

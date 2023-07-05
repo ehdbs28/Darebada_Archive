@@ -8,7 +8,7 @@ public class BoatFuelModule : CommonModule<BoatController>
 {
     private float _maxFuel{
         get{
-            return _controller.DataSO.MaxFuel;
+            return _controller.CurBoatData.MaxFuel;
         }
     }
 

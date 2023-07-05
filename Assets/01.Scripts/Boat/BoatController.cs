@@ -9,8 +9,8 @@ public class BoatController : ModuleController
     public BoatActionData BoatActionData => _boatActionData;
     
     [SerializeField]
-    private BoatDataSO _dataSO;
-    public BoatDataSO DataSO => _dataSO;
+    private BoatDataUnit _curBoatData;
+    public BoatDataUnit CurBoatData => _curBoatData;
 
     public BoatData BoatData => GameManager.Instance.GetManager<DataManager>().GetData(DataType.BoatData) as BoatData;
 
@@ -27,5 +27,11 @@ public class BoatController : ModuleController
 
         base.Update();
         _boatActionData.Forward = transform.forward;
+    }
+
+    public void SetBoat(BoatDataUnit data){
+        _curBoatData = data;
+
+        // 추가 작업
     }
 }

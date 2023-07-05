@@ -14,6 +14,11 @@ public class FishingUpgradeTable : LoadableData
     public int Size = 0;
     public DataTable<FishingUpgradeUnit> DataTable;
 
+    public override void Clear()
+    {
+        DataTable.Clear();
+    }
+
     public override void SetUp(string[] dataArr)
     {
         DataTable.Add(new FishingUpgradeUnit());

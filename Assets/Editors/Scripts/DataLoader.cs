@@ -18,10 +18,14 @@ public class DataLoader
         if(asset == null)
         {
             asset = ScriptableObject.CreateInstance<T>();
+            asset.Type = type;
             string fileName = AssetDatabase.GenerateUniqueAssetPath(assetPath);
             AssetDatabase.CreateAsset(asset, fileName);
         }
-
+        else {
+            asset.Clear();
+        }
+        
         asset.SetUp(dataArr);
 
         DataLoaderUI.CreateDataUI(type, dataArr, line, assetPath);
@@ -38,6 +42,9 @@ public class DataLoader
             switch(type){
                 case DataLoadType.FishingUpgradeData:
                     CreateDataTable<FishingUpgradeTable>(type, dataArr, lines[lineNum]);
+                    break;
+                case DataLoadType.BoatData:
+                    CreateDataTable<BoatDataTable>(type, dataArr, lines[lineNum]);
                     break;
             }
         }
