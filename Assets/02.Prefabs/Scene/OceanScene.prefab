@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentState: {fileID: 4013939299429387147}
   _actionData: {fileID: 0}
+  _dataSO: {fileID: 11400000, guid: 8513c2792eff3a548b17db80e32d9bf9, type: 2}
   _lineStartPos: {fileID: 1262622554743403598}
   _lineEndPos: {fileID: 1660670363764953929}
 --- !u!114 &3029274420960085999
@@ -318,8 +319,7 @@ MonoBehaviour:
   Forward: {x: 0, y: 0, z: 0}
   IsMoveBoat: 0
   <IsDestroy>k__BackingField: 0
-  CurrentFule: 0
-  CurrentDurability: 0
+  CurrentFuel: 0
 --- !u!114 &4013939298695840645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,6 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51057be8d112281439337e018b0ccd60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dataSO: {fileID: 11400000, guid: 2e6f928fc970a8642a1f50bfa295b751, type: 2}
 --- !u!54 &4013939298695840643
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -883,9 +884,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4013939300063346847}
-  - component: {fileID: 4013939300063346844}
+  - component: {fileID: 5829115059608294230}
   m_Layer: 0
-  m_Name: DurabilityModule
+  m_Name: FuelModule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -906,7 +907,7 @@ Transform:
   m_Father: {fileID: 4013939298854657277}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4013939300063346844
+--- !u!114 &5829115059608294230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -920,34 +921,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnReduceEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: OceneScreen, Assembly-CSharp
-        m_MethodName: OnReduceBoatDurability
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnDestroyBoatEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4013939298695840642}
-        m_TargetAssemblyTypeName: BoatActionData, Assembly-CSharp
-        m_MethodName: set_IsDestroy
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &4013939300285331570
 GameObject:
   m_ObjectHideFlags: 0

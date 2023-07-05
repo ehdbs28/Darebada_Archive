@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 using Core;
 
 [System.Serializable]
@@ -8,14 +9,29 @@ public class GameData : SaveData
     public int TotalDay = 0;
     public GameDate GameDateTime = null;
     public int HoldingGold = 0;
-    public List<LetterUnit> HoldingLetter = null;
+    public SerializeList<LetterUnit> HoldingLetter = new SerializeList<LetterUnit>();
 
-    public override void Reset()
+    public GameData(string FILE_PATH, string name) : base(FILE_PATH, name)
+    {
+        Reset();
+    }
+
+    protected override void LoadData(string json)
+    {
+        GameData data = JsonUtility.FromJson<GameData>(json);
+        GameTime = data.GameTime;
+        TotalDay = data.TotalDay;
+        GameDateTime = data.GameDateTime;
+        HoldingGold = data.HoldingGold;
+        HoldingLetter = data.HoldingLetter;
+    }
+
+    protected override void Reset()
     {
         GameTime = 0.0f;
         TotalDay = 0;
-        GameDateTime = null;
+        GameDateTime = new GameDate(0, 3, 0);
         HoldingGold = 0;
-        HoldingLetter = null;
+        HoldingLetter = new SerializeList<LetterUnit>();
     }
 }

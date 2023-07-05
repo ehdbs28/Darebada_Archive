@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BoatFuleModule : CommonModule<BoatController>
+public class BoatFuelModule : CommonModule<BoatController>
 {
     private float _maxFuel{
         get{

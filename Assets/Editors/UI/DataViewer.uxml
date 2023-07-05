@@ -1,13 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Editors/UI/DataLoader.uss?fileID=7433441132597879392&amp;guid=ace39e2c308a53b419f3b8a44ba78fd8&amp;type=3#DataLoader" />
     <ui:VisualElement name="log_viewer">
-        <ui:VisualElement name="text-info">
+        <ui:VisualElement name="text-info" style="flex-basis: 50%;">
             <ui:Label display-tooltip-when-elided="true" name="title" />
             <ui:Label display-tooltip-when-elided="true" name="type" />
             <ui:Label display-tooltip-when-elided="true" name="path" />
-        </ui:VisualElement>
-        <ui:VisualElement name="log-text">
-            <ui:Label display-tooltip-when-elided="true" name="text-log" />
         </ui:VisualElement>
         <ui:VisualElement name="text-code-title">
             <ui:Label text="Inner Data" display-tooltip-when-elided="true" name="code-title" />

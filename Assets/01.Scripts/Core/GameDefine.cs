@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core{
@@ -49,6 +50,7 @@ namespace Core{
         }
     }
 
+    [Serializable]
     public class GameDate{
         public int Year;
         public int Month;
@@ -59,5 +61,10 @@ namespace Core{
             Month = month;
             Day = day;
         }
+    }
+
+    [Serializable]
+    public class SerializeList<T>{
+        public List<T> List;
     }
 }
