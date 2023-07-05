@@ -8,6 +8,7 @@ public class FishingCatchingState : FishingState
     private Transform _bobberTrm;
 
     private bool _isReadyToCatch;
+    public bool IsReadyToCatch => _isReadyToCatch;
 
     private Vector3 _start;
     private Vector3 _end;
@@ -62,10 +63,10 @@ public class FishingCatchingState : FishingState
     {
     }
 
-    public override void UpdateState()
+    public override void UpdateModule()
     {
         if(_isReadyToCatch){
-            // 여기서 물고기 끌고오고 미니게임 들어가야 함
+            // ?�기??물고�??�고?�고 미니게임 ?�어가????
             if(_controller.ActionData.CurrentCatchFish == null){
                 Collider[] aroundFish = Physics.OverlapSphere(_bobberTrm.position, 5f, _fishLayer);
 
@@ -83,7 +84,7 @@ public class FishingCatchingState : FishingState
                     _controller.ActionData.CurrentCatchFish = selectFish;
                 }
 
-                // 나중에 조건 고치기
+                // ?�중??조건 고치�?
                 if(Input.GetKey(KeyCode.Space)){
                     percent -= _controller.FishingData.ThrowingSpeed * Time.deltaTime / _throwTime;
                     _bobberTrm.position = GetLerpPos();
@@ -99,19 +100,19 @@ public class FishingCatchingState : FishingState
                 //_controller.ActionData.CurrentCatchFish.IsSelected = true;
 
                 //if(_controller.ActionData.CurrentCatchFish.IsCatched){
-                //    Debug.Log("미니게임 시작");
+                //    Debug.Log("미니게임 ?�작");
                 //}
             }
         }
         else{
-            // 나중에 조건 고치기
+            // ?�중??조건 고치�?
             if(Input.GetKeyDown(KeyCode.Space)){
                 percent = 1f;
                 _isReadyToCatch = true;
             }
         }
 
-        base.UpdateState();
+        base.UpdateModule();
     }
 
     private IEnumerator ToThrow(){
@@ -128,6 +129,7 @@ public class FishingCatchingState : FishingState
         _bobberTrm.position = GetLerpPos();
 
         _isReadyToCatch = true;
+        GameManager.Instance.GetManager<CameraManager>()._isCanRotate = true;
 
         //_start = new Vector3(_controller.ActionData.InitPosition.x, 0, _controller.ActionData.InitPosition.z);
     }

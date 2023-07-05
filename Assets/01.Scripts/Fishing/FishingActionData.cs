@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FishingActionData : MonoBehaviour
 {
-    // 마지막 차징 힘 저장 용도
+    // 마�?�?차징 ???�???�도
     public float LastChargingPower;
 
     public bool IsFishing = false;
@@ -14,6 +14,6 @@ public class FishingActionData : MonoBehaviour
 
     public Vector3 LastThrowDirection;
 
-    // 나중에 fish 구조를 바꾸던지 하자
+    // ?�중??fish 구조�?바꾸?��? ?�자
     public FishMovement CurrentCatchFish = null;
 }

@@ -10,6 +10,7 @@ public class CameraManager : MonoBehaviour, IManager
 
     [SerializeField]
     private VCam _rotateVCam;
+    public bool _isCanRotate = true;
 
     private List<VCam> _virtualCams = new List<VCam>();
 
@@ -38,6 +39,7 @@ public class CameraManager : MonoBehaviour, IManager
     }
 
     public void SetRotateCam(Transform target, float radius, Vector3 pos, Quaternion rot, Vector3 offset, CameraState lastState){
+        if (!_isCanRotate) return;
         _currentActiveVCam?.UnselectVCam();
         _currentActiveVCam = _rotateVCam;
         _currentActiveVCam?.SelectVCam();

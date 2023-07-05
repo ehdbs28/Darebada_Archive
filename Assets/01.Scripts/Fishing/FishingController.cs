@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishingController : MonoBehaviour
+public class FishingController : ModuleController
 {
     [SerializeField]
     private FishingState _currentState;
@@ -25,24 +25,23 @@ public class FishingController : MonoBehaviour
     [SerializeField]
     private Transform _lineEndPos;
 
-    private void Awake() {
-        List<FishingState> states = new List<FishingState>();
-        transform.Find("StateManager").GetComponentsInChildren<FishingState>(states);
+    protected override void Awake() {
+        transform.Find("StateManager").GetComponentsInChildren<Module>(_modules);
 
         _actionData = transform.GetComponent<FishingActionData>();
         _animatorController = transform.Find("Visual").GetComponent<FishingAnimationController>();
         _lineRenderer = transform.GetComponent<LineRenderer>();
 
-        states.ForEach(s => s.SetUp(transform));
+        _modules.ForEach(s => s.SetUp(transform));
     }
 
-    private void Start() {
-        // 처음 시작할 때 기본 상태로 두기 위함
+    protected override void Start() {
+        // 처음 ?�작????기본 ?�태�??�기 ?�함
         ChangedState(_currentState);
     }
 
-    private void Update() {
-        _currentState?.UpdateState();
+    protected override void Update() {
+        _currentState?.UpdateModule();
 
         _lineRenderer.SetPosition(0, _lineStartPos.position);
         _lineRenderer.SetPosition(1, _lineEndPos.position);

@@ -2,11 +2,11 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Core;
 
 public class RotateCam : VCam
 {
     private CinemachineFreeLook _freelookCam;
-    private Vector3 _resetPos;
 
     private void Awake()
     {
@@ -15,13 +15,22 @@ public class RotateCam : VCam
 
     public void SetCamValue(Transform target)
     {
+        Vector3 camPos = Define.MainCam.transform.position;
+        Quaternion camRot = Define.MainCam.transform.rotation;
+        
         _freelookCam.Follow = target;
         _freelookCam.LookAt = target;
 
-        _freelookCam.ForceCameraPosition(_resetPos, Quaternion.Euler(Vector3.zero));
+        // 이 함수는 주어진 범위 내에서 가장 가까운 위치로 이동시켜줌
+        _freelookCam.ForceCameraPosition(camPos, camRot);
     }
 
     public override void UpdateCam()
     {
+        if (!GameManager.Instance.GetManager<CameraManager>()._isCanRotate)
+        {
+            _freelookCam.Follow = null;
+            _freelookCam.LookAt = null;
+        }
     }
 }

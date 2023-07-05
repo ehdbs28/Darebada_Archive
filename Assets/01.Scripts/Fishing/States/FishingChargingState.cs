@@ -41,9 +41,9 @@ public class FishingChargingState : FishingState
         _controller.ActionData.LastThrowDirection = _currentDir;
     }
 
-    public override void UpdateState()
+    public override void UpdateModule()
     {
-        base.UpdateState();
+        base.UpdateModule();
 
         _bobberTrm.position = _bobberPos.position;
 
@@ -71,7 +71,7 @@ public class FishingChargingState : FishingState
             _playerTrm.rotation = Quaternion.Euler(0, sign * _controller.FishingData.RotationSpeed * Time.deltaTime, 0) * _playerTrm.rotation;
         }
         else{
-            // 다 돌아갔을 때 할 일인데 아직 없음
+            // ???�아갔을 ?????�인???�직 ?�음
         }
     }   
 
