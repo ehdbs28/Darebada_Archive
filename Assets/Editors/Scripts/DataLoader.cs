@@ -6,25 +6,13 @@ using UnityEngine.UIElements;
 using UnityEngine.Networking;
 using System;
 
-public enum DataLoadType{
-    Script,
-    ScriptableObject
-}
-
 public class DataLoader
 {
     public DataLoaderUI DataLoaderUI;
 
-    private void CreateSourceCode(string[] dataArr, string line){
-        // string code = string.Format(CodeFormat.CharacterFormat, dataArr[1], dataArr[0], dataArr[2]);
-        // string path = $"{Application.dataPath}/01.Scripts/Characters/";
-        // statusLabel.text += $"ClassName : {dataArr[1]}.cs\n";
-        // File.WriteAllText($"{path}{dataArr[1]}.cs", code);
-    }
-
-    private void CreateScriptableObject<T>(string[] dataArr, string line) where T : LoadableData
+    private void CreateDataTable<T>(DataLoadType type, string[] dataArr, string line) where T : LoadableData
     {
-        string assetPath = $"Assets/Resources/{dataArr[0]}Data.asset";
+        string assetPath = $"Assets/Resources/{type.ToString()}.asset";
         T asset = AssetDatabase.LoadAssetAtPath<T>(assetPath);
 
         if(asset == null)
@@ -36,23 +24,20 @@ public class DataLoader
 
         asset.SetUp(dataArr);
 
-        DataLoaderUI.CreateDataUI(DataLoadType.ScriptableObject, dataArr, line, assetPath);
+        DataLoaderUI.CreateDataUI(type, dataArr, line, assetPath);
         
         AssetDatabase.SaveAssets();
     }
 
     public void HandleData(string data, DataLoadType type, out int lineNum){
-        string[] lines = data.Split("\n"); //라인별로 나눠서 배열에 담기
+        string[] lines = data.Split("\n");
         lineNum = 1;
 
         for(lineNum = 1; lineNum < lines.Length; lineNum++){
             string[] dataArr = lines[lineNum].Split("\t");
             switch(type){
-                case DataLoadType.Script:
-                    CreateSourceCode(dataArr, lines[lineNum]);
-                    break;
-                case DataLoadType.ScriptableObject:
-                    CreateScriptableObject<FishSO>(dataArr, lines[lineNum]);
+                case DataLoadType.FishingUpgradeData:
+                    CreateDataTable<FishingUpgradeTable>(type, dataArr, lines[lineNum]);
                     break;
             }
         }
@@ -61,6 +46,11 @@ public class DataLoader
     }
 
     public IEnumerator GetDataFromSheet(string documentID, string sheetID, Action<bool, string> Process){
+        if(documentID ==  "" || sheetID == "" || documentID == "sheet ID" || sheetID == "page name"){
+            Process?.Invoke(false, "ERROR: 정확한 값을 입력하세요");
+            yield break;
+        }
+
         string url = $"https://docs.google.com/spreadsheets/d/{documentID}/export?format=tsv&gid={sheetID}";
         UnityWebRequest req = UnityWebRequest.Get(url);
 
