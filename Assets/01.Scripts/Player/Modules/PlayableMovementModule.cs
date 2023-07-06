@@ -11,6 +11,8 @@ public class PlayableMovementModule : CommonModule<PlayerController>
     private Vector3 _movement;
     private Vector3 _movePivot;
 
+    [SerializeField] private PlayerAnimator _animator;
+
     private bool _isMovement = false;
 
     private float _currentVelocity = 0f;
@@ -27,7 +29,11 @@ public class PlayableMovementModule : CommonModule<PlayerController>
     public override void UpdateModule()
     {
         if(_isMovement){
-            _dir = (GameManager.Instance.GetManager<InputManager>().MousePosition - _movePivot).normalized;
+            Vector3 mousePos = GameManager.Instance.GetManager<InputManager>().MousePosition;
+            if (Vector3.Distance(_movePivot, mousePos) >= 0.5f)
+                _dir = GameManager.Instance.GetManager<InputManager>().MousePosition - _movePivot;
+            else
+                _dir = Vector3.zero;
         }
 
         Movement();
@@ -43,8 +49,18 @@ public class PlayableMovementModule : CommonModule<PlayerController>
             // if(Vector3.Dot(_dir, _movement) < 0){
             //     _currentVelocity = 0f;
             // }
-            _movement = new Vector3(_dir.x, 0f, _dir.y);
-        }
+                float angle = Mathf.Atan2(_dir.y * Mathf.Deg2Rad, _dir.x * Mathf.Deg2Rad);
+                angle += Define.MainCam.transform.rotation.y;
+                angle -= 90 * Mathf.Deg2Rad;
+                _dir = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle));
+                transform.parent.eulerAngles = new Vector3(0, -angle * Mathf.Rad2Deg + 90, 0);
+                _movement = new Vector3(_dir.x, 0f, _dir.y);
+                _movement.y = 0;
+                _movement.Normalize();
+
+            _animator.SetBool("IsRunning", true);
+        }else 
+            _animator.SetBool("IsRunning", false);
         _currentVelocity = CalcVelocity();
     }
 
