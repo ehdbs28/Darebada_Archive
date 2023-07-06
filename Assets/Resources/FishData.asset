@@ -9,19 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7a8b35fcf868884a96ed5bfc18c987b, type: 3}
-  m_Name: TestFishData
+  m_Script: {fileID: 11500000, guid: 021049894ef2c614993138c891557a54, type: 3}
+  m_Name: FishData
   m_EditorClassIdentifier: 
-  HabitatBiome: 0
-  HabitatX: 0
-  HabitatY: 0
-  FishSpecies: 0
-  SwimSpeed: 0
-  TurnSpeed: 0
-  Rarity: 0
-  Level: 0
-  Cost: 0
+  Type: 0
   Size: 0
-  SpawnPercent: 0
-  TestMat: {fileID: 0}
-  _fishPrefab: {fileID: 0}
+  DataTable:
+    _data: []

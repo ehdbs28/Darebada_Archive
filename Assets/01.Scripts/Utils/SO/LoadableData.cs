@@ -28,6 +28,6 @@ public class DataTable<T> where T : class{
 public abstract class LoadableData : ScriptableObject
 {
     public DataLoadType Type;
-    public abstract void SetUp(string[] dataArr);
+    public abstract void AddData(string[] dataArr);
     public abstract void Clear();
 }

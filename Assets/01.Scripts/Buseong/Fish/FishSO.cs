@@ -3,26 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "SO/FishData")]
-public class FishSO : LoadableData
+public class    FishSO : LoadableData
 {
-    public BIOME HabitatBiome;      //¼­½Ä ¹ÙÀÌ¿È
-    public float HabitatX;          //¼­½ÄX°ª
-    public float HabitatY;          //¼­½Äy°ª
-    public FISHSPECIES FishSpecies; //¾îÁ¾
-    public float SwimSpeed;         //Çì¾ö ¼Óµµ
-    public float TurnSpeed;         //¹æÇâ ÀüÈ¯ ¼Óµµ
-    public float Rarity;            //Èñ±Íµµ
-    public float Level;             //·¹º§
-    public float Cost;              //°¡°Ý
-    public float Size;              //»çÀÌÁî
-    public float SpawnPercent;      //½ºÆù È®·ü
-    public bool IsFlock;            //¹¶ÃÄ´Ù´Ï´ÂÁö ¾Æ´ÑÁö
+    public BIOME HabitatBiome;      //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¿ï¿½
+    public float HabitatX;          //ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½
+    public float HabitatY;          //ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½
+    public FISHSPECIES FishSpecies; //ï¿½ï¿½ï¿½ï¿½
+    public float SwimSpeed;         //ï¿½ï¿½ï¿½ ï¿½Óµï¿½
+    public float TurnSpeed;         //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Óµï¿½
+    public float Rarity;            //ï¿½ï¿½Íµï¿½
+    public float Level;             //ï¿½ï¿½ï¿½ï¿½
+    public float Cost;              //ï¿½ï¿½ï¿½ï¿½
+    public float Size;              //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float SpawnPercent;      //ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+    public bool IsFlock;            //ï¿½ï¿½ï¿½Ä´Ù´Ï´ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½
 
-    public Material TestMat;        //Å×½ºÆ®¿ë
+    public Material TestMat;        //ï¿½×½ï¿½Æ®ï¿½ï¿½
     [SerializeField]
     public GameObject _fishPrefab;
 
-    public override void SetUp(string[] dataArr)
+    public override void Clear()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void AddData(string[] dataArr)
     {
         HabitatBiome = (BIOME)int.Parse(dataArr[1]);
         HabitatX = float.Parse(dataArr[2]);

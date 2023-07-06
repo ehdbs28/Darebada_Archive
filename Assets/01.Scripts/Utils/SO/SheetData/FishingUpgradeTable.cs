@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class FishingUpgradeUnit{
-    public int ID = 0;
+    public List<float> Price = new List<float>();
     public List<float> Value = new List<float>();
     public int MaxLevel = 0;
 }
@@ -12,25 +12,29 @@ public class FishingUpgradeUnit{
 public class FishingUpgradeTable : LoadableData
 {
     public int Size = 0;
-    public DataTable<FishingUpgradeUnit> DataTable;
+    public DataTable<FishingUpgradeUnit> DataTable = new DataTable<FishingUpgradeUnit>();
 
     public override void Clear()
     {
+        Size = 0;
         DataTable.Clear();
     }
 
-    public override void SetUp(string[] dataArr)
+    public override void AddData(string[] dataArr)
     {
         DataTable.Add(new FishingUpgradeUnit());
 
-        DataTable[Size].ID = int.Parse(dataArr[0]);
-
-        string[] arrayValue = dataArr[1].Split(",");    
-        for(int i = 0; i < arrayValue.Length; i++){
-            DataTable[Size].Value.Add(float.Parse(arrayValue[i]));
+        string[] priceArray = dataArr[1].Split(",");
+        for(int i = 0; i < priceArray.Length; i++){
+            DataTable[Size].Price.Add(float.Parse(priceArray[i]));
         }
 
-        DataTable[Size].MaxLevel = int.Parse(dataArr[2]);
+        string[] valueArray = dataArr[2].Split(",");    
+        for(int i = 0; i < valueArray.Length; i++){
+            DataTable[Size].Value.Add(float.Parse(valueArray[i]));
+        }
+
+        DataTable[Size].MaxLevel = int.Parse(dataArr[3]);
 
         ++Size;
     }

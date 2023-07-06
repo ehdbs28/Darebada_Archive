@@ -76,10 +76,21 @@ public class DataLoaderUI : EditorWindow
 
         btnLoad.RegisterCallback<ClickEvent>(evt => {
             EditorCoroutineUtility.StartCoroutine(_loader.GetDataFromSheet(_documentID.text, _sheetID.text, (sucess, data) => {
-                int lineNum;
+                _dataElementParent.Clear();
+                int lineNum = 0;
                 
                 if(sucess){
-                    _loader.HandleData(data, (DataLoadType)_typeSetting.choices.IndexOf(_typeSetting.value), out lineNum);
+                    switch((DataLoadType)_typeSetting.choices.IndexOf(_typeSetting.value)){
+                        case DataLoadType.FishData:
+                            _loader.HandleData<FishDataTable>(data, DataLoadType.FishData, out lineNum);
+                        break;
+                        case DataLoadType.FishingUpgradeData:
+                            _loader.HandleData<FishingUpgradeTable>(data, DataLoadType.FishingUpgradeData, out lineNum);
+                        break;
+                        case DataLoadType.BoatData:
+                            _loader.HandleData<BoatDataTable>(data, DataLoadType.BoatData, out lineNum);
+                        break;
+                    }
                     AddLog($"{lineNum - 1}개의 데이터가 정상적으로 생성되었습니다.");
                 }
                 else{
