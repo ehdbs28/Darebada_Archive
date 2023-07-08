@@ -9,17 +9,8 @@ public class FishingUpgradeUnit{
     public int MaxLevel = 0;
 }
 
-public class FishingUpgradeTable : LoadableData
+public class FishingUpgradeTable : LoadableData<FishingUpgradeUnit>
 {
-    public int Size = 0;
-    public DataTable<FishingUpgradeUnit> DataTable = new DataTable<FishingUpgradeUnit>();
-
-    public override void Clear()
-    {
-        Size = 0;
-        DataTable.Clear();
-    }
-
     public override void AddData(string[] dataArr)
     {
         DataTable.Add(new FishingUpgradeUnit());

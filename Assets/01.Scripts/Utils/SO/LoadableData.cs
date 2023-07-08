@@ -25,9 +25,14 @@ public class DataTable<T> where T : class{
     }
 }
 
-public abstract class LoadableData : ScriptableObject
+public abstract class LoadableData<T> : ScriptableObject where T : class
 {
     public DataLoadType Type;
+    public int Size = 0;
+    public DataTable<T> DataTable = new DataTable<T>();
     public abstract void AddData(string[] dataArr);
-    public abstract void Clear();
+    public void Clear(){
+        Size = 0;
+        DataTable.Clear();
+    }
 }

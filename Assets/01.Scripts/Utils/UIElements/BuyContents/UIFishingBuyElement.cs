@@ -20,15 +20,7 @@ public class UIFishingBuyElement : UIBuyElement
     protected override void AddEvent()
     {
         _buyButton.RegisterCallback<ClickEvent>(e => {
-            if(_idx == 0){
-                Debug.Log("0");
-            }
-            else if(_idx == 1){
-                Debug.Log("1");
-            }
-            else if(_idx == 2){
-                Debug.Log("2");
-            }
+            GameManager.Instance.GetManager<FishingUpgradeManager>().Upgrade(_idx);
         });
     }
 }

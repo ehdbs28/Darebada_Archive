@@ -20,17 +20,8 @@ public class FishDataUnit{
     public float SpawnPercent;
 }
 
-public class FishDataTable : LoadableData
+public class FishDataTable : LoadableData<FishDataUnit>
 {
-    public int Size = 0;
-    public DataTable<FishDataUnit> DataTable = new DataTable<FishDataUnit>();
-
-    public override void Clear()
-    {
-        Size = 0;
-        DataTable.Clear();
-    }
-
     public override void AddData(string[] dataArr)
     {
         DataTable.Add(new FishDataUnit());
