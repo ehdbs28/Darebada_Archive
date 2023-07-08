@@ -37,7 +37,8 @@ public class BoatFollowingVCam : VCam
                 _virtualCam.transform.position,
                 _virtualCam.transform.rotation,
                 new Vector3(0f, offset.y, 0f),
-                _state
+                _state,
+                _virtualCam.transform.position
             );
         }
     }

@@ -33,7 +33,8 @@ public class BobberFollowingVCam : VCam
                 _virtualCam.transform.position,
                 _virtualCam.transform.rotation,
                 Vector3.zero,
-                _state
+                _state,
+                Vector3.zero
             );
         }
     }
