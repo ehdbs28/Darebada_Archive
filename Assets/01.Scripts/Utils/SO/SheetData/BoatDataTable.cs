@@ -23,8 +23,10 @@ public class BoatDataUnit{
     public float MaxFuel;
 }
 
-public class BoatDataTable : LoadableData<BoatDataUnit>
+public class BoatDataTable : LoadableData
 {
+    public DataTable<BoatDataUnit> DataTable = new DataTable<BoatDataUnit>();
+
     public override void AddData(string[] dataArr)
     {
         DataTable.Add(new BoatDataUnit());
@@ -44,5 +46,11 @@ public class BoatDataTable : LoadableData<BoatDataUnit>
         DataTable[Size].MaxFuel = float.Parse(dataArr[9]);
 
         ++Size;
+    }
+
+    public override void Clear()
+    {
+        base.Clear();
+        DataTable.Clear();
     }
 }

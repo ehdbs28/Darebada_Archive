@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/07.UI/UpgradeUI.uss?fileID=7433441132597879392&amp;guid=60dd650f3094eb54d8dccfa431f11e5c&amp;type=3#UpgradeUI" />
-    <Style src="project://database/Assets/07.UI/OceneUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceneUI" />
+    <Style src="project://database/Assets/07.UI/OceanUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceanUI" />
     <Style src="project://database/Assets/07.UI/LetterUI.uss?fileID=7433441132597879392&amp;guid=0ff408542c843224b959d6961bacb71f&amp;type=3#LetterUI" />
     <Style src="project://database/Assets/07.UI/ShopUI.uss?fileID=7433441132597879392&amp;guid=117492bc78fab3f4aa683150d95bda77&amp;type=3#ShopUI" />
     <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
@@ -238,7 +238,7 @@
                                     <ui:VisualElement name="fishing-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Fishing-rod.png?fileID=21300000&amp;guid=f7e5fb72670dbdc4ea71c359ad0f1d6f&amp;type=3#Fishing-rod&apos;); margin-right: 30px;" />
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
                                         <ui:Label text="Lv 18" display-tooltip-when-elided="true" name="level" class="text" style="font-size: 45px;" />
-                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px;">
+                                        <ui:VisualElement name="value-box" class="performance-graph" style="height: 75px; margin-top: 20px;">
                                             <ui:Label text="힘" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 35px;" />
                                             <ui:Label text="20" display-tooltip-when-elided="true" name="value-text" class="text" style="position: absolute; font-size: 35px; right: 0;" />
                                             <ui:VisualElement name="graph" style="width: 100%; height: 25px; background-color: rgba(0, 0, 0, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 10px;">
@@ -262,7 +262,7 @@
                                     <ui:VisualElement name="fishing-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Fishing-reel.png?fileID=21300000&amp;guid=a3458b45071e89d4b830abafe96d68df&amp;type=3#Fishing-reel&apos;); margin-right: 30px;" />
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
                                         <ui:Label text="Lv 20" display-tooltip-when-elided="true" name="level" class="text" style="font-size: 45px;" />
-                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px;">
+                                        <ui:VisualElement name="value-box" class="performance-graph" style="height: 75px; margin-top: 20px;">
                                             <ui:Label text="길이" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 35px;" />
                                             <ui:Label text="13.5" display-tooltip-when-elided="true" name="value-text" class="text" style="position: absolute; font-size: 35px; right: 0;" />
                                             <ui:VisualElement name="graph" style="width: 100%; height: 25px; background-color: rgba(0, 0, 0, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 10px;">
@@ -286,7 +286,7 @@
                                     <ui:VisualElement name="fishing-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Fishing-string.png?fileID=21300000&amp;guid=62776454d24056943b0ed92406d2c7ee&amp;type=3#Fishing-string&apos;); margin-right: 30px;" />
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
                                         <ui:Label text="Lv 16" display-tooltip-when-elided="true" name="level" class="text" style="font-size: 45px;" />
-                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px;">
+                                        <ui:VisualElement name="value-box" class="performance-graph" style="height: 75px; margin-top: 20px;">
                                             <ui:Label text="견고함" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 35px;" />
                                             <ui:Label text="16" display-tooltip-when-elided="true" name="value-text" class="text" style="position: absolute; font-size: 35px; right: 0;" />
                                             <ui:VisualElement name="graph" style="width: 100%; height: 25px; background-color: rgba(0, 0, 0, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 10px;">

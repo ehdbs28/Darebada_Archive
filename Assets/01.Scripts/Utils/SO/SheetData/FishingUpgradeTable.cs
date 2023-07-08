@@ -9,8 +9,10 @@ public class FishingUpgradeUnit{
     public int MaxLevel = 0;
 }
 
-public class FishingUpgradeTable : LoadableData<FishingUpgradeUnit>
+public class FishingUpgradeTable : LoadableData
 {
+    public DataTable<FishingUpgradeUnit> DataTable = new DataTable<FishingUpgradeUnit>();
+
     public override void AddData(string[] dataArr)
     {
         DataTable.Add(new FishingUpgradeUnit());
@@ -28,5 +30,11 @@ public class FishingUpgradeTable : LoadableData<FishingUpgradeUnit>
         DataTable[Size].MaxLevel = int.Parse(dataArr[3]);
 
         ++Size;
+    }
+
+    public override void Clear()
+    {
+        base.Clear();
+        DataTable.Clear();
     }
 }

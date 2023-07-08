@@ -10,8 +10,8 @@ public class UIBoatUpgradeContent : UIPopupContent
         List<VisualElement> upgradeItems;
         upgradeItems = root.Q<ScrollView>("boat-items").Query(className: "boat-item").ToList();
 
-        foreach(var item in upgradeItems){
-            _buyContent.Add(new UIBoatBuyElement(item));
+        for(int i = 0; i < upgradeItems.Count; i++){
+            _buyContent.Add(new UIBoatBuyElement(upgradeItems[i], i));
         }
 
         AddEvent();

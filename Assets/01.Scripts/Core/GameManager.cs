@@ -53,12 +53,16 @@ public class GameManager : MonoBehaviour
     private void AddManager(){
         _managers.Add(new GameSceneManager());
         _managers.Add(new DataManager());
+        _managers.Add(GetComponent<SheetDataManager>());
+        _managers.Add(new MoneyManager());
         _managers.Add(GetComponent<InputManager>());
         _managers.Add(GetComponent<CameraManager>());
         _managers.Add(new TimeManager());
         _managers.Add(transform.Find("UIManager").GetComponent<UIManager>());
         //_managers.Add(GetComponent<DayCycleManager>());
         //_managers.Add(FindObjectOfType< LetterManager>());
+        _managers.Add(new FishingUpgradeManager());
+        _managers.Add(new BoatManager());
         _managers.Add(new PoolManager(_poolingTrm));
         _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
     }
