@@ -8,8 +8,8 @@
             <ui:VisualElement name="exit-btn" style="width: 35px; height: 35px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); right: 30px; position: absolute;" />
             <ui:Label text="도감" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 40px; position: absolute;" />
         </ui:VisualElement>
-        <ui:VisualElement name="contents" style="flex-grow: 1; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); border-top-width: 2px;">
-            <ui:VisualElement name="content-detail" style="position: absolute; width: 100%; height: 100%; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; overflow: hidden; display: none; visibility: hidden;">
+        <ui:VisualElement name="contents" class="diction-content">
+            <ui:VisualElement name="content-detail">
                 <ui:VisualElement name="header" style="height: 75px; width: 100%; justify-content: center; align-items: center; margin-bottom: 20px; flex-basis: 7%;">
                     <ui:Label text="붕어" display-tooltip-when-elided="true" name="name-text" class="text" style="-unity-text-align: middle-center; font-size: 45px; width: 100px;" />
                     <ui:VisualElement name="back-btn" style="position: absolute; width: 50px; height: 50px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Arrow%204%20W%20Icon.png?fileID=21300000&amp;guid=539a4c67d1d328e4ab6c8f533d26a90b&amp;type=3#Free Flat Arrow 4 W Icon&apos;); left: 0;" />
@@ -64,7 +64,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:ScrollView name="content-scroll" style="width: 100%; height: 100%; visibility: visible;">
+            <ui:ScrollView name="content-scroll">
                 <ui:VisualElement name="biome1" style="width: 100%; height: 500px; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; margin-bottom: 20px;">
                     <ui:VisualElement name="biome-name" style="height: 75px; padding-bottom: 20px; width: 100%;">
                         <ui:VisualElement name="name-box" style="background-color: rgba(0, 0, 0, 0.78); width: 100%; height: 100%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
