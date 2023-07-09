@@ -1,68 +1,14 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/07.UI/LetterUI.uss?fileID=7433441132597879392&amp;guid=0ff408542c843224b959d6961bacb71f&amp;type=3#LetterUI" />
-    <Style src="project://database/Assets/07.UI/OceneUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceneUI" />
+    <Style src="project://database/Assets/07.UI/OceanUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceanUI" />
+    <Style src="project://database/Assets/07.UI/LetterUnit.uss?fileID=7433441132597879392&amp;guid=cb6e0c60d859140a6bfec988fb1fbe98&amp;type=3#LetterUnit" />
     <ui:VisualElement name="letter-container" style="width: 70%; height: 60%; left: 15%; top: 20%; background-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; position: absolute;">
         <ui:VisualElement name="header" style="flex-basis: 7.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0;">
             <ui:VisualElement name="exit-btn" style="width: 35px; height: 35px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); position: absolute; right: 30px;" />
             <ui:Label text="편지함" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 40px; position: absolute; color: rgb(255, 255, 255);" />
         </ui:VisualElement>
         <ui:VisualElement name="contents" style="flex-basis: 80%; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); border-top-width: 2px; border-bottom-width: 2px; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-grow: 1;">
-            <ui:ScrollView name="content-scroll" style="width: 100%; height: 100%;">
-                <ui:VisualElement name="recept-letter" class="letter-unit">
-                    <ui:VisualElement name="title-content" style="flex-basis: 60%; flex-direction: row; align-items: center; flex-shrink: 0;">
-                        <ui:VisualElement name="type-image" style="width: 45px; height: 45px; left: 10px; background-image: url(&apos;project://database/Assets/05.Assets/UI/moneyicon.png?fileID=-1793868559&amp;guid=10afb1698ea3df7498f21ea8bb3a3f1a&amp;type=3#moneyicon_0&apos;); margin-right: 20px;" />
-                        <ui:Label text="7월14일 아쿠아리움 명세서" display-tooltip-when-elided="true" name="title-text" class="text" style="font-size: 40px;" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="footer-content" style="flex-basis: 40%; flex-direction: row; align-items: center; justify-content: center; flex-shrink: 0;">
-                        <ui:VisualElement name="profile-box" style="width: 50%; height: 40px; left: 10px; position: absolute; overflow: hidden; flex-direction: row; align-items: center;">
-                            <ui:Label text="아쿠아리움 관리인" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 20px; -unity-font-style: bold;" />
-                        </ui:VisualElement>
-                        <ui:Label text="7월14일" display-tooltip-when-elided="true" name="date-text" class="text" style="position: absolute; right: 20px; font-size: 20px; letter-spacing: 7px;" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="desc-content">
-                        <ui:Label text="입장료 수익&#10;부가구역 수익&#10;&#10;총 관리자 일급&#10;직원 일급&#10;아쿠아리움 관리비&#10;&#10;-----------------------------------------------------&#10;&#10;총 수익&#10;" display-tooltip-when-elided="true" name="desc-text" class="text" style="font-size: 25px; position: absolute; left: 15px; top: 15px; right: 15px; bottom: 15px; -unity-font-style: normal;" />
-                        <ui:Label text="+100&#10;+56&#10;&#10;-10&#10;-5&#10;-30&#10;&#10;&#10;&#10;+111$" display-tooltip-when-elided="true" name="desc-price" class="text" style="position: absolute; left: 15px; top: 15px; right: 15px; bottom: 15px; font-size: 25px; -unity-text-align: upper-right;" />
-                    </ui:VisualElement>
-                </ui:VisualElement>
-                <ui:VisualElement name="quest-letter" class="letter-unit">
-                    <ui:VisualElement name="title-content" style="flex-basis: 60%; flex-direction: row; align-items: center;">
-                        <ui:VisualElement name="type-image" style="width: 45px; height: 45px; left: 10px; background-image: url(&apos;project://database/Assets/05.Assets/UI/questicon.png?fileID=21300000&amp;guid=c3de7621bc9d2024198c14afb4c93f01&amp;type=3#questicon&apos;); margin-right: 20px;" />
-                        <ui:Label text="아쿠아리움 건의사항 !!" display-tooltip-when-elided="true" name="title-text" class="text" style="font-size: 40px;" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="footer-content" style="flex-basis: 40%; flex-direction: row; align-items: center; justify-content: center;">
-                        <ui:VisualElement name="profile-box" style="width: 50%; height: 40px; left: 10px; position: absolute; overflow: hidden; flex-direction: row; align-items: center;">
-                            <ui:Label text="박부성" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 20px; -unity-font-style: bold;" />
-                        </ui:VisualElement>
-                        <ui:Label text="7월14일" display-tooltip-when-elided="true" name="date-text" class="text" style="position: absolute; right: 20px; font-size: 20px; letter-spacing: 7px;" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="desc-content" style="position: absolute; top: 100%; background-color: rgba(51, 51, 51, 0.59); border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px;">
-                        <ui:Label text="아쿠아리움을 운영한다면서 !!&#10;아쿠아리움에 오징어도 없는게 말이 된다고 생각해요 ??&#10;&#10;당장 오징어를 넣어줘요" display-tooltip-when-elided="true" name="desc-text" class="text" style="font-size: 25px; -unity-font-style: normal; flex-basis: 60%;" />
-                        <ui:VisualElement name="yes-or-no" style="flex-basis: 40%; flex-direction: row; align-items: center;">
-                            <ui:VisualElement name="yes-btn" style="width: 200px; height: 50px; background-color: rgba(0, 0, 0, 0.29); border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; margin-right: 5px;">
-                                <ui:Label text="수락" display-tooltip-when-elided="true" name="text" class="text" style="-unity-text-align: middle-center; width: 100%; height: 100%; font-size: 30px;" />
-                            </ui:VisualElement>
-                            <ui:VisualElement name="no-btn" style="width: 200px; height: 50px; background-color: rgba(0, 0, 0, 0.29); border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
-                                <ui:Label text="거절" display-tooltip-when-elided="true" name="text" class="text" style="-unity-text-align: middle-center; width: 100%; height: 100%; font-size: 30px;" />
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                </ui:VisualElement>
-                <ui:VisualElement name="thanks-letter" class="letter-unit">
-                    <ui:VisualElement name="title-content" style="flex-basis: 60%; flex-direction: row; align-items: center;">
-                        <ui:VisualElement name="type-image" style="width: 45px; height: 45px; left: 10px; background-image: url(&apos;project://database/Assets/05.Assets/UI/hearticon.png?fileID=-45266452&amp;guid=78cbb390cb63e754695d09a7f9118918&amp;type=3#hearticon_0&apos;); margin-right: 20px;" />
-                        <ui:Label text="오늘 견학 후기" display-tooltip-when-elided="true" name="title-text" class="text" style="font-size: 40px;" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="footer-content" style="flex-basis: 40%; flex-direction: row; align-items: center; justify-content: center;">
-                        <ui:VisualElement name="profile-box" style="width: 50%; height: 40px; left: 10px; position: absolute; overflow: hidden; flex-direction: row; align-items: center;">
-                            <ui:Label text="이도윤" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 20px; -unity-font-style: bold;" />
-                        </ui:VisualElement>
-                        <ui:Label text="7월14일" display-tooltip-when-elided="true" name="date-text" class="text" style="position: absolute; right: 20px; font-size: 20px; letter-spacing: 7px;" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="desc-content" style="position: absolute; top: 100%; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px; background-color: rgba(51, 51, 51, 0.39);">
-                        <ui:Label text="오늘 현장체험학습으로 아쿠아리움에 와서 재밌게 놀았어요 !!&#10;&#10;...사실 놀이공원을 더 가고 싶었지만... 나름 재밌었어요&#10;좋은 아쿠아리움을 만들어주셔서 감사합니다." display-tooltip-when-elided="true" name="desc-text" class="text" style="font-size: 25px; -unity-font-style: normal; width: 100%; height: 100%;" />
-                    </ui:VisualElement>
-                </ui:VisualElement>
-            </ui:ScrollView>
+            <ui:ScrollView name="content-scroll" style="width: 100%; height: 100%;" />
         </ui:VisualElement>
         <ui:VisualElement name="footer" style="flex-basis: 10%; flex-direction: row; align-items: center; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; flex-shrink: 0;">
             <ui:VisualElement name="select-all-toggle" style="width: 50px; height: 50px; margin-right: 50px; background-color: rgba(0, 0, 0, 0.78); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; padding-left: 3px; padding-right: 3px; padding-top: 3px; padding-bottom: 3px; align-items: center; justify-content: center;">

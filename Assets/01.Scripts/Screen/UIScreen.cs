@@ -21,11 +21,11 @@ public abstract class UIScreen : MonoBehaviour
             }
         }
 
-        VisualElement generatedRoot = GenerateRoot();
+        GenerateRoot();
 
-        if(generatedRoot != null){
-            AddEvent(generatedRoot);
-            _documentRoot.Insert(0, generatedRoot);
+        if(_root != null){
+            AddEvent(_root);
+            _documentRoot.Insert(0, _root);
         }
     }
 

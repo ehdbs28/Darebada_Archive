@@ -9,7 +9,50 @@ public class LetterPopup : UIPopup
     private VisualElement _deleteBtn;
     private VisualElement _selectAllToggle;
 
-    private List<VisualElement> _letters = new List<VisualElement>();
+    private ScrollView _letterPerent;
+
+    private List<UILetterUnit> _letters = new List<UILetterUnit>();
+
+    [SerializeField]
+    private VisualTreeAsset _letterTemplete;
+
+    public override void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
+    {
+        _isOpenPopup = true;
+
+        _documentRoot = document.rootVisualElement.Q("main-container");
+
+        if(clearScreen && _documentRoot.childCount >= 2){
+            for(int i = 0; i < _documentRoot.childCount; i++){
+                if(_documentRoot.ElementAt(i).ClassListContains("blur-panel")) continue;
+                _documentRoot.RemoveAt(i);
+            }
+        }
+
+        if(timeStop)
+            GameManager.Instance.GetManager<TimeManager>().TimeScale = 0f;
+
+        if(blur){
+            _blurPanel = _documentRoot.Q(className: "blur-panel");
+            _blurPanel.AddToClassList("on");
+        }
+
+        GenerateRoot();
+        GenerateLetterUnit();
+
+        if(_root != null){
+            AddEvent(_root);
+            _documentRoot.Add(_root);
+        }
+    }
+
+    private void GenerateLetterUnit(){
+        List<LetterUnit> letterUnits = GameManager.Instance.GetManager<LetterManager>().Letters;
+        for(int i = 0; i < letterUnits.Count; i++){
+            _letters.Add(new UILetterUnit(_letterTemplete, _letterPerent));
+            _letters[i].Generate(letterUnits[i]);
+        }
+    }
 
     protected override void AddEvent(VisualElement root)
     {
@@ -17,40 +60,21 @@ public class LetterPopup : UIPopup
             RemoveRoot();
         });
 
-        foreach(VisualElement letter in _letters)
-        {
-            letter.RegisterCallback<ClickEvent>(e =>
-            {
-                if (letter.ClassListContains("on"))
-                    letter.RemoveFromClassList("on");
-                else
-                {
-                    letter.AddToClassList("on");
-                    letter.AddToClassList("check");
-                }
-            });
-        }
-
         _selectAllToggle.RegisterCallback<ClickEvent>(e =>
         {
-            foreach(VisualElement letter in _letters)
+            foreach(UILetterUnit letter in _letters)
             {
-                letter.AddToClassList("on");
+                letter.Toggle(true);
             }
-        });
-
-        _exitBtn.RegisterCallback<ClickEvent>(e =>
-        {
-            RemoveRoot();
         });
 
         _deleteBtn.RegisterCallback<ClickEvent>(e =>
         {
-            foreach(VisualElement letter in _letters)
+            foreach(UILetterUnit letter in _letters)
             {
-                if (letter.ClassListContains("on"))
+                if (letter.IsOpen)
                 {
-                    letter.RemoveFromHierarchy();
+                    letter.Remove();
                 }
             }
         });
@@ -65,7 +89,6 @@ public class LetterPopup : UIPopup
         _exitBtn = root.Q<VisualElement>("exit-btn");
         _deleteBtn = root.Q<VisualElement>("delete-btn");
         _selectAllToggle = root.Q<VisualElement>("select-all-toggle").Q<VisualElement>("inner");
-
-        _letters = root.Query<VisualElement>(className: "letter-unit").ToList();
+        _letterPerent = root.Q<ScrollView>("content-scroll");
     }
 }

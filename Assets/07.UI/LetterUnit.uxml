@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/LetterUnit.uss?fileID=7433441132597879392&amp;guid=cb6e0c60d859140a6bfec988fb1fbe98&amp;type=3#LetterUnit" />
+    <ui:VisualElement name="letter-unit" class="letter-unit">
+        <ui:VisualElement name="title-content" style="flex-basis: 60%; flex-direction: row; align-items: center; flex-shrink: 0;">
+            <ui:VisualElement name="type-image" />
+            <ui:Label text="7월14일 아쿠아리움 명세서" display-tooltip-when-elided="true" name="title-text" class="text" style="font-size: 40px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="footer-content" style="flex-basis: 40%; flex-direction: row; align-items: center; justify-content: center; flex-shrink: 0;">
+            <ui:VisualElement name="profile-box" style="width: 50%; height: 40px; left: 10px; position: absolute; overflow: hidden; flex-direction: row; align-items: center;">
+                <ui:Label text="아쿠아리움 관리인" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 20px; -unity-font-style: bold;" />
+            </ui:VisualElement>
+            <ui:Label text="7월14일" display-tooltip-when-elided="true" name="date-text" class="text" style="position: absolute; right: 20px; font-size: 20px; letter-spacing: 7px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="desc-content">
+            <ui:Label text="입장료 수익&#10;부가구역 수익&#10;&#10;총 관리자 일급&#10;직원 일급&#10;아쿠아리움 관리비&#10;&#10;-----------------------------------------------------&#10;&#10;총 수익&#10;" display-tooltip-when-elided="true" name="desc-text" class="text" style="font-size: 25px; position: absolute; left: 15px; top: 15px; right: 15px; bottom: 15px; -unity-font-style: normal;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

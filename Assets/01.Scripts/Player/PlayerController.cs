@@ -18,8 +18,6 @@ public class PlayerController : ModuleController
         base.Awake();
 
         foreach(var module in _modules){
-            Debug.Log(module.GetType());
-            
             if(module.GetType() == typeof(PlayableMovementModule)){
                 _playerModules.Add(PlayerState.PLAYABLE, module);
             }

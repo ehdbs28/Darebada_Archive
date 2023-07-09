@@ -6,9 +6,16 @@ using Unity.VisualScripting;
 
 public class LetterManager : MonoBehaviour,IManager
 {
-    [SerializeField]private List<LetterUnit> _letters;
-    [SerializeField] private LetterTemplateSO ThanksTemplate;
-    [SerializeField] private LetterTemplateSO RequestTemplate;
+    [SerializeField]
+    private List<LetterUnit> _letters;
+    public List<LetterUnit> Letters => _letters;
+    
+    [SerializeField]
+    private LetterTemplateSO ThanksTemplate;
+    
+    [SerializeField]
+    private LetterTemplateSO RequestTemplate;
+
     public LetterManager(){
         ResetManager();
     }
@@ -40,7 +47,7 @@ public class LetterManager : MonoBehaviour,IManager
         //string date = $"{GameManager.Instance.GetManager<TimeManager>().DateTime.Month}M {GameManager.Instance.GetManager<TimeManager>().DateTime.Day}D";
         string from = "AquariumManager";
         LetterUnit letter = new LetterUnit();
-        letter.Setup(LetterType.REQUEST, title, desc, date, from);
+        letter.Setup(LetterType.Request, title, desc, date, from);
         AddLetter(letter);
     }
     public void SendReviewLetter(GameDate date)
@@ -53,7 +60,7 @@ public class LetterManager : MonoBehaviour,IManager
         //string date = $"{GameManager.Instance.GetManager<TimeManager>().DateTime.Month}M {GameManager.Instance.GetManager<TimeManager>().DateTime.Day}D";
         string from = ThanksTemplate.froms[Random.Range(0,ThanksTemplate.froms.Count)];
         LetterUnit letter = new LetterUnit();
-        letter.Setup(LetterType.THANKS,title, desc, date, from);
+        letter.Setup(LetterType.Thanks,title, desc, date, from);
         AddLetter(letter);
     }
     void Update()
@@ -82,7 +89,7 @@ public class LetterManager : MonoBehaviour,IManager
         string desc = $"{entranceRevenue}\n{etcRevenue}\n\n{managerSalary}\n{employeeSalary}\n{manageCost}";//InsertDesc
         string from = "AquariumManager";
         LetterUnit letter = new LetterUnit();
-        letter.Setup(LetterType.THANKS, title, desc, n_date, from);
+        letter.Setup(LetterType.Thanks, title, desc, n_date, from);
         AddLetter(letter);
     }
 
