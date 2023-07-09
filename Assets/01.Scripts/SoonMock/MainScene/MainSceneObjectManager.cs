@@ -12,14 +12,25 @@ public class MainSceneObjectManager : MonoBehaviour
         GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += MouseClickHandle;    
     }
 
+    public void RemoveEvent(){
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= MouseClickHandle;
+    }
+
     private void MouseClickHandle(bool value)
     {
-
         Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit,Mathf.Infinity, _layerMask))
         {
             hit.collider.GetComponent<UiButtonObject>().OnTouch();
         }
+    }
+
+    public void SetPopup(int type){
+        GameManager.Instance.GetManager<UIManager>().ShowPanel((PopupType)type);
+    }
+
+    public void ChangeScene(int type){
+        GameManager.Instance.GetManager<GameSceneManager>().ChangeScene((GameSceneType)type);
     }
 }

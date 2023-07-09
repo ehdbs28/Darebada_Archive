@@ -6367,7 +6367,19 @@ MonoBehaviour:
         m_CallState: 2
   OnExitScene:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7894726203665741628}
+        m_TargetAssemblyTypeName: MainSceneObjectManager, Assembly-CSharp
+        m_MethodName: RemoveEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7894726203665741628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21827,7 +21839,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a372e09c1bb28479d513d5b00fdf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popType: 6
+  OnTouchEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7894726203665741628}
+        m_TargetAssemblyTypeName: MainSceneObjectManager, Assembly-CSharp
+        m_MethodName: SetPopup
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5618274626290146976
 GameObject:
   m_ObjectHideFlags: 0
@@ -29723,7 +29749,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a372e09c1bb28479d513d5b00fdf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popType: 5
+  OnTouchEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7894726203665741628}
+        m_TargetAssemblyTypeName: MainSceneObjectManager, Assembly-CSharp
+        m_MethodName: SetPopup
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2833275750228799653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7685901055791972887, guid: 6d79ddda8254f3342be9e9d59045c365, type: 3}
@@ -29911,7 +29951,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a372e09c1bb28479d513d5b00fdf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popType: 4
+  OnTouchEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7894726203665741628}
+        m_TargetAssemblyTypeName: MainSceneObjectManager, Assembly-CSharp
+        m_MethodName: SetPopup
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &5364533157802491203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f0ff8ca82e8b642a8931d1d8ac7cf0c2, type: 3}
@@ -30300,7 +30354,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a372e09c1bb28479d513d5b00fdf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popType: 3
+  OnTouchEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7894726203665741628}
+        m_TargetAssemblyTypeName: MainSceneObjectManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &5618274626366538544
 PrefabInstance:
   m_ObjectHideFlags: 0
