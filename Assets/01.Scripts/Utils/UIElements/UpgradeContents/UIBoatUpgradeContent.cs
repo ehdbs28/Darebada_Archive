@@ -14,6 +14,10 @@ public class UIBoatUpgradeContent : UIPopupContent
             _buyContent.Add(new UIBoatBuyElement(upgradeItems[i], i));
         }
 
+        foreach(var boatUI in _buyContent){
+            ((UIBoatBuyElement)boatUI).ListSet(_buyContent);
+        }
+
         AddEvent();
     }
 }

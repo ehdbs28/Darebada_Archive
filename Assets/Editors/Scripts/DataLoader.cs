@@ -13,11 +13,11 @@ public class DataLoader
     private void AddData<T>(DataLoadType type, T asset, string[] dataArr, string line, string assetPath) where T : LoadableData{
         asset.AddData(dataArr);
         DataLoaderUI.CreateDataUI(type, dataArr, line, assetPath);
-        AssetDatabase.SaveAssets();
+        // AssetDatabase.SaveAssets();
     }
 
     public void HandleData<T>(string data, DataLoadType type, out int lineNum) where T : LoadableData{
-        string assetPath = $"Assets/Resources/{type.ToString()}.asset";
+        string assetPath = $"Assets/06.SO/SheetData/{type.ToString()}.asset";
         T asset = AssetDatabase.LoadAssetAtPath<T>(assetPath);
 
         if(asset == null)

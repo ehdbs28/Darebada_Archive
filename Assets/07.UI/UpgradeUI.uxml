@@ -27,7 +27,7 @@
                             <ui:Label text="1,418 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 30px; left: -25px;" />
                         </ui:VisualElement>
                         <ui:ScrollView name="boat-items" style="width: 100%;">
-                            <ui:VisualElement name="test-boat" class="boat-item unlock select" style="height: 700px;">
+                            <ui:VisualElement name="boat_1" class="boat-item" style="height: 700px;">
                                 <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
                                     <ui:Label text="초보용 보트" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
                                 </ui:VisualElement>
@@ -66,7 +66,7 @@
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
-                            <ui:VisualElement name="test-boat" class="boat-item unlock" style="height: 700px;">
+                            <ui:VisualElement name="boat_2" class="boat-item" style="height: 700px;">
                                 <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
                                     <ui:Label text="스피드 보트" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
                                 </ui:VisualElement>
@@ -105,7 +105,7 @@
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
-                            <ui:VisualElement name="test-boat" class="boat-item" style="height: 700px;">
+                            <ui:VisualElement name="boat_3" class="boat-item" style="height: 700px;">
                                 <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
                                     <ui:Label text="중견 보트" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
                                 </ui:VisualElement>
@@ -144,7 +144,7 @@
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
-                            <ui:VisualElement name="test-boat" class="boat-item" style="height: 700px;">
+                            <ui:VisualElement name="boat_4" class="boat-item" style="height: 700px;">
                                 <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
                                     <ui:Label text="최고급 보트" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
                                 </ui:VisualElement>
@@ -183,7 +183,7 @@
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
-                            <ui:VisualElement name="test-boat" class="boat-item" style="height: 700px;">
+                            <ui:VisualElement name="boat_5" class="boat-item" style="height: 700px;">
                                 <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
                                     <ui:Label text="전설의 보트" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
                                 </ui:VisualElement>
