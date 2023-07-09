@@ -41,10 +41,23 @@ public class TimeManager : IManager
         
         _currentTime = gameData.GameTime;
         _totalDay = gameData.TotalDay;
-
+        OnDayChangedEvent += SendSpecification;
         DateTime = new GameDate(gameData.GameDateTime.Year, gameData.GameDateTime.Month, gameData.GameDateTime.Day);
     }
-
+    public void SendSpecification(int year, int month, int day)
+    {
+        int ent=0, etc=0, man=0, empl=0,manage=0;
+        GameManager.Instance.GetManager<LetterManager>().SendReportLetter(ent, etc, man, empl, manage, DateTime);
+    }
+    public void SendRequestMail(int year, int month, int day)
+    {
+        GameManager.Instance.GetManager<LetterManager>().SendRequestLetter(DateTime);
+    }
+    public void SendReviewMail(int year, int month , int day)
+    {
+        GameManager.Instance.GetManager<LetterManager>().SendReviewLetter(DateTime);
+    }
+    public void 
     public void UpdateManager()
     {
         _currentTime += Time.deltaTime * _timeScale;

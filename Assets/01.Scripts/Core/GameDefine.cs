@@ -32,7 +32,7 @@ namespace Core{
     }
 
     public class GameTime{
-        public static readonly float DayDelay = 720f;
+        public static readonly float DayDelay = 5f;
         public static float HourDelay => DayDelay / 24;
         public static float MinuteDelay => HourDelay / 12;
         
