@@ -49,7 +49,10 @@ public class DictionaryDetail
 
         string favoriteValue = "";
         for(int i = 0; i < data.Favorites.Count; i++){
-            favoriteValue += data.Favorites[i];
+            if(i < data.Favorites.Count - 1)
+                favoriteValue += $"{data.Favorites[i]}, ";
+            else
+                favoriteValue += data.Favorites[i];
         }
         _favoriteLabel.text = favoriteValue;
 
