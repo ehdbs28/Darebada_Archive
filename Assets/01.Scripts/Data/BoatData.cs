@@ -1,18 +1,26 @@
+using System.IO;
+using System.Collections.Generic;
+using UnityEngine;
+
 [System.Serializable]
 public class BoatData : SaveData
 {
-    public float BoatMaxSpeed = 5f; 
-    public float BoatForwardAcceleration = 10f;
-    public float BoatBackwardAcceleration = 3f;
-    public float BoatDeceleration = 5f;
+    //public BoatStatSO BoatStat = null;
+    public float Fuel = 0;
 
-    public float BoatMaxRotationSpeed = 1f;
-    public float BoatRotationAcceleration = 10f;
-    public float BoatRotationDeceleration = 10f;
+    public BoatData(string FILE_PATH, string name) : base(FILE_PATH, name)
+    {
+    }
 
-    public float MaxFuel = 100f;
-    public float MaxDurablity = 100f;
+    protected override void LoadData(string json)
+    {
+        BoatData data = JsonUtility.FromJson<BoatData>(json);
+        Fuel = data.Fuel;
+    }
 
-    public override void Reset(){}
+    protected override void Reset()
+    {
+        //BoatStat = null;
+        Fuel = 0;
+    }
 }
-

@@ -1,16 +1,28 @@
+using UnityEngine;
+
 [System.Serializable]
 public class FishingData : SaveData
 {
-    public float ChargingSpeed = 5f;
-    public float MaxChargingPower = 10f;
+    public int ThrowPower_Level = 1;
+    public int StringLength_Level = 1;
+    public int StringStrength_Level = 1;
 
-    public float RotationSpeed = 360f;
+    public FishingData(string FILE_PATH, string name) : base(FILE_PATH, name)
+    {
+    }
 
-    public float ThrowingSpeed = 3f;
+    protected override void LoadData(string json)
+    {
+        FishingData data = JsonUtility.FromJson<FishingData>(json);
+        ThrowPower_Level = data.ThrowPower_Level;
+        StringLength_Level = data.StringLength_Level;
+        StringStrength_Level = data.StringStrength_Level;
+    }
 
-    public float StringLength = 10f;
-
-    public float StringStrength = 1f;
-
-    public override void Reset(){}
+    protected override void Reset()
+    {
+        ThrowPower_Level = 1;
+        StringLength_Level = 1;
+        StringStrength_Level = 1;
+    }
 }

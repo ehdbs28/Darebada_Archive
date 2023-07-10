@@ -16,28 +16,28 @@ public class OceanScreen : UIScreen
     private VisualElement _inventoryBtn;
 
     private UICompass _compass;
-    private UIBoatDurability _boatDurability;
+    private UIBoatFuel _boatDurability;
 
     [SerializeField]
     private Gradient _boatDurabilityGradient;
 
-    private BoatActionData _boatData;
+    private BoatController _boatController;
 
     public override void SetUp(UIDocument document, bool clearScreen = true)
     {
         base.SetUp(document, clearScreen);
 
-        _boatData = GameObject.Find("Boat").GetComponent<BoatActionData>();
+        _boatController = GameObject.Find("Boat").GetComponent<BoatController>();
     }
 
     private void Update() {
-        if(GameManager.Instance.GetManager<UIManager>().ActiveScreen != ScreenType.Ocean || _boatData == null || _compass == null || _boatData == null){
+        if(GameManager.Instance.GetManager<UIManager>().ActiveScreen != ScreenType.Ocean || _boatController == null || _compass == null){
             return;
         }
 
-        float theta = Mathf.Acos(Vector3.Dot(North, _boatData.Forward)) * Mathf.Rad2Deg;
+        float theta = Mathf.Acos(Vector3.Dot(North, _boatController.BoatActionData.Forward)) * Mathf.Rad2Deg;
         
-        if(Vector3.Cross(_boatData.Forward, North).y < 0f){
+        if(Vector3.Cross(_boatController.BoatActionData.Forward, North).y < 0f){
             theta *= -1f;
         }
 
@@ -91,7 +91,7 @@ public class OceanScreen : UIScreen
         _compass = new UICompass(compassRoot);
 
         VisualElement boatDurabilityRoot = root.Q<VisualElement>("boat-data");
-        _boatDurability = new UIBoatDurability(boatDurabilityRoot, _boatDurabilityGradient, _boatData);
+        _boatDurability = new UIBoatFuel(boatDurabilityRoot, _boatDurabilityGradient, _boatController);
     }
 
     public void OnReduceBoatDurability(){

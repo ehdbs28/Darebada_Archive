@@ -7,11 +7,11 @@ public class UIFishingUpgradeContent : UIPopupContent
 {
     public UIFishingUpgradeContent(VisualElement root, int index) : base(root, index)
     {
-        List<VisualElement> updradeItems;
-        updradeItems = root.Q("upgrade-items").Query(className: "fishing-item").ToList();
+        List<VisualElement> upgradeItems;
+        upgradeItems = root.Q("upgrade-items").Query(className: "fishing-item").ToList();
 
-        foreach(var item in updradeItems){
-            _buyContent.Add(new UIFishingBuyElement(item));
+        for(int i = 0; i < upgradeItems.Count; i++){
+            _buyContent.Add(new UIFishingBuyElement(upgradeItems[i], i));
         }
 
         AddEvent();

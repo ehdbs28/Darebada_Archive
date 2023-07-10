@@ -12,7 +12,7 @@ public class FishingCatchingState : FishingState
     private Vector3 _start;
     private Vector3 _end;
 
-    private float _stringLength => (GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData) as FishingData).StringLength;
+    private float _stringLength => _controller.DataSO.StringLength;
     private float _lenght;
 
     private float _throwTime;
@@ -45,11 +45,11 @@ public class FishingCatchingState : FishingState
         _start = _bobberTrm.position;
         _end = _start + _controller.ActionData.LastThrowDirection.normalized; 
 
-        _lenght = _stringLength - _controller.ActionData.LastChargingPower * 10 / _controller.FishingData.MaxChargingPower + 1; 
+        _lenght = _stringLength - _controller.ActionData.LastChargingPower * 10 / _controller.DataSO.MaxChargingPower + 1; 
         
         _end.y = -_lenght;
 
-        _throwTime = Mathf.Max(0.3f, Vector3.Distance(_start, _end)) / _controller.FishingData.ThrowingSpeed;
+        _throwTime = Mathf.Max(0.3f, Vector3.Distance(_start, _end)) / _controller.DataSO.ThrowingSpeed;
         _currentTime = 0f;
         percent = 0f;
 
@@ -85,7 +85,7 @@ public class FishingCatchingState : FishingState
 
                 // 나중에 조건 고치기
                 if(Input.GetKey(KeyCode.Space)){
-                    percent -= _controller.FishingData.ThrowingSpeed * Time.deltaTime / _throwTime;
+                    percent -= _controller.DataSO.ThrowingSpeed * Time.deltaTime / _throwTime;
                     _bobberTrm.position = GetLerpPos();
 
                     if(percent <= 0){
@@ -116,7 +116,7 @@ public class FishingCatchingState : FishingState
 
     private IEnumerator ToThrow(){
         while(percent < 1 && _isReadyToCatch == false){
-            _currentTime += _controller.FishingData.ThrowingSpeed * Time.deltaTime;
+            _currentTime += _controller.DataSO.ThrowingSpeed * Time.deltaTime;
             percent = _currentTime / _throwTime;
 
             _bobberTrm.position = GetLerpPos();

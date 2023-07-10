@@ -10,6 +10,5 @@ public class BoatActionData : MonoBehaviour
     [field:SerializeField]
     public bool IsDestroy { get; set; }
 
-    public float CurrentFule;
-    public float CurrentDurability;
+    public float CurrentFuel;
 }

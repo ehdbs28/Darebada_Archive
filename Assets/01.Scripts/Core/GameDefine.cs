@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core{
@@ -31,12 +32,11 @@ namespace Core{
     }
 
     public class GameTime{
-        public static readonly float DayDelay = 720f;
+        public static readonly float DayDelay = 5f;
         public static float HourDelay => DayDelay / 24;
         public static float MinuteDelay => HourDelay / 12;
         
-        // 12??부???�작
-        public static int[] DayPerMonth = { 31, 31, IsLeapYear(GameManager.Instance.GetManager<TimeManager>().Year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30 };
+        public static int[] DayPerMonth = { 31, 31, IsLeapYear(GameManager.Instance.GetManager<TimeManager>().DateTime.Year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30 };
 
         public static bool IsLeapYear(int year){
             return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
@@ -48,5 +48,23 @@ namespace Core{
             yield return new WaitForSeconds(delay);
             Callback?.Invoke();
         }
+    }
+
+    [Serializable]
+    public class GameDate{
+        public int Year;
+        public int Month;
+        public int Day;
+
+        public GameDate(int year, int month, int day){
+            Year = year;
+            Month = month;
+            Day = day;
+        }
+    }
+
+    [Serializable]
+    public class SerializeList<T>{
+        public List<T> List;
     }
 }

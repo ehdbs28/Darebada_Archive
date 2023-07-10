@@ -10,13 +10,25 @@ public class UIFishingBuyElement : UIBuyElement
     private float _value;
     public float Vlaue => _value;
 
-    public UIFishingBuyElement(VisualElement elementRoot) : base(elementRoot)
+    int _idx = 0;
+
+    public UIFishingBuyElement(VisualElement elementRoot, int idx) : base(elementRoot)
     {
-        
+        _idx = idx;
     }
 
     protected override void AddEvent()
     {
-        
+        _buyButton.RegisterCallback<ClickEvent>(e => {
+            if(_idx == 0){
+                Debug.Log("0");
+            }
+            else if(_idx == 1){
+                Debug.Log("1");
+            }
+            else if(_idx == 2){
+                Debug.Log("2");
+            }
+        });
     }
 }

@@ -9,8 +9,6 @@ public class MainSceneObjectManager : MonoBehaviour
 
     public void AddEvent()
     {
-        Debug.Log("ASdf");
-
         GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += MouseClickHandle;    
     }
 
@@ -21,8 +19,7 @@ public class MainSceneObjectManager : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit,Mathf.Infinity, _layerMask))
         {
-                hit.collider.GetComponent<UiButtonObject>().OnTouch();
-
+            hit.collider.GetComponent<UiButtonObject>().OnTouch();
         }
     }
 }

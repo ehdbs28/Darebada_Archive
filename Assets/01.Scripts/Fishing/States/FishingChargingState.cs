@@ -11,7 +11,7 @@ public class FishingChargingState : FishingState
     private Transform _bobberTrm;
     private Transform _playerTrm;
 
-    private float _maxChargingPower => (GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData) as FishingData).MaxChargingPower;
+    private float _maxChargingPower => _controller.DataSO.MaxChargingPower;
     private float _currentChargingPower = 0f;
     private float _powerDir = 1f;
 
@@ -47,9 +47,9 @@ public class FishingChargingState : FishingState
 
         _bobberTrm.position = _bobberPos.position;
 
-        _currentChargingPower += _powerDir * _controller.FishingData.ChargingSpeed * Time.deltaTime;
+        _currentChargingPower += _powerDir * _controller.DataSO.ChargingSpeed * Time.deltaTime;
 
-        if(_currentChargingPower >= _controller.FishingData.MaxChargingPower || _currentChargingPower <= 0f)
+        if(_currentChargingPower >= _controller.DataSO.MaxChargingPower || _currentChargingPower <= 0f)
             _powerDir *= -1;
 
         (GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Casting) as CastingPopup).SetValue(_currentChargingPower / _maxChargingPower);
@@ -68,7 +68,7 @@ public class FishingChargingState : FishingState
             Vector3 result = Vector3.Cross(currentFrontVec, target);
 
             float sign = result.y > 0 ? 1 : -1;
-            _playerTrm.rotation = Quaternion.Euler(0, sign * _controller.FishingData.RotationSpeed * Time.deltaTime, 0) * _playerTrm.rotation;
+            _playerTrm.rotation = Quaternion.Euler(0, sign * _controller.DataSO.RotationSpeed * Time.deltaTime, 0) * _playerTrm.rotation;
         }
         else{
             // 다 돌아갔을 때 할 일인데 아직 없음

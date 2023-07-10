@@ -18,14 +18,14 @@ public class DataLoaderUI : EditorWindow
 
     private DataLoader _loader;
 
-    private TextField _urlText;
+    private TextField _documentID;
+    private TextField _sheetID;
+    private DropdownField _typeSetting;
 
     #region Variable about Log-Viewer
     private Label _logTitle;
     private Label _logType;
     private Label _logPath;
-
-    private Label _logLabel;
 
     private Label _innerData;
     #endregion
@@ -46,6 +46,12 @@ public class DataLoaderUI : EditorWindow
 
         LoadUIElement(rootUI);
         AddEvent(rootUI);
+
+        _typeSetting.choices.Clear();
+        foreach(var type in Enum.GetValues(typeof(DataLoadType))){
+            _typeSetting.choices.Add(type.ToString());
+        }
+        _typeSetting.value = _typeSetting.choices[0];
         
         _dataElementParent.text = "Data";
 
@@ -56,25 +62,24 @@ public class DataLoaderUI : EditorWindow
         _logTitle = root.Q<Label>("title");
         _logType = root.Q<Label>("type");
         _logPath = root.Q<Label>("path");
-        _logLabel = root.Q<Label>("text-log");
         _innerData = root.Q<Label>("code-text");
 
         _dataElementParent = root.Q<Foldout>(className: "fold-out");
 
-        _urlText = root.Q<TextField>(className: "input-field");
+        _documentID = root.Q<TextField>("input_ID_field", className: "input-field");
+        _sheetID = root.Q<TextField>("input_page_field", className: "input-field");
+        _typeSetting = root.Q<DropdownField>("type_setting", className: "dropdown");
     }
 
     private void AddEvent(VisualElement root){
         Button btnLoad = root.Q<Button>(className: "btn");
 
         btnLoad.RegisterCallback<ClickEvent>(evt => {
-            //스크립트는 나중에 필요할 때 추가하기
-
-            EditorCoroutineUtility.StartCoroutine(_loader.GetDataFromSheet(_urlText.text, "0", (sucess, data) => {
+            EditorCoroutineUtility.StartCoroutine(_loader.GetDataFromSheet(_documentID.text, _sheetID.text, (sucess, data) => {
                 int lineNum;
                 
                 if(sucess){
-                    _loader.HandleData(data, DataLoadType.ScriptableObject, out lineNum);
+                    _loader.HandleData(data, (DataLoadType)_typeSetting.choices.IndexOf(_typeSetting.value), out lineNum);
                     AddLog($"{lineNum - 1}개의 데이터가 정상적으로 생성되었습니다.");
                 }
                 else{
@@ -87,7 +92,7 @@ public class DataLoaderUI : EditorWindow
     public void CreateDataUI(DataLoadType type, string[] data, string line, string path){
         VisualTreeAsset dataContent = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Editors/UI/DataContent.uxml");
         VisualElement rootData = dataContent.Instantiate().Q(className: "data");
-        rootData.AddToClassList((type == DataLoadType.Script) ? "cs" : "so");
+        rootData.AddToClassList("so");
         rootData.RegisterCallback<ClickEvent>(evt => {
             List<VisualElement> otherData = rootData.parent.Query(className: "data").ToList();
             otherData.ForEach(data => data.RemoveFromClassList("on"));
@@ -114,7 +119,6 @@ public class DataLoaderUI : EditorWindow
 
     public void AddLog(string log){
         Debug.Log(log);
-        _logLabel.text += $"{log}\n";
     }
 }
 
