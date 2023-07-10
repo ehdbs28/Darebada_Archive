@@ -4,4 +4,5 @@ public enum OceneType{
     RainyOcene,     // 비의 바다
     ColdOcene,      // 추위의 바다
     SilenceOcene,   // 고요의 바다
+    Count
 }
