@@ -14,14 +14,14 @@
                     <ui:Label text="붕어" display-tooltip-when-elided="true" name="name-text" class="text" style="-unity-text-align: middle-center; font-size: 45px; width: 100px;" />
                     <ui:VisualElement name="back-btn" style="position: absolute; width: 50px; height: 50px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Arrow%204%20W%20Icon.png?fileID=21300000&amp;guid=539a4c67d1d328e4ab6c8f533d26a90b&amp;type=3#Free Flat Arrow 4 W Icon&apos;); left: 0;" />
                 </ui:VisualElement>
-                <ui:VisualElement name="fish-image" style="flex-basis: 30%; align-items: center; justify-content: center; margin-bottom: 20px;">
-                    <ui:VisualElement name="test-fish-one" class="fish-element" style="width: 600px; height: 300px; margin-right: 0;">
-                        <ui:VisualElement name="inner" style="align-items: center; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
-                            <ui:VisualElement name="fish-image" style="width: 100%;" />
+                <ui:VisualElement name="fish-image-box" style="flex-basis: 30%; align-items: center; justify-content: center; margin-bottom: 20px;">
+                    <ui:VisualElement name="fish-unit" style="width: 600px; height: 300px; margin-right: 0; border-top-left-radius: 10px; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; background-color: rgba(255, 255, 255, 0.29); padding-left: 3px; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+                        <ui:VisualElement name="inner" style="overflow: hidden; width: 100%; height: 100%; padding-left: 2px; padding-right: 0; padding-top: 0; padding-bottom: 0; background-color: rgba(0, 0, 0, 0.49); border-top-left-radius: 8px; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                            <ui:VisualElement name="fish-image" style="width: 100%; height: 100%; scale: -1 1; background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/Croaker.png?fileID=21300000&amp;guid=c908cdb7a9a3ef148a811d8db13bfcab&amp;type=3#Croaker&apos;); right: 0; position: absolute;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="detail" style="flex-basis: 10%; margin-bottom: 20px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; background-color: rgba(0, 0, 0, 0.49);">
+                <ui:VisualElement name="detail" style="flex-basis: 10%; margin-bottom: 20px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px; background-color: rgba(0, 0, 0, 0.49); justify-content: center; align-items: center;">
                     <ui:Label text="그저 평범한 뿡어이다 ... 맛이 좋을 수도 있고 아닐 수도 있다 ..." display-tooltip-when-elided="true" name="detail-text" class="text" style="font-size: 30px; white-space: normal;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="info" style="flex-basis: 20%; flex-grow: 1;">
@@ -50,7 +50,7 @@
                                 <ui:Label text="30.4" display-tooltip-when-elided="true" name="info-text" class="text" style="font-size: 40px;" />
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:VisualElement name="max-height" style="flex-basis: 50%; flex-shrink: 0; background-color: rgba(0, 0, 0, 0.49); border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                        <ui:VisualElement name="max-lenght" style="flex-basis: 50%; flex-shrink: 0; background-color: rgba(0, 0, 0, 0.49); border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
                             <ui:VisualElement name="title" style="flex-basis: 50%; background-color: rgba(0, 0, 0, 0.69); align-items: center; justify-content: center; flex-shrink: 0; border-top-right-radius: 10px;">
                                 <ui:Label text="최대 길이 ( M )" display-tooltip-when-elided="true" name="title-text" class="text" style="font-size: 30px;" />
                             </ui:VisualElement>
@@ -72,119 +72,7 @@
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="fishes" style="flex-direction: row; flex-grow: 1; flex-wrap: wrap; width: 100%;">
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/BlueTang.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#BlueTang&apos;);" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/Croaker.png?fileID=21300000&amp;guid=c908cdb7a9a3ef148a811d8db13bfcab&amp;type=3#Croaker&apos;);" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/Croaker.png?fileID=21300000&amp;guid=c908cdb7a9a3ef148a811d8db13bfcab&amp;type=3#Croaker&apos;);" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px; margin-right: 0;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px; margin-right: 0;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px; margin-right: 0;">
+                        <ui:VisualElement name="TestFish" class="challenge-fish-element fish-element unknown" style="width: 135px; height: 135px; margin-bottom: 10px;">
                             <ui:VisualElement name="inner">
                                 <ui:VisualElement name="fish-image" />
                                 <ui:VisualElement name="star-container">
@@ -200,128 +88,7 @@
                             <ui:Label text="동쪽의 바다" display-tooltip-when-elided="true" name="name-text" class="text" style="-unity-text-align: middle-center; width: 100%; height: 100%; font-size: 25px;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement name="fishes" style="flex-direction: row; flex-grow: 1; flex-wrap: wrap;">
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/BlueTang.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#BlueTang&apos;);" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px; margin-right: 0;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px; margin-right: 0;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px; margin-right: 0;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                    </ui:VisualElement>
+                    <ui:VisualElement name="fishes" style="flex-direction: row; flex-grow: 1; flex-wrap: wrap;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="biome3" style="width: 100%; height: 500px; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px;">
                     <ui:VisualElement name="biome-name" style="height: 75px; padding-bottom: 20px;">
@@ -329,128 +96,7 @@
                             <ui:Label text="비의 바다" display-tooltip-when-elided="true" name="name-text" class="text" style="-unity-text-align: middle-center; width: 100%; height: 100%; font-size: 25px;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement name="fishes" style="flex-direction: row; flex-grow: 1; flex-wrap: wrap;">
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/BlueTang.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#BlueTang&apos;);" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px; margin-right: 0;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px; margin-right: 0;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="test-fish-one" class="challenge-fish-element fish-element unknowun" style="width: 135px; height: 135px; margin-bottom: 10px; margin-right: 0;">
-                            <ui:VisualElement name="inner">
-                                <ui:VisualElement name="fish-image" />
-                                <ui:VisualElement name="star-container">
-                                    <ui:VisualElement name="star" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                    </ui:VisualElement>
+                    <ui:VisualElement name="fishes" style="flex-direction: row; flex-grow: 1; flex-wrap: wrap;" />
                 </ui:VisualElement>
             </ui:ScrollView>
         </ui:VisualElement>

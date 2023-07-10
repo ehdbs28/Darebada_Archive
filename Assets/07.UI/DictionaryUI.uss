@@ -1,12 +1,12 @@
-.fish-element.unknowun {
+.fish-element.unknown {
 }
 
-.fish-element.unknowun #fish-image {
+.fish-element.unknown #fish-image {
     -unity-background-image-tint-color: rgba(0, 0, 0, 0.78);
 }
 
-.fish-element.unknowun #star {
-    -unity-background-image-tint-color: rgba(77, 77, 77, 0.59);
+.fish-element.unknown #star {
+    display: none;
 }
 
 .diction-content {

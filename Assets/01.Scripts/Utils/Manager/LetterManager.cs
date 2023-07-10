@@ -6,7 +6,6 @@ using Unity.VisualScripting;
 
 public class LetterManager : MonoBehaviour,IManager
 {
-    [SerializeField]
     private List<LetterUnit> _letters;
     public List<LetterUnit> Letters => _letters;
     
@@ -16,13 +15,9 @@ public class LetterManager : MonoBehaviour,IManager
     [SerializeField]
     private LetterTemplateSO RequestTemplate;
 
-    public LetterManager(){
-        ResetManager();
-    }
-
     public void InitManager()
     {
-
+        ResetManager();
     }
 
     public void UpdateManager()
