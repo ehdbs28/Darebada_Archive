@@ -4,7 +4,7 @@ using UnityEngine;
 using Core;
 using Unity.VisualScripting;
 
-public class LetterManager : MonoBehaviour,IManager
+public class LetterManager : MonoBehaviour, IManager
 {
     private List<LetterUnit> _letters;
     public List<LetterUnit> Letters => _letters;

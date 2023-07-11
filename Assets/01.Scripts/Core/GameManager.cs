@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         //_managers.Add(GetComponent<DayCycleManager>());
         _managers.Add(new FishingUpgradeManager());
         _managers.Add(new BoatManager());
-        _managers.Add(new LetterManager());
+        _managers.Add(GetComponent<LetterManager>());
         _managers.Add(new PoolManager(_poolingTrm));
         _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
     }
