@@ -43,6 +43,9 @@ public class DataLoader
                 case DataLoadType.FishingUpgradeData:
                     AddData<FishingUpgradeTable>(type, asset as FishingUpgradeTable, dataArr, lines[lineNum], assetPath);
                     break;
+                case DataLoadType.ShopItemData:
+                    AddData<ShopItemDataTable>(type, asset as ShopItemDataTable, dataArr, lines[lineNum], assetPath);
+                    break;
                 case DataLoadType.BoatData:
                     AddData<BoatDataTable>(type, asset as BoatDataTable, dataArr, lines[lineNum], assetPath);
                     break;

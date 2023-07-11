@@ -7410,6 +7410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: 1cf757d173f399d499d6374c605716cb, type: 3}
+  _shopItemTemplete: {fileID: 9197481963319205126, guid: 2395e6922ebdd4d2684ec4e0add14e17, type: 3}
 --- !u!114 &9157046241256461541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8154,6 +8155,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8a66a6bb5f525f340a3afac6b6c5d8a9, type: 2}
   - {fileID: 11400000, guid: 6ee94053813f43f48a28afad036cb1a5, type: 2}
   - {fileID: 11400000, guid: 7776e38bf59a01c4c8b1ea32ace5a709, type: 2}
+  - {fileID: 11400000, guid: 43a7cdb59a9ae4096afc96e34a753b6c, type: 2}
 --- !u!1001 &9157046241592702456
 PrefabInstance:
   m_ObjectHideFlags: 0

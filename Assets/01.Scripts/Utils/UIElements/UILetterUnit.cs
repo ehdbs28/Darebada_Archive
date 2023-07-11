@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 public class UILetterUnit
 {
     private VisualTreeAsset _templete;
+    
     private VisualElement _parent;
-
     private VisualElement _root;
 
     private Label _titleLabel;
@@ -27,10 +27,11 @@ public class UILetterUnit
     public void Generate(LetterUnit unit){
         _root = _templete.Instantiate();
         _root = _root.Q<VisualElement>("letter-unit");
+        _parent.Add(_root);
 
-        FindElement(_root);
+        FindElement();
         Setting(unit);
-        AddEvent(_root);
+        AddEvent();
     }
 
     private void Setting(LetterUnit unit){
@@ -52,14 +53,14 @@ public class UILetterUnit
         _descLabel.text = unit.Desc;
     }
 
-    private void FindElement(VisualElement root){
-        _titleLabel = root.Q<Label>("title-text");
-        _fromLabel = root.Q<Label>("name-text");
-        _dateLabel = root.Q<Label>("date-text");
-        _descLabel = root.Q<Label>("desc-text");
+    private void FindElement(){
+        _titleLabel = _root.Q<Label>("title-text");
+        _fromLabel = _root.Q<Label>("name-text");
+        _dateLabel = _root.Q<Label>("date-text");
+        _descLabel = _root.Q<Label>("desc-text");
     }
 
-    private void AddEvent(VisualElement root){
+    private void AddEvent(){
         _root.RegisterCallback<ClickEvent>(e =>
         {
             Toggle(!_isOpen);

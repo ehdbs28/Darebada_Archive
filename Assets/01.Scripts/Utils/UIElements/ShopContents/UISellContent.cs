@@ -14,14 +14,17 @@ public class UISellContent : UIPopupContent
 
     public UISellContent(VisualElement root, int index) : base(root, index)
     {
-        _sellBtn = root.Q("sell-btn");
+    }
 
-        _nameText = root.Q<Label>("name-text");
-        _priceText = root.Q<Label>("price-text");
+    protected override void FindElement()
+    {
+        base.FindElement();
+        _sellBtn = _root.Q("sell-btn");
 
-        _fishImage = root.Q("fish-image");
+        _nameText = _root.Q<Label>("name-text");
+        _priceText = _root.Q<Label>("price-text");
 
-        AddEvent();
+        _fishImage = _root.Q("fish-image");
     }
 
     protected override void AddEvent()

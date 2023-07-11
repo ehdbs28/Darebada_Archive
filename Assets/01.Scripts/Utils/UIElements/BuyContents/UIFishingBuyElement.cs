@@ -13,23 +13,30 @@ public class UIFishingBuyElement : UIBuyElement
 
     int _idx = 0;
 
-    public UIFishingBuyElement(VisualElement elementRoot, int idx) : base(elementRoot)
+    public UIFishingBuyElement(VisualElement elementRoot, int idx)
     {
         _idx = idx;
-        _percentElement = elementRoot.Q<VisualElement>("value");
-        _levelLabel = elementRoot.Q<Label>("level");
-        _valueLabel = elementRoot.Q<Label>("value-text");
-
+        _root = elementRoot;
         _dataTable = GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.FishingUpgradeData) as FishingUpgradeTable;
+        FindElement();
+        AddEvent();
     }
 
     protected override void AddEvent()
     {
-        _buyButton.RegisterCallback<ClickEvent>(e => {
+        _buyBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<FishingUpgradeManager>().Upgrade(_idx);
             LabelUpdate();
             ChangeValue();
         });
+    }
+
+    protected override void FindElement()
+    {
+        base.FindElement();
+        _percentElement = _root.Q<VisualElement>("value");
+        _levelLabel = _root.Q<Label>("level");
+        _valueLabel = _root.Q<Label>("value-text");
     }
 
     private void LabelUpdate(){

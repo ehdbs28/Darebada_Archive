@@ -17,7 +17,5 @@ public class UIBoatUpgradeContent : UIPopupContent
         foreach(var boatUI in _buyContent){
             ((UIBoatBuyElement)boatUI).ListSet(_buyContent);
         }
-
-        AddEvent();
     }
 }

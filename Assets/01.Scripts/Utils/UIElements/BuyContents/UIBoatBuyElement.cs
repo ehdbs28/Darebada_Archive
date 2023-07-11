@@ -8,31 +8,30 @@ public class UIBoatBuyElement : UIBuyElement
     private int _idx;
 
     private BoatBuyState _buyState;
-    private VisualElement _root;
     private Label _infoLabel;
 
     private List<UIBuyElement> _boatUIs;
 
     private BoatDataTable _dataTable;
 
-    public UIBoatBuyElement(VisualElement elementRoot, int idx) : base(elementRoot)
+    public UIBoatBuyElement(VisualElement elementRoot, int idx)
     {
         BoatData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.BoatData) as BoatData;
 
         _root = elementRoot;
-        _infoLabel = elementRoot.Q<Label>("gold-text");
         _idx = idx;
-
         _buyState = (BoatBuyState)data.BoatPurchaseDetail[_idx];
-        
         _dataTable = GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.BoatData) as BoatDataTable;
+
+        FindElement();
+        AddEvent();
 
         ChangeState(_buyState);
     }
 
     protected override void AddEvent()
     {
-        _buyButton.RegisterCallback<ClickEvent>(e => {
+        _buyBtn.RegisterCallback<ClickEvent>(e => {
             switch(_buyState){
                 case BoatBuyState.SALE:
                 {
@@ -45,6 +44,12 @@ public class UIBoatBuyElement : UIBuyElement
                     break;
             }
         });
+    }
+
+    protected override void FindElement()
+    {
+        base.FindElement();
+        _infoLabel = _root.Q<Label>("gold-text");
     }
 
     public void ListSet(List<UIBuyElement> list){

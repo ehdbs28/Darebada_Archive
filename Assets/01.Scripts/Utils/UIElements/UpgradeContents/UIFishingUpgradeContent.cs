@@ -13,7 +13,5 @@ public class UIFishingUpgradeContent : UIPopupContent
         for(int i = 0; i < upgradeItems.Count; i++){
             _buyContent.Add(new UIFishingBuyElement(upgradeItems[i], i));
         }
-
-        AddEvent();
     }
 }

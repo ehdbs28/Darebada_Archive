@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d74bc49d5e145cd44a5f5dcb4e669e7f, type: 3}
-  m_Name: BoatData
+  m_Script: {fileID: 11500000, guid: 6da52fde2c2af4174b02a11c18dd271a, type: 3}
+  m_Name: ShopItemData
   m_EditorClassIdentifier: 
-  Type: 3
+  Type: 2
   Size: 0
   DataTable:
     _data: []

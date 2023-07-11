@@ -27,3 +27,48 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
+.buy-item.equip {
+}
+
+.buy-item #price {
+    width: 100%;
+    height: 60px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.buy-item #buy-text {
+    font-size: 30px;
+}
+
+.buy-item.equip #price {
+    width: 0;
+    height: 0;
+    display: none;
+    visibility: hidden;
+}
+
+.buy-item.equip #buy-text {
+    display: none;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.buy-item #equip-text {
+    display: none;
+    visibility: hidden;
+}
+
+.buy-item.equip #equip-text {
+    display: flex;
+    visibility: visible;
+    width: auto;
+    height: auto;
+}
+
+.buy-item.equip > #buy-btn {
+    background-color: rgba(255, 255, 255, 0.78);
+}

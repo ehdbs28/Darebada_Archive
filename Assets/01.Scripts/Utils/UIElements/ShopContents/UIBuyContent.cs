@@ -5,15 +5,32 @@ using UnityEngine.UIElements;
 
 public class UIBuyContent : UIPopupContent
 {
-    public UIBuyContent(VisualElement root, int index) : base(root, index)
-    {
-        List<VisualElement> buyItems;
-        buyItems = root.Q<ScrollView>("buy-items").Query(className: "buy-item").ToList();
+    private ScrollView _contentParent;
 
-        foreach(var item in buyItems){
-            _buyContent.Add(new UIBuyElement(item));
+    private ShopItemDataTable _table;
+
+    public UIBuyContent(VisualElement root, int index, VisualTreeAsset itemTemplete) : base(root, index)
+    {
+        _table = GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.ShopItemData) as ShopItemDataTable;
+
+        for(int i = 0; i < _table.Size; i++){
+            _buyContent.Add(new UIShopUnit(
+                _contentParent,
+                itemTemplete,
+                _table.DataTable[i],
+                i
+            ));
         }
 
-        AddEvent();
+        for(int i = 0; i < _table.Size; i++){
+            ((UIShopUnit)_buyContent[i]).ListSet(_buyContent);
+            ((UIShopUnit)_buyContent[i]).Generate();
+        }
+    }
+
+    protected override void FindElement()
+    {
+        base.FindElement();
+        _contentParent = _root.Q<ScrollView>("buy-items");
     }
 }

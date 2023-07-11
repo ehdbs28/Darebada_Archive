@@ -87,6 +87,9 @@ public class DataLoaderUI : EditorWindow
                         case DataLoadType.FishingUpgradeData:
                             _loader.HandleData<FishingUpgradeTable>(data, DataLoadType.FishingUpgradeData, out lineNum);
                         break;
+                        case DataLoadType.ShopItemData:
+                            _loader.HandleData<ShopItemDataTable>(data, DataLoadType.ShopItemData, out lineNum);
+                        break;
                         case DataLoadType.BoatData:
                             _loader.HandleData<BoatDataTable>(data, DataLoadType.BoatData, out lineNum);
                         break;
