@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
         _managers.Add(new TimeManager());
         _managers.Add(transform.Find("UIManager").GetComponent<UIManager>());
         //_managers.Add(GetComponent<DayCycleManager>());
+        _managers.Add(new AddressableAssetsManager());
         _managers.Add(new FishingUpgradeManager());
         _managers.Add(new BoatManager());
         _managers.Add(GetComponent<LetterManager>());
@@ -74,7 +75,7 @@ public class GameManager : MonoBehaviour
 
            // gameData.LastWorldTime = GetManager<TimeManager>();
 
-            // ?�?????�이????추�??�야 ?�긴 ??
+            // ?�?????�이????추�??�야 ?�긴 ??
             yield return new WaitForSecondsRealtime(delay);
         }
     }
