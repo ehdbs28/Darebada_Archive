@@ -23,7 +23,7 @@ public class OceanScreen : UIScreen
 
     private BoatController _boatController;
 
-    public override void SetUp(UIDocument document, bool clearScreen = true)
+    public override void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
     {
         base.SetUp(document, clearScreen);
 
@@ -44,7 +44,7 @@ public class OceanScreen : UIScreen
         _compass.SetRotate(theta);
     }
 
-    protected override void AddEvent(VisualElement root)
+    public override void AddEvent()
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
@@ -76,21 +76,21 @@ public class OceanScreen : UIScreen
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent -= OnChangedDay;
     }
 
-    protected override void FindElement(VisualElement root)
+    public override void FindElement()
     {
-        _timeText = root.Q<Label>("time-text");
-        _dateText = root.Q<Label>("date-text");
+        _timeText = _root.Q<Label>("time-text");
+        _dateText = _root.Q<Label>("date-text");
 
-        _settingBtn = root.Q<VisualElement>("setting-btn");
-        _gobackBtn = root.Q<VisualElement>("goto-btn");
-        _letterBtn = root.Q<VisualElement>("letter-btn");
-        _dictionaryBtn = root.Q<VisualElement>("dictionary-btn");
-        _inventoryBtn = root.Q<VisualElement>("inventory-btn");
+        _settingBtn = _root.Q<VisualElement>("setting-btn");
+        _gobackBtn = _root.Q<VisualElement>("goto-btn");
+        _letterBtn = _root.Q<VisualElement>("letter-btn");
+        _dictionaryBtn = _root.Q<VisualElement>("dictionary-btn");
+        _inventoryBtn = _root.Q<VisualElement>("inventory-btn");
 
-        VisualElement compassRoot = root.Q<VisualElement>("compass");
+        VisualElement compassRoot = _root.Q<VisualElement>("compass");
         _compass = new UICompass(compassRoot);
 
-        VisualElement boatDurabilityRoot = root.Q<VisualElement>("boat-data");
+        VisualElement boatDurabilityRoot = _root.Q<VisualElement>("boat-data");
         _boatDurability = new UIBoatFuel(boatDurabilityRoot, _boatDurabilityGradient, _boatController);
     }
 

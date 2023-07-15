@@ -41,7 +41,7 @@ public class LetterPopup : UIPopup
         GenerateLetterUnit();
 
         if(_root != null){
-            AddEvent(_root);
+            AddEvent();
             _documentRoot.Add(_root);
         }
     }
@@ -54,7 +54,7 @@ public class LetterPopup : UIPopup
         }
     }
 
-    protected override void AddEvent(VisualElement root)
+    public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
             RemoveRoot();
@@ -84,11 +84,11 @@ public class LetterPopup : UIPopup
     {
     }
 
-    protected override void FindElement(VisualElement root)
+    public override void FindElement()
     {
-        _exitBtn = root.Q<VisualElement>("exit-btn");
-        _deleteBtn = root.Q<VisualElement>("delete-btn");
-        _selectAllToggle = root.Q<VisualElement>("select-all-toggle").Q<VisualElement>("inner");
-        _letterPerent = root.Q<ScrollView>("content-scroll");
+        _exitBtn = _root.Q<VisualElement>("exit-btn");
+        _deleteBtn = _root.Q<VisualElement>("delete-btn");
+        _selectAllToggle = _root.Q<VisualElement>("select-all-toggle").Q<VisualElement>("inner");
+        _letterPerent = _root.Q<ScrollView>("content-scroll");
     }
 }

@@ -7,7 +7,7 @@ public class TankUpgradePopup : UIPopup
 {
     private VisualElement _exitBtn;
 
-    protected override void AddEvent(VisualElement root)
+    public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
             RemoveRoot();
@@ -18,8 +18,8 @@ public class TankUpgradePopup : UIPopup
     {
     }
 
-    protected override void FindElement(VisualElement root)
+    public override void FindElement()
     {
-        _exitBtn = root.Q<VisualElement>("exit-btn");
+        _exitBtn = _root.Q<VisualElement>("exit-btn");
     }
 }
