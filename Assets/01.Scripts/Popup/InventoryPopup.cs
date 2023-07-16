@@ -36,6 +36,19 @@ public class InventoryPopup : UIPopup
     private bool _itemMove = false;
     private List<InventoryUnit> _inventoryUnits = new List<InventoryUnit>();
 
+    [SerializeField]
+    private VisualElement _unitTemplete;
+
+    private List<VisualElement> _fishList;
+
+    public override void SetUp(UIDocument document, bool clearScreen = true)
+    {
+        _itemMove = false;
+        SetUp(document, clearScreen);
+        _inventoryUnits = InventoryManager.Instance.GetTiles();
+        _fishList = InventoryManager.Instance.GetUnits();
+    }
+
     private void Update()
     {
         //if (Input.GetMouseButtonDown(0) && _selectedItem != null)
@@ -59,7 +72,7 @@ public class InventoryPopup : UIPopup
             {
                 //나중에 방생/이동 팝업 추가되면 띄워주는 코드 작성해야함.
                 _selectedItem = fishItem;
-                _itemMove = true;
+                InventoryManager.Instance._unitMove = true;
                 StyleBackground stBackground = _selectedItem.resolvedStyle.backgroundImage;
                 _selectedObj.style.backgroundImage = stBackground;
             });
@@ -67,7 +80,7 @@ public class InventoryPopup : UIPopup
 
         _rightRotateBtn.RegisterCallback<ClickEvent>(e =>
         {
-            if (_selectedItem != null && _itemMove)
+            if (_selectedItem != null && InventoryManager.Instance._unitMove)
             {
                 Vector3 newEuler = new Vector3();
                 Quaternion currentRotation = new Quaternion();
@@ -79,7 +92,7 @@ public class InventoryPopup : UIPopup
 
         _leftRotateBtn.RegisterCallback<ClickEvent>(e =>
         {
-            if(_selectedItem != null && _itemMove)
+            if(_selectedItem != null && InventoryManager.Instance._unitMove)
             {
                 Vector3 newEuler = new Vector3();
                 Quaternion currentRotation = new Quaternion();
@@ -105,27 +118,25 @@ public class InventoryPopup : UIPopup
         //        Debug.Log(_inventoryUnits.BinarySearch(unit));
         //    });
         //}
-        int i = 0;
-        foreach(var unit in _inventoryUnits)
-        {
-            unit.index = i;
-            unit.pos = new Vector3(i / 8 * 100, i % 8 * 100);
-
-            unit.unit.RegisterCallback<ClickEvent>(e =>
-            {
-                if (_selectedObj.style.backgroundImage != null)
-                {
-                    _selectedItem.transform.position = unit.pos;
-                    Debug.Log(unit.pos);
-                }
-            });
-
-            ++i;
-        }
+        //for(int i = 0; i < _inventoryUnits.Count; i++)
+        //{
+        //    _inventoryUnits[i].index = i;
+        //    _inventoryUnits[i].pos = new Vector3(i / 8 * 100, i % 8 * 100);
+        //    _inventoryUnits[i].unit.RegisterCallback<ClickEvent>(e =>
+        //    {
+        //        if (_selectedObj.style.backgroundImage != null)
+        //        {
+        //            _selectedItem.transform.position = _inventoryUnits[i].pos;
+        //            Debug.Log(_inventoryUnits[i].pos);
+        //        }
+        //    });
+        //}
+        //InventoryManager.Instance.AddTileEvent(_selectedObj);
     }
     
     public override void RemoveEvent()
     {
+
     }
 
     protected override void FindElement(VisualElement root)

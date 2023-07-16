@@ -57,7 +57,7 @@ public class TimeManager : IManager
     {
         GameManager.Instance.GetManager<LetterManager>().SendReviewLetter(DateTime);
     }
-    public void 
+
     public void UpdateManager()
     {
         _currentTime += Time.deltaTime * _timeScale;
