@@ -275,6 +275,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4598749065317550696}
+  - component: {fileID: 9134664066740654141}
+  - component: {fileID: 3601984287178132783}
   m_Layer: 0
   m_Name: TransitionToReelUp
   m_TagString: Untagged
@@ -297,6 +299,32 @@ Transform:
   m_Father: {fileID: 4013939300731314921}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9134664066740654141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3765360846289349803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f32ec9f4efaa052488a2ba928dbc46cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextState: {fileID: 4766859553800202180}
+--- !u!114 &3601984287178132783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3765360846289349803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3b6bd562d5147369323d4072effe9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsReverse: 0
 --- !u!1 &4013939298695840647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1811,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4827851824658079465}
+  - component: {fileID: 4766859553800202180}
   m_Layer: 0
   m_Name: ReelUpState
   m_TagString: Untagged
@@ -1805,6 +1834,19 @@ Transform:
   m_Father: {fileID: 4013939299741449071}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4766859553800202180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9218953130305332162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff654fe74e0b84ba7b789ad2ee436f86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _endPos: {fileID: 1262622554743403598}
 --- !u!1001 &4013939298722743841
 PrefabInstance:
   m_ObjectHideFlags: 0

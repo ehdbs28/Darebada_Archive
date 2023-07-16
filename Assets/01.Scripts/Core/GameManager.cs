@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
         _managers.Add(transform.Find("UIManager").GetComponent<UIManager>());
         //_managers.Add(GetComponent<DayCycleManager>());
         _managers.Add(new FishingUpgradeManager());
+        _managers.Add(GetComponent<MiniGameManager>());
         _managers.Add(new BoatManager());
         _managers.Add(GetComponent<LetterManager>());
         _managers.Add(new PoolManager(_poolingTrm));

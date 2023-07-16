@@ -14,12 +14,24 @@ public class MiniGameAnswer : PoolableMono
     private RectTransform _rectTrm;
     private Image _image;
 
-    public void SetAnswerPoint(float point, float thickness){
+    public float Point => _point;
+    public float Thickness => _thickness;
+
+    public void SetUp(float point, float thickness){
         _point = point;
         _thickness = thickness;
         
-        _rectTrm.rotation = Quaternion.Euler(0, 0, _point - _thickness / 2 - 180f);
+        // _rectTrm.rotation = Quaternion.Euler(0, 0, (_point) - _thickness / 2);
+        _rectTrm.rotation = Quaternion.Euler(0, 0, (_point));
         _image.fillAmount = _thickness / 360f;
+    }
+
+    public void SetPosition(Vector3 pos){
+        _rectTrm.anchoredPosition = pos;
+    }
+
+    public void SetScale(Vector3 scale){
+        _rectTrm.localScale = scale;
     }
 
     public override void Init()

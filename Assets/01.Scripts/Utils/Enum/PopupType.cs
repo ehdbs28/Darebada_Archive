@@ -8,6 +8,5 @@ public enum PopupType{
     BiomeSelect,
     TankUpgrade,
     AquariumManage,
-    MiniGame,
 }
 

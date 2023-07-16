@@ -1,9 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <ui:VisualElement name="minigame-container" picking-mode="Ignore" style="position: absolute; width: 400px; height: 400px; bottom: 300px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Circle%20Icon.png?fileID=21300000&amp;guid=b8e8e3f5289b61440b0df71eeecea4ae&amp;type=3#Free Flat Button Blank Circle Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.59); align-items: center; justify-content: center; opacity: 1;">
-        <ui:VisualElement name="inner" style="width: 95%; height: 95%; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.29); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%;">
-            <ui:VisualElement name="value-circle" style="width: 95%; height: 95%; background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Buttons/White%20Circle%20Outline%20Button.png?fileID=21300000&amp;guid=23e031f1dfb7b4eddae812b4a3a0e268&amp;type=3#White Circle Outline Button&apos;); -unity-background-image-tint-color: rgba(255, 0, 0, 0.69); align-items: center; justify-content: center; overflow: hidden;" />
-            <ui:VisualElement name="icon" style="position: absolute; width: 150px; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/Croaker.png?fileID=21300000&amp;guid=c908cdb7a9a3ef148a811d8db13bfcab&amp;type=3#Croaker&apos;); -unity-background-image-tint-color: rgba(0, 0, 0, 0.78);" />
-        </ui:VisualElement>
-        <ui:VisualElement name="cursor" style="position: absolute; width: 10px; height: 75px; background-color: rgba(255, 255, 255, 0.78); top: 13px; left: 275px; rotate: 30deg;" />
-    </ui:VisualElement>
-</ui:UXML>

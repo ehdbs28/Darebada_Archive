@@ -15,7 +15,7 @@ public abstract class UGUIPopup : MonoBehaviour, IUI
 
     protected VisualElement _blurPanel = null;
 
-    public void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
+    public virtual void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
     {
         _isOpenPopup = true;
 
@@ -40,14 +40,15 @@ public abstract class UGUIPopup : MonoBehaviour, IUI
         AddEvent();
     }
 
-    public void GenerateRoot()
+    public virtual void GenerateRoot()
     {
-        
+        _uiObject.SetActive(true);
     }
 
 
-    public void RemoveRoot()
+    public virtual void RemoveRoot()
     {
+        _uiObject.SetActive(false);
     }
 
     public abstract void AddEvent();
