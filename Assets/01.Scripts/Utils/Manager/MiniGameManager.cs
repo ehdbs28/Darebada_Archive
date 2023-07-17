@@ -26,10 +26,8 @@ public class MiniGameManager : MonoBehaviour, IManager
         for(int i = 0; i < _pointCnt; i++){
             float weight = 360f / _pointCnt;
 
-            // float point = Random.Range(weight * _points.Count, (weight * (_points.Count + 1)));
-            float point = weight * _points.Count;
-            //float thickness = Random.Range(weight / _pointCnt, weight - weight / _pointCnt);
-            float thickness = 30;
+            float point = Random.Range(weight * _points.Count, (weight * (_points.Count + 1)));
+            float thickness = Random.Range(weight / _pointCnt, weight - weight / _pointCnt);
 
             MiniGameAnswer answer = GameManager.Instance.GetManager<PoolManager>().Pop("MiniGameAnswer") as MiniGameAnswer;
             answer.SetUp(point, thickness);
