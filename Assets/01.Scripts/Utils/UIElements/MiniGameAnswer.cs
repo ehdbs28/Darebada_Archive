@@ -22,7 +22,7 @@ public class MiniGameAnswer : PoolableMono
         _thickness = thickness;
         
         // _rectTrm.rotation = Quaternion.Euler(0, 0, (_point) - _thickness / 2);
-        _rectTrm.rotation = Quaternion.Euler(0, 0, (_point));
+        _rectTrm.rotation = Quaternion.Euler(0, 0, (-_point));
         _image.fillAmount = _thickness / 360f;
     }
 

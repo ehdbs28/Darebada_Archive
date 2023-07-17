@@ -48,6 +48,7 @@ public class FishingMiniGamePopup : UGUIPopup
     private void Update() {
         if(_value.childCount <= 0)
             return;
+
         _angle += _cursorSpeed * Time.deltaTime;
 
         SetCursorPosition(_angle);
@@ -66,9 +67,9 @@ public class FishingMiniGamePopup : UGUIPopup
     }
 
     private void SetCursorPosition(float angle){
-        float rad = 90 - angle * Mathf.Deg2Rad;
+        float rad = (90 - angle) * Mathf.Deg2Rad;
         Vector3 pos = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad)) * _cursorRadius;
-        Quaternion rot = Quaternion.Euler(0, 0, angle + 180);
+        Quaternion rot = Quaternion.Euler(0, 0, 180 - angle);
 
         _cursor.anchoredPosition = pos;
         _cursor.rotation = rot;

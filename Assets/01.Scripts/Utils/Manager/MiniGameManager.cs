@@ -52,12 +52,6 @@ public class MiniGameManager : MonoBehaviour, IManager
         bool result = false;
 
         float cursor = (GameManager.Instance.GetManager<UIManager>().GetPanel(UGUIType.FishingMiniGame) as FishingMiniGamePopup).Angle;
-        // if(cursor >= 0 && cursor <= 180){
-        //     cursor = 180f - cursor;
-        // }
-        // else{
-        //     cursor = 540f - cursor;
-        // }
         Debug.Log(cursor);
 
         for(int i = 0; i < _points.Count; i++){
@@ -72,7 +66,18 @@ public class MiniGameManager : MonoBehaviour, IManager
     }
 
     private bool IsCollisionEnter(float center, float thickness, float cursor){
-        return (center - thickness >= cursor) && (center + thickness <= cursor);
+        float min = center;
+        float max = center + thickness;
+
+        if(max > 360){
+            max -= 360;
+        }
+
+        if(min > max){
+            return cursor <= max || cursor >= min;
+        }
+
+        return min <= cursor && max >= cursor;
     }
 
     public void ResetManager(){}
