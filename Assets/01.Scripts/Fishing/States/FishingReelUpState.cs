@@ -11,6 +11,7 @@ public class FishingReelUpState : FishingState
     private Transform _bobberTrm;
 
     private float _reelUpOffset;
+    private int _pointCnt;
     private Vector3 _direction;
 
     public override void SetUp(Transform agentRoot)
@@ -26,6 +27,7 @@ public class FishingReelUpState : FishingState
         _startPos = _bobberTrm.position;
 
         _direction = (_endPos.position - _startPos).normalized;
+        _pointCnt = GameManager.Instance.GetManager<MiniGameManager>().PointCnt;
         _reelUpOffset = Vector3.Distance(_startPos, _endPos.position) / GameManager.Instance.GetManager<MiniGameManager>().PointCnt;
 
         GameManager.Instance.GetManager<MiniGameManager>().OnAnswerEvent += OnAnswer;
@@ -49,6 +51,12 @@ public class FishingReelUpState : FishingState
 
     private void OnAnswer(){
         Debug.Log("미니게임 성공");
+        --_pointCnt;
         _bobberTrm.position += _direction * _reelUpOffset;
+
+        if(_pointCnt < 0){
+            Debug.Log("낚시 성공");
+            _controller.ActionData.IsFishing = false;
+        }
     }
 }
