@@ -47,7 +47,7 @@ public class InventoryPopup : UIPopup
         //}
     }
 
-    protected override void AddEvent(VisualElement root)
+    public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
             RemoveRoot();
@@ -128,15 +128,15 @@ public class InventoryPopup : UIPopup
     {
     }
 
-    protected override void FindElement(VisualElement root)
+    public override void FindElement()
     {
-        _exitBtn = root.Q<VisualElement>("exit-btn");
-        _rightRotateBtn = root.Q<VisualElement>("rotate-right-btn");
-        _leftRotateBtn = root.Q<VisualElement>("rotate-left-btn");
-        _fishItems = root.Query<VisualElement>(className: "fish-item").ToList();
-        _selectedObj = root.Q<VisualElement>("inner");
+        _exitBtn = _root.Q<VisualElement>("exit-btn");
+        _rightRotateBtn = _root.Q<VisualElement>("rotate-right-btn");
+        _leftRotateBtn = _root.Q<VisualElement>("rotate-left-btn");
+        _fishItems = _root.Query<VisualElement>(className: "fish-item").ToList();
+        _selectedObj = _root.Q<VisualElement>("inner");
 
-        List<VisualElement> units = root.Query<VisualElement>(className: "inventory-unit").ToList();
+        List<VisualElement> units = _root.Query<VisualElement>(className: "inventory-unit").ToList();
         foreach(var unit in units)
         {
             _inventoryUnits.Add(new InventoryUnit(unit, 0, Vector3.zero));

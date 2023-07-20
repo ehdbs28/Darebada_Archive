@@ -12,7 +12,7 @@ public class DictionaryPopup : UIPopup
 
     private List<DictionaryUnit> _fishes = new List<DictionaryUnit>();
 
-    protected override void AddEvent(VisualElement root)
+    public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
             RemoveRoot();
@@ -36,15 +36,15 @@ public class DictionaryPopup : UIPopup
     {
     }
 
-    protected override void FindElement(VisualElement root)
+    public override void FindElement()
     {
-        _exitBtn = root.Q<VisualElement>("exit-btn");
-        _container = root.Q<VisualElement>("contents");
-        List<VisualElement> fishElements = root.Query<VisualElement>(className: "fish-element").ToList();
+        _exitBtn = _root.Q<VisualElement>("exit-btn");
+        _container = _root.Q<VisualElement>("contents");
+        List<VisualElement> fishElements = _root.Query<VisualElement>(className: "fish-element").ToList();
         for(int i = 0; i < fishElements.Count; i++){
             _fishes.Add(new DictionaryUnit(fishElements[i]));
         }
-        VisualElement detailRoot = root.Q<VisualElement>("content-detail");
+        VisualElement detailRoot = _root.Q<VisualElement>("content-detail");
         _detailView = new DictionaryDetail(detailRoot, _container);
     }
 }

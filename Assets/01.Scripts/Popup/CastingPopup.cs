@@ -7,7 +7,7 @@ public class CastingPopup : UIPopup
 {
     private VisualElement _valueBar;
     
-    protected override void AddEvent(VisualElement root)
+    public override void AddEvent()
     {
     }
     
@@ -15,9 +15,9 @@ public class CastingPopup : UIPopup
     {
     }
 
-    protected override void FindElement(VisualElement root)
+    public override void FindElement()
     {
-        _valueBar = root.Q<VisualElement>("value");
+        _valueBar = _root.Q<VisualElement>("value");
     }
 
     public void SetValue(float value){

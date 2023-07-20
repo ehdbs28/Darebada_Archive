@@ -15,7 +15,7 @@ public class AquariumScreen : UIScreen
     private VisualElement _manageBtn;
     private VisualElement _editorBtn;
 
-    protected override void AddEvent(VisualElement root)
+    public override void AddEvent()
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
@@ -44,17 +44,17 @@ public class AquariumScreen : UIScreen
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent -= OnChangedDay;
     }
 
-    protected override void FindElement(VisualElement root)
+    public override void FindElement()
     {
-        _timeText = root.Q<Label>("time-text");
-        _dateText = root.Q<Label>("date-text");
-        _goldText = root.Q("money-container").Q<Label>("text");
+        _timeText = _root.Q<Label>("time-text");
+        _dateText = _root.Q<Label>("date-text");
+        _goldText = _root.Q("money-container").Q<Label>("text");
 
-        _settingBtn = root.Q<VisualElement>("setting-btn");
-        _letterBtn = root.Q<VisualElement>("letter-btn");
-        _dictionaryBtn = root.Q<VisualElement>("dictionary-btn");
-        _manageBtn = root.Q<VisualElement>("manage-btn");
-        _editorBtn = root.Q<VisualElement>("editor-btn");
+        _settingBtn = _root.Q<VisualElement>("setting-btn");
+        _letterBtn = _root.Q<VisualElement>("letter-btn");
+        _dictionaryBtn = _root.Q<VisualElement>("dictionary-btn");
+        _manageBtn = _root.Q<VisualElement>("manage-btn");
+        _editorBtn = _root.Q<VisualElement>("editor-btn");
     }
 
     private void OnChangedTime(int hour, int minute)

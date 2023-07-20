@@ -13,7 +13,7 @@ public class DataLoader
     private void AddData<T>(DataLoadType type, T asset, string[] dataArr, string line, string assetPath) where T : LoadableData{
         asset.AddData(dataArr);
         DataLoaderUI.CreateDataUI(type, dataArr, line, assetPath);
-        // AssetDatabase.SaveAssets();
+        AssetDatabase.SaveAssets();
     }
 
     public void HandleData<T>(string data, DataLoadType type, out int lineNum) where T : LoadableData{
@@ -24,8 +24,6 @@ public class DataLoader
         {
             asset = ScriptableObject.CreateInstance<T>();
             asset.Type = type;
-            string fileName = AssetDatabase.GenerateUniqueAssetPath(assetPath);
-            AssetDatabase.CreateAsset(asset, fileName);
         }
         else{
             asset.Clear();
@@ -51,6 +49,11 @@ public class DataLoader
                     break;
             }
         }
+
+        string fileName = AssetDatabase.GenerateUniqueAssetPath(assetPath);
+
+        AssetDatabase.DeleteAsset(assetPath);
+        AssetDatabase.CreateAsset(asset, fileName);
 
         AssetDatabase.Refresh();
     }

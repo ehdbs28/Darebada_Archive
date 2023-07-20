@@ -13,6 +13,71 @@ MonoBehaviour:
   m_Name: BoatData
   m_EditorClassIdentifier: 
   Type: 3
-  Size: 0
+  Size: 5
   DataTable:
-    _data: []
+    _data:
+    - Name: "\uCD08\uBCF4\uC6A9 \uBCF4\uD2B8"
+      Price: 100
+      Visual:
+        VisualMesh: {fileID: 0}
+        MainMat: {fileID: 0}
+      MaxSpeed: 5
+      ForwardAcceleration: 10
+      BackwardAcceleration: 3
+      Deceleration: 5
+      RotationSpeed: 1
+      RotationAcceleration: 10
+      RotationDeceleration: 10
+      MaxFuel: 100
+    - Name: "\uC2A4\uD53C\uB4DC \uBCF4\uD2B8"
+      Price: 100
+      Visual:
+        VisualMesh: {fileID: 0}
+        MainMat: {fileID: 0}
+      MaxSpeed: 5
+      ForwardAcceleration: 10
+      BackwardAcceleration: 3
+      Deceleration: 5
+      RotationSpeed: 1
+      RotationAcceleration: 10
+      RotationDeceleration: 10
+      MaxFuel: 100
+    - Name: "\uC911\uACAC \uBCF4\uD2B8"
+      Price: 100
+      Visual:
+        VisualMesh: {fileID: 0}
+        MainMat: {fileID: 0}
+      MaxSpeed: 5
+      ForwardAcceleration: 10
+      BackwardAcceleration: 3
+      Deceleration: 5
+      RotationSpeed: 1
+      RotationAcceleration: 10
+      RotationDeceleration: 10
+      MaxFuel: 100
+    - Name: "\uCD5C\uACE0\uAE09 \uBCF4\uD2B8"
+      Price: 100
+      Visual:
+        VisualMesh: {fileID: 0}
+        MainMat: {fileID: 0}
+      MaxSpeed: 5
+      ForwardAcceleration: 10
+      BackwardAcceleration: 3
+      Deceleration: 5
+      RotationSpeed: 1
+      RotationAcceleration: 10
+      RotationDeceleration: 10
+      MaxFuel: 100
+    - Name: "\uC804\uC124\uC758 \uBCF4\uD2B8"
+      Price: 100
+      Visual:
+        VisualMesh: {fileID: 0}
+        MainMat: {fileID: 0}
+      MaxSpeed: 5
+      ForwardAcceleration: 10
+      BackwardAcceleration: 3
+      Deceleration: 5
+      RotationSpeed: 1
+      RotationAcceleration: 10
+      RotationDeceleration: 10
+      MaxFuel: 100

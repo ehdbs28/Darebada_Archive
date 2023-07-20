@@ -17,7 +17,7 @@ public class BiomeSelectPopup : UIPopup
 
     private int _currentIndex = 0;
 
-    protected override void AddEvent(VisualElement root)
+    public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
             RemoveRoot();
@@ -60,16 +60,16 @@ public class BiomeSelectPopup : UIPopup
     {
     }
 
-    protected override void FindElement(VisualElement root)
+    public override void FindElement()
     {
-        _exitBtn = root.Q<VisualElement>("exit-btn");
+        _exitBtn = _root.Q<VisualElement>("exit-btn");
 
-        _moveRightBtn = root.Q<VisualElement>("move-right"); 
-        _moveLeftBtn = root.Q<VisualElement>("move-left");
+        _moveRightBtn = _root.Q<VisualElement>("move-right"); 
+        _moveLeftBtn = _root.Q<VisualElement>("move-left");
 
-        _biomeNameLabel = root.Q<Label>("biome-name");
+        _biomeNameLabel = _root.Q<Label>("biome-name");
 
-        _contents = root.Q<VisualElement>("contents");
+        _contents = _root.Q<VisualElement>("contents");
         for(int i = 0; i < _contents.childCount; i++){
             VisualElement biomeElement = _contents.ElementAt(i);
             UIBiomeContent biomeContent = new UIBiomeContent(biomeElement, (OceneType)i);

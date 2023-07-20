@@ -8,7 +8,7 @@ public class FishingScreen : UIScreen
     private Label _heightText;
     private VisualElement _heightCursor;
 
-    protected override void AddEvent(VisualElement root)
+    public override void AddEvent()
     {
 
     }
@@ -17,10 +17,10 @@ public class FishingScreen : UIScreen
     {
     }
 
-    protected override void FindElement(VisualElement root)
+    public override void FindElement()
     {
-        _heightText = root.Q<Label>("height-text");
-        _heightCursor = root.Q<VisualElement>("cursor");
+        _heightText = _root.Q<Label>("height-text");
+        _heightCursor = _root.Q<VisualElement>("cursor");
     }
 
     public void SetHeight(float percent, float height){

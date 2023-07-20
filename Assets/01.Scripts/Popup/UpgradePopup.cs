@@ -15,7 +15,7 @@ public class UpgradePopup : UIPopup
     private UIBoatUpgradeContent _boatUpgrade;
     private UIFishingUpgradeContent _fishingUpgrade;
 
-    protected override void AddEvent(VisualElement root)
+    public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
             RemoveRoot();
@@ -34,14 +34,14 @@ public class UpgradePopup : UIPopup
     {
     }
 
-    protected override void FindElement(VisualElement root)
+    public override void FindElement()
     {
-        _exitBtn = root.Q<VisualElement>("exit-btn");
+        _exitBtn = _root.Q<VisualElement>("exit-btn");
 
-        _boatBtn = root.Q<VisualElement>("boat-btn");
-        _fishingBtn = root.Q<VisualElement>("fishing-btn");
+        _boatBtn = _root.Q<VisualElement>("boat-btn");
+        _fishingBtn = _root.Q<VisualElement>("fishing-btn");
 
-        _contents = root.Q<VisualElement>("contents");
+        _contents = _root.Q<VisualElement>("contents");
 
         for(int i = 0; i < _contents.childCount; i++){
             VisualElement contentRoot = _contents.ElementAt(i);

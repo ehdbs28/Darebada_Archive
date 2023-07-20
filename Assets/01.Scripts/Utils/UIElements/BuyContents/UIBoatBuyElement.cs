@@ -82,6 +82,7 @@ public class UIBoatBuyElement : UIBuyElement
         if(next == BoatBuyState.SALE){
             _root.RemoveFromClassList("unlock");
             _root.RemoveFromClassList("select");
+
             _infoLabel.text = $"$ {_dataTable.DataTable[_idx].Price}";
         }
         else if(next == BoatBuyState.EQUIP){
