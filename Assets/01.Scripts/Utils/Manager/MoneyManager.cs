@@ -15,7 +15,7 @@ public class MoneyManager : IManager
     }
 
     public void Payment(float value){
-
+        Debug.Log($"지불 금액 { value }");
     }
 
     public void ResetManager(){}

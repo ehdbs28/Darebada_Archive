@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour, IManager
     }
 
     public void OnMouseClick(InputValue value){
-        Debug.Log(GameManager.Instance.GetManager<UIManager>().OnElement(_mousePosition));
+        // Debug.Log(GameManager.Instance.GetManager<UIManager>().OnElement(_mousePosition));
         if(GameManager.Instance.GetManager<UIManager>().OnElement(_mousePosition))
             return;
 

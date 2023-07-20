@@ -15,7 +15,10 @@ public class ShopPopup : UIPopup
     private UISellContent _sellContent;
     private UIBuyContent _buyContent;
 
-    protected override void AddEvent(VisualElement root)
+    [SerializeField]
+    private VisualTreeAsset _shopItemTemplete;
+
+    public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
             RemoveRoot();
@@ -34,14 +37,14 @@ public class ShopPopup : UIPopup
     {
     }
 
-    protected override void FindElement(VisualElement root)
+    public override void FindElement()
     {
-        _exitBtn = root.Q<VisualElement>("exit-btn");
+        _exitBtn = _root.Q<VisualElement>("exit-btn");
 
-        _sellBtn = root.Q<VisualElement>("sell-btn");
-        _buyBtn = root.Q<VisualElement>("buy-btn");
+        _sellBtn = _root.Q<VisualElement>("sell-btn");
+        _buyBtn = _root.Q<VisualElement>("buy-btn");
 
-        _contents = root.Q<VisualElement>("contents");
+        _contents = _root.Q<VisualElement>("contents");
 
         for(int i = 0; i < _contents.childCount; i++){
             VisualElement contentRoot = _contents.ElementAt(i);
@@ -52,7 +55,7 @@ public class ShopPopup : UIPopup
                 _sellContent = new UISellContent(contentRoot, i);
             }
             else{
-                _buyContent = new UIBuyContent(contentRoot, i);
+                _buyContent = new UIBuyContent(contentRoot, i, _shopItemTemplete);
             }
         }
     }

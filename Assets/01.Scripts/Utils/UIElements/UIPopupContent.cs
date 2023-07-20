@@ -5,16 +5,24 @@ using UnityEngine.UIElements;
 
 public class UIPopupContent
 {
-    private int _index;
+    protected VisualElement _root;
+
+    protected int _index;
     public int Index => _index;
 
-    private Label _goldLabel;
+    protected Label _goldLabel;
 
     protected List<UIBuyElement> _buyContent = new List<UIBuyElement>();
 
     public UIPopupContent(VisualElement root, int index){
+        _root = root;
         _index = index;
-        _goldLabel = root.Q<Label>("gold-text");
+        FindElement();
+        AddEvent();
+    }
+
+    protected virtual void FindElement(){
+        _goldLabel = _root.Q<Label>("gold-text");
     }
 
     protected virtual void AddEvent(){

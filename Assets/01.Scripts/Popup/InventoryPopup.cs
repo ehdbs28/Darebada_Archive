@@ -36,8 +36,6 @@ public class InventoryPopup : UIPopup
     private bool _itemMove = false;
     private List<InventoryUnit> _inventoryUnits = new List<InventoryUnit>();
 
-    private List<RectTransform> _units;
-
     private void Update()
     {
         //if (Input.GetMouseButtonDown(0) && _selectedItem != null)
@@ -49,13 +47,7 @@ public class InventoryPopup : UIPopup
         //}
     }
 
-    public override void SetUp(UIDocument document, bool clearScreen = true)
-    {
-        SetUp(document, clearScreen);
-        //_units =
-    }
-
-    protected override void AddEvent(VisualElement root)
+    public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
             RemoveRoot();
@@ -87,7 +79,7 @@ public class InventoryPopup : UIPopup
 
         _leftRotateBtn.RegisterCallback<ClickEvent>(e =>
         {
-            if (_selectedItem != null && _itemMove)
+            if(_selectedItem != null && _itemMove)
             {
                 Vector3 newEuler = new Vector3();
                 Quaternion currentRotation = new Quaternion();
@@ -114,7 +106,7 @@ public class InventoryPopup : UIPopup
         //    });
         //}
         int i = 0;
-        foreach (var unit in _inventoryUnits)
+        foreach(var unit in _inventoryUnits)
         {
             unit.index = i;
             unit.pos = new Vector3(i / 8 * 100, i % 8 * 100);
@@ -131,21 +123,21 @@ public class InventoryPopup : UIPopup
             ++i;
         }
     }
-
+    
     public override void RemoveEvent()
     {
     }
 
-    protected override void FindElement(VisualElement root)
+    public override void FindElement()
     {
-        _exitBtn = root.Q<VisualElement>("exit-btn");
-        _rightRotateBtn = root.Q<VisualElement>("rotate-right-btn");
-        _leftRotateBtn = root.Q<VisualElement>("rotate-left-btn");
-        _fishItems = root.Query<VisualElement>(className: "fish-item").ToList();
-        _selectedObj = root.Q<VisualElement>("inner");
+        _exitBtn = _root.Q<VisualElement>("exit-btn");
+        _rightRotateBtn = _root.Q<VisualElement>("rotate-right-btn");
+        _leftRotateBtn = _root.Q<VisualElement>("rotate-left-btn");
+        _fishItems = _root.Query<VisualElement>(className: "fish-item").ToList();
+        _selectedObj = _root.Q<VisualElement>("inner");
 
-        List<VisualElement> units = root.Query<VisualElement>(className: "inventory-unit").ToList();
-        foreach (var unit in units)
+        List<VisualElement> units = _root.Query<VisualElement>(className: "inventory-unit").ToList();
+        foreach(var unit in units)
         {
             _inventoryUnits.Add(new InventoryUnit(unit, 0, Vector3.zero));
         }

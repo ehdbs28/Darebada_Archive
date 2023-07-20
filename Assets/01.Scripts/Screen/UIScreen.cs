@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public abstract class UIScreen : MonoBehaviour
+public abstract class UIScreen : MonoBehaviour, IUI
 {
     [SerializeField]
     protected VisualTreeAsset _treeAsset;
@@ -11,7 +11,7 @@ public abstract class UIScreen : MonoBehaviour
     protected VisualElement _documentRoot = null;
     protected VisualElement _root = null;
 
-    public virtual void SetUp(UIDocument document, bool clearScreen = true){
+    public virtual void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true){
         _documentRoot = document.rootVisualElement.Q("main-container");
 
         if(clearScreen && _documentRoot.childCount >= 2){
@@ -21,24 +21,28 @@ public abstract class UIScreen : MonoBehaviour
             }
         }
 
-        VisualElement generatedRoot = GenerateRoot();
+        GenerateRoot();
 
-        if(generatedRoot != null){
-            AddEvent(generatedRoot);
-            _documentRoot.Insert(0, generatedRoot);
+        if(_root != null){
+            AddEvent();
+            _documentRoot.Insert(0, _root);
         }
     }
 
-    protected virtual VisualElement GenerateRoot(){
+    public virtual void GenerateRoot(){
         _root = _treeAsset.Instantiate();
         _root = _root.Q<VisualElement>("container");
         
-        FindElement(_root);
-
-        return _root;
+        FindElement();
     }
 
-    protected abstract void AddEvent(VisualElement root);
+    public void RemoveRoot()
+    {
+
+    }
+
+    public abstract void AddEvent();
     public abstract void RemoveEvent();
-    protected abstract void FindElement(VisualElement root);
+    public abstract void FindElement();
+
 }

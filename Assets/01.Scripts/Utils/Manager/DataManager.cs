@@ -27,6 +27,8 @@ public class DataManager : IManager
 
         _dataUnits.Add(DataType.BoatData, new BoatData(DATA_PATH, "BoatData"));
         _dataUnits.Add(DataType.FishingData, new FishingData(DATA_PATH, "FishingData"));
+        _dataUnits.Add(DataType.DictionaryData, new DictionaryData(DATA_PATH, "DictionaryData"));
+        _dataUnits.Add(DataType.BiomeData, new BiomeData(DATA_PATH, "BiomeData"));
         _dataUnits.Add(DataType.GameData, new GameData(DATA_PATH, "GameData"));
 
         LoadData();

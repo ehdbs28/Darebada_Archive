@@ -15,7 +15,7 @@ public class AquariumEditScreen : UIScreen
     private VisualElement _addTankBtn;
     private VisualElement _addPlantBtn;
 
-    protected override void AddEvent(VisualElement root)
+    public override void AddEvent()
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
@@ -48,17 +48,17 @@ public class AquariumEditScreen : UIScreen
         GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= OnClickHandle;
     }
 
-    protected override void FindElement(VisualElement root)
+    public override void FindElement()
     {
-        _timeText = root.Q<Label>("time-text");
-        _dateText = root.Q<Label>("date-text");
-        _goldText = root.Q("money-container").Q<Label>("text");
+        _timeText = _root.Q<Label>("time-text");
+        _dateText = _root.Q<Label>("date-text");
+        _goldText = _root.Q("money-container").Q<Label>("text");
 
-        _settingBtn = root.Q<VisualElement>("setting-btn");
-        _backBtn = root.Q<VisualElement>("back-btn");
+        _settingBtn = _root.Q<VisualElement>("setting-btn");
+        _backBtn = _root.Q<VisualElement>("back-btn");
 
-        _addTankBtn = root.Q<VisualElement>("add-tank-btn");
-        _addPlantBtn = root.Q<VisualElement>("add-plant-btn");
+        _addTankBtn = _root.Q<VisualElement>("add-tank-btn");
+        _addPlantBtn = _root.Q<VisualElement>("add-plant-btn");
     }
 
     private void OnChangedTime(int hour, int minute)

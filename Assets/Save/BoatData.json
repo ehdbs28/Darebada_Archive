@@ -1,1 +1,1 @@
-{"Fuel":0.0}
+{"CurrentBoat":{"Name":"","Price":0.0,"Visual":{"VisualMesh":{"instanceID":0},"MainMat":{"instanceID":0}},"MaxSpeed":0.0,"ForwardAcceleration":0.0,"BackwardAcceleration":0.0,"Deceleration":0.0,"RotationSpeed":0.0,"RotationAcceleration":0.0,"RotationDeceleration":0.0,"MaxFuel":0.0},"BoatPurchaseDetail":[2,0,0,0,0],"Fuel":0.0}

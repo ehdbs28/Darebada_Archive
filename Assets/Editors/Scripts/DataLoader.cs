@@ -10,37 +10,50 @@ public class DataLoader
 {
     public DataLoaderUI DataLoaderUI;
 
-    private void CreateDataTable<T>(DataLoadType type, string[] dataArr, string line) where T : LoadableData
-    {
-        string assetPath = $"Assets/Resources/{type.ToString()}.asset";
+    private void AddData<T>(DataLoadType type, T asset, string[] dataArr, string line, string assetPath) where T : LoadableData{
+        asset.AddData(dataArr);
+        DataLoaderUI.CreateDataUI(type, dataArr, line, assetPath);
+        AssetDatabase.SaveAssets();
+    }
+
+    public void HandleData<T>(string data, DataLoadType type, out int lineNum) where T : LoadableData{
+        string assetPath = $"Assets/06.SO/SheetData/{type.ToString()}.asset";
         T asset = AssetDatabase.LoadAssetAtPath<T>(assetPath);
 
         if(asset == null)
         {
             asset = ScriptableObject.CreateInstance<T>();
-            string fileName = AssetDatabase.GenerateUniqueAssetPath(assetPath);
-            AssetDatabase.CreateAsset(asset, fileName);
+            asset.Type = type;
         }
-
-        asset.SetUp(dataArr);
-
-        DataLoaderUI.CreateDataUI(type, dataArr, line, assetPath);
+        else{
+            asset.Clear();
+        }
         
-        AssetDatabase.SaveAssets();
-    }
-
-    public void HandleData(string data, DataLoadType type, out int lineNum){
         string[] lines = data.Split("\n");
         lineNum = 1;
 
         for(lineNum = 1; lineNum < lines.Length; lineNum++){
             string[] dataArr = lines[lineNum].Split("\t");
             switch(type){
+                case DataLoadType.FishData:
+                    AddData<FishDataTable>(type, asset as FishDataTable, dataArr, lines[lineNum], assetPath);
+                    break;
                 case DataLoadType.FishingUpgradeData:
-                    CreateDataTable<FishingUpgradeTable>(type, dataArr, lines[lineNum]);
+                    AddData<FishingUpgradeTable>(type, asset as FishingUpgradeTable, dataArr, lines[lineNum], assetPath);
+                    break;
+                case DataLoadType.ShopItemData:
+                    AddData<ShopItemDataTable>(type, asset as ShopItemDataTable, dataArr, lines[lineNum], assetPath);
+                    break;
+                case DataLoadType.BoatData:
+                    AddData<BoatDataTable>(type, asset as BoatDataTable, dataArr, lines[lineNum], assetPath);
                     break;
             }
         }
+
+        string fileName = AssetDatabase.GenerateUniqueAssetPath(assetPath);
+
+        AssetDatabase.DeleteAsset(assetPath);
+        AssetDatabase.CreateAsset(asset, fileName);
 
         AssetDatabase.Refresh();
     }

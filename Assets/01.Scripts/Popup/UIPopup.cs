@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public abstract class UIPopup : UIScreen
+public abstract class UIPopup : MonoBehaviour, IUI
 {
-    private bool _isOpenPopup = false;
+    [SerializeField]
+    protected VisualTreeAsset _treeAsset;
+
+    protected VisualElement _documentRoot = null;
+    protected VisualElement _root = null;
+
+    protected bool _isOpenPopup = false;
     public bool IsOpenPopup => _isOpenPopup;
 
-    VisualElement _blurPanel = null;
+    protected VisualElement _blurPanel = null;
 
-    public void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true){
+    public virtual void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true){
         _isOpenPopup = true;
 
         _documentRoot = document.rootVisualElement.Q("main-container");
@@ -30,22 +36,20 @@ public abstract class UIPopup : UIScreen
             _blurPanel.AddToClassList("on");
         }
 
-        VisualElement generatedRoot = GenerateRoot();
+        GenerateRoot();
 
-        if(generatedRoot != null){
-            AddEvent(generatedRoot);
-            _documentRoot.Add(generatedRoot);
+        if(_root != null){
+            AddEvent();
+            _documentRoot.Add(_root);
         }
     }
 
-    protected override VisualElement GenerateRoot()
+    public virtual void GenerateRoot()
     {
         _root = _treeAsset.Instantiate();
         _root = _root.ElementAt(0);
         
-        FindElement(_root);
-
-        return _root;
+        FindElement();
     }
 
     public virtual void RemoveRoot(){
@@ -68,4 +72,8 @@ public abstract class UIPopup : UIScreen
 
         _isOpenPopup = false;
     }
+
+    public abstract void AddEvent();
+    public abstract void RemoveEvent();
+    public abstract void FindElement();
 }

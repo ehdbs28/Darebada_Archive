@@ -5,7 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class BoatData : SaveData
 {
-    //public BoatStatSO BoatStat = null;
+    public BoatDataUnit CurrentBoat = null;
+    public int[] BoatPurchaseDetail;
+
     public float Fuel = 0;
 
     public BoatData(string FILE_PATH, string name) : base(FILE_PATH, name)
@@ -15,12 +17,21 @@ public class BoatData : SaveData
     protected override void LoadData(string json)
     {
         BoatData data = JsonUtility.FromJson<BoatData>(json);
+        CurrentBoat = data.CurrentBoat;
+        BoatPurchaseDetail = data.BoatPurchaseDetail;
         Fuel = data.Fuel;
     }
 
     protected override void Reset()
     {
-        //BoatStat = null;
+        CurrentBoat = null;
+        BoatPurchaseDetail = new int[5] { 
+            (int)BoatBuyState.EQUIP,
+            (int)BoatBuyState.SALE,
+            (int)BoatBuyState.SALE,
+            (int)BoatBuyState.SALE,
+            (int)BoatBuyState.SALE,    
+        };
         Fuel = 0;
     }
 }

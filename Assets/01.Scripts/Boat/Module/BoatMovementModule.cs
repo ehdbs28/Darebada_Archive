@@ -10,10 +10,10 @@ public class BoatMovementModule : CommonModule<BoatController>
     private Vector3 _movement = Vector3.zero;
     private float _inputDir = 0f;
 
-    private float _moveMaxSpeed => _controller.DataSO.BoatMaxSpeed;
-    private float _forwardAcceleration => _controller.DataSO.BoatForwardAcceleration;
-    private float _backwardAcceleration => _controller.DataSO.BoatBackwardAcceleration;
-    private float _deceleration => _controller.DataSO.BoatDeceleration;
+    private float _moveMaxSpeed => _controller.CurBoatData.MaxSpeed;
+    private float _forwardAcceleration => _controller.CurBoatData.ForwardAcceleration;
+    private float _backwardAcceleration => _controller.CurBoatData.BackwardAcceleration;
+    private float _deceleration => _controller.CurBoatData.Deceleration;
 
     private float _currentVelocity = 0f;
 

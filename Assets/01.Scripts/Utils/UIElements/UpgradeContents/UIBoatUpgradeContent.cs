@@ -7,13 +7,15 @@ public class UIBoatUpgradeContent : UIPopupContent
 {
     public UIBoatUpgradeContent(VisualElement root, int index) : base(root, index)
     {
-        List<VisualElement> updradeItems;
-        updradeItems = root.Q<ScrollView>("boat-items").Query(className: "boat-item").ToList();
+        List<VisualElement> upgradeItems;
+        upgradeItems = root.Q<ScrollView>("boat-items").Query(className: "boat-item").ToList();
 
-        foreach(var item in updradeItems){
-            _buyContent.Add(new UIBoatBuyElement(item));
+        for(int i = 0; i < upgradeItems.Count; i++){
+            _buyContent.Add(new UIBoatBuyElement(upgradeItems[i], i));
         }
 
-        AddEvent();
+        foreach(var boatUI in _buyContent){
+            ((UIBoatBuyElement)boatUI).ListSet(_buyContent);
+        }
     }
 }

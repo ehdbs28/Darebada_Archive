@@ -1,10 +1,54 @@
-.fish-element.unknowun {
+.fish-element.unknown {
 }
 
-.fish-element.unknowun #fish-image {
+.fish-element.unknown #fish-image {
     -unity-background-image-tint-color: rgba(0, 0, 0, 0.78);
 }
 
-.fish-element.unknowun #star {
-    -unity-background-image-tint-color: rgba(77, 77, 77, 0.59);
+.fish-element.unknown #star {
+    display: none;
+}
+
+.diction-content {
+    flex-grow: 1;
+    border-left-color: rgba(0, 0, 0, 0.39);
+    border-right-color: rgba(0, 0, 0, 0.39);
+    border-top-color: rgba(0, 0, 0, 0.39);
+    border-bottom-color: rgba(0, 0, 0, 0.39);
+    border-top-width: 2px;
+}
+
+.diction-content > #content-detail {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    display: none;
+    visibility: hidden;
+}
+
+.diction-content > #content-scroll {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+}
+
+.diction-content.detail > #content-detail {
+    display: flex;
+    visibility: visible;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+}
+
+.diction-content.detail > #content-scroll {
+    display: none;
+    visibility: hidden;
+    overflow: hidden;
+    width: 0;
+    height: 0;
 }

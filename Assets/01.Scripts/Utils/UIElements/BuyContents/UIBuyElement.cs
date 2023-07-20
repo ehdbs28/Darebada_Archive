@@ -3,22 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UIBuyElement
+public abstract class UIBuyElement
 {
-    protected VisualElement _buyButton;
+    protected VisualElement _root;
+    protected VisualElement _buyBtn;
 
-    protected float _price;
-    public float Price => _price;
-
-    public UIBuyElement(VisualElement elementRoot){
-        _buyButton = elementRoot.Q<VisualElement>("buy-btn");
-
-        AddEvent();
+    protected virtual void FindElement(){
+        _buyBtn = _root.Q<VisualElement>("buy-btn");
     }
 
-    protected virtual void AddEvent(){
-        _buyButton.RegisterCallback<ClickEvent>(e => {
-            Debug.Log("구매");
-        });
-    }
+    protected abstract void AddEvent();
 }

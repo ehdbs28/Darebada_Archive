@@ -25,6 +25,6 @@ public abstract class SaveData
         File.WriteAllText(_savePath, data);
     }
 
-    protected abstract void LoadData(string data);
+    protected abstract void LoadData(string json);
     protected abstract void Reset();
 }

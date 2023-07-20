@@ -24,7 +24,7 @@ public class UIBoatFuel
     public void SetColor(){
         BoatData boatData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.BoatData) as BoatData;
 
-        float percent = _boatController.BoatActionData.CurrentFuel / _boatController.DataSO.MaxFuel;
+        float percent = _boatController.BoatActionData.CurrentFuel / _boatController.CurBoatData.MaxFuel;
         Color color = _durabilityGradient.Evaluate(1 - percent);
         color.a = 200f / 256f;
 

@@ -1,5 +1,5 @@
 public enum LetterType{
-    REPORT,
-    THANKS,
-    REQUEST,
+    Report,
+    Thanks,
+    Request,
 }

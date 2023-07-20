@@ -35,15 +35,3 @@
 .biome > #achivement-content {
     bottom: -75%;
 }
-
-.biome.selected > #selected-mark {
-    bottom: 20%;
-}
-
-.biome.selected > #moveto-btn {
-    bottom: -20%;
-}
-
-.biome.selected > #achivement-content {
-    bottom: -75%;
-}

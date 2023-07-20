@@ -1,14 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UiButtonObject : MonoBehaviour, IButtonObject
 {
-    [SerializeField] PopupType popType;
+    public UnityEvent OnTouchEvent = null; 
+
     public void OnTouch()
     {
-        GameManager.Instance.GetManager<UIManager>().ShowPanel(popType);
+        OnTouchEvent?.Invoke();
     }
     
 }

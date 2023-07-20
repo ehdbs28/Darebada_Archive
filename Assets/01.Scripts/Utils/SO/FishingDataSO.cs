@@ -15,4 +15,6 @@ public class FishingDataSO : ScriptableObject
     public float StringLength = 10f;
 
     public float StringStrength = 1f;
+
+    public float ReelUpSpeed = 10f;
 }
