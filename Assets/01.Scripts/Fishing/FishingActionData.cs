@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class FishingActionData : MonoBehaviour
 {
@@ -16,4 +17,6 @@ public class FishingActionData : MonoBehaviour
 
     // 나중에 fish 구조를 바꾸던지 하자
     public FishMovement CurrentCatchFish = null;
+
+    public FishingItemType CurrentItem = FishingItemType.None;
 }
