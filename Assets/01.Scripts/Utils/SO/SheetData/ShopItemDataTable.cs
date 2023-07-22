@@ -5,10 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class ShopItemUnit
 {
+    public int Index;
     public string Name;
     public Sprite Image;
     public string Desc;
     public float Price;
+    public int Durability;
 }
 
 public class ShopItemDataTable : LoadableData
@@ -19,12 +21,14 @@ public class ShopItemDataTable : LoadableData
     {
         DataTable.Add(new ShopItemUnit());
 
+        DataTable[Size].Index = Size;
         DataTable[Size].Name = dataArr[0];
 
         // Image는 나중에 가져오기
 
         DataTable[Size].Desc = dataArr[1];
         DataTable[Size].Price = float.Parse(dataArr[2]);
+        DataTable[Size].Durability = int.Parse(dataArr[3]);
 
         Size++;
     }

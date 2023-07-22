@@ -7,6 +7,8 @@ public class FishingData : SaveData
     public int StringLength_Level = 1;
     public int StringStrength_Level = 1;
 
+    public int[] ItemVal;
+
     public FishingData(string FILE_PATH, string name) : base(FILE_PATH, name)
     {
     }
@@ -17,6 +19,7 @@ public class FishingData : SaveData
         ThrowPower_Level = data.ThrowPower_Level;
         StringLength_Level = data.StringLength_Level;
         StringStrength_Level = data.StringStrength_Level;
+        ItemVal = data.ItemVal;
     }
 
     protected override void Reset()
@@ -24,5 +27,6 @@ public class FishingData : SaveData
         ThrowPower_Level = 1;
         StringLength_Level = 1;
         StringStrength_Level = 1;
+        ItemVal = new int[(int)FishingItemType.Count];
     }
 }

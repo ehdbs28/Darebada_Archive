@@ -17,13 +17,11 @@ public class UIBuyContent : UIPopupContent
             _buyContent.Add(new UIShopUnit(
                 _contentParent,
                 itemTemplete,
-                _table.DataTable[i],
-                i
+                _table.DataTable[i]
             ));
         }
 
         for(int i = 0; i < _table.Size; i++){
-            ((UIShopUnit)_buyContent[i]).ListSet(_buyContent);
             ((UIShopUnit)_buyContent[i]).Generate();
         }
     }

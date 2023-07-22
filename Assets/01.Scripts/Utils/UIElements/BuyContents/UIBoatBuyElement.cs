@@ -33,13 +33,13 @@ public class UIBoatBuyElement : UIBuyElement
     {
         _buyBtn.RegisterCallback<ClickEvent>(e => {
             switch(_buyState){
-                case BoatBuyState.SALE:
+                case BoatBuyState.Sale:
                 {
                     GameManager.Instance.GetManager<MoneyManager>().Payment(_dataTable.DataTable[_idx].Price);
-                    ChangeState(BoatBuyState.BOUGHT);
+                    ChangeState(BoatBuyState.Bought);
                 }
                     break;
-                case BoatBuyState.BOUGHT:
+                case BoatBuyState.Bought:
                     BoatChange();
                     break;
             }
@@ -70,27 +70,27 @@ public class UIBoatBuyElement : UIBuyElement
         UIBoatBuyElement boatUI = (UIBoatBuyElement)_boatUIs[idx];
         
         if(select){
-            boatUI.ChangeState(BoatBuyState.EQUIP);
+            boatUI.ChangeState(BoatBuyState.Equip);
             GameManager.Instance.GetManager<BoatManager>().SelectBoat(idx);
         }
         else{
-            boatUI.ChangeState(BoatBuyState.BOUGHT);
+            boatUI.ChangeState(BoatBuyState.Bought);
         }
     }
 
     public void ChangeState(BoatBuyState next){
-        if(next == BoatBuyState.SALE){
+        if(next == BoatBuyState.Sale){
             _root.RemoveFromClassList("unlock");
             _root.RemoveFromClassList("select");
 
             _infoLabel.text = $"$ {_dataTable.DataTable[_idx].Price}";
         }
-        else if(next == BoatBuyState.EQUIP){
+        else if(next == BoatBuyState.Equip){
             _root.AddToClassList("unlock");
             _root.AddToClassList("select");
             _infoLabel.text = "장착중";
         }
-        else if(next == BoatBuyState.BOUGHT){
+        else if(next == BoatBuyState.Bought){
             _root.AddToClassList("unlock");
             _root.RemoveFromClassList("select");
             _infoLabel.text = "장착하기";

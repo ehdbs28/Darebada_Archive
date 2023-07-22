@@ -5,24 +5,19 @@ using UnityEngine.UIElements;
 
 public class UIShopUnit : UIBuyElement
 {
-    private VisualTreeAsset _templete;
-    private ShopItemUnit _unit;
+    private readonly VisualTreeAsset _templete;
+    private readonly ShopItemUnit _unit;
 
-    private ScrollView _parent;
+    private readonly ScrollView _parent;
 
     private VisualElement _imageBox;
     private Label _nameLabel;
     private Label _descLabel;
     private Label _priceLabel;
 
-    private bool _isEquip;
-
-    private List<UIBuyElement> _units;
-
-    public UIShopUnit(ScrollView parent, VisualTreeAsset templete, ShopItemUnit unit, int idx){
+    public UIShopUnit(ScrollView parent, VisualTreeAsset templete, ShopItemUnit unit){
         _templete = templete;
         _parent = parent;
-        _isEquip = false;
         _unit = unit;
     }
 
@@ -30,6 +25,8 @@ public class UIShopUnit : UIBuyElement
         _root = _templete.Instantiate();
         _root = _root.Q<VisualElement>("shop-item");
         _parent.Add(_root);
+        
+        Toggle(!GameManager.Instance.GetManager<ShopManager>().IsInStock(_unit.Index));
 
         FindElement();
         Setting();
@@ -53,29 +50,21 @@ public class UIShopUnit : UIBuyElement
 
     protected override void AddEvent(){
         _buyBtn.RegisterCallback<ClickEvent>(e => {
-            if(_isEquip)
+            if(!GameManager.Instance.GetManager<ShopManager>().IsInStock(_unit.Index))
                 return;
 
-            GameManager.Instance.GetManager<MoneyManager>().Payment(_unit.Price);
-            // fishing -> item select
-            for(int i = 0; i < _units.Count; i++){
-                ((UIShopUnit)_units[i]).Toggle(false);
-            }
-            Toggle(true);
+            GameManager.Instance.GetManager<ShopManager>().PurchaseItem(_unit.Index);            
+            if(!GameManager.Instance.GetManager<ShopManager>().IsInStock(_unit.Index))
+                Toggle(true);
         });
     }
 
-    public void Toggle(bool value){
-        _isEquip = value;
+    private void Toggle(bool value){
         if(value){
-            _root.AddToClassList("equip");
+            _root.AddToClassList("soldout");
         }
         else{
-            _root.RemoveFromClassList("equip");
+            _root.RemoveFromClassList("soldout");
         }
-    }
-
-    public void ListSet(List<UIBuyElement> list){
-        _units = list;
     }
 }
