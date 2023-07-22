@@ -62,9 +62,21 @@ public class LetterPopup : UIPopup
 
         _selectAllToggle.RegisterCallback<ClickEvent>(e =>
         {
-            foreach(UILetterUnit letter in _letters)
+            if (_selectAllToggle.ClassListContains("check"))
             {
-                letter.Toggle(true);
+                _selectAllToggle.RemoveFromClassList("check");
+                foreach (UILetterUnit letter in _letters)
+                {
+                    letter.Toggle(false);
+                }
+            }
+            else
+            {
+                _selectAllToggle.AddToClassList("check");
+                foreach (UILetterUnit letter in _letters)
+                {
+                    letter.Toggle(true);
+                }
             }
         });
 
@@ -88,7 +100,7 @@ public class LetterPopup : UIPopup
     {
         _exitBtn = _root.Q<VisualElement>("exit-btn");
         _deleteBtn = _root.Q<VisualElement>("delete-btn");
-        _selectAllToggle = _root.Q<VisualElement>("select-all-toggle").Q<VisualElement>("inner");
+        _selectAllToggle = _root.Q<VisualElement>("select-all-toggle");
         _letterPerent = _root.Q<ScrollView>("content-scroll");
     }
 }

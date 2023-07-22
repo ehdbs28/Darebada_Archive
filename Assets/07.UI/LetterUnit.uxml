@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/07.UI/LetterUnit.uss?fileID=7433441132597879392&amp;guid=cb6e0c60d859140a6bfec988fb1fbe98&amp;type=3#LetterUnit" />
-    <ui:VisualElement name="letter-unit" class="letter-unit">
+    <ui:VisualElement name="letter-unit" class="letter-unit thanks">
         <ui:VisualElement name="title-content" style="flex-basis: 60%; flex-direction: row; align-items: center; flex-shrink: 0;">
             <ui:VisualElement name="type-image" />
             <ui:Label text="7월14일 아쿠아리움 명세서" display-tooltip-when-elided="true" name="title-text" class="text" style="font-size: 40px;" />

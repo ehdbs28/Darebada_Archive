@@ -22,15 +22,9 @@ public class LetterManager : MonoBehaviour, IManager
 
     public void UpdateManager()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log($"{_letters[0].Date.Year}Y {_letters[0].Date.Month}M {_letters[0].Date.Day}D");
-            Debug.Log(_letters[0].Title);
-            Debug.Log(_letters[0].Desc);
-            Debug.Log(_letters[0].From);
-            _letters.RemoveAt(0);
-        }
+        
     }
+    
     public void SendRequestLetter( GameDate date)
     {
         int requestId = Random.Range(0, RequestTemplate.titles.Count);
@@ -58,24 +52,7 @@ public class LetterManager : MonoBehaviour, IManager
         letter.Setup(LetterType.Thanks,title, desc, date, from);
         AddLetter(letter);
     }
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-
-            //SendReviewLetter();
-        }else if(Input.GetKeyDown(KeyCode.J))
-        {
-            //SendRequestLetter(0);
-        }else if(Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log(_letters[0].Date);
-            Debug.Log(_letters[0].Title);
-            Debug.Log(_letters[0].Desc);
-            Debug.Log(_letters[0].From);
-            _letters.RemoveAt(0);
-        }
-    }
+    
     public void SendReportLetter(int entranceRevenue, int etcRevenue, int managerSalary, int employeeSalary, int manageCost, GameDate date)
     {
         GameDate n_date = new GameDate(date.Year,date.Month,date.Day);
