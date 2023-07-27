@@ -3,127 +3,236 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class InventoryUnit
-{
-    public VisualElement unit;
-    public int index;
-    public Vector3 pos;
-
-    public InventoryUnit(VisualElement unit, int index, Vector3 pos)
-    {
-        this.unit = unit;
-        this.index = index;
-        this.pos = pos;
-    }
-}
-
 public class InventoryPopup : UIPopup
 {
-    // 준호 구현 방식 따라서 달라질 듯
     private VisualElement _exitBtn;
     private VisualElement _rightRotateBtn;
     private VisualElement _leftRotateBtn;
 
-    private List<VisualElement> _fishItems = new List<VisualElement>();
-    private VisualElement _selectedItem;
-    private Quaternion _itemQuaternion;
+    public InventoryUnit _selectedUnit;
+    public VisualElement _selectedUnitProfile;
 
-    private bool _isSelected = false;
-    private Vector2 _itemPos;
+    [SerializeField]
+    private VisualTreeAsset _unitTemplate;
+    private VisualElement _unitParent;
 
-    private VisualElement _selectedObj;
+    private List<InventoryUnit> _units;
+    private InventoryTile[,] _tiles;
 
-    private bool _itemMove = false;
-    private List<InventoryUnit> _inventoryUnits = new List<InventoryUnit>();
+    private FishDataTable dataTable;
 
     private void Update()
     {
-        //if (Input.GetMouseButtonDown(0) && _selectedItem != null)
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            InventoryUnit newUnit = new InventoryUnit(_unitTemplate, _unitParent, dataTable.DataTable[0]);
+            newUnit.PosX = 3;
+            newUnit.PosY = 0;
+            newUnit.Rotate = 0;
+            newUnit.Generate(newUnit);
+            _units.Add(newUnit);
+        }
+    }
+
+    public override void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
+    {
+        _isOpenPopup = true;
+
+        _documentRoot = document.rootVisualElement.Q("main-container");
+
+        if (clearScreen && _documentRoot.childCount >= 2)
+        {
+            for (int i = 0; i < _documentRoot.childCount; i++)
+            {
+                if (_documentRoot.ElementAt(i).ClassListContains("blur-panel")) continue;
+                _documentRoot.RemoveAt(i);
+            }
+        }
+
+        if (timeStop)
+            GameManager.Instance.GetManager<TimeManager>().TimeScale = 0f;
+
+        if (blur)
+        {
+            _blurPanel = _documentRoot.Q(className: "blur-panel");
+            _blurPanel.AddToClassList("on");
+        }
+
+        dataTable = (FishDataTable)GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.FishData);
+        _units = new List<InventoryUnit>();
+        _tiles = new InventoryTile[InventoryManager.Instance.Board_Size_Y, InventoryManager.Instance.Board_Size_X];
+        for(int i = 0; i < InventoryManager.Instance.Board_Size_Y; i++)
+        {
+            for(int j = 0; j < InventoryManager.Instance.Board_Size_X; j++)
+            {
+                _tiles[i, j] = new InventoryTile();
+                _tiles[i, j].xIdx = j;
+                _tiles[i, j].yIdx = i;
+            }
+        }
+        //_tiles = InventoryManager.Instance.Tiles;
+
+        GenerateRoot();
+        GenerateInventoryUnit();
+
+        if (_root != null)
+        {
+            AddEvent();
+            _documentRoot.Add(_root);
+        }
+    }
+
+    private void GenerateInventoryUnit()
+    {
+        List<InventoryUnit> inventoryUnits = InventoryManager.Instance.Units;
+        for (int i = 0; i < inventoryUnits.Count; i++)
+        {
+            //여기서 필요한 데이터를 데이터 테이블에서 넘겨주도록 해야함
+            //_units.Add(new InventoryUnit(_unitTemplate, _unitParent, dataTable.DataTable[0]));
+            //_units[i].Generate(inventoryUnits[i]);
+        }
+    }
+
+    public bool Search(int minX, int maxX, int minY, int maxY)
+    {
+        if (_selectedUnit.GetMinX() < 0 
+            || _selectedUnit.GetMaxX() > InventoryManager.Instance.Board_Size_X 
+            || _selectedUnit.GetMinY() < 0 || _selectedUnit.GetMaxY() > InventoryManager.Instance.Board_Size_Y)
+            return false;
+        foreach (var unit in _units)
+        {
+            if(unit != _selectedUnit)
+            {
+                if ((minX >= unit.GetMinX() || maxX <= unit.GetMaxX())
+              && (minY >= unit.GetMinY() || maxY <= unit.GetMaxY()))
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+
+        ////나중에 GameManager통해서 InventoryManager에 접근하도록 수정해야함.
+        //bool[,] temp = new bool[InventoryManager.Instance.Board_Size_Y, InventoryManager.Instance.Board_Size_X];
+        //int curSize = 0;
+
+        //for(int i = 0; i < InventoryManager.Instance.Board_Size_Y; i++)
         //{
-        //    Vector2 mousePos = GameManager.Instance.GetManager<InputManager>().MousePosition;
-        //    Debug.Log(mousePos);
-        //    mousePos = RuntimePanelUtils.ScreenToPanel(_root.panel, mousePos);
-        //    Debug.Log(mousePos);
+        //    for(int j = 0; j < InventoryManager.Instance.Board_Size_X; j++)
+        //    {
+        //        temp[i, j] = tiles[i, j].IsFull;
+        //    }
         //}
+
+        //Queue<Vector2> q = new Queue<Vector2>();
+        //q.Enqueue(new Vector2(start_x, start_y));
+        //temp[start_y, start_x] = true;
+
+        //while(q.Count > 0)
+        //{
+        //    Vector2 node = q.Peek();
+        //    q.Dequeue();
+
+        //    for(int i = 0; i < 4; i++)
+        //    {
+        //        curSize++;
+        //        int nextX = (int)node.x + InventoryManager.Instance.destX[i];
+        //        int nextY = (int)node.y + InventoryManager.Instance.destY[i];
+
+        //        if (nextX < minX || nextX > maxX || nextY < minY || nextY > maxY) break;
+        //        if (temp[nextY, nextX] == true) break;
+
+        //        temp[nextY, nextX] = true;
+        //        q.Enqueue(new Vector2(nextX, nextY));
+        //    }
+        //}
+
+        //return (curSize == size ? true : false);
     }
 
     public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
+            InventoryManager.Instance.Units = _units;
+            InventoryManager.Instance.Tiles = _tiles;
             RemoveRoot();
         });
 
-        foreach (VisualElement fishItem in _fishItems)
-        {
-            fishItem.RegisterCallback<ClickEvent>(e =>
-            {
-                //나중에 방생/이동 팝업 추가되면 띄워주는 코드 작성해야함.
-                _selectedItem = fishItem;
-                _itemMove = true;
-                StyleBackground stBackground = _selectedItem.resolvedStyle.backgroundImage;
-                _selectedObj.style.backgroundImage = stBackground;
-            });
-        }
-
         _rightRotateBtn.RegisterCallback<ClickEvent>(e =>
         {
-            if (_selectedItem != null && _itemMove)
+            if (_selectedUnit != null)
             {
-                Vector3 newEuler = new Vector3();
-                Quaternion currentRotation = new Quaternion();
-                newEuler += new Vector3(0, 0, _selectedItem.transform.rotation.eulerAngles.z - 90);
-                currentRotation.eulerAngles = newEuler;
-                _selectedItem.transform.rotation = currentRotation;
+                //_selectedUnit.Rotate = Mathf.Abs((_selectedUnit.Rotate - 1) % 3);
+                _selectedUnit.Rotate--;
+                if (_selectedUnit.Rotate < 0) _selectedUnit.Rotate = 3;
+
+                if (Search(_selectedUnit.GetMinX(), _selectedUnit.GetMaxX(), _selectedUnit.GetMinY(), _selectedUnit.GetMaxY()))
+                {
+                    _selectedUnit.Root.style.rotate = new Rotate(_selectedUnit.Root.style.rotate.value.angle.value - 90);
+                }
+                else
+                {
+                    Debug.Log(_selectedUnit.Rotate);
+                    _selectedUnit.Rotate++;
+                }
             }
         });
 
         _leftRotateBtn.RegisterCallback<ClickEvent>(e =>
         {
-            if(_selectedItem != null && _itemMove)
+            if(_selectedUnit != null)
             {
-                Vector3 newEuler = new Vector3();
-                Quaternion currentRotation = new Quaternion();
-                newEuler += new Vector3(0, 0, _selectedItem.transform.rotation.eulerAngles.z + 90);
-                currentRotation.eulerAngles = newEuler;
-                _selectedItem.transform.rotation = currentRotation;
+                _selectedUnit.Rotate++;
+                if (_selectedUnit.Rotate > 3) _selectedUnit.Rotate = 0;
+
+                if (Search(_selectedUnit.GetMinX(), _selectedUnit.GetMaxX(), _selectedUnit.GetMinY(), _selectedUnit.GetMaxY()))
+                {
+                    _selectedUnit.Root.style.rotate = new Rotate(_selectedUnit.Root.style.rotate.value.angle.value + 90);
+                }
+                else
+                {
+                    Debug.Log(_selectedUnit.Rotate);
+                    if (_selectedUnit.Rotate < 0) _selectedUnit.Rotate = 3;
+                    else _selectedUnit.Rotate--;
+                }
             }
         });
 
-        //foreach (VisualElement unit in _inventoryUnits)
-        //{
-        //    unit.RegisterCallback<ClickEvent>(e =>
-        //    {
-        //        //if(_selectedItem != null && _itemMove)
-        //        //{
-        //        //    Vector3 newPos = new Vector3();
-        //        //    newPos = new Vector3(_inventoryUnits.BinarySearch(unit) % 7 * 100,
-        //        //        _inventoryUnits.BinarySearch(unit) % 8 * 100,
-        //        //        _selectedItem.transform.position.z);
-        //        //    _selectedItem.transform.position += newPos;
-        //        //}
-
-        //        Debug.Log(_inventoryUnits.BinarySearch(unit));
-        //    });
-        //}
-        int i = 0;
-        foreach(var unit in _inventoryUnits)
+        for(int i = 0; i < InventoryManager.Instance.Board_Size_Y; i++)
         {
-            unit.index = i;
-            unit.pos = new Vector3(i / 8 * 100, i % 8 * 100);
-
-            unit.unit.RegisterCallback<ClickEvent>(e =>
+            for(int j = 0; j < InventoryManager.Instance.Board_Size_X; j++)
             {
-                if (_selectedObj.style.backgroundImage != null)
-                {
-                    _selectedItem.transform.position = unit.pos;
-                    Debug.Log(unit.pos);
-                }
-            });
+                //Debug.Log($"xIdx: {_tiles[i, j].xIdx}");
+                //Debug.Log($"yIdx: {_tiles[i, j].yIdx}");
 
-            ++i;
+                _tiles[i, j].tile.RegisterCallback<ClickEvent>(e =>
+                {
+                    int _i = i;
+                    int _j = j;
+                    Debug.Log(_tiles[_i, _j]);
+                    //InventoryUnit temp = _selectedUnit;
+                    ////_selectedUnit.PosX = j;
+                    ////_selectedUnit.PosY = i;
+                    ////_selectedUnit.PosY = _tiles[i, j].yIdx;
+                    ////_selectedUnit.PosX = _tiles[i, j].Xidx;
+                    //if (_selectedUnit != null && Search(_selectedUnit.GetMinX(), _selectedUnit.GetMaxX(), _selectedUnit.GetMinY(), _selectedUnit.GetMaxY()))
+                    //{
+                    //    Debug.Log("움직임");
+                    //    _selectedUnit.Root.style.left = _selectedUnit.PosX * 100 + 10;
+                    //    _selectedUnit.Root.style.top = _selectedUnit.PosY * 100 + 10;
+                    //}
+                    //else
+                    //{
+                    //    Debug.Log("안 움직임");
+                    //    _selectedUnit.PosX = temp.PosX;
+                    //    _selectedUnit.PosY = temp.PosY;
+                    //}
+                });
+            }
         }
     }
-    
+
     public override void RemoveEvent()
     {
     }
@@ -133,13 +242,19 @@ public class InventoryPopup : UIPopup
         _exitBtn = _root.Q<VisualElement>("exit-btn");
         _rightRotateBtn = _root.Q<VisualElement>("rotate-right-btn");
         _leftRotateBtn = _root.Q<VisualElement>("rotate-left-btn");
-        _fishItems = _root.Query<VisualElement>(className: "fish-item").ToList();
-        _selectedObj = _root.Q<VisualElement>("inner");
+        _selectedUnitProfile = _root.Q<VisualElement>("inner");
 
-        List<VisualElement> units = _root.Query<VisualElement>(className: "inventory-unit").ToList();
-        foreach(var unit in units)
+        _unitParent = _root.Q<VisualElement>("contents");
+
+        List<VisualElement> tiles = _root.Query<VisualElement>(className: "inventory-unit").ToList();
+        int k = 0;
+        for(int i = 0; i < InventoryManager.Instance.Board_Size_Y; i++)
         {
-            _inventoryUnits.Add(new InventoryUnit(unit, 0, Vector3.zero));
+            for(int j = 0; j < InventoryManager.Instance.Board_Size_X; j++)
+            {
+                _tiles[i, j].tile = tiles[k];
+                k++;
+            }
         }
     }
 }

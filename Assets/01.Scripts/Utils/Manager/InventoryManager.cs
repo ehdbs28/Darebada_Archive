@@ -9,35 +9,46 @@ public class InventoryManager : MonoBehaviour, IManager
 {
     public static InventoryManager Instance;
 
-    public List<VisualElement> FishList;
+    //대충 임시로 수 넣어놓은 거임. 실제 크기로 바꿔야함.
+    public int Board_Size_X = 7;
+    public int Board_Size_Y = 8;
+
+    public int[] destX = { -1, 1, 0, 0 };
+    public int[] destY = { 0, 0, -1, 1 };
+
+    public InventoryTile[,] Tiles;
+    public List<InventoryUnit> Units;
 
     private void Awake()
     {
-        if (Instance != null)
+        if(Instance == null)
         {
-            Debug.LogError("Multy InventoryManager");
+            Instance = this;
         }
-        Instance = this;
-    }
 
-    public void SetUnitPos()
-    {
+        Tiles = new InventoryTile[Board_Size_Y, Board_Size_X];
+        Units = new List<InventoryUnit>();
 
-    }
-
-    public List<VisualElement> GetUnits()
-    {
-        return FishList;
+        for(int i = 0; i < Board_Size_Y; i++)
+        {
+            for(int j = 0; j < Board_Size_X; j++)
+            {
+                Tiles[i, j] = new InventoryTile();
+                Tiles[i, j].IsFull = false;
+                Tiles[i, j].xIdx = j;
+                Tiles[i, j].yIdx = i;
+            }
+        }
     }
 
     public void InitManager()
     {
-
+        ResetManager();
     }
 
     public void ResetManager()
     {
-
+        
     }
 
     public void UpdateManager()

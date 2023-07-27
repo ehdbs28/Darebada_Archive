@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class FishViual{
     public Mesh VisualMesh;
+    public Sprite Profile;
     public Material MainMat;
 }
 

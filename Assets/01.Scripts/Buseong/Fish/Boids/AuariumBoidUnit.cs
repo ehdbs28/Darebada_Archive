@@ -65,7 +65,7 @@ public class AuariumBoidUnit : MonoBehaviour
         speed = _speed;
         _unitData = _fishSO;
         boundsOffset = offset;
-        gameObject.name = _unitData.FishSpecie;
+        gameObject.name = _unitData.Name;
         myTrailRenderer = GetComponentInChildren<TrailRenderer>();
         myMeshRenderer = GetComponentInChildren<MeshRenderer>();
 

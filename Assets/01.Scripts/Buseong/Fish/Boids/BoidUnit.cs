@@ -53,6 +53,7 @@ public class BoidUnit : MonoBehaviour
 
     [SerializeField]
     private FishSO _unitData;
+    public FishSO UnitData => _unitData;
 
     private SkinnedMeshRenderer _skinnedMR;
 
@@ -65,7 +66,7 @@ public class BoidUnit : MonoBehaviour
         speed = _speed;
         _unitData = _fishSO;
         boundsOffset = offset;
-        gameObject.name = _unitData.FishSpecie;
+        gameObject.name = _unitData.Name;
         myTrailRenderer = GetComponentInChildren<TrailRenderer>();
         myMeshRenderer = GetComponentInChildren<MeshRenderer>();
 
