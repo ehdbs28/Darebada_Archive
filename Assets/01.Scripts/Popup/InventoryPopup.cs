@@ -14,7 +14,15 @@ public class InventoryPopup : UIPopup
 
     [SerializeField]
     private VisualTreeAsset _unitTemplate;
+    public VisualTreeAsset UnitTemplate
+    {
+        get => _unitTemplate;
+    }
     private VisualElement _unitParent;
+    public VisualElement UnitParent
+    {
+        get => UnitParent;
+    }
 
     private List<InventoryUnit> _units;
     private InventoryTile[,] _tiles;
@@ -88,8 +96,9 @@ public class InventoryPopup : UIPopup
         for (int i = 0; i < inventoryUnits.Count; i++)
         {
             //여기서 필요한 데이터를 데이터 테이블에서 넘겨주도록 해야함
-            //_units.Add(new InventoryUnit(_unitTemplate, _unitParent, dataTable.DataTable[0]));
-            //_units[i].Generate(inventoryUnits[i]);
+            InventoryUnit newUnit = new InventoryUnit(_unitTemplate, _unitParent, inventoryUnits[i].Data);
+            newUnit.Generate(newUnit);
+            _units.Add(newUnit);
         }
     }
 
@@ -206,28 +215,30 @@ public class InventoryPopup : UIPopup
                 //Debug.Log($"xIdx: {_tiles[i, j].xIdx}");
                 //Debug.Log($"yIdx: {_tiles[i, j].yIdx}");
 
+                int _i = i;
+                int _j = j;
+
                 _tiles[i, j].tile.RegisterCallback<ClickEvent>(e =>
                 {
-                    int _i = i;
-                    int _j = j;
+                    
                     Debug.Log(_tiles[_i, _j]);
-                    //InventoryUnit temp = _selectedUnit;
-                    ////_selectedUnit.PosX = j;
-                    ////_selectedUnit.PosY = i;
-                    ////_selectedUnit.PosY = _tiles[i, j].yIdx;
-                    ////_selectedUnit.PosX = _tiles[i, j].Xidx;
-                    //if (_selectedUnit != null && Search(_selectedUnit.GetMinX(), _selectedUnit.GetMaxX(), _selectedUnit.GetMinY(), _selectedUnit.GetMaxY()))
-                    //{
-                    //    Debug.Log("움직임");
-                    //    _selectedUnit.Root.style.left = _selectedUnit.PosX * 100 + 10;
-                    //    _selectedUnit.Root.style.top = _selectedUnit.PosY * 100 + 10;
-                    //}
-                    //else
-                    //{
-                    //    Debug.Log("안 움직임");
-                    //    _selectedUnit.PosX = temp.PosX;
-                    //    _selectedUnit.PosY = temp.PosY;
-                    //}
+                    InventoryUnit temp = _selectedUnit;
+                    //_selectedUnit.PosX = j;
+                    //_selectedUnit.PosY = i;
+                    _selectedUnit.PosY = _tiles[_i, _j].yIdx;
+                    _selectedUnit.PosX = _tiles[_i, _j].xIdx;
+                    if (_selectedUnit != null && Search(_selectedUnit.GetMinX(), _selectedUnit.GetMaxX(), _selectedUnit.GetMinY(), _selectedUnit.GetMaxY()))
+                    {
+                        Debug.Log("움직임");
+                        _selectedUnit.Root.style.left = _selectedUnit.PosX * 100 + 10;
+                        _selectedUnit.Root.style.top = _selectedUnit.PosY * 100 + 10;
+                    }
+                    else
+                    {
+                        Debug.Log("안 움직임");
+                        _selectedUnit.PosX = temp.PosX;
+                        _selectedUnit.PosY = temp.PosY;
+                    }
                 });
             }
         }
@@ -248,11 +259,11 @@ public class InventoryPopup : UIPopup
 
         List<VisualElement> tiles = _root.Query<VisualElement>(className: "inventory-unit").ToList();
         int k = 0;
-        for(int i = 0; i < InventoryManager.Instance.Board_Size_Y; i++)
+        for(int i = 0; i < InventoryManager.Instance.Board_Size_X; i++)
         {
-            for(int j = 0; j < InventoryManager.Instance.Board_Size_X; j++)
+            for(int j = 0; j < InventoryManager.Instance.Board_Size_Y; j++)
             {
-                _tiles[i, j].tile = tiles[k];
+                _tiles[j, i].tile = tiles[k];
                 k++;
             }
         }

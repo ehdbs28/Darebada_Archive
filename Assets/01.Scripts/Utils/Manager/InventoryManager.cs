@@ -41,6 +41,19 @@ public class InventoryManager : MonoBehaviour, IManager
         }
     }
 
+    public void AddUnit(FishDataUnit unitData)
+    {
+        VisualTreeAsset template = ((InventoryPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Inventory)).UnitTemplate;
+        VisualElement parent = ((InventoryPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Inventory)).UnitParent;
+        InventoryUnit newUnit = new InventoryUnit(template, parent, unitData);
+        newUnit.PosX = -500;
+        newUnit.PosY = 0;
+        newUnit.Rotate = 0;
+        Units.Add(newUnit);
+        ((InventoryPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Inventory))._selectedUnit = newUnit;
+        GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Inventory);
+    }
+
     public void InitManager()
     {
         ResetManager();

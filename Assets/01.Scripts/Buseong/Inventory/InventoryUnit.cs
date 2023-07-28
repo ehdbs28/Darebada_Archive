@@ -41,13 +41,13 @@ public class InventoryUnit
     private VisualElement _parent;
     public VisualElement Root;
 
-    private FishDataUnit _data;
+    public FishDataUnit Data;
 
     public InventoryUnit(VisualTreeAsset template, VisualElement parent, FishDataUnit data)
     {
         _template = template;
         _parent = parent;
-        _data = data;
+        Data = data;
     }
 
     public void Generate(InventoryUnit unit)
