@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a8b35fcf868884a96ed5bfc18c987b, type: 3}
+  m_Name: NewTestSO 2
+  m_EditorClassIdentifier: 
+  HabitatBiome: 4
+  Speed: 5
+  FishSpecie: A2
+  Rarity: 2
+  Mesh: {fileID: 4300002, guid: a7dc26602e9f7be47940a44e19d7bb73, type: 3}
+  SpawnPercentage: 20

@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoidUnit : MonoBehaviour
+public class AuariumBoidUnit : MonoBehaviour
 {
     #region Variables & Initializer
     [Header("Info")]
-    private Boids myBoids;
-    private List<BoidUnit> neighbours = new List<BoidUnit>();
-    
+    private AquariumBoids myBoids;
+    private List<AuariumBoidUnit> neighbours = new List<AuariumBoidUnit>();
+
     public Vector3 targetVec;
     private Vector3 egoVector;
     private float speed;
-    
+
     private float additionalSpeed = 0;
     private bool isEnemy;
-    
+
     private MeshRenderer myMeshRenderer;
     private TrailRenderer myTrailRenderer;
     [SerializeField] private Color myColor;
@@ -53,14 +53,13 @@ public class BoidUnit : MonoBehaviour
 
     [SerializeField]
     private FishSO _unitData;
-    public FishSO UnitData => _unitData;
 
     private SkinnedMeshRenderer _skinnedMR;
 
     [SerializeField]
     private Vector3 boundsOffset;
 
-    public void InitializeUnit(Boids _boids, float _speed, FishSO _fishSO, Vector3 offset)
+    public void InitializeUnit(AquariumBoids _boids, float _speed, FishSO _fishSO, Vector3 offset)
     {
         myBoids = _boids;
         speed = _speed;
@@ -84,7 +83,7 @@ public class BoidUnit : MonoBehaviour
     {
         if (additionalSpeed > 0)
             additionalSpeed -= Time.deltaTime;
-        
+
         //필요한 모든 벡터
         Vector3 cohesionVec = CalculateCohesionVector() * myBoids.cohesionWeight;
         Vector3 alignmentVec = CalculateAlignmentVector() * myBoids.alignmentWeight;
@@ -119,7 +118,7 @@ public class BoidUnit : MonoBehaviour
             this.transform.rotation = Quaternion.LookRotation(targetVec);
             this.transform.position = _bait.transform.position;
         }
-        
+
     }
 
 
@@ -140,7 +139,7 @@ public class BoidUnit : MonoBehaviour
         {
             if (Vector3.Angle(transform.forward, colls[i].transform.position - transform.position) <= FOVAngle && colls[i].name == gameObject.name)
             {
-                neighbours.Add(colls[i].GetComponent<BoidUnit>());
+                neighbours.Add(colls[i].GetComponent<AuariumBoidUnit>());
             }
             if (i > maxNeighbourCount)
             {
@@ -220,7 +219,7 @@ public class BoidUnit : MonoBehaviour
     private Vector3 CalculateBoundsVector()
     {
         Vector3 offsetToCenter = boundsOffset - transform.position;
-        
+
         return offsetToCenter.magnitude >= myBoids.spawnRange ? offsetToCenter.normalized : Vector3.zero;
     }
 

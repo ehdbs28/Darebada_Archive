@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
         _managers.Add(GetComponent<LetterManager>());
         _managers.Add(new ShopManager());
         _managers.Add(new PoolManager(_poolingTrm));
+        //_managers.Add(GetComponent<InventoryManager>());
         _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
     }
 
