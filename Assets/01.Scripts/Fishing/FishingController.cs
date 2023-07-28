@@ -54,15 +54,4 @@ public class FishingController : MonoBehaviour
         _currentState = nextState;
         _currentState?.EnterState();
     }
-
-    public void EquipItem(FishingItemType type)
-    {
-        FishingData data = (FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData);
-
-        if (data.ItemVal[(int)type] <= 0)
-            return;
-
-        data.ItemVal[(int)type]--;
-        _actionData.CurrentItem = type;
-    }
 }

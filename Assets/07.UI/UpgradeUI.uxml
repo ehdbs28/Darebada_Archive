@@ -59,7 +59,7 @@
                                         </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
-                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
+                                <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
                                         <ui:VisualElement name="gold-image" />
                                         <ui:Label text="장착중" display-tooltip-when-elided="true" name="gold-text" class="text" />
@@ -98,7 +98,7 @@
                                         </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
-                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
+                                <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
                                         <ui:VisualElement name="gold-image" />
                                         <ui:Label text="장착하기" display-tooltip-when-elided="true" name="gold-text" class="text" />
@@ -137,7 +137,7 @@
                                         </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
-                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
+                                <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
                                         <ui:VisualElement name="gold-image" />
                                         <ui:Label text="3,500 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
@@ -176,7 +176,7 @@
                                         </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
-                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
+                                <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
                                         <ui:VisualElement name="gold-image" />
                                         <ui:Label text="10,500 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
@@ -215,7 +215,7 @@
                                         </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
-                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
+                                <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
                                         <ui:VisualElement name="gold-image" />
                                         <ui:Label text="30,000 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
@@ -247,7 +247,7 @@
                                         </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
-                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
+                                <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; align-items: center; justify-content: center; flex-direction: row;">
                                         <ui:VisualElement name="gold-image" />
                                         <ui:Label text="253 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
@@ -271,7 +271,7 @@
                                         </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
-                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
+                                <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; align-items: center; justify-content: center; flex-direction: row;">
                                         <ui:VisualElement name="gold-image" />
                                         <ui:Label text="393 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
@@ -295,7 +295,7 @@
                                         </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
-                                <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
+                                <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; align-items: center; justify-content: center; flex-direction: row;">
                                         <ui:VisualElement name="gold-image" />
                                         <ui:Label text="167 $" display-tooltip-when-elided="true" name="gold-text" class="text" />

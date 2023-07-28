@@ -8051,7 +8051,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: 1cf757d173f399d499d6374c605716cb, type: 3}
-  _shopItemTemplete: {fileID: 9197481963319205126, guid: 2395e6922ebdd4d2684ec4e0add14e17, type: 3}
 --- !u!114 &9157046241256461541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8138,6 +8137,7 @@ GameObject:
   - component: {fileID: 9157046241256461563}
   - component: {fileID: 9157046241256461564}
   - component: {fileID: 9157046241256461565}
+  - component: {fileID: 9157046241256461566}
   m_Layer: 0
   m_Name: Popups
   m_TagString: Untagged
@@ -8184,6 +8184,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: 8924b89563f56b04eaaa67149c9f437d, type: 3}
+--- !u!114 &9157046241256461566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157046241256461562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a5a2140ddab4877a092934744dd492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _treeAsset: {fileID: 9197481963319205126, guid: eb6a64d20b5f945229b9e98b323e73b2, type: 3}
 --- !u!1001 &9157046241337288318
 PrefabInstance:
   m_ObjectHideFlags: 0
