@@ -18,16 +18,9 @@ public class DataLoader
 
     public void HandleData<T>(string data, DataLoadType type, out int lineNum) where T : LoadableData{
         string assetPath = $"Assets/06.SO/SheetData/{type.ToString()}.asset";
-        T asset = AssetDatabase.LoadAssetAtPath<T>(assetPath);
 
-        if(asset == null)
-        {
-            asset = ScriptableObject.CreateInstance<T>();
-            asset.Type = type;
-        }
-        else{
-            asset.Clear();
-        }
+        T asset = ScriptableObject.CreateInstance<T>();
+        asset.Type = type;
         
         string[] lines = data.Split("\n");
         lineNum = 1;

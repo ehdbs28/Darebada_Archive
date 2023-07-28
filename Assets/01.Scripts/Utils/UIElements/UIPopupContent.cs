@@ -12,7 +12,7 @@ public class UIPopupContent
 
     protected Label _goldLabel;
 
-    protected List<UIBuyElement> _buyContent = new List<UIBuyElement>();
+    protected List<UIInteractionElement> _buyContent = new List<UIInteractionElement>();
 
     public UIPopupContent(VisualElement root, int index){
         _root = root;

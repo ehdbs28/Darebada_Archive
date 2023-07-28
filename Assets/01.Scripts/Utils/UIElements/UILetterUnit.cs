@@ -7,7 +7,9 @@ public class UILetterUnit
 {
     private VisualTreeAsset _templete;
     
-    private VisualElement _parent;
+    private ScrollView _parent;
+
+    private VisualElement _templeteContainer;
     private VisualElement _root;
 
     private Label _titleLabel;
@@ -18,16 +20,16 @@ public class UILetterUnit
     private bool _isOpen;
     public bool IsOpen => _isOpen;
 
-    public UILetterUnit(VisualTreeAsset templete, VisualElement parent){
+    public UILetterUnit(VisualTreeAsset templete, ScrollView parent){
         _templete = templete;
         _parent = parent;
         _isOpen = false;
     }
 
     public void Generate(LetterUnit unit){
-        _root = _templete.Instantiate();
-        _root = _root.Q<VisualElement>("letter-unit");
-        _parent.Add(_root);
+        _templeteContainer = _templete.Instantiate();
+        _root = _templeteContainer.Q<VisualElement>("letter-unit");
+        _parent.contentContainer.Add(_templeteContainer);
 
         FindElement();
         Setting(unit);
@@ -79,6 +81,6 @@ public class UILetterUnit
     }
 
     public void Remove(){
-        _parent.Remove(_root);
+        _parent.Remove(_templeteContainer);
     }
 }

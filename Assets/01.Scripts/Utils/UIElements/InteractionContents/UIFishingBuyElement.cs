@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UIFishingBuyElement : UIBuyElement
+public sealed class UIFishingBuyElement : UIInteractionElement
 {
     private VisualElement _percentElement;
     private Label _levelLabel;
@@ -13,10 +13,9 @@ public class UIFishingBuyElement : UIBuyElement
 
     int _idx = 0;
 
-    public UIFishingBuyElement(VisualElement elementRoot, int idx)
+    public UIFishingBuyElement(VisualElement elementRoot, int idx) : base(elementRoot)
     {
         _idx = idx;
-        _root = elementRoot;
         _dataTable = GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.FishingUpgradeData) as FishingUpgradeTable;
         FindElement();
         AddEvent();
@@ -24,7 +23,7 @@ public class UIFishingBuyElement : UIBuyElement
 
     protected override void AddEvent()
     {
-        _buyBtn.RegisterCallback<ClickEvent>(e => {
+        _interactionBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<FishingUpgradeManager>().Upgrade(_idx);
             LabelUpdate();
             ChangeValue();

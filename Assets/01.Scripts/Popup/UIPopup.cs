@@ -38,10 +38,10 @@ public abstract class UIPopup : MonoBehaviour, IUI
 
         GenerateRoot();
 
-        if(_root != null){
-            AddEvent();
-            _documentRoot.Add(_root);
-        }
+        if (_root == null) return;
+        
+        AddEvent();
+        _documentRoot.Add(_root);
     }
 
     public virtual void GenerateRoot()
@@ -61,8 +61,7 @@ public abstract class UIPopup : MonoBehaviour, IUI
 
         _documentRoot.Remove(_root);
 
-        if(_blurPanel != null)
-            _blurPanel.RemoveFromClassList("on");
+        _blurPanel?.RemoveFromClassList("on");
 
         _documentRoot = null;
         _root = null;

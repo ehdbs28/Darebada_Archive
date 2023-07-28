@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UIBoatBuyElement : UIBuyElement
+public sealed class UIBoatBuyElement : UIInteractionElement
 {
     private int _idx;
 
     private BoatBuyState _buyState;
     private Label _infoLabel;
 
-    private List<UIBuyElement> _boatUIs;
+    private List<UIInteractionElement> _boatUIs;
 
     private BoatDataTable _dataTable;
 
-    public UIBoatBuyElement(VisualElement elementRoot, int idx)
+    public UIBoatBuyElement(VisualElement elementRoot, int idx) : base(elementRoot)
     {
         BoatData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.BoatData) as BoatData;
 
-        _root = elementRoot;
         _idx = idx;
         _buyState = (BoatBuyState)data.BoatPurchaseDetail[_idx];
         _dataTable = GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.BoatData) as BoatDataTable;
@@ -31,15 +30,15 @@ public class UIBoatBuyElement : UIBuyElement
 
     protected override void AddEvent()
     {
-        _buyBtn.RegisterCallback<ClickEvent>(e => {
+        _interactionBtn.RegisterCallback<ClickEvent>(e => {
             switch(_buyState){
-                case BoatBuyState.SALE:
+                case BoatBuyState.Sale:
                 {
                     GameManager.Instance.GetManager<MoneyManager>().Payment(_dataTable.DataTable[_idx].Price);
-                    ChangeState(BoatBuyState.BOUGHT);
+                    ChangeState(BoatBuyState.Bought);
                 }
                     break;
-                case BoatBuyState.BOUGHT:
+                case BoatBuyState.Bought:
                     BoatChange();
                     break;
             }
@@ -52,7 +51,7 @@ public class UIBoatBuyElement : UIBuyElement
         _infoLabel = _root.Q<Label>("gold-text");
     }
 
-    public void ListSet(List<UIBuyElement> list){
+    public void ListSet(List<UIInteractionElement> list){
         _boatUIs = list;
     }
 
@@ -70,27 +69,27 @@ public class UIBoatBuyElement : UIBuyElement
         UIBoatBuyElement boatUI = (UIBoatBuyElement)_boatUIs[idx];
         
         if(select){
-            boatUI.ChangeState(BoatBuyState.EQUIP);
+            boatUI.ChangeState(BoatBuyState.Equip);
             GameManager.Instance.GetManager<BoatManager>().SelectBoat(idx);
         }
         else{
-            boatUI.ChangeState(BoatBuyState.BOUGHT);
+            boatUI.ChangeState(BoatBuyState.Bought);
         }
     }
 
     public void ChangeState(BoatBuyState next){
-        if(next == BoatBuyState.SALE){
+        if(next == BoatBuyState.Sale){
             _root.RemoveFromClassList("unlock");
             _root.RemoveFromClassList("select");
 
             _infoLabel.text = $"$ {_dataTable.DataTable[_idx].Price}";
         }
-        else if(next == BoatBuyState.EQUIP){
+        else if(next == BoatBuyState.Equip){
             _root.AddToClassList("unlock");
             _root.AddToClassList("select");
             _infoLabel.text = "장착중";
         }
-        else if(next == BoatBuyState.BOUGHT){
+        else if(next == BoatBuyState.Bought){
             _root.AddToClassList("unlock");
             _root.RemoveFromClassList("select");
             _infoLabel.text = "장착하기";

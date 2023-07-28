@@ -15,9 +15,6 @@ public class ShopPopup : UIPopup
     private UISellContent _sellContent;
     private UIBuyContent _buyContent;
 
-    [SerializeField]
-    private VisualTreeAsset _shopItemTemplete;
-
     public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
@@ -55,7 +52,7 @@ public class ShopPopup : UIPopup
                 _sellContent = new UISellContent(contentRoot, i);
             }
             else{
-                _buyContent = new UIBuyContent(contentRoot, i, _shopItemTemplete);
+                _buyContent = new UIBuyContent(contentRoot, i);
             }
         }
     }

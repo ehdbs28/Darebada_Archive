@@ -119,6 +119,74 @@
                             <ui:VisualElement name="division-header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center;">
                                 <ui:Label text="고급 미끼" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
                             </ui:VisualElement>
+                            <ui:VisualElement name="shop-item" class="buy-item">
+                                <ui:VisualElement name="info">
+                                    <ui:VisualElement name="item-image" style="width: 125px; height: 125px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Level-one-lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#Level-one-lure&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="info-text">
+                                        <ui:Label text="★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="font-size: 40px; margin-bottom: 10px;" />
+                                        <ui:Label text="★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="font-size: 30px; -unity-font-style: normal;" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center;">
+                                    <ui:VisualElement name="price">
+                                        <ui:VisualElement name="gold-image" style="width: 40px; height: 40px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 15px; right: 15px;" />
+                                        <ui:Label text="70 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 35px;" />
+                                    </ui:VisualElement>
+                                    <ui:Label text="구매" display-tooltip-when-elided="true" name="buy-text" class="text" />
+                                    <ui:Label text="재고 없음" display-tooltip-when-elided="true" name="soldout-text" class="text" style="position: absolute; font-size: 32px; color: rgb(31, 31, 31);" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="shop-item" class="buy-item">
+                                <ui:VisualElement name="info">
+                                    <ui:VisualElement name="item-image" style="width: 125px; height: 125px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Level-one-lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#Level-one-lure&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="info-text">
+                                        <ui:Label text="★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="font-size: 40px; margin-bottom: 10px;" />
+                                        <ui:Label text="★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="font-size: 30px; -unity-font-style: normal;" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center;">
+                                    <ui:VisualElement name="price">
+                                        <ui:VisualElement name="gold-image" style="width: 40px; height: 40px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 15px; right: 15px;" />
+                                        <ui:Label text="70 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 35px;" />
+                                    </ui:VisualElement>
+                                    <ui:Label text="구매" display-tooltip-when-elided="true" name="buy-text" class="text" />
+                                    <ui:Label text="재고 없음" display-tooltip-when-elided="true" name="soldout-text" class="text" style="position: absolute; font-size: 32px; color: rgb(31, 31, 31);" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="shop-item" class="buy-item">
+                                <ui:VisualElement name="info">
+                                    <ui:VisualElement name="item-image" style="width: 125px; height: 125px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Level-one-lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#Level-one-lure&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="info-text">
+                                        <ui:Label text="★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="font-size: 40px; margin-bottom: 10px;" />
+                                        <ui:Label text="★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="font-size: 30px; -unity-font-style: normal;" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center;">
+                                    <ui:VisualElement name="price">
+                                        <ui:VisualElement name="gold-image" style="width: 40px; height: 40px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 15px; right: 15px;" />
+                                        <ui:Label text="70 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 35px;" />
+                                    </ui:VisualElement>
+                                    <ui:Label text="구매" display-tooltip-when-elided="true" name="buy-text" class="text" />
+                                    <ui:Label text="재고 없음" display-tooltip-when-elided="true" name="soldout-text" class="text" style="position: absolute; font-size: 32px; color: rgb(31, 31, 31);" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="shop-item" class="buy-item">
+                                <ui:VisualElement name="info">
+                                    <ui:VisualElement name="item-image" style="width: 125px; height: 125px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Level-one-lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#Level-one-lure&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="info-text">
+                                        <ui:Label text="★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="font-size: 40px; margin-bottom: 10px;" />
+                                        <ui:Label text="★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="font-size: 30px; -unity-font-style: normal;" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center;">
+                                    <ui:VisualElement name="price">
+                                        <ui:VisualElement name="gold-image" style="width: 40px; height: 40px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 15px; right: 15px;" />
+                                        <ui:Label text="70 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 35px;" />
+                                    </ui:VisualElement>
+                                    <ui:Label text="구매" display-tooltip-when-elided="true" name="buy-text" class="text" />
+                                    <ui:Label text="재고 없음" display-tooltip-when-elided="true" name="soldout-text" class="text" style="position: absolute; font-size: 32px; color: rgb(31, 31, 31);" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
                         </ui:ScrollView>
                     </ui:VisualElement>
                 </ui:VisualElement>

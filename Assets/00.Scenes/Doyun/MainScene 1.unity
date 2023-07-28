@@ -1196,7 +1196,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
@@ -8051,7 +8051,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: 1cf757d173f399d499d6374c605716cb, type: 3}
-  _shopItemTemplete: {fileID: 9197481963319205126, guid: 2395e6922ebdd4d2684ec4e0add14e17, type: 3}
 --- !u!114 &9157046241256461541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8138,6 +8137,7 @@ GameObject:
   - component: {fileID: 9157046241256461563}
   - component: {fileID: 9157046241256461564}
   - component: {fileID: 9157046241256461565}
+  - component: {fileID: 9157046241256461566}
   m_Layer: 0
   m_Name: Popups
   m_TagString: Untagged
@@ -8184,6 +8184,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: 8924b89563f56b04eaaa67149c9f437d, type: 3}
+--- !u!114 &9157046241256461566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157046241256461562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a5a2140ddab4877a092934744dd492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _treeAsset: {fileID: 9197481963319205126, guid: eb6a64d20b5f945229b9e98b323e73b2, type: 3}
 --- !u!1001 &9157046241337288318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8693,7 +8706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _poolingTrm: {fileID: 754774583}
   _poolingList: {fileID: 11400000, guid: 57e991df2432a8b46b588910f77011fb, type: 2}
-  _startSceneType: 1
+  _startSceneType: 0
 --- !u!114 &9157046241563192771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8795,10 +8808,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dataTables:
-  - {fileID: 11400000, guid: 8a66a6bb5f525f340a3afac6b6c5d8a9, type: 2}
-  - {fileID: 11400000, guid: 6ee94053813f43f48a28afad036cb1a5, type: 2}
-  - {fileID: 11400000, guid: 7776e38bf59a01c4c8b1ea32ace5a709, type: 2}
-  - {fileID: 11400000, guid: 43a7cdb59a9ae4096afc96e34a753b6c, type: 2}
+  - {fileID: 11400000, guid: 9c093d2f98d84439b869e32f6bca3c22, type: 2}
+  - {fileID: 11400000, guid: 07deb7c10a45748048224ba48dcc06fb, type: 2}
+  - {fileID: 11400000, guid: 1421dc046c1194f28829bcbfea33f74f, type: 2}
+  - {fileID: 11400000, guid: a0c9ff2546bb3482dbf2c2824fffc8c6, type: 2}
 --- !u!114 &9157046241563192785
 MonoBehaviour:
   m_ObjectHideFlags: 0

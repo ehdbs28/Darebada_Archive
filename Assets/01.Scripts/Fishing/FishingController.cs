@@ -6,7 +6,6 @@ public class FishingController : MonoBehaviour
 {
     [SerializeField]
     private FishingState _currentState;
-    public FishingState CurrentState => _currentState;
 
     [SerializeField]
     private FishingActionData _actionData;
@@ -16,13 +15,10 @@ public class FishingController : MonoBehaviour
     private FishingDataSO _dataSO;
     public FishingDataSO DataSO => _dataSO;
 
-    public FishingData FishingData => GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData) as FishingData;
-
     private FishingAnimationController _animatorController;
     public FishingAnimationController AnimatorController => _animatorController;
 
     private LineRenderer _lineRenderer;
-    public LineRenderer LineRenderer => _lineRenderer;
 
     [SerializeField]
     private Transform _lineStartPos;

@@ -19,8 +19,8 @@ public class UIBiomeContent
         BiomeData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.BiomeData) as BiomeData;
         bool state = data.Biomes[(int)_type];
 
-        Lock(!state);
         AddEvent();
+        Lock(!state);
     }
 
     public void Lock(bool value){

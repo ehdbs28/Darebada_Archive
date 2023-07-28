@@ -26,11 +26,11 @@ public class BoatData : SaveData
     {
         CurrentBoat = null;
         BoatPurchaseDetail = new int[5] { 
-            (int)BoatBuyState.EQUIP,
-            (int)BoatBuyState.SALE,
-            (int)BoatBuyState.SALE,
-            (int)BoatBuyState.SALE,
-            (int)BoatBuyState.SALE,    
+            (int)BoatBuyState.Equip,
+            (int)BoatBuyState.Sale,
+            (int)BoatBuyState.Sale,
+            (int)BoatBuyState.Sale,
+            (int)BoatBuyState.Sale,    
         };
         Fuel = 0;
     }
