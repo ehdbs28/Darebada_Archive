@@ -28,7 +28,7 @@
     border-bottom-right-radius: 10px;
 }
 
-.buy-item.equip {
+.buy-item.soldout {
 }
 
 .buy-item #price {
@@ -43,32 +43,32 @@
     font-size: 30px;
 }
 
-.buy-item.equip #price {
+.buy-item.soldout #price {
     width: 0;
     height: 0;
     display: none;
     visibility: hidden;
 }
 
-.buy-item.equip #buy-text {
+.buy-item.soldout #buy-text {
     display: none;
     visibility: hidden;
     width: 0;
     height: 0;
 }
 
-.buy-item #equip-text {
+.buy-item #soldout-text {
     display: none;
     visibility: hidden;
 }
 
-.buy-item.equip #equip-text {
+.buy-item.soldout #soldout-text {
     display: flex;
     visibility: visible;
     width: auto;
     height: auto;
 }
 
-.buy-item.equip > #buy-btn {
+.buy-item.soldout > #buy-btn {
     background-color: rgba(255, 255, 255, 0.78);
 }

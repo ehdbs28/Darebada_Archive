@@ -1,5 +1,6 @@
 using Core;
 
+[System.Serializable]
 public class LetterUnit
 {
     public void Setup(LetterType type, string title, string desc, GameDate date, string from){

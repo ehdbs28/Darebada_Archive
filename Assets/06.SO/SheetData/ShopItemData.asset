@@ -13,6 +13,30 @@ MonoBehaviour:
   m_Name: ShopItemData
   m_EditorClassIdentifier: 
   Type: 2
-  Size: 0
+  Size: 4
   DataTable:
-    _data: []
+    _data:
+    - Index: 0
+      Name: "\u2605 \uBBF8\uB07C"
+      Image: {fileID: 0}
+      Desc: "\u26052 \uBB3C\uACE0\uAE30\uB97C \uC704\uD55C \uBBF8\uB07C\uC785\uB2C8\uB2E4."
+      Price: 70
+      Durability: 5
+    - Index: 1
+      Name: "\u2605\u2605 \uBBF8\uB07C"
+      Image: {fileID: 0}
+      Desc: "\u26053 \uBB3C\uACE0\uAE30\uB97C \uC704\uD55C \uBBF8\uB07C\uC785\uB2C8\uB2E4."
+      Price: 310
+      Durability: 3
+    - Index: 2
+      Name: "\u2605\u2605\u2605 \uBBF8\uB07C"
+      Image: {fileID: 0}
+      Desc: "\u26054 \uBB3C\uACE0\uAE30\uB97C \uC704\uD55C \uBBF8\uB07C\uC785\uB2C8\uB2E4."
+      Price: 1000
+      Durability: 2
+    - Index: 3
+      Name: "\u2605\u2605\u2605\u2605 \uBBF8\uB07C"
+      Image: {fileID: 0}
+      Desc: "\u26055 \uBB3C\uACE0\uAE30\uB97C \uC704\uD55C \uBBF8\uB07C\uC785\uB2C8\uB2E4."
+      Price: 5000
+      Durability: 1
