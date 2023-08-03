@@ -1321,7 +1321,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51057be8d112281439337e018b0ccd60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dataSO: {fileID: 0}
+  _curBoatData:
+    Name: 
+    Price: 0
+    Visual:
+      VisualMesh: {fileID: 0}
+      MainMat: {fileID: 0}
+    MaxSpeed: 0
+    ForwardAcceleration: 0
+    BackwardAcceleration: 0
+    Deceleration: 0
+    RotationSpeed: 0
+    RotationAcceleration: 0
+    RotationDeceleration: 0
+    MaxFuel: 0
 --- !u!54 &6776779302433824287
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1484,7 +1497,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 33265903983456070}
-  - component: {fileID: 8941920173596137785}
   m_Layer: 0
   m_Name: RainyOceanScene
   m_TagString: Untagged
@@ -1513,31 +1525,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8941920173596137785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7431054622363654605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841fb136e2f2f3a40ba1983a9f5f676e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sceneType: 1
-  _initScreenType: 1
-  _initCamState: 2
-  _lastCamState: 4
-  _vCamList:
-  - {fileID: 3201057877807966897}
-  - {fileID: 3201057879471267578}
-  OnEnterScene:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExitScene:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &8963741475629822464
 GameObject:
   m_ObjectHideFlags: 0
