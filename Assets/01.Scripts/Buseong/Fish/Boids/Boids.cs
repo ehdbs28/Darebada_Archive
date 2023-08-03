@@ -11,7 +11,7 @@ public class Boids : MonoBehaviour
     [Header("Boid Options")]
     [SerializeField] private BoidUnit boidUnitPrefab;
     [SerializeField]
-    private List<FishSO> _unitPrefabList;
+    private FishDataTable _unitDataTable;
     [Range(5, 5000)]
     public int boidCount;
     
@@ -51,7 +51,7 @@ public class Boids : MonoBehaviour
     public Color[] GizmoColors;
 
     [SerializeField]
-    private FishSO _fishData;
+    private FishDataUnit _fishData;
 
     public bool IsBite = true;
     public GameObject Bait;
@@ -60,7 +60,7 @@ public class Boids : MonoBehaviour
 
     private float _total = 0f;
 
-    private BIOME _currentBiome;
+    private OceneType _currentBiome;
 
     public List<GameObject> Fishes;
 
@@ -71,14 +71,28 @@ public class Boids : MonoBehaviour
 
     void Start()
     {
+        
+    }
+
+    public void Setup(OceneType type, FishDataTable dataTable)
+    {
+        _currentBiome = type;
+        for (int i = 0; i < dataTable.Size; i++)
+        {
+            if (dataTable.DataTable[i].Habitat == type)
+            {
+                _unitDataTable.DataTable.Add(dataTable.DataTable[i]);
+            }
+        }
+
         Fishes = new List<GameObject>();
         Bait = GameObject.Find("Bait");
         //NonSpawnArea = GameObject.Find("Non Spawn Area");
         boundMR = GetComponentInChildren<MeshRenderer>();
 
-        foreach (FishSO elem in _unitPrefabList)
+        for (int i = 0; i < _unitDataTable.Size; i++)
         {
-            _total += elem.SpawnPercentage;
+            _total += _unitDataTable.DataTable[i].SpawnPercent;
         }
 
         for (int i = 0; i < boidCount; i++)
@@ -101,16 +115,16 @@ public class Boids : MonoBehaviour
     {
         float randomPoint = Random.value * _total;
         Debug.Log($"ÇöÀç ·£´ý °ª: {randomPoint}");
-        for (int j = 0; j < _unitPrefabList.Count; j++)
+        for (int j = 0; j < _unitDataTable.Size; j++)
         {
-            if (randomPoint <= _unitPrefabList[j].SpawnPercentage)
+            if (randomPoint <= _unitDataTable.DataTable[j].SpawnPercent)
             {
-                _fishData = _unitPrefabList[j];
+                _fishData = _unitDataTable.DataTable[j];
                 break;
             }
             else
             {
-                randomPoint -= _unitPrefabList[j].SpawnPercentage;
+                randomPoint -= _unitDataTable.DataTable[j].SpawnPercent;
             }
         }
         Vector3 randomVec = Random.insideUnitSphere;

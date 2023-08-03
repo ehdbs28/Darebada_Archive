@@ -15,6 +15,11 @@ public class Bait : MonoBehaviour
 
     [SerializeField]
     private bool sense;
+    public bool Sense
+    {
+        get => sense;
+        set => sense = value;
+    }
 
     private void Update()
     {
