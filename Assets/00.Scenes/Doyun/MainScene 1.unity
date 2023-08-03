@@ -8090,6 +8090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: 1c1c8e34c5d83f74cabf824287d4e77a, type: 3}
+  _unitTemplate: {fileID: 0}
 --- !u!114 &9157046241256461560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8706,7 +8707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _poolingTrm: {fileID: 754774583}
   _poolingList: {fileID: 11400000, guid: 57e991df2432a8b46b588910f77011fb, type: 2}
-  _startSceneType: 0
+  _startSceneType: 2
 --- !u!114 &9157046241563192771
 MonoBehaviour:
   m_ObjectHideFlags: 0
