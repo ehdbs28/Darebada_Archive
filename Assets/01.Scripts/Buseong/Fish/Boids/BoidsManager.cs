@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BoidsManager : MonoBehaviour
+public class BoidsManager : MonoBehaviour, IManager
 {
     public static BoidsManager Instance;
 
     private BoidUnit boidUnitPrefab;
-    private List<FishSO> _unitPrefabList;
     public List<GameObject> Fishes;
 
-    private FishSO _fishData;
+    private FishDataUnit _fishData;
 
     private float _total;
     [SerializeField]
     private float spawnRange;
 
     private Boids _currentBoid;
+
+    private FishDataTable _fishDataTable;
 
     private void Awake()
     {
@@ -32,28 +33,36 @@ public class BoidsManager : MonoBehaviour
     private void Start()
     {
         Fishes = new List<GameObject>();
-        _unitPrefabList = new List<FishSO>();
+        _fishDataTable = (FishDataTable)GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.FishData);
     }
     
     private void Update()
     {
 
     }
+    
+    public void SpawnBoid(OceneType type)
+    {
+        GameObject boid = new GameObject();
+        boid = Instantiate(boid.gameObject, new Vector3(0, 0, 0), Quaternion.identity, this.transform);
+        boid.AddComponent<Boids>();
+        boid.GetComponent<Boids>().Setup(type, _fishDataTable);
+    }
 
     public void SpawnFish()
     {
         float randomPoint = Random.value * _total;
         //Debug.Log($"ÇöÀç ·£´ý °ª: {randomPoint}");
-        for (int j = 0; j < _unitPrefabList.Count; j++)
+        for (int j = 0; j < _fishDataTable.Size; j++)
         {
-            if (randomPoint <= _unitPrefabList[j].SpawnPercentage)
+            if (randomPoint <= _fishDataTable.DataTable[j].SpawnPercent)
             {
-                _fishData = _unitPrefabList[j];
+                _fishData = _fishDataTable.DataTable[j];
                 break;
             }
             else
             {
-                randomPoint -= _unitPrefabList[j].SpawnPercentage;
+                randomPoint -= _fishDataTable.DataTable[j].SpawnPercent;
             }
         }
         Vector3 randomVec = Random.insideUnitSphere;
@@ -71,5 +80,20 @@ public class BoidsManager : MonoBehaviour
     public void ChangeBoid(Boids boids)
     {
         _currentBoid = boids;
+    }
+
+    public void ResetManager()
+    {
+
+    }
+
+    public void InitManager()
+    {
+
+    }
+
+    public void UpdateManager()
+    {
+
     }
 }

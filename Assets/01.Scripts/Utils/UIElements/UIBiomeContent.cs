@@ -36,8 +36,7 @@ public class UIBiomeContent
 
     private void AddEvent(){
         _movetoBtn.RegisterCallback<ClickEvent>(e => {
-            // 바이옴 이동
-            Debug.Log($"{_type}으로 이동");
+            GameManager.Instance.GetManager<GameSceneManager>().ChangeScene(GameSceneType.Ocean);
         });
     }
 }

@@ -65,43 +65,47 @@ public class FishingCatchingState : FishingState
     public override void UpdateState()
     {
         if(_isReadyToCatch){
-            // 여기서 물고기 끌고오고 미니게임 들어가야 함
-            if(_controller.ActionData.CurrentCatchFish == null){
-                Collider[] aroundFish = Physics.OverlapSphere(_bobberTrm.position, 5f, _fishLayer);
-
-                if(aroundFish.Length > 0){
-                    float minDistance = float.MaxValue;
-                    FishMovement selectFish = null;
-
-                    foreach(var fish in aroundFish){
-                        if(minDistance > Vector3.Distance(fish.transform.position, _bobberTrm.position)){
-                            minDistance = Vector3.Distance(fish.transform.position, _bobberTrm.position);
-                            selectFish = fish.GetComponent<FishMovement>();
-                        }
-                    }
-
-                    _controller.ActionData.CurrentCatchFish = selectFish;
-                }
-
-                // 나중에 조건 고치기
-                if(Input.GetKey(KeyCode.Space)){
-                    percent -= _controller.DataSO.ThrowingSpeed * Time.deltaTime / _throwTime;
-                    _bobberTrm.position = GetLerpPos();
-
-                    if(percent <= 0){
-                        _controller.ActionData.IsFishing = false;
-                        _controller.ActionData.IsUnderWater = false;
-                    }
-                }
+            if (_controller.Bait.Sense)
+            {
+                base.UpdateState();
             }
-            else{
-                //_controller.ActionData.CurrentCatchFish.Target = _bobberTrm;
-                //_controller.ActionData.CurrentCatchFish.IsSelected = true;
+            //// 여기서 물고기 끌고오고 미니게임 들어가야 함
+            //if(_controller.ActionData.CurrentCatchFish == null){
+            //    Collider[] aroundFish = Physics.OverlapSphere(_bobberTrm.position, 5f, _fishLayer);
 
-                //if(_controller.ActionData.CurrentCatchFish.IsCatched){
-                //    Debug.Log("미니게임 시작");
-                //}
-            }
+            //    if(aroundFish.Length > 0){
+            //        float minDistance = float.MaxValue;
+            //        FishMovement selectFish = null;
+
+            //        foreach(var fish in aroundFish){
+            //            if(minDistance > Vector3.Distance(fish.transform.position, _bobberTrm.position)){
+            //                minDistance = Vector3.Distance(fish.transform.position, _bobberTrm.position);
+            //                selectFish = fish.GetComponent<FishMovement>();
+            //            }
+            //        }
+
+            //        _controller.ActionData.CurrentCatchFish = selectFish;
+            //    }
+
+            //    // 나중에 조건 고치기
+            //    if(Input.GetKey(KeyCode.Space)){
+            //        percent -= _controller.DataSO.ThrowingSpeed * Time.deltaTime / _throwTime;
+            //        _bobberTrm.position = GetLerpPos();
+
+            //        if(percent <= 0){
+            //            _controller.ActionData.IsFishing = false;
+            //            _controller.ActionData.IsUnderWater = false;
+            //        }
+            //    }
+            //}
+            //else{
+            //    //_controller.ActionData.CurrentCatchFish.Target = _bobberTrm;
+            //    //_controller.ActionData.CurrentCatchFish.IsSelected = true;
+
+            //    //if(_controller.ActionData.CurrentCatchFish.IsCatched){
+            //    //    Debug.Log("미니게임 시작");
+            //    //}
+            //}
         }
         else{
             // 나중에 조건 고치기

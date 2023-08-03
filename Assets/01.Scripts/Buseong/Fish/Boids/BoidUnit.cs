@@ -52,15 +52,15 @@ public class BoidUnit : MonoBehaviour
     private Vector3 _baitVec;
 
     [SerializeField]
-    private FishSO _unitData;
-    public FishSO UnitData => _unitData;
+    private FishDataUnit _unitData;
+    public FishDataUnit UnitData => _unitData;
 
     private SkinnedMeshRenderer _skinnedMR;
 
     [SerializeField]
     private Vector3 boundsOffset;
 
-    public void InitializeUnit(Boids _boids, float _speed, FishSO _fishSO, Vector3 offset)
+    public void InitializeUnit(Boids _boids, float _speed, FishDataUnit _fishSO, Vector3 offset)
     {
         myBoids = _boids;
         speed = _speed;
@@ -75,7 +75,7 @@ public class BoidUnit : MonoBehaviour
         _bait = GameObject.Find("Bait");
         _baitVec = _bait.transform.position;
         _skinnedMR = GetComponentInChildren<SkinnedMeshRenderer>();
-        _skinnedMR.sharedMesh = _fishSO.Mesh;
+        //_skinnedMR.sharedMesh = _fishSO.Mesh; //나중에 시트에 여기 Mesh 추가해야함
     }
 
     #endregion
