@@ -1360,7 +1360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5031617503960171365}
   m_LocalRotation: {x: 0.27984825, y: -0.36470532, z: 0.115916975, w: 0.8804762}
-  m_LocalPosition: {x: 4.436666, y: 4.207847, z: 0.7501316}
+  m_LocalPosition: {x: 4.4366655, y: 4.207847, z: 0.75013137}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1664,8 +1664,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5031617505588885328}
-  m_LocalRotation: {x: 0.15874317, y: -0.000000029424427, z: 0.000000004730915, w: 0.9873199}
-  m_LocalPosition: {x: 0.00000060331877, y: 6.350955, z: -7.122009}
+  m_LocalRotation: {x: 0.15874319, y: -0.00000002110218, z: 0.0000000033928478, w: 0.98731995}
+  m_LocalPosition: {x: 0.0000004832541, y: 6.3509545, z: -7.122009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1748,6 +1748,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1660670363764953929}
+  - component: {fileID: 3669647291005138102}
   m_Layer: 0
   m_Name: Bobber
   m_TagString: Untagged
@@ -1771,6 +1772,23 @@ Transform:
   m_Father: {fileID: 8651855415815159968}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3669647291005138102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6341304952135378512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc695294f56ac94290f818c16698da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  sense: 0
 --- !u!1 &7046557539272408591
 GameObject:
   m_ObjectHideFlags: 0

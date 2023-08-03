@@ -26,9 +26,14 @@ public class FishingController : MonoBehaviour
     [SerializeField]
     private Transform _lineEndPos;
 
+    private Bait _bait;
+    public Bait Bait => _bait;
+
     private void Awake() {
         List<FishingState> states = new List<FishingState>();
         transform.Find("StateManager").GetComponentsInChildren<FishingState>(states);
+
+        _bait = GameObject.Find("Bobber").GetComponent<Bait>();
 
         _actionData = transform.GetComponent<FishingActionData>();
         _animatorController = transform.Find("Visual").GetComponent<FishingAnimationController>();

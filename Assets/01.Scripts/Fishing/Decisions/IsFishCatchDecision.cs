@@ -6,6 +6,6 @@ public class IsFishCatchDecision : FishingDecision
 {
     public override bool MakeADecision()
     {
-        return false;
+        return _controller.Bait.Sense;
     }
 }

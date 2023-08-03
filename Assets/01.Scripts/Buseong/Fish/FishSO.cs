@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "SO/FishData")]
-public class    FishSO : LoadableData
+public class FishSO : LoadableData
 {
     //public BIOME HabitatBiome;      //���� ���̿�
     //public float HabitatX;          //����X��
@@ -25,7 +25,7 @@ public class    FishSO : LoadableData
 
     public string Name;
     public int Price;
-    public BIOME Habitat;
+    public OceneType Habitat;
     public int Rarity;              
     public int Speed;               
     public float MinLength;
@@ -56,7 +56,7 @@ public class    FishSO : LoadableData
 
         Name = dataArr[0];
         Price = int.Parse(dataArr[1]);
-        Habitat = (BIOME)int.Parse(dataArr[2]);
+        Habitat = (OceneType)int.Parse(dataArr[2]);
         Rarity = int.Parse(dataArr[3]);
         Speed = int.Parse(dataArr[4]);
         MinLength = float.Parse(dataArr[5]);
