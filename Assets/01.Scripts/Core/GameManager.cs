@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         _managers = new List<IManager>();
         AddManager();
 
-        _managers.ForEach(manager => manager.InitManager());
+        //_managers.ForEach(manager => manager.InitManager());
     }   
 
     private void Start() {
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     private void Update() {
         foreach(var manager in _managers){
-            manager.UpdateManager();
+            //manager.UpdateManager();
         }
     }
 

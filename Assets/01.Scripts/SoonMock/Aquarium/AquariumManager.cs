@@ -55,6 +55,7 @@ public class AquariumManager : MonoBehaviour, IManager
     public List<Facility> aquarium = new List<Facility>();
     public Transform endTarget;
 
+
     public LayerMask facilityLayer;
     public Facility facilityObj;
 
