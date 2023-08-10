@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7127810117084750468}
   - component: {fileID: 661806664169073777}
   m_Layer: 0
-  m_Name: ColdOceanScene
+  m_Name: RichOceanScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -5,14 +5,17 @@ using UnityEngine.UIElements;
 
 public class UIBiomeContent
 {
-    private OceneType _type;
+    private OceanType _type;
 
     private VisualElement _rootElement;
-    private VisualElement _movetoBtn; 
+    private VisualElement _movetoBtn;
 
-    public UIBiomeContent(VisualElement root, OceneType type){
+    private BiomeSelectPopup _parentPopup;
+
+    public UIBiomeContent(VisualElement root, BiomeSelectPopup biomeSelectPopup, OceanType type){
         _type = type;
         _rootElement = root;
+        _parentPopup = biomeSelectPopup;
 
         _movetoBtn = root.Q<VisualElement>("moveto-btn");
 
@@ -36,6 +39,8 @@ public class UIBiomeContent
 
     private void AddEvent(){
         _movetoBtn.RegisterCallback<ClickEvent>(e => {
+            _parentPopup.RemoveRoot();
+            GameManager.Instance.GetManager<OceanManager>().SetType(_type);
             GameManager.Instance.GetManager<GameSceneManager>().ChangeScene(GameSceneType.Ocean);
         });
     }

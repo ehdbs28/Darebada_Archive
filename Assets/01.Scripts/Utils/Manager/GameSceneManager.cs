@@ -14,6 +14,7 @@ public class GameSceneManager : IManager
             _activeScene.ExitScene();
             GameManager.Instance.GetManager<PoolManager>().Push(_activeScene);
         }
+
         _activeScene = GameManager.Instance.GetManager<PoolManager>().Pop($"{next}Scene") as GameScene;
         _activeScene?.EnterScene();
     }
