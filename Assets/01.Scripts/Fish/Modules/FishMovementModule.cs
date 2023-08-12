@@ -40,18 +40,23 @@ public class FishMovementModule : CommonModule<OceanFishController>
     {
         CalcVelocity();
 
-        if (!_isMovement)
+        if (!_isMovement || _controller.ActionData.IsCatch)
             return;
         
-        if (!CanMovementCheck())
+        if (!CanMovementCheck() && !_controller.ActionData.IsCatch)
         {
-            StartCoroutine(TurnRoutine());
+            Turn();
         }
     }
 
     public override void FixedUpdateModule()
     {
         _rigid.velocity = _dir.normalized * _currentVelocity;
+    }
+
+    public void Turn()
+    {
+        StartCoroutine(TurnRoutine());
     }
 
     private IEnumerator TurnRoutine()
@@ -78,11 +83,26 @@ public class FishMovementModule : CommonModule<OceanFishController>
 
     private bool CanMovementCheck()
     {
-        return Vector3.Distance(transform.position, _target) > 0.5f;
+        bool val = Vector3.Distance(transform.position, _target) > 0.5f;
+
+        if (!val && _controller.ActionData.IsSensed && !_controller.ActionData.IsCatch)
+            _controller.ActionData.IsCatch = true;
+        
+        return val;
     }
 
     private void CalcDir()
     {
+        if (_controller.ActionData.IsSensed)
+        {
+            if (_controller.ActionData.BaitTrm)
+            {
+                _target = _controller.ActionData.BaitTrm.position;
+                _dir = (_target - transform.position).normalized;
+                return;
+            }
+        }
+        
         // float x = Random.Range(0f, _dir.x > 0 ? -1f : _dir.x == 0 ? 0f : 1f);
         // float y = Random.Range(0f, _dir.y > 0 ? -1f : _dir.y == 0 ? 0f : 1f);
         // float z = Random.Range(0f, _dir.z > 0 ? -1f : _dir.z == 0 ? 0f : 1f);
@@ -92,7 +112,6 @@ public class FishMovementModule : CommonModule<OceanFishController>
         float z = Random.Range(-1f, 1f);
         
         _dir = new Vector3(x, y, z);
-        Debug.Log(_dir);
         float dis = Random.Range(5f, MaxMoveDis);
         _target = transform.position + _dir * dis;
 
@@ -105,7 +124,7 @@ public class FishMovementModule : CommonModule<OceanFishController>
 
     private void CalcVelocity()
     {
-        if (_isMovement)
+        if (_isMovement && !_controller.ActionData.IsCatch)
         {
             _currentVelocity += _acceralation * Time.deltaTime;
         }

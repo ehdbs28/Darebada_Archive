@@ -65,53 +65,23 @@ public class FishingCatchingState : FishingState
     public override void UpdateState()
     {
         if(_isReadyToCatch){
-            if (_controller.Bait.Sense)
-            {
-                base.UpdateState();
+            // 나중에 조건 고치기
+            if(Input.GetKey(KeyCode.Space)){
+                percent -= _controller.DataSO.ThrowingSpeed * Time.deltaTime / _throwTime;
+                _bobberTrm.position = GetLerpPos();
+
+                if(percent <= 0){
+                    _controller.ActionData.IsFishing = false;
+                    _controller.ActionData.IsUnderWater = false;
+                }
             }
-            //// 여기서 물고기 끌고오고 미니게임 들어가야 함
-            //if(_controller.ActionData.CurrentCatchFish == null){
-            //    Collider[] aroundFish = Physics.OverlapSphere(_bobberTrm.position, 5f, _fishLayer);
-
-            //    if(aroundFish.Length > 0){
-            //        float minDistance = float.MaxValue;
-            //        FishMovement selectFish = null;
-
-            //        foreach(var fish in aroundFish){
-            //            if(minDistance > Vector3.Distance(fish.transform.position, _bobberTrm.position)){
-            //                minDistance = Vector3.Distance(fish.transform.position, _bobberTrm.position);
-            //                selectFish = fish.GetComponent<FishMovement>();
-            //            }
-            //        }
-
-            //        _controller.ActionData.CurrentCatchFish = selectFish;
-            //    }
-
-            //    // 나중에 조건 고치기
-            //    if(Input.GetKey(KeyCode.Space)){
-            //        percent -= _controller.DataSO.ThrowingSpeed * Time.deltaTime / _throwTime;
-            //        _bobberTrm.position = GetLerpPos();
-
-            //        if(percent <= 0){
-            //            _controller.ActionData.IsFishing = false;
-            //            _controller.ActionData.IsUnderWater = false;
-            //        }
-            //    }
-            //}
-            //else{
-            //    //_controller.ActionData.CurrentCatchFish.Target = _bobberTrm;
-            //    //_controller.ActionData.CurrentCatchFish.IsSelected = true;
-
-            //    //if(_controller.ActionData.CurrentCatchFish.IsCatched){
-            //    //    Debug.Log("미니게임 시작");
-            //    //}
-            //}
         }
         else{
             // 나중에 조건 고치기
             if(Input.GetKeyDown(KeyCode.Space)){
                 percent = 1f;
                 _isReadyToCatch = true;
+                _controller.Bait.StartCheck = true;
             }
         }
 
@@ -132,6 +102,7 @@ public class FishingCatchingState : FishingState
         _bobberTrm.position = GetLerpPos();
 
         _isReadyToCatch = true;
+        _controller.Bait.StartCheck = true;
 
         //_start = new Vector3(_controller.ActionData.InitPosition.x, 0, _controller.ActionData.InitPosition.z);
     }

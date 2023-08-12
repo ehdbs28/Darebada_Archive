@@ -1810,11 +1810,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc695294f56ac94290f818c16698da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 0
+  _radius: 3
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
-  sense: 0
+    m_Bits: 8192
 --- !u!1 &7046557539272408591
 GameObject:
   m_ObjectHideFlags: 0
