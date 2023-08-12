@@ -11,6 +11,7 @@ public class BoatViual{
 [System.Serializable]
 public class BoatDataUnit{
     public string Name;
+    public int Id;
     public float Price;
     public BoatViual Visual;
     public float MaxSpeed;
@@ -33,8 +34,8 @@ public class BoatDataTable : LoadableData
 
         DataTable[Size].Name = dataArr[0];
         DataTable[Size].Price = float.Parse(dataArr[1]);
-        
-        // 나중에 visual은 어드레서블로 받아와보자
+
+        GameManager.Instance.GetManager<AddressableAssetsManager>().LoadAssets("Boat_0" + (DataTable[Size].Id+1));
 
         DataTable[Size].MaxSpeed = float.Parse(dataArr[2]);
         DataTable[Size].ForwardAcceleration = float.Parse(dataArr[3]);
