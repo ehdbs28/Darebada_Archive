@@ -115,8 +115,7 @@ public class FishMovementModule : CommonModule<OceanFishController>
             _currentVelocity -= _deceralation * Time.deltaTime;
         }
 
-        // _currentVelocity = Mathf.Clamp(_currentVelocity, 0f, _controller.DataUnit.Speed);
-        _currentVelocity = Mathf.Clamp(_currentVelocity, 0f, 5f);
+        _currentVelocity = Mathf.Clamp(_currentVelocity, 0f, _controller.DataUnit.Speed);
     }
     
     #if UNITY_EDITOR

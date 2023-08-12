@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ModuleController : MonoBehaviour
+public class ModuleController : PoolableMono
 {
     protected readonly List<Module> _modules = new List<Module>();
 
@@ -37,5 +37,9 @@ public class ModuleController : MonoBehaviour
         }
 
         return returnModule;
+    }
+
+    public override void Init()
+    {
     }
 }

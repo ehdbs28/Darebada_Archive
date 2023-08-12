@@ -28,6 +28,11 @@ public class OceanManager : IManager
     {
         _type = type;
     }
+
+    public void SpawnFish()
+    {
+        
+    }
     
     public void ResetManager()
     {
