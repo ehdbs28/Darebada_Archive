@@ -17,12 +17,11 @@ public class FishMovementModule : CommonModule<OceanFishController>
     private bool _isMovement;
     public bool IsMovement => _isMovement;
 
-    private const float MaxMoveDis = 30f;
+    private const float MaxMoveDis = 50f;
 
     private Vector3 _dir;
     private Vector3 _target;
 
-    [SerializeField] 
     private BoxCollider _bound;
 
     private float _currentVelocity;
@@ -116,6 +115,11 @@ public class FishMovementModule : CommonModule<OceanFishController>
         }
 
         _currentVelocity = Mathf.Clamp(_currentVelocity, 0f, _controller.DataUnit.Speed);
+    }
+
+    public void SetBound(BoxCollider bound)
+    {
+        _bound = bound;
     }
     
     #if UNITY_EDITOR
