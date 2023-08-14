@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2381959468003128954}
   - component: {fileID: 1245434996453971016}
   - component: {fileID: 610966486219564571}
+  - component: {fileID: 9101560756694503933}
   m_Layer: 0
   m_Name: MiniGameAnswer
   m_TagString: Untagged
@@ -72,7 +73,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.158
+  m_FillAmount: 0.205
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -91,3 +92,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _point: 0
   _thickness: 0
+--- !u!114 &9101560756694503933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211969816166319434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.39215687}
+  m_EffectDistance: {x: 1, y: 1}
+  m_UseGraphicAlpha: 1
