@@ -13,15 +13,12 @@ public class FishMovementModule : CommonModule<OceanFishController>
     
     [SerializeField]
     private float _deceralation;
-    
-    private bool _isMovement;
-    public bool IsMovement => _isMovement;
 
     private const float MaxMoveDis = 50f;
 
     private Vector3 _dir;
     private Vector3 _target;
-
+    
     private BoxCollider _bound;
 
     private float _currentVelocity;
@@ -31,7 +28,6 @@ public class FishMovementModule : CommonModule<OceanFishController>
         base.SetUp(rootTrm);
         _rigid = rootTrm.GetComponent<Rigidbody>();
         
-        _isMovement = true;
         _target = transform.position;
         _dir = Vector3.one;
     }
@@ -40,7 +36,7 @@ public class FishMovementModule : CommonModule<OceanFishController>
     {
         CalcVelocity();
 
-        if (!_isMovement || _controller.ActionData.IsCatch)
+        if (_controller.ActionData.IsCatch)
             return;
         
         if (!CanMovementCheck() && !_controller.ActionData.IsCatch)
@@ -51,7 +47,7 @@ public class FishMovementModule : CommonModule<OceanFishController>
 
     public override void FixedUpdateModule()
     {
-        _rigid.velocity = _dir.normalized * _currentVelocity;
+        _rigid.velocity = transform.forward * _currentVelocity;
     }
 
     public void Turn()
@@ -61,7 +57,6 @@ public class FishMovementModule : CommonModule<OceanFishController>
 
     private IEnumerator TurnRoutine()
     {
-        _isMovement = false;
         CalcDir();
 
         float timer = Random.Range(0.5f, 2f);
@@ -69,16 +64,15 @@ public class FishMovementModule : CommonModule<OceanFishController>
         float percent = 0;
 
         Quaternion rot = _controller.transform.rotation;
-
+        
         while (percent <= 1f)
         {
             cur += Time.deltaTime;
             percent = cur / timer;
+            UpdateDir();
             _controller.transform.rotation = Quaternion.Slerp(rot, Quaternion.LookRotation(_dir), percent);
             yield return null;
         }
-
-        _isMovement = true;
     }
 
     private bool CanMovementCheck()
@@ -89,6 +83,11 @@ public class FishMovementModule : CommonModule<OceanFishController>
             _controller.ActionData.IsCatch = true;
         
         return val;
+    }
+
+    private void UpdateDir()
+    {
+        _dir = (_target - transform.position).normalized;
     }
 
     private void CalcDir()
@@ -112,19 +111,22 @@ public class FishMovementModule : CommonModule<OceanFishController>
         float z = Random.Range(-1f, 1f);
         
         _dir = new Vector3(x, y, z);
+        _dir.Normalize();
+        
         float dis = Random.Range(5f, MaxMoveDis);
-        _target = transform.position + _dir * dis;
+        _target = transform.forward + _dir * dis;
 
         if (!_bound.bounds.Contains(_target))
         {
             _target = _bound.bounds.ClosestPoint(_target);
-            _dir = (_target - transform.position).normalized;
         }
+        
+        _dir = (_target - transform.position).normalized;
     }
 
     private void CalcVelocity()
     {
-        if (_isMovement && !_controller.ActionData.IsCatch)
+        if (!_controller.ActionData.IsCatch)
         {
             _currentVelocity += _acceralation * Time.deltaTime;
         }
@@ -144,8 +146,6 @@ public class FishMovementModule : CommonModule<OceanFishController>
     #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if (!_isMovement) return;
-        
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position + _dir, 2f);
         
