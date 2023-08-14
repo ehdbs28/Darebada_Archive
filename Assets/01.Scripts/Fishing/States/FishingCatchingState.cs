@@ -28,14 +28,11 @@ public class FishingCatchingState : FishingState
         }
     }
 
-    private LayerMask _fishLayer;
-
     public override void SetUp(Transform agentRoot)
     {
         base.SetUp(agentRoot);
 
         _bobberTrm = agentRoot.Find("Bobber");
-        _fishLayer = LayerMask.GetMask("Fish");
     }
 
     public override void EnterState()
