@@ -2,62 +2,56 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class InventoryManager : MonoBehaviour, IManager
+public class InventoryManager : IManager
 {
-    public static InventoryManager Instance;
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½Ó½Ã·ï¿½ ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½ï¿½.
+    public readonly int boardSizeX = 7;
+    public readonly int boardSizeY = 8;
 
-    //´ëÃæ ÀÓ½Ã·Î ¼ö ³Ö¾î³õÀº °ÅÀÓ. ½ÇÁ¦ Å©±â·Î ¹Ù²ã¾ßÇÔ.
-    public int Board_Size_X = 7;
-    public int Board_Size_Y = 8;
-
-    public int[] destX = { -1, 1, 0, 0 };
-    public int[] destY = { 0, 0, -1, 1 };
+    public readonly int[] destX = { -1, 1, 0, 0 };
+    public readonly int[] destY = { 0, 0, -1, 1 };
 
     public InventoryTile[,] Tiles;
     public List<InventoryUnit> Units;
-
-    private void Awake()
+    
+    public void InitManager()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-        }
-
-        Tiles = new InventoryTile[Board_Size_Y, Board_Size_X];
+        Tiles = new InventoryTile[boardSizeY, boardSizeX];
         Units = new List<InventoryUnit>();
 
-        for(int i = 0; i < Board_Size_Y; i++)
+        for(int i = 0; i < boardSizeY; i++)
         {
-            for(int j = 0; j < Board_Size_X; j++)
+            for(int j = 0; j < boardSizeX; j++)
             {
-                Tiles[i, j] = new InventoryTile();
-                Tiles[i, j].IsFull = false;
-                Tiles[i, j].xIdx = j;
-                Tiles[i, j].yIdx = i;
+                Tiles[i, j] = new InventoryTile
+                {
+                    IsFull = false,
+                    xIdx = j,
+                    yIdx = i
+                };
             }
         }
     }
-
+    
     public void AddUnit(FishDataUnit unitData)
     {
         VisualTreeAsset template = ((InventoryPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Inventory)).UnitTemplate;
         VisualElement parent = ((InventoryPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Inventory)).UnitParent;
-        InventoryUnit newUnit = new InventoryUnit(template, parent, unitData);
-        newUnit.PosX = -500;
-        newUnit.PosY = 0;
-        newUnit.Rotate = 0;
+        InventoryUnit newUnit = new InventoryUnit(template, parent, unitData)
+        {
+            PosX = -500,
+            PosY = 0,
+            Rotate = 0
+        };
         Units.Add(newUnit);
         ((InventoryPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Inventory))._selectedUnit = newUnit;
         GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Inventory);
     }
 
-    public void InitManager()
-    {
-        ResetManager();
-    }
 
     public void ResetManager()
     {

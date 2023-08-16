@@ -68,17 +68,17 @@ public class InventoryPopup : UIPopup
 
         dataTable = (FishDataTable)GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.FishData);
         _units = new List<InventoryUnit>();
-        _tiles = new InventoryTile[InventoryManager.Instance.Board_Size_Y, InventoryManager.Instance.Board_Size_X];
-        for(int i = 0; i < InventoryManager.Instance.Board_Size_Y; i++)
+        _tiles = new InventoryTile[GameManager.Instance.GetManager<InventoryManager>().boardSizeY, GameManager.Instance.GetManager<InventoryManager>().boardSizeX];
+        for(int i = 0; i < GameManager.Instance.GetManager<InventoryManager>().boardSizeY; i++)
         {
-            for(int j = 0; j < InventoryManager.Instance.Board_Size_X; j++)
+            for(int j = 0; j < GameManager.Instance.GetManager<InventoryManager>().boardSizeX; j++)
             {
                 _tiles[i, j] = new InventoryTile();
                 _tiles[i, j].xIdx = j;
                 _tiles[i, j].yIdx = i;
             }
         }
-        //_tiles = InventoryManager.Instance.Tiles;
+        //_tiles = GameManager.Instance.GetManager<InventoryManager>().Tiles;
 
         GenerateRoot();
         GenerateInventoryUnit();
@@ -92,7 +92,7 @@ public class InventoryPopup : UIPopup
 
     private void GenerateInventoryUnit()
     {
-        List<InventoryUnit> inventoryUnits = InventoryManager.Instance.Units;
+        List<InventoryUnit> inventoryUnits = GameManager.Instance.GetManager<InventoryManager>().Units;
         for (int i = 0; i < inventoryUnits.Count; i++)
         {
             //여기서 필요한 데이터를 데이터 테이블에서 넘겨주도록 해야함
@@ -105,8 +105,8 @@ public class InventoryPopup : UIPopup
     public bool Search(int minX, int maxX, int minY, int maxY)
     {
         if (_selectedUnit.GetMinX() < 0 
-            || _selectedUnit.GetMaxX() > InventoryManager.Instance.Board_Size_X 
-            || _selectedUnit.GetMinY() < 0 || _selectedUnit.GetMaxY() > InventoryManager.Instance.Board_Size_Y)
+            || _selectedUnit.GetMaxX() > GameManager.Instance.GetManager<InventoryManager>().boardSizeX 
+            || _selectedUnit.GetMinY() < 0 || _selectedUnit.GetMaxY() > GameManager.Instance.GetManager<InventoryManager>().boardSizeY)
             return false;
         foreach (var unit in _units)
         {
@@ -123,12 +123,12 @@ public class InventoryPopup : UIPopup
         return true;
 
         ////나중에 GameManager통해서 InventoryManager에 접근하도록 수정해야함.
-        //bool[,] temp = new bool[InventoryManager.Instance.Board_Size_Y, InventoryManager.Instance.Board_Size_X];
+        //bool[,] temp = new bool[GameManager.Instance.GetManager<InventoryManager>().boardSizeY, GameManager.Instance.GetManager<InventoryManager>().boardSizeX];
         //int curSize = 0;
 
-        //for(int i = 0; i < InventoryManager.Instance.Board_Size_Y; i++)
+        //for(int i = 0; i < GameManager.Instance.GetManager<InventoryManager>().boardSizeY; i++)
         //{
-        //    for(int j = 0; j < InventoryManager.Instance.Board_Size_X; j++)
+        //    for(int j = 0; j < GameManager.Instance.GetManager<InventoryManager>().boardSizeX; j++)
         //    {
         //        temp[i, j] = tiles[i, j].IsFull;
         //    }
@@ -146,8 +146,8 @@ public class InventoryPopup : UIPopup
         //    for(int i = 0; i < 4; i++)
         //    {
         //        curSize++;
-        //        int nextX = (int)node.x + InventoryManager.Instance.destX[i];
-        //        int nextY = (int)node.y + InventoryManager.Instance.destY[i];
+        //        int nextX = (int)node.x + GameManager.Instance.GetManager<InventoryManager>().destX[i];
+        //        int nextY = (int)node.y + GameManager.Instance.GetManager<InventoryManager>().destY[i];
 
         //        if (nextX < minX || nextX > maxX || nextY < minY || nextY > maxY) break;
         //        if (temp[nextY, nextX] == true) break;
@@ -163,8 +163,8 @@ public class InventoryPopup : UIPopup
     public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
-            InventoryManager.Instance.Units = _units;
-            InventoryManager.Instance.Tiles = _tiles;
+            GameManager.Instance.GetManager<InventoryManager>().Units = _units;
+            GameManager.Instance.GetManager<InventoryManager>().Tiles = _tiles;
             RemoveRoot();
         });
 
@@ -208,9 +208,9 @@ public class InventoryPopup : UIPopup
             }
         });
 
-        for(int i = 0; i < InventoryManager.Instance.Board_Size_Y; i++)
+        for(int i = 0; i < GameManager.Instance.GetManager<InventoryManager>().boardSizeY; i++)
         {
-            for(int j = 0; j < InventoryManager.Instance.Board_Size_X; j++)
+            for(int j = 0; j < GameManager.Instance.GetManager<InventoryManager>().boardSizeX; j++)
             {
                 //Debug.Log($"xIdx: {_tiles[i, j].xIdx}");
                 //Debug.Log($"yIdx: {_tiles[i, j].yIdx}");
@@ -259,9 +259,9 @@ public class InventoryPopup : UIPopup
 
         List<VisualElement> tiles = _root.Query<VisualElement>(className: "inventory-unit").ToList();
         int k = 0;
-        for(int i = 0; i < InventoryManager.Instance.Board_Size_X; i++)
+        for(int i = 0; i < GameManager.Instance.GetManager<InventoryManager>().boardSizeX; i++)
         {
-            for(int j = 0; j < InventoryManager.Instance.Board_Size_Y; j++)
+            for(int j = 0; j < GameManager.Instance.GetManager<InventoryManager>().boardSizeY; j++)
             {
                 _tiles[j, i].tile = tiles[k];
                 k++;

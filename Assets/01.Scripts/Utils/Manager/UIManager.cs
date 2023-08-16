@@ -102,13 +102,12 @@ public class UIManager : MonoBehaviour, IManager
     }
 
     public bool OnElement(Vector3 screenPos){
-        //IPanel panel = _document.rootVisualElement.panel;
+        IPanel panel = _document.rootVisualElement.panel;
 
-        //Vector3 panelPos = RuntimePanelUtils.ScreenToPanel(panel, screenPos);
-        //VisualElement pick = panel.Pick(panelPos);
+        Vector3 panelPos = RuntimePanelUtils.ScreenToPanel(panel, screenPos);
+        VisualElement pick = panel.Pick(panelPos);
 
-        //return pick != null;
-        return true;
+        return pick != null;
     }
 
     public void UpdateManager()

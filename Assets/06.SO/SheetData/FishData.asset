@@ -19,11 +19,12 @@ MonoBehaviour:
     - Name: WhiteFish
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 500
       Habitat: 0
       Rarity: 1
-      Speed: 100
+      Speed: 10
       MinLenght: 1
       MaxLenght: 2
       MinWeight: 1
@@ -37,6 +38,7 @@ MonoBehaviour:
     - Name: Sturgeon
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 500
       Habitat: 0
@@ -55,6 +57,7 @@ MonoBehaviour:
     - Name: Roach
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 500
       Habitat: 0
@@ -74,6 +77,7 @@ MonoBehaviour:
     - Name: Largemouth Bass
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 500
       Habitat: 0
@@ -92,6 +96,7 @@ MonoBehaviour:
     - Name: Bluegill
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 500
       Habitat: 0
@@ -111,6 +116,7 @@ MonoBehaviour:
     - Name: Bass
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 500
       Habitat: 0
@@ -129,6 +135,7 @@ MonoBehaviour:
     - Name: Carp
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 500
       Habitat: 0
@@ -149,6 +156,7 @@ MonoBehaviour:
     - Name: Red drum
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 700
       Habitat: 0
@@ -167,6 +175,7 @@ MonoBehaviour:
     - Name: Pickerel
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 700
       Habitat: 0
@@ -186,6 +195,7 @@ MonoBehaviour:
     - Name: Dugong
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 3000
       Habitat: 0
@@ -205,6 +215,7 @@ MonoBehaviour:
     - Name: Dolphin
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 3000
       Habitat: 0
@@ -224,6 +235,7 @@ MonoBehaviour:
     - Name: Catfish
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 5000
       Habitat: 1
@@ -243,6 +255,7 @@ MonoBehaviour:
     - Name: Red snapper
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 5000
       Habitat: 1
@@ -262,6 +275,7 @@ MonoBehaviour:
     - Name: Blue tang
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 7000
       Habitat: 1
@@ -280,6 +294,7 @@ MonoBehaviour:
     - Name: Clownfish
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 7000
       Habitat: 1
@@ -298,6 +313,7 @@ MonoBehaviour:
     - Name: Rainbowfish
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 7000
       Habitat: 1
@@ -316,6 +332,7 @@ MonoBehaviour:
     - Name: Ayu
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 100000
       Habitat: 3
@@ -334,6 +351,7 @@ MonoBehaviour:
     - Name: Saimon
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 100000
       Habitat: 3
@@ -353,6 +371,7 @@ MonoBehaviour:
     - Name: Penguin
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 200000
       Habitat: 3
@@ -371,6 +390,7 @@ MonoBehaviour:
     - Name: Ray
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 200000
       Habitat: 3
@@ -389,6 +409,7 @@ MonoBehaviour:
     - Name: Green Sea Turtle
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 300000
       Habitat: 3
@@ -407,6 +428,7 @@ MonoBehaviour:
     - Name: Amblonyx cinerea
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 300000
       Habitat: 3
@@ -425,6 +447,7 @@ MonoBehaviour:
     - Name: Brown croaker
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 1000000
       Habitat: 4
@@ -443,6 +466,7 @@ MonoBehaviour:
     - Name: Blue whale
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 2000000
       Habitat: 4
@@ -461,6 +485,7 @@ MonoBehaviour:
     - Name: Whale shark
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 2000000
       Habitat: 4
@@ -479,6 +504,7 @@ MonoBehaviour:
     - Name: Hammerhead shark
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 2000000
       Habitat: 4
@@ -497,6 +523,7 @@ MonoBehaviour:
     - Name: Swordfish
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 2000000
       Habitat: 4
@@ -515,6 +542,7 @@ MonoBehaviour:
     - Name: Great white shark
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 5000000
       Habitat: 4
@@ -533,6 +561,7 @@ MonoBehaviour:
     - Name: Orca
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 5000000
       Habitat: 4
@@ -552,6 +581,7 @@ MonoBehaviour:
     - Name: Ocean sunfish
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 5000000
       Habitat: 4
@@ -570,6 +600,7 @@ MonoBehaviour:
     - Name: Giant squid
       Visual:
         VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
         MainMat: {fileID: 0}
       Price: 10000000
       Habitat: 4
