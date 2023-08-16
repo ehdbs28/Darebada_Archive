@@ -60,7 +60,7 @@ public class Boids : MonoBehaviour
 
     private float _total = 0f;
 
-    private OceneType _currentBiome;
+    private OceanType _currentBiome;
 
     public List<GameObject> Fishes;
 
@@ -74,7 +74,7 @@ public class Boids : MonoBehaviour
         
     }
 
-    public void Setup(OceneType type, FishDataTable dataTable)
+    public void Setup(OceanType type, FishDataTable dataTable)
     {
         _currentBiome = type;
         for (int i = 0; i < dataTable.Size; i++)
@@ -104,7 +104,7 @@ public class Boids : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"ÇöÀç ¹°°í±â ¼ö: {Fishes.Count}");
+        Debug.Log($"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½: {Fishes.Count}");
         if(Fishes.Count != boidCount)
         {
             SpawnFish();
@@ -114,7 +114,7 @@ public class Boids : MonoBehaviour
     private void SpawnFish()
     {
         float randomPoint = Random.value * _total;
-        Debug.Log($"ÇöÀç ·£´ý °ª: {randomPoint}");
+        Debug.Log($"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½: {randomPoint}");
         for (int j = 0; j < _unitDataTable.Size; j++)
         {
             if (randomPoint <= _unitDataTable.DataTable[j].SpawnPercent)

@@ -8,11 +8,10 @@ public class MiniGameManager : MonoBehaviour, IManager
 {
     private List<MiniGameAnswer> _points;
 
+    private Transform _parentTrm = null;
+
     private int _pointCnt;
     public int PointCnt => _pointCnt;
-
-    public event Action OnAnswerEvent = null;
-    public event Action OnWrongEvent = null;
 
     public void InitManager()
     {
@@ -20,8 +19,8 @@ public class MiniGameManager : MonoBehaviour, IManager
     }
 
     public void SetUp(Transform parent){
-        // _pointCnt = Random.Range(3, 6);
-        _pointCnt = 4;
+        _pointCnt = Random.Range(3, 6);
+        _parentTrm = parent;
         
         for(int i = 0; i < _pointCnt; i++){
             float weight = 360f / _pointCnt;
@@ -32,7 +31,7 @@ public class MiniGameManager : MonoBehaviour, IManager
             MiniGameAnswer answer = GameManager.Instance.GetManager<PoolManager>().Pop("MiniGameAnswer") as MiniGameAnswer;
             answer.SetUp(point, thickness);
 
-            answer.transform.SetParent(parent);
+            answer.transform.SetParent(_parentTrm);
             answer.SetPosition(Vector3.zero);
             answer.SetScale(Vector3.one);
 
@@ -40,17 +39,31 @@ public class MiniGameManager : MonoBehaviour, IManager
         }
     }
 
-    public void Clear(Transform parent){
-        for(int i = 0; i < parent.childCount; i++){
-            GameManager.Instance.GetManager<PoolManager>().Push(parent.GetChild(i).GetComponent<MiniGameAnswer>());
-        }
+    public void Resetting()
+    {
+        if (_parentTrm == null)
+            return;
+
+        Transform temp = _parentTrm;
+        Clear();
+        SetUp(temp);
     }
 
-    public void Check(){
+    public void Clear()
+    {
+        if (_parentTrm == null)
+            return;
+        
+        for(int i = 0; i < _parentTrm.childCount; i++){
+            GameManager.Instance.GetManager<PoolManager>().Push(_parentTrm.GetChild(i).GetComponent<MiniGameAnswer>());
+        }
+        _parentTrm = null;
+    }
+
+    public bool Check(){
         bool result = false;
 
         float cursor = (GameManager.Instance.GetManager<UIManager>().GetPanel(UGUIType.FishingMiniGame) as FishingMiniGamePopup).Angle;
-        Debug.Log(cursor);
 
         for(int i = 0; i < _points.Count; i++){
             result = IsCollisionEnter(_points[i].Point, _points[i].Thickness, cursor);
@@ -58,9 +71,7 @@ public class MiniGameManager : MonoBehaviour, IManager
                 break;
         }
 
-        if(result){
-            OnAnswerEvent?.Invoke();
-        }
+        return result;
     }
 
     private bool IsCollisionEnter(float center, float thickness, float cursor){

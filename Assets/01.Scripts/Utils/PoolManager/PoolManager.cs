@@ -19,7 +19,6 @@ public class PoolManager : IManager
         _pools.Add(prefab.gameObject.name, pool);
     }
 
-
     public PoolableMono Pop(string prefabName)
     {
         if (!_pools.ContainsKey(prefabName))

@@ -16,7 +16,6 @@ public class BoatController : ModuleController
 
     protected override void Awake() {
         base.Awake();
-
         _boatActionData = GetComponent<BoatActionData>();
     }
 

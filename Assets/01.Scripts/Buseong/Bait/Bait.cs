@@ -6,53 +6,49 @@ public class Bait : MonoBehaviour
 {
     [SerializeField]
     private float _radius;
+    
     [SerializeField]
     private LayerMask _layerMask;
 
-    [SerializeField]
-    private RaycastHit[] _hits;
-    private RaycastHit _hit;
-
-    [SerializeField]
-    private bool sense;
     public bool Sense
     {
-        get => sense;
-        set => sense = value;
+        get
+        {
+            if (_catchedFish == null)
+                return false;
+            
+            return _catchedFish.ActionData.IsCatch;
+        }
     }
+    
+    public bool StartCheck { get; set; }
+
+    private OceanFishController _catchedFish = null;
+    public OceanFishController CatchedFish => _catchedFish;
 
     private void Update()
     {
+        if (!StartCheck)
+            return;
+        
         SensingUnit();
     }
 
     private void SensingUnit()
     {
-        //bool sensing = Physics.SphereCast(transform.position, _radius, Vector3.up, out _hit, 0f, _layerMask);
-        //if (!sensing) return;
-
-        //_hit.collider.GetComponent<BoidUnit>().IsSensed = true;
-        //if(Vector3.Distance(_hit.collider.transform.position, transform.position) < 1.5f)
-        //{
-        //    _hit.collider.GetComponent<BoidUnit>().IsBite = true;
-        //}
-
-        
-
-        _hits = Physics.SphereCastAll(transform.position, _radius, Vector3.up, 0, _layerMask);
-        if (_hits.Length <= 0 || sense) return;
+        RaycastHit[] _hits = Physics.SphereCastAll(transform.position, _radius, Vector3.up, 0, _layerMask);
+        if (_hits.Length <= 0 || _catchedFish != null) return;
 
         foreach (RaycastHit hit in _hits)
         {
-            hit.collider.GetComponent<BoidUnit>().IsSensed = true;
-            if (Vector3.Distance(hit.collider.transform.position, transform.position) < 3f)
+            if (hit.collider.TryGetComponent<OceanFishController>(out var fish))
             {
-                sense = true;
-                hit.collider.GetComponent<BoidUnit>().IsBite = true;
-                foreach(RaycastHit nhit in _hits)
-                {
-                    nhit.collider.GetComponent<BoidUnit>().IsSensed = false;
-                }
+                fish.ActionData.IsSensed = true;
+                fish.ActionData.BaitTrm = transform;
+                fish.GetModule<FishMovementModule>().Turn();
+                _catchedFish = fish;
+                
+                break;
             }
         }
     }

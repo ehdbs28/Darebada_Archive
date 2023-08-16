@@ -25,32 +25,32 @@ public class BiomeSelectPopup : UIPopup
 
         _moveRightBtn.RegisterCallback<ClickEvent>(e => {
             _currentIndex = Mathf.Clamp(_currentIndex + 1, 0, _contents.childCount - 1);
-            ChangeName((OceneType)_currentIndex);
+            ChangeName((OceanType)_currentIndex);
             _contents.style.right = new StyleLength(new Length(_currentIndex * 100, LengthUnit.Percent));
         });
 
         _moveLeftBtn.RegisterCallback<ClickEvent>(e => {
             _currentIndex = Mathf.Clamp(_currentIndex - 1, 0, _contents.childCount - 1);
-            ChangeName((OceneType)_currentIndex);
+            ChangeName((OceanType)_currentIndex);
             _contents.style.right = new StyleLength(new Length(_currentIndex * 100, LengthUnit.Percent));
         });
     }
 
-    private void ChangeName(OceneType type){
+    private void ChangeName(OceanType type){
         switch(type){
-            case OceneType.RichOcene:
+            case OceanType.RichOcean:
                 _biomeNameLabel.text = "풍요의 바다";
             break;
-            case OceneType.SouthOcene:
+            case OceanType.SouthOcean:
                 _biomeNameLabel.text = "남쪽의 바다";
             break;
-            case OceneType.RainyOcene:
+            case OceanType.RainyOcean:
                 _biomeNameLabel.text = "비의 바다";
             break;
-            case OceneType.ColdOcene:
+            case OceanType.ColdOcean:
                 _biomeNameLabel.text = "추위의 바다";
             break;
-            case OceneType.SilenceOcene:
+            case OceanType.SilenceOcean:
                 _biomeNameLabel.text = "고요의 바다";
             break;
         }
@@ -72,7 +72,7 @@ public class BiomeSelectPopup : UIPopup
         _contents = _root.Q<VisualElement>("contents");
         for(int i = 0; i < _contents.childCount; i++){
             VisualElement biomeElement = _contents.ElementAt(i);
-            UIBiomeContent biomeContent = new UIBiomeContent(biomeElement, (OceneType)i);
+            UIBiomeContent biomeContent = new UIBiomeContent(biomeElement, this, (OceanType)i);
             _biomeContents.Add(biomeContent);
         }
     }

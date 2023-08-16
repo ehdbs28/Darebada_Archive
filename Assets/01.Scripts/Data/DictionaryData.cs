@@ -7,7 +7,7 @@ public class DictionaryDataUnit{
     public string Name;
     public Sprite Image;
     public string Desc;
-    public OceneType Habitat;
+    public OceanType Habitat;
     public List<string> Favorites;
     public float MaxLenght;
     public float MaxWeight;

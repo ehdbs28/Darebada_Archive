@@ -25,7 +25,7 @@ public class FishSO : LoadableData
 
     public string Name;
     public int Price;
-    public OceneType Habitat;
+    public OceanType Habitat;
     public int Rarity;              
     public int Speed;               
     public float MinLength;
@@ -56,7 +56,7 @@ public class FishSO : LoadableData
 
         Name = dataArr[0];
         Price = int.Parse(dataArr[1]);
-        Habitat = (OceneType)int.Parse(dataArr[2]);
+        Habitat = (OceanType)int.Parse(dataArr[2]);
         Rarity = int.Parse(dataArr[3]);
         Speed = int.Parse(dataArr[4]);
         MinLength = float.Parse(dataArr[5]);

@@ -30,19 +30,19 @@ public class DictionaryDetail
         _descLabel.text = data.Desc;
         
         switch(data.Habitat){
-            case OceneType.RichOcene:
+            case OceanType.RichOcean:
                 _habitatLabel.text = "풍요의 바다";
             break;
-            case OceneType.SouthOcene:
+            case OceanType.SouthOcean:
                 _habitatLabel.text = "남쪽의 바다";
             break;
-            case OceneType.RainyOcene:
+            case OceanType.RainyOcean:
                 _habitatLabel.text = "비의 바다";
             break;
-            case OceneType.ColdOcene:
+            case OceanType.ColdOcean:
                 _habitatLabel.text = "추위의 바다";
             break;
-            case OceneType.SilenceOcene:
+            case OceanType.SilenceOcean:
                 _habitatLabel.text = "고요의 바다";
             break;
         }

@@ -15,7 +15,7 @@ public class FishDataUnit{
     public string Name;
     public FishViual Visual;
     public float Price;
-    public OceneType Habitat;
+    public OceanType Habitat;
     public int Rarity;
     public float Speed;
     public float MinLenght;
@@ -40,7 +40,7 @@ public class FishDataTable : LoadableData
         // Visual은 후에 추가
 
         DataTable[Size].Price = float.Parse(dataArr[1]);
-        DataTable[Size].Habitat = (OceneType)Enum.Parse(typeof(OceneType), $"{dataArr[2]}Ocene");
+        DataTable[Size].Habitat = (OceanType)Enum.Parse(typeof(OceanType), $"{dataArr[2]}Ocene");
         DataTable[Size].Rarity = int.Parse(dataArr[3]);
         DataTable[Size].Speed = float.Parse(dataArr[4]);
         DataTable[Size].MinLenght = float.Parse(dataArr[5]);
