@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 
 [System.Serializable]
@@ -17,7 +18,7 @@ public class DictionaryDataUnit{
 [System.Serializable]
 public class DictionaryData : SaveData
 {
-    public List<DictionaryDataUnit> Units;
+    public SerializeList<DictionaryDataUnit> Units;
 
     public DictionaryData(string FILE_PATH, string name) : base(FILE_PATH, name)
     {
@@ -31,6 +32,6 @@ public class DictionaryData : SaveData
 
     protected override void Reset()
     {
-        Units = new List<DictionaryDataUnit>();
+        Units = new SerializeList<DictionaryDataUnit>();
     }
 }

@@ -5,4 +5,5 @@ public enum DataType
     DictionaryData,
     BiomeData,
     GameData,
+    InventoryData,
 }

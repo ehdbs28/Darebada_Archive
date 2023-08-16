@@ -8090,7 +8090,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: 1c1c8e34c5d83f74cabf824287d4e77a, type: 3}
-  _unitTemplate: {fileID: 0}
+  selectedUnit:
+    width: 0
+    height: 0
+    posX: 0
+    posY: 0
+    rotate: 0
+    size: {x: 0, y: 0}
+    data:
+      Name: 
+      Visual:
+        VisualMesh: {fileID: 0}
+        Profile: {fileID: 0}
+        MainMat: {fileID: 0}
+      Price: 0
+      Habitat: 0
+      Rarity: 0
+      Speed: 0
+      MinLenght: 0
+      MaxLenght: 0
+      MinWeight: 0
+      MaxWeight: 0
+      SpawnPercent: 0
+      Favorites: []
+      Description: 
+  _unitTemplate: {fileID: 9197481963319205126, guid: dd14a9e2a90663d44b629d666ae1dd88, type: 3}
 --- !u!114 &9157046241256461560
 MonoBehaviour:
   m_ObjectHideFlags: 0

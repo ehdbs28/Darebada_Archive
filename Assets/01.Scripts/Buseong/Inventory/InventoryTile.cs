@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 
 public class InventoryTile
 {
-    public bool IsFull;
     public VisualElement tile;
     public int xIdx;
     public int yIdx;

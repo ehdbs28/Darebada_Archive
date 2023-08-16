@@ -24,7 +24,12 @@ public class Bait : MonoBehaviour
     public bool StartCheck { get; set; }
 
     private OceanFishController _catchedFish = null;
-    public OceanFishController CatchedFish => _catchedFish;
+
+    public OceanFishController CatchedFish
+    {
+        get => _catchedFish;
+        set => _catchedFish = value;
+    }
 
     private void Update()
     {

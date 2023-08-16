@@ -35,7 +35,7 @@ public class FishingReelUpState : FishingState
 
     public override void ExitState()
     {
-        
+        GameManager.Instance.GetManager<UIManager>().GetPanel(UGUIType.FishingMiniGame).RemoveRoot();
     }
     
     public override void UpdateState()
@@ -62,10 +62,17 @@ public class FishingReelUpState : FishingState
         
         GameManager.Instance.GetManager<MiniGameManager>().Resetting();
 
-        if(_pointCnt < 0){
+        if(_pointCnt <= 0){
             Debug.Log("낚시 성공");
             _controller.ActionData.IsFishing = false;
             _controller.ActionData.IsUnderWater = false;
+
+            if (_controller.Bait.CatchedFish != null)
+            {
+                GameManager.Instance.GetManager<InventoryManager>().AddUnit(_controller.Bait.CatchedFish.DataUnit, Vector2.zero);
+                GameManager.Instance.GetManager<PoolManager>().Push(_controller.Bait.CatchedFish);
+                _controller.Bait.CatchedFish = null;
+            }
         }
     }
 
