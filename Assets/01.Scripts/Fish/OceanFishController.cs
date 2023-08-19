@@ -48,4 +48,11 @@ public class OceanFishController : ModuleController
         GetModule<FishMovementModule>().SetBound(bound);
         CompleteSetting = true;
     }
+
+    public void GetoutBait()
+    {
+        _actionData.IsCatch = false;
+        _actionData.IsSensed = false;
+        _actionData.BaitTrm = null;
+    }
 }

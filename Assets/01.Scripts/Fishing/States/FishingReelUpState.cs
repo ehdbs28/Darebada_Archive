@@ -59,6 +59,7 @@ public class FishingReelUpState : FishingState
         --_pointCnt;
         Debug.Log(_pointCnt);
         _bobberTrm.position += _direction * _reelUpOffset;
+        _controller.Bait.CatchedFish.transform.position += _direction * _reelUpOffset;
         
         GameManager.Instance.GetManager<MiniGameManager>().Resetting();
 
@@ -78,6 +79,10 @@ public class FishingReelUpState : FishingState
 
     private void OnFail()
     {
-        
+        _controller.ActionData.IsFishing = false;
+        _controller.ActionData.IsUnderWater = false;
+
+        _controller.Bait.CatchedFish.GetoutBait();
+        _controller.Bait.CatchedFish = null;
     }
 }
