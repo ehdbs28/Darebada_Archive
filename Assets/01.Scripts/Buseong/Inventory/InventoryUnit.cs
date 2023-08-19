@@ -35,7 +35,7 @@ public class InventoryUnit
     public InventoryUnit(FishDataUnit data, Vector2 size)
     {
         this.data = data;
-        // this.size = size;
+        this.size = size;
         this.size = new Vector2(3, 2);
     }
 

@@ -18,6 +18,8 @@ public class FishDataUnit{
     public OceanType Habitat;
     public int Rarity;
     public float Speed;
+    public int InvenSizeX;
+    public int InvenSizeY;
     public float MinLenght;
     public float MaxLenght;
     public float MinWeight;
@@ -40,22 +42,24 @@ public class FishDataTable : LoadableData
         // Visual은 후에 추가
 
         DataTable[Size].Price = float.Parse(dataArr[1]);
-        DataTable[Size].Habitat = (OceanType)Enum.Parse(typeof(OceanType), $"{dataArr[2]}Ocene");
+        DataTable[Size].Habitat = (OceanType)Enum.Parse(typeof(OceanType), $"{dataArr[2]}Ocean");
         DataTable[Size].Rarity = int.Parse(dataArr[3]);
         DataTable[Size].Speed = float.Parse(dataArr[4]);
-        DataTable[Size].MinLenght = float.Parse(dataArr[5]);
-        DataTable[Size].MaxLenght = float.Parse(dataArr[6]);
-        DataTable[Size].MinWeight = float.Parse(dataArr[7]);
-        DataTable[Size].MaxWeight = float.Parse(dataArr[8]);
-        DataTable[Size].SpawnPercent = float.Parse(dataArr[9]);
+        DataTable[Size].InvenSizeX = int.Parse(dataArr[5]);
+        DataTable[Size].InvenSizeY = int.Parse(dataArr[6]);
+        DataTable[Size].MinLenght = float.Parse(dataArr[7]);
+        DataTable[Size].MaxLenght = float.Parse(dataArr[8]);
+        DataTable[Size].MinWeight = float.Parse(dataArr[9]);
+        DataTable[Size].MaxWeight = float.Parse(dataArr[10]);
+        DataTable[Size].SpawnPercent = float.Parse(dataArr[11]);
 
-        string[] favorites = dataArr[10].Split(",");
+        string[] favorites = dataArr[12].Split(",");
         DataTable[Size].Favorites = new List<string>();
         foreach(var f in favorites){
             DataTable[Size].Favorites.Add(f);
         }
 
-        DataTable[Size].Description = dataArr[11];
+        DataTable[Size].Description = dataArr[13];
 
         ++Size;
     }

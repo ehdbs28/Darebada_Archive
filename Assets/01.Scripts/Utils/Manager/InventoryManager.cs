@@ -18,9 +18,8 @@ public class InventoryManager : IManager
     
     public void AddUnit(FishDataUnit unitData, Vector2 size)
     {
-        InventoryData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.InventoryData) as InventoryData;
-        if (data != null) 
-            data.Units.List.Add(new InventoryUnit(unitData, size));
+        InventoryData data = (InventoryData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.InventoryData);
+        data?.Units.List.Add(new InventoryUnit(unitData, size));
     }
 
 

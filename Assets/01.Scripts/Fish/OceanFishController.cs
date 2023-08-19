@@ -44,7 +44,15 @@ public class OceanFishController : ModuleController
     public void SetUp(FishDataUnit data, BoxCollider bound)
     {
         _dataUnit = data;
-        // Should Check Visual and Size Change
+        
+        // Should Check Visual
+
+        _actionData.Lenght = Random.Range(data.MinLenght, data.MaxLenght);
+        float normalizedLenght = (_actionData.Lenght - data.MinLenght) / (data.MaxLenght - data.MinLenght);
+        _actionData.Weight = normalizedLenght * (data.MaxWeight - data.MinWeight) + data.MinWeight;
+
+        transform.localScale = Vector3.one * normalizedLenght;
+        
         GetModule<FishMovementModule>().SetBound(bound);
         CompleteSetting = true;
     }

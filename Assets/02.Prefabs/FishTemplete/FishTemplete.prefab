@@ -74,9 +74,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664f4e8a7dc344cd8cebba3a23ed0346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsSensed: 0
   BaitTrm: {fileID: 0}
+  IsSensed: 0
   IsCatch: 0
+  Lenght: 0
+  Weight: 0
 --- !u!54 &6046044513778286833
 Rigidbody:
   m_ObjectHideFlags: 0

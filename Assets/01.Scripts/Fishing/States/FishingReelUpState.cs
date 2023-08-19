@@ -57,7 +57,6 @@ public class FishingReelUpState : FishingState
 
     private void OnAnswer(){
         --_pointCnt;
-        Debug.Log(_pointCnt);
         _bobberTrm.position += _direction * _reelUpOffset;
         _controller.Bait.CatchedFish.transform.position += _direction * _reelUpOffset;
         
@@ -70,7 +69,10 @@ public class FishingReelUpState : FishingState
 
             if (_controller.Bait.CatchedFish != null)
             {
-                GameManager.Instance.GetManager<InventoryManager>().AddUnit(_controller.Bait.CatchedFish.DataUnit, Vector2.zero);
+                FishDataUnit dataUnit = _controller.Bait.CatchedFish.DataUnit;
+                Vector2 size = new Vector2(dataUnit.InvenSizeX, dataUnit.InvenSizeY);
+
+                GameManager.Instance.GetManager<InventoryManager>().AddUnit(dataUnit, size);
                 GameManager.Instance.GetManager<PoolManager>().Push(_controller.Bait.CatchedFish);
                 _controller.Bait.CatchedFish = null;
             }
@@ -79,10 +81,11 @@ public class FishingReelUpState : FishingState
 
     private void OnFail()
     {
-        _controller.ActionData.IsFishing = false;
-        _controller.ActionData.IsUnderWater = false;
-
+        _controller.Bait.StartCheck = false;
         _controller.Bait.CatchedFish.GetoutBait();
         _controller.Bait.CatchedFish = null;
+        
+        _controller.ActionData.IsFishing = false;
+        _controller.ActionData.IsUnderWater = false;
     }
 }
