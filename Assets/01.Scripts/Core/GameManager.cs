@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
            
            // gameData.LastWorldTime = GetManager<TimeManager>();
            
-           GetManager<DataManager>().SaveDataAll();
+           //GetManager<DataManager>().SaveDataAll();
 
             yield return new WaitForSecondsRealtime(delay);
         }

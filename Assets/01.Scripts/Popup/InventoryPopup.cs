@@ -9,16 +9,17 @@ public class InventoryPopup : UIPopup
     private VisualElement _rightRotateBtn;
     private VisualElement _leftRotateBtn;
 
-    public InventoryUnit selectedUnit = null;
-
     [SerializeField]
     private VisualTreeAsset _unitTemplate;
     
     private VisualElement _unitParent;
 
     private InventoryTile[,] _tiles;
+    [SerializeField]
     private List<InventoryUnit> _units;
 
+    public int selectedIndex = -1;
+    
     public override void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
     {
         _isOpenPopup = true;
@@ -42,7 +43,7 @@ public class InventoryPopup : UIPopup
             _blurPanel = _documentRoot.Q(className: "blur-panel");
             _blurPanel.AddToClassList("on");
         }
-
+        
         _tiles = new InventoryTile[InventoryManager.BoardSizeY, InventoryManager.BoardSizeX];
         for(int i = 0; i < InventoryManager.BoardSizeY; i++)
         {
@@ -66,6 +67,14 @@ public class InventoryPopup : UIPopup
         }
     }
 
+    public override void RemoveRoot()
+    {
+        selectedIndex = -1;
+        InventoryData data = (InventoryData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.InventoryData);
+        data.Units.List = _units;
+        base.RemoveRoot();
+    }
+
     private void GenerateInventoryUnit()
     {
         InventoryData data = (InventoryData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.InventoryData);
@@ -76,22 +85,23 @@ public class InventoryPopup : UIPopup
             root = root.Q("inventory-unit");
             unit.Generate(root);
             _unitParent.Add(root);
+            unit.Move(new Vector2(unit.posX, unit.posY));
         }
     }
 
     public bool Search(int minX, int maxX, int minY, int maxY)
     {
-        if (selectedUnit == null)
+        if (selectedIndex == -1)
             return false;
-        
-        if (selectedUnit.MinX < 0 
-            || selectedUnit.MaxX > InventoryManager.BoardSizeX 
-            || selectedUnit.MinY < 0 || selectedUnit.MaxY > InventoryManager.BoardSizeY)
+
+        if (_units[selectedIndex].MinX < 0 
+            || _units[selectedIndex].MaxX > InventoryManager.BoardSizeX 
+            || _units[selectedIndex].MinY < 0 || _units[selectedIndex].MaxY > InventoryManager.BoardSizeY)
             return false;
         
         foreach (var unit in _units)
         {
-            if(unit != selectedUnit)
+            if(unit != _units[selectedIndex])
             {
                 if ((minX >= unit.MinX || maxX <= unit.MaxX)
               && (minY >= unit.MinY || maxY <= unit.MaxY))
@@ -107,51 +117,53 @@ public class InventoryPopup : UIPopup
     public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
-            InventoryData data = (InventoryData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.InventoryData);
-            data.Units.List = _units;
             RemoveRoot();
         });
 
         _rightRotateBtn.RegisterCallback<ClickEvent>(e =>
         {
-            if (selectedUnit != null)
+            if (selectedIndex == -1)
+                return;
+            
+            if (_units[selectedIndex] != null)
             {
-                selectedUnit.rotate--;
-                if (selectedUnit.rotate < 0) selectedUnit.rotate = 3;
+                _units[selectedIndex].rotate--;
+                if (_units[selectedIndex].rotate < 0) _units[selectedIndex].rotate = 3;
 
-                if (Search(selectedUnit.MinX, selectedUnit.MaxX, selectedUnit.MinY, selectedUnit.MaxY))
+                if (Search(_units[selectedIndex].MinX, _units[selectedIndex].MaxX, _units[selectedIndex].MinY, _units[selectedIndex].MaxY))
                 {
-                    Debug.Log(1);
-                    selectedUnit.Rotate(-90f);
+                    _units[selectedIndex].Rotate(-90f);
                 }
                 else
                 {
-                    if (selectedUnit.rotate + 1 > 3)
-                        selectedUnit.rotate = 0;
+                    if (_units[selectedIndex].rotate + 1 > 3)
+                        _units[selectedIndex].rotate = 0;
                     else
-                        selectedUnit.rotate++;
+                        _units[selectedIndex].rotate++;
                 }
             }
         });
 
         _leftRotateBtn.RegisterCallback<ClickEvent>(e =>
         {
-            if(selectedUnit != null)
+            if (selectedIndex == -1)
+                return;
+            
+            if(_units[selectedIndex] != null)
             {
-                selectedUnit.rotate++;
-                if (selectedUnit.rotate > 3) selectedUnit.rotate = 0;
+                _units[selectedIndex].rotate++;
+                if (_units[selectedIndex].rotate > 3) _units[selectedIndex].rotate = 0;
 
-                if (Search(selectedUnit.MinX, selectedUnit.MaxX, selectedUnit.MinY, selectedUnit.MaxY))
+                if (Search(_units[selectedIndex].MinX, _units[selectedIndex].MaxX, _units[selectedIndex].MinY, _units[selectedIndex].MaxY))
                 {
-                    Debug.Log(1);
-                    selectedUnit.Rotate(90f);
+                    _units[selectedIndex].Rotate(90f);
                 }
                 else
                 {
-                    if (selectedUnit.rotate - 1 < 0)
-                        selectedUnit.rotate = 3;
+                    if (_units[selectedIndex].rotate - 1 < 0)
+                        _units[selectedIndex].rotate = 3;
                     else 
-                        selectedUnit.rotate--;
+                        _units[selectedIndex].rotate--;
                 }
             }
         });
@@ -165,17 +177,28 @@ public class InventoryPopup : UIPopup
 
                 _tiles[i, j].tile.RegisterCallback<ClickEvent>(e =>
                 {
-                    if (selectedUnit != null)
+                    if (selectedIndex == -1)
+                        return;
+
+                    if (_units[selectedIndex] != null)
                     {
-                        Debug.Log(selectedUnit);
-                        if (Search(selectedUnit.MinX, selectedUnit.MaxX, selectedUnit.MinY, selectedUnit.MaxY))
+                        if (Search(_units[selectedIndex].MinX, _units[selectedIndex].MaxX, _units[selectedIndex].MinY, _units[selectedIndex].MaxY))
                         {
-                            Debug.Log("움직임");
-                            selectedUnit.Move(new Vector2(_tiles[i1, j1].xIdx, _tiles[i1, j1].yIdx));
+                            _units[selectedIndex].Move(new Vector2(_tiles[i1, j1].xIdx, _tiles[i1, j1].yIdx));
                         }
                     }
                 });
             }
+        }
+
+        for (int i = 0; i < _units.Count; i++)
+        {
+            int i1 = i;
+            
+            _units[i].Root.RegisterCallback<ClickEvent>(e =>
+            {
+                selectedIndex = i1;
+            });
         }
     }
 

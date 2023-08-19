@@ -110,12 +110,6 @@ public class UIManager : MonoBehaviour, IManager
         return pick != null;
     }
 
-    public void UpdateManager()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            ShowPanel(PopupType.ItemSelect);
-        }
-    }
+    public void UpdateManager() {}
     public void ResetManager() {}
 }
