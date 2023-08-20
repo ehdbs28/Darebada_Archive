@@ -15,6 +15,11 @@ public class BoatRotationModule : CommonModule<BoatController>
 
     private float _currentRotateVelocity;
 
+    private float _startPos;
+    private bool _isClick = false;
+
+    private const float offset = 20f;
+
     public override void SetUp(Transform rootTrm)
     {
         base.SetUp(rootTrm);
@@ -35,11 +40,45 @@ public class BoatRotationModule : CommonModule<BoatController>
     }
 
     private void AddEvent(){
-        GameManager.Instance.GetManager<InputManager>().OnRotationEvent += SetRotationValue;
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnClick;
+        GameManager.Instance.GetManager<InputManager>().OnMousePositionEvent += OnMousePos;
     }
 
     private void SetRotationValue(float value){
         _dir = value;
+    }
+
+    private void OnClick(bool val)
+    {
+        _isClick = val;
+        if (_isClick)
+            _startPos = GameManager.Instance.GetManager<InputManager>().MousePosition.x;
+        else
+            SetRotationValue(0);
+    }
+
+    private void OnMousePos(Vector2 mousePos)
+    {
+        if (_isClick)
+        {
+            float cur = GameManager.Instance.GetManager<InputManager>().MousePosition.x;
+
+            if (Mathf.Abs(cur - _startPos) >= offset)
+            {
+                if (cur > _startPos)
+                {
+                    SetRotationValue(1);
+                }
+                else if (cur < _startPos)
+                {
+                    SetRotationValue(-1);
+                }
+            }
+            else
+            {
+                SetRotationValue(0);
+            }
+        }
     }
 
     private void Rotate(){
