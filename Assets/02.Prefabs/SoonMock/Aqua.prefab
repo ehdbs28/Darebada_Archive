@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabId: 12
   moveOnPoints: 0
-  buildTime: 0
+  buildTime: 3
   objectSize:
     pos_m2_p2: 0
     pos_m1_p2: 0

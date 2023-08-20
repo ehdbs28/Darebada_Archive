@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         _managers = new List<IManager>();
         AddManager();
 
-        //_managers.ForEach(manager => manager.InitManager());
+        _managers.ForEach(manager => manager.InitManager());
     }   
 
     private void Start() {
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     private void Update() {
         foreach(var manager in _managers){
-            //manager.UpdateManager();
+            manager.UpdateManager();
         }
     }
 
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         _managers.Add(new TimeManager());
         _managers.Add(transform.Find("UIManager").GetComponent<UIManager>());
         //_managers.Add(GetComponent<DayCycleManager>());
-        _managers.Add(new AddressableAssetsManager());
+        //_managers.Add(new AddressableAssetsManager());
         _managers.Add(new FishingUpgradeManager());
         _managers.Add(new SeleteItemManager());
         _managers.Add(GetComponent<MiniGameManager>());
