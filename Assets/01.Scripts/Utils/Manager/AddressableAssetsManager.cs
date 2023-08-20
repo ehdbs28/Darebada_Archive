@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class AddressableAssetsManager : MonoBehaviour, IManager
 {
@@ -45,16 +43,7 @@ public class AddressableAssetsManager : MonoBehaviour, IManager
             Debug.Log("¿ÃπÃ ∑ŒµÂ µ ");
             return;
         }
-        AsyncOperationHandle<IList<Object>> handle = Addressables.LoadAssetsAsync<Object>(label, (Object obj) =>
-        {
-            if(loadedObjects.ContainsKey(label))
-            {
-                loadedObjects[label].Add(obj);
-            }else
-            {
-                loadedObjects.Add(label, new List<Object>() { obj});
-            }
-        });
+        
     }
     
 }
