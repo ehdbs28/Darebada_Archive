@@ -37,6 +37,7 @@ public class SoundManager : MonoBehaviour, IManager
             {
                 GameObject go = new GameObject { name = soundNames[i] };
                 _audioSources[i] = go.AddComponent<AudioSource>();
+                _audioSources[i].playOnAwake = false;
                 go.transform.parent = this.transform;
             }
 
@@ -48,14 +49,7 @@ public class SoundManager : MonoBehaviour, IManager
             return;
         }
     }
-    public void ResetManager()
-    {
-        foreach (var audioSource in _audioSources)
-        {
-            audioSource.clip = null;
-            audioSource.Stop();
-        }
-    }
+    public void ResetManager(){}
 
     public void UpdateManager(){}
 
@@ -81,6 +75,15 @@ public class SoundManager : MonoBehaviour, IManager
         {
             AudioSource audioSource = _audioSources[(int)SoundEnum.EFFECT];
             audioSource.PlayOneShot(audioClips); // 오디오 중첩 가능 그 함수
+        }
+    }
+
+    public void Stop()
+    {
+        foreach (var audioSource in _audioSources)
+        {
+            audioSource.clip = null;
+            audioSource.Stop();
         }
     }
 }

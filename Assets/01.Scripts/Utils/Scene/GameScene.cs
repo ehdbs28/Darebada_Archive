@@ -9,11 +9,11 @@ public class GameScene : PoolableMono
     [SerializeField]
     private GameSceneType _sceneType;
 
-    [Header("씬이 시작될 때 기본 스크린")]
+    [Header("?�이 ?�작????기본 ?�크�?")]
     [SerializeField]
     private ScreenType _initScreenType;
 
-    [Header("Virtual Cam 설정용")]
+    [Header("Virtual Cam ?�정??")]
     [SerializeField]
     private CameraState _initCamState;
     [SerializeField]

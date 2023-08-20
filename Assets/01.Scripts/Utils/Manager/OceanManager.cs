@@ -7,6 +7,8 @@ public class OceanManager : IManager
     private OceanType _type;
     private Ocean _activeOcean = null;
 
+    public AudioClip _bgmClip;
+    
     private FishDataTable _dataTable;
 
     private List<BoxCollider> _boundColliders;
@@ -52,6 +54,9 @@ public class OceanManager : IManager
                 _totalSpawnPercent += _dataTable.DataTable[i].SpawnPercent;
             }
             _activeOcean = GameManager.Instance.GetManager<PoolManager>().Pop($"{_type.ToString()}Scene") as Ocean;
+
+            _bgmClip = _activeOcean.gameObject.GetComponent<AudioSource>().clip;
+            GameManager.Instance.GetManager<SoundManager>().Play(_bgmClip, SoundEnum.BGM);
         }
     }
 

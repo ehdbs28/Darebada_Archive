@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
         _managers.Add(GetComponent<CameraManager>());
         _managers.Add(new TimeManager());
         _managers.Add(transform.Find("UIManager").GetComponent<UIManager>());
+        _managers.Add(transform.Find("SoundManager").GetComponent<SoundManager>());
         //_managers.Add(GetComponent<DayCycleManager>());
         // _managers.Add(new AddressableAssetsManager());
         _managers.Add(new FishingUpgradeManager());

@@ -313,7 +313,6 @@ MonoBehaviour:
   IsUnderWater: 0
   IsThrowing: 0
   LastThrowDirection: {x: 0, y: 0, z: 0}
-  CurrentCatchFish: {fileID: 0}
 --- !u!120 &4756105232175995962
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -617,6 +616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _curBoatData:
     Name: 
+    Id: 0
     Price: 0
     Visual:
       VisualMesh: {fileID: 0}
