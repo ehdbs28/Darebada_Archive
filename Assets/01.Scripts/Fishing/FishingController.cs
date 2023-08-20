@@ -55,6 +55,7 @@ public class FishingController : MonoBehaviour
     }
 
     public void ChangedState(FishingState nextState){
+        Debug.Log(nextState);
         _currentState?.ExitState();
         _currentState = nextState;
         _currentState?.EnterState();

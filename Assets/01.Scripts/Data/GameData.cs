@@ -13,7 +13,6 @@ public class GameData : SaveData
 
     public GameData(string FILE_PATH, string name) : base(FILE_PATH, name)
     {
-        Reset();
     }
 
     protected override void LoadData(string json)

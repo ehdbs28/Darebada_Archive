@@ -20,7 +20,7 @@ public class BiomeData : SaveData
     protected override void Reset()
     {
         Biomes = new List<bool>();
-        for(int i = 0; i < (int)OceneType.Count; i++){
+        for(int i = 0; i < (int)OceanType.Count; i++){
             Biomes.Add(false);
         }
         Biomes[0] = true;

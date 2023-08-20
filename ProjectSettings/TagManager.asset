@@ -14,11 +14,11 @@ TagManager:
   - Facility
   - 
   - Ground
-  - Slider_Handle
-  - Driver
-  - Heavy_weight_object
-  - LockedObj
-  - TestFish
+  - 
+  - 
+  - 
+  - 
+  - Fish
   - TestObstacle
   - PostProcessing
   - PostProcessing_Blur

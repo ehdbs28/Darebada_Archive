@@ -41,7 +41,7 @@ public class FishingMiniGamePopup : UGUIPopup
 
     public override void RemoveRoot()
     {
-        GameManager.Instance.GetManager<MiniGameManager>().Clear(_value);
+        GameManager.Instance.GetManager<MiniGameManager>().Clear();
         base.RemoveRoot();
     }
 

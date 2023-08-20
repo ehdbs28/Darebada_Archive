@@ -30,6 +30,7 @@ public class DataManager : IManager
         _dataUnits.Add(DataType.DictionaryData, new DictionaryData(DATA_PATH, "DictionaryData"));
         _dataUnits.Add(DataType.BiomeData, new BiomeData(DATA_PATH, "BiomeData"));
         _dataUnits.Add(DataType.GameData, new GameData(DATA_PATH, "GameData"));
+        _dataUnits.Add(DataType.InventoryData, new InventoryData(DATA_PATH, "InventoryData"));
 
         LoadData();
         SaveDataAll();
@@ -46,7 +47,7 @@ public class DataManager : IManager
         data.Save(stringData);
     }
 
-    private void SaveDataAll(){
+    public void SaveDataAll(){
         foreach(var data in _dataUnits.Values){
             SaveData(data);
         }

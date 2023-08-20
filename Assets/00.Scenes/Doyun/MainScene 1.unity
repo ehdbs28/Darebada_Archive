@@ -8090,7 +8090,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: 1c1c8e34c5d83f74cabf824287d4e77a, type: 3}
-  _unitTemplate: {fileID: 0}
+  _unitTemplate: {fileID: 9197481963319205126, guid: dd14a9e2a90663d44b629d666ae1dd88, type: 3}
+  _units: []
+  selectedIndex: -1
 --- !u!114 &9157046241256461560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8707,7 +8709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _poolingTrm: {fileID: 754774583}
   _poolingList: {fileID: 11400000, guid: 57e991df2432a8b46b588910f77011fb, type: 2}
-  _startSceneType: 2
+  _startSceneType: 0
 --- !u!114 &9157046241563192771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8771,6 +8773,7 @@ GameObject:
   - component: {fileID: 9157046241563192784}
   - component: {fileID: 9157046241563192785}
   - component: {fileID: 9157046241563192786}
+  - component: {fileID: 9157046241563192787}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8839,6 +8842,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed085ee8fffb146a88c381d68bd23d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9157046241563192787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157046241563192774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa4d8ebfd8a6de4ab8dcc494143d41b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fishes: []
+  spawnRange: 0
 --- !u!1001 &9157046241592702456
 PrefabInstance:
   m_ObjectHideFlags: 0

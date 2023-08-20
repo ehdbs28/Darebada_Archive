@@ -6,11 +6,14 @@ public class ClickFishingKeyDecision : FishingDecision
 {
     bool _result = false;
 
-    public override void SetUp(Transform agentRoot)
+    public void AddEvent()
     {
-        base.SetUp(agentRoot);
-
         GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnMouseClick;
+    }
+
+    public void RemoveEvent()
+    {
+        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= OnMouseClick;
     }
 
     public override bool MakeADecision()
