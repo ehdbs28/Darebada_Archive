@@ -24,7 +24,6 @@ public class BoatMovementModule : CommonModule<BoatController>
         _rigid = rootTrm.GetComponent<Rigidbody>();
         _fishingController = GameObject.Find("Player").GetComponentInChildren<FishingController>();
 
-        AddEvent();
         StopImmediately();
     }
 
@@ -43,11 +42,8 @@ public class BoatMovementModule : CommonModule<BoatController>
         _rigid.velocity = _movement * _currentVelocity;
     }
 
-    private void AddEvent(){
-        GameManager.Instance.GetManager<InputManager>().OnMovementEvent += SetMovementValue;
-    }
-
-    private void SetMovementValue(float value){
+    public void SetMovementValue(float value){
+        Debug.Log(value);
         _inputDir = value;
     }
 

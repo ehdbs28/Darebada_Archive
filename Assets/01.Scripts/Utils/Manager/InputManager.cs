@@ -12,9 +12,10 @@ public class InputManager : MonoBehaviour, IManager
     public event Action<float> OnMovementEvent = null;
     public event Action<float> OnRotationEvent = null;
     public event Action<bool> OnMouseClickEvent = null;
+    public event Action<Vector2> OnMousePositionEvent = null;
 
-    private Vector3 _mousePosition;
-    public Vector3 MousePosition => _mousePosition;
+    private Vector2 _mousePosition;
+    public Vector2 MousePosition => _mousePosition;
 
     public InputManager(){
         ResetManager();
@@ -42,6 +43,7 @@ public class InputManager : MonoBehaviour, IManager
 
     public void OnMousePosition(InputValue value){
         _mousePosition = value.Get<Vector2>();
+        OnMousePositionEvent?.Invoke(_mousePosition);
     }
 
     public Vector3 GetMouseRayPoint(string layerName = "Ground"){

@@ -17,6 +17,7 @@ public class OceanScreen : UIScreen
 
     private UICompass _compass;
     private UIBoatFuel _boatDurability;
+    private BoatControllerUI _controllerUI;
 
     [SerializeField]
     private Gradient _boatDurabilityGradient;
@@ -26,7 +27,6 @@ public class OceanScreen : UIScreen
     public override void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
     {
         base.SetUp(document, clearScreen);
-
         _boatController = GameObject.Find("Boat").GetComponent<BoatController>();
     }
 
@@ -74,6 +74,7 @@ public class OceanScreen : UIScreen
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent -= OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent -= OnChangedDay;
+        _controllerUI.RemoveEvent();
     }
 
     public override void FindElement()
@@ -92,6 +93,9 @@ public class OceanScreen : UIScreen
 
         VisualElement boatDurabilityRoot = _root.Q<VisualElement>("boat-data");
         _boatDurability = new UIBoatFuel(boatDurabilityRoot, _boatDurabilityGradient, _boatController);
+
+        VisualElement controllerRoot = _root.Q<VisualElement>("boat-controller");
+        _controllerUI = new BoatControllerUI(controllerRoot, _boatController, 20f);
     }
 
     public void OnReduceBoatDurability(){
@@ -99,7 +103,7 @@ public class OceanScreen : UIScreen
     }
 
     private void OnChangedTime(int hour, int minute){
-        _timeText.text = $"{hour.ToString("D2")}:{minute.ToString("D2")}";
+        _timeText.text = $"{hour:D2}:{minute:D2}";
     }
 
     private void OnChangedDay(int year, int month, int day){
