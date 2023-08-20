@@ -1,3 +1,4 @@
+using Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,13 +17,15 @@ public class FishingChargingState : FishingState
     private float _powerDir = 1f;
 
     private Vector3 _currentDir;
-
+    private Vector3 offset;
     public override void SetUp(Transform agentRoot)
     {
         base.SetUp(agentRoot);
 
         _bobberTrm = agentRoot.Find("Bobber");
         _playerTrm = agentRoot;
+
+        offset = transform.position - Define.MainCam.transform.position;
     }
 
     public override void EnterState()
@@ -61,7 +64,7 @@ public class FishingChargingState : FishingState
     }
 
     private void Rotation(Vector3 target){
-        Vector3 currentFrontVec = _playerTrm.transform.forward;
+        /*Vector3 currentFrontVec = _playerTrm.transform.forward;
         float angle = Vector3.Angle(currentFrontVec, target);
 
         if(angle >= 10f){
@@ -72,6 +75,15 @@ public class FishingChargingState : FishingState
         }
         else{
             // ???Œì•„ê°”ì„ ?????¼ì¸???„ì§ ?†ìŒ
+        }*/
+        if (Define.MainCam.transform != null)
+        {
+            // Calculate the desired rotation for the object based on the camera's rotation.
+            Quaternion targetRotation = Quaternion.Euler(0f, Define.MainCam.transform.eulerAngles.y, 0f);
+
+            // Apply the target rotation and offset to the object's position.
+            _playerTrm.rotation = targetRotation;
+            //_playerTrm.position = Define.MainCam.transform.position + offset;
         }
     }   
 

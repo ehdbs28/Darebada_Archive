@@ -21,9 +21,7 @@ public class RotateCam : VCam
         _freelookCam.Follow = target;
         _freelookCam.LookAt = target;
 
-        // 이 함수는 주어진 범위 내에서 가장 가까운 위치로 이동시켜줌
-        
-        _freelookCam.ForceCameraPosition(camPos, camRot);
+        _freelookCam.ForceCameraPosition(camPos, camRot); // 이 함수는 주어진 범위 내에서 가장 가까운 위치로 이동시켜줌
     }
 
     public override void UpdateCam()
