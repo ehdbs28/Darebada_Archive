@@ -4,50 +4,22 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour, IManager
 {
-    private static SoundManager _instance;
-    public static SoundManager Instance // 최적화 배우며 쓰던거 가져옴
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType(typeof(SoundManager)) as SoundManager;
-                if (_instance == null)
-                {
-                    GameObject obj = new GameObject();
-                    _instance = obj.AddComponent<SoundManager>();
-                }
-            }
-
-            return _instance;
-        }
-    }
+    public AudioClip _uiClickSoundClip;
 
     AudioSource[] _audioSources = new AudioSource[(int)SoundEnum.SOUNDCOUNT]; // 매니저 하위로 오디오 소스(스피커) 생성할 친구들
 
     public void InitManager() // Awake
     {
-        if (_instance == null)
+        string[] soundNames = System.Enum.GetNames(typeof(SoundEnum));
+        for (int i = 0; i < soundNames.Length - 1; i++)
         {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-
-            string[] soundNames = System.Enum.GetNames(typeof(SoundEnum));
-            for (int i = 0; i < soundNames.Length - 1; i++)
-            {
-                GameObject go = new GameObject { name = soundNames[i] };
-                _audioSources[i] = go.AddComponent<AudioSource>();
-                _audioSources[i].playOnAwake = false;
-                go.transform.parent = this.transform;
-            }
-
-            _audioSources[(int)SoundEnum.BGM].loop = true;
+            GameObject go = new GameObject { name = soundNames[i] };
+            _audioSources[i] = go.AddComponent<AudioSource>();
+            _audioSources[i].playOnAwake = false;
+            go.transform.parent = this.transform;
         }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+
+        _audioSources[(int)SoundEnum.BGM].loop = true;   
     }
     public void ResetManager(){}
 
@@ -85,5 +57,10 @@ public class SoundManager : MonoBehaviour, IManager
             audioSource.clip = null;
             audioSource.Stop();
         }
+    }
+
+    public void ClickSound()
+    {
+        Play(_uiClickSoundClip, SoundEnum.EFFECT);
     }
 }

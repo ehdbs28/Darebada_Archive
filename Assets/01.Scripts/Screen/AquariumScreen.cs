@@ -20,19 +20,27 @@ public class AquariumScreen : UIScreen
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
 
+        _settingBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
+        });
+
         _letterBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Letter);
         });
 
         _dictionaryBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Dictionary);
         });
 
         _manageBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.AquariumManage);
         });
 
         _editorBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.AQUARIUM_EDIT);
             GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.AquariumEdit);
         });

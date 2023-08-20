@@ -18,14 +18,17 @@ public class ShopPopup : UIPopup
     public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             RemoveRoot();
         });
 
         _sellBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             _contents.style.right = new StyleLength(new Length(_sellContent.Index * 100, LengthUnit.Percent));
         });
 
         _buyBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             _contents.style.right = new StyleLength(new Length(_buyContent.Index * 100, LengthUnit.Percent));
         });
     }

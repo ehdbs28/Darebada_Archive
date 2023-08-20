@@ -20,16 +20,19 @@ public class BiomeSelectPopup : UIPopup
     public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             RemoveRoot();
         });
 
         _moveRightBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             _currentIndex = Mathf.Clamp(_currentIndex + 1, 0, _contents.childCount - 1);
             ChangeName((OceanType)_currentIndex);
             _contents.style.right = new StyleLength(new Length(_currentIndex * 100, LengthUnit.Percent));
         });
 
         _moveLeftBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             _currentIndex = Mathf.Clamp(_currentIndex - 1, 0, _contents.childCount - 1);
             ChangeName((OceanType)_currentIndex);
             _contents.style.right = new StyleLength(new Length(_currentIndex * 100, LengthUnit.Percent));

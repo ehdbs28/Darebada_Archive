@@ -23,20 +23,22 @@ public class AquariumEditScreen : UIScreen
         GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnClickHandle;
 
         _settingBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             //GameManager.Instance.GetManager<UIManager>().ShowPanel()
         });
 
         _backBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.PLAYER_FOLLOW);
             GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Aquarium);
         });
 
         _addTankBtn.RegisterCallback<ClickEvent>(e => {
-
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
         });
 
         _addPlantBtn.RegisterCallback<ClickEvent>(e => {
-
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
         });
     }
 

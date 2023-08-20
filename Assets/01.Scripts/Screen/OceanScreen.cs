@@ -50,22 +50,27 @@ public class OceanScreen : UIScreen
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
 
         _settingBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             Debug.Log("설정");
         });
 
         _gobackBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             Debug.Log("돌아가기");
         });
 
         _letterBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Letter);
         });
 
         _dictionaryBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Dictionary);
         });
 
         _inventoryBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Inventory);
         });
     }

@@ -10,6 +10,7 @@ public class AquariumManagePopup : UIPopup
     public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             RemoveRoot();
         });
     }

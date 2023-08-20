@@ -18,14 +18,17 @@ public class UpgradePopup : UIPopup
     public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             RemoveRoot();
         });
         
         _boatBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             _contents.style.right = new StyleLength(new Length(_boatUpgrade.Index * 100, LengthUnit.Percent));
         });
 
         _fishingBtn.RegisterCallback<ClickEvent>(e => {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             _contents.style.right = new StyleLength(new Length(_fishingUpgrade.Index * 100, LengthUnit.Percent));
         });
     }
