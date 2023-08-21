@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7450,7 +7450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4884017fb8cefc347a8f8e373e7d365a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _treeAsset: {fileID: 9197481963319205126, guid: 1f60cba19df2f7e4e8dda2b0c9f191bf, type: 3}
+  _treeAsset: {fileID: 9197481963319205126, guid: c9cfd393aedb0d14ebf8fbe12ad47d66, type: 3}
   _boatDurabilityGradient:
     serializedVersion: 2
     key0: {r: 0, g: 1, b: 0.43137255, a: 1}
@@ -8090,7 +8090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: 1c1c8e34c5d83f74cabf824287d4e77a, type: 3}
-  _unitTemplate: {fileID: 0}
+  _unitTemplate: {fileID: 9197481963319205126, guid: dd14a9e2a90663d44b629d666ae1dd88, type: 3}
 --- !u!114 &9157046241256461560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8139,6 +8139,7 @@ GameObject:
   - component: {fileID: 9157046241256461564}
   - component: {fileID: 9157046241256461565}
   - component: {fileID: 9157046241256461566}
+  - component: {fileID: 9157046241256461567}
   m_Layer: 0
   m_Name: Popups
   m_TagString: Untagged
@@ -8198,6 +8199,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: eb6a64d20b5f945229b9e98b323e73b2, type: 3}
+--- !u!114 &9157046241256461567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157046241256461562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f1eb061ac29484a874a7e5c1a3f359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _treeAsset: {fileID: 9197481963319205126, guid: a0fb64134b812a4458e3314f7df551f1, type: 3}
+  _currFacility: 0
 --- !u!1001 &9157046241337288318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8707,7 +8722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _poolingTrm: {fileID: 754774583}
   _poolingList: {fileID: 11400000, guid: 57e991df2432a8b46b588910f77011fb, type: 2}
-  _startSceneType: 2
+  _startSceneType: 0
 --- !u!114 &9157046241563192771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9680,6 +9695,7 @@ GameObject:
   - component: {fileID: 9157046241920230010}
   - component: {fileID: 9157046241920230008}
   - component: {fileID: 9157046241920230009}
+  - component: {fileID: 9157046241920230012}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -9687,6 +9703,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9157046241920230012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157046241920230011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07f4035df9b43748aba5419e7c8a3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Board_Size_X: 7
+  Board_Size_Y: 8
+  destX: ffffffff010000000000000000000000
+  destY: 0000000000000000ffffffff01000000
 --- !u!1001 &9157046241965599682
 PrefabInstance:
   m_ObjectHideFlags: 0

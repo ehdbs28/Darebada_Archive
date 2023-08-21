@@ -26,8 +26,9 @@ public class MainSceneObjectManager : MonoBehaviour
         }
     }
 
-    public void SetPopup(int type){
+    public void SetPopup(int type, int popupNum, bool isPopup){
         GameManager.Instance.GetManager<UIManager>().ShowPanel((PopupType)type);
+        ((FacilityEntryPopup)GameManager.Instance.GetManager<UIManager>().GetPanel((PopupType)type))._currFacility = popupNum;
     }
 
     public void ChangeScene(int type){

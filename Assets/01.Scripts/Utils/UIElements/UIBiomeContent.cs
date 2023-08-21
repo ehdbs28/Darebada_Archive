@@ -36,7 +36,7 @@ public class UIBiomeContent
 
     private void AddEvent(){
         _movetoBtn.RegisterCallback<ClickEvent>(e => {
-            GameManager.Instance.GetManager<GameSceneManager>().ChangeScene(GameSceneType.Ocean);
+            //GameManager.Instance.GetManager<GameSceneManager>().ChangeScene(GameSceneType.Ocean);
         });
     }
 }

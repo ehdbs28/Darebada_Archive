@@ -3,8 +3,8 @@
     height: 100%;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 60px;
+    padding-bottom: 50px;
 }
 
 #header-container {
@@ -25,6 +25,7 @@
     justify-content: flex-end;
     flex-grow: 1;
     flex-shrink: 0;
+    padding-top: 5%;
 }
 
 .btn {
@@ -42,8 +43,8 @@
 }
 
 .btn > #icon-image {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     -unity-background-image-tint-color: rgb(255, 255, 255);
     transition-property: -unity-background-image-tint-color;
     transition-duration: 0.3s;
@@ -52,8 +53,14 @@
 
 .btn > #btn-text {
     bottom: -10px;
-    font-size: 25px;
+    font-size: 30px;
     position: absolute;
+    -unity-text-outline-width: 0.6px;
+    text-shadow: 1px 2.2px 0 rgb(0, 0, 0);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    -unity-text-align: upper-center;
 }
 
 .text {
@@ -64,5 +71,4 @@
 }
 
 .interaction-btn {
-    
 }

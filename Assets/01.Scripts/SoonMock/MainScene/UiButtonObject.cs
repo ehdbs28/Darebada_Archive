@@ -7,11 +7,20 @@ using UnityEngine.UI;
 
 public class UiButtonObject : MonoBehaviour, IButtonObject
 {
-    public UnityEvent OnTouchEvent = null; 
+    [SerializeField]
+    private MainSceneObjectManager _manager;
+
+    [SerializeField]
+    private int type;
+
+    [SerializeField]
+    private int popupNum;
+
+    [SerializeField]
+    private bool _isPopup;
 
     public void OnTouch()
     {
-        OnTouchEvent?.Invoke();
+        _manager.SetPopup(type, popupNum, _isPopup);
     }
-    
 }

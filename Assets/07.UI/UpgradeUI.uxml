@@ -4,23 +4,23 @@
     <Style src="project://database/Assets/07.UI/LetterUI.uss?fileID=7433441132597879392&amp;guid=0ff408542c843224b959d6961bacb71f&amp;type=3#LetterUI" />
     <Style src="project://database/Assets/07.UI/ShopUI.uss?fileID=7433441132597879392&amp;guid=117492bc78fab3f4aa683150d95bda77&amp;type=3#ShopUI" />
     <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
-    <ui:VisualElement name="shop-container" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.2); position: absolute;">
-        <ui:VisualElement name="header" style="flex-basis: 5.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0;">
+    <ui:VisualElement name="shop-container" style="width: 70%; height: 60%; background-color: rgba(255, 255, 255, 0.2); position: absolute; left: 15%; top: 20%;">
+        <ui:VisualElement name="header" style="flex-basis: 5.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0; background-color: rgba(0, 0, 0, 0.94);">
             <ui:VisualElement name="exit-btn" style="width: 45px; height: 45px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); position: absolute; right: 30px;" />
             <ui:Label text="정비소" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 50px; position: absolute; color: rgb(255, 255, 255);" />
         </ui:VisualElement>
-        <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.2);">
-            <ui:VisualElement name="menu-selecter" style="flex-basis: 8%; flex-direction: row; align-items: center; justify-content: center; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Middle)%20Icon.png?fileID=21300000&amp;guid=c0c6236a6ab80ef4a976fb36399ec076&amp;type=3#Free Flat Gradient Horizontal (Middle) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 40px; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); border-bottom-width: 2px; border-top-width: 2px;">
-                <ui:VisualElement name="boat-btn" style="flex-basis: 50%; margin-right: 50px; margin-left: 50px; height: 100%; justify-content: center;">
-                    <ui:Label text="조선소" display-tooltip-when-elided="true" name="boat-text" class="text" style="font-size: 40px; -unity-text-align: middle-right;" />
+        <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.24);">
+            <ui:VisualElement name="menu-selecter" style="flex-basis: 6%; flex-direction: row; align-items: center; justify-content: center; -unity-background-image-tint-color: rgba(0, 0, 0, 0.9); margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 40px; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); border-bottom-width: 2px; border-top-width: 2px; background-color: rgba(0, 0, 0, 0.78); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                <ui:VisualElement name="boat-btn" style="flex-basis: 50%; height: 70%; justify-content: center; background-color: rgba(0, 0, 0, 0.78);">
+                    <ui:Label text="조선소" display-tooltip-when-elided="true" name="boat-text" class="text" style="font-size: 35px; -unity-text-align: middle-center;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="line" style="width: 3px; height: 70px; background-color: rgb(255, 255, 255);" />
-                <ui:VisualElement name="fishing-btn" style="flex-basis: 50%; margin-right: 50px; margin-left: 50px; height: 100%; justify-content: center;">
-                    <ui:Label text="낚시용품점" display-tooltip-when-elided="true" name="fishing-text" class="text" style="font-size: 40px; -unity-text-align: middle-left;" />
+                <ui:VisualElement name="fishing-btn" style="flex-basis: 50%; height: 100%; justify-content: center; background-color: rgba(0, 0, 0, 0.78);">
+                    <ui:Label text="낚시용품점" display-tooltip-when-elided="true" name="fishing-text" class="text" style="font-size: 35px; -unity-text-align: middle-center;" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden;">
-                <ui:VisualElement name="contents" style="flex-direction: row; width: 200%; height: 100%; right: 0;">
+                <ui:VisualElement name="contents" style="flex-direction: row-reverse; width: 200%; height: 100%; right: 0;">
                     <ui:VisualElement name="boat-content" style="height: 100%; width: 50%; align-items: center;">
                         <ui:VisualElement name="gold-content" style="width: 100%; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Middle)%20Icon.png?fileID=21300000&amp;guid=c0c6236a6ab80ef4a976fb36399ec076&amp;type=3#Free Flat Gradient Horizontal (Middle) Icon&apos;); -unity-background-image-tint-color: rgba(0, 0, 0, 0.78); margin-bottom: 20px; flex-direction: row; align-items: center; justify-content: center; flex-basis: 5%; flex-shrink: 0;">
                             <ui:VisualElement name="gold-image" style="width: 50px; height: 50px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
@@ -28,7 +28,7 @@
                         </ui:VisualElement>
                         <ui:ScrollView name="boat-items" style="width: 100%;">
                             <ui:VisualElement name="boat_1" class="boat-item" style="height: 700px;">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
+                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: none; -unity-background-image-tint-color: rgb(0, 0, 0); border-top-left-radius: 10px; border-top-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0; background-color: rgba(0, 0, 0, 0.78);">
                                     <ui:Label text="초보용 보트" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
@@ -67,7 +67,7 @@
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="boat_2" class="boat-item" style="height: 700px;">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
+                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: none; -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-top-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0; background-color: rgba(0, 0, 0, 0.78);">
                                     <ui:Label text="스피드 보트" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
@@ -106,7 +106,7 @@
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="boat_3" class="boat-item" style="height: 700px;">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
+                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: none; -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-top-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0; background-color: rgba(0, 0, 0, 0.78);">
                                     <ui:Label text="중견 보트" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
@@ -145,7 +145,7 @@
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="boat_4" class="boat-item" style="height: 700px;">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
+                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: none; -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-top-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0; background-color: rgba(0, 0, 0, 0.78);">
                                     <ui:Label text="최고급 보트" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
@@ -184,7 +184,7 @@
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="boat_5" class="boat-item" style="height: 700px;">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
+                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: none; -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-top-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0; background-color: rgba(0, 0, 0, 0.78);">
                                     <ui:Label text="전설의 보트" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
@@ -225,17 +225,13 @@
                         </ui:ScrollView>
                     </ui:VisualElement>
                     <ui:VisualElement name="fishing-content" style="width: 50%; height: 100%;">
-                        <ui:VisualElement name="gold-content" style="width: 100%; flex-basis: 5%; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Middle)%20Icon.png?fileID=21300000&amp;guid=c0c6236a6ab80ef4a976fb36399ec076&amp;type=3#Free Flat Gradient Horizontal (Middle) Icon&apos;); -unity-background-image-tint-color: rgba(0, 0, 0, 0.78); margin-bottom: 20px; flex-direction: row; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <ui:VisualElement name="gold-image" style="width: 50px; height: 50px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
-                            <ui:Label text="1,418 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 30px; left: -25px;" />
-                        </ui:VisualElement>
                         <ui:VisualElement name="upgrade-items" style="flex-grow: 1;">
                             <ui:VisualElement name="max-power" class="fishing-item">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
-                                    <ui:Label text="낚싯대" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
+                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: none; -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-top-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 70px; flex-shrink: 0; background-color: rgba(0, 0, 0, 0.78);">
+                                    <ui:Label text="낚싯대" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 35px;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
-                                    <ui:VisualElement name="fishing-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Fishing-rod.png?fileID=21300000&amp;guid=f7e5fb72670dbdc4ea71c359ad0f1d6f&amp;type=3#Fishing-rod&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="fishing-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Fishing-rod.png?fileID=21300000&amp;guid=f7e5fb72670dbdc4ea71c359ad0f1d6f&amp;type=3#Fishing-rod&apos;); margin-right: 30px;" />
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
                                         <ui:Label text="Lv 18" display-tooltip-when-elided="true" name="level" class="text" style="font-size: 45px;" />
                                         <ui:VisualElement name="value-box" class="performance-graph" style="height: 75px; margin-top: 20px;">
@@ -255,11 +251,11 @@
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="max-length" class="fishing-item">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
-                                    <ui:Label text="릴" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
+                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: none; -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-top-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 70px; flex-shrink: 0; background-color: rgba(0, 0, 0, 0.78);">
+                                    <ui:Label text="릴" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 35px;" />
                                 </ui:VisualElement>
-                                <ui:VisualElement name="info" style="flex-basis: 70%;">
-                                    <ui:VisualElement name="fishing-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Fishing-reel.png?fileID=21300000&amp;guid=a3458b45071e89d4b830abafe96d68df&amp;type=3#Fishing-reel&apos;); margin-right: 30px;" />
+                                <ui:VisualElement name="info">
+                                    <ui:VisualElement name="fishing-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Fishing-reel.png?fileID=21300000&amp;guid=a3458b45071e89d4b830abafe96d68df&amp;type=3#Fishing-reel&apos;); margin-right: 30px;" />
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
                                         <ui:Label text="Lv 20" display-tooltip-when-elided="true" name="level" class="text" style="font-size: 45px;" />
                                         <ui:VisualElement name="value-box" class="performance-graph" style="height: 75px; margin-top: 20px;">
@@ -279,11 +275,11 @@
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="max-power" class="fishing-item">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
-                                    <ui:Label text="낚싯줄" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
+                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: none; -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-top-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 70px; flex-shrink: 0; background-color: rgba(0, 0, 0, 0.78);">
+                                    <ui:Label text="낚싯줄" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 35px;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
-                                    <ui:VisualElement name="fishing-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Fishing-string.png?fileID=21300000&amp;guid=62776454d24056943b0ed92406d2c7ee&amp;type=3#Fishing-string&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="fishing-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Fishing-string.png?fileID=21300000&amp;guid=62776454d24056943b0ed92406d2c7ee&amp;type=3#Fishing-string&apos;); margin-right: 30px;" />
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
                                         <ui:Label text="Lv 16" display-tooltip-when-elided="true" name="level" class="text" style="font-size: 45px;" />
                                         <ui:VisualElement name="value-box" class="performance-graph" style="height: 75px; margin-top: 20px;">
