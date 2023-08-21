@@ -5,6 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour, IManager
 {
     public AudioClip _uiClickSoundClip;
+    public AudioClip _playerThrowingSoundClip;
 
     AudioSource[] _audioSources = new AudioSource[(int)SoundEnum.SOUNDCOUNT]; // 매니저 하위로 오디오 소스(스피커) 생성할 친구들
 
