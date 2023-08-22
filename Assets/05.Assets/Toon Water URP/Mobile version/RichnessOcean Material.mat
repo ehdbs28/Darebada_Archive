@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RainyOceanMaterial
+  m_Name: RichnessOcean Material
   m_Shader: {fileID: -6465566751694194690, guid: 550017bf155e702489e4eee4d320ebeb, type: 3}
   m_ValidKeywords:
   - BOOLEAN_A060AF44_ON
@@ -85,12 +85,12 @@ Material:
     - Vector1_301E02E2: 0
     - Vector1_31894ABB: 0.0021
     - Vector1_45F25267: 49.5
-    - Vector1_7AF1AC78: 0.521
-    - Vector1_854A7D8C: 1.95
+    - Vector1_7AF1AC78: 0.765
+    - Vector1_854A7D8C: 0.04
     - Vector1_9C73072A: 1
     - Vector1_A524D234: 0.288
-    - Vector1_B9CC1720: 0.214
-    - Vector1_E71BB35E: 1
+    - Vector1_B9CC1720: 0.178
+    - Vector1_E71BB35E: 0.84
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -114,10 +114,10 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_1139F668: {r: 0.028346388, g: 0.106925644, b: 0.122641504, a: 0.83137256}
-    - Color_198818EE: {r: 0.00978996, g: 0.037475184, b: 0.18867922, a: 1}
+    - Color_1139F668: {r: 0, g: 0.15723267, b: 0.18867922, a: 0.83137256}
+    - Color_198818EE: {r: 0.038848355, g: 0.06527575, b: 0.084905684, a: 0.7019608}
     - Color_626750DD: {r: 1.5720086, g: 2.2671144, b: 2.1395411, a: 1}
-    - Color_77A2EDE9: {r: 0, g: 0, b: 0, a: 0.05490196}
+    - Color_77A2EDE9: {r: 0, g: 0.4241565, b: 0.764151, a: 0.36862746}
     - Vector2_1E1B6943: {r: 1, g: 5, b: 0, a: 0}
     - Vector2_D06E76BC: {r: 0.1, g: 0.05, b: 0, a: 0}
     - Vector2_D26C9C89: {r: 3, g: 0, b: 0, a: 0}
