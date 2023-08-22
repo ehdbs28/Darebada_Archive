@@ -25,6 +25,7 @@ public class CutSceneManager : MonoBehaviour
     
     IEnumerator FadeOut(float time)
     {
+        progressState = ProgressState.READY;
         _onCor = true;
         float a = 1/time * Time.deltaTime;
         Color cor = new Color(0,0,0,a);
@@ -35,9 +36,11 @@ public class CutSceneManager : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
         }
         _onCor = false;
+        progressState = ProgressState.TOUCHABLE;
     }
     IEnumerator FadeIn(float time)
     {
+        progressState = ProgressState.READY;
         _onCor = true;
         float a = 1/time * Time.deltaTime;
         Color cor = new Color(0,0,0,a);
@@ -49,9 +52,11 @@ public class CutSceneManager : MonoBehaviour
         }
 
         _onCor = false;
+        progressState = ProgressState.TOUCHABLE;
     }
     IEnumerator ScrollUp(float time)
     {
+        progressState = ProgressState.READY;
         _onCor = true;
         float a = 1924/time * Time.deltaTime;
         while(true)
@@ -61,11 +66,12 @@ public class CutSceneManager : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
         }
         _onCor = false;
+        progressState = ProgressState.TOUCHABLE;
     }
     public IEnumerator ShowNext()
     {
         Debug.Log("Asdf");
-        if(_currentImage != cutSceneImages.Count-1)
+        if(_currentImage != cutSceneImages.Count-2)
         {
             yield return StartCoroutine(FadeOut(1));
             _currentImage++;
@@ -75,14 +81,25 @@ public class CutSceneManager : MonoBehaviour
         {
             StartCoroutine(ScrollUp(1));
             isScrolled= true;
-        }else
+        }else if (_currentImage == cutSceneImages.Count-1) 
         {
             SetStart();
+        }else
+        {
+            yield return StartCoroutine(FadeOut(1));
+            _currentImage++;
+            cutSceneImage.sprite = cutSceneImages[_currentImage];
+            StartCoroutine(FadeIn(1));
+
         }
+
     }
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))StartCoroutine(ShowNext());
+        if (Input.GetMouseButtonDown(0) && progressState == ProgressState.TOUCHABLE)
+        {
+            StartCoroutine(ShowNext());
+        }
     }
     public void SetStart()
     {
