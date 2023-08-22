@@ -64,6 +64,10 @@ public class FishingReelUpState : FishingState
 
         if(_pointCnt <= 0){
             Debug.Log("낚시 성공");
+            PoolableParticle particle = GameManager.Instance.GetManager<PoolManager>().Pop("WaterSplashParticle") as PoolableParticle;
+            particle.SetPositionAndRotation(_bobberTrm.position, Quaternion.identity);
+            particle.Play();
+            
             _controller.ActionData.IsFishing = false;
             _controller.ActionData.IsUnderWater = false;
 
