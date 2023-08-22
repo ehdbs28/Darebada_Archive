@@ -25,7 +25,7 @@ public class PoolableParticle : PoolableMono
         _particleSystem.Play();
         yield return new WaitForSeconds(_particleSystem.main.duration + 0.5f);
         _particleSystem.Stop();
-        GameManager.Instance.GetComponent<PoolManager>().Push(this);
+        GameManager.Instance.GetManager<PoolManager>().Push(this);
     }
     
     public override void Init()

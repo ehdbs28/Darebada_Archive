@@ -42,8 +42,6 @@ public class FishingCatchingState : FishingState
         _start = _bobberTrm.position;
         _end = _start + _controller.ActionData.LastThrowDirection.normalized; 
 
-        _lenght = _stringLength - _controller.ActionData.LastChargingPower * 10 / _controller.DataSO.MaxChargingPower + 1; 
-        
         _end.y = -_lenght;
 
         _throwTime = Mathf.Max(0.3f, Vector3.Distance(_start, _end)) / _controller.DataSO.ThrowingSpeed;
