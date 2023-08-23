@@ -18,24 +18,12 @@ public class GameSceneManager : IManager
             _activeScene.ExitScene();
             GameManager.Instance.GetManager<PoolManager>().Push(_activeScene);   
         }
-        if (!LoadingManager.instance._isLoading && LoadingManager.instance._isStart)
-        {
-            LoadingManager.instance.LoadingEndGoScene = next;
-            LoadingManager.instance._isLoading = true;
-            LoadingManager.instance._loadingSceneStayTime = Random.Range(5f, 20f);
-            SceneManager.LoadScene(1); // 
-            return;
-        }
 
-
-        next = LoadingManager.instance.LoadingEndGoScene;
-            GameManager.print("hereo");
+        LoadingManager.instance.OnLoading(next);
 
         _activeScene = GameManager.Instance.GetManager<PoolManager>().Pop($"{next}Scene") as GameScene;
         GameManager.Instance.GetManager<SoundManager>().Stop();
         _activeScene?.EnterScene();
-
-        LoadingManager.instance._isStart = true;
 
         if (next != GameSceneType.Ocean)
         {
