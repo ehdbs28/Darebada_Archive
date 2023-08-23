@@ -2046,6 +2046,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _endPos: {fileID: 1262622554743403598}
+  _jumpUpHeight: 5
+  _rotateSpeedX: 30
+  _rotateSpeedZ: 150
 --- !u!1001 &4013939299256085578
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,7 +13,6 @@ public class FishingCatchingState : FishingState
     private Vector3 _end;
 
     private float _stringLength => _controller.DataSO.StringLength;
-    private float _lenght;
 
     private float _throwTime;
     private float _currentTime = 0f;
@@ -24,7 +23,7 @@ public class FishingCatchingState : FishingState
         }
         set{
             _percent = value;
-            (GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.Fishing) as FishingScreen).SetHeight(_percent, _percent * _lenght);
+            (GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.Fishing) as FishingScreen).SetHeight(_percent, _percent * _stringLength);
         }
     }
 
@@ -42,7 +41,7 @@ public class FishingCatchingState : FishingState
         _start = _bobberTrm.position;
         _end = _start + _controller.ActionData.LastThrowDirection.normalized; 
 
-        _end.y = -_lenght;
+        _end.y = -_stringLength;
 
         _throwTime = Mathf.Max(0.3f, Vector3.Distance(_start, _end)) / _controller.DataSO.ThrowingSpeed;
         _currentTime = 0f;
