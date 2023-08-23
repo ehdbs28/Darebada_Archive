@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameSceneType _startSceneType;
+    public GameSceneType StartSceneType
+    {
+        get { return _startSceneType; } 
+        set { _startSceneType = value; }
+    }
 
     private void Awake() {
         if(Instance != null){
@@ -36,7 +41,9 @@ public class GameManager : MonoBehaviour
     }   
 
     private void Start() {
+        
         GetManager<GameSceneManager>().ChangeScene(_startSceneType);
+        
         StartCoroutine(AutoSave(_autoSaveDelay));
     }
 

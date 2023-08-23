@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgb(0, 0, 0); align-items: center; justify-content: center;">
+        <ui:VisualElement name="LoadingImage" style="justify-content: flex-start; flex-grow: 0; align-items: stretch; width: 200px; height: 200px; background-image: url(&apos;project://database/Assets/05.Assets/Junho/LoadingImage.png?fileID=-52030161&amp;guid=ab77d20bb918df84d82d769ab5c9e15c&amp;type=3#LoadingImage_0&apos;); -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; transform-origin: center;" />
+        <ui:Label text="Loading..." display-tooltip-when-elided="true" name="LoadingTxt" style="font-size: 70px; -unity-font-definition: url(&apos;project://database/Assets/08.Fonts/ChosunSg%20SDF.asset?fileID=11400000&amp;guid=4760111a33bf49246b70c208541fdf41&amp;type=2#ChosunSg SDF&apos;); top: 30px; left: 20px; -unity-font-style: bold; color: rgb(255, 255, 255);" />
+    </ui:VisualElement>
+</ui:UXML>
