@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4660360117353114619
+--- !u!114 &-2989810321528489819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17,7 +17,7 @@ MonoBehaviour:
     passTag: RenderObjects
     Event: 500
     filterSettings:
-      RenderQueueType: 1
+      RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
         m_Bits: 268435456
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: Outlines
-    Event: 400
+    Event: 500
     filterSettings:
       RenderQueueType: 0
       LayerMask:
@@ -64,7 +64,7 @@ MonoBehaviour:
     overrideMaterial: {fileID: 2100000, guid: 45aa1155cdc7b4e4583dbe40d135b7a2, type: 2}
     overrideMaterialPassIndex: 0
     overrideDepthState: 1
-    depthCompareFunction: 2
+    depthCompareFunction: 4
     enableWrite: 0
     stencilSettings:
       overrideStencilState: 0
@@ -94,8 +94,8 @@ MonoBehaviour:
     debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7, type: 3}
   m_RendererFeatures:
   - {fileID: -2041162889618140439}
-  - {fileID: -4660360117353114619}
-  m_RendererFeatureMap: e9d2999b2a55ace30514c5372a1353bf
+  - {fileID: -2989810321528489819}
+  m_RendererFeatureMap: e9d2999b2a55ace3a5787f6f5a0f82d6
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
