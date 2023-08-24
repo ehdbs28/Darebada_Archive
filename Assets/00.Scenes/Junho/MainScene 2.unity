@@ -951,7 +951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiClickSoundClip: {fileID: 8300000, guid: 80d3799791748ac42b3ec097c17a2383, type: 3}
-  _playerThrowingSoundClip: {fileID: 0}
+  _playerThrowingSoundClip: {fileID: 8300000, guid: 38a4d267a171b754483f5ea9e34707bf, type: 3}
 --- !u!82 &1124670282
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6557,10 +6557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b189e864d7e2884a92c3380e4a62c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotSpeed: 1
-  _delayPer: 40
-  _isLoading: 0
-  _isStart: 0
 --- !u!1 &1868393485 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 09062dc0008857b46aaacdb7206f1453, type: 3}
