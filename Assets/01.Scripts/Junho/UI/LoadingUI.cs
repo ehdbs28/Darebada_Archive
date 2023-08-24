@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadingUI : MonoBehaviour
+public class LoadingUI : PoolableMono
 {
     public float _rotSpeed;
     public int _delayPer;
@@ -23,7 +23,8 @@ public class LoadingUI : MonoBehaviour
         _loadingTxt = FindObjectOfType<TextMeshProUGUI>();
     }
 
-    private void Start()
+
+    private void OnEnable()
     {
         _loadingSceneStayTime = Random.Range(5f, 20f);
         LoadingManager.instance.SetLoading(true);
@@ -40,6 +41,8 @@ public class LoadingUI : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
+
+    public override void Init(){}
 
     IEnumerator LoadingImgCo()
     {
@@ -79,4 +82,5 @@ public class LoadingUI : MonoBehaviour
             }
         }
     }
+
 }

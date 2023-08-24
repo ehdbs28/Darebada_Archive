@@ -64,7 +64,7 @@ public class LoadingManager : MonoBehaviour
         if (!_isLoading && _isStart)
         {
             _loadingEndGoScene = moveSceneType;
-            SceneManager.LoadScene(1); // ¹Ù²ã¾ßÇÔ
+            SceneManager.LoadScene(1);
             return;
         }
 
