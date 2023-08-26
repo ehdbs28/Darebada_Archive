@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadingUI : PoolableMono
+public class LoadingUI : MonoBehaviour
 {
     public float _rotSpeed;
     public int _delayPer;
@@ -14,20 +14,17 @@ public class LoadingUI : PoolableMono
     private float _delay;
     private float time;
 
-    private Image _loadingImage;
-    private TextMeshProUGUI _loadingTxt;
-
-    private void Awake()
-    {
-        _loadingImage = GameObject.Find("LoadingImage").GetComponent<Image>();
-        _loadingTxt = FindObjectOfType<TextMeshProUGUI>();
-    }
+    [SerializeField] private Image _loadingImage;
+    [SerializeField] private TextMeshProUGUI _loadingTxt;
 
 
     private void OnEnable()
-    {
-        _loadingSceneStayTime = Random.Range(5f, 20f);
-        LoadingManager.instance.SetLoading(true);
+    {   
+        _loadingSceneStayTime = Random.Range(2f, 5f);
+        if (GameManager.Instance.GetManager<LoadingManager>().IsStart)
+        {
+            GameManager.Instance.GetManager<LoadingManager>().IsLoading = true;
+        }
 
         StartCoroutine(LoadingImgCo());
         StartCoroutine(LoadingTxtCo());
@@ -35,14 +32,13 @@ public class LoadingUI : PoolableMono
 
     private void Update()
     {
-        time += Time.deltaTime;
+        time += Time.deltaTime; 
         if (time > _loadingSceneStayTime)
         {
-            SceneManager.LoadScene(0);
+            GameManager.Instance.GetManager<GameSceneManager>().ChangeScene(GameManager.Instance.GetManager<LoadingManager>().next);
+            GameManager.Instance.GetManager<LoadingManager>().IsLoading = false;
         }
     }
-
-    public override void Init(){}
 
     IEnumerator LoadingImgCo()
     {
@@ -60,7 +56,6 @@ public class LoadingUI : PoolableMono
             }
         }
     }
-
     IEnumerator LoadingTxtCo()
     {
         while (true)

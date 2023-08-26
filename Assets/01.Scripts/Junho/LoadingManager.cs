@@ -6,73 +6,35 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadingManager : MonoBehaviour
+public class LoadingManager : IManager
 {
-    private static LoadingManager _instance;
-    public static LoadingManager instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType(typeof(LoadingManager)) as LoadingManager;
-                if (_instance == null)
-                {
-                    GameObject obj = new GameObject();
-                    _instance = obj.AddComponent<LoadingManager>();
-                }
-            }
-
-            return _instance;
-        }
-    }
-
     private bool _isLoading = false;
+    public bool IsLoading 
+    {
+        get { return _isLoading; }
+        set { _isLoading = value; }
+    }
+
     private bool _isStart = false;
-    
-    private GameSceneType _loadingEndGoScene;
-    public GameSceneType LoadingEndGoScene
-    {
-        get { return _loadingEndGoScene; }
-        set { _loadingEndGoScene = value; }
-    }
+    public bool IsStart => _isStart;
 
-    private void Awake()
-    {
-        if (_instance == null)
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-    }
+    public GameSceneType next;
 
-    private void Start()
-    {
-        if (!_isStart)
-        {
-            _loadingEndGoScene = GameSceneType.Camp;
-        }
-    }
-
-    public void OnLoading(GameSceneType moveSceneType)
+    public GameSceneType OnLoading(GameSceneType moveSceneType)
     {
         if (!_isLoading && _isStart)
         {
-            _loadingEndGoScene = moveSceneType;
-            SceneManager.LoadScene(1);
-            return;
+            next = moveSceneType;
+            return GameSceneType.Loading;
         }
-
-        _isStart = true;
+        else
+        {
+            _isStart = true;
+            return moveSceneType;
+        }
     }
 
-    public void SetLoading(bool value)
-    {
-        _isLoading = value;
-    }
+    public void ResetManager(){}
+    public void InitManager(){}
+    public void UpdateManager(){}
 }

@@ -36,13 +36,8 @@ public class GameManager : MonoBehaviour
     }   
 
     private void Start() {
-        _startSceneType = LoadingManager.instance.LoadingEndGoScene;
-
         GetManager<GameSceneManager>().ChangeScene(_startSceneType);
         StartCoroutine(AutoSave(_autoSaveDelay));
-
-        LoadingManager.instance.SetLoading(false);
-
     }
 
     private void Update() {
@@ -77,6 +72,7 @@ public class GameManager : MonoBehaviour
         _managers.Add(new ShopManager());
         _managers.Add(new PoolManager(_poolingTrm));
         _managers.Add(new InventoryManager());
+        _managers.Add(new LoadingManager());
         _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
     }
 
