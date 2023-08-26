@@ -10,7 +10,11 @@ public class BoatController : ModuleController
     
     [SerializeField]
     private BoatDataUnit _curBoatData;
-    public BoatDataUnit CurBoatData => _curBoatData;
+    public BoatDataUnit CurBoatData
+    {
+        get => _curBoatData;
+        set => _curBoatData = value;
+    }
 
     public BoatData BoatData => GameManager.Instance.GetManager<DataManager>().GetData(DataType.BoatData) as BoatData;
 

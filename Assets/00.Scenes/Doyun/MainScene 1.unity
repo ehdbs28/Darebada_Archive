@@ -8877,6 +8877,7 @@ GameObject:
   - component: {fileID: 9157046241563192785}
   - component: {fileID: 9157046241563192786}
   - component: {fileID: 9157046241563192787}
+  - component: {fileID: 9157046241563192788}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8959,6 +8960,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Fishes: []
   spawnRange: 0
+--- !u!114 &9157046241563192788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157046241563192774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bcc496d6ffd39441861e927b52f094b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentBoatData:
+    Name: 
+    Id: 0
+    Price: 0
+    Visual:
+      VisualMesh: {fileID: 0}
+      MainMat: {fileID: 0}
+    MaxSpeed: 0
+    ForwardAcceleration: 0
+    BackwardAcceleration: 0
+    Deceleration: 0
+    RotationSpeed: 0
+    RotationAcceleration: 0
+    RotationDeceleration: 0
+    MaxFuel: 0
 --- !u!1001 &9157046241592702456
 PrefabInstance:
   m_ObjectHideFlags: 0

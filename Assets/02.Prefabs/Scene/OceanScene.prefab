@@ -197,6 +197,7 @@ MonoBehaviour:
   - {fileID: 927514069873974759}
   - {fileID: 2833075786583418354}
   - {fileID: 2030227496417458690}
+  _boatController: {fileID: 4013939298695840645}
 --- !u!1 &1061893808400436551
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         _managers.Add(new FishingUpgradeManager());
         _managers.Add(new SeleteItemManager());
         _managers.Add(GetComponent<MiniGameManager>());
-        _managers.Add(new BoatManager());
+        _managers.Add(GetComponent<BoatManager>());
         _managers.Add(new OceanManager());
         _managers.Add(GetComponent<BoidsManager>());
         _managers.Add(GetComponent<LetterManager>());
