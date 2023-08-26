@@ -6282,6 +6282,7 @@ GameObject:
   - component: {fileID: 1077399640900639504}
   - component: {fileID: 6228326170253213365}
   - component: {fileID: 7894726203665741628}
+  - component: {fileID: 5369046039329237271}
   m_Layer: 0
   m_Name: CampScene
   m_TagString: Untagged
@@ -6365,12 +6366,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5369046039329237271}
+        m_TargetAssemblyTypeName: CampSubManager, Assembly-CSharp
+        m_MethodName: EnterSceneEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnExitScene:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7894726203665741628}
         m_TargetAssemblyTypeName: MainSceneObjectManager, Assembly-CSharp
         m_MethodName: RemoveEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5369046039329237271}
+        m_TargetAssemblyTypeName: CampSubManager, Assembly-CSharp
+        m_MethodName: ExitSceneEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6395,6 +6420,20 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &5369046039329237271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512607421203629122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0778d16fbc9d540d68dbed5d1f8455e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boatMeshFilter: {fileID: 4815006647474743174}
+  _boatMeshRenderer: {fileID: 7293192847739622220}
 --- !u!1 &4725594184097183673
 GameObject:
   m_ObjectHideFlags: 0
@@ -28348,6 +28387,16 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1174758139691415659, guid: e0ea2e8e103e1c24fbbe4d56ca38a850, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e0ea2e8e103e1c24fbbe4d56ca38a850, type: 3}
+--- !u!33 &4815006647474743174 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 1092765065771423419, guid: e0ea2e8e103e1c24fbbe4d56ca38a850, type: 3}
+  m_PrefabInstance: {fileID: 5618274625602679101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7293192847739622220 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2940497889565336177, guid: e0ea2e8e103e1c24fbbe4d56ca38a850, type: 3}
+  m_PrefabInstance: {fileID: 5618274625602679101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8466077483348748323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4072823740114409758, guid: e0ea2e8e103e1c24fbbe4d56ca38a850, type: 3}

@@ -43,7 +43,6 @@ public class BoatMovementModule : CommonModule<BoatController>
     }
 
     public void SetMovementValue(float value){
-        Debug.Log(value);
         _inputDir = value;
     }
 

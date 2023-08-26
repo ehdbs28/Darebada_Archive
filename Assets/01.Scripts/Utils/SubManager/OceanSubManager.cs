@@ -18,7 +18,7 @@ public class OceanSubManager : MonoBehaviour
             GameManager.Instance.GetManager<OceanManager>().BoundColliders = _bounds;
         }
 
-        _boatController.CurBoatData = GameManager.Instance.GetManager<BoatManager>().CurrentBoatData;
+        _boatController.SetBoat(GameManager.Instance.GetManager<BoatManager>().CurrentBoatData);
             
         GameManager.Instance.GetManager<OceanManager>().GenerateOcean();
         GameManager.Instance.GetManager<OceanManager>().GenerateFish();

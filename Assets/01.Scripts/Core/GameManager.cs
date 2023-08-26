@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
 
     private List<IManager> _managers;
-
+    public List<IManager> Managers => _managers;
+    
     [SerializeField]
     private const float _autoSaveDelay = 3f;
 

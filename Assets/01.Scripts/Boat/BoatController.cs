@@ -10,17 +10,18 @@ public class BoatController : ModuleController
     
     [SerializeField]
     private BoatDataUnit _curBoatData;
-    public BoatDataUnit CurBoatData
-    {
-        get => _curBoatData;
-        set => _curBoatData = value;
-    }
+    public BoatDataUnit CurBoatData => _curBoatData;
 
     public BoatData BoatData => GameManager.Instance.GetManager<DataManager>().GetData(DataType.BoatData) as BoatData;
 
+    private MeshFilter _meshFilter;
+    private MeshRenderer _meshRenderer;
+    
     protected override void Awake() {
         base.Awake();
         _boatActionData = GetComponent<BoatActionData>();
+        _meshFilter = transform.Find("Visual").GetComponent<MeshFilter>();
+        _meshRenderer = _meshFilter.GetComponent<MeshRenderer>();
     }
 
     protected override void Update()
@@ -35,6 +36,7 @@ public class BoatController : ModuleController
     public void SetBoat(BoatDataUnit data){
         _curBoatData = data;
 
-        // 추가 작업
+        _meshFilter.mesh = data.Visual.VisualMesh;
+        _meshRenderer.material = data.Visual.MainMat;
     }
 }
