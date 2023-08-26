@@ -14,7 +14,7 @@
     <Style src="project://database/Assets/07.UI/SettingUI.uss?fileID=7433441132597879392&amp;guid=13d6884cee4b145448657ba29fec3299&amp;type=3#SettingUI" />
     <Style src="project://database/Assets/07.UI/BiomeSelectUI.uss?fileID=7433441132597879392&amp;guid=c8011813a4d7fc844b0a4fa2073c31f2&amp;type=3#BiomeSelectUI" />
     <Style src="project://database/Assets/07.UI/ItemSelectUI.uss?fileID=7433441132597879392&amp;guid=8e57ddc35d86a47d4b4e7bff39edba91&amp;type=3#ItemSelectUI" />
-    <ui:VisualElement name="main-container" picking-mode="Ignore" style="width: 100%; height: 100%;">
+    <ui:VisualElement name="main-container" picking-mode="Ignore" style="width: 100%; height: 100%; display: flex;">
         <ui:VisualElement name="blur-panel" class="blur-panel" />
     </ui:VisualElement>
 </ui:UXML>

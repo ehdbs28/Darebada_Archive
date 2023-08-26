@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class LoadingManager : IManager
 {
@@ -20,21 +21,28 @@ public class LoadingManager : IManager
 
     public GameSceneType next;
 
+    private VisualElement _root;
+
     public GameSceneType OnLoading(GameSceneType moveSceneType)
     {
         if (!_isLoading && _isStart)
         {
             next = moveSceneType;
+            _root.visible = false;
             return GameSceneType.Loading;
         }
         else
         {
             _isStart = true;
+            _root.visible = true;
             return moveSceneType;
         }
     }
 
+    public void InitManager()
+    {
+        _root = GameManager.Instance.GetManager<UIManager>().Document.rootVisualElement.Q("main-container");
+    }
     public void ResetManager(){}
-    public void InitManager(){}
     public void UpdateManager(){}
 }

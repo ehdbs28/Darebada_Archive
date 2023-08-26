@@ -24,7 +24,7 @@ public class GameScene : PoolableMono
     [SerializeField]
     private UnityEvent OnEnterScene = null, OnExitScene = null;
 
-    public void EnterScene(){
+    public void EnterScene(){ 
         OnEnterScene?.Invoke();
 
         GameManager.Instance.GetManager<CameraManager>().SetVCamList(_vCamList);

@@ -12,6 +12,11 @@ public class UIManager : MonoBehaviour, IManager
     private readonly Dictionary<UGUIType, UGUIPopup> _uguis = new Dictionary<UGUIType, UGUIPopup>();
 
     private UIDocument _document;
+    public UIDocument Document
+    { 
+        get { return _document; }
+        set { _document = value; }
+    }
     private UIDocument _blurDocument;
 
     private ScreenType _activeScreen;
