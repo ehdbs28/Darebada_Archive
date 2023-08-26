@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Core;
+using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour, IManager
 {
@@ -16,6 +17,9 @@ public class InputManager : MonoBehaviour, IManager
 
     private Vector2 _mousePosition;
     public Vector2 MousePosition => _mousePosition;
+    
+    [SerializeField]
+    private RectTransform _canvas;
 
     public InputManager(){
         ResetManager();
@@ -52,6 +56,13 @@ public class InputManager : MonoBehaviour, IManager
         bool isHit = Physics.Raycast(ray, out hit,Mathf.Infinity, LayerMask.GetMask(layerName));
 
         return (isHit) ? hit.point : Vector3.zero;
+    }
+
+    public Vector2 ScreenToCanvasPos(Vector2 mousePos)
+    {
+        Vector2 canvasPos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas, mousePos, Define.MainCam, out canvasPos);
+        return canvasPos;
     }
 
     public void ResetManager(){}

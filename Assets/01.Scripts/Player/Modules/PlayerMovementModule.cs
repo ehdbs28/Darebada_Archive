@@ -24,6 +24,8 @@ public class PlayerMovementModule : CommonModule<PlayerController>
 
     private float _currentVelocity;
     private float _currentMaxVelocity;
+
+    private JoyStickPopup _joyStick = null;
     
     public override void SetUp(Transform rootTrm)
     {
@@ -42,6 +44,7 @@ public class PlayerMovementModule : CommonModule<PlayerController>
     {
         if(_moveStart){
             Vector3 mousePos = GameManager.Instance.GetManager<InputManager>().MousePosition;
+
             float distance = Vector3.Distance(_movePivot, mousePos);
 
             _canMove = distance >= _minDistance;
@@ -50,8 +53,15 @@ public class PlayerMovementModule : CommonModule<PlayerController>
             {
                 _currentMaxVelocity = Mathf.Lerp(0f, _controller.DataSO.MaxSpeed, distance / _maxDistance);
             }
+            else
+            {
+                _currentMaxVelocity = 0f;
+            }
             
             _dir = (mousePos - _movePivot).normalized;
+            
+            if(_joyStick != null)
+                _joyStick.SetDirPos(_dir * _currentMaxVelocity);
         }
 
         Movement();
@@ -68,10 +78,13 @@ public class PlayerMovementModule : CommonModule<PlayerController>
             float angle = Mathf.Atan2(_dir.y * Mathf.Deg2Rad, _dir.x * Mathf.Deg2Rad);
             angle += Define.MainCam.transform.rotation.y;
             angle -= 90 * Mathf.Deg2Rad;
-            _dir = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle));
+            
             transform.parent.eulerAngles = new Vector3(0, -angle * Mathf.Rad2Deg + 90, 0);
+            
+            _dir = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle));
             _movement = new Vector3(_dir.x, 0, _dir.y);
             _movement.Normalize();
+            
             _currentVelocity = CalcVelocity();
             
             _controller.GetModule<PlayerAnimatorModule>().RunningToggle(true);
@@ -102,6 +115,16 @@ public class PlayerMovementModule : CommonModule<PlayerController>
         if (value)
         {
             _movePivot = GameManager.Instance.GetManager<InputManager>().MousePosition;
+            _joyStick = (JoyStickPopup)GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.JoyStick);
+            _joyStick.SetInitPos(_movePivot);
+        }
+        else
+        {
+            if (_joyStick != null)
+            {
+                _joyStick.RemoveRoot();
+                _joyStick = null;
+            }
         }
     }
 }

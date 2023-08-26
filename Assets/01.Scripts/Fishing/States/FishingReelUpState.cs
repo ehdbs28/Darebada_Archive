@@ -31,7 +31,7 @@ public class FishingReelUpState : FishingState
 
     public override void EnterState()
     {
-        GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.FishingMiniGame, true, false, false);
+        GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.FishingMiniGame, true);
 
         _startPos = _bobberTrm.position;
         Vector3 endPos = _endPos.position;
