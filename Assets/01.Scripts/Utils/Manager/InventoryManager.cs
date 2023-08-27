@@ -11,6 +11,8 @@ public class InventoryManager : IManager
     public const int BoardSizeX = 7;
     public const int BoardSizeY = 8;
 
+    public bool[,] _isItemIn = new bool[BoardSizeY, BoardSizeX];
+
     public void InitManager(){}
     
     public void AddUnit(FishDataUnit unitData, Vector2 size)

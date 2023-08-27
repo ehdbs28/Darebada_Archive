@@ -17,8 +17,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00.Scenes/Junho/MainScene 2.unity
     guid: 8b44daf5fde8c834dbaa38a26414977b
-  - enabled: 1
-    path: Assets/00.Scenes/Junho/UITest/LoadingSceneTest.unity
-    guid: e17a50bbb4cfc9146baa55190cdef5f3
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: d1791b2b3b08f224dbc2abb00ab52d64, type: 2}
