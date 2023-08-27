@@ -1,4 +1,5 @@
 using Core;
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,14 +37,21 @@ public class AquariumManager : MonoBehaviour, IManager
         get { return _artScore; }
         set { _artScore = value; }
     }
+    [SerializeField] private Vector3 _floorSize;
+    public Vector3 FloorSize
+    {
+        get { return _floorSize; }
+        set { _floorSize = value; }
+    }
     #endregion
     //�̱���
     //�ؾ��� ��= �̱��� ���ֱ�
     //ũ�� ����
     [SerializeField] GameObject floor;
-    [SerializeField] Vector3 _floorSize;
     [SerializeField] private int _horizontalCount = 5;
-    
+    [SerializeField] ParticleSystem _cleaningParticle;
+    [SerializeField] ParticleSystem _cleaningParticleSystemObject;
+    [SerializeField] GameObject _walls;
     //�����Ƹ��� �� �ü���
     [SerializeField] GameObject _fishBowlObject;
     [SerializeField] GameObject _fishObject;
@@ -97,6 +105,15 @@ public class AquariumManager : MonoBehaviour, IManager
 
         state = STATE.BUILD;
         //    else floor.transform.localPosition = new Vector3(_floorSize.x / 2+10, 0, 0);
+    }
+    public void ChangeSize(int x, int y)
+    {
+        _floorSize += new Vector3(x, 1, y);
+        floor.transform.localScale = _floorSize;
+        _walls.transform.GetChild(0).localScale = new Vector3(x, 10, 0);
+        _walls.transform.GetChild(0).position = new Vector3(x / 2, 5, 0);
+
+        
     }
     public void AddSnackShop()
     {
@@ -155,6 +172,7 @@ public class AquariumManager : MonoBehaviour, IManager
         _build = GetComponent<BuildFacility>();
 
         GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += MouseClickHandle;
+        GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnDayChange;
     }
 
     public void ResetManager()
@@ -176,5 +194,20 @@ public class AquariumManager : MonoBehaviour, IManager
                 facilityObj.transform.position = _build.GetFacilityPos();
             }
         }
+    }
+    public void Cleaning(int value)
+    {
+        CleanScore -= value;
+        if(_cleaningParticle == null)
+        {
+            ParticleSystem particle = Instantiate(_cleaningParticleSystemObject, Define.MainCam.transform);
+            particle.transform.position = Vector3.zero;
+            _cleaningParticle = particle;
+        }
+        _cleaningParticle.Play();
+    }
+    public void OnDayChange(int year, int month, int day)
+    {
+        CleanScore = (int)Mathf.Clamp(CleanScore - Reputation * 3, 0, 100);
     }
 }
