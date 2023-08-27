@@ -36,6 +36,7 @@ public class FishingCatchingState : FishingState
 
     public override void EnterState()
     {
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouch;
         GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Fishing);
 
         _start = _bobberTrm.position;
@@ -54,32 +55,25 @@ public class FishingCatchingState : FishingState
 
     public override void ExitState()
     {
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouch;
     }
 
-    public override void UpdateState()
+    private void OnTouch()
     {
         if(_isReadyToCatch){
-            // 나중에 조건 고치기
-            if(Input.GetKey(KeyCode.Space)){
-                percent -= _controller.DataSO.ThrowingSpeed * Time.deltaTime / _throwTime;
-                _bobberTrm.position = GetLerpPos();
+            percent -= _controller.DataSO.ThrowingSpeed * Time.deltaTime / _throwTime;
+            _bobberTrm.position = GetLerpPos();
 
-                if(percent <= 0){
-                    _controller.ActionData.IsFishing = false;
-                    _controller.ActionData.IsUnderWater = false;
-                }
+            if(percent <= 0){
+                _controller.ActionData.IsFishing = false;
+                _controller.ActionData.IsUnderWater = false;
             }
         }
         else{
-            // 나중에 조건 고치기
-            if(Input.GetKeyDown(KeyCode.Space)){
-                percent = 1f;
-                _isReadyToCatch = true;
-                _controller.Bait.StartCheck = true;
-            }
+            percent = 1f;
+            _isReadyToCatch = true;
+            _controller.Bait.StartCheck = true;
         }
-
-        base.UpdateState();
     }
 
     private IEnumerator ToThrow(){

@@ -31,6 +31,7 @@ public class FishingReelUpState : FishingState
 
     public override void EnterState()
     {
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouch;
         GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.FishingMiniGame, true);
 
         _startPos = _bobberTrm.position;
@@ -44,24 +45,20 @@ public class FishingReelUpState : FishingState
 
     public override void ExitState()
     {
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouch;
         GameManager.Instance.GetManager<UIManager>().GetPanel(UGUIType.FishingMiniGame).RemoveRoot();
     }
-    
-    public override void UpdateState()
-    {
-        // 이거 조건 나중에 고치기
-        if(Input.GetKeyDown(KeyCode.Space)){
-            if (GameManager.Instance.GetManager<MiniGameManager>().Check())
-            {
-                OnAnswer();
-            }
-            else
-            {
-                OnFail();
-            }
-        }
 
-        base.UpdateState();
+    private void OnTouch()
+    {
+        if (GameManager.Instance.GetManager<MiniGameManager>().Check())
+        {
+            OnAnswer();
+        }
+        else
+        {
+            OnFail();
+        }
     }
 
     private void OnAnswer(){
