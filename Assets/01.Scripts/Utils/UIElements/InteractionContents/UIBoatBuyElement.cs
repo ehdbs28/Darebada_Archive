@@ -69,6 +69,9 @@ public sealed class UIBoatBuyElement : UIInteractionElement
 
     private void ChangeSelection(int idx, bool select){
         UIBoatBuyElement boatUI = (UIBoatBuyElement)_boatUIs[idx];
+
+        if (boatUI._buyState == BoatBuyState.Sale)
+            return;
         
         if(select){
             boatUI.ChangeState(BoatBuyState.Equip);
