@@ -37,7 +37,7 @@ public class JoyStickPopup : UGUIPopup
 
     public void SetInitPos(Vector2 screenPos)
     {
-        Vector3 worldPos = GameManager.Instance.GetManager<InputManager>().ScreenToCanvasPos(screenPos);
-        _uiObject.GetComponent<RectTransform>().anchoredPosition = worldPos;
+        Vector3 touchPos = GameManager.Instance.GetManager<InputManager>().TouchPosition;
+        _uiObject.GetComponent<RectTransform>().anchoredPosition = touchPos;
     }
 }

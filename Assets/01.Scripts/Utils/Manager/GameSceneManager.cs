@@ -29,7 +29,7 @@ public class GameSceneManager : IManager
         {
             if (next == GameSceneType.Loading) return;
 
-            _bgmClip = GameObject.Find($"{next}Scene").GetComponent<AudioSource>().clip;
+            _bgmClip = _activeScene.GetComponent<AudioSource>().clip;
             GameManager.Instance.GetManager<SoundManager>().Play(_bgmClip, SoundEnum.BGM);
         }
     }

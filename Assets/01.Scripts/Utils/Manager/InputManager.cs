@@ -11,9 +11,6 @@ public class InputManager : MonoBehaviour, IManager
     public event Action OnTouchEvent = null;
     public event Action OnTouchUpEvent = null;
     public event Action<Vector2> OnTouchPosition = null;
-    
-    [SerializeField]
-    private RectTransform _canvas;
 
     private Vector2 _touchPosition;
     public Vector2 TouchPosition => _touchPosition;
@@ -26,8 +23,14 @@ public class InputManager : MonoBehaviour, IManager
         _inputAction.Touch.Touch.performed += TouchHandle;
         _inputAction.Touch.Touch.canceled += TouchUpHandle;
         _inputAction.Touch.TouchPosition.performed += TouchPositionHandle;
+        
+        _inputAction.Mouse.Enable();
+        _inputAction.Mouse.Click.performed += MouseClickHandle;
+        _inputAction.Mouse.Click.canceled += MouseUpHandle;
+        _inputAction.Mouse.MousePos.performed += MousePosHandle;
     }
 
+    // Mobile
     private void TouchHandle(InputAction.CallbackContext context)
     {
         if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
@@ -35,7 +38,7 @@ public class InputManager : MonoBehaviour, IManager
 
         OnTouchEvent?.Invoke();
     }
-
+    
     private void TouchUpHandle(InputAction.CallbackContext context)
     {
         OnTouchUpEvent?.Invoke();
@@ -47,6 +50,23 @@ public class InputManager : MonoBehaviour, IManager
         OnTouchPosition?.Invoke(_touchPosition);
     }
 
+    // PC
+    private void MouseClickHandle(InputAction.CallbackContext context)
+    {
+        OnTouchEvent?.Invoke();
+    }
+    
+    private void MouseUpHandle(InputAction.CallbackContext context)
+    {
+        OnTouchUpEvent?.Invoke();
+    }
+
+    private void MousePosHandle(InputAction.CallbackContext context)
+    {
+        _touchPosition = Mouse.current.position.ReadValue();
+        OnTouchPosition?.Invoke(_touchPosition);
+    }
+    
     public void EnableInputAction(bool enable)
     {
         if(enable)
@@ -60,13 +80,6 @@ public class InputManager : MonoBehaviour, IManager
         RaycastHit hit;
         bool isHit = Physics.Raycast(ray, out hit,Mathf.Infinity, LayerMask.GetMask(layerName));
         return (isHit) ? hit.point : Vector3.zero;
-    }
-
-    public Vector2 ScreenToCanvasPos(Vector2 touchPos)
-    {
-        Vector2 canvasPos;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas, touchPos, Define.MainCam, out canvasPos);
-        return canvasPos;
     }
 
     public void ResetManager(){}
