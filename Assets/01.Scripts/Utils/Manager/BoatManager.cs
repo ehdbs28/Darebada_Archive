@@ -17,7 +17,7 @@ public class BoatManager : MonoBehaviour, IManager
         _currentBoatData = (GameManager.Instance.GetManager<DataManager>().GetData(DataType.BoatData) as BoatData)
             ?.CurrentBoat;
 
-        if (_currentBoatData.Name == "")
+        if (_currentBoatData == null || _currentBoatData.Name == "")
         {
             SelectBoat(0);
         }
