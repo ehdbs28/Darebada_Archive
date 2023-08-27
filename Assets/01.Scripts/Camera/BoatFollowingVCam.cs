@@ -12,33 +12,31 @@ public class BoatFollowingVCam : VCam
     {
         base.SelectVCam();
 
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnScreenClick;
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnScreenClick;
     }
 
     public override void UnselectVCam()
     {
         base.UnselectVCam();
 
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= OnScreenClick;
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnScreenClick;
     }
 
     public override void UpdateCam()
     {
     }
 
-    private void OnScreenClick(bool value){
-        if(value == true){
-            CinemachineFramingTransposer framingTransposer = _virtualCam.GetCinemachineComponent<CinemachineFramingTransposer>();
-            Vector3 offset = framingTransposer.m_TrackedObjectOffset;
+    private void OnScreenClick(){
+        CinemachineFramingTransposer framingTransposer = _virtualCam.GetCinemachineComponent<CinemachineFramingTransposer>();
+        Vector3 offset = framingTransposer.m_TrackedObjectOffset;
 
-            GameManager.Instance.GetManager<CameraManager>().SetRotateCam(
-                _target,
-                Vector3.Distance(_target.position, _virtualCam.transform.position),
-                _virtualCam.transform.position,
-                _virtualCam.transform.rotation,
-                new Vector3(0f, offset.y, 0f),
-                _state
-            );
-        }
+        GameManager.Instance.GetManager<CameraManager>().SetRotateCam(
+            _target,
+            Vector3.Distance(_target.position, _virtualCam.transform.position),
+            _virtualCam.transform.position,
+            _virtualCam.transform.rotation,
+            new Vector3(0f, offset.y, 0f),
+            _state
+        );
     }
 }

@@ -6,16 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/00.Scenes/Junho/UITest/AquariumTestScene.unity
-    guid: 245b7221c575e9348a600b7077725766
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    path: Assets/00.Scenes/Doyun/MainScene 1.unity
+    guid: db6f5a409db315a42a4468d11f9175b1
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: d1791b2b3b08f224dbc2abb00ab52d64, type: 2}

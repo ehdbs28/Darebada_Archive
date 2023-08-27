@@ -29,15 +29,15 @@ public class BoatControllerUI
     private void AddEvent()
     {
         _handle.RegisterCallback<MouseDownEvent>(OnMouseDown);
-        GameManager.Instance.GetManager<InputManager>().OnMousePositionEvent += OnMouseMove;
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnMouseUp;
+        GameManager.Instance.GetManager<InputManager>().OnTouchPosition += OnMouseMove;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnMouseUp;
     }
 
     public void RemoveEvent()
     {
         _handle.UnregisterCallback<MouseDownEvent>(OnMouseDown);
-        GameManager.Instance.GetManager<InputManager>().OnMousePositionEvent -= OnMouseMove;
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= OnMouseUp;
+        GameManager.Instance.GetManager<InputManager>().OnTouchPosition -= OnMouseMove;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent -= OnMouseUp;
     }
 
     private void OnMouseDown(MouseDownEvent e)
@@ -45,7 +45,7 @@ public class BoatControllerUI
         if (e.button == 0)
         {
             _isClick = true;
-            _startPos = GameManager.Instance.GetManager<InputManager>().MousePosition.y;
+            _startPos = GameManager.Instance.GetManager<InputManager>().TouchPosition.y;
         }
     }
 
@@ -68,9 +68,9 @@ public class BoatControllerUI
         }
     }
 
-    private void OnMouseUp(bool val)
+    private void OnMouseUp()
     {
-        if (val || !_isClick)
+        if (!_isClick)
             return;
 
         if (_delta >= _offset)

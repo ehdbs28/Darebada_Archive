@@ -37,13 +37,14 @@ public class PlayerMovementModule : CommonModule<PlayerController>
         _moveStart = false;
         _currentVelocity = 0f;
 
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnMouseClick;
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouch;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUp;
     }
 
     public override void UpdateModule()
     {
         if(_moveStart){
-            Vector3 mousePos = GameManager.Instance.GetManager<InputManager>().MousePosition;
+            Vector3 mousePos = GameManager.Instance.GetManager<InputManager>().TouchPosition;
 
             float distance = Vector3.Distance(_movePivot, mousePos);
 
@@ -108,23 +109,22 @@ public class PlayerMovementModule : CommonModule<PlayerController>
 
         return Mathf.Clamp(_currentVelocity, 0f, _currentMaxVelocity);
     }
+    
+    private void OnTouch()
+    {
+        _moveStart = true;
+        _movePivot = GameManager.Instance.GetManager<InputManager>().TouchPosition;
+        _joyStick = (JoyStickPopup)GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.JoyStick);
+        _joyStick.SetInitPos(_movePivot);
+    }
 
-    private void OnMouseClick(bool value){
-        _moveStart = value;
-
-        if (value)
+    private void OnTouchUp()
+    {
+        _moveStart = false;
+        if (_joyStick != null)
         {
-            _movePivot = GameManager.Instance.GetManager<InputManager>().MousePosition;
-            _joyStick = (JoyStickPopup)GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.JoyStick);
-            _joyStick.SetInitPos(_movePivot);
-        }
-        else
-        {
-            if (_joyStick != null)
-            {
-                _joyStick.RemoveRoot();
-                _joyStick = null;
-            }
+            _joyStick.RemoveRoot();
+            _joyStick = null;
         }
     }
 }

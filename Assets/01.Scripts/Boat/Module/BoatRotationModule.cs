@@ -40,28 +40,32 @@ public class BoatRotationModule : CommonModule<BoatController>
     }
 
     private void AddEvent(){
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnClick;
-        GameManager.Instance.GetManager<InputManager>().OnMousePositionEvent += OnMousePos;
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouch;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUp;
+        GameManager.Instance.GetManager<InputManager>().OnTouchPosition += OnMousePos;
     }
 
     private void SetRotationValue(float value){
         _dir = value;
     }
 
-    private void OnClick(bool val)
+    private void OnTouch()
     {
-        _isClick = val;
-        if (_isClick)
-            _startPos = GameManager.Instance.GetManager<InputManager>().MousePosition.x;
-        else
-            SetRotationValue(0);
+        _isClick = true;
+        _startPos = GameManager.Instance.GetManager<InputManager>().TouchPosition.x;
+    }
+
+    private void OnTouchUp()
+    {
+        _isClick = false;
+        SetRotationValue(0);
     }
 
     private void OnMousePos(Vector2 mousePos)
     {
         if (_isClick)
         {
-            float cur = GameManager.Instance.GetManager<InputManager>().MousePosition.x;
+            float cur = GameManager.Instance.GetManager<InputManager>().TouchPosition.x;
 
             if (Mathf.Abs(cur - _startPos) >= offset)
             {

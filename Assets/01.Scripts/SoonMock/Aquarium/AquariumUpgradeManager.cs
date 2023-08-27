@@ -48,7 +48,7 @@ public class AquariumUpgradeManager : MonoBehaviour
         if (GameManager.Instance.GetManager<AquariumManager>().state == AquariumManager.STATE.MOVE)
         {
             RaycastHit hit;
-            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
+            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask))
             {
                 if (hit.collider.GetComponent<Fishbowl>())
