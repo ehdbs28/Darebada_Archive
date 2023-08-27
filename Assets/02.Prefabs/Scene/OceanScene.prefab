@@ -197,6 +197,7 @@ MonoBehaviour:
   - {fileID: 927514069873974759}
   - {fileID: 2833075786583418354}
   - {fileID: 2030227496417458690}
+  _boatController: {fileID: 4013939298695840645}
 --- !u!1 &1061893808400436551
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bobberPos: {fileID: 1262622554743403598}
+  _minChargingPower: 4
 --- !u!1 &4013939299741449070
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,6 +2047,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _endPos: {fileID: 1262622554743403598}
+  _jumpUpHeight: 5
+  _rotateSpeedX: 30
+  _rotateSpeedZ: 150
 --- !u!1001 &4013939299256085578
 PrefabInstance:
   m_ObjectHideFlags: 0

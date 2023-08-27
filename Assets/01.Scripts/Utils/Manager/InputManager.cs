@@ -1,55 +1,72 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Core;
 
 public class InputManager : MonoBehaviour, IManager
 {
-    private PlayerInput _playerInput;
+    private GameInputControls _inputAction;
 
-    public event Action<float> OnMovementEvent = null;
-    public event Action<float> OnRotationEvent = null;
-    public event Action<bool> OnMouseClickEvent = null;
+    public event Action OnTouchEvent = null;
+    public event Action OnTouchUpEvent = null;
+    public event Action<Vector2> OnTouchPosition = null;
+    
+    [SerializeField]
+    private RectTransform _canvas;
 
-    private Vector3 _mousePosition;
-    public Vector3 MousePosition => _mousePosition;
+    private Vector2 _touchPosition;
+    public Vector2 TouchPosition => _touchPosition;
 
-    public InputManager(){
-        ResetManager();
+    public void InitManager()
+    {
+        _inputAction = new GameInputControls();
+        
+        EnableInputAction(true);
+        _inputAction.Touch.Touch.performed += TouchHandle;
+        _inputAction.Touch.Touch.canceled += TouchUpHandle;
+        _inputAction.Touch.TouchPosition.performed += TouchPositionHandle;
     }
 
-    public void InitManager() {
-
-    }
-
-    public void OnMovement(InputValue value){
-        OnMovementEvent?.Invoke(value.Get<float>());
-    }
-
-    public void OnRotation(InputValue value){
-        OnRotationEvent?.Invoke(value.Get<float>());
-    }
-
-    public void OnMouseClick(InputValue value){
-        // Debug.Log(GameManager.Instance.GetManager<UIManager>().OnElement(_mousePosition));
-        if(GameManager.Instance.GetManager<UIManager>().OnElement(_mousePosition))
+    private void TouchHandle(InputAction.CallbackContext context)
+    {
+        if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
             return;
 
-        OnMouseClickEvent?.Invoke(value.Get<float>() > 0);
+        OnTouchEvent?.Invoke();
     }
 
-    public void OnMousePosition(InputValue value){
-        _mousePosition = value.Get<Vector2>();
+    private void TouchUpHandle(InputAction.CallbackContext context)
+    {
+        OnTouchUpEvent?.Invoke();
+    }
+
+    private void TouchPositionHandle(InputAction.CallbackContext context)
+    {
+        _touchPosition = Touchscreen.current.position.ReadValue();
+        OnTouchPosition?.Invoke(_touchPosition);
+    }
+
+    public void EnableInputAction(bool enable)
+    {
+        if(enable)
+            _inputAction.Touch.Enable();
+        else
+            _inputAction.Touch.Disable();
     }
 
     public Vector3 GetMouseRayPoint(string layerName = "Ground"){
-        Ray ray = Define.MainCam.ScreenPointToRay(_mousePosition);
+        Ray ray = Define.MainCam.ScreenPointToRay(_touchPosition);
         RaycastHit hit;
         bool isHit = Physics.Raycast(ray, out hit,Mathf.Infinity, LayerMask.GetMask(layerName));
-
         return (isHit) ? hit.point : Vector3.zero;
+    }
+
+    public Vector2 ScreenToCanvasPos(Vector2 touchPos)
+    {
+        Vector2 canvasPos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas, touchPos, Define.MainCam, out canvasPos);
+        return canvasPos;
     }
 
     public void ResetManager(){}
