@@ -85,6 +85,7 @@ public class InventoryPopup : UIPopup
             root = root.Q("inventory-unit");
             unit.Generate(root);
             _unitParent.Add(root);
+            //유닛 위치로직
             unit.Move(new Vector2(unit.posX, unit.posY));
         }
     }
@@ -184,7 +185,7 @@ public class InventoryPopup : UIPopup
                     {
                         if (Search(_units[selectedIndex].MinX, _units[selectedIndex].MaxX, _units[selectedIndex].MinY, _units[selectedIndex].MaxY))
                         {
-                            _units[selectedIndex].Move(new Vector2(_tiles[i1, j1].xIdx, _tiles[i1, j1].yIdx));
+                            _units[selectedIndex].Move(new Vector2(j1, i1));
                         }
                     }
                 });
@@ -202,9 +203,7 @@ public class InventoryPopup : UIPopup
         }
     }
 
-    public override void RemoveEvent()
-    {
-    }
+    public override void RemoveEvent(){}
 
     public override void FindElement()
     {
