@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6469607426434365157, guid: 68bbb6b61f876e741a7cf0fa25d902dd, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 6469607426434365159, guid: 68bbb6b61f876e741a7cf0fa25d902dd, type: 3}
       propertyPath: m_Name
       value: RainParticle
