@@ -20,6 +20,15 @@ float _Thickness;
 float4 _Color;
 float _DepthOffset;
 
+float3 GetWorldScaleFromModelMatrix(float4x4 modelMatrix)
+{
+    float3 scale;
+    scale.x = length(modelMatrix[0].xyz);
+    scale.y = length(modelMatrix[1].xyz);
+    scale.z = length(modelMatrix[2].xyz);
+    return scale;
+}
+
 VertexOutput Vertex(Attributes input) {
     VertexOutput output = (VertexOutput)0;
 
@@ -30,7 +39,9 @@ VertexOutput Vertex(Attributes input) {
     normalOS = input.normalOS;
     #endif
 
-    float3 posOS = input.positionOS.xyz + normalOS * _Thickness;
+    float3 worldScale = GetWorldScaleFromModelMatrix(unity_ObjectToWorld);
+
+    float3 posOS = input.positionOS.xyz + normalOS * _Thickness / worldScale;
     output.positionCS = GetVertexPositionInputs(posOS).positionCS;
 
     float depthOffset = _DepthOffset;
