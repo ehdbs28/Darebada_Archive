@@ -19,9 +19,14 @@ public class DataManager : IManager
         _dataUnits = new Dictionary<DataType, SaveData>();
 
         // 모바일 빌드 시에는 바꿔야 해
-        // DATA_PATH = Application.persistentDataPath + "/Save";
+        #if UNITY_ANDROID
+        DATA_PATH = Application.persistentDataPath + "/Save";
+        #endif
+        
+        #if UNITY_EDITOR
         DATA_PATH = Application.dataPath + "/Save";
-
+        #endif
+        
         if(!Directory.Exists(DATA_PATH))
             Directory.CreateDirectory(DATA_PATH);
 
@@ -30,6 +35,7 @@ public class DataManager : IManager
         _dataUnits.Add(DataType.DictionaryData, new DictionaryData(DATA_PATH, "DictionaryData"));
         _dataUnits.Add(DataType.BiomeData, new BiomeData(DATA_PATH, "BiomeData"));
         _dataUnits.Add(DataType.GameData, new GameData(DATA_PATH, "GameData"));
+        _dataUnits.Add(DataType.InventoryData, new InventoryData(DATA_PATH, "InventoryData"));
 
         LoadData();
         SaveDataAll();
@@ -46,7 +52,7 @@ public class DataManager : IManager
         data.Save(stringData);
     }
 
-    private void SaveDataAll(){
+    public void SaveDataAll(){
         foreach(var data in _dataUnits.Values){
             SaveData(data);
         }

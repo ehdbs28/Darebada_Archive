@@ -34,6 +34,7 @@ namespace GridBuilder2_Core
         {
             if(Input.GetKeyDown(keyToPickObject))
             {
+                Debug.Log("Asdf");
                 SetBuildObject();
             }
         }
@@ -42,6 +43,8 @@ namespace GridBuilder2_Core
         {
             if (removeMode)
             {
+                Debug.Log("s1");
+
                 removeMode.DisableRemoveMode();
                 removeMode.ChangeText();
             }
@@ -54,10 +57,12 @@ namespace GridBuilder2_Core
             }
             if (gridSelector)
             {
+                Debug.Log(building);
                 gridSelector.DeselectPreview();
 
                 if (building)
                 {
+                Debug.Log("s4");
                     building.ResetStartChecks();
                     gridSelector.DragMove = false;
                     gridSelector.SetGameObjectToPlace(building);

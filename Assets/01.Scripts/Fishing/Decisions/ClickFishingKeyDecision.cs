@@ -6,11 +6,16 @@ public class ClickFishingKeyDecision : FishingDecision
 {
     bool _result = false;
 
-    public override void SetUp(Transform agentRoot)
+    public void AddEvent()
     {
-        base.SetUp(agentRoot);
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouch;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUp;
+    }
 
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnMouseClick;
+    public void RemoveEvent()
+    {
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouch;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent -= OnTouchUp;
     }
 
     public override bool MakeADecision()
@@ -18,7 +23,12 @@ public class ClickFishingKeyDecision : FishingDecision
         return _result;
     }
 
-    private void OnMouseClick(bool value){
-        _result = value;
+    private void OnTouch(){
+        _result = true;
+    }
+
+    private void OnTouchUp()
+    {
+        _result = false;
     }
 }

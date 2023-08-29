@@ -9,16 +9,16 @@ public class MainSceneObjectManager : MonoBehaviour
 
     public void AddEvent()
     {
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += MouseClickHandle;    
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += MouseClickHandle;    
     }
 
     public void RemoveEvent(){
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= MouseClickHandle;
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= MouseClickHandle;
     }
 
-    private void MouseClickHandle(bool value)
+    private void MouseClickHandle()
     {
-        Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
+        Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit,Mathf.Infinity, _layerMask))
         {

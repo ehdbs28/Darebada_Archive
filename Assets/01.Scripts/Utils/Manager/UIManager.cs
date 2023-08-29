@@ -12,6 +12,12 @@ public class UIManager : MonoBehaviour, IManager
     private readonly Dictionary<UGUIType, UGUIPopup> _uguis = new Dictionary<UGUIType, UGUIPopup>();
 
     private UIDocument _document;
+    public UIDocument Document
+    { 
+        get { return _document; }
+        set { _document = value; }
+    }
+    private UIDocument _blurDocument;
 
     private ScreenType _activeScreen;
     private PopupType _activePopup;
@@ -24,6 +30,7 @@ public class UIManager : MonoBehaviour, IManager
     public void InitManager()
     {
         _document =  GetComponent<UIDocument>();
+        _blurDocument = GameObject.Find("Settings/Blur Screen/BlurUI").GetComponent<UIDocument>();
 
         Transform screenTrm = transform.Find("Screens");
         Transform popupTrm = transform.Find("Popups");
@@ -63,28 +70,38 @@ public class UIManager : MonoBehaviour, IManager
         }
     }
 
-    public void ShowPanel(ScreenType type, bool clearScreen = true){
+    public UIScreen ShowPanel(ScreenType type, bool clearScreen = true){
         _screens[_activeScreen].RemoveEvent();
 
         if(_screens[type] != null){
+            _screens[type]?.SetUp(_blurDocument, clearScreen);
             _screens[type]?.SetUp(_document, clearScreen);
             _activeScreen = type;
+            return _screens[type];
         }
+
+        return null;
     }
 
-    public void ShowPanel(PopupType type, bool clearScreen = false, bool blur = true, bool timeStop = true){
+    public UIPopup ShowPanel(PopupType type, bool clearScreen = false, bool blur = true, bool timeStop = true){
         if(_popups[type] != null && _popups[type].IsOpenPopup == false){
             _popups[type]?.SetUp(_document, clearScreen, blur, timeStop);
             _activePopup = type;
+            return _popups[type];
         }
+
+        return null;
     }
 
-     public void ShowPanel(UGUIType type, bool clearScreen = false, bool blur = true, bool timeStop = true){
+     public UGUIPopup ShowPanel(UGUIType type, bool clearScreen = false, bool blur = false, bool timeStop = false){
         if(_uguis[type] != null && _uguis[type].IsOpenPopup == false){
-            _uguis[type]?.SetUp(_document, clearScreen, blur, timeStop);
+            _uguis[type].SetUp(_document, clearScreen, blur, timeStop);
             _activeUGUI = type;
+            return _uguis[type];
         }
-    }
+
+        return null;
+     }
 
     public UIScreen GetPanel(ScreenType type){
         return _screens[type];
@@ -107,12 +124,6 @@ public class UIManager : MonoBehaviour, IManager
         return pick != null;
     }
 
-    public void UpdateManager()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            ShowPanel(PopupType.ItemSelect);
-        }
-    }
+    public void UpdateManager() {}
     public void ResetManager() {}
 }

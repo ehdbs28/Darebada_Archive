@@ -3,127 +3,68 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+[System.Serializable]
 public class InventoryUnit
 {
-    private int _width;
-    public int Width;
-    private int _height;
-    public int Height;
+    public int posX;
+    public int posY;
+    public int rotate;
 
-    private int _posX;
-    public int PosX
+    public Vector2 size;
+    
+    [HideInInspector]
+    public FishDataUnit data;
+    
+    [HideInInspector]
+    public List<Vector2> rotateVals = new()
     {
-        get => _posX;
-        set => _posX = value;
-    }
-    private int _posY;
-    public int PosY
-    {
-        get => _posY;
-        set => _posY = value;
-    }
-    private int _rotate;
-    public int Rotate
-    {
-        get => _rotate;
-        set => _rotate = value;
-    }
-    public int[,] _rotateVals = 
-    {   
-        { 3, 2 }, 
-        { -2, 3 }, 
-        { -3, -2 }, 
-        { 2, -3 } 
+        new(3, 2),
+        new(-2, 3),
+        new(-3, -2),
+        new(-2, -3)
     };
 
-    private VisualTreeAsset _template;
-
-    private VisualElement _parent;
-    public VisualElement Root;
-
-    public FishDataUnit Data;
-
-    public InventoryUnit(VisualTreeAsset template, VisualElement parent, FishDataUnit data)
-    {
-        _template = template;
-        _parent = parent;
-        Data = data;
-    }
-
-    public void Generate(InventoryUnit unit)
-    {
-        Root = _template.Instantiate();
-        Root = Root.Q<VisualElement>("inventory-unit");
-        _parent.Add(Root);
-
-        FindElement();
-        Setting(unit); //얘 내용 집어넣어야함
-        AddEvent();
-    }
-
-    public int GetPosX() { return _posX; }
-    public int GetPosY() { return _posY; }
-
-    public int GetMinX()
-    {
-        int minX = Mathf.Min(_posX + _rotateVals[_rotate, 0], _posX);
-        return minX;
-    }
-
-    public int GetMaxX()
-    {
-        int maxX = Mathf.Max(_posX + _rotateVals[_rotate, 0], _posX);
-        return maxX;
-    }
-
-    public int GetMinY()
-    {
-        int minY = Mathf.Min(_posY + _rotateVals[_rotate, 1], _posY);
-        return minY;
-    }
-
-    public int GetMaxY()
-    {
-        int maxY = Mathf.Max(_posY + _rotateVals[_rotate, 1], _posY);
-        return maxY;
-    }
-
-    public int GetSize() { return (_rotateVals[0, 0] + 1) * (_rotateVals[0, 1] + 1); }
+    private VisualElement _root;
+    public VisualElement Root => _root;
     
-    public void Setting(InventoryUnit unit)
+    public int MinX => Mathf.Min(posX + (int)rotateVals[rotate].x, posX);
+    public int MaxX => Mathf.Max(posX + (int)rotateVals[rotate].x, posX);
+    public int MinY => Mathf.Min(posY + (int)rotateVals[rotate].y, posY);
+    public int MaxY => Mathf.Max(posY + (int)rotateVals[rotate].y, posY);
+
+    public InventoryUnit(FishDataUnit data, Vector2 size)
     {
-        //_root.style.width = _width;
-        //_root.style.height = _height;
-        Root.style.width = 300;
-        Root.style.height = 200;
+        this.data = data;
+        this.size = size;
+        this.size = new Vector2(3, 2);
+    }
+
+    public void Generate(VisualElement root)
+    {
+        _root = root;
+        Setting();
+    }
+    
+    public void Setting()
+    {
+        _root.style.width = size.x * 100;
+        _root.style.height = size.y * 100;
         
-        _posX = unit.PosX;
-        _posY = unit.PosY;
-        _rotate = unit.Rotate;
+        Move(new Vector2(posX, posY));
 
-        Root.style.left = _posX * 100 + 10;
-        Root.style.top = _posY * 100 + 10;
-
-        //_root.style.backgroundImage = new StyleBackground(_data.Visual.Profile);
+        //_root.style.backgroundImage = new StyleBackground(data.Visual.Profile);
     }
 
-    private void FindElement()
+    public void Rotate(float val)
     {
-        
+        _root.style.rotate = new Rotate(_root.style.rotate.value.angle.value + val);
     }
 
-    private void AddEvent()
+    public void Move(Vector2 pos)
     {
-        Root.RegisterCallback<ClickEvent>(e =>
-        {
-            ((InventoryPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Inventory))._selectedUnit = this;
-            //((InventoryPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Inventory))._selectedUnitProfile.style.backgroundImage = (Texture2D)Resources.Load("05.Assets/FishIcon/BlueTang");
-            Debug.Log("ㅁㄴㅇㄹ");
-        });
-    }
-
-    public void Remove()
-    {
-        _parent.Remove(Root);
+        posX = (int)pos.x;
+        posY = (int)pos.y;
+        _root.style.left = pos.x * 100 + 10;
+        _root.style.top = pos.y * 100 + 10;
     }
 }

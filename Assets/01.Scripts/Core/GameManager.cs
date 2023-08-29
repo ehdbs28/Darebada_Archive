@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
 
     private List<IManager> _managers;
-
+    public List<IManager> Managers => _managers;
+    
     [SerializeField]
     private const float _autoSaveDelay = 3f;
 
@@ -59,27 +60,33 @@ public class GameManager : MonoBehaviour
         _managers.Add(GetComponent<CameraManager>());
         _managers.Add(new TimeManager());
         _managers.Add(transform.Find("UIManager").GetComponent<UIManager>());
+        _managers.Add(transform.Find("SoundManager").GetComponent<SoundManager>());
         _managers.Add(GetComponent<SettingManager>());
         //_managers.Add(GetComponent<DayCycleManager>());
+        // _managers.Add(new AddressableAssetsManager());
         _managers.Add(new FishingUpgradeManager());
         _managers.Add(new SeleteItemManager());
         _managers.Add(GetComponent<MiniGameManager>());
-        _managers.Add(new BoatManager());
+        _managers.Add(GetComponent<BoatManager>());
+        _managers.Add(new OceanManager());
+        _managers.Add(GetComponent<BoidsManager>());
         _managers.Add(GetComponent<LetterManager>());
         _managers.Add(new ShopManager());
         _managers.Add(new PoolManager(_poolingTrm));
-        //_managers.Add(GetComponent<InventoryManager>());
+        _managers.Add(new InventoryManager());
+        _managers.Add(new LoadingManager());
         _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
     }
 
     private IEnumerator AutoSave(float delay){
         while(true){
-            DataManager dataManager = GetManager<DataManager>();
-            GameData gameData = dataManager.GetData(DataType.GameData) as GameData;
-
+           //  DataManager dataManager = GetManager<DataManager>();
+           //  GameData gameData = dataManager.GetData(DataType.GameData) as GameData;
+           
            // gameData.LastWorldTime = GetManager<TimeManager>();
+           
+           //GetManager<DataManager>().SaveDataAll();
 
-            // ?�?????�이????추�??�야 ?�긴 ??
             yield return new WaitForSecondsRealtime(delay);
         }
     }

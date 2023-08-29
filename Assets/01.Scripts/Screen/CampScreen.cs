@@ -20,17 +20,20 @@ public class CampScreen : UIScreen
 
         _settingBtn.RegisterCallback<ClickEvent>(e =>
         {
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Setting);
         });
 
         _letterBtn.RegisterCallback<ClickEvent>(e =>
         {
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Letter);
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
         });
 
         _dictionaryBtn.RegisterCallback<ClickEvent>(e =>
         {
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Dictionary);
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
         });
 
         //_goldText.text = $"{MoneyManager.Instance.goldTxt.text}";
@@ -62,4 +65,5 @@ public class CampScreen : UIScreen
     {
         _dateText.text = $"{year}년째, {month}월{day}일";
     }
+
 }

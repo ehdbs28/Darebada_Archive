@@ -16,6 +16,9 @@ public class FishingChargingState : FishingState
     private float _powerDir = 1f;
 
     private Vector3 _currentDir;
+    
+    [SerializeField]
+    private float _minChargingPower;
 
     public override void SetUp(Transform agentRoot)
     {
@@ -37,7 +40,7 @@ public class FishingChargingState : FishingState
     {
         GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Casting).RemoveRoot();
         
-        _controller.ActionData.LastChargingPower = _currentChargingPower;
+        _controller.ActionData.LastChargingPower = _currentChargingPower + _minChargingPower;
         _controller.ActionData.LastThrowDirection = _currentDir;
     }
 
@@ -71,7 +74,7 @@ public class FishingChargingState : FishingState
             _playerTrm.rotation = Quaternion.Euler(0, sign * _controller.DataSO.RotationSpeed * Time.deltaTime, 0) * _playerTrm.rotation;
         }
         else{
-            // 다 돌아갔을 때 할 일인데 아직 없음
+            // ???�아갔을 ?????�인???�직 ?�음
         }
     }   
 

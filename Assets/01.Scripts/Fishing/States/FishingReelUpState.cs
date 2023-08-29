@@ -13,6 +13,15 @@ public class FishingReelUpState : FishingState
     private float _reelUpOffset;
     private int _pointCnt;
     private Vector3 _direction;
+    
+    [SerializeField]
+    private float _jumpUpHeight;
+
+    [SerializeField]
+    private float _rotateSpeedX;
+    
+    [SerializeField]
+    private float _rotateSpeedZ;
 
     public override void SetUp(Transform agentRoot)
     {
@@ -22,41 +31,77 @@ public class FishingReelUpState : FishingState
 
     public override void EnterState()
     {
-        GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.FishingMiniGame, true, false, false);
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouch;
+        GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.FishingMiniGame, true);
 
         _startPos = _bobberTrm.position;
+        Vector3 endPos = _endPos.position;
+        endPos.y = 0f;
 
-        _direction = (_endPos.position - _startPos).normalized;
+        _direction = (endPos - _startPos).normalized;
         _pointCnt = GameManager.Instance.GetManager<MiniGameManager>().PointCnt;
-        _reelUpOffset = Vector3.Distance(_startPos, _endPos.position) / GameManager.Instance.GetManager<MiniGameManager>().PointCnt;
-
-        GameManager.Instance.GetManager<MiniGameManager>().OnAnswerEvent += OnAnswer;
+        _reelUpOffset = Vector3.Distance(_startPos, endPos) / GameManager.Instance.GetManager<MiniGameManager>().PointCnt;
     }
 
     public override void ExitState()
     {
-        GameManager.Instance.GetManager<MiniGameManager>().OnAnswerEvent -= OnAnswer;
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouch;
+        GameManager.Instance.GetManager<UIManager>().GetPanel(UGUIType.FishingMiniGame).RemoveRoot();
     }
 
-    public override void UpdateState()
+    private void OnTouch()
     {
-        // 이거 조건 나중에 고치기
-        if(Input.GetKeyDown(KeyCode.Space)){
-            Debug.Log(1);
-            GameManager.Instance.GetManager<MiniGameManager>().Check();
+        if (GameManager.Instance.GetManager<MiniGameManager>().Check())
+        {
+            OnAnswer();
         }
-
-        base.UpdateState();
+        else
+        {
+            OnFail();
+        }
     }
 
     private void OnAnswer(){
-        Debug.Log("미니게임 성공");
         --_pointCnt;
         _bobberTrm.position += _direction * _reelUpOffset;
+        _controller.Bait.CatchedFish.transform.position += _direction * _reelUpOffset;
+        
+        GameManager.Instance.GetManager<MiniGameManager>().Resetting();
 
-        if(_pointCnt < 0){
-            Debug.Log("낚시 성공");
+        if(_pointCnt <= 0){
+            PoolableParticle particle = GameManager.Instance.GetManager<PoolManager>().Pop("WaterSplashParticle") as PoolableParticle;
+            particle.SetPositionAndRotation(_bobberTrm.position, Quaternion.identity);
+            particle.Play();
+            
             _controller.ActionData.IsFishing = false;
+            _controller.ActionData.IsUnderWater = false;
+
+            if (_controller.Bait.CatchedFish != null)
+            {
+                FishDataUnit dataUnit = _controller.Bait.CatchedFish.DataUnit;
+                Vector2 size = new Vector2(dataUnit.InvenSizeX, dataUnit.InvenSizeY);
+
+                GameManager.Instance.GetManager<InventoryManager>().AddUnit(dataUnit, size);
+                
+                _controller.Bait.CatchedFish.SuccessCatching(
+                    _controller.transform.position,
+                    _jumpUpHeight,
+                    _rotateSpeedX,
+                    _rotateSpeedZ
+                );
+                
+                _controller.Bait.CatchedFish = null;
+            }
         }
+    }
+
+    private void OnFail()
+    {
+        _controller.Bait.StartCheck = false;
+        _controller.Bait.CatchedFish.GetoutBait();
+        _controller.Bait.CatchedFish = null;
+        
+        _controller.ActionData.IsFishing = false;
+        _controller.ActionData.IsUnderWater = false;
     }
 }

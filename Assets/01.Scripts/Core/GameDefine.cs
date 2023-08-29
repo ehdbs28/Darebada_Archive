@@ -65,6 +65,6 @@ namespace Core{
 
     [Serializable]
     public class SerializeList<T>{
-        public List<T> List;
+        public List<T> List = new List<T>();
     }
 }

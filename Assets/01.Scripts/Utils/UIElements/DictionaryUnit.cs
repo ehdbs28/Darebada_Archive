@@ -17,7 +17,7 @@ public class DictionaryUnit
     public DictionaryUnit(VisualElement root){
         _root = root;
         DictionaryData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.DictionaryData) as DictionaryData;
-        _dataUnit = data.Units.Find(unit => unit.Name == root.name);
+        _dataUnit = data.Units.List.Find(unit => unit.Name == root.name);
         IsUnknown = _dataUnit == null;
         if(IsUnknown){
             root.AddToClassList("unknown");

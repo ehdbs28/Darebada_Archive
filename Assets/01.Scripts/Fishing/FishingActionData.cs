@@ -14,7 +14,4 @@ public class FishingActionData : MonoBehaviour
     public bool IsThrowing = false;
 
     public Vector3 LastThrowDirection;
-
-    // 나중에 fish 구조를 바꾸던지 하자
-    public FishMovement CurrentCatchFish = null;
 }

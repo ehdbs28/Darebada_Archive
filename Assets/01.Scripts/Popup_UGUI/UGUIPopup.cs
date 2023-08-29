@@ -43,12 +43,15 @@ public abstract class UGUIPopup : MonoBehaviour, IUI
     public virtual void GenerateRoot()
     {
         _uiObject.SetActive(true);
+        FindElement();
     }
 
 
     public virtual void RemoveRoot()
     {
         _uiObject.SetActive(false);
+        RemoveEvent();
+        _isOpenPopup = false;
     }
 
     public abstract void AddEvent();
