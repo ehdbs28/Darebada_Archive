@@ -20,7 +20,7 @@ public class CampScreen : UIScreen
 
         _settingBtn.RegisterCallback<ClickEvent>(e =>
         {
-            
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Setting);
         });
 
         _letterBtn.RegisterCallback<ClickEvent>(e =>

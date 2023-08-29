@@ -12,7 +12,6 @@ public class UIManager : MonoBehaviour, IManager
     private readonly Dictionary<UGUIType, UGUIPopup> _uguis = new Dictionary<UGUIType, UGUIPopup>();
 
     private UIDocument _document;
-    private UIDocument _blurDocument;
 
     private ScreenType _activeScreen;
     private PopupType _activePopup;
@@ -25,7 +24,6 @@ public class UIManager : MonoBehaviour, IManager
     public void InitManager()
     {
         _document =  GetComponent<UIDocument>();
-        _blurDocument = GameObject.Find("Settings/Blur Screen/BlurUI").GetComponent<UIDocument>();
 
         Transform screenTrm = transform.Find("Screens");
         Transform popupTrm = transform.Find("Popups");
@@ -69,7 +67,6 @@ public class UIManager : MonoBehaviour, IManager
         _screens[_activeScreen].RemoveEvent();
 
         if(_screens[type] != null){
-            _screens[type]?.SetUp(_blurDocument, clearScreen);
             _screens[type]?.SetUp(_document, clearScreen);
             _activeScreen = type;
         }

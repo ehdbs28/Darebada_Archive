@@ -36,6 +36,11 @@ public class AquariumScreen : UIScreen
             GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.AQUARIUM_EDIT);
             GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.AquariumEdit);
         });
+
+        _settingBtn.RegisterCallback<ClickEvent>(e =>
+        {
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Setting);
+        });
     }
 
     public override void RemoveEvent()

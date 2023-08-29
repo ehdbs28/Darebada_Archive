@@ -39,6 +39,13 @@ public class InventoryPopup : UIPopup
             newUnit.Rotate = 0;
             newUnit.Generate(newUnit);
             _units.Add(newUnit);
+
+            InventoryUnit newUnit2 = new InventoryUnit(_unitTemplate, _unitParent, dataTable.DataTable[0]);
+            newUnit2.PosX = 3;
+            newUnit2.PosY = 5;
+            newUnit2.Rotate = 0;
+            newUnit2.Generate(newUnit2);
+            _units.Add(newUnit2);
         }
     }
 

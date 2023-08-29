@@ -10,5 +10,6 @@ public enum PopupType{
     TankUpgrade,
     AquariumManage,
     FacilityEntry,
+    Setting,
 }
 

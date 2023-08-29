@@ -231,7 +231,7 @@ public class AuariumBoidUnit : MonoBehaviour
         {
             Debug.DrawLine(transform.position, hit.point, Color.black);
             obstacleVec = hit.normal;
-            additionalSpeed = 10;
+            //additionalSpeed = 10;
         }
         return obstacleVec;
     }

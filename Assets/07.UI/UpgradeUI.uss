@@ -13,7 +13,7 @@
     height: 175px;
     background-image: url('project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Lock%20Closed%20Icon.png?fileID=1176852998&guid=640b86b0058321e4fab8001b90531991&type=3#Free Flat Lock Closed Icon_0');
     bottom: 20px;
-    -unity-background-image-tint-color: rgba(255, 255, 255, 0.39);
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.59);
 }
 
 .boat-item > #info {
@@ -25,7 +25,7 @@
     padding-right: 35px;
     padding-top: 35px;
     padding-bottom: 35px;
-    background-color: rgba(0, 0, 0, 0.59);
+    background-color: rgba(255, 255, 255, 0.78);
 }
 
 .boat-item > #buy-btn {
@@ -110,24 +110,48 @@
     padding-right: 35px;
     padding-top: 35px;
     padding-bottom: 35px;
-    background-color: rgba(0, 0, 0, 0.59);
+    background-color: rgba(255, 255, 255, 0.59);
 }
 
 .fishing-item > #buy-btn {
     flex-grow: 1;
-    background-color: rgba(0, 0, 0, 0.78);
+    background-color: rgba(78, 209, 1, 0.78);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
 .fishing-item #gold-image {
     right: 15px;
-    width: 40px;
-    height: 40px;
+    width: 5%;
+    height: 70%;
     margin-right: 15px;
     background-image: url('project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&guid=c3498719f3551d6499ab184e62fc6e5c&type=3#whiteMoneyIcon');
 }
 
 .fishing-item #gold-text {
     font-size: 30px;
+}
+
+.boat-item #name-text {
+    color: rgb(111, 111, 111);
+}
+
+.boat-item #value-text {
+    color: rgb(111, 111, 111);
+}
+
+.fishing-item #level {
+    color: rgb(111, 111, 111);
+}
+
+.fishing-item #name-text {
+    color: rgb(111, 111, 111);
+}
+
+.fishing-item #value-text {
+    color: rgb(111, 111, 111);
+}
+
+#value {
+    background-color: rgba(255, 167, 76, 255);
 }

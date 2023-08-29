@@ -1,6 +1,6 @@
 #game-data {
-    width: 340px;
-    height: 300px;
+    width: 310px;
+    height: 270px;
     top: 2%;
     padding-left: 10px;
     padding-right: 10px;
@@ -16,18 +16,18 @@
 }
 
 #game-data > #year-text {
-    font-size: 40px;
+    font-size: 35px;
     margin-bottom: 20px;
 }
 
 #game-data > #date-text {
-    font-size: 40px;
+    font-size: 35px;
     letter-spacing: 7px;
     margin-bottom: 20px;
 }
 
 #game-data > #time-text {
-    font-size: 30px;
+    font-size: 25px;
     letter-spacing: 7px;
 }
 
@@ -45,7 +45,6 @@
     display: none;
     visibility: hidden;
     position: absolute;
-    background-image: url('project://database/Assets/12.Textures/BlurRenderScreen.renderTexture?fileID=8400000&guid=78c2e5b280efa5d43b7fced16cdd83d2&type=2#BlurRenderScreen');
 }
 
 .blur-panel.on {
@@ -53,4 +52,5 @@
     visibility: visible;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.71);
 }

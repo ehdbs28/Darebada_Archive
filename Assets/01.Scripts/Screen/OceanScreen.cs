@@ -50,7 +50,7 @@ public class OceanScreen : UIScreen
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
 
         _settingBtn.RegisterCallback<ClickEvent>(e => {
-            Debug.Log("설정");
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Setting);
         });
 
         _gobackBtn.RegisterCallback<ClickEvent>(e => {

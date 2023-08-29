@@ -31,13 +31,13 @@ public class FacilityEntryPopup : UIPopup
             }
             else if(_currFacility == 4)
             {
-                GameManager.Instance.GetManager<UIManager>().ShowPanel((PopupType)_currFacility);
                 RemoveRoot();
+                GameManager.Instance.GetManager<UIManager>().ShowPanel((PopupType)_currFacility);
             }
             else if(_currFacility == 5)
             {
-                GameManager.Instance.GetManager<UIManager>().ShowPanel((PopupType)_currFacility);
                 RemoveRoot();
+                GameManager.Instance.GetManager<UIManager>().ShowPanel((PopupType)_currFacility);
             }
         });
     }

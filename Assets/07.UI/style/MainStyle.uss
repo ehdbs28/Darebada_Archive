@@ -30,7 +30,7 @@
 
 .btn {
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     transition-property: -unity-background-image-tint-color;
     transition-duration: 0.3s;
     width: 125px;
@@ -67,7 +67,6 @@
     -unity-font-definition: url('project://database/Assets/08.Fonts/ChosunSg%20SDF.asset?fileID=11400000&guid=4760111a33bf49246b70c208541fdf41&type=2#ChosunSg SDF');
     color: rgb(255, 255, 255);
     -unity-font-style: bold;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.78);
 }
 
 .interaction-btn {
