@@ -7,6 +7,9 @@ public class OceanSubManager : MonoBehaviour
 {
     [SerializeField] 
     private List<BoxCollider> _bounds;
+    
+    [SerializeField]
+    private BoatController _boatController;
 
     public void EnterSceneEvent()
     {
@@ -14,6 +17,8 @@ public class OceanSubManager : MonoBehaviour
         {
             GameManager.Instance.GetManager<OceanManager>().BoundColliders = _bounds;
         }
+
+        _boatController.SetBoat(GameManager.Instance.GetManager<BoatManager>().CurrentBoatData);
             
         GameManager.Instance.GetManager<OceanManager>().GenerateOcean();
         GameManager.Instance.GetManager<OceanManager>().GenerateFish();

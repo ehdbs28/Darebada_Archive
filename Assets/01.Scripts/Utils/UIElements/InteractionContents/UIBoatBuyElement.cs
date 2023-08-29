@@ -33,10 +33,8 @@ public sealed class UIBoatBuyElement : UIInteractionElement
         _interactionBtn.RegisterCallback<ClickEvent>(e => {
             switch(_buyState){
                 case BoatBuyState.Sale:
-                {
                     GameManager.Instance.GetManager<MoneyManager>().Payment(_dataTable.DataTable[_idx].Price);
                     ChangeState(BoatBuyState.Bought);
-                }
                     break;
                 case BoatBuyState.Bought:
                     BoatChange();
@@ -59,14 +57,21 @@ public sealed class UIBoatBuyElement : UIInteractionElement
         for(int i = 0; i < _boatUIs.Count; i++){
             if(i == _idx)
                 continue;
-
+            
             ChangeSelection(i, false);
         }
+        
+        GameManager.Instance.GetManager<BoatManager>().SelectBoat(_idx);
+        GameManager.Instance.GetManager<CampSubManager>()
+            .SetBoatVisual(GameManager.Instance.GetManager<BoatManager>().CurrentBoatData);
         ChangeSelection(_idx, true);
     }
 
     private void ChangeSelection(int idx, bool select){
         UIBoatBuyElement boatUI = (UIBoatBuyElement)_boatUIs[idx];
+
+        if (boatUI._buyState == BoatBuyState.Sale)
+            return;
         
         if(select){
             boatUI.ChangeState(BoatBuyState.Equip);

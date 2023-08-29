@@ -70,29 +70,38 @@ public class UIManager : MonoBehaviour, IManager
         }
     }
 
-    public void ShowPanel(ScreenType type, bool clearScreen = true){
+    public UIScreen ShowPanel(ScreenType type, bool clearScreen = true){
         _screens[_activeScreen].RemoveEvent();
 
         if(_screens[type] != null){
             _screens[type]?.SetUp(_blurDocument, clearScreen);
             _screens[type]?.SetUp(_document, clearScreen);
             _activeScreen = type;
+            return _screens[type];
         }
+
+        return null;
     }
 
-    public void ShowPanel(PopupType type, bool clearScreen = false, bool blur = true, bool timeStop = true){
+    public UIPopup ShowPanel(PopupType type, bool clearScreen = false, bool blur = true, bool timeStop = true){
         if(_popups[type] != null && _popups[type].IsOpenPopup == false){
             _popups[type]?.SetUp(_document, clearScreen, blur, timeStop);
             _activePopup = type;
+            return _popups[type];
         }
+
+        return null;
     }
 
-     public void ShowPanel(UGUIType type, bool clearScreen = false, bool blur = true, bool timeStop = true){
+     public UGUIPopup ShowPanel(UGUIType type, bool clearScreen = false, bool blur = false, bool timeStop = false){
         if(_uguis[type] != null && _uguis[type].IsOpenPopup == false){
-            _uguis[type]?.SetUp(_document, clearScreen, blur, timeStop);
+            _uguis[type].SetUp(_document, clearScreen, blur, timeStop);
             _activeUGUI = type;
+            return _uguis[type];
         }
-    }
+
+        return null;
+     }
 
     public UIScreen GetPanel(ScreenType type){
         return _screens[type];

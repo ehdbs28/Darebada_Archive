@@ -20,7 +20,7 @@ public class AquariumEditScreen : UIScreen
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
 
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnClickHandle;
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchHandle;
 
         _settingBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
@@ -47,7 +47,7 @@ public class AquariumEditScreen : UIScreen
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent -= OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent -= OnChangedDay;
 
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= OnClickHandle;
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouchHandle;
     }
 
     public override void FindElement()
@@ -73,10 +73,7 @@ public class AquariumEditScreen : UIScreen
         _dateText.text = $"{year}년째, {month}월{day}일";
     }
 
-    private void OnClickHandle(bool value){
-        if(value == false)
-            return;
-
+    private void OnTouchHandle(){
         Vector3 point = GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint("Facility");
 
         if(point != Vector3.zero){

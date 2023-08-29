@@ -14,6 +14,15 @@ public class FishingReelUpState : FishingState
     private int _pointCnt;
     private Vector3 _direction;
     
+    [SerializeField]
+    private float _jumpUpHeight;
+
+    [SerializeField]
+    private float _rotateSpeedX;
+    
+    [SerializeField]
+    private float _rotateSpeedZ;
+
     public override void SetUp(Transform agentRoot)
     {
         base.SetUp(agentRoot);
@@ -22,7 +31,8 @@ public class FishingReelUpState : FishingState
 
     public override void EnterState()
     {
-        GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.FishingMiniGame, true, false, false);
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouch;
+        GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.FishingMiniGame, true);
 
         _startPos = _bobberTrm.position;
         Vector3 endPos = _endPos.position;
@@ -35,24 +45,20 @@ public class FishingReelUpState : FishingState
 
     public override void ExitState()
     {
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouch;
         GameManager.Instance.GetManager<UIManager>().GetPanel(UGUIType.FishingMiniGame).RemoveRoot();
     }
-    
-    public override void UpdateState()
-    {
-        // 이거 조건 나중에 고치기
-        if(Input.GetKeyDown(KeyCode.Space)){
-            if (GameManager.Instance.GetManager<MiniGameManager>().Check())
-            {
-                OnAnswer();
-            }
-            else
-            {
-                OnFail();
-            }
-        }
 
-        base.UpdateState();
+    private void OnTouch()
+    {
+        if (GameManager.Instance.GetManager<MiniGameManager>().Check())
+        {
+            OnAnswer();
+        }
+        else
+        {
+            OnFail();
+        }
     }
 
     private void OnAnswer(){
@@ -63,7 +69,10 @@ public class FishingReelUpState : FishingState
         GameManager.Instance.GetManager<MiniGameManager>().Resetting();
 
         if(_pointCnt <= 0){
-            Debug.Log("낚시 성공");
+            PoolableParticle particle = GameManager.Instance.GetManager<PoolManager>().Pop("WaterSplashParticle") as PoolableParticle;
+            particle.SetPositionAndRotation(_bobberTrm.position, Quaternion.identity);
+            particle.Play();
+            
             _controller.ActionData.IsFishing = false;
             _controller.ActionData.IsUnderWater = false;
 
@@ -73,7 +82,14 @@ public class FishingReelUpState : FishingState
                 Vector2 size = new Vector2(dataUnit.InvenSizeX, dataUnit.InvenSizeY);
 
                 GameManager.Instance.GetManager<InventoryManager>().AddUnit(dataUnit, size);
-                GameManager.Instance.GetManager<PoolManager>().Push(_controller.Bait.CatchedFish);
+                
+                _controller.Bait.CatchedFish.SuccessCatching(
+                    _controller.transform.position,
+                    _jumpUpHeight,
+                    _rotateSpeedX,
+                    _rotateSpeedZ
+                );
+                
                 _controller.Bait.CatchedFish = null;
             }
         }

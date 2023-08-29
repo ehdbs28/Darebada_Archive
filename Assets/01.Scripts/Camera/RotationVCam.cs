@@ -19,7 +19,7 @@ public class RotationVCam : VCam
     private CameraState _lastVCamState;
 
     public void SetRotateValue(Transform target, float radius, Vector3 pos, Quaternion rot, Vector3 offset, CameraState lastVCamState){
-        _last = GameManager.Instance.GetManager<InputManager>().MousePosition;
+        _last = GameManager.Instance.GetManager<InputManager>().TouchPosition;
         _lastVCamState = lastVCamState;
         _offset = offset;
         _arcball = new Arcball(radius, target);
@@ -28,7 +28,7 @@ public class RotationVCam : VCam
         _virtualCam.transform.rotation = rot;
         _spherical = _arcball.GetSphericalCoordinates(_virtualCam.transform.position);
 
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += OnMouseClick;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUp;
 
         _isRotate = true;
     }
@@ -36,14 +36,14 @@ public class RotationVCam : VCam
     public override void UnselectVCam()
     {
         base.UnselectVCam();
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= OnMouseClick;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent -= OnTouchUp;
         _isRotate = false;
     }
 
     public override void UpdateCam()
     {
         if(_isRotate){
-            float dx = (_last.x - GameManager.Instance.GetManager<InputManager>().MousePosition.x) * _rotationSpeed;
+            float dx = (_last.x - GameManager.Instance.GetManager<InputManager>().TouchPosition.x) * _rotationSpeed;
 
             if(dx != 0f){
                 _spherical.y += dx * Time.deltaTime;
@@ -52,14 +52,12 @@ public class RotationVCam : VCam
                 _virtualCam.transform.rotation = Quaternion.LookRotation(_arcball.Center + _offset - _virtualCam.transform.position);
             }
 
-            _last = GameManager.Instance.GetManager<InputManager>().MousePosition;
+            _last = GameManager.Instance.GetManager<InputManager>().TouchPosition;
         }
     }
 
-    private void OnMouseClick(bool value){
-        if(value == false){
-            GameManager.Instance.GetManager<CameraManager>().SetVCam(_lastVCamState);
-        }
+    private void OnTouchUp(){
+        GameManager.Instance.GetManager<CameraManager>().SetVCam(_lastVCamState);
     }
 
 #if UNITY_EDITOR
