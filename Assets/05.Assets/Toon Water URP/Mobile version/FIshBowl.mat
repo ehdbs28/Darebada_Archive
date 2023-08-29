@@ -123,7 +123,7 @@ Material:
     - Vector2_D26C9C89: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_F678228C: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Color: {r: 0.030215396, g: 0.7777856, b: 0.9150943, a: 0.5529412}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

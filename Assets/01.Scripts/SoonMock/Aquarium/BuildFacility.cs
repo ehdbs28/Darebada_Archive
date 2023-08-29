@@ -8,8 +8,12 @@ public class BuildFacility : MonoBehaviour
     
     public Vector3 GetFacilityPos()
     {
-        Vector3 point = GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint();
-        _objectPosition = new Vector3(Mathf.RoundToInt(point.x), Mathf.RoundToInt(point.y), Mathf.RoundToInt(point.z));
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition);
+        Physics.Raycast( ray, out hit,Mathf.Infinity,GetComponent<AquariumManager>().facilityLayer);
+        Vector3 point = hit.point;
+       // Vector3 point = GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint();
+        _objectPosition = new Vector3(Mathf.RoundToInt(point.x)/ 4 * 4, Mathf.RoundToInt(point.y) / 4 * 4, Mathf.RoundToInt(point.z) / 4 * 4);
         return _objectPosition;
     }
 }

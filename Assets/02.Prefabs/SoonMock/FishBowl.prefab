@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 392519591382335137}
   - component: {fileID: -6793603896534359245}
   m_Layer: 6
-  m_Name: Aqua
+  m_Name: FishBowl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
