@@ -19,29 +19,21 @@ struct VertexOutput {
 float _Thickness;
 float4 _Color;
 float _DepthOffset;
-
-float3 GetWorldScaleFromModelMatrix(float4x4 modelMatrix)
-{
-    float3 scale;
-    scale.x = length(modelMatrix[0].xyz);
-    scale.y = length(modelMatrix[1].xyz);
-    scale.z = length(modelMatrix[2].xyz);
-    return scale;
-}
+float _ObjectScale;
 
 VertexOutput Vertex(Attributes input) {
     VertexOutput output = (VertexOutput)0;
 
-    float3 normalOS = input.normalOS;
+    float3 worldScale = _ObjectScale;
+    
+    float3 normalOS = input.normalOS / worldScale;
     #ifdef USE_PRECALCULATED_OUTLINE_NORMALS
-    normalOS = input.smoothNormalOS;
+    normalOS = input.smoothNormalOS / worldScale;
     #else
-    normalOS = input.normalOS;
+    normalOS = input.normalOS / worldScale;
     #endif
-
-    float3 worldScale = GetWorldScaleFromModelMatrix(unity_ObjectToWorld);
-
-    float3 posOS = input.positionOS.xyz + normalOS * _Thickness / worldScale;
+    
+    float3 posOS = input.positionOS.xyz + normalOS * (_Thickness / worldScale);
     output.positionCS = GetVertexPositionInputs(posOS).positionCS;
 
     float depthOffset = _DepthOffset;
