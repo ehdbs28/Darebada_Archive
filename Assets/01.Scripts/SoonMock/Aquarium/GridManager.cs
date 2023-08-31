@@ -14,6 +14,13 @@ public class GridManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D)) ShowGrid();
         
     }
+    public void HideGrid()
+    {
+        for(int i = 0; i <  grids.Count; i++)
+        {
+            grids[i].gameObject.SetActive(false);
+        }
+    }
     public void CreateGrids()
     {
         //Vector3 floorSize = GameManager.Instance.GetManager<AquariumManager>().FloorSize;
@@ -39,6 +46,7 @@ public class GridManager : MonoBehaviour
         {
             for (int j = 0; j < height; j++)
             {
+                grids[i+height+j].gameObject.SetActive(true);
                 grids[i * height + j].transform.localPosition = new Vector3(i * _distance + _distance/2, 0, j * _distance + _distance/2);
 
             }

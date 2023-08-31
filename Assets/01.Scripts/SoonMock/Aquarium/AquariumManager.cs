@@ -8,7 +8,8 @@ using UnityEngine;
 public class AquariumManager : MonoBehaviour, IManager
 {
     public Material fishBowlMat;
-    public Material MossMat;
+    public Material mossMat;
+    public Transform facilityParent;
     [SerializeField] Color pureWaterColor;
     [SerializeField] Color corruptedWaterColor;
     #region "�ڿ� �� ��ҵ�"
@@ -20,7 +21,7 @@ public class AquariumManager : MonoBehaviour, IManager
             _cleanScore = value;
             if (_cleanScore < 50) fishBowlMat.color = corruptedWaterColor;
             else fishBowlMat.color = pureWaterColor;
-            MossMat.SetFloat("_ShowValue", 1f - CleanScore / 100f + 0.3f);
+            mossMat.SetFloat("_ShowValue", 1f - CleanScore / 100f + 0.3f);
             Debug.Log("Clean");
             }
     }
@@ -109,6 +110,7 @@ public class AquariumManager : MonoBehaviour, IManager
             }
             facilityObj = null;
         }
+        FindObjectOfType<GridManager>().ShowGrid();
     }
     public void AddFishBowl()
     {
@@ -119,6 +121,7 @@ public class AquariumManager : MonoBehaviour, IManager
         facilityObj = fishBowl;
 
         state = STATE.BUILD;
+        FindObjectOfType<GridManager>().ShowGrid();
         //    else floor.transform.localPosition = new Vector3(_floorSize.x / 2+10, 0, 0);
     }
     public void ChangeSize(int x, int y)
@@ -201,6 +204,19 @@ public class AquariumManager : MonoBehaviour, IManager
 
         GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += MouseClickHandle;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnDayChange;
+    }
+
+    public void SetPos()
+    {
+        if(state==STATE.BUILD)
+        {
+            if(facilityObj)
+            {
+                facilityObj.transform.parent = facilityParent;
+                facilityObj = null;
+            }
+            state = STATE.NORMAL;
+        }
     }
 
     public void ResetManager()
