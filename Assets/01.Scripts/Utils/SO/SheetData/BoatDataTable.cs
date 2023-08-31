@@ -34,9 +34,9 @@ public class BoatDataTable : LoadableData
 
         DataTable[Size].Name = dataArr[0];
         DataTable[Size].Price = float.Parse(dataArr[1]);
-
-        GameManager.Instance.GetManager<AddressableAssetsManager>().LoadAssets("Boat_0" + (DataTable[Size].Id+1));
-
+        
+        // set visual
+        
         DataTable[Size].MaxSpeed = float.Parse(dataArr[2]);
         DataTable[Size].ForwardAcceleration = float.Parse(dataArr[3]);
         DataTable[Size].BackwardAcceleration = float.Parse(dataArr[4]);
