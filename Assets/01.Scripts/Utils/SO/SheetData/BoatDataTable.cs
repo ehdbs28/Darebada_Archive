@@ -3,12 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class BoatViual{
-    public Mesh VisualMesh;
-    public Material MainMat;
-}
-
-[System.Serializable]
 public class BoatDataUnit{
     public string Name;
     public int Id;

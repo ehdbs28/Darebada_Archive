@@ -4,13 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class FishViual{
-    public Mesh VisualMesh;
-    public Sprite Profile;
-    public Material MainMat;
-}
-
-[Serializable]
 public class FishDataUnit{
     public string Name;
     public FishViual Visual;
