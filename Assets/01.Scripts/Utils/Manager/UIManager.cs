@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour, IManager
     public void InitManager()
     {
         _document =  GetComponent<UIDocument>();
-        _blurDocument = GameObject.Find("Settings/Blur Screen/BlurUI").GetComponent<UIDocument>();
+        //_blurDocument = GameObject.Find("Settings/Blur Screen/BlurUI").GetComponent<UIDocument>();
 
         Transform screenTrm = transform.Find("Screens");
         Transform popupTrm = transform.Find("Popups");
@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour, IManager
         _screens[_activeScreen].RemoveEvent();
 
         if(_screens[type] != null){
-            _screens[type]?.SetUp(_blurDocument, clearScreen);
+            //_screens[type]?.SetUp(_blurDocument, clearScreen);
             _screens[type]?.SetUp(_document, clearScreen);
             _activeScreen = type;
             return _screens[type];

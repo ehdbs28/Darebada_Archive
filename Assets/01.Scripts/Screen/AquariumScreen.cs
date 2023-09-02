@@ -15,6 +15,8 @@ public class AquariumScreen : UIScreen
     private VisualElement _manageBtn;
     private VisualElement _editorBtn;
 
+    public FishDataUnit DataUnit;
+
     public override void AddEvent()
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
@@ -22,6 +24,7 @@ public class AquariumScreen : UIScreen
 
         _settingBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Setting);
         });
 
         _letterBtn.RegisterCallback<ClickEvent>(e => {
@@ -43,11 +46,6 @@ public class AquariumScreen : UIScreen
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.AQUARIUM_EDIT);
             GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.AquariumEdit);
-        });
-
-        _settingBtn.RegisterCallback<ClickEvent>(e =>
-        {
-            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Setting);
         });
     }
 

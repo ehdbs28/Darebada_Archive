@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     private List<IManager> _managers;
     public List<IManager> Managers => _managers;
-    
+
     [SerializeField]
     private const float _autoSaveDelay = 3f;
 
@@ -23,8 +23,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameSceneType _startSceneType;
 
-    private void Awake() {
-        if(Instance != null){
+    private void Awake()
+    {
+        if (Instance != null)
+        {
             Debug.Log("ERROR : Multiple GameManager is Running");
             return;
         }
@@ -34,24 +36,29 @@ public class GameManager : MonoBehaviour
         AddManager();
 
         _managers.ForEach(manager => manager.InitManager());
-    }   
+    }
 
-    private void Start() {
+    private void Start()
+    {
         GetManager<GameSceneManager>().ChangeScene(_startSceneType);
         StartCoroutine(AutoSave(_autoSaveDelay));
     }
 
-    private void Update() {
-        foreach(var manager in _managers){
+    private void Update()
+    {
+        foreach (var manager in _managers)
+        {
             manager.UpdateManager();
         }
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         StopAllCoroutines();
     }
 
-    private void AddManager(){
+    private void AddManager()
+    {
         _managers.Add(new GameSceneManager());
         _managers.Add(new DataManager());
         _managers.Add(GetComponent<SheetDataManager>());
@@ -61,7 +68,6 @@ public class GameManager : MonoBehaviour
         _managers.Add(new TimeManager());
         _managers.Add(transform.Find("UIManager").GetComponent<UIManager>());
         _managers.Add(transform.Find("SoundManager").GetComponent<SoundManager>());
-        _managers.Add(GetComponent<SettingManager>());
         //_managers.Add(GetComponent<DayCycleManager>());
         // _managers.Add(new AddressableAssetsManager());
         _managers.Add(new FishingUpgradeManager());
@@ -75,26 +81,31 @@ public class GameManager : MonoBehaviour
         _managers.Add(new PoolManager(_poolingTrm));
         _managers.Add(new InventoryManager());
         _managers.Add(new LoadingManager());
+        _managers.Add(new SettingManager());
         _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
     }
 
-    private IEnumerator AutoSave(float delay){
-        while(true){
-           //  DataManager dataManager = GetManager<DataManager>();
-           //  GameData gameData = dataManager.GetData(DataType.GameData) as GameData;
-           
-           // gameData.LastWorldTime = GetManager<TimeManager>();
-           
-           //GetManager<DataManager>().SaveDataAll();
+    private IEnumerator AutoSave(float delay)
+    {
+        while (true)
+        {
+            //  DataManager dataManager = GetManager<DataManager>();
+            //  GameData gameData = dataManager.GetData(DataType.GameData) as GameData;
+
+            // gameData.LastWorldTime = GetManager<TimeManager>();
+
+            //GetManager<DataManager>().SaveDataAll();
 
             yield return new WaitForSecondsRealtime(delay);
         }
     }
 
-    public T GetManager<T>() where T : IManager{
+    public T GetManager<T>() where T : IManager
+    {
         T returnValue = default(T);
 
-        foreach(var manager in _managers.OfType<T>()){
+        foreach (var manager in _managers.OfType<T>())
+        {
             returnValue = manager;
         }
 

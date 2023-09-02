@@ -11,5 +11,6 @@ public enum PopupType{
     AquariumManage,
     FacilityEntry,
     Setting,
+    CatchedFishChecking,
 }
 

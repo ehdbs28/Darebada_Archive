@@ -13,6 +13,7 @@
     border-right-width: 5px;
     border-top-width: 5px;
     border-bottom-width: 5px;
+    width: 30%;
 }
 
 .btn#capture-btn {
@@ -21,6 +22,7 @@
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    width: 30%;
 }
 
 .info {
