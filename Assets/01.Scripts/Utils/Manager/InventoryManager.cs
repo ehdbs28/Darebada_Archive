@@ -11,25 +11,15 @@ public class InventoryManager : IManager
     public const int BoardSizeX = 7;
     public const int BoardSizeY = 8;
 
-    public void InitManager()
-    {
-        
-    }
+    public bool[,] _isItemIn = new bool[BoardSizeY, BoardSizeX];
+
+    public void InitManager(){}
     
     public void AddUnit(FishDataUnit unitData, Vector2 size)
     {
         InventoryData data = (InventoryData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.InventoryData);
         data?.Units.List.Add(new InventoryUnit(unitData, size));
     }
-
-
-    public void ResetManager()
-    {
-        
-    }
-
-    public void UpdateManager()
-    {
-
-    }
+    public void ResetManager(){}
+    public void UpdateManager(){}
 }
