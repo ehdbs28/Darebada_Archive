@@ -153,5 +153,18 @@
 }
 
 #value {
-    background-color: rgba(255, 167, 76, 255);
+    background-color: rgb(255, 167, 76);
+}
+
+#locker {
+    background-color: rgba(0, 0, 0, 0.59);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
 }
