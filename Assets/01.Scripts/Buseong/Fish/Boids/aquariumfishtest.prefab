@@ -199,7 +199,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077685155167219870}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e8cea1e3461c2e49a124973046c6f34, type: 3}
   m_Name: 
@@ -266,19 +266,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetVec: {x: 0, y: 0, z: 0}
   myColor: {r: 0, g: 0, b: 0, a: 0}
-  obstacleDistance: 0
+  obstacleDistance: 3
   FOVAngle: 120
   maxNeighbourCount: 50
   neighbourDistance: 10
   boidUnitLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 262144
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   _bait: {fileID: 0}
   IsBite: 0
   IsSensed: 0

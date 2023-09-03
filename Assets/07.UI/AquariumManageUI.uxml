@@ -3,13 +3,13 @@
     <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
     <Style src="project://database/Assets/07.UI/ShopUI.uss?fileID=7433441132597879392&amp;guid=117492bc78fab3f4aa683150d95bda77&amp;type=3#ShopUI" />
     <Style src="project://database/Assets/07.UI/UpgradeUI.uss?fileID=7433441132597879392&amp;guid=60dd650f3094eb54d8dccfa431f11e5c&amp;type=3#UpgradeUI" />
-    <ui:VisualElement name="shop-container" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.2); position: absolute;">
-        <ui:VisualElement name="header" style="flex-basis: 5.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0;">
+    <ui:VisualElement name="shop-container" style="width: 80%; height: 70%; background-color: rgba(255, 255, 255, 0.2); position: absolute; left: 10%; top: 15%;">
+        <ui:VisualElement name="header" style="flex-basis: 5.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0; background-color: rgba(0, 151, 217, 0.96);">
             <ui:VisualElement name="exit-btn" style="width: 45px; height: 45px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); position: absolute; right: 30px;" />
             <ui:Label text="관리소" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 50px; position: absolute; color: rgb(255, 255, 255);" />
         </ui:VisualElement>
-        <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.2);">
-            <ui:VisualElement name="menu-selecter" style="flex-basis: 8%; flex-direction: row; align-items: center; justify-content: center; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Middle)%20Icon.png?fileID=21300000&amp;guid=c0c6236a6ab80ef4a976fb36399ec076&amp;type=3#Free Flat Gradient Horizontal (Middle) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 40px; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); border-bottom-width: 2px; border-top-width: 2px;">
+        <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgb(222, 221, 216); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+            <ui:VisualElement name="menu-selecter" style="flex-basis: 8%; flex-direction: row; align-items: center; justify-content: center; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 40px; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); border-bottom-width: 2px; border-top-width: 2px; background-color: rgb(255, 167, 76); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
                 <ui:VisualElement name="clean-btn" style="flex-basis: 50%; margin-right: 50px; margin-left: 50px; height: 100%; justify-content: center;">
                     <ui:Label text="청결도" display-tooltip-when-elided="true" name="clean-text" class="text" style="font-size: 40px; -unity-text-align: middle-right;" />
                 </ui:VisualElement>
@@ -18,27 +18,28 @@
                     <ui:Label text="홍보" display-tooltip-when-elided="true" name="ad-text" class="text" style="font-size: 40px; -unity-text-align: middle-left;" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden;">
-                <ui:VisualElement name="contents" style="flex-direction: row; width: 200%; height: 100%; right: 0;">
+            <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                <ui:VisualElement name="contents" style="flex-direction: row-reverse; width: 200%; height: 100%; right: 0;">
                     <ui:VisualElement name="clean-content" style="width: 50%; height: 100%;">
-                        <ui:VisualElement name="gold-content" style="width: 100%; flex-basis: 5%; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Middle)%20Icon.png?fileID=21300000&amp;guid=c0c6236a6ab80ef4a976fb36399ec076&amp;type=3#Free Flat Gradient Horizontal (Middle) Icon&apos;); -unity-background-image-tint-color: rgba(0, 0, 0, 0.78); margin-bottom: 20px; flex-direction: row; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <ui:VisualElement name="gold-image" style="width: 50px; height: 50px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
+                        <ui:VisualElement name="gold-content" class="gold-content">
+                            <ui:VisualElement name="gold-image" style="width: 5%; height: 70%; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
                             <ui:Label text="1,418 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 30px; left: -25px;" />
                         </ui:VisualElement>
                         <ui:VisualElement name="clean-items" style="flex-grow: 1;">
                             <ui:VisualElement name="staff" class="fishing-item">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
-                                    <ui:Label text="직원 고용" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
+                                <ui:VisualElement name="header" style="align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <ui:Label text="직원 고용" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
-                                    <ui:VisualElement name="staff-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/free-icon-cleaning-staff-4221647.png?fileID=21300000&amp;guid=4d71411ce9a8b37478ea0653d5cf2a56&amp;type=3#free-icon-cleaning-staff-4221647&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="staff-image" class="cleaning-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/free-icon-cleaning-staff-4221647.png?fileID=21300000&amp;guid=4d71411ce9a8b37478ea0653d5cf2a56&amp;type=3#free-icon-cleaning-staff-4221647&apos;);" />
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
-                                        <ui:Label text="보유 직원 1 / 5" display-tooltip-when-elided="true" name="cnt" class="text" style="font-size: 45px; color: rgb(255, 255, 255);" />
-                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px;">
-                                            <ui:Label text="청결도 관리" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 35px;" />
-                                            <ui:Label text="+5%" display-tooltip-when-elided="true" name="value-text" class="text" style="position: absolute; font-size: 35px; right: 0;" />
-                                            <ui:VisualElement name="graph" style="width: 100%; height: 25px; background-color: rgba(0, 0, 0, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 10px;">
-                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.59); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; transform-origin: left; scale: 0.05 1;" />
+                                        <ui:Label text="보유 직원 1 / 5" display-tooltip-when-elided="true" name="cnt" class="text" />
+                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px; background-color: rgb(222, 221, 216); justify-content: center; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
+                                            <ui:Label text="청결도 관리" display-tooltip-when-elided="true" name="name-text" class="text" style="align-items: flex-end;">
+                                                <ui:Label text="+5%" display-tooltip-when-elided="true" name="value-text" class="text" style="font-size: 25px;" />
+                                            </ui:Label>
+                                            <ui:VisualElement name="graph" style="width: 100%; height: 50%; background-color: rgb(173, 173, 171); margin-top: 10px;">
+                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgb(255, 167, 76); transform-origin: left; scale: 0.1 1;" />
                                             </ui:VisualElement>
                                         </ui:VisualElement>
                                     </ui:VisualElement>
@@ -51,18 +52,19 @@
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="normal-company" class="fishing-item">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
-                                    <ui:Label text="사설 청소 업체" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
+                                <ui:VisualElement name="header" style="align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <ui:Label text="사설 청소 업체" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
-                                    <ui:VisualElement name="company-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/free-icon-cleaning-573848.png?fileID=21300000&amp;guid=a442a0db96eec9549bc97784179b2f7d&amp;type=3#free-icon-cleaning-573848&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="company-image" class="cleaning-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/free-icon-cleaning-573848.png?fileID=21300000&amp;guid=a442a0db96eec9549bc97784179b2f7d&amp;type=3#free-icon-cleaning-573848&apos;);" />
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
-                                        <ui:Label text="사용 가능" display-tooltip-when-elided="true" name="available" class="text" style="font-size: 45px; color: rgba(255, 255, 255, 0.59);" />
-                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px;">
-                                            <ui:Label text="청결도 개선" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 35px;" />
-                                            <ui:Label text="7%" display-tooltip-when-elided="true" name="value-text" class="text" style="position: absolute; font-size: 35px; right: 0;" />
-                                            <ui:VisualElement name="graph" style="width: 100%; height: 25px; background-color: rgba(0, 0, 0, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 10px;">
-                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.59); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; transform-origin: left; scale: 0.14 1;" />
+                                        <ui:Label text="사용 가능" display-tooltip-when-elided="true" name="available" class="text" />
+                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px; justify-content: center; background-color: rgb(222, 221, 216); padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
+                                            <ui:Label text="청결도 개선" display-tooltip-when-elided="true" name="name-text" class="text" style="align-items: flex-end;">
+                                                <ui:Label text="7%" display-tooltip-when-elided="true" name="value-text" class="text" style="font-size: 25px;" />
+                                            </ui:Label>
+                                            <ui:VisualElement name="graph" style="width: 100%; height: 50%; background-color: rgb(173, 173, 171); margin-top: 10px;">
+                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgb(255, 167, 76); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; transform-origin: left; scale: 0.14 1;" />
                                             </ui:VisualElement>
                                         </ui:VisualElement>
                                     </ui:VisualElement>
@@ -75,18 +77,19 @@
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="special-company" class="fishing-item">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
-                                    <ui:Label text="고급 청소 업체" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
+                                <ui:VisualElement name="header" style="align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <ui:Label text="고급 청소 업체" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
-                                    <ui:VisualElement name="company-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/free-icon-house-cleaning-4326454.png?fileID=21300000&amp;guid=5b36e467a80a48c40b38c17bfe52beec&amp;type=3#free-icon-house-cleaning-4326454&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="company-image" class="cleaning-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/free-icon-house-cleaning-4326454.png?fileID=21300000&amp;guid=5b36e467a80a48c40b38c17bfe52beec&amp;type=3#free-icon-house-cleaning-4326454&apos;);" />
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
-                                        <ui:Label text="사용 가능" display-tooltip-when-elided="true" name="available" class="text" style="font-size: 45px; color: rgba(255, 255, 255, 0.59);" />
-                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px;">
-                                            <ui:Label text="청결도 개선" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 35px;" />
-                                            <ui:Label text="20%" display-tooltip-when-elided="true" name="value-text" class="text" style="position: absolute; font-size: 35px; right: 0;" />
-                                            <ui:VisualElement name="graph" style="width: 100%; height: 25px; background-color: rgba(0, 0, 0, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 10px;">
-                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.59); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; transform-origin: left; scale: 0.25 1;" />
+                                        <ui:Label text="사용 가능" display-tooltip-when-elided="true" name="available" class="text" />
+                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px; background-color: rgb(222, 221, 216); padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
+                                            <ui:Label text="청결도 개선" display-tooltip-when-elided="true" name="name-text" class="text" style="align-items: flex-end;">
+                                                <ui:Label text="20%" display-tooltip-when-elided="true" name="value-text" class="text" style="font-size: 25px;" />
+                                            </ui:Label>
+                                            <ui:VisualElement name="graph" style="width: 100%; height: 50%; background-color: rgb(173, 173, 171); margin-top: 10px;">
+                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgb(255, 167, 76); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; transform-origin: left; scale: 0.25 1;" />
                                             </ui:VisualElement>
                                         </ui:VisualElement>
                                     </ui:VisualElement>
@@ -101,24 +104,25 @@
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="ad-content" style="width: 50%; height: 100%;">
-                        <ui:VisualElement name="gold-content" style="width: 100%; flex-basis: 5%; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Middle)%20Icon.png?fileID=21300000&amp;guid=c0c6236a6ab80ef4a976fb36399ec076&amp;type=3#Free Flat Gradient Horizontal (Middle) Icon&apos;); -unity-background-image-tint-color: rgba(0, 0, 0, 0.78); margin-bottom: 20px; flex-direction: row; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <ui:VisualElement name="gold-image" style="width: 50px; height: 50px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
+                        <ui:VisualElement name="gold-content" class="gold-content">
+                            <ui:VisualElement name="gold-image" style="width: 5%; height: 70%; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
                             <ui:Label text="1,418 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 30px; left: -25px;" />
                         </ui:VisualElement>
                         <ui:VisualElement name="ad-items" style="flex-grow: 1;">
                             <ui:VisualElement name="paper" class="fishing-item">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
-                                    <ui:Label text="전단지 홍보" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
+                                <ui:VisualElement name="header" style="align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <ui:Label text="전단지 홍보" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
-                                    <ui:VisualElement name="paper-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/free-icon-flyer-9156848.png?fileID=21300000&amp;guid=5275e20517c0e7d44b6918c52b197cb1&amp;type=3#free-icon-flyer-9156848&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="paper-image" class="cleaning-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/free-icon-flyer-9156848.png?fileID=21300000&amp;guid=5275e20517c0e7d44b6918c52b197cb1&amp;type=3#free-icon-flyer-9156848&apos;);" />
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
-                                        <ui:Label text="사용 가능" display-tooltip-when-elided="true" name="available" class="text" style="font-size: 45px; color: rgba(255, 255, 255, 0.59);" />
-                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px;">
-                                            <ui:Label text="홍보력" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 35px;" />
-                                            <ui:Label text="3%" display-tooltip-when-elided="true" name="value-text" class="text" style="position: absolute; font-size: 35px; right: 0;" />
-                                            <ui:VisualElement name="graph" style="width: 100%; height: 25px; background-color: rgba(0, 0, 0, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 10px;">
-                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.59); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; transform-origin: left; scale: 0.06 1;" />
+                                        <ui:Label text="사용 가능" display-tooltip-when-elided="true" name="available" class="text" />
+                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px; background-color: rgb(222, 221, 216); padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; justify-content: center;">
+                                            <ui:Label text="홍보력" display-tooltip-when-elided="true" name="name-text" class="text" style="align-items: flex-end;">
+                                                <ui:Label text="3%" display-tooltip-when-elided="true" name="value-text" class="text" style="font-size: 25px;" />
+                                            </ui:Label>
+                                            <ui:VisualElement name="graph" style="width: 100%; height: 50%; background-color: rgb(173, 173, 171); margin-top: 10px;">
+                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgb(255, 167, 76); transform-origin: left; scale: 0.06 1;" />
                                             </ui:VisualElement>
                                         </ui:VisualElement>
                                     </ui:VisualElement>
@@ -131,18 +135,19 @@
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="sns" class="fishing-item">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
-                                    <ui:Label text="SNS 홍보" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
+                                <ui:VisualElement name="header" style="align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <ui:Label text="SNS 홍보" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
-                                    <ui:VisualElement name="sns-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/free-icon-mobile-advertisement-10272514.png?fileID=21300000&amp;guid=d4cbd8271ba65bd41a8afbebc0fb1345&amp;type=3#free-icon-mobile-advertisement-10272514&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="sns-image" class="cleaning-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/free-icon-mobile-advertisement-10272514.png?fileID=21300000&amp;guid=d4cbd8271ba65bd41a8afbebc0fb1345&amp;type=3#free-icon-mobile-advertisement-10272514&apos;);" />
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
-                                        <ui:Label text="사용 가능" display-tooltip-when-elided="true" name="available" class="text" style="font-size: 45px; color: rgba(255, 255, 255, 0.59);" />
-                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px;">
-                                            <ui:Label text="홍보력" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 35px;" />
-                                            <ui:Label text="7%" display-tooltip-when-elided="true" name="value-text" class="text" style="position: absolute; font-size: 35px; right: 0;" />
-                                            <ui:VisualElement name="graph" style="width: 100%; height: 25px; background-color: rgba(0, 0, 0, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 10px;">
-                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.59); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; transform-origin: left; scale: 0.14 1;" />
+                                        <ui:Label text="사용 가능" display-tooltip-when-elided="true" name="available" class="text" />
+                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px; background-color: rgb(222, 221, 216); padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; justify-content: center;">
+                                            <ui:Label text="홍보력" display-tooltip-when-elided="true" name="name-text" class="text" style="align-items: flex-end;">
+                                                <ui:Label text="7%" display-tooltip-when-elided="true" name="value-text" class="text" style="font-size: 25px;" />
+                                            </ui:Label>
+                                            <ui:VisualElement name="graph" style="width: 100%; height: 50%; background-color: rgb(173, 173, 171); margin-top: 10px;">
+                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgb(255, 167, 76); transform-origin: left; scale: 0.14 1;" />
                                             </ui:VisualElement>
                                         </ui:VisualElement>
                                     </ui:VisualElement>
@@ -155,18 +160,19 @@
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="airship" class="fishing-item">
-                                <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0;">
-                                    <ui:Label text="비행선 홍보" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px;" />
+                                <ui:VisualElement name="header" style="align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <ui:Label text="비행선 홍보" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
-                                    <ui:VisualElement name="airship-image" style="width: 175px; height: 175px; background-image: url(&apos;project://database/Assets/05.Assets/UI/free-icon-dirigible-4852573.png?fileID=21300000&amp;guid=e9cd1ff429e80c14f9cb9c9f9fa9c2a2&amp;type=3#free-icon-dirigible-4852573&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="airship-image" class="cleaning-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/free-icon-dirigible-4852573.png?fileID=21300000&amp;guid=e9cd1ff429e80c14f9cb9c9f9fa9c2a2&amp;type=3#free-icon-dirigible-4852573&apos;);" />
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
-                                        <ui:Label text="사용 가능" display-tooltip-when-elided="true" name="available" class="text" style="font-size: 45px; color: rgba(255, 255, 255, 0.59);" />
-                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px;">
-                                            <ui:Label text="홍보력" display-tooltip-when-elided="true" name="name-text" class="text" style="font-size: 35px;" />
-                                            <ui:Label text="10%" display-tooltip-when-elided="true" name="value-text" class="text" style="position: absolute; font-size: 35px; right: 0;" />
-                                            <ui:VisualElement name="graph" style="width: 100%; height: 25px; background-color: rgba(0, 0, 0, 0.39); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 10px;">
-                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.59); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; transform-origin: left; scale: 0.2 1;" />
+                                        <ui:Label text="사용 가능" display-tooltip-when-elided="true" name="available" class="text" />
+                                        <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px; background-color: rgb(222, 221, 216); padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; justify-content: center;">
+                                            <ui:Label text="홍보력" display-tooltip-when-elided="true" name="name-text" class="text" style="align-items: flex-end;">
+                                                <ui:Label text="10%" display-tooltip-when-elided="true" name="value-text" class="text" style="font-size: 25px;" />
+                                            </ui:Label>
+                                            <ui:VisualElement name="graph" style="width: 100%; height: 50%; background-color: rgb(173, 173, 171); margin-top: 10px;">
+                                                <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgb(255, 167, 76); transform-origin: left; scale: 0.2 1;" />
                                             </ui:VisualElement>
                                         </ui:VisualElement>
                                     </ui:VisualElement>

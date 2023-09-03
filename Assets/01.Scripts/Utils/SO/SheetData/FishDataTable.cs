@@ -4,13 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class FishViual{
-    public Mesh VisualMesh;
-    public Sprite Profile;
-    public Material MainMat;
-}
-
-[Serializable]
 public class FishDataUnit{
     public string Name;
     public FishViual Visual;
@@ -20,8 +13,8 @@ public class FishDataUnit{
     public float Speed;
     public int InvenSizeX;
     public int InvenSizeY;
-    public float MinLenght;
-    public float MaxLenght;
+    public float MinLength;
+    public float MaxLength;
     public float MinWeight;
     public float MaxWeight;
     public float SpawnPercent;
@@ -47,8 +40,8 @@ public class FishDataTable : LoadableData
         DataTable[Size].Speed = float.Parse(dataArr[4]);
         DataTable[Size].InvenSizeX = int.Parse(dataArr[5]);
         DataTable[Size].InvenSizeY = int.Parse(dataArr[6]);
-        DataTable[Size].MinLenght = float.Parse(dataArr[7]);
-        DataTable[Size].MaxLenght = float.Parse(dataArr[8]);
+        DataTable[Size].MinLength = float.Parse(dataArr[7]);
+        DataTable[Size].MaxLength = float.Parse(dataArr[8]);
         DataTable[Size].MinWeight = float.Parse(dataArr[9]);
         DataTable[Size].MaxWeight = float.Parse(dataArr[10]);
         DataTable[Size].SpawnPercent = float.Parse(dataArr[11]);
