@@ -7,7 +7,7 @@ public class BoatDataUnit{
     public string Name;
     public int Id;
     public float Price;
-    public BoatViual Visual;
+    public BoatVisual Visual;
     public float MaxSpeed;
     public float ForwardAcceleration;
     public float BackwardAcceleration;

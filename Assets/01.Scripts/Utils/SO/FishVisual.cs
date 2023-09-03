@@ -1,9 +1,7 @@
-using System;
 using UnityEngine;
 
-[Serializable]
 [CreateAssetMenu(menuName = "SO/VisualSO/FishVisual")]
-public class FishViual : ScriptableObject{
+public class FishVisual : ScriptableObject{
     public Mesh VisualMesh;
     public Sprite Profile;
     public Material MainMat;
