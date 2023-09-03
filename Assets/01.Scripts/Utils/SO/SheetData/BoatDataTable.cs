@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [System.Serializable]
 public class BoatDataUnit{
     public string Name;
-    public int Id;
     public float Price;
     public BoatVisual Visual;
     public float MaxSpeed;
@@ -27,19 +27,20 @@ public class BoatDataTable : LoadableData
         DataTable.Add(new BoatDataUnit());
 
         DataTable[Size].Name = dataArr[0];
-        DataTable[Size].Price = float.Parse(dataArr[1]);
+        DataTable[Size].Price = float.Parse(dataArr[2]);
         
-        // set visual
-        
-        DataTable[Size].MaxSpeed = float.Parse(dataArr[2]);
-        DataTable[Size].ForwardAcceleration = float.Parse(dataArr[3]);
-        DataTable[Size].BackwardAcceleration = float.Parse(dataArr[4]);
-        DataTable[Size].Deceleration = float.Parse(dataArr[5]);
-        DataTable[Size].RotationSpeed = float.Parse(dataArr[6]);
-        DataTable[Size].RotationAcceleration = float.Parse(dataArr[7]);
-        DataTable[Size].RotationDeceleration = float.Parse(dataArr[8]);
-        DataTable[Size].MaxFuel = float.Parse(dataArr[9]);
+        DataTable[Size].MaxSpeed = float.Parse(dataArr[3]);
+        DataTable[Size].ForwardAcceleration = float.Parse(dataArr[4]);
+        DataTable[Size].BackwardAcceleration = float.Parse(dataArr[5]);
+        DataTable[Size].Deceleration = float.Parse(dataArr[6]);
+        DataTable[Size].RotationSpeed = float.Parse(dataArr[7]);
+        DataTable[Size].RotationAcceleration = float.Parse(dataArr[8]);
+        DataTable[Size].RotationDeceleration = float.Parse(dataArr[9]);
+        DataTable[Size].MaxFuel = float.Parse(dataArr[10]);
 
+        string path = $"Assets/06.SO/BoatVisual/{Size:D2}.{dataArr[1]}.asset";
+        DataTable[Size].Visual = AssetDatabase.LoadAssetAtPath<BoatVisual>(path);
+        
         ++Size;
     }
 

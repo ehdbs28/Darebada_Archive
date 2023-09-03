@@ -712,7 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 754774583}
   m_Layer: 0
-  m_Name: PoolingObject
+  m_Name: PoolingObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9196,7 +9196,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentBoatData:
     Name: 
-    Id: 0
     Price: 0
     Visual: {fileID: 0}
     MaxSpeed: 0

@@ -617,11 +617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _curBoatData:
     Name: 
-    Id: 0
     Price: 0
-    Visual:
-      VisualMesh: {fileID: 0}
-      MainMat: {fileID: 0}
+    Visual: {fileID: 0}
     MaxSpeed: 0
     ForwardAcceleration: 0
     BackwardAcceleration: 0
