@@ -23,7 +23,6 @@ public class CatchedFishCheckingPopup : UIPopup
     {
         _nameText.text = data.Name;
         _fishImage.style.backgroundImage = new StyleBackground(data.Visual.Profile);
-        //���� ���� �� ����Ǿ��ִ°� �����ؾ���
         _weightText.text = (Random.Range(data.MinWeight, data.MaxWeight)).ToString();
         _lengthText.text = (Random.Range(data.MinLenght, data.MaxLenght)).ToString();
         _description.text = data.Description;
