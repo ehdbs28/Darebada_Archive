@@ -9,7 +9,10 @@ public class FacilityEntryPopup : UIPopup
     private VisualElement _enterBtn;
     private Label _facilityLabel;
 
-    public int _currFacility;
+    public PopupType popupType;
+    public GameSceneType sceneType;
+
+    public bool isPopup;
 
     public override void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
     {
@@ -24,20 +27,14 @@ public class FacilityEntryPopup : UIPopup
 
         _enterBtn.RegisterCallback<ClickEvent>(e =>
         {
-            if(_currFacility == 2)
+            RemoveRoot();
+            if (isPopup)
             {
-                RemoveRoot();
-                GameManager.Instance.GetManager<GameSceneManager>().ChangeScene((GameSceneType)_currFacility);
+                GameManager.Instance.GetManager<UIManager>().ShowPanel(popupType);
             }
-            else if(_currFacility == 4)
+            else
             {
-                RemoveRoot();
-                GameManager.Instance.GetManager<UIManager>().ShowPanel((PopupType)_currFacility);
-            }
-            else if(_currFacility == 5)
-            {
-                RemoveRoot();
-                GameManager.Instance.GetManager<UIManager>().ShowPanel((PopupType)_currFacility);
+                GameManager.Instance.GetManager<GameSceneManager>().ChangeScene(sceneType);
             }
         });
     }

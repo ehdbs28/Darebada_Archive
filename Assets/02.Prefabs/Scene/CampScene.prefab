@@ -5008,7 +5008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2833275750228799653}
   - component: {fileID: 1154809095571317824}
-  - component: {fileID: 3696466333287966335}
+  - component: {fileID: 538726250399677042}
   m_Layer: 6
   m_Name: Facility_Upgrade
   m_TagString: Untagged
@@ -5045,7 +5045,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.4422274, y: 4.4853344, z: 3.230365}
   m_Center: {x: -0.8, y: 1.51, z: 0}
---- !u!114 &3696466333287966335
+--- !u!114 &538726250399677042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5060,7 +5060,9 @@ MonoBehaviour:
   _manager: {fileID: 7894726203665741628}
   type: 10
   popupNum: 5
+  sceneType: 0
   _isPopup: 1
+  _isConfirm: 0
 --- !u!1 &2868507672458345989
 GameObject:
   m_ObjectHideFlags: 0
@@ -16727,9 +16729,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5618274626282676958}
-  - component: {fileID: 5618274626282676953}
   - component: {fileID: 5618274626282676952}
-  - component: {fileID: 4447167730574626462}
+  - component: {fileID: 3619396876932233049}
   m_Layer: 6
   m_Name: Faclity_Ocean
   m_TagString: Untagged
@@ -16753,22 +16754,6 @@ Transform:
   m_Father: {fileID: 1077399640900639504}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 165, z: 0}
---- !u!54 &5618274626282676953
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5618274626282676955}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 84
-  m_CollisionDetection: 0
 --- !u!65 &5618274626282676952
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16782,7 +16767,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 0.2, z: 5.5}
   m_Center: {x: 0, y: 0.5, z: 3.2}
---- !u!114 &4447167730574626462
+--- !u!114 &3619396876932233049
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16794,10 +16779,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a372e09c1bb28479d513d5b00fdf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 0}
-  type: 0
-  popupNum: 0
-  _isPopup: 0
+  _manager: {fileID: 7894726203665741628}
+  type: 10
+  popupNum: 6
+  sceneType: 0
+  _isPopup: 1
+  _isConfirm: 0
 --- !u!1 &5618274626290146976
 GameObject:
   m_ObjectHideFlags: 0
@@ -17651,8 +17638,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9012157835898541230}
-  - component: {fileID: 3342526483474723905}
   - component: {fileID: 3315466642902258889}
+  - component: {fileID: 7007084905728185755}
   m_Layer: 6
   m_Name: Facility_Shop
   m_TagString: Untagged
@@ -17676,22 +17663,6 @@ Transform:
   m_Father: {fileID: 1077399640900639504}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 201.396, z: 0}
---- !u!114 &3342526483474723905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5671950049720580556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42a372e09c1bb28479d513d5b00fdf9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _manager: {fileID: 7894726203665741628}
-  type: 10
-  popupNum: 4
-  _isPopup: 1
 --- !u!64 &3315466642902258889
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17706,6 +17677,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1874433114815105449, guid: f0ff8ca82e8b642a8931d1d8ac7cf0c2, type: 3}
+--- !u!114 &7007084905728185755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671950049720580556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a372e09c1bb28479d513d5b00fdf9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _manager: {fileID: 7894726203665741628}
+  type: 10
+  popupNum: 4
+  sceneType: 0
+  _isPopup: 1
+  _isConfirm: 0
 --- !u!1 &5791861246718349984
 GameObject:
   m_ObjectHideFlags: 0
@@ -18270,7 +18259,9 @@ MonoBehaviour:
   _manager: {fileID: 7894726203665741628}
   type: 10
   popupNum: 2
+  sceneType: 2
   _isPopup: 0
+  _isConfirm: 1
 --- !u!1 &7356159492574252658
 GameObject:
   m_ObjectHideFlags: 0
