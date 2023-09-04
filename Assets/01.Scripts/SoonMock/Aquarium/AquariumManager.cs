@@ -1,16 +1,31 @@
 using Core;
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class AquariumManager : MonoBehaviour, IManager
 {
+    public Material fishBowlMat;
+    public Material mossMat;
+    public Transform facilityParent;
+    [SerializeField] Color pureWaterColor;
+    [SerializeField] Color corruptedWaterColor;
     #region "�ڿ� �� ��ҵ�"
     [SerializeField] private int _cleanScore;
     public int CleanScore
     {
         get { return _cleanScore; }
-        set { _cleanScore = value; }
+        set { 
+            _cleanScore = value;
+            if (_cleanScore < 50) fishBowlMat.color = corruptedWaterColor;
+            else fishBowlMat.color = pureWaterColor;
+            mossMat.SetFloat("_ShowValue", 1f - CleanScore / 100f + 0.3f);
+            Debug.Log("Clean");
+            }
     }
     [SerializeField] private int _entrancefee;
     public int EntranceFee
@@ -36,19 +51,27 @@ public class AquariumManager : MonoBehaviour, IManager
         get { return _artScore; }
         set { _artScore = value; }
     }
+    [SerializeField] private Vector3 _floorSize;
+    public Vector3 FloorSize
+    {
+        get { return _floorSize; }
+        set { _floorSize = value; }
+    }
     #endregion
     //�̱���
     //�ؾ��� ��= �̱��� ���ֱ�
     //ũ�� ����
     [SerializeField] GameObject floor;
-    [SerializeField] Vector3 _floorSize;
     [SerializeField] private int _horizontalCount = 5;
-    
+    [SerializeField] ParticleSystem _cleaningParticle;
+    [SerializeField] ParticleSystem _cleaningParticleSystemObject;
+    [SerializeField] GameObject _walls;
     //�����Ƹ��� �� �ü���
     [SerializeField] GameObject _fishBowlObject;
     [SerializeField] GameObject _fishObject;
     [SerializeField] GameObject _decoObject;
     [SerializeField] GameObject _snackShopObject;
+    [SerializeField] GameObject _roadTileObject;
     [SerializeField] GameObject _buildPanel;
     public int decoCount = 0;
     public List<GameObject> aquaObject = new List<GameObject>();
@@ -71,6 +94,10 @@ public class AquariumManager : MonoBehaviour, IManager
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K)) ChangeSize(1, 1);
+        if (Input.GetKeyDown(KeyCode.L)) AddRoadTile();
+        if (Input.GetKeyDown(KeyCode.Semicolon)) AddFishBowl();
+        if (Input.GetKeyDown(KeyCode.I)) SetPos();
         UpdateManager();
     }
     public void SetFacilityPos()
@@ -87,30 +114,61 @@ public class AquariumManager : MonoBehaviour, IManager
             }
             facilityObj = null;
         }
+        FindObjectOfType<GridManager>().ShowGrid();
+        
+    }
+    public void ChangeSize(int x, int y)
+    {
+        _floorSize += new Vector3(x, 1, y);
+        floor.transform.localScale = _floorSize;
+        floor.GetComponent<MeshRenderer>().material.mainTextureScale = new Vector2(4 * FloorSize.x, 4 * FloorSize.z);
+        
+        _walls.transform.GetChild(0).localScale = new Vector3(FloorSize.x*10, 100, 0);
+        _walls.transform.GetChild(0).position = new Vector3(0, 50, -FloorSize.z * 10/2);
+
+        _walls.transform.GetChild(1).localScale = new Vector3(FloorSize.x*10, 100, 0);
+        _walls.transform.GetChild(1).localRotation = Quaternion.Euler(0, 180, 0);
+        _walls.transform.GetChild(1).position = new Vector3(0, 50, FloorSize.z * 10/2);
+        
+        _walls.transform.GetChild(2).localScale = new Vector3(FloorSize.z*10, 100, 0);
+        _walls.transform.GetChild(2).localRotation = Quaternion.Euler(0, 90, 0);
+        _walls.transform.GetChild(2).position = new Vector3(FloorSize.x * 10 / 2, 50, 0);
+        
+        _walls.transform.GetChild(3).localScale = new Vector3(FloorSize.z * 10, 100, 0);
+        _walls.transform.GetChild(3).localRotation = Quaternion.Euler(0, -90, 0);
+        _walls.transform.GetChild(3).position = new Vector3(-FloorSize.x * 10 / 2, 50, 0);
+
     }
     public void AddFishBowl()
     {
-        _buildPanel.SetActive(false);
+        //if (_buildPanel) _buildPanel.SetActive(false);
         Fishbowl fishBowl = Instantiate(_fishBowlObject).GetComponent<Fishbowl>();
         fishBowl.transform.localPosition = Vector3.zero;
         facilityObj = fishBowl;
 
         state = STATE.BUILD;
+        FindObjectOfType<GridManager>().ShowGrid();
         //    else floor.transform.localPosition = new Vector3(_floorSize.x / 2+10, 0, 0);
     }
     public void AddSnackShop()
     {
-        _buildPanel.SetActive(false);
+        //_buildPanel.SetActive(false);
         SnackShop snackShop = Instantiate(_snackShopObject).GetComponent<SnackShop>();
         
         snackShop.transform.localPosition = Vector3.zero;
         facilityObj = snackShop;
         state = STATE.BUILD;
+        FindObjectOfType<GridManager>().ShowGrid();
     }
-    public void ChangeFacilityPos(Facility obj)
+    public void AddRoadTile()
     {
-        facilityObj = obj;
+        //_buildPanel.SetActive(false);
+        RoadTile roadTile = Instantiate(_roadTileObject).GetComponent<RoadTile>();
+        
+        roadTile.transform.localPosition = Vector3.zero;
+        facilityObj = roadTile;
         state = STATE.BUILD;
+        FindObjectOfType<GridManager>().ShowGrid();
     }
     public GameObject AddFish(int id, Transform parent)
     {
@@ -129,22 +187,7 @@ public class AquariumManager : MonoBehaviour, IManager
         return deco;
     }
 
-    private void OnTouch()
-    {
-        RaycastHit hit;
-        Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
-        {
-            facilityObj = hit.collider.GetComponent<Facility>();
-        }
-        else{
-            facilityObj = null;
-        }
-    }
-
-    private void OnTouchUp()
-    {
-        facilityObj = null;
+    private void OnTouchHandle(){
     }
 
     public void InitManager()
@@ -155,14 +198,48 @@ public class AquariumManager : MonoBehaviour, IManager
         }
         _build = GetComponent<BuildFacility>();
 
-        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouch;
-        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUp;
+        //GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += MouseClickHandle;
+        //GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnDayChange;
+    }
+
+    public void SetPos()
+    {
+        if(state==STATE.BUILD)
+        {
+            if (facilityObj && facilityObj.GetComponent<Facility>().CheckCollision())
+            {
+                facilityObj.transform.parent = facilityParent;
+            FindObjectOfType<GridManager>().HideGrid();
+                facilityObj = null;
+            state = STATE.NORMAL;
+                //Navmesh
+            }
+
+        };
+        
     }
 
     public void ResetManager()
     {
-        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouch;
-        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent -= OnTouchUp;
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchHandle;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUpHandle;
+
+    }
+
+    private void OnTouchUpHandle()
+    {
+
+        RaycastHit hit;
+        Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+        {
+            facilityObj = hit.collider.GetComponent<Facility>();
+        }
+        else
+        {
+            facilityObj = null;
+
+        }
     }
 
     public void UpdateManager()
@@ -173,11 +250,35 @@ public class AquariumManager : MonoBehaviour, IManager
         if (state == STATE.BUILD)   
         {
             RaycastHit hit;
-            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
+            //Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
+            //나중에 돌려놔야함
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (facilityObj != null && Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
             {
-                facilityObj.transform.position = _build.GetFacilityPos();
+
+                if (_build == null) _build = gameObject.AddComponent<BuildFacility>();
+                facilityObj.transform.position = _build.GetFacilityPos() + Vector3.up*2;
             }
         }
     }
+    [ContextMenu("Cleaning")]
+    public void Cleaning(int value)
+    {
+        CleanScore -= value;
+        if(!_cleaningParticle )
+        {
+            ParticleSystem particle = Instantiate(_cleaningParticleSystemObject, Camera.main.transform);
+            particle.transform.position = Vector3.zero;
+            _cleaningParticle = particle;
+        }
+        _cleaningParticle.transform.localPosition = Vector3.forward;
+        _cleaningParticle.transform.localRotation = Quaternion.identity;
+        _cleaningParticle.Play();
+        
+    }
+    public void OnDayChange(int year, int month, int day)
+    {
+        CleanScore = (int)Mathf.Clamp(CleanScore - Reputation * 3, 0, 100);
+    }
+    
 }

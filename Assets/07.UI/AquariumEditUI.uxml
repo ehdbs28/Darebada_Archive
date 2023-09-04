@@ -4,23 +4,18 @@
     <Style src="project://database/Assets/07.UI/CampUI.uss?fileID=7433441132597879392&amp;guid=870c7f81e78494c4794883e1a9367d4b&amp;type=3#CampUI" />
     <Style src="project://database/Assets/07.UI/AquariumUI.uss?fileID=7433441132597879392&amp;guid=71878df49f8ca784c99eee85be9f2546&amp;type=3#AquariumUI" />
     <ui:VisualElement name="container" picking-mode="Ignore">
-        <ui:VisualElement name="header-container" picking-mode="Ignore" style="flex-direction: row;">
-            <ui:VisualElement name="game-data" picking-mode="Ignore">
-                <ui:Label text="1년째 7월14일" display-tooltip-when-elided="true" name="date-text" class="text" />
-                <ui:Label text="08:22" display-tooltip-when-elided="true" name="time-text" class="text" />
-                <ui:VisualElement name="line" />
-                <ui:VisualElement name="money-container" style="width: 350px; height: 75px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Left)%20Icon.png?fileID=21300000&amp;guid=ddab5934254f1ae49921cf4eeb754ddc&amp;type=3#Free Flat Gradient Horizontal (Left) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); flex-direction: row; align-items: center; padding-left: 10px;">
-                    <ui:VisualElement name="icon-image" style="width: 60px; height: 60px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 20px;" />
-                    <ui:Label text="5,678$" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px; color: rgb(255, 255, 255);" />
+        <ui:VisualElement name="header-container" picking-mode="Ignore" style="flex-direction: row; justify-content: space-between; margin-bottom: 3%; margin-top: 5%;">
+            <ui:VisualElement name="data-container">
+                <ui:VisualElement name="game-data" picking-mode="Ignore">
+                    <ui:Label text="1년째" display-tooltip-when-elided="true" name="year-text" class="text" />
+                    <ui:Label text="7월14일" display-tooltip-when-elided="true" name="date-text" class="text" />
+                    <ui:Label text="08:22" display-tooltip-when-elided="true" name="time-text" class="text" />
+                    <ui:VisualElement name="line" />
+                    <ui:VisualElement name="money-container" style="width: 350px; height: 75px; background-image: none; -unity-background-image-tint-color: rgba(0, 0, 0, 0.6); flex-direction: row; align-items: center; padding-left: 10px; background-color: rgba(0, 0, 0, 0);">
+                        <ui:VisualElement name="icon-image" style="width: 40px; height: 40px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 20px;" />
+                        <ui:Label text="$5,678" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 25px;" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
-            </ui:VisualElement>
-            <ui:VisualElement name="setting-btn" class="btn" style="justify-content: flex-end;">
-                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Gear.png?fileID=21300000&amp;guid=f55f75488890d4747835fc8299828fe7&amp;type=3#White Gear&apos;); width: 120%; height: 120%; bottom: -10px;" />
-                <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" />
-            </ui:VisualElement>
-            <ui:VisualElement name="back-btn" class="btn" style="justify-content: flex-end;">
-                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/SlimUI/Modern%20Menu%201/Graphics/Icons/Return%20128px.png?fileID=939378893&amp;guid=bd24f49365315ce4ab078b0114790639&amp;type=3#Return 128px_0&apos;); width: 90%; height: 90%; bottom: 5px;" />
-                <ui:Label text="돌아가기" display-tooltip-when-elided="true" name="btn-text" class="text" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="game-container" picking-mode="Ignore" style="justify-content: flex-start;" />
@@ -33,6 +28,14 @@
                 <ui:VisualElement name="add-plant-btn" class="facility-btn">
                     <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/image_4.png?fileID=21300000&amp;guid=4ae1c72df5f422942bd31b073ec52b3f&amp;type=3#image_4&apos;);" />
                     <ui:Label text="시설 증설" display-tooltip-when-elided="true" name="text" class="text" />
+                </ui:VisualElement>
+                <ui:VisualElement name="add-road-btn" class="facility-btn">
+                    <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/image_4.png?fileID=21300000&amp;guid=4ae1c72df5f422942bd31b073ec52b3f&amp;type=3#image_4&apos;);" />
+                    <ui:Label text="길 설치" display-tooltip-when-elided="true" name="text" class="text" />
+                </ui:VisualElement>
+                <ui:VisualElement name="back-btn" class="btn" style="justify-content: flex-end;">
+                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/SlimUI/Modern%20Menu%201/Graphics/Icons/Return%20128px.png?fileID=939378893&amp;guid=bd24f49365315ce4ab078b0114790639&amp;type=3#Return 128px_0&apos;); width: 90%; height: 90%; bottom: 5px;" />
+                    <ui:Label text="돌아가기" display-tooltip-when-elided="true" name="btn-text" class="text" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
