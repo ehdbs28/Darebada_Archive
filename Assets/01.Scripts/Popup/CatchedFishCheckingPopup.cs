@@ -23,9 +23,9 @@ public class CatchedFishCheckingPopup : UIPopup
     {
         _nameText.text = data.Name;
         _fishImage.style.backgroundImage = new StyleBackground(data.Visual.Profile);
-        //ÃßÈÄ ÀâÀº ¼ö ÀúÀåµÇ¾îÀÖ´Â°Å ¿¬°áÇØ¾ßÇÔ
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½Ö´Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
         _weightText.text = (Random.Range(data.MinWeight, data.MaxWeight)).ToString();
-        _lengthText.text = (Random.Range(data.MinLength, data.MaxLength)).ToString();
+        _lengthText.text = (Random.Range(data.MinLenght, data.MaxLenght)).ToString();
         _description.text = data.Description;
     }
 
@@ -44,8 +44,8 @@ public class CatchedFishCheckingPopup : UIPopup
 
         _captureBtn.RegisterCallback<ClickEvent>(e =>
         {
-            //µ¥ÀÌÅÍ ÀÔ·ÂÇØ¼­ ÀÎº¥Åä¸®¿¡ ³Ö¾îÁà¾ßÇÔ
-            Debug.Log("µ¥ÀÌÅÍ ÀÔ·Â");
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ø¼ï¿½ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½");
         });
     }
 

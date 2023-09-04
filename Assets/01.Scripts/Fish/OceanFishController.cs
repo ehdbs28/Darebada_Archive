@@ -51,8 +51,8 @@ public class OceanFishController : ModuleController
         
         // Should Check Visual
 
-        _actionData.Lenght = Random.Range(data.MinLength, data.MaxLength);
-        float normalizedLenght = (_actionData.Lenght - data.MinLength) / (data.MaxLength - data.MinLength);
+        _actionData.Lenght = Random.Range(data.MinLenght, data.MaxLenght);
+        float normalizedLenght = (_actionData.Lenght - data.MinLenght) / (data.MaxLenght - data.MinLenght);
         _actionData.Weight = normalizedLenght * (data.MaxWeight - data.MinWeight) + data.MinWeight;
 
         transform.localScale = Vector3.one * normalizedLenght;
