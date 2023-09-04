@@ -92,9 +92,8 @@ public class FishingReelUpState : FishingState
                 
                 _controller.Bait.CatchedFish = null;
 
-                ((CatchedFishCheckingPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.CatchedFishChecking)).dataUnit = dataUnit;
-                GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.CatchedFishChecking);
-                ;
+                //((CatchedFishCheckingPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.CatchedFishChecking)).dataUnit = dataUnit;
+                //GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.CatchedFishChecking);
             }
         }
     }
