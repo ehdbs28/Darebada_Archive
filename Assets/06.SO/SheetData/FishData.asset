@@ -17,10 +17,7 @@ MonoBehaviour:
   DataTable:
     _data:
     - Name: "\uC1A1\uC5B4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: ce3eff7eb990b4bf5bb51a82077be021, type: 2}
       Price: 25
       Habitat: 0
       Rarity: 1
@@ -42,10 +39,7 @@ MonoBehaviour:
         \uC88B\uC544 \uBD81\uBBF8\uC758 \uC2A4\uD3EC\uCE20 \uB09A\uC2DC \uB300\uC0C1\uC5B4\uC885\uC73C\uB85C
         \uAC01\uAD11\uBC1B\uB294\uB2E4.\r"
     - Name: "\uCCA0\uAC11\uC0C1\uC5B4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: d4adc7a7118f64c3196c42e1909d3115, type: 2}
       Price: 25
       Habitat: 0
       Rarity: 1
@@ -65,10 +59,7 @@ MonoBehaviour:
         \uC774\uB984\uC740 \uCCA0\uAC11\uC0C1\uC5B4\uC774\uC9C0\uB9CC \uC2E4\uC81C\uB85C
         \uC0C1\uC5B4\uC640\uB294 \uAD00\uB828\uC774 \uC5C6\uB294 \uC5B4\uC885\uC774\uB2E4.\r"
     - Name: "\uB85C\uCE58"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 95fced8d32f4e4839ac8609e6b671b7d, type: 2}
       Price: 25
       Habitat: 0
       Rarity: 1
@@ -88,10 +79,7 @@ MonoBehaviour:
         \uC0B0\uB2E4. \uBD89\uC740 \uB208\uACFC \uC9D9\uC740 \uD68C\uC0C9\uC758 \uC9C0\uB290\uB7EC\uBBF8\uAC00
         \uD2B9\uC9D5\uC774\uB2E4.\r"
     - Name: "\uD070\uC785\uBC30\uC2A4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 4bd80c2f9cfcb4282865397ffe452d38, type: 2}
       Price: 25
       Habitat: 0
       Rarity: 1
@@ -111,10 +99,7 @@ MonoBehaviour:
         \uC791\uC740 \uD3EC\uC720\uB958\uAE4C\uC9C0 \uC785\uC5D0 \uB4E4\uC5B4\uAC00\uB294
         \uD06C\uAE30\uBA74 \uBB34\uC5C7\uC774\uB4E0 \uC7A1\uC544\uBA39\uB294\uB2E4.\r"
     - Name: "\uD30C\uB791\uBCFC\uC6B0\uB7ED"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 78480e7baecae47d29fe61038a0c217b, type: 2}
       Price: 25
       Habitat: 0
       Rarity: 1
@@ -134,10 +119,7 @@ MonoBehaviour:
         \uC788\uB294\uB370, \uC774 \uB54C\uBB38\uC5D0 '\uD30C\uB780 \uC544\uAC00\uBBF8'\uB77C\uB294
         \uB73B\uC758 \uBE14\uB8E8\uAE38\uC774\uB77C \uBD88\uB9B0\uB2E4.\r"
     - Name: "\uB18D\uC5B4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 8e707bf77b0d94b08b0bb624a770abc6, type: 2}
       Price: 25
       Habitat: 0
       Rarity: 1
@@ -157,10 +139,7 @@ MonoBehaviour:
         \uBAA8\uC774\uACE0, \uAC00\uC744\uC774 \uB418\uC5B4 \uB0A0\uC528\uAC00 \uC300\uC300\uD574\uC9C0\uBA74
         \uBC88\uC2DD \uD6C4 \uAE4A\uC740 \uBC14\uB2E4\uB85C \uC774\uB3D9\uD55C\uB2E4.\r"
     - Name: "\uC789\uC5B4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: fd1666df9fb5046ed9fceaa08055e53b, type: 2}
       Price: 25
       Habitat: 0
       Rarity: 1
@@ -180,10 +159,7 @@ MonoBehaviour:
         \uBD88\uB9B0\uB2E4. \uC61B \uC18D\uC124\uB85C \uC789\uC5B4\uB294 \uBBFC\uBB3C\uC6A9\uC655\uC758
         \uC544\uB4E4\uC774\uB77C\uACE0 \uD55C\uB2E4.\r"
     - Name: "\uC810\uC131\uC5B4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 833d7f740988e4ba2b23c450979ccd7b, type: 2}
       Price: 50
       Habitat: 0
       Rarity: 2
@@ -204,10 +180,7 @@ MonoBehaviour:
         \uC54A\uB2E4. \uC6D4\uCC99 \uD06C\uAE30\uB85C \uC7A1\uC544\uB3C4 \uC6D4\uCC99\uC73C\uB85C
         \uC548 \uCCD0\uC904 \uC815\uB3C4.\r"
     - Name: "\uBBFC\uBB3C\uAF2C\uCE58\uACE0\uAE30"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 5851753ec0f9944919fcc3a936ea8544, type: 2}
       Price: 50
       Habitat: 0
       Rarity: 2
@@ -229,10 +202,7 @@ MonoBehaviour:
         \uC21C\uAC04\uC801\uC778 \uD30C\uB2E5\uAC70\uB9BC\uC774 \uC0C1\uB2F9\uD788
         \uD798 \uC13C \uD3B8\uC774\uB2E4.\r"
     - Name: "\uB4C0\uACF5"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 7b484890a3acc419f901eb7c4816a9fe, type: 2}
       Price: 100
       Habitat: 0
       Rarity: 3
@@ -254,10 +224,7 @@ MonoBehaviour:
         \uBB44\uBB34\uAC8C\uB97C \uBABB\uC774\uAE30\uACE0 \uC9D3\uB20C\uB824 \uC8FD\uC744
         \uC218 \uC788\uB2E4.\r"
     - Name: "\uB3CC\uACE0\uB798"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 1c039a080ae384ee2892d6b0a5961cef, type: 2}
       Price: 100
       Habitat: 0
       Rarity: 3
@@ -279,10 +246,7 @@ MonoBehaviour:
         \uB3CC+\uACE0\uB798\uC5D0\uC11C \uBCC0\uD615\uB41C \uB9D0\uC774\uB77C\uACE0
         \uD55C\uB2E4.\r"
     - Name: "\uBA54\uAE30"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: a3ae2b3a9074445aabd0858bc77aefb6, type: 2}
       Price: 100
       Habitat: 1
       Rarity: 1
@@ -303,10 +267,7 @@ MonoBehaviour:
         \uC0BC\uD0AC \uC218 \uC788\uB294 \uD55C \uB2E5\uCE58\uB294 \uB300\uB85C \uBA39\uC5B4
         \uC0BC\uD0A8\uB2E4.\r"
     - Name: "\uBE68\uAC04\uD1B5\uB3D4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: bce6f8139877a4a49a8dae4f9db153be, type: 2}
       Price: 100
       Habitat: 1
       Rarity: 1
@@ -326,10 +287,7 @@ MonoBehaviour:
         \uC655\uC774\uB77C\uACE0\uB3C4 \uBD88\uB9B0\uB2E4. \uAC8C\uC784 \uBB3C\uACE0\uAE30\uB85C
         \uC790\uC8FC \uC4F0\uC778\uB2E4.\r"
     - Name: "\uB0A8\uC591\uC950\uB3D4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 874b090d5f557462cb60785e289a88e3, type: 2}
       Price: 100
       Habitat: 1
       Rarity: 1
@@ -350,10 +308,7 @@ MonoBehaviour:
         \uC560\uB2C8\uBA54\uC774\uC158 '\uB2C8\uBAA8\uB97C \uCC3E\uC544\uC11C'\uB97C
         \uD1B5\uD574 \uC720\uBA85\uD574\uC84C\uB2E4.\r"
     - Name: "\uD770\uB3D9\uAC00\uB9AC"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 02b2a19cfc22f43059f1d3d7819375e4, type: 2}
       Price: 300
       Habitat: 1
       Rarity: 2
@@ -373,10 +328,7 @@ MonoBehaviour:
         \uBB3C\uACE0\uAE30\uC774\uB2E4. \uB9D0\uBBF8\uC798\uC758 \uB3C5\uC5D0 \uBA74\uC5ED\uC774
         \uC788\uB2E4.\r"
     - Name: "\uB808\uC778\uBCF4\uC6B0\uD53C\uC26C"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: e1eb5be28ba404c63a4ae3e404aa4b9b, type: 2}
       Price: 300
       Habitat: 1
       Rarity: 2
@@ -396,12 +348,9 @@ MonoBehaviour:
         \uC0C9\uC744 \uAC00\uC838 \uBB34\uC9C0\uAC1C\uACE0\uAE30\uB77C\uACE0 \uBD88\uB9B0\uB2E4.
         \uC790\uB784\uC218\uB85D \uBE44\uB298 \uBE5B\uC774 \uAC15\uD574\uC9C4\uB2E4.\r"
     - Name: "\uC740\uC5B4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 73b3eb867ff044efc93a2e082b171ddf, type: 2}
       Price: 500
-      Habitat: 3
+      Habitat: 2
       Rarity: 1
       Speed: 1
       InvenSizeX: 2
@@ -419,12 +368,9 @@ MonoBehaviour:
         \uD2B9\uD788 \uC0B4\uACFC \uB0B4\uC7A5\uC5D0 \uBC30\uC5B4\uB4E0 \uD2B9\uC720\uC758
         \uD5A5\uC774 \uC77C\uD488\uC774\uB2E4.\r"
     - Name: "\uC5F0\uC5B4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: b7e49dae5fb8a49e39e5f48a392d860d, type: 2}
       Price: 500
-      Habitat: 3
+      Habitat: 2
       Rarity: 1
       Speed: 1.5
       InvenSizeX: 3
@@ -443,12 +389,9 @@ MonoBehaviour:
         \uC774 \uB3C5\uD2B9\uD55C \uC2B5\uC131\uC73C\uB85C \uC778\uD574 \uC0DD\uD0DC\uACC4\uC5D0
         \uC601\uD5A5\uC744 \uC81C\uACF5\uD558\uB294 \uC5ED\uD560\uC744 \uD55C\uB2E4.\r"
     - Name: "\uC784\uAE08\uD3AD\uADC4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 53d4d88e99eeb49da93051cdb9c1d07c, type: 2}
       Price: 700
-      Habitat: 3
+      Habitat: 2
       Rarity: 2
       Speed: 0.5
       InvenSizeX: 3
@@ -466,12 +409,9 @@ MonoBehaviour:
         \uD070 \uB369\uCE58\uB97C \uAC00\uC9C4 \uD3AD\uADC4\uC774\uB2E4. \uD669\uC81C\uD3AD\uADC4\uAC00\uB294
         \uB2EC\uB9AC \uC0AC\uC721\uD558\uB294 \uACF3\uC774 \uC5EC\uB7FF \uC874\uC7AC\uD55C\uB2E4.\r"
     - Name: "\uAC00\uC624\uB9AC"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 34717b2a16e1a4196bc6f470682fe616, type: 2}
       Price: 700
-      Habitat: 3
+      Habitat: 2
       Rarity: 2
       Speed: 1
       InvenSizeX: 3
@@ -490,12 +430,9 @@ MonoBehaviour:
         \uC5EC\uACA8\uC9C0\uBA70 \uACF5\uD3EC\uC758 \uB300\uC0C1\uC774\uC5C8\uB2E4\uACE0
         \uD55C\uB2E4.\r"
     - Name: "\uD478\uB978\uBC14\uB2E4\uAC70\uBD81"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 0d4bf530801004211b59e89b86060e35, type: 2}
       Price: 850
-      Habitat: 3
+      Habitat: 2
       Rarity: 3
       Speed: 0.5
       InvenSizeX: 4
@@ -513,10 +450,7 @@ MonoBehaviour:
         \uC788\uC73C\uBA70, \uD604\uC7AC \uB300\uBD80\uBD84\uC758 \uAD6D\uAC00\uC5D0\uC11C\uB294
         \uBCF4\uD638\uC870\uCE58\uAC00 \uB0B4\uB824\uC838 \uC788\uB2E4.\r"
     - Name: "\uBBFC\uC5B4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 5bf65489f196244aa96e5bb497980870, type: 2}
       Price: 1000
       Habitat: 4
       Rarity: 1
@@ -536,10 +470,7 @@ MonoBehaviour:
         \uB9C8\uCE58 \uAC1C\uAD6C\uB9AC\uCC98\uB7FC '\uBD80\uC6B1 \uBD80\uC6B1'\uD558\uB294
         \uC6B8\uC74C \uC18C\uB9AC\uB97C \uB0BC \uC218 \uC788\uB2E4.\r"
     - Name: "\uB300\uC655\uACE0\uB798"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: db5aa6fe870b244f4af665f0cf577804, type: 2}
       Price: 1250
       Habitat: 4
       Rarity: 2
@@ -559,10 +490,7 @@ MonoBehaviour:
         \uD06C\uB9B4\uC0C8\uC6B0\uB97C \uD558\uB8E8 \uD3C9\uADE0 4t\uC529 \uBE68\uC544\uB4E4\uC778\uB2E4\uACE0
         \uD55C\uB2E4.\r"
     - Name: "\uACE0\uB798\uC0C1\uC5B4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: b320b2de95b754d5dad2025b8f9176aa, type: 2}
       Price: 1250
       Habitat: 4
       Rarity: 2
@@ -584,10 +512,7 @@ MonoBehaviour:
         \uB9CC\uB098\uB294 \uAC83\uC740 \uB300\uB2E8\uD55C \uD589\uC6B4\uC73C\uB85C
         \uC5EC\uACA8\uC9C4\uB2E4.\r"
     - Name: "\uADC0\uC0C1\uC5B4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: cedc48aefe5304fc5a76b2ef8301c4c3, type: 2}
       Price: 1250
       Habitat: 4
       Rarity: 2
@@ -608,10 +533,7 @@ MonoBehaviour:
         \uC911\uC5D0\uC11C\uB3C4 \uAC00\uC7A5 \uB9DB\uC788\uB294 \uC0C1\uC5B4\uB77C\uACE0
         \uD55C\uB2E4.\r"
     - Name: "\uD669\uC0C8\uCE58"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 0ff2afd490c9443ccbdb2db47947942a, type: 2}
       Price: 1250
       Habitat: 4
       Rarity: 2
@@ -633,10 +555,7 @@ MonoBehaviour:
         \uBAB8\uC744 \uAD00\uD1B5\uC2DC\uD0A4\uAC70\uB098 \uBC30 \uC704\uB85C \uB6F0\uC5B4\uC62C\uB77C
         \uACF5\uACA9\uD558\uAE30\uB3C4 \uD55C\uB2E4.\r"
     - Name: "\uBC31\uC0C1\uC544\uB9AC"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 52cbf8dba30d844c9818e9da25524b78, type: 2}
       Price: 3000
       Habitat: 4
       Rarity: 3
@@ -657,10 +576,7 @@ MonoBehaviour:
         \uC0C1\uC5B4\uB85C, \uC601\uD654 '\uC8E0\uC2A4'\uB97C \uD1B5\uD574\uC11C
         \uAC00\uC7A5 \uC798 \uC54C\uB824\uC838 \uC788\uB2E4.\r"
     - Name: "\uBC94\uACE0\uB798"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: f3bfa8c17dd614733a667c9a5af1f7df, type: 2}
       Price: 3000
       Habitat: 4
       Rarity: 3
@@ -682,10 +598,7 @@ MonoBehaviour:
         \uD558\uC9C0\uB9CC \uBAB8 \uBC30\uACBD\uC0C9\uACFC \uC11E\uC5EC \uC798 \uBCF4\uC774\uC9C0
         \uC54A\uB294\uB2E4.\r"
     - Name: "\uAC1C\uBCF5\uCE58"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 11400000, guid: 7439bea4c530a4c028538229efa8a4d6, type: 2}
       Price: 3000
       Habitat: 4
       Rarity: 3
@@ -706,10 +619,7 @@ MonoBehaviour:
         \uC644\uB450\uCF69\uB9CC \uD55C \uC54C\uC744 \uBB34\uB824 3\uC5B5 \uAC1C\uB098
         \uB0B3\uB294\uB2E4\uACE0 \uD55C\uB2E4.\r"
     - Name: "\uB300\uC655\uC624\uC9D5\uC5B4"
-      Visual:
-        VisualMesh: {fileID: 0}
-        Profile: {fileID: 0}
-        MainMat: {fileID: 0}
+      Visual: {fileID: 0}
       Price: 5000
       Habitat: 4
       Rarity: 4

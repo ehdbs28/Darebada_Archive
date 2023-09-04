@@ -96,8 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneType: 1
   _initScreenType: 1
-  _initCamState: 2
-  _lastCamState: 4
+  _initCamState: 3
+  _lastCamState: 5
   _vCamList:
   - {fileID: 5031617505588885293}
   - {fileID: 5031617503960171366}
@@ -617,11 +617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _curBoatData:
     Name: 
-    Id: 0
     Price: 0
-    Visual:
-      VisualMesh: {fileID: 0}
-      MainMat: {fileID: 0}
+    Visual: {fileID: 0}
     MaxSpeed: 0
     ForwardAcceleration: 0
     BackwardAcceleration: 0

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: Trout
-  m_EditorClassIdentifier: Assembly-CSharp::FishViual
-  VisualMesh: {fileID: 4300002, guid: d75f8531ae3bc3e439744f7aa76893a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 74090b99fbe44cbfae795585793646f2, type: 3}
+  m_Name: 09.Dugong
+  m_EditorClassIdentifier: 
+  VisualMesh: {fileID: 0}
   Profile: {fileID: 0}
-  MainMat: {fileID: 2100000, guid: 6c9706fa7b3bc7e4b9212fde94332a8b, type: 2}
+  MainMat: {fileID: 0}
