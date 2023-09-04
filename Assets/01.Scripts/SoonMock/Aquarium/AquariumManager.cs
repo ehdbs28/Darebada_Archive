@@ -3,6 +3,8 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using UnityEditor;
+using UnityEditor.Rendering.Universal;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -76,6 +78,7 @@ public class AquariumManager : MonoBehaviour, IManager
     public int decoCount = 0;
     public List<GameObject> aquaObject = new List<GameObject>();
     public List<Facility> aquarium = new List<Facility>();
+    public List<NavMeshSurface> roadSurfaces;
     public Transform endTarget;
 
 
@@ -123,20 +126,20 @@ public class AquariumManager : MonoBehaviour, IManager
         floor.transform.localScale = _floorSize;
         floor.GetComponent<MeshRenderer>().material.mainTextureScale = new Vector2(4 * FloorSize.x, 4 * FloorSize.z);
         
-        _walls.transform.GetChild(0).localScale = new Vector3(FloorSize.x*10, 100, 0);
-        _walls.transform.GetChild(0).position = new Vector3(0, 50, -FloorSize.z * 10/2);
+        _walls.transform.GetChild(0).localScale = new Vector3(FloorSize.x*10, 10, 0);
+        _walls.transform.GetChild(0).position = new Vector3(0, 5, -FloorSize.z * 10/2);
 
-        _walls.transform.GetChild(1).localScale = new Vector3(FloorSize.x*10, 100, 0);
+        _walls.transform.GetChild(1).localScale = new Vector3(FloorSize.x*10, 10, 0);
         _walls.transform.GetChild(1).localRotation = Quaternion.Euler(0, 180, 0);
-        _walls.transform.GetChild(1).position = new Vector3(0, 50, FloorSize.z * 10/2);
+        _walls.transform.GetChild(1).position = new Vector3(0, 5, FloorSize.z * 10/2);
         
-        _walls.transform.GetChild(2).localScale = new Vector3(FloorSize.z*10, 100, 0);
+        _walls.transform.GetChild(2).localScale = new Vector3(FloorSize.z*10, 10, 0);
         _walls.transform.GetChild(2).localRotation = Quaternion.Euler(0, 90, 0);
-        _walls.transform.GetChild(2).position = new Vector3(FloorSize.x * 10 / 2, 50, 0);
+        _walls.transform.GetChild(2).position = new Vector3(FloorSize.x * 10 / 2, 5, 0);
         
-        _walls.transform.GetChild(3).localScale = new Vector3(FloorSize.z * 10, 100, 0);
+        _walls.transform.GetChild(3).localScale = new Vector3(FloorSize.z * 10, 10, 0);
         _walls.transform.GetChild(3).localRotation = Quaternion.Euler(0, -90, 0);
-        _walls.transform.GetChild(3).position = new Vector3(-FloorSize.x * 10 / 2, 50, 0);
+        _walls.transform.GetChild(3).position = new Vector3(-FloorSize.x * 10 / 2, 5, 0);
 
     }
     public void AddFishBowl()
@@ -168,6 +171,7 @@ public class AquariumManager : MonoBehaviour, IManager
         roadTile.transform.localPosition = Vector3.zero;
         facilityObj = roadTile;
         state = STATE.BUILD;
+        roadSurfaces.Add(roadTile.GetComponent<NavMeshSurface>());
         FindObjectOfType<GridManager>().ShowGrid();
     }
     public GameObject AddFish(int id, Transform parent)
@@ -210,9 +214,16 @@ public class AquariumManager : MonoBehaviour, IManager
             {
                 facilityObj.transform.parent = facilityParent;
             FindObjectOfType<GridManager>().HideGrid();
+                if (facilityObj.GetComponent<NavMeshSurface>())
+                {
+                    foreach(var s in roadSurfaces)
+                    {
+                        s.BuildNavMesh();
+                    }
+                }
                 facilityObj = null;
             state = STATE.NORMAL;
-                //Navmesh
+                
             }
 
         };
@@ -228,17 +239,20 @@ public class AquariumManager : MonoBehaviour, IManager
 
     private void OnTouchUpHandle()
     {
-
-        RaycastHit hit;
-        Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+        if(state==STATE.BUILD)
         {
-            facilityObj = hit.collider.GetComponent<Facility>();
-        }
-        else
-        {
-            facilityObj = null;
 
+            RaycastHit hit;
+            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+            {
+                facilityObj = hit.collider.GetComponent<Facility>();
+            }
+            else
+            {
+                facilityObj = null;
+
+            }
         }
     }
 
