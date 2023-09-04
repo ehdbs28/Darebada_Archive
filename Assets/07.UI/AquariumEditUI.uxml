@@ -20,17 +20,17 @@
         </ui:VisualElement>
         <ui:VisualElement name="game-container" picking-mode="Ignore" style="justify-content: flex-start;" />
         <ui:VisualElement name="footer-container" picking-mode="Ignore" style="justify-content: flex-end; overflow: visible;">
-            <ui:VisualElement name="controll-panel" style="width: 104%; height: 250px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Vertical%20(Top)%20Icon.png?fileID=21300000&amp;guid=2c95e0623afa9ee4fa6d3c2920292e59&amp;type=3#Free Flat Gradient Vertical (Top) Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.39); position: absolute; bottom: -20px; left: -20px; right: -20px; flex-direction: row; align-items: center; justify-content: space-around;">
+            <ui:VisualElement name="controll-panel" style="width: 100%; height: 100%; flex-direction: row; align-items: center; justify-content: space-around; background-color: rgba(0, 0, 0, 0.59);">
                 <ui:VisualElement name="add-tank-btn" class="facility-btn">
-                    <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/03.Materials/image_3.png?fileID=21300000&amp;guid=53f76709cc98bba42bb80952b2aee9fd&amp;type=3#image_3&apos;);" />
+                    <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/aquarium.png?fileID=21300000&amp;guid=2033e582f9bb4a544b051566509f9ef0&amp;type=3#aquarium&apos;);" />
                     <ui:Label text="수조 증설" display-tooltip-when-elided="true" name="text" class="text" />
                 </ui:VisualElement>
                 <ui:VisualElement name="add-plant-btn" class="facility-btn">
-                    <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/image_4.png?fileID=21300000&amp;guid=4ae1c72df5f422942bd31b073ec52b3f&amp;type=3#image_4&apos;);" />
+                    <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/shopicon.png?fileID=21300000&amp;guid=e5a044f1cfd69d64fa1758492f92404a&amp;type=3#shopicon&apos;);" />
                     <ui:Label text="시설 증설" display-tooltip-when-elided="true" name="text" class="text" />
                 </ui:VisualElement>
                 <ui:VisualElement name="add-road-btn" class="facility-btn">
-                    <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/image_4.png?fileID=21300000&amp;guid=4ae1c72df5f422942bd31b073ec52b3f&amp;type=3#image_4&apos;);" />
+                    <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/roadicon.png?fileID=21300000&amp;guid=06a1e3fa49e94bf4b9e6dbad101b29b8&amp;type=3#roadicon&apos;);" />
                     <ui:Label text="길 설치" display-tooltip-when-elided="true" name="text" class="text" />
                 </ui:VisualElement>
                 <ui:VisualElement name="back-btn" class="btn" style="justify-content: flex-end;">
