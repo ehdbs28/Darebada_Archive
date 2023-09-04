@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
+    <ui:VisualElement name="container" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="title-container" style="position: relative; width: 100%; height: 700px; top: 5%;">
+            <ui:Label text="DARE" display-tooltip-when-elided="true" name="title-text" class="text" style="font-size: 150px; position: absolute; left: 40%; top: 25%; translate: -50% 0; -unity-text-align: upper-center; -unity-font-style: bold;" />
+            <ui:VisualElement name="line" style="position: absolute; left: 50%; top: 50%; width: 600px; height: 7px; translate: -50% 0; background-color: rgb(255, 255, 255);" />
+            <ui:Label text="BADA" display-tooltip-when-elided="true" name="title-text" class="text" style="font-size: 150px; position: absolute; left: 60%; top: 55%; translate: -50% 0; -unity-text-align: upper-center;" />
+            <ui:VisualElement name="image" style="position: absolute; left: 80%; top: 71%; width: 250px; height: 250px; translate: -50% -50%; background-image: url(&apos;project://database/Assets/05.Assets/UI/TitleFishImage.png?fileID=-1033115229&amp;guid=ae3ff2b30ce2c4e93b8d70187547f99b&amp;type=3#TitleFishImage_0&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.78); rotate: 165deg;" />
+            <ui:VisualElement name="image" style="position: absolute; left: 22%; top: 25%; width: 200px; height: 200px; translate: -50% -50%; background-image: url(&apos;project://database/Assets/05.Assets/UI/DarebadaIcon.png?fileID=-1019167445&amp;guid=b02308d94d9474ce6839e3c8c760ab31&amp;type=3#DarebadaIcon_0&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.78); scale: 1 1; rotate: 0;" />
+        </ui:VisualElement>
+        <ui:Label text="tap to start" display-tooltip-when-elided="true" name="tap-to-start" class="text" style="position: absolute; left: 50%; bottom: 25%; translate: -50% 0; font-size: 55px;" />
+    </ui:VisualElement>
+</ui:UXML>

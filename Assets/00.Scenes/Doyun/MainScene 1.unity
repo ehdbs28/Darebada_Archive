@@ -7864,6 +7864,7 @@ GameObject:
   - component: {fileID: 9157046240493696208}
   - component: {fileID: 9157046240493696212}
   - component: {fileID: 9157046240493696214}
+  - component: {fileID: 9157046240493696215}
   m_Layer: 0
   m_Name: Screens
   m_TagString: Untagged
@@ -7910,6 +7911,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: e3a6872f1c5e78f4d9b8ab4fdcbb33e9, type: 3}
+--- !u!114 &9157046240493696215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157046240493696211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ef4f8a701b84281b5ae2895ffa9219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _treeAsset: {fileID: 9197481963319205126, guid: daa13a53d0b1a463ab6b6ba904a51dc0, type: 3}
 --- !u!1001 &9157046240646189416
 PrefabInstance:
   m_ObjectHideFlags: 0

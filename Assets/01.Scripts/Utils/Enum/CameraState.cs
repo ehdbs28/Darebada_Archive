@@ -1,6 +1,7 @@
 public enum CameraState
 {
-    CAMP = 0,
+    TITLE_VIEW = 0,
+    CAMP,
     CAMP_FINISH,
 
     BOAT_FOLLOW,

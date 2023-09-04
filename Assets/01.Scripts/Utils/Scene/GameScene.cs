@@ -5,15 +5,15 @@ using UnityEngine.Events;
 
 public class GameScene : PoolableMono
 {   
-    [Header("Screen Type")]
+    [Header("Scean Type")]
     [SerializeField]
     private GameSceneType _sceneType;
 
-    [Header("?¨Ïù¥ ?úÏûë????Í∏∞Î≥∏ ?§ÌÅ¨Î¶?")]
+    [Header("InitScreen")]
     [SerializeField]
     private ScreenType _initScreenType;
 
-    [Header("Virtual Cam ?§Ï†ï??")]
+    [Header("First Setting VCam")]
     [SerializeField]
     private CameraState _initCamState;
     [SerializeField]
@@ -24,13 +24,13 @@ public class GameScene : PoolableMono
     [SerializeField]
     private UnityEvent OnEnterScene = null, OnExitScene = null;
 
-    public void EnterScene(){ 
-        OnEnterScene?.Invoke();
-
+    public void EnterScene(){
         GameManager.Instance.GetManager<CameraManager>().SetVCamList(_vCamList);
         GameManager.Instance.GetManager<CameraManager>().SetVCam(_initCamState);
 
         GameManager.Instance.GetManager<UIManager>().ShowPanel(_initScreenType);
+        
+        OnEnterScene?.Invoke();
     }
     
     public void ExitScene(){
