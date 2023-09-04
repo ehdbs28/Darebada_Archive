@@ -187,21 +187,7 @@ public class AquariumManager : MonoBehaviour, IManager
         return deco;
     }
 
-    private void MouseClickHandle(bool value){
-        if(value){
-            RaycastHit hit;
-            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
-            {
-                facilityObj = hit.collider.GetComponent<Facility>();
-            }
-            else{
-                facilityObj = null;
-            }
-        }
-        else{
-            facilityObj = null;
-        }
+    private void OnTouchHandle(){
     }
 
     public void InitManager()
@@ -212,8 +198,8 @@ public class AquariumManager : MonoBehaviour, IManager
         }
         _build = GetComponent<BuildFacility>();
 
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += MouseClickHandle;
-        GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnDayChange;
+        //GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += MouseClickHandle;
+        //GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnDayChange;
     }
 
     public void SetPos()
@@ -226,7 +212,7 @@ public class AquariumManager : MonoBehaviour, IManager
             FindObjectOfType<GridManager>().HideGrid();
                 facilityObj = null;
             state = STATE.NORMAL;
-                Navmesh
+                //Navmesh
             }
 
         };
@@ -235,7 +221,25 @@ public class AquariumManager : MonoBehaviour, IManager
 
     public void ResetManager()
     {
-        GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent -= MouseClickHandle;
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchHandle;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUpHandle;
+
+    }
+
+    private void OnTouchUpHandle()
+    {
+
+        RaycastHit hit;
+        Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+        {
+            facilityObj = hit.collider.GetComponent<Facility>();
+        }
+        else
+        {
+            facilityObj = null;
+
+        }
     }
 
     public void UpdateManager()
