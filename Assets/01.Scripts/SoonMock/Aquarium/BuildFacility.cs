@@ -5,11 +5,23 @@ using UnityEngine;
 public class BuildFacility : MonoBehaviour
 {
     [SerializeField] private Vector3 _objectPosition;
-    
+    [SerializeField] private Vector3 _beforeVector; 
     public Vector3 GetFacilityPos()
     {
-        Vector3 point = GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint();
-        _objectPosition = new Vector3(Mathf.RoundToInt(point.x), Mathf.RoundToInt(point.y), Mathf.RoundToInt(point.z));
-        return _objectPosition;
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition);
+        Physics.Raycast( ray, out hit,Mathf.Infinity,GetComponent<AquariumManager>().facilityLayer);
+        if (hit.collider)
+        {
+            _objectPosition = hit.collider.transform.position;
+            //Debug.Log(_objectPosition);
+
+        }
+        else
+        {
+            _objectPosition = _beforeVector;
+            //Debug.Log(hit.point);
+        }
+        return _objectPosition + Vector3.down * 1.8f;
     }
 }
