@@ -1,0 +1,52 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/CatchedFishCheckingUi.uss?fileID=7433441132597879392&amp;guid=ac6062999b897ae4aaa3070c0d9e7972&amp;type=3#CatchedFishCheckingUi" />
+    <ui:VisualElement name="checking-container" style="width: 80%; height: 70%; position: absolute; left: 10%; top: 15%; background-color: rgb(222, 221, 216); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; justify-content: space-between;">
+        <ui:VisualElement name="body" style="flex-basis: 90%; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 10px; margin-bottom: 10px;">
+            <ui:VisualElement name="content-container" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.78); padding-top: 30px; padding-left: 20px; padding-right: 20px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                <ui:VisualElement name="name-box" style="flex-basis: 10%; background-color: rgba(0, 151, 217, 0.96); justify-content: space-around; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-left-color: rgb(222, 221, 216); border-right-color: rgb(222, 221, 216); border-top-color: rgb(222, 221, 216); border-bottom-color: rgb(222, 221, 216); margin-bottom: 20px;">
+                    <ui:Label text="테오-테스카토르" display-tooltip-when-elided="true" name="name-text" style="-unity-text-align: upper-center; font-size: 40px; color: rgb(255, 255, 255); -unity-font-style: normal;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="image-container" style="flex-basis: 50%; align-items: center; justify-content: center;">
+                    <ui:VisualElement name="fish-image" style="flex-basis: 80%; width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/WhiteFish.png?fileID=2800000&amp;guid=8ca28c277273c5b4bb54f823011ea2bd&amp;type=3#WhiteFish&apos;);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="catch-num" class="info" style="border-left-color: rgb(111, 111, 111); border-right-color: rgb(111, 111, 111); border-top-color: rgb(111, 111, 111); border-bottom-color: rgb(111, 111, 111); flex-direction: row; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                    <ui:VisualElement name="catch-box" style="flex-basis: 50%; background-color: rgb(255, 167, 76); align-items: center; justify-content: center;">
+                        <ui:Label text="잡은 횟수" display-tooltip-when-elided="true" name="catch-text" style="font-size: 30px; color: rgb(0, 0, 0);" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="num-box" style="flex-basis: 50%; align-items: center; justify-content: center;">
+                        <ui:Label text="------마리" display-tooltip-when-elided="true" name="catch-num-text" style="font-size: 30px; color: rgb(0, 0, 0); -unity-text-align: middle-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="weight-container" class="info" style="flex-direction: row; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
+                    <ui:VisualElement name="weight-box" style="flex-basis: 50%; align-items: center; justify-content: center; background-color: rgb(255, 167, 76);">
+                        <ui:Label text="무게" display-tooltip-when-elided="true" name="weight-text" style="font-size: 30px; color: rgb(0, 0, 0); -unity-font-style: normal;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="weight-num" style="flex-basis: 50%; align-items: center; justify-content: center;">
+                        <ui:Label text="-------kg" display-tooltip-when-elided="true" name="weight-value-text" style="color: rgb(0, 0, 0); font-size: 30px; -unity-font-style: normal; -unity-text-align: middle-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="height-container" class="info" style="border-left-color: rgb(111, 111, 111); border-right-color: rgb(111, 111, 111); border-top-color: rgb(111, 111, 111); border-bottom-color: rgb(111, 111, 111); margin-bottom: 5px; flex-direction: row; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                    <ui:VisualElement name="length-container" style="flex-basis: 50%; align-items: center; justify-content: center; background-color: rgb(255, 167, 76);">
+                        <ui:Label text="길이" display-tooltip-when-elided="true" name="length" style="font-size: 30px; color: rgb(0, 0, 0); -unity-font-style: normal;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="length-text" style="flex-basis: 50%; align-items: center; justify-content: center;">
+                        <ui:Label text="------cm" display-tooltip-when-elided="true" name="length-text" style="color: rgb(0, 0, 0); font-size: 30px; -unity-font-style: normal; -unity-text-align: middle-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="description-container" style="flex-basis: 20%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; background-color: rgb(236, 230, 203); padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; border-left-color: rgb(111, 111, 111); border-right-color: rgb(111, 111, 111); border-top-color: rgb(111, 111, 111); border-bottom-color: rgb(111, 111, 111);">
+                    <ui:Label text="작열의 숨을 내뱉으며 불꽃을 두른 난폭한 수컷 고룡.&#10;그 분위기 덕에 「염왕룡」이라는 별명으로 불린다.&#10;성격은 거칠어 정면에서 대치한 자는 예외 없이 그 업화에 몸을 바치게 된다.&#10;굉장히 위험한 몬스터이기 때문에 길드에서 늘 동향을 주시하고 있다." display-tooltip-when-elided="true" name="description-text" style="width: 100%; height: 100%; color: rgb(0, 0, 0); font-size: 25px; white-space: normal; -unity-text-align: middle-center;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="footer" style="flex-basis: 10%; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; padding-top: 10px; margin-top: 10px;">
+            <ui:VisualElement name="btn-container" style="width: 100%; height: 100%; padding-left: 5%; padding-right: 5%; flex-direction: row; justify-content: space-around; align-items: center;">
+                <ui:VisualElement name="release-btn" class="btn" style="align-items: center; justify-content: center;">
+                    <ui:Label text="방생" display-tooltip-when-elided="true" name="release-text" style="font-size: 40px; color: rgb(255, 255, 255);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="capture-btn" class="btn" style="align-items: center; justify-content: center;">
+                    <ui:Label text="포획" display-tooltip-when-elided="true" name="capture-text" style="font-size: 40px; color: rgb(255, 255, 255);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

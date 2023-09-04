@@ -2,37 +2,53 @@
     <Style src="project://database/Assets/07.UI/OceanUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceanUI" />
     <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
     <ui:VisualElement name="container" picking-mode="Ignore">
-        <ui:VisualElement name="header-container" picking-mode="Ignore">
-            <ui:VisualElement name="setting-btn" class="btn" style="justify-content: flex-end;">
-                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/Junho/UI/Quantum%20Tek/Quantum%20UI/Sprites/Icons/White%20Gear.png?fileID=21300000&amp;guid=f55f75488890d4747835fc8299828fe7&amp;type=3#White Gear&apos;); width: 120%; height: 120%; bottom: -10px;" />
-                <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" />
+        <ui:VisualElement name="footer-container" picking-mode="Ignore" style="flex-direction: row; justify-content: space-between; align-items: flex-start;">
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="time-text" style="display: none;" />
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="date-text" style="display: none;" />
+            <ui:VisualElement name="compass" style="display: none;">
+                <ui:VisualElement name="direction" style="display: none;" />
             </ui:VisualElement>
-            <ui:VisualElement name="goto-btn" class="btn" style="justify-content: flex-end;">
-                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Home%20Icon.png?fileID=21300000&amp;guid=2776e7415ee80d54b8ba0b71a8f22d19&amp;type=3#Free Flat Home Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
-                <ui:Label text="집으로" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            <ui:VisualElement name="data-circle" picking-mode="Ignore">
+                <ui:VisualElement name="boat-data" style="width: 170px; height: 170px; align-items: center; justify-content: center; right: 8%;">
+                    <ui:VisualElement name="outer-circle" style="width: 130px; height: 130px; background-color: rgba(255, 255, 255, 0.59); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; rotate: -70deg; position: absolute;" />
+                    <ui:VisualElement name="durability" style="width: 120px; height: 120px; rotate: -70deg; background-color: rgba(0, 255, 110, 0.78); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; position: absolute;" />
+                    <ui:VisualElement name="inner-circle" style="position: absolute; width: 110px; height: 110px; rotate: -70deg; background-color: rgba(53, 33, 40, 0.9); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%;" />
+                    <ui:VisualElement name="boat-image" style="position: absolute; width: 80px; height: 80px; background-image: url(&apos;project://database/Assets/05.Assets/UI/boatImage.png?fileID=21300000&amp;guid=2e54a477946f7104981b7751c7b9f272&amp;type=3#boatImage&apos;); bottom: 50px; -unity-background-image-tint-color: rgba(0, 255, 110, 0.78);" />
+                    <ui:Label text="100%" display-tooltip-when-elided="true" name="durability-text" class="text" style="font-size: 30px; -unity-font-style: bold; left: 75%; top: 30%; color: rgb(255, 255, 255);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="line" style="background-color: rgba(255, 255, 255, 0.78); width: 100%; height: 2%; margin-bottom: 8%;" />
+                <ui:VisualElement name="background-panel" style="width: 100%; height: 45%; background-color: rgba(0, 0, 0, 0.39); justify-content: space-around; align-items: flex-start; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
+                    <ui:VisualElement name="date-text" style="justify-content: space-between; align-items: flex-start; flex-grow: 1; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%; flex-direction: column;">
+                        <ui:Label text="2년째" display-tooltip-when-elided="true" name="year" class="text" style="font-size: 35px; color: rgb(255, 255, 255); -unity-font-style: bold; -unity-text-align: upper-center;" />
+                        <ui:Label text="2월 21일" display-tooltip-when-elided="true" name="date" class="text" style="font-size: 35px; color: rgb(255, 255, 255); -unity-font-style: bold; -unity-text-align: upper-center;" />
+                        <ui:Label text="17 : 49" display-tooltip-when-elided="true" name="time" class="text" style="font-size: 35px; color: rgb(255, 255, 255); -unity-font-style: bold; -unity-text-align: upper-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="letter-btn" class="btn" style="justify-content: flex-end;">
-                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Cloud%20Icon.png?fileID=21300000&amp;guid=dabc19380a76426458ac691061a1a10a&amp;type=3#Free Flat Cloud Icon&apos;); bottom: 2px;" />
-                <ui:Label text="편지함" display-tooltip-when-elided="true" name="btn-text" class="text" />
+            <ui:VisualElement name="direction-bar" picking-mode="Ignore" style="flex-grow: 1; height: 100%; justify-content: center; align-items: flex-start; flex-direction: row; top: 5%;">
+                <ui:Label text="N" display-tooltip-when-elided="true" name="north" style="position: absolute; font-size: 30px; bottom: 100%; color: rgb(255, 0, 0);" />
+                <ui:VisualElement name="bar" style="top: 2%; height: 5%; width: 90%; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Gradient%20Horizontal%20(Middle)%20Icon.png?fileID=2800000&amp;guid=c0c6236a6ab80ef4a976fb36399ec076&amp;type=3#Free Flat Gradient Horizontal (Middle) Icon&apos;); -unity-background-image-tint-color: rgba(0, 0, 0, 0.59); align-items: flex-start; justify-content: space-between;">
+                    <ui:VisualElement name="line" style="width: 100%; height: 10%; background-color: rgba(255, 255, 255, 0.9);" />
+                    <ui:VisualElement name="line" style="width: 100%; height: 10%; background-color: rgba(255, 255, 255, 0.9);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="left-deco" style="width: 4%; height: 4%; position: absolute; top: 2.5%; background-color: rgb(255, 255, 255); overflow: hidden; align-items: center; justify-content: center; rotate: 45deg; left: 3%;">
+                    <ui:VisualElement name="deco" style="background-color: rgb(132, 132, 132); width: 80%; height: 80%;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="right-deco" style="width: 4%; height: 4%; position: absolute; top: 2.5%; background-color: rgb(255, 255, 255); overflow: hidden; align-items: center; justify-content: center; rotate: 45deg; right: 3%;">
+                    <ui:VisualElement name="deco" style="background-color: rgb(132, 132, 132); width: 80%; height: 80%;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="cursor" style="position: absolute; top: 0.5%; width: 1%; height: 8%; background-color: rgb(94, 94, 94);" />
             </ui:VisualElement>
-            <ui:VisualElement name="dictionary-btn" class="btn" style="justify-content: flex-end;">
-                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Edit%20Icon.png?fileID=21300000&amp;guid=8cd55c5b366c4574d93e99269b8a01d9&amp;type=3#Free Flat Edit Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
-                <ui:Label text="도감" display-tooltip-when-elided="true" name="btn-text" class="text" />
-            </ui:VisualElement>
-            <ui:VisualElement name="inventory-btn" class="btn" style="justify-content: flex-end;">
-                <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Bag%201%20Icon.png?fileID=21300000&amp;guid=09ff2c9da44bcb740befe466a832c257&amp;type=3#Free Flat Bag 1 Icon&apos;); width: 90%; height: 90%; bottom: 5px;" />
-                <ui:Label text="인벤토리" display-tooltip-when-elided="true" name="btn-text" class="text" />
-            </ui:VisualElement>
-            <ui:VisualElement name="chllenge-box" picking-mode="Ignore" class="challenge">
+            <ui:VisualElement name="chllenge-box" picking-mode="Ignore" class="challenge" style="top: 30%;">
                 <ui:VisualElement name="name-box" picking-mode="Ignore">
-                    <ui:Label text="나보단 작지" display-tooltip-when-elided="true" name="name" picking-mode="Ignore" class="text" style="height: 100%; -unity-text-align: middle-left;" />
+                    <ui:Label text="나보단 작지" display-tooltip-when-elided="true" name="name" picking-mode="Ignore" class="text" style="height: 100%; -unity-text-align: middle-center;" />
                     <ui:VisualElement name="complete-box" picking-mode="Ignore">
                         <ui:VisualElement name="complete" picking-mode="Ignore">
                             <ui:VisualElement name="image" picking-mode="Ignore" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="element-box" picking-mode="Ignore">
+                <ui:VisualElement name="element-box" picking-mode="Ignore" style="width: 307px;">
                     <ui:VisualElement name="test-fish-one" class="fish-element">
                         <ui:VisualElement name="inner">
                             <ui:VisualElement name="fish-image" />
@@ -51,49 +67,49 @@
                             <ui:VisualElement name="check" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                </ui:VisualElement>
-            </ui:VisualElement>
-        </ui:VisualElement>
-        <ui:VisualElement name="game-container" picking-mode="Ignore">
-            <ui:VisualElement name="boat-controller" style="position: absolute; width: 52px; height: 502px; right: 20px; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.78); border-top-left-radius: 10px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 10px;">
-                <ui:VisualElement name="inner" style="width: 46px; height: 496px; background-color: rgba(63, 60, 60, 0.78); border-top-left-radius: 8px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 8px; flex-direction: column-reverse; align-items: center;">
-                    <ui:VisualElement name="inner-design" style="width: 100%; height: 98%; background-color: rgba(149, 149, 149, 0.78); border-top-left-radius: 8px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 8px; align-items: center; justify-content: flex-start;">
-                        <ui:VisualElement name="handle" class="btn" style="width: 75px; height: 30px; background-color: rgb(65, 65, 65); border-top-left-radius: 10px; border-bottom-left-radius: 20px; border-top-right-radius: 10px; border-bottom-right-radius: 20px; align-items: center; overflow: hidden; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; translate: 0 0; bottom: 0; top: 47%; transition-property: -unity-background-image-tint-color, top; transition-duration: 0.3s, 0.2s; transition-timing-function: ease, ease; transition-delay: 0s, 0s;">
-                            <ui:VisualElement name="handle-design" style="width: 50%; background-color: rgb(72, 72, 72); border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; border-top-left-radius: 50%; position: absolute; height: 50px; border-top-right-radius: 50%; top: -30px;" />
+                    <ui:VisualElement name="test-fish-two" class="fish-element">
+                        <ui:VisualElement name="inner">
+                            <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/BlueTang.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#BlueTang&apos;);" />
+                            <ui:VisualElement name="star-container">
+                                <ui:VisualElement name="star" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="check" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="footer-container" picking-mode="Ignore">
-            <ui:VisualElement name="data-circle" picking-mode="Ignore">
-                <ui:VisualElement name="date-n-time">
-                    <ui:Label text="n년째, n월n일" display-tooltip-when-elided="true" name="date-text" class="text" />
-                    <ui:VisualElement name="time">
-                        <ui:Label text="nn:nn" display-tooltip-when-elided="true" name="time-text" class="text q" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="line" />
-                </ui:VisualElement>
-                <ui:VisualElement name="compass">
-                    <ui:VisualElement name="outer-circle" />
-                    <ui:VisualElement name="inner-circle" />
-                    <ui:VisualElement name="needle">
-                        <ui:VisualElement name="top" />
-                        <ui:VisualElement name="bottom" />
-                        <ui:VisualElement name="middle" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="direction">
-                        <ui:Label text="N" display-tooltip-when-elided="true" name="north" class="text" />
-                        <ui:Label text="S" display-tooltip-when-elided="true" name="south" class="text" />
-                        <ui:Label text="E" display-tooltip-when-elided="true" name="east" class="text" />
-                        <ui:Label text="W" display-tooltip-when-elided="true" name="west" class="text" />
+        <ui:VisualElement name="game-container" picking-mode="Ignore" style="flex-direction: column;">
+            <ui:VisualElement name="boat-controller" style="position: relative; width: 52px; height: 502px; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.78); border-top-left-radius: 10px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 10px; left: 95%;">
+                <ui:VisualElement name="inner" style="width: 46px; height: 496px; background-color: rgba(63, 60, 60, 0.78); border-top-left-radius: 8px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 8px; flex-direction: column-reverse; align-items: center; justify-content: center;">
+                    <ui:VisualElement name="inner-design" style="width: 100%; height: 98%; background-color: rgba(19, 19, 19, 0.78); border-top-left-radius: 8px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 8px; align-items: center;" />
+                    <ui:VisualElement name="handle" class="btn" style="position: absolute; width: 75px; height: 30px; bottom: 50%; background-color: rgb(204, 51, 0); border-top-left-radius: 10px; border-bottom-left-radius: 20px; border-top-right-radius: 10px; border-bottom-right-radius: 20px; align-items: center; overflow: hidden; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+                        <ui:VisualElement name="handle-design" style="width: 50%; background-color: rgb(154, 35, 35); border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; border-top-left-radius: 50%; position: absolute; height: 50px; border-top-right-radius: 50%; top: -30px;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="boat-data" style="left: 100px; position: absolute; width: 200px; height: 200px; align-items: center; justify-content: center;">
-                    <ui:VisualElement name="outer-circle" style="width: 135px; height: 145px; background-color: rgba(255, 255, 255, 0.59); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; rotate: -70deg; position: absolute;" />
-                    <ui:VisualElement name="durability" style="width: 125px; height: 135px; rotate: -70deg; background-color: rgba(0, 255, 110, 0.78); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; position: absolute;" />
-                    <ui:VisualElement name="inner-circle" style="position: absolute; width: 110px; height: 120px; rotate: -70deg; background-color: rgba(53, 33, 40, 0.9); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%;" />
-                    <ui:VisualElement name="boat-image" style="position: absolute; width: 80px; height: 80px; background-image: url(&apos;project://database/Assets/05.Assets/UI/boatImage.png?fileID=21300000&amp;guid=2e54a477946f7104981b7751c7b9f272&amp;type=3#boatImage&apos;); bottom: 65px; -unity-background-image-tint-color: rgba(0, 255, 110, 0.78);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="header-container" picking-mode="Ignore" style="justify-content: space-between; flex-basis: 9%;">
+            <ui:VisualElement name="button-panel" style="flex-direction: row; width: 125%; height: 100%; justify-content: space-around; align-items: flex-start; background-color: rgba(0, 0, 0, 0.27); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; bottom: 10px; padding-left: 30px; padding-right: 30px; padding-top: 30px; padding-bottom: 25px;">
+                <ui:VisualElement name="goto-btn" class="btn" style="justify-content: space-between;">
+                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Home%20Icon.png?fileID=21300000&amp;guid=2776e7415ee80d54b8ba0b71a8f22d19&amp;type=3#Free Flat Home Icon&apos;);" />
+                    <ui:Label text="집으로" display-tooltip-when-elided="true" name="btn-text" class="text" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="letter-btn" class="btn" style="justify-content: space-between;">
+                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/LetterBtn.png?fileID=21300000&amp;guid=332f170688482d64691e85ccd750ecfe&amp;type=3#LetterBtn&apos;); bottom: 2px; width: 100%; height: 100%;" />
+                    <ui:Label text="편지함" display-tooltip-when-elided="true" name="btn-text" class="text" style="-unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="dictionary-btn" class="btn" style="justify-content: space-between;">
+                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/DictionaryBtn.png?fileID=21300000&amp;guid=9223b27d818517a4ca40413508c457d2&amp;type=3#DictionaryBtn&apos;); bottom: 5px;" />
+                    <ui:Label text="도감" display-tooltip-when-elided="true" name="btn-text" class="text" style="-unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="inventory-btn" class="btn" style="justify-content: space-between;">
+                    <ui:Label text="인벤토리" display-tooltip-when-elided="true" name="btn-text" class="text" style="-unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/InventoryBtn.png?fileID=21300000&amp;guid=d0aefb3f46be6cd478bdb5b18b67159e&amp;type=3#InventoryBtn&apos;);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="setting-btn" class="btn" style="justify-content: space-between;">
+                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/SettingBtn.png?fileID=21300000&amp;guid=48944fcf0120dbf43943dfe04aa0900d&amp;type=3#SettingBtn&apos;);" />
+                    <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

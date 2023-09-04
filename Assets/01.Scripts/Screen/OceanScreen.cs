@@ -52,6 +52,7 @@ public class OceanScreen : UIScreen
         _settingBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
             Debug.Log("설정");
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Setting);
         });
 
         _gobackBtn.RegisterCallback<ClickEvent>(e => {

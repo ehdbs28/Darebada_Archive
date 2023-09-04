@@ -36,7 +36,6 @@ public class InventoryUnit
     {
         this.data = data;
         this.size = size;
-        this.size = new Vector2(3, 2);
     }
 
     public void Generate(VisualElement root)
