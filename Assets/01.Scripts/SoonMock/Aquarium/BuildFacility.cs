@@ -14,14 +14,14 @@ public class BuildFacility : MonoBehaviour
         if (hit.collider)
         {
             _objectPosition = hit.collider.transform.position;
-            Debug.Log(_objectPosition);
+            //Debug.Log(_objectPosition);
 
         }
         else
         {
             _objectPosition = _beforeVector;
-            Debug.Log(hit.point);
+            //Debug.Log(hit.point);
         }
-        return _objectPosition;
+        return _objectPosition + Vector3.down * 1.8f;
     }
 }

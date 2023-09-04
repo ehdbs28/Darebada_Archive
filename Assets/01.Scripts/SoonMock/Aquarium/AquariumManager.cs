@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class AquariumManager : MonoBehaviour, IManager
 {
@@ -69,6 +71,7 @@ public class AquariumManager : MonoBehaviour, IManager
     [SerializeField] GameObject _fishObject;
     [SerializeField] GameObject _decoObject;
     [SerializeField] GameObject _snackShopObject;
+    [SerializeField] GameObject _roadTileObject;
     [SerializeField] GameObject _buildPanel;
     public int decoCount = 0;
     public List<GameObject> aquaObject = new List<GameObject>();
@@ -92,8 +95,9 @@ public class AquariumManager : MonoBehaviour, IManager
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K)) ChangeSize(1, 1);
-        if (Input.GetKeyDown(KeyCode.L)) Cleaning(5);
+        if (Input.GetKeyDown(KeyCode.L)) AddRoadTile();
         if (Input.GetKeyDown(KeyCode.Semicolon)) AddFishBowl();
+        if (Input.GetKeyDown(KeyCode.I)) SetPos();
         UpdateManager();
     }
     public void SetFacilityPos()
@@ -111,18 +115,7 @@ public class AquariumManager : MonoBehaviour, IManager
             facilityObj = null;
         }
         FindObjectOfType<GridManager>().ShowGrid();
-    }
-    public void AddFishBowl()
-    {
-        if(_buildPanel)_buildPanel.SetActive(false);
-        Fishbowl fishBowl = Instantiate(_fishBowlObject).GetComponent<Fishbowl>();
-        Debug.Log("ASdf");
-        fishBowl.transform.localPosition = Vector3.zero;
-        facilityObj = fishBowl;
-
-        state = STATE.BUILD;
-        FindObjectOfType<GridManager>().ShowGrid();
-        //    else floor.transform.localPosition = new Vector3(_floorSize.x / 2+10, 0, 0);
+        
     }
     public void ChangeSize(int x, int y)
     {
@@ -146,19 +139,36 @@ public class AquariumManager : MonoBehaviour, IManager
         _walls.transform.GetChild(3).position = new Vector3(-FloorSize.x * 10 / 2, 50, 0);
 
     }
+    public void AddFishBowl()
+    {
+        //if (_buildPanel) _buildPanel.SetActive(false);
+        Fishbowl fishBowl = Instantiate(_fishBowlObject).GetComponent<Fishbowl>();
+        fishBowl.transform.localPosition = Vector3.zero;
+        facilityObj = fishBowl;
+
+        state = STATE.BUILD;
+        FindObjectOfType<GridManager>().ShowGrid();
+        //    else floor.transform.localPosition = new Vector3(_floorSize.x / 2+10, 0, 0);
+    }
     public void AddSnackShop()
     {
-        _buildPanel.SetActive(false);
+        //_buildPanel.SetActive(false);
         SnackShop snackShop = Instantiate(_snackShopObject).GetComponent<SnackShop>();
         
         snackShop.transform.localPosition = Vector3.zero;
         facilityObj = snackShop;
         state = STATE.BUILD;
+        FindObjectOfType<GridManager>().ShowGrid();
     }
-    public void ChangeFacilityPos(Facility obj)
+    public void AddRoadTile()
     {
-        facilityObj = obj;
+        //_buildPanel.SetActive(false);
+        RoadTile roadTile = Instantiate(_roadTileObject).GetComponent<RoadTile>();
+        
+        roadTile.transform.localPosition = Vector3.zero;
+        facilityObj = roadTile;
         state = STATE.BUILD;
+        FindObjectOfType<GridManager>().ShowGrid();
     }
     public GameObject AddFish(int id, Transform parent)
     {
@@ -210,13 +220,17 @@ public class AquariumManager : MonoBehaviour, IManager
     {
         if(state==STATE.BUILD)
         {
-            if(facilityObj)
+            if (facilityObj && facilityObj.GetComponent<Facility>().CheckCollision())
             {
                 facilityObj.transform.parent = facilityParent;
+            FindObjectOfType<GridManager>().HideGrid();
                 facilityObj = null;
-            }
             state = STATE.NORMAL;
-        }
+                Navmesh
+            }
+
+        };
+        
     }
 
     public void ResetManager()

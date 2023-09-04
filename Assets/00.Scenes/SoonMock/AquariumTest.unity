@@ -4218,7 +4218,7 @@ GameObject:
   - component: {fileID: 2762925894354595232}
   - component: {fileID: 2762925894354595233}
   - component: {fileID: 2762925894354595234}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4316,7 +4316,7 @@ GameObject:
   - component: {fileID: 2762925894392711074}
   - component: {fileID: 2762925894392711075}
   - component: {fileID: 2762925894392711084}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4683,7 +4683,7 @@ GameObject:
   - component: {fileID: 2762925894506068705}
   - component: {fileID: 2762925894506068704}
   - component: {fileID: 2762925894506068707}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4702,7 +4702,7 @@ GameObject:
   - component: {fileID: 2762925894518011833}
   - component: {fileID: 2762925894518011832}
   - component: {fileID: 2762925894518011835}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12687,6 +12687,7 @@ MonoBehaviour:
   _fishObject: {fileID: 7360243329236924982, guid: d2fb88ba7ed02f84ba4cefdae962c332, type: 3}
   _decoObject: {fileID: 5669189470977851210, guid: 0e9ee52a12d3c2e498444c3024cbee56, type: 3}
   _snackShopObject: {fileID: 6815237680566344220, guid: ed13f1b9709f59b4987600915b8f9c40, type: 3}
+  _roadTileObject: {fileID: 0}
   _buildPanel: {fileID: 2762925893014623189}
   decoCount: 1
   aquaObject: []
@@ -12911,6 +12912,7 @@ MonoBehaviour:
   _fishObject: {fileID: 0}
   _decoObject: {fileID: 0}
   _snackShopObject: {fileID: 0}
+  _roadTileObject: {fileID: 7000064156754499249, guid: 981eeb5719710ea46bcb9dba4c4847c5, type: 3}
   _buildPanel: {fileID: 0}
   decoCount: 0
   aquaObject: []

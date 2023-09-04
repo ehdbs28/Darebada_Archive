@@ -18,6 +18,11 @@ public abstract class Facility :MonoBehaviour
         Collider[] hit = Physics.OverlapBox(_collider.bounds.center, _collider.bounds.size/2, Quaternion.identity, _layerMask);
         if (hit.Length >=2)
         {
+            Debug.Log("¸¹´Ù");
+            foreach(Collider c in hit)
+            {
+                Debug.Log(c.name);
+            }
             return false;
         }
         return true;

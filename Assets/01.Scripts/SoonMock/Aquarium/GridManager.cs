@@ -41,12 +41,15 @@ public class GridManager : MonoBehaviour
     {
         //Vector3 floorSize = GameManager.Instance.GetManager<AquariumManager>().FloorSize;
         CreateGrids();
-        Vector3 floorSize = FindObjectOfType<AquariumManager>().FloorSize;  
+        Vector3 floorSize = FindObjectOfType<AquariumManager>().FloorSize;
+        Debug.Log(width);
+        Debug.Log(height);
         for(int i = 0; i < width; i++)
         {
             for (int j = 0; j < height; j++)
             {
-                grids[i+height+j].gameObject.SetActive(true);
+                Debug.Log(i + height + j);
+                grids[i * height+j].gameObject.SetActive(true);
                 grids[i * height + j].transform.localPosition = new Vector3(i * _distance + _distance/2, 0, j * _distance + _distance/2);
 
             }
