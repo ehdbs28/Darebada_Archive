@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a8f8895c54488a950d34d929fb4cde, type: 3}
+  m_Name: 01.SpeedBoat
+  m_EditorClassIdentifier: 
+  VisualMesh: {fileID: 5893029891874791259, guid: 61e10ec073c4243909dd368bd946e01b, type: 3}
+  MainMat: {fileID: 2100000, guid: 6013182cec5f84d69b55778a4ca98028, type: 2}

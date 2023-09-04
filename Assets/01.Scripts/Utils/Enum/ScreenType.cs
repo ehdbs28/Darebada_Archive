@@ -4,4 +4,5 @@ public enum ScreenType{
     Fishing,
     Aquarium,
     AquariumEdit,
+    Title,
 }

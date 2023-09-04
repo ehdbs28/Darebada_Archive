@@ -11,16 +11,36 @@ public class UiButtonObject : MonoBehaviour, IButtonObject
     private MainSceneObjectManager _manager;
 
     [SerializeField]
-    private int type;
+    private PopupType type;
 
     [SerializeField]
-    private int popupNum;
+    private PopupType popupNum;
+
+    [SerializeField] 
+    private GameSceneType sceneType;
 
     [SerializeField]
     private bool _isPopup;
+    
+    [SerializeField]
+    private bool _isConfirm;
 
     public void OnTouch()
     {
-        _manager.SetPopup(type, popupNum, _isPopup);
+        if (_isConfirm)
+        {
+            _manager.SetPopup(type, popupNum, sceneType, _isPopup);
+        }
+        else
+        {
+            if (_isPopup)
+            {
+                GameManager.Instance.GetManager<UIManager>().ShowPanel(popupNum);
+            }
+            else
+            {
+                GameManager.Instance.GetManager<GameSceneManager>().ChangeScene(sceneType);
+            }
+        }
     }
 }

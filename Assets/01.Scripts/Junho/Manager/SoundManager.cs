@@ -2,15 +2,25 @@ using Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour, IManager
 {
-    public AudioClip _uiClickSoundClip;
-    public AudioClip _playerThrowingSoundClip;
+    [SerializeField]
+    private AudioMixer _masterMixer;
+    
+    [SerializeField]
+    private AudioMixerGroup _bgmGroup;
+    
+    [SerializeField]
+    private AudioMixerGroup _sfxGroup;
+    
+    public AudioClip uiClickSoundClip;
+    public AudioClip playerThrowingSoundClip;
 
-    public float _soundFadeOnTime;
+    public float soundFadeOnTime;
 
-    AudioSource[] _audioSources = new AudioSource[(int)SoundEnum.SOUNDCOUNT]; // ¸Å´ÏÀú ÇÏÀ§·Î ¿Àµð¿À ¼Ò½º(½ºÇÇÄ¿) »ý¼ºÇÒ Ä£±¸µé
+    private AudioSource[] _audioSources = new AudioSource[(int)SoundEnum.SOUNDCOUNT];
 
     public void InitManager() // Awake
     {
@@ -20,7 +30,8 @@ public class SoundManager : MonoBehaviour, IManager
             GameObject go = new GameObject { name = soundNames[i] };
             _audioSources[i] = go.AddComponent<AudioSource>();
             _audioSources[i].playOnAwake = false;
-            go.transform.parent = this.transform;
+            _audioSources[i].outputAudioMixerGroup = (soundNames[i] == "BGM" ? _bgmGroup : _sfxGroup);
+            go.transform.parent = transform;
         }
 
         _audioSources[(int)SoundEnum.BGM].loop = true;
@@ -50,13 +61,13 @@ public class SoundManager : MonoBehaviour, IManager
             audioSource.clip = audioClips;
             audioSource.Play();
 
-            StartCoroutine(SoundFade(true, _audioSources[(int)SoundEnum.BGM], _soundFadeOnTime, 1, SoundEnum.BGM));
-            StartCoroutine(SoundFade(false, _audioSources[(int)SoundEnum.BGM], _soundFadeOnTime, 0, SoundEnum.BGM));
+            StartCoroutine(SoundFade(true, _audioSources[(int)SoundEnum.BGM], soundFadeOnTime, 1, SoundEnum.BGM));
+            StartCoroutine(SoundFade(false, _audioSources[(int)SoundEnum.BGM], soundFadeOnTime, 0, SoundEnum.BGM));
         }
         else
         {
             AudioSource audioSource = _audioSources[(int)SoundEnum.EFFECT];
-            audioSource.PlayOneShot(audioClips); // ¿Àµð¿À ÁßÃ¸ °¡´É ±× ÇÔ¼ö
+            audioSource.PlayOneShot(audioClips); // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¸ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô¼ï¿½
         }
     }
 
@@ -71,14 +82,14 @@ public class SoundManager : MonoBehaviour, IManager
 
     public void ClickSound()
     {
-        Play(_uiClickSoundClip, SoundEnum.EFFECT);
+        Play(uiClickSoundClip, SoundEnum.EFFECT);
     }
 
     IEnumerator SoundFade(bool fadeIn, AudioSource source, float duration, float endVolume, SoundEnum type)
     {
         if (!fadeIn)
         {
-            //double lengthofSource = (double)source.clip.samples / source.clip.frequency; // ÀüÃ¼ Àç»ý ±æÀÌ 
+            //double lengthofSource = (double)source.clip.samples / source.clip.frequency; // ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
             yield return new WaitForSeconds((float)(source.clip.length - duration));
         }
         

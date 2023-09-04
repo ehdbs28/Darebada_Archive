@@ -20,15 +20,23 @@ public class MainSceneObjectManager : MonoBehaviour
     {
         Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit,Mathf.Infinity, _layerMask))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask))
         {
             hit.collider.GetComponent<UiButtonObject>().OnTouch();
         }
     }
 
-    public void SetPopup(int type, int popupNum, bool isPopup){
-        GameManager.Instance.GetManager<UIManager>().ShowPanel((PopupType)type);
-        ((FacilityEntryPopup)GameManager.Instance.GetManager<UIManager>().GetPanel((PopupType)type))._currFacility = popupNum;
+    public void SetPopup(PopupType type, PopupType popupNum, GameSceneType sceneType, bool isPopup){
+        GameManager.Instance.GetManager<UIManager>().ShowPanel(type);
+        ((FacilityEntryPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(type)).isPopup = isPopup;
+        if (isPopup)
+        {
+            ((FacilityEntryPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(type)).popupType = popupNum;
+        }
+        else
+        {
+            ((FacilityEntryPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(type)).sceneType = sceneType;
+        }
     }
 
     public void ChangeScene(int type){
