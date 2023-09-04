@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 8906925198030025635}
   - component: {fileID: 8906925198030025633}
   - component: {fileID: 8906925198030025632}
+  - component: {fileID: -2720728633325474744}
   m_Layer: 0
   m_Name: BuyFeedback
   m_TagString: Untagged
@@ -1525,3 +1526,15 @@ MonoBehaviour:
   moduleMovementFoldout: 1
   moduleEventsFoldout: 1
   m_Texture: {fileID: 2800000, guid: 10afb1698ea3df7498f21ea8bb3a3f1a, type: 3}
+--- !u!114 &-2720728633325474744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8906925198030025634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d602a6fe487bb45f8a3a21775b81f3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

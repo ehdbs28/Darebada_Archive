@@ -35,3 +35,11 @@ MonoBehaviour:
     Count: 100
   - Prefab: {fileID: 300175272121369899, guid: c294eba88e9274d9ead6c6601ecb3be7, type: 3}
     Count: 50
+  - Prefab: {fileID: -2720728633325474744, guid: fa5f9c64698f41f4ea60f9bc696d17c7, type: 3}
+    Count: 50
+  - Prefab: {fileID: 8059865339416202421, guid: a59f0dbec44fd884596b9d39e8373bd5, type: 3}
+    Count: 50
+  - Prefab: {fileID: -2047431684456029406, guid: 1ab6d105f3bf737478f39a53330cb995, type: 3}
+    Count: 50
+  - Prefab: {fileID: 3747534484081402728, guid: 9e76319c19396a148b5783fb50189c50, type: 3}
+    Count: 50
