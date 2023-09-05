@@ -42,6 +42,9 @@ public class InputManager : MonoBehaviour, IManager
     
     private void TouchUpHandle(InputAction.CallbackContext context)
     {
+        if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
+            return;
+        
         OnTouchUpEvent?.Invoke();
     }
 
@@ -59,12 +62,15 @@ public class InputManager : MonoBehaviour, IManager
     {
         if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
             return;
-        
+
         OnTouchEvent?.Invoke();
     }
     
     private void MouseUpHandle(InputAction.CallbackContext context)
     {
+        if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
+            return;
+        
         OnTouchUpEvent?.Invoke();
     }
 

@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -123,8 +124,10 @@ public class UIManager : MonoBehaviour, IManager
         return _uguis[type];
     }
 
-    public bool OnElement(Vector3 screenPos){
+    public bool OnElement(Vector2 screenPos){
         IPanel panel = _document.rootVisualElement.panel;
+
+        screenPos.y = Define.ScreenSize.y - screenPos.y;
 
         Vector2 panelPos = RuntimePanelUtils.ScreenToPanel(panel, screenPos);
         VisualElement pick = panel.Pick(panelPos);
