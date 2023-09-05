@@ -21,13 +21,26 @@ public class AquariumManager : MonoBehaviour, IManager
     public int CleanScore
     {
         get { return _cleanScore; }
-        set { 
+        set {
             _cleanScore = value;
-            if (_cleanScore < 50) fishBowlMat.color = corruptedWaterColor;
-            else fishBowlMat.color = pureWaterColor;
+            if (_cleanScore < 50)
+            {
+
+                fishBowlMat.SetColor("Color_77A2EDE9", pureWaterColor);
+            }
+            else {
+                fishBowlMat.SetColor("Color_77A2EDE9", corruptedWaterColor);
+            }
             mossMat.SetFloat("_ShowValue", 1f - CleanScore / 100f + 0.3f);
             Debug.Log("Clean");
-            }
+        }
+    }
+
+    [SerializeField] private int _promotionPoint;
+    public int PromotionPoint
+    {
+        get { return _promotionPoint; }
+        set { _promotionPoint = value; }
     }
     [SerializeField] private int _entrancefee;
     public int EntranceFee
@@ -39,7 +52,7 @@ public class AquariumManager : MonoBehaviour, IManager
     public float EntrancePercent
     {
         get { return _entrancePercent; }
-        set { _entrancePercent= value; }
+        set { _entrancePercent = value; }
     }
     [SerializeField] private float _reputation;
     public float Reputation
@@ -53,13 +66,14 @@ public class AquariumManager : MonoBehaviour, IManager
         get { return _artScore; }
         set { _artScore = value; }
     }
-    [SerializeField] private Vector3 _floorSize;
+    [SerializeField] private Vector3 _floorSize = new Vector3(1,1,1);
     public Vector3 FloorSize
     {
         get { return _floorSize; }
         set { _floorSize = value; }
     }
     #endregion
+    [SerializeField] int _promoDispointAmount;
     //�̱���
     //�ؾ��� ��= �̱��� ���ֱ�
     //ũ�� ����
@@ -94,18 +108,23 @@ public class AquariumManager : MonoBehaviour, IManager
         BUILD
     }
     public STATE state = STATE.NORMAL;
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K)) ChangeSize(1, 1);
-        if (Input.GetKeyDown(KeyCode.L)) AddRoadTile();
-        if (Input.GetKeyDown(KeyCode.Semicolon)) AddFishBowl();
-        if (Input.GetKeyDown(KeyCode.I)) SetPos();
-        UpdateManager();
-    }
+    #region 디버그용
+        public void Start()
+        {
+            InitManager();
+        }
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.L)) Cleaning(10);
+            if (Input.GetKeyDown(KeyCode.K)) ChangeSize(0.5f,0.5f);
+            if (Input.GetKeyDown(KeyCode.Semicolon)) AddFishBowl();
+            if (Input.GetKeyDown(KeyCode.I)) SetPos();
+            UpdateManager();
+        }
+    #endregion
     public void SetFacilityPos()
     {
-        if (facilityObj.CheckCollision()) 
+        if (facilityObj.CheckCollision())
         {
             state = STATE.MOVE;
             Debug.Log(state);
@@ -118,9 +137,13 @@ public class AquariumManager : MonoBehaviour, IManager
             facilityObj = null;
         }
         FindObjectOfType<GridManager>().ShowGrid();
-        
+
     }
-    public void ChangeSize(int x, int y)
+    public void Promotion(int amount)
+    {
+            PromotionPoint += amount;
+    }
+    public void ChangeSize(float x, float y)
     {
         _floorSize += new Vector3(x, 1, y);
         floor.transform.localScale = _floorSize;
@@ -196,12 +219,9 @@ public class AquariumManager : MonoBehaviour, IManager
 
     public void InitManager()
     {
-        if (aquaObject.Count <= 0)
-        {
-            AddFishBowl();
-        }
-        _build = GetComponent<BuildFacility>();
 
+        _build = GetComponent<BuildFacility>();
+        ChangeSize(0, 0);
         //GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += MouseClickHandle;
         //GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnDayChange;
     }
@@ -259,7 +279,7 @@ public class AquariumManager : MonoBehaviour, IManager
     public void UpdateManager()
     {
         EntrancePercent = Mathf.Clamp((float)((float)aquaObject.Count / (float)EntranceFee) * 100f, 0f, 200f);
-        Reputation = (EntrancePercent / 100f * CleanScore / 100f * ArtScore / 100f) * 100f;
+        Reputation = Mathf.Clamp((EntrancePercent / 100f * CleanScore / 100f * ArtScore / 100f) * 100f + PromotionPoint,0,100);
         ArtScore = Mathf.Clamp(((float)(decoCount / 2) / aquarium.Count) * 100, 0, 100);
         if (state == STATE.BUILD)   
         {
@@ -293,6 +313,8 @@ public class AquariumManager : MonoBehaviour, IManager
     public void OnDayChange(int year, int month, int day)
     {
         CleanScore = (int)Mathf.Clamp(CleanScore - Reputation * 3, 0, 100);
+        int dispointAmount = _promotionPoint;
+        if (PromotionPoint > 0) PromotionPoint -=dispointAmount;
     }
     
 }

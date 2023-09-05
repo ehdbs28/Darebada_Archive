@@ -285,6 +285,7 @@ GameObject:
   - component: {fileID: 1071222422}
   - component: {fileID: 1071222421}
   - component: {fileID: 1071222424}
+  - component: {fileID: 1071222425}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -324,8 +325,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  far clip plane: 500
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -350,8 +351,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071222420}
-  m_LocalRotation: {x: 0.4842641, y: 0.3362318, z: -0.20866491, w: 0.7803175}
-  m_LocalPosition: {x: -8.524, y: 19.067, z: -8.561}
+  m_LocalRotation: {x: 0.31872827, y: 0.375051, z: -0.13911246, w: 0.8593002}
+  m_LocalPosition: {x: 6.430133, y: 17.07, z: 11.862}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -391,6 +392,40 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &1071222425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071222420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1562633745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687674254424161451}
   m_LocalRotation: {x: 0.20313035, y: 0.45475227, z: -0.10735254, w: 0.8604731}
-  m_LocalPosition: {x: 8.003282, y: 11.500499, z: 11.796215}
+  m_LocalPosition: {x: -3.9267201, y: 4.1104984, z: -3.7637863}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12385,15 +12420,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7226993953045095828, guid: 58afcf041a75f534e9331e7ca1257005, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.35
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 7226993953045095828, guid: 58afcf041a75f534e9331e7ca1257005, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.37
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7226993953045095828, guid: 58afcf041a75f534e9331e7ca1257005, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.76
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7226993953045095828, guid: 58afcf041a75f534e9331e7ca1257005, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12649,11 +12684,13 @@ MonoBehaviour:
   pureWaterColor: {r: 0, g: 0, b: 0, a: 0}
   corruptedWaterColor: {r: 0, g: 0, b: 0, a: 0}
   _cleanScore: 100
+  _promotionPoint: 0
   _entrancefee: 1
   _entrancePercent: 100
   _reputation: 100
   _artScore: 100
   _floorSize: {x: 8, y: -3.72, z: 0}
+  _promoDispointAmount: 0
   floor: {fileID: 0}
   _horizontalCount: 5
   _cleaningParticle: {fileID: 0}
@@ -12875,11 +12912,13 @@ MonoBehaviour:
   pureWaterColor: {r: 0.030215396, g: 0.7777856, b: 0.9150943, a: 0.5529412}
   corruptedWaterColor: {r: 0.19159324, g: 0.6792453, b: 0.105731584, a: 0.7372549}
   _cleanScore: 100
+  _promotionPoint: 0
   _entrancefee: 0
   _entrancePercent: 0
   _reputation: 0
   _artScore: 0
-  _floorSize: {x: 0, y: 0, z: 0}
+  _floorSize: {x: 1, y: 1, z: 1}
+  _promoDispointAmount: 0
   floor: {fileID: 1562633745}
   _horizontalCount: 5
   _cleaningParticle: {fileID: 0}
