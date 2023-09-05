@@ -30,7 +30,8 @@ public class InputManager : MonoBehaviour, IManager
         _inputAction.Mouse.MousePos.performed += MousePosHandle;
     }
 
-    // Mobile
+    #region MOBILE INPUT
+
     private void TouchHandle(InputAction.CallbackContext context)
     {
         if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
@@ -49,10 +50,16 @@ public class InputManager : MonoBehaviour, IManager
         _touchPosition = Touchscreen.current.position.ReadValue();
         OnTouchPosition?.Invoke(_touchPosition);
     }
+    
+    #endregion
 
-    // PC
+    #region PC INPUT
+
     private void MouseClickHandle(InputAction.CallbackContext context)
     {
+        if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
+            return;
+        
         OnTouchEvent?.Invoke();
     }
     
@@ -66,6 +73,8 @@ public class InputManager : MonoBehaviour, IManager
         _touchPosition = Mouse.current.position.ReadValue();
         OnTouchPosition?.Invoke(_touchPosition);
     }
+    
+    # endregion
     
     public void EnableInputAction(bool enable)
     {

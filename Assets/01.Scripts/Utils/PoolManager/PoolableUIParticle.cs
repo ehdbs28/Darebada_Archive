@@ -27,7 +27,6 @@ public class PoolableUIParticle : PoolableMono
 
     private IEnumerator PlayRoutine()
     {
-        Debug.Log("start");
         _particleImage.Play();
         yield return new WaitForSecondsRealtime(_particleImage.main.duration + 0.5f);
         _particleImage.Stop();

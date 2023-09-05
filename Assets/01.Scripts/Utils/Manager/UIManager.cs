@@ -137,8 +137,6 @@ public class UIManager : MonoBehaviour, IManager
         Vector2 elementPos = element.worldBound.position;
         elementPos.x += element.worldBound.width * pivot.x;
         elementPos.y += element.worldBound.height * pivot.y;
-
-        Debug.Log(elementPos);
         
         return elementPos;
     }

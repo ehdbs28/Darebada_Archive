@@ -50,8 +50,9 @@ public class ShopPopup : UIPopup
             VisualElement contentRoot = _contents.ElementAt(i);
 
             Debug.Log(contentRoot.name);
+            Debug.Log(i);
 
-            if(contentRoot.name == "sell-content"){
+            if(i == 0){
                 _sellContent = new UISellContent(contentRoot, i);
             }
             else{
