@@ -9,8 +9,11 @@ public class PoolableUIParticle : PoolableMono
     private RectTransform _rTrm;
     private Coroutine _runningRoutine = null;
 
+    private Transform _prevParent = null;
+
     public void SetPoint(Vector2 screenPos)
     {
+        screenPos.y *= -1f;
         _rTrm.anchoredPosition = screenPos;
     }
 
@@ -24,15 +27,25 @@ public class PoolableUIParticle : PoolableMono
 
     private IEnumerator PlayRoutine()
     {
+        Debug.Log("start");
         _particleImage.Play();
-        yield return new WaitForSeconds(_particleImage.main.duration + 0.5f);
+        yield return new WaitForSecondsRealtime(_particleImage.main.duration + 0.5f);
         _particleImage.Stop();
+        
+        if (_prevParent != null)
+        {
+            transform.SetParent(_prevParent);
+            _prevParent = null;
+        }
+        
         GameManager.Instance.GetManager<PoolManager>().Push(this);
     }
     
     public override void Init()
     {
+        _prevParent = transform.parent;
+        transform.SetParent(GameManager.Instance.GetManager<UIManager>().Canvas.transform);
         _particleImage = GetComponent<ParticleImage>();
         _rTrm = GetComponent<RectTransform>();
     }
-}
+}   

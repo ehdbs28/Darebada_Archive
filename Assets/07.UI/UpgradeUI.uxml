@@ -53,14 +53,14 @@
                                         </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
+                                <ui:VisualElement name="locker" style="background-color: rgba(0, 0, 0, 0.59);">
+                                    <ui:VisualElement name="locker-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Lock%20Closed%20Icon.png?fileID=2800000&amp;guid=640b86b0058321e4fab8001b90531991&amp;type=3#Free Flat Lock Closed Icon&apos;); width: 30%; height: 35%;" />
+                                </ui:VisualElement>
                                 <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
                                         <ui:VisualElement name="gold-image" />
                                         <ui:Label text="장착중" display-tooltip-when-elided="true" name="gold-text" class="text" />
                                     </ui:VisualElement>
-                                </ui:VisualElement>
-                                <ui:VisualElement name="locker" style="background-color: rgba(0, 0, 0, 0.59);">
-                                    <ui:VisualElement name="locker-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Lock%20Closed%20Icon.png?fileID=2800000&amp;guid=640b86b0058321e4fab8001b90531991&amp;type=3#Free Flat Lock Closed Icon&apos;); width: 30%; height: 35%;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="boat_2" class="boat-item" style="height: 700px;">
@@ -93,14 +93,14 @@
                                         </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
+                                <ui:VisualElement name="locker">
+                                    <ui:VisualElement name="locker-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Lock%20Closed%20Icon.png?fileID=2800000&amp;guid=640b86b0058321e4fab8001b90531991&amp;type=3#Free Flat Lock Closed Icon&apos;); width: 30%; height: 35%;" />
+                                </ui:VisualElement>
                                 <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
                                         <ui:VisualElement name="gold-image" />
                                         <ui:Label text="장착하기" display-tooltip-when-elided="true" name="gold-text" class="text" />
                                     </ui:VisualElement>
-                                </ui:VisualElement>
-                                <ui:VisualElement name="locker">
-                                    <ui:VisualElement name="locker-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Lock%20Closed%20Icon.png?fileID=2800000&amp;guid=640b86b0058321e4fab8001b90531991&amp;type=3#Free Flat Lock Closed Icon&apos;); width: 30%; height: 35%;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="boat_3" class="boat-item" style="height: 700px;">
@@ -133,14 +133,14 @@
                                         </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
+                                <ui:VisualElement name="locker">
+                                    <ui:VisualElement name="locker-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Lock%20Closed%20Icon.png?fileID=2800000&amp;guid=640b86b0058321e4fab8001b90531991&amp;type=3#Free Flat Lock Closed Icon&apos;); width: 30%; height: 35%;" />
+                                </ui:VisualElement>
                                 <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
                                         <ui:VisualElement name="gold-image" />
                                         <ui:Label text="3,500 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
                                     </ui:VisualElement>
-                                </ui:VisualElement>
-                                <ui:VisualElement name="locker">
-                                    <ui:VisualElement name="locker-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Lock%20Closed%20Icon.png?fileID=2800000&amp;guid=640b86b0058321e4fab8001b90531991&amp;type=3#Free Flat Lock Closed Icon&apos;); width: 30%; height: 35%;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="boat_4" class="boat-item" style="height: 700px;">
@@ -173,14 +173,14 @@
                                         </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
+                                <ui:VisualElement name="locker">
+                                    <ui:VisualElement name="locker-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Lock%20Closed%20Icon.png?fileID=2800000&amp;guid=640b86b0058321e4fab8001b90531991&amp;type=3#Free Flat Lock Closed Icon&apos;); width: 30%; height: 35%;" />
+                                </ui:VisualElement>
                                 <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
                                         <ui:VisualElement name="gold-image" />
                                         <ui:Label text="10,500 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
                                     </ui:VisualElement>
-                                </ui:VisualElement>
-                                <ui:VisualElement name="locker">
-                                    <ui:VisualElement name="locker-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Lock%20Closed%20Icon.png?fileID=2800000&amp;guid=640b86b0058321e4fab8001b90531991&amp;type=3#Free Flat Lock Closed Icon&apos;); width: 30%; height: 35%;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="boat_5" class="boat-item" style="height: 700px;">
@@ -213,14 +213,14 @@
                                         </ui:VisualElement>
                                     </ui:VisualElement>
                                 </ui:VisualElement>
+                                <ui:VisualElement name="locker">
+                                    <ui:VisualElement name="locker-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Lock%20Closed%20Icon.png?fileID=2800000&amp;guid=640b86b0058321e4fab8001b90531991&amp;type=3#Free Flat Lock Closed Icon&apos;); width: 30%; height: 35%;" />
+                                </ui:VisualElement>
                                 <ui:VisualElement name="buy-btn" class="interaction-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; flex-direction: row; align-items: center; justify-content: center;">
                                         <ui:VisualElement name="gold-image" />
                                         <ui:Label text="30,000 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
                                     </ui:VisualElement>
-                                </ui:VisualElement>
-                                <ui:VisualElement name="locker">
-                                    <ui:VisualElement name="locker-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Lock%20Closed%20Icon.png?fileID=2800000&amp;guid=640b86b0058321e4fab8001b90531991&amp;type=3#Free Flat Lock Closed Icon&apos;); width: 30%; height: 35%;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                         </ui:ScrollView>

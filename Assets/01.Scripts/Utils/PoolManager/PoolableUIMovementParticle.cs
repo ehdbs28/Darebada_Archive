@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PoolableUIMovementParticle : PoolableUIParticle
 {
-    private RectTransform _destRectTrm;
     private Vector2 _destination;
 
     public void SetDestination(Vector2 screenPos)
     {
         _destination = screenPos;
-        _destRectTrm.anchoredPosition = _destination;
+        GameManager.Instance.GetManager<UIManager>().DestinationRectTrm.anchoredPosition = _destination;
     }
 
     private void PlayTada()
@@ -26,7 +25,7 @@ public class PoolableUIMovementParticle : PoolableUIParticle
     public override void Init()
     {
         base.Init();
-        _destRectTrm = transform.Find("Target").GetComponent<RectTransform>();
+        _particleImage.attractorTarget = GameManager.Instance.GetManager<UIManager>().DestinationRectTrm;
         _particleImage.onParticleFinish.AddListener(PlayTada);
     }
 }
