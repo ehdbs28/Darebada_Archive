@@ -32,10 +32,13 @@ public class InventoryUnit
     public int MinY => Mathf.Min(posY + (int)rotateVals[rotate].y, posY);
     public int MaxY => Mathf.Max(posY + (int)rotateVals[rotate].y, posY);
 
+    VisualElement inner;
+
     public InventoryUnit(FishDataUnit data, Vector2 size)
     {
         this.data = data;
         this.size = size;
+        inner = _root.Q<VisualElement>("inner");
     }
 
     public void Generate(VisualElement root)
@@ -46,8 +49,10 @@ public class InventoryUnit
     
     public void Setting()
     {
-        _root.style.width = size.x * 100;
-        _root.style.height = size.y * 100;
+        _root.style.width = size.x * 115;
+        _root.style.height = size.y * 115;
+        inner.style.width = size.x * 115;
+        inner.style.height = size.y * 115;
         
         Move(new Vector2(posX, posY));
 
@@ -63,7 +68,7 @@ public class InventoryUnit
     {
         posX = (int)pos.x;
         posY = (int)pos.y;
-        _root.style.left = pos.x * 100 + 10;
-        _root.style.top = pos.y * 100 + 10;
+        _root.style.left = pos.x * 115 + 16.5f;
+        _root.style.top = pos.y * 115 + 30.5f;
     }
 }
