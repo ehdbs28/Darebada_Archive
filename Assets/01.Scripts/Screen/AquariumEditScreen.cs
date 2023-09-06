@@ -9,11 +9,11 @@ public class AquariumEditScreen : UIScreen
     private Label _dateText;
     private Label _goldText;
 
-    private VisualElement _settingBtn;
     private VisualElement _backBtn;
 
     private VisualElement _addTankBtn;
     private VisualElement _addPlantBtn;
+    private VisualElement _addRoadBtn;
 
     public override void AddEvent()
     {
@@ -22,11 +22,6 @@ public class AquariumEditScreen : UIScreen
 
         GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchHandle;
 
-        _settingBtn.RegisterCallback<ClickEvent>(e => {
-            GameManager.Instance.GetManager<SoundManager>().ClickSound();
-            //GameManager.Instance.GetManager<UIManager>().ShowPanel()
-        });
-
         _backBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.PLAYER_FOLLOW);
@@ -34,11 +29,18 @@ public class AquariumEditScreen : UIScreen
         });
 
         _addTankBtn.RegisterCallback<ClickEvent>(e => {
-            GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            //GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.TankUpgrade);
         });
 
         _addPlantBtn.RegisterCallback<ClickEvent>(e => {
-            GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            //GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            //GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.);
+        });
+
+        _addRoadBtn.RegisterCallback<ClickEvent>(e =>
+        {
+            //GameManager.Instance.GetManager<SoundManager>().ClickSound();
         });
     }
 
@@ -56,7 +58,6 @@ public class AquariumEditScreen : UIScreen
         _dateText = _root.Q<Label>("date-text");
         _goldText = _root.Q("money-container").Q<Label>("text");
 
-        _settingBtn = _root.Q<VisualElement>("setting-btn");
         _backBtn = _root.Q<VisualElement>("back-btn");
 
         _addTankBtn = _root.Q<VisualElement>("add-tank-btn");
