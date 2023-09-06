@@ -78,7 +78,7 @@ public sealed class UIFishingBuyElement : UIInteractionElement
             break;
         }
 
-        _levelLabel.text = $"Lv {level.ToString("D2")}";
+        _levelLabel.text = $"Lv {level:D2}";
         _valueLabel.text = $"{_dataTable.DataTable[_idx].Value[level - 1]}";
     }
 
