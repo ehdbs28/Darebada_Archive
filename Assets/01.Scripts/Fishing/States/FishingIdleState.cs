@@ -26,9 +26,9 @@ public class FishingIdleState : FishingState
         GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.BOAT_FOLLOW);
     }
 
-    public override void UpdateModule()
+    public override void UpdateState()
     {
-        base.UpdateModule();
+        base.UpdateState();
 
         _bobberTrm.position = _bobberPos.position;
         _bobberTrm.rotation = Quaternion.LookRotation(Vector3.down);
