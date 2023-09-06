@@ -1,0 +1,3 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="star" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Star%20Filled%20Icon.png?fileID=21300000&amp;guid=0579b86233f138a43b5a174d669f362b&amp;type=3#Free Flat Star Filled Icon&apos;);" />
+</ui:UXML>

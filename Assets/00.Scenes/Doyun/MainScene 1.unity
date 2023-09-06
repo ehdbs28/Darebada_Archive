@@ -8041,6 +8041,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: cd28bd4ff336fea4f9aa1142fe04709b, type: 3}
+  _dictionatyUnit: {fileID: 9197481963319205126, guid: 261933c7ba16a4b8ca8895bbba00b945, type: 3}
+  _fishRarityStar: {fileID: 9197481963319205126, guid: 25931ab4bc80c4864b9a692ff083691f, type: 3}
 --- !u!114 &9157046241256461543
 MonoBehaviour:
   m_ObjectHideFlags: 0
