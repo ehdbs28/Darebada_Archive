@@ -116,8 +116,8 @@ public class InventoryPopup : UIPopup
         {
             if(unit != _units[selectedIndex])
             {
-                if ((minX >= unit.MinX || maxX <= unit.MaxX)
-              && (minY >= unit.MinY || maxY <= unit.MaxY))
+                if ((minX >= unit.MinX && maxX <= unit.MaxX)
+              && (minY >= unit.MinY && maxY <= unit.MaxY))
                 {
                     return false;
                 }
@@ -197,6 +197,7 @@ public class InventoryPopup : UIPopup
                     {
                         if (Search(_units[selectedIndex].MinX, _units[selectedIndex].MaxX, _units[selectedIndex].MinY, _units[selectedIndex].MaxY))
                         {
+                            Debug.Log($"SelectedIndex: {selectedIndex}");
                             _units[selectedIndex].Move(new Vector2(_tiles[i1, j1].xIdx, _tiles[i1, j1].yIdx));
                         }
                     }

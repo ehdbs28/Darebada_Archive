@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4884017fb8cefc347a8f8e373e7d365a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _treeAsset: {fileID: 9197481963319205126, guid: 1f60cba19df2f7e4e8dda2b0c9f191bf, type: 3}
+  _treeAsset: {fileID: 9197481963319205126, guid: c9cfd393aedb0d14ebf8fbe12ad47d66, type: 3}
   _boatDurabilityGradient:
     serializedVersion: 2
     key0: {r: 0, g: 1, b: 0.43137255, a: 1}
@@ -1012,7 +1012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _poolingTrm: {fileID: 1111952484}
   _poolingList: {fileID: 11400000, guid: 57e991df2432a8b46b588910f77011fb, type: 2}
-  _startSceneType: 0
+  _startSceneType: 1
 --- !u!1001 &208939458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2055,9 +2055,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4e69500fba22e4eb49ff1f735df913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiClickSoundClip: {fileID: 8300000, guid: 80d3799791748ac42b3ec097c17a2383, type: 3}
-  _playerThrowingSoundClip: {fileID: 8300000, guid: 38a4d267a171b754483f5ea9e34707bf, type: 3}
-  _soundFadeOnTime: 5
+  _masterMixer: {fileID: 0}
+  _bgmGroup: {fileID: 0}
+  _sfxGroup: {fileID: 0}
+  uiClickSoundClip: {fileID: 0}
+  playerThrowingSoundClip: {fileID: 0}
+  soundFadeOnTime: 0
 --- !u!1001 &544561239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7819,6 +7822,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7516b70a8bfa00499fa9c0829e3dcc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvas: {fileID: 0}
+  _destinationRectTrm: {fileID: 0}
 --- !u!1001 &907431949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8923,7 +8928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1369191948
 Transform:
   m_ObjectHideFlags: 0
