@@ -62,8 +62,22 @@ public sealed class UISelectItemUnit : UIInteractionElement
     {
         _interactionBtn.RegisterCallback<ClickEvent>(e =>
         {
-            GameManager.Instance.GetManager<SeleteItemManager>().EquipItem((FishingItemType)_unit.Index);
+            if (GameManager.Instance.GetManager<SeleteItemManager>().EquipItem((FishingItemType)_unit.Index))
+            {
+                PlayParticle();
+                UpdateUnitState();
+            }
         });
+    }
+
+    private void PlayParticle()
+    {
+        Vector2 btnPos = GameManager.Instance.GetManager<UIManager>()
+            .GetElementPos(_interactionBtn, new Vector2(0.5f, 0.5f));
+        
+        PoolableUIParticle particle = GameManager.Instance.GetManager<PoolManager>().Pop("TadaEffect") as PoolableUIParticle;
+        particle.SetPoint(btnPos);
+        particle.Play();
     }
 
     protected override void FindElement()
