@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -18,6 +19,14 @@ public class UIManager : MonoBehaviour, IManager
         set { _document = value; }
     }
     private UIDocument _blurDocument;
+    
+    [SerializeField]
+    private Canvas _canvas;
+    public Canvas Canvas => _canvas;
+    
+    [SerializeField]
+    private RectTransform _destinationRectTrm;
+    public RectTransform DestinationRectTrm => _destinationRectTrm;
 
     private ScreenType _activeScreen;
     private PopupType _activePopup;
@@ -115,13 +124,24 @@ public class UIManager : MonoBehaviour, IManager
         return _uguis[type];
     }
 
-    public bool OnElement(Vector3 screenPos){
+    public bool OnElement(Vector2 screenPos){
         IPanel panel = _document.rootVisualElement.panel;
 
-        Vector3 panelPos = RuntimePanelUtils.ScreenToPanel(panel, screenPos);
+        screenPos.y = Define.ScreenSize.y - screenPos.y;
+
+        Vector2 panelPos = RuntimePanelUtils.ScreenToPanel(panel, screenPos);
         VisualElement pick = panel.Pick(panelPos);
 
         return pick != null;
+    }
+
+    public Vector2 GetElementPos(VisualElement element, Vector2 pivot = default(Vector2))
+    {
+        Vector2 elementPos = element.worldBound.position;
+        elementPos.x += element.worldBound.width * pivot.x;
+        elementPos.y += element.worldBound.height * pivot.y;
+        
+        return elementPos;
     }
 
     public void UpdateManager() {}

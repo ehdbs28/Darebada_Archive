@@ -33,6 +33,19 @@ public class UISellContent : UIPopupContent
 
         _sellBtn.RegisterCallback<ClickEvent>(e => {
             Debug.Log("판매 완료");
+            PlayParticle();    
         });
+    }
+
+    private void PlayParticle()
+    {
+        Vector2 particlePos = GameManager.Instance.GetManager<UIManager>()
+            .GetElementPos(_sellBtn, new Vector2(0.5f, 0.5f));
+        // Vector2 destinationPos = GameManager.Instance.GetManager<UIManager>()
+        //     .GetElementPos()
+
+        PoolableUIMovementParticle particle = GameManager.Instance.GetManager<PoolManager>().Pop("MoneyFeedback") as PoolableUIMovementParticle;
+        particle.SetPoint(particlePos);
+        particle.Play();
     }
 }

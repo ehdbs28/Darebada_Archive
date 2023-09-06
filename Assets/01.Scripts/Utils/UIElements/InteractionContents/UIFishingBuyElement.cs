@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 
 public sealed class UIFishingBuyElement : UIInteractionElement
 {
+    private VisualElement _visualImage;
+    
     private VisualElement _percentElement;
     private Label _levelLabel;
     private Label _valueLabel;
@@ -27,15 +29,26 @@ public sealed class UIFishingBuyElement : UIInteractionElement
             GameManager.Instance.GetManager<FishingUpgradeManager>().Upgrade(_idx);
             LabelUpdate();
             ChangeValue();
+            PlayParticle();
         });
     }
 
     protected override void FindElement()
     {
         base.FindElement();
+        _visualImage = _root.Q("fishing-image");
         _percentElement = _root.Q<VisualElement>("value");
         _levelLabel = _root.Q<Label>("level");
         _valueLabel = _root.Q<Label>("value-text");
+    }
+
+    private void PlayParticle()
+    {
+        Vector2 particlePos = GameManager.Instance.GetManager<UIManager>().GetElementPos(_visualImage, new Vector2(0.5f, 0.5f));
+        
+        PoolableUIParticle particle = GameManager.Instance.GetManager<PoolManager>().Pop("UpgradeFeedback") as PoolableUIParticle;
+        particle.SetPoint(particlePos);
+        particle.Play();
     }
 
     private void LabelUpdate(){

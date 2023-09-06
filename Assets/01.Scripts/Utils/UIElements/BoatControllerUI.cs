@@ -54,6 +54,8 @@ public class BoatControllerUI
         if (!_isClick)
             return;
 
+        Debug.Log(1);
+
         float cur = mousePos.y;
 
         if (cur < _startPos)
@@ -76,7 +78,7 @@ public class BoatControllerUI
         if (_delta >= _offset)
         {
             _dir = Mathf.Clamp(_dir + _curDir, -1, 1);
-            _handle.style.top = new StyleLength(new Length(Mathf.Abs(_dir - 1) * 47, LengthUnit.Percent));
+            _handle.style.bottom = new StyleLength(new Length((_dir + 1) * 47, LengthUnit.Percent));
             _controller.GetModule<BoatMovementModule>().SetMovementValue(_dir);
         }
         

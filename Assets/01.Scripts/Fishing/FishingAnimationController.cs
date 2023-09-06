@@ -26,6 +26,6 @@ public class FishingAnimationController : MonoBehaviour
 
     public void OnAnimation(){
         OnAnimationEvent?.Invoke();
-        GameManager.Instance.GetManager<SoundManager>().Play(GameManager.Instance.GetManager<SoundManager>()._playerThrowingSoundClip, SoundEnum.EFFECT);
+        GameManager.Instance.GetManager<SoundManager>().Play(GameManager.Instance.GetManager<SoundManager>().playerThrowingSoundClip, SoundEnum.EFFECT);
     }
 }

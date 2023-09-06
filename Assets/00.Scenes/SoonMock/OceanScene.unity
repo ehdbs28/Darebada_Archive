@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.4901961, g: 0.4901961, b: 0.4901961, a: 0}
   m_FogMode: 1
   m_FogDensity: 0.94
@@ -456,14 +456,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 916672990, guid: 20a129284ca174c44842d90679da1763, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 916672993, guid: 20a129284ca174c44842d90679da1763, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 30f7f146d28a3504da277f4537770fa0, type: 2}
     - target: {fileID: 413581773144314895, guid: 20a129284ca174c44842d90679da1763, type: 3}
       propertyPath: m_Name
       value: SilentOcean
@@ -698,18 +690,6 @@ PrefabInstance:
     - target: {fileID: 538098142375316404, guid: 31e7d4a0b2c62664492e84345b5da468, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6416062250538352391, guid: 31e7d4a0b2c62664492e84345b5da468, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6416062250538352393, guid: 31e7d4a0b2c62664492e84345b5da468, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f0a6300f0165df84abea112fae66c0d8, type: 2}
-    - target: {fileID: 6416062251016234577, guid: 31e7d4a0b2c62664492e84345b5da468, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6927084401088429375, guid: 31e7d4a0b2c62664492e84345b5da468, type: 3}
       propertyPath: m_Name
