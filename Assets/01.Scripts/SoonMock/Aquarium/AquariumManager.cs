@@ -11,6 +11,16 @@ using UnityEngine.UI;
 
 public class AquariumManager : MonoBehaviour, IManager
 {
+    private AquariumManager _instance;
+    public AquariumManager Instance
+    {
+        get
+        {
+            if (_instance == null) _instance = this;
+            return _instance;
+        }
+        private set { _instance = value; }
+    }
     public Material fishBowlMat;
     public Material mossMat;
     public Transform facilityParent;
