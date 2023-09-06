@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class BoatDataUnit{
     public string Name;
-    public float Price;
+    public int Price;
     public BoatVisual Visual;
     public float MaxSpeed;
     public float ForwardAcceleration;
@@ -27,7 +27,7 @@ public class BoatDataTable : LoadableData
         DataTable.Add(new BoatDataUnit());
 
         DataTable[Size].Name = dataArr[0];
-        DataTable[Size].Price = float.Parse(dataArr[2]);
+        DataTable[Size].Price = int.Parse(dataArr[2]);
         
         DataTable[Size].MaxSpeed = float.Parse(dataArr[3]);
         DataTable[Size].ForwardAcceleration = float.Parse(dataArr[4]);

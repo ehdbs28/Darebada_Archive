@@ -19,27 +19,28 @@ public class FishingUpgradeManager : IManager
                 return;
 
             GameManager.Instance.GetManager<MoneyManager>().Payment(
-                _dataTable.DataTable[idx].Price[fishingData.StringLength_Level]
+                _dataTable.DataTable[idx].Price[fishingData.StringLength_Level],
+                () => fishingData.StringLength_Level++
             );
-            fishingData.StringLength_Level++;
         }
         else if(idx == 1){
             if(fishingData.StringStrength_Level >= _dataTable.DataTable[idx].MaxLevel)
                 return;
 
             GameManager.Instance.GetManager<MoneyManager>().Payment(
-                _dataTable.DataTable[idx].Price[fishingData.StringStrength_Level]
+                _dataTable.DataTable[idx].Price[fishingData.StringStrength_Level],
+                () => fishingData.StringStrength_Level++
             );
-            fishingData.StringStrength_Level++;
+            
         }
         else{
             if(fishingData.ThrowPower_Level >= _dataTable.DataTable[idx].MaxLevel)
                 return;
 
             GameManager.Instance.GetManager<MoneyManager>().Payment(
-                _dataTable.DataTable[idx].Price[fishingData.ThrowPower_Level]
+                _dataTable.DataTable[idx].Price[fishingData.ThrowPower_Level],
+                () => fishingData.ThrowPower_Level++    
             );  
-            fishingData.ThrowPower_Level++;
         }
     }
 

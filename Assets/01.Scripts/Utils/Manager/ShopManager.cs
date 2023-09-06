@@ -25,9 +25,11 @@ public class ShopManager : IManager
         if (_itemStock[idx] == 0)
             return;
 
-        _itemStock[idx]--;
-        ((FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData)).ItemVal[idx]++;
-        GameManager.Instance.GetManager<MoneyManager>().Payment(_dataTable.DataTable[idx].Price);
+        GameManager.Instance.GetManager<MoneyManager>().Payment(_dataTable.DataTable[idx].Price, () =>
+        {
+            _itemStock[idx]--;
+            ((FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData)).ItemVal[idx]++;
+        });
     }
 
     public bool IsInStock(int idx)
