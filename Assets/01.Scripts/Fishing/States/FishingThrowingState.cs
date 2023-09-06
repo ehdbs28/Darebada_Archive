@@ -26,6 +26,8 @@ public class FishingThrowingState : FishingState
 
     public override void EnterState()
     {
+        //던졌을 때
+        GameManager.Instance.GetManager<CameraManager>()._isCanRotate = false;
         _isThrowing = false;
         _startPos = _bobberTrm.position;
         _playerTrm.LookAt(_controller.ActionData.LastThrowDirection);
@@ -33,9 +35,9 @@ public class FishingThrowingState : FishingState
         _controller.AnimatorController.SetCasting(true);
     }
 
-    public override void UpdateState()
+    public override void UpdateModule()
     {
-        base.UpdateState();
+        base.UpdateModule();
 
         if(_isThrowing == false){
             _bobberTrm.position = _bobberPos.position;
@@ -45,6 +47,7 @@ public class FishingThrowingState : FishingState
 
     public override void ExitState()
     {
+        // 던지는거 나갈때
         _controller.AnimatorController.OnAnimationEvent -= OnAnimationEndHandle;
     }
 

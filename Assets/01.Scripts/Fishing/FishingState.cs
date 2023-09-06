@@ -1,26 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
-public abstract class FishingState : MonoBehaviour, IState
+public abstract class FishingState : CommonModule<FishingController>
 {
     protected List<FishingTransition> _transitions;
-    protected FishingController _controller;
 
     public abstract void EnterState();
     public abstract void ExitState();
 
-    public virtual void SetUp(Transform agentRoot)
+    public override void SetUp(Transform rootTrm)
     {
-        _controller = agentRoot.GetComponent<FishingController>();
+        base.SetUp(rootTrm);
 
         _transitions = new List<FishingTransition>();
         transform.GetComponentsInChildren<FishingTransition>(_transitions);
 
-        _transitions.ForEach(t => t.SetUp(agentRoot));
+        _transitions.ForEach(t => t.SetUp(rootTrm));
     }
 
-    public virtual void UpdateState()
+    public override void UpdateModule()
     {
         foreach(var t in _transitions){
             if(t.CheckDecision()){
@@ -29,4 +29,6 @@ public abstract class FishingState : MonoBehaviour, IState
             }
         }
     }
+
+    public override void FixedUpdateModule(){}
 }
