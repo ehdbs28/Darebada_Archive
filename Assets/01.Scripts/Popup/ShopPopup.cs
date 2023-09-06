@@ -15,11 +15,6 @@ public class ShopPopup : UIPopup
     private UISellContent _sellContent;
     private UIBuyContent _buyContent;
 
-    public override void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
-    {
-        base.SetUp(document, clearScreen, blur, timeStop);
-    }
-
     public override void AddEvent()
     {
         _exitBtn.RegisterCallback<ClickEvent>(e => {
@@ -55,8 +50,9 @@ public class ShopPopup : UIPopup
             VisualElement contentRoot = _contents.ElementAt(i);
 
             Debug.Log(contentRoot.name);
+            Debug.Log(i);
 
-            if(contentRoot.name == "sell-content"){
+            if(i == 0){
                 _sellContent = new UISellContent(contentRoot, i);
             }
             else{

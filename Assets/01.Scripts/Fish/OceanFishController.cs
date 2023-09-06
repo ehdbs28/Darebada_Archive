@@ -48,8 +48,9 @@ public class OceanFishController : ModuleController
     public void SetUp(FishDataUnit data, BoxCollider bound)
     {
         _dataUnit = data;
-        
-        // Should Check Visual
+
+        _modelTrm.GetComponent<MeshFilter>().mesh = data.Visual.VisualMesh;
+        _modelTrm.GetComponent<MeshRenderer>().material = data.Visual.MainMat;
 
         _actionData.Lenght = Random.Range(data.MinLenght, data.MaxLenght);
         float normalizedLenght = (_actionData.Lenght - data.MinLenght) / (data.MaxLenght - data.MinLenght);

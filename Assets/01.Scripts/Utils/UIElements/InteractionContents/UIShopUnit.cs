@@ -46,7 +46,21 @@ public sealed class UIShopUnit : UIInteractionElement
             GameManager.Instance.GetManager<ShopManager>().PurchaseItem(_unit.Index);            
             if(!GameManager.Instance.GetManager<ShopManager>().IsInStock(_unit.Index))
                 Toggle(true);
+            
+            PlayParticle();
         });
+    }
+    
+    private void PlayParticle()
+    {
+        Vector2 particlePos = GameManager.Instance.GetManager<UIManager>()
+            .GetElementPos(_interactionBtn, new Vector2(0.5f, 0.5f));
+        // Vector2 destinationPos = GameManager.Instance.GetManager<UIManager>()
+        //     .GetElementPos()
+
+        PoolableUIMovementParticle particle = GameManager.Instance.GetManager<PoolManager>().Pop("MoneyFeedback") as PoolableUIMovementParticle;
+        particle.SetPoint(particlePos);
+        particle.Play();
     }
 
     private void Toggle(bool value){
