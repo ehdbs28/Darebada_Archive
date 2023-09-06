@@ -113,7 +113,7 @@ public sealed class UIBoatBuyElement : UIInteractionElement
             _root.RemoveFromClassList("unlock");
             _root.RemoveFromClassList("select");
 
-            _infoLabel.text = $"$ {_dataTable.DataTable[_idx].Price}";
+            _infoLabel.text = $"{_dataTable.DataTable[_idx].Price}";
         }
         else if(next == BoatBuyState.Equip){
             _root.AddToClassList("unlock");

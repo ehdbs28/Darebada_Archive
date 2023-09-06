@@ -8014,6 +8014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: 1cf757d173f399d499d6374c605716cb, type: 3}
+  _invenUnitTemplete: {fileID: 9197481963319205126, guid: dd14a9e2a90663d44b629d666ae1dd88, type: 3}
 --- !u!114 &9157046241256461541
 MonoBehaviour:
   m_ObjectHideFlags: 0

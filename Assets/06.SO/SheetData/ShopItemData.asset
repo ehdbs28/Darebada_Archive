@@ -18,25 +18,25 @@ MonoBehaviour:
     _data:
     - Index: 0
       Name: "\u2605 \uBBF8\uB07C"
-      Image: {fileID: 0}
+      Image: {fileID: 21300000, guid: b13e7ba119ed84a4487ae143079fcd95, type: 3}
       Desc: "\u26052 \uBB3C\uACE0\uAE30\uB97C \uC704\uD55C \uBBF8\uB07C\uC785\uB2C8\uB2E4."
       Price: 70
       Durability: 5
     - Index: 1
       Name: "\u2605\u2605 \uBBF8\uB07C"
-      Image: {fileID: 0}
+      Image: {fileID: 21300000, guid: 0d5b6570bc1f225489c9cbc767116bef, type: 3}
       Desc: "\u26053 \uBB3C\uACE0\uAE30\uB97C \uC704\uD55C \uBBF8\uB07C\uC785\uB2C8\uB2E4."
       Price: 310
       Durability: 3
     - Index: 2
       Name: "\u2605\u2605\u2605 \uBBF8\uB07C"
-      Image: {fileID: 0}
+      Image: {fileID: 21300000, guid: 603211899841ffd49b3f5f35f4ab1809, type: 3}
       Desc: "\u26054 \uBB3C\uACE0\uAE30\uB97C \uC704\uD55C \uBBF8\uB07C\uC785\uB2C8\uB2E4."
       Price: 1000
       Durability: 2
     - Index: 3
       Name: "\u2605\u2605\u2605\u2605 \uBBF8\uB07C"
-      Image: {fileID: 0}
+      Image: {fileID: 21300000, guid: 186c3e3d7519c485a97659ae01a43c05, type: 3}
       Desc: "\u26055 \uBB3C\uACE0\uAE30\uB97C \uC704\uD55C \uBBF8\uB07C\uC785\uB2C8\uB2E4."
       Price: 5000
       Durability: 1

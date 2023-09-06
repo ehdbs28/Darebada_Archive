@@ -112,7 +112,7 @@
                             </ui:VisualElement>
                             <ui:VisualElement name="shop-item" class="buy-item">
                                 <ui:VisualElement name="info">
-                                    <ui:VisualElement name="item-image" style="width: 75px; height: 75px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Level-one-lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#Level-one-lure&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="item-image" style="width: 75px; height: 75px; background-image: url(&apos;project://database/Assets/05.Assets/ShopItemVisual/LV1_lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#LV1_lure&apos;); margin-right: 30px;" />
                                     <ui:VisualElement name="info-text" style="color: rgb(255, 255, 255);">
                                         <ui:Label text="★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="margin-bottom: 10px;" />
                                         <ui:Label text="★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" />
@@ -131,7 +131,7 @@
                             </ui:VisualElement>
                             <ui:VisualElement name="shop-item" class="buy-item">
                                 <ui:VisualElement name="info">
-                                    <ui:VisualElement name="item-image" style="width: 75px; height: 75px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Level-one-lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#Level-one-lure&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="item-image" style="width: 75px; height: 75px; background-image: url(&apos;project://database/Assets/05.Assets/ShopItemVisual/LV1_lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#LV1_lure&apos;); margin-right: 30px;" />
                                     <ui:VisualElement name="info-text">
                                         <ui:Label text="★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="margin-bottom: 10px;" />
                                         <ui:Label text="★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="-unity-font-style: normal;" />
@@ -150,7 +150,7 @@
                             </ui:VisualElement>
                             <ui:VisualElement name="shop-item" class="buy-item">
                                 <ui:VisualElement name="info">
-                                    <ui:VisualElement name="item-image" style="width: 75px; height: 75px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Level-one-lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#Level-one-lure&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="item-image" style="width: 75px; height: 75px; background-image: url(&apos;project://database/Assets/05.Assets/ShopItemVisual/LV1_lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#LV1_lure&apos;); margin-right: 30px;" />
                                     <ui:VisualElement name="info-text">
                                         <ui:Label text="★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="margin-bottom: 10px;" />
                                         <ui:Label text="★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="-unity-font-style: normal;" />
@@ -169,7 +169,7 @@
                             </ui:VisualElement>
                             <ui:VisualElement name="shop-item" class="buy-item">
                                 <ui:VisualElement name="info">
-                                    <ui:VisualElement name="item-image" style="width: 75px; height: 75px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Level-one-lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#Level-one-lure&apos;); margin-right: 30px;" />
+                                    <ui:VisualElement name="item-image" style="width: 75px; height: 75px; background-image: url(&apos;project://database/Assets/05.Assets/ShopItemVisual/LV1_lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#LV1_lure&apos;); margin-right: 30px;" />
                                     <ui:VisualElement name="info-text">
                                         <ui:Label text="★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="margin-bottom: 10px;" />
                                         <ui:Label text="★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="-unity-font-style: normal;" />
