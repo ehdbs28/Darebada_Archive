@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FishData
   m_EditorClassIdentifier: 
   Type: 0
-  Size: 30
+  Size: 22
   DataTable:
     _data:
     - Name: "\uC1A1\uC5B4"
@@ -28,7 +28,7 @@ MonoBehaviour:
       MaxLenght: 70
       MinWeight: 4
       MaxWeight: 6
-      SpawnPercent: 10
+      SpawnPercent: 25
       Favorites:
       - 11
       - 22
@@ -38,86 +38,6 @@ MonoBehaviour:
         \uD55C\uB2E4. \uC5F0\uC5B4\uB9CC\uD07C \uB369\uCE58\uAC00 \uD06C\uACE0 \uD798\uC774
         \uC88B\uC544 \uBD81\uBBF8\uC758 \uC2A4\uD3EC\uCE20 \uB09A\uC2DC \uB300\uC0C1\uC5B4\uC885\uC73C\uB85C
         \uAC01\uAD11\uBC1B\uB294\uB2E4.\r"
-    - Name: "\uCCA0\uAC11\uC0C1\uC5B4"
-      Visual: {fileID: 11400000, guid: d4adc7a7118f64c3196c42e1909d3115, type: 2}
-      Price: 25
-      Habitat: 0
-      Rarity: 1
-      Speed: 2
-      InvenSizeX: 4
-      InvenSizeY: 2
-      MinLenght: 175
-      MaxLenght: 200
-      MinWeight: 50
-      MaxWeight: 110
-      SpawnPercent: 10
-      Favorites:
-      - 11
-      - 22
-      - 33
-      Description: "\uC0B4\uC544\uC788\uB294 \uD654\uC11D\uC774\uB77C \uBD88\uB9AC\uBA70,
-        \uC774\uB984\uC740 \uCCA0\uAC11\uC0C1\uC5B4\uC774\uC9C0\uB9CC \uC2E4\uC81C\uB85C
-        \uC0C1\uC5B4\uC640\uB294 \uAD00\uB828\uC774 \uC5C6\uB294 \uC5B4\uC885\uC774\uB2E4.\r"
-    - Name: "\uB85C\uCE58"
-      Visual: {fileID: 11400000, guid: 95fced8d32f4e4839ac8609e6b671b7d, type: 2}
-      Price: 25
-      Habitat: 0
-      Rarity: 1
-      Speed: 1
-      InvenSizeX: 2
-      InvenSizeY: 1
-      MinLenght: 20
-      MaxLenght: 30
-      MinWeight: 1
-      MaxWeight: 2
-      SpawnPercent: 10
-      Favorites:
-      - 11
-      - 22
-      - 33
-      Description: "\uC218\uCD08\uAC00 \uC6B0\uAC70\uC9C4 \uACF3\uC5D0 \uC8FC\uB85C
-        \uC0B0\uB2E4. \uBD89\uC740 \uB208\uACFC \uC9D9\uC740 \uD68C\uC0C9\uC758 \uC9C0\uB290\uB7EC\uBBF8\uAC00
-        \uD2B9\uC9D5\uC774\uB2E4.\r"
-    - Name: "\uD070\uC785\uBC30\uC2A4"
-      Visual: {fileID: 11400000, guid: 4bd80c2f9cfcb4282865397ffe452d38, type: 2}
-      Price: 25
-      Habitat: 0
-      Rarity: 1
-      Speed: 1.5
-      InvenSizeX: 2
-      InvenSizeY: 1
-      MinLenght: 30
-      MaxLenght: 60
-      MinWeight: 1
-      MaxWeight: 2
-      SpawnPercent: 10
-      Favorites:
-      - 11
-      - 22
-      - 33
-      Description: "\uD3EC\uC2DD\uC131\uC774 \uAC15\uD55C \uC5B4\uC885\uC73C\uB85C
-        \uC791\uC740 \uD3EC\uC720\uB958\uAE4C\uC9C0 \uC785\uC5D0 \uB4E4\uC5B4\uAC00\uB294
-        \uD06C\uAE30\uBA74 \uBB34\uC5C7\uC774\uB4E0 \uC7A1\uC544\uBA39\uB294\uB2E4.\r"
-    - Name: "\uD30C\uB791\uBCFC\uC6B0\uB7ED"
-      Visual: {fileID: 11400000, guid: 78480e7baecae47d29fe61038a0c217b, type: 2}
-      Price: 25
-      Habitat: 0
-      Rarity: 1
-      Speed: 0.5
-      InvenSizeX: 1
-      InvenSizeY: 1
-      MinLenght: 15
-      MaxLenght: 25
-      MinWeight: 0.35
-      MaxWeight: 0.85
-      SpawnPercent: 10
-      Favorites:
-      - 11
-      - 22
-      - 33
-      Description: "\uC544\uAC00\uBBF8 \uB69C\uAED1 \uC606\uC5D0 \uD30C\uB780 \uC810\uC774
-        \uC788\uB294\uB370, \uC774 \uB54C\uBB38\uC5D0 '\uD30C\uB780 \uC544\uAC00\uBBF8'\uB77C\uB294
-        \uB73B\uC758 \uBE14\uB8E8\uAE38\uC774\uB77C \uBD88\uB9B0\uB2E4.\r"
     - Name: "\uB18D\uC5B4"
       Visual: {fileID: 11400000, guid: 8e707bf77b0d94b08b0bb624a770abc6, type: 2}
       Price: 25
@@ -130,7 +50,7 @@ MonoBehaviour:
       MaxLenght: 80
       MinWeight: 2
       MaxWeight: 5
-      SpawnPercent: 10
+      SpawnPercent: 25
       Favorites:
       - 11
       - 22
@@ -150,7 +70,7 @@ MonoBehaviour:
       MaxLenght: 110
       MinWeight: 30
       MaxWeight: 80
-      SpawnPercent: 10
+      SpawnPercent: 20
       Favorites:
       - 11
       - 22
@@ -158,27 +78,6 @@ MonoBehaviour:
       Description: "\uD55C\uAD6D\uC5D0\uC11C\uB294 \uC2E0\uD654 \uC18D \uBB3C\uACE0\uAE30\uB85C
         \uBD88\uB9B0\uB2E4. \uC61B \uC18D\uC124\uB85C \uC789\uC5B4\uB294 \uBBFC\uBB3C\uC6A9\uC655\uC758
         \uC544\uB4E4\uC774\uB77C\uACE0 \uD55C\uB2E4.\r"
-    - Name: "\uC810\uC131\uC5B4"
-      Visual: {fileID: 11400000, guid: 833d7f740988e4ba2b23c450979ccd7b, type: 2}
-      Price: 50
-      Habitat: 0
-      Rarity: 2
-      Speed: 0.75
-      InvenSizeX: 3
-      InvenSizeY: 2
-      MinLenght: 100
-      MaxLenght: 150
-      MinWeight: 40
-      MaxWeight: 60
-      SpawnPercent: 8
-      Favorites:
-      - 11
-      - 22
-      - 33
-      Description: "\uBC14\uB2E4\uB09A\uC2DC\uB97C \uC804\uBB38\uC73C\uB85C \uC990\uAE30\uB294
-        \uC870\uC0AC\uB4E4 \uC0AC\uC774\uC5D0\uC11C \uCDE8\uAE09\uC774 \uC88B\uC9C0
-        \uC54A\uB2E4. \uC6D4\uCC99 \uD06C\uAE30\uB85C \uC7A1\uC544\uB3C4 \uC6D4\uCC99\uC73C\uB85C
-        \uC548 \uCCD0\uC904 \uC815\uB3C4.\r"
     - Name: "\uBBFC\uBB3C\uAF2C\uCE58\uACE0\uAE30"
       Visual: {fileID: 11400000, guid: 5851753ec0f9944919fcc3a936ea8544, type: 2}
       Price: 50
@@ -191,7 +90,7 @@ MonoBehaviour:
       MaxLenght: 120
       MinWeight: 15
       MaxWeight: 40
-      SpawnPercent: 8
+      SpawnPercent: 20
       Favorites:
       - 11
       - 22
@@ -201,28 +100,6 @@ MonoBehaviour:
         \uC0AC\uB0E5\uACFC \uAE09\uB958\uC5D0 \uC800\uD56D\uD558\uAE30 \uC704\uD574
         \uC21C\uAC04\uC801\uC778 \uD30C\uB2E5\uAC70\uB9BC\uC774 \uC0C1\uB2F9\uD788
         \uD798 \uC13C \uD3B8\uC774\uB2E4.\r"
-    - Name: "\uB4C0\uACF5"
-      Visual: {fileID: 11400000, guid: 7b484890a3acc419f901eb7c4816a9fe, type: 2}
-      Price: 100
-      Habitat: 0
-      Rarity: 3
-      Speed: 1
-      InvenSizeX: 4
-      InvenSizeY: 3
-      MinLenght: 200
-      MaxLenght: 250
-      MinWeight: 250
-      MaxWeight: 900
-      SpawnPercent: 7
-      Favorites:
-      - 11
-      - 22
-      - 33
-      Description: "\uC77C\uBC18\uC778\uB4E4\uC5D0\uAC8C\uB294 \uC778\uC5B4\uC758
-        \uAE30\uC6D0\uC73C\uB85C \uB110\uB9AC \uC54C\uB824\uC838 \uC788\uB2E4. \uBAB8\uC774
-        \uB108\uBB34 \uBB34\uAC70\uC6CC\uC11C \uB545\uC5D0 \uC62C\uB77C\uC624\uBA74
-        \uBB44\uBB34\uAC8C\uB97C \uBABB\uC774\uAE30\uACE0 \uC9D3\uB20C\uB824 \uC8FD\uC744
-        \uC218 \uC788\uB2E4.\r"
     - Name: "\uB3CC\uACE0\uB798"
       Visual: {fileID: 11400000, guid: 1c039a080ae384ee2892d6b0a5961cef, type: 2}
       Price: 100
@@ -235,7 +112,7 @@ MonoBehaviour:
       MaxLenght: 400
       MinWeight: 150
       MaxWeight: 650
-      SpawnPercent: 7
+      SpawnPercent: 10
       Favorites:
       - 11
       - 22
@@ -388,26 +265,6 @@ MonoBehaviour:
         \uC62C\uB77C\uC640 \uC54C\uC744 \uB0B3\uB294 \uC2B5\uC131\uC774 \uC788\uB2E4.
         \uC774 \uB3C5\uD2B9\uD55C \uC2B5\uC131\uC73C\uB85C \uC778\uD574 \uC0DD\uD0DC\uACC4\uC5D0
         \uC601\uD5A5\uC744 \uC81C\uACF5\uD558\uB294 \uC5ED\uD560\uC744 \uD55C\uB2E4.\r"
-    - Name: "\uC784\uAE08\uD3AD\uADC4"
-      Visual: {fileID: 11400000, guid: 53d4d88e99eeb49da93051cdb9c1d07c, type: 2}
-      Price: 700
-      Habitat: 2
-      Rarity: 2
-      Speed: 0.5
-      InvenSizeX: 3
-      InvenSizeY: 2
-      MinLenght: 80
-      MaxLenght: 100
-      MinWeight: 9
-      MaxWeight: 17
-      SpawnPercent: 15
-      Favorites:
-      - 11
-      - 22
-      - 33
-      Description: "\uD669\uC81C\uD3AD\uADC4\uC5D0 \uC774\uC5B4 2\uBC88\uC9F8\uB85C
-        \uD070 \uB369\uCE58\uB97C \uAC00\uC9C4 \uD3AD\uADC4\uC774\uB2E4. \uD669\uC81C\uD3AD\uADC4\uAC00\uB294
-        \uB2EC\uB9AC \uC0AC\uC721\uD558\uB294 \uACF3\uC774 \uC5EC\uB7FF \uC874\uC7AC\uD55C\uB2E4.\r"
     - Name: "\uAC00\uC624\uB9AC"
       Visual: {fileID: 11400000, guid: 34717b2a16e1a4196bc6f470682fe616, type: 2}
       Price: 700
@@ -420,7 +277,7 @@ MonoBehaviour:
       MaxLenght: 50
       MinWeight: 5
       MaxWeight: 7
-      SpawnPercent: 15
+      SpawnPercent: 30
       Favorites:
       - 11
       - 22
@@ -429,29 +286,74 @@ MonoBehaviour:
         \uC120\uC6D0\uB4E4\uC5D0\uAC90 \uBC14\uB2E4\uC758 \uC545\uB9C8\uB098 \uB9C8\uADC0\uB85C
         \uC5EC\uACA8\uC9C0\uBA70 \uACF5\uD3EC\uC758 \uB300\uC0C1\uC774\uC5C8\uB2E4\uACE0
         \uD55C\uB2E4.\r"
-    - Name: "\uD478\uB978\uBC14\uB2E4\uAC70\uBD81"
-      Visual: {fileID: 11400000, guid: 0d4bf530801004211b59e89b86060e35, type: 2}
-      Price: 850
-      Habitat: 2
-      Rarity: 3
-      Speed: 0.5
+    - Name: "\uCC38\uCE58"
+      Visual: {fileID: 11400000, guid: 69f81e188def04bc78f9694df0978e2a, type: 2}
+      Price: 1250
+      Habitat: 3
+      Rarity: 2
+      Speed: 3
       InvenSizeX: 4
-      InvenSizeY: 3
-      MinLenght: 30
-      MaxLenght: 50
+      InvenSizeY: 2
+      MinLenght: 200
+      MaxLenght: 500
       MinWeight: 100
-      MaxWeight: 160
-      SpawnPercent: 10
+      MaxWeight: 300
+      SpawnPercent: 25
       Favorites:
       - 11
       - 22
       - 33
-      Description: "\uBA78\uC885\uC704\uAE30\uC885\uC73C\uB85C \uC120\uC815\uB418\uC5B4
-        \uC788\uC73C\uBA70, \uD604\uC7AC \uB300\uBD80\uBD84\uC758 \uAD6D\uAC00\uC5D0\uC11C\uB294
-        \uBCF4\uD638\uC870\uCE58\uAC00 \uB0B4\uB824\uC838 \uC788\uB2E4.\r"
+      Description: "\uBC14\uB2E4\uC758 \uB2ED\uACE0\uAE30\uB77C\uB294 \uBCC4\uBA85\uC744
+        \uAC00\uC9C0\uACE0 \uC788\uB2E4. \uD1B5\uC870\uB9BC\uC774\uB098 \uD68C, \uB0C9\uB3D9\uC2DD\uD488\uC73C\uB85C\uC368
+        \uC0AC\uB78C\uB4E4\uC5D0\uAC8C \uC778\uAE30\uC788\uB294 \uBB3C\uACE0\uAE30\uC774\uB2E4.\r"
+    - Name: "\uB9CC\uC0C8\uAE30"
+      Visual: {fileID: 11400000, guid: 7652e83b37f444566b1d817cce655b65, type: 2}
+      Price: 1250
+      Habitat: 3
+      Rarity: 2
+      Speed: 1.5
+      InvenSizeX: 3
+      InvenSizeY: 2
+      MinLenght: 100
+      MaxLenght: 200
+      MinWeight: 20
+      MaxWeight: 40
+      SpawnPercent: 15
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uC774\uB984\uC740 \uAF64 \uC0DD\uC18C\uD558\uC9C0\uB9CC \uADF8
+        \uD2B9\uC774\uD55C \uC0DD\uAE40\uC0C8\uC5D0 \uC0C1\uB2F9\uD788 \uD070 \uC5B4\uC885\uC778\uC9C0\uB77C
+        \uC5EC\uB7EC \uB9E4\uCCB4\uC5D0 \uC790\uC8FC \uBCF4\uC778\uB2E4. \uC720\uBA85\uD55C
+        \uD604\uB300 \uC18C\uC124 \"\uB178\uC778\uACFC \uBC14\uB2E4\"\uC5D0\uC11C
+        \uB4F1\uC7A5\uD55C\uB2E4. \uC601\uC5B4\uB85C \"dolphinfish\"\uC778\uC9C0\uB77C
+        \uB3CC\uACE0\uB798\uB85C \uC624\uC5ED\uC744 \uD55C \uACBD\uC6B0\uAC00 \uC885\uC885
+        \uC788\uB2E4.\r"
+    - Name: "\uAC1C\uBCF5\uCE58"
+      Visual: {fileID: 0}
+      Price: 3000
+      Habitat: 3
+      Rarity: 3
+      Speed: 0.5
+      InvenSizeX: 4
+      InvenSizeY: 4
+      MinLenght: 150
+      MaxLenght: 180
+      MinWeight: 250
+      MaxWeight: 500
+      SpawnPercent: 8
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uBAA8\uB4E0 \uC5B4\uB958 \uC911 \uAC00\uC7A5 \uB9CE\uC740 \uC218\uC758
+        \uC54C\uC744 \uB0B3\uB294\uB2E4. \uD06C\uAE30\uAC00 1.2m\uC778 \uAC1C\uBCF5\uCE58\uAC00
+        \uC644\uB450\uCF69\uB9CC \uD55C \uC54C\uC744 \uBB34\uB824 3\uC5B5 \uAC1C\uB098
+        \uB0B3\uB294\uB2E4\uACE0 \uD55C\uB2E4.\r"
     - Name: "\uBBFC\uC5B4"
       Visual: {fileID: 11400000, guid: 5bf65489f196244aa96e5bb497980870, type: 2}
-      Price: 1000
+      Price: 3300
       Habitat: 4
       Rarity: 1
       Speed: 2
@@ -469,29 +371,9 @@ MonoBehaviour:
       Description: "\uBBFC\uC5B4\uB294 \uBD80\uB808\uB97C \uC774\uC6A9\uD558\uC5EC
         \uB9C8\uCE58 \uAC1C\uAD6C\uB9AC\uCC98\uB7FC '\uBD80\uC6B1 \uBD80\uC6B1'\uD558\uB294
         \uC6B8\uC74C \uC18C\uB9AC\uB97C \uB0BC \uC218 \uC788\uB2E4.\r"
-    - Name: "\uB300\uC655\uACE0\uB798"
-      Visual: {fileID: 11400000, guid: db5aa6fe870b244f4af665f0cf577804, type: 2}
-      Price: 1250
-      Habitat: 4
-      Rarity: 2
-      Speed: 0.5
-      InvenSizeX: 7
-      InvenSizeY: 8
-      MinLenght: 2100
-      MaxLenght: 2600
-      MinWeight: 130000
-      MaxWeight: 150000
-      SpawnPercent: 12.5
-      Favorites:
-      - 11
-      - 22
-      - 33
-      Description: "\uC9C0\uAD6C \uC5ED\uC0AC\uC0C1 \uAC00\uC7A5 \uD070 \uB3D9\uBB3C\uC774\uB2E4.
-        \uD06C\uB9B4\uC0C8\uC6B0\uB97C \uD558\uB8E8 \uD3C9\uADE0 4t\uC529 \uBE68\uC544\uB4E4\uC778\uB2E4\uACE0
-        \uD55C\uB2E4.\r"
     - Name: "\uACE0\uB798\uC0C1\uC5B4"
-      Visual: {fileID: 11400000, guid: b320b2de95b754d5dad2025b8f9176aa, type: 2}
-      Price: 1250
+      Visual: {fileID: 0}
+      Price: 4500
       Habitat: 4
       Rarity: 2
       Speed: 2
@@ -512,8 +394,8 @@ MonoBehaviour:
         \uB9CC\uB098\uB294 \uAC83\uC740 \uB300\uB2E8\uD55C \uD589\uC6B4\uC73C\uB85C
         \uC5EC\uACA8\uC9C4\uB2E4.\r"
     - Name: "\uADC0\uC0C1\uC5B4"
-      Visual: {fileID: 11400000, guid: cedc48aefe5304fc5a76b2ef8301c4c3, type: 2}
-      Price: 1250
+      Visual: {fileID: 0}
+      Price: 4500
       Habitat: 4
       Rarity: 2
       Speed: 1.5
@@ -533,8 +415,8 @@ MonoBehaviour:
         \uC911\uC5D0\uC11C\uB3C4 \uAC00\uC7A5 \uB9DB\uC788\uB294 \uC0C1\uC5B4\uB77C\uACE0
         \uD55C\uB2E4.\r"
     - Name: "\uD669\uC0C8\uCE58"
-      Visual: {fileID: 11400000, guid: 0ff2afd490c9443ccbdb2db47947942a, type: 2}
-      Price: 1250
+      Visual: {fileID: 0}
+      Price: 4500
       Habitat: 4
       Rarity: 2
       Speed: 2.5
@@ -555,8 +437,8 @@ MonoBehaviour:
         \uBAB8\uC744 \uAD00\uD1B5\uC2DC\uD0A4\uAC70\uB098 \uBC30 \uC704\uB85C \uB6F0\uC5B4\uC62C\uB77C
         \uACF5\uACA9\uD558\uAE30\uB3C4 \uD55C\uB2E4.\r"
     - Name: "\uBC31\uC0C1\uC544\uB9AC"
-      Visual: {fileID: 11400000, guid: 52cbf8dba30d844c9818e9da25524b78, type: 2}
-      Price: 3000
+      Visual: {fileID: 0}
+      Price: 7000
       Habitat: 4
       Rarity: 3
       Speed: 2
@@ -576,8 +458,8 @@ MonoBehaviour:
         \uC0C1\uC5B4\uB85C, \uC601\uD654 '\uC8E0\uC2A4'\uB97C \uD1B5\uD574\uC11C
         \uAC00\uC7A5 \uC798 \uC54C\uB824\uC838 \uC788\uB2E4.\r"
     - Name: "\uBC94\uACE0\uB798"
-      Visual: {fileID: 11400000, guid: f3bfa8c17dd614733a667c9a5af1f7df, type: 2}
-      Price: 3000
+      Visual: {fileID: 0}
+      Price: 7000
       Habitat: 4
       Rarity: 3
       Speed: 1
@@ -596,45 +478,4 @@ MonoBehaviour:
         \uB208\uCC98\uB7FC \uBCF4\uC774\uC9C0\uB9CC \uC2E4\uC81C\uB85C\uB294 \uADF8
         \uBC11, \uC55E\uCABD\uC5D0 \uCD08\uB871\uCD08\uB871\uD55C \uB208\uC774 \uC788\uB2E4.
         \uD558\uC9C0\uB9CC \uBAB8 \uBC30\uACBD\uC0C9\uACFC \uC11E\uC5EC \uC798 \uBCF4\uC774\uC9C0
-        \uC54A\uB294\uB2E4.\r"
-    - Name: "\uAC1C\uBCF5\uCE58"
-      Visual: {fileID: 11400000, guid: 7439bea4c530a4c028538229efa8a4d6, type: 2}
-      Price: 3000
-      Habitat: 4
-      Rarity: 3
-      Speed: 0.5
-      InvenSizeX: 4
-      InvenSizeY: 4
-      MinLenght: 150
-      MaxLenght: 180
-      MinWeight: 250
-      MaxWeight: 500
-      SpawnPercent: 8
-      Favorites:
-      - 11
-      - 22
-      - 33
-      Description: "\uBAA8\uB4E0 \uC5B4\uB958 \uC911 \uAC00\uC7A5 \uB9CE\uC740 \uC218\uC758
-        \uC54C\uC744 \uB0B3\uB294\uB2E4. \uD06C\uAE30\uAC00 1.2m\uC778 \uAC1C\uBCF5\uCE58\uAC00
-        \uC644\uB450\uCF69\uB9CC \uD55C \uC54C\uC744 \uBB34\uB824 3\uC5B5 \uAC1C\uB098
-        \uB0B3\uB294\uB2E4\uACE0 \uD55C\uB2E4.\r"
-    - Name: "\uB300\uC655\uC624\uC9D5\uC5B4"
-      Visual: {fileID: 11400000, guid: eb703f23c8d72475da0b598a870e9903, type: 2}
-      Price: 5000
-      Habitat: 4
-      Rarity: 4
-      Speed: 0.5
-      InvenSizeX: 5
-      InvenSizeY: 5
-      MinLenght: 1200
-      MaxLenght: 1500
-      MinWeight: 150
-      MaxWeight: 300
-      SpawnPercent: 6
-      Favorites:
-      - 11
-      - 22
-      - 33
-      Description: "\uC624\uC9D5\uC5B4\uC640 \uB2E4\uB974\uAC8C \uC5FC\uD654\uC554\uBAA8\uB284\uC774
-        \uB300\uB7C9\uC73C\uB85C \uD3EC\uD568\uB418\uC5B4 \uC788\uC5B4 \uB9DB\uC774
-        \uC5C6\uAE30 \uB54C\uBB38\uC5D0 \uC2DD\uC6A9\uC774 \uBD88\uAC00\uB2A5\uD558\uB2E4."
+        \uC54A\uB294\uB2E4."

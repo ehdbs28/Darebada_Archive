@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74090b99fbe44cbfae795585793646f2, type: 3}
   m_Name: 02.WhaleShark
   m_EditorClassIdentifier: 
-  VisualMesh: {fileID: 0}
-  Profile: {fileID: 0}
-  MainMat: {fileID: 0}
+  VisualMesh: {fileID: 4962674595949412021, guid: be78af705b226406ead1e5e92ba32935, type: 3}
+  Profile: {fileID: 502662147, guid: cb495235db5fa4ab1880276475fe473c, type: 3}
+  MainMat: {fileID: 2100000, guid: 2955bfd8337b64838b8672539e376d2c, type: 2}

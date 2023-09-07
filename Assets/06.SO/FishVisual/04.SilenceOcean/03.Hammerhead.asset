@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74090b99fbe44cbfae795585793646f2, type: 3}
   m_Name: 03.Hammerhead
   m_EditorClassIdentifier: 
-  VisualMesh: {fileID: 0}
-  Profile: {fileID: 0}
-  MainMat: {fileID: 0}
+  VisualMesh: {fileID: -7901856514025348196, guid: dc1ccc3784f5e4e9aad286ac70a978ba, type: 3}
+  Profile: {fileID: 524286273, guid: c6608fd4c197c4c64a83ec289979ffc3, type: 3}
+  MainMat: {fileID: 2100000, guid: b93ed310dd227483aa02ea5582f1a96c, type: 2}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74090b99fbe44cbfae795585793646f2, type: 3}
   m_Name: 01.RedSnapper
   m_EditorClassIdentifier: 
-  VisualMesh: {fileID: 0}
-  Profile: {fileID: 0}
-  MainMat: {fileID: 0}
+  VisualMesh: {fileID: -2068639166428788250, guid: ea93ead513f04c9478f78e3f40ba5b11, type: 3}
+  Profile: {fileID: 1266461486, guid: 207e27ab75a564805bb1b22c73f742f3, type: 3}
+  MainMat: {fileID: 2100000, guid: b3ac53ca7aff544d0ab0f89ff21056b2, type: 2}
