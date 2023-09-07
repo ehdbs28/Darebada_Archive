@@ -77,7 +77,7 @@ public class CampSubManager : MonoBehaviour, IManager
         GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.CAMP);
         
         curTime = duration - _titleDelayOffset;
-        percent = 0f;
+        percent = 1f;
         
         while (percent >= 0f)
         {
