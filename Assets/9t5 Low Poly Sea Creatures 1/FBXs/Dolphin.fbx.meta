@@ -1,0 +1,192 @@
+fileFormatVersion: 2
+guid: 9c05f65a1fbfdbe488fdff2cb68fde96
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Dolphin
+    100004: Dolphin Skeleton
+    100006: Fin1.L
+    100008: Fin1.R
+    100010: Fin2.L
+    100012: Fin2.R
+    100014: Fin3.L
+    100016: Fin3.L_end
+    100018: Fin3.R
+    100020: Fin3.R_end
+    100022: Head1
+    100024: Head2
+    100026: Head3
+    100028: Head4
+    100030: Head4_end
+    100032: Jaw1
+    100034: Jaw2
+    100036: Jaw2_end
+    100038: Spine1
+    100040: Spine2
+    100042: Spine3
+    100044: Spine4
+    100046: Spine5
+    100048: TailFin1.L
+    100050: TailFin1.R
+    100052: TailFin2.L
+    100054: TailFin2.L_end
+    100056: TailFin2.R
+    100058: TailFin2.R_end
+    400000: Dolphin
+    400002: //RootNode
+    400004: Dolphin Skeleton
+    400006: Fin1.L
+    400008: Fin1.R
+    400010: Fin2.L
+    400012: Fin2.R
+    400014: Fin3.L
+    400016: Fin3.L_end
+    400018: Fin3.R
+    400020: Fin3.R_end
+    400022: Head1
+    400024: Head2
+    400026: Head3
+    400028: Head4
+    400030: Head4_end
+    400032: Jaw1
+    400034: Jaw2
+    400036: Jaw2_end
+    400038: Spine1
+    400040: Spine2
+    400042: Spine3
+    400044: Spine4
+    400046: Spine5
+    400048: TailFin1.L
+    400050: TailFin1.R
+    400052: TailFin2.L
+    400054: TailFin2.L_end
+    400056: TailFin2.R
+    400058: TailFin2.R_end
+    2100000: Dolphin Skin 1
+    2100002: Dolphin Skin 2
+    2100004: Dolphin Teeth
+    2100006: Dolphin Mouth
+    2100008: Dolphin Eyes
+    2100010: Dolphin Blowhole
+    4300000: Dolphin
+    7400000: Swim
+    7400002: Eat
+    7400004: Spin
+    7400006: Jump
+    7400008: Death
+    7400010: Death Loop
+    9500000: //RootNode
+    13700000: Dolphin
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dolphin Blowhole
+    second: {fileID: 2100000, guid: 263054da1d1a4be47a6abd4c50e4e66d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dolphin Eyes
+    second: {fileID: 2100000, guid: b4a722f4d6dfac84d972eb7a82373816, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dolphin Mouth
+    second: {fileID: 2100000, guid: fbd6435a630d60542bab31286c5672d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dolphin Skin 1
+    second: {fileID: 2100000, guid: 6ba531001daf9554d810dcb27530cacc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dolphin Skin 2
+    second: {fileID: 2100000, guid: a7528f30dbcae9d4c81b69b9e7a3ed0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dolphin Teeth
+    second: {fileID: 2100000, guid: 24d92a97dbbe60a49a060c193dbfae57, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

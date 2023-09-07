@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: a2e9418ae0bcaf9478f5a40debcd8e50
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: BottomFin1
+    100004: BottomFin2
+    100006: BottomFin3
+    100008: BottomFin3_end
+    100010: Fin1.L
+    100012: Fin1.R
+    100014: Fin2.L
+    100016: Fin2.R
+    100018: Fin3.L
+    100020: Fin3.R
+    100022: Fin4.L
+    100024: Fin4.L_end
+    100026: Fin4.R
+    100028: Fin4.R_end
+    100030: Head
+    100032: Head_end
+    100034: Spine1
+    100036: Spine2
+    100038: //RootNode
+    100040: Sunfish
+    100042: Tail
+    100044: Tail_end
+    100046: TopFin1
+    100048: TopFin2
+    100050: TopFin3
+    100052: TopFin3_end
+    400000: Armature
+    400002: BottomFin1
+    400004: BottomFin2
+    400006: BottomFin3
+    400008: BottomFin3_end
+    400010: Fin1.L
+    400012: Fin1.R
+    400014: Fin2.L
+    400016: Fin2.R
+    400018: Fin3.L
+    400020: Fin3.R
+    400022: Fin4.L
+    400024: Fin4.L_end
+    400026: Fin4.R
+    400028: Fin4.R_end
+    400030: Head
+    400032: Head_end
+    400034: Spine1
+    400036: Spine2
+    400038: //RootNode
+    400040: Sunfish
+    400042: Tail
+    400044: Tail_end
+    400046: TopFin1
+    400048: TopFin2
+    400050: TopFin3
+    400052: TopFin3_end
+    2100000: Sunfish Skin 2
+    2100002: Sunfish Skin 1
+    2100004: Sunfish Mouth
+    2100006: Sunfish Eyes
+    4300000: Sunfish
+    7400000: Swim
+    7400002: Eat
+    7400004: Death
+    7400006: Death Loop
+    9500000: //RootNode
+    13700000: Sunfish
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sunfish Eyes
+    second: {fileID: 2100000, guid: 2a6f505cde7c09d4599e45a945ed96b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sunfish Mouth
+    second: {fileID: 2100000, guid: e37a924ea3928384e8a3140e2d3e63d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sunfish Skin 1
+    second: {fileID: 2100000, guid: ce3ff8c0c45e9e84f8ad7eda518e09e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sunfish Skin 2
+    second: {fileID: 2100000, guid: fb97f86a93bbc98499a504db9d78dad3, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
