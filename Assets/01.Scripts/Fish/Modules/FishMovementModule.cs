@@ -14,7 +14,7 @@ public class FishMovementModule : CommonModule<OceanFishController>
     [SerializeField]
     private float _deceralation;
 
-    private const float MaxMoveDis = 50f;
+    private const float MaxMoveDis = 500f;
 
     private Vector3 _dir;
     private Vector3 _target;
@@ -101,10 +101,6 @@ public class FishMovementModule : CommonModule<OceanFishController>
                 return;
             }
         }
-        
-        // float x = Random.Range(0f, _dir.x > 0 ? -1f : _dir.x == 0 ? 0f : 1f);
-        // float y = Random.Range(0f, _dir.y > 0 ? -1f : _dir.y == 0 ? 0f : 1f);
-        // float z = Random.Range(0f, _dir.z > 0 ? -1f : _dir.z == 0 ? 0f : 1f);
 
         float x = Random.Range(-1f, 1f);
         float y = Random.Range(-1f, 1f);
