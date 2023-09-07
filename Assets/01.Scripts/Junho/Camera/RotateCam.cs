@@ -41,4 +41,9 @@ public class RotateCam : VCam
             _freelookCam.m_Orbits[i].m_Radius = radius;
         }
     }
+
+    public void SetCanRotate(bool value)
+    {
+        _freelookCam.enabled = value;
+    }
 }
