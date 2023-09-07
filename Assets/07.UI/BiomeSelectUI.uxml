@@ -8,9 +8,9 @@
             <ui:Label text="바이옴 선택" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 50px; position: absolute; color: rgb(255, 255, 255);" />
         </ui:VisualElement>
         <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgb(222, 221, 216);">
-            <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden; padding-left: 3px; padding-right: 3px; padding-top: 3px; padding-bottom: 3px;">
-                <ui:VisualElement name="contents" style="flex-direction: row; width: 502%; height: 100%; right: 0;">
-                    <ui:VisualElement name="rich-ocene" class="biome lock" style="justify-content: center; background-image: url(&apos;project://database/Assets/05.Assets/UI/BiomeImage/0_RichOcene.png?fileID=2800000&amp;guid=c980bad6ee88d47eb908450ccc3aa082&amp;type=3#0_RichOcene&apos;);">
+            <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+                <ui:VisualElement name="contents" style="flex-direction: row; width: 500%; height: 100%; right: 0; justify-content: flex-start;">
+                    <ui:VisualElement name="rich-ocene" class="biome lock" style="justify-content: center; background-image: url(&apos;project://database/Assets/05.Assets/UI/BiomeImage/0_RichOcene.png?fileID=2800000&amp;guid=c980bad6ee88d47eb908450ccc3aa082&amp;type=3#0_RichOcene&apos;); align-items: center;">
                         <ui:VisualElement name="selected-mark" style="position: absolute; width: 50%; height: 10%; align-items: center; justify-content: center;">
                             <ui:Label text="현재위치" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px;" />
                         </ui:VisualElement>

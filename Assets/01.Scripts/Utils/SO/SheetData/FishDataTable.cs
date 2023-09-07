@@ -7,7 +7,7 @@ using UnityEngine;
 public class FishDataUnit{
     public string Name;
     public FishVisual Visual;
-    public float Price;
+    public int Price;
     public OceanType Habitat;
     public int Rarity;
     public float Speed;
@@ -35,7 +35,7 @@ public class FishDataTable : LoadableData
         DataTable.Add(new FishDataUnit());
 
         DataTable[Size].Name = dataArr[0];
-        DataTable[Size].Price = float.Parse(dataArr[2]);
+        DataTable[Size].Price = int.Parse(dataArr[2]);
         DataTable[Size].Habitat = (OceanType)Enum.Parse(typeof(OceanType), $"{dataArr[3]}Ocean");
         DataTable[Size].Rarity = int.Parse(dataArr[4]);
         DataTable[Size].Speed = float.Parse(dataArr[5]);

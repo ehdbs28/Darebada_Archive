@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/DictionaryUI.uss?fileID=7433441132597879392&amp;guid=1f2b4b5cbf925ee40bb912cbc9d3a094&amp;type=3#DictionaryUI" />
+    <Style src="project://database/Assets/07.UI/OceanUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceanUI" />
+    <ui:VisualElement name="FishUnit" class="fish-element" style="width: 135px; height: 135px; margin-left: 0;">
+        <ui:VisualElement name="inner">
+            <ui:VisualElement name="fish-image" style="background-image: none;" />
+            <ui:VisualElement name="star-container" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

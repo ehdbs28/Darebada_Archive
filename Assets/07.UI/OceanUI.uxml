@@ -107,9 +107,9 @@
                     <ui:Label text="인벤토리" display-tooltip-when-elided="true" name="btn-text" class="text" style="-unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
                     <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/InventoryBtn.png?fileID=21300000&amp;guid=d0aefb3f46be6cd478bdb5b18b67159e&amp;type=3#InventoryBtn&apos;);" />
                 </ui:VisualElement>
-                <ui:VisualElement name="setting-btn" class="btn" style="justify-content: space-between;">
-                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/SettingBtn.png?fileID=21300000&amp;guid=48944fcf0120dbf43943dfe04aa0900d&amp;type=3#SettingBtn&apos;);" />
-                    <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                <ui:VisualElement name="backpack-btn" class="btn" style="justify-content: space-between;">
+                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Menu%208%20Icon.png?fileID=21300000&amp;guid=346e3b2dceb1a6c458d4271b170b3bd5&amp;type=3#Free Flat Menu 8 Icon&apos;);" />
+                    <ui:Label text="배낭" display-tooltip-when-elided="true" name="btn-text" class="text" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class DictionaryPopup : UIPopup
 {
+    [SerializeField]
+    private VisualTreeAsset _dictionatyUnit;
+    [SerializeField]
+    private VisualTreeAsset _fishRarityStar;
+    
     private VisualElement _exitBtn;
     private VisualElement _container;
 
@@ -23,6 +29,7 @@ public class DictionaryPopup : UIPopup
             unit.Root.RegisterCallback<ClickEvent>(e => {
                 if(unit.IsUnknown)
                     return;
+                
                 SetDetail(unit.DataUnit);
             });
         }
@@ -41,10 +48,19 @@ public class DictionaryPopup : UIPopup
     {
         _exitBtn = _root.Q<VisualElement>("exit-btn");
         _container = _root.Q<VisualElement>("contents");
-        List<VisualElement> fishElements = _root.Query<VisualElement>(className: "fish-element").ToList();
-        for(int i = 0; i < fishElements.Count; i++){
-            _fishes.Add(new DictionaryUnit(fishElements[i]));
+
+        var dataTable = (FishDataTable)GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.FishData);
+        var biomeRoots = _root.Query(className: "dictionary-biome").ToList()
+            .Select(b => b.Q("fishes").Q("fish-container")).ToList();
+        
+        for (int i = 0; i < dataTable.Size; i++)
+        {
+            VisualElement unitRoot = _dictionatyUnit.Instantiate().Q("FishUnit");
+            var unit = dataTable.DataTable[i];
+            _fishes.Add(new DictionaryUnit(unitRoot, _fishRarityStar, unit));
+            biomeRoots[(int)unit.Habitat].Add(_fishes[i].Root);
         }
+
         VisualElement detailRoot = _root.Q<VisualElement>("content-detail");
         _detailView = new DictionaryDetail(detailRoot, _container);
     }

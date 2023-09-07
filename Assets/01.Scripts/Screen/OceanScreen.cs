@@ -9,7 +9,7 @@ public class OceanScreen : UIScreen
     private Label _timeText;
     private Label _dateText;
 
-    private VisualElement _settingBtn;
+    private VisualElement _backpackBtn;
     private VisualElement _gobackBtn;
     private VisualElement _letterBtn;
     private VisualElement _dictionaryBtn;
@@ -49,15 +49,14 @@ public class OceanScreen : UIScreen
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
 
-        _settingBtn.RegisterCallback<ClickEvent>(e => {
+        _backpackBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
-            Debug.Log("설정");
-            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Setting);
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.ItemSelect);
         });
 
         _gobackBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
-            Debug.Log("돌아가기");
+            GameManager.Instance.GetManager<GameSceneManager>().ChangeScene(GameSceneType.Camp);
         });
 
         _letterBtn.RegisterCallback<ClickEvent>(e => {
@@ -88,7 +87,7 @@ public class OceanScreen : UIScreen
         _timeText = _root.Q<Label>("time-text");
         _dateText = _root.Q<Label>("date-text");
 
-        _settingBtn = _root.Q<VisualElement>("setting-btn");
+        _backpackBtn = _root.Q<VisualElement>("backpack-btn");
         _gobackBtn = _root.Q<VisualElement>("goto-btn");
         _letterBtn = _root.Q<VisualElement>("letter-btn");
         _dictionaryBtn = _root.Q<VisualElement>("dictionary-btn");
