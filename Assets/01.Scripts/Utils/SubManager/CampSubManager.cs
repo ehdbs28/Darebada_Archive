@@ -16,7 +16,6 @@ public class CampSubManager : MonoBehaviour, IManager
     [SerializeField] 
     private float _titleDelayOffset = 1.5f;
 
-    private TutorialManager _tutorial;
     private bool _touch;
     
     public void EnterSceneEvent()
@@ -83,8 +82,7 @@ public class CampSubManager : MonoBehaviour, IManager
         
         GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Camp);
 
-        _tutorial = FindObjectOfType<TutorialManager>().GetComponent<TutorialManager>();
-        _tutorial.OnClickEvent();
+        GameManager.Instance.GetManager<TutorialManager>().OnClickEvent(GameSceneType.Camp);
     }
 
     private void OnTitleTouchEvent()

@@ -584,7 +584,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 669866590}
-  - component: {fileID: 669866591}
   m_Layer: 0
   m_Name: Tutorial
   m_TagString: Untagged
@@ -614,26 +613,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &669866591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 669866589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17521fe96376253408089a477b54eadc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tutorialImage: {fileID: 1398747831}
-  _tutorialPanel: {fileID: 1578878543}
-  _explainImages:
-  - {fileID: 21300000, guid: 7e04fd253eccb5745a51dd72f29a4099, type: 3}
-  - {fileID: 21300000, guid: 506328f3b78c49a4c83bf17bfc198002, type: 3}
-  - {fileID: 21300000, guid: 86f36d23e9734ca4285369dd20474a19, type: 3}
-  - {fileID: 21300000, guid: 918dba48542e75547b99a5d5e7d8189b, type: 3}
-  - {fileID: 21300000, guid: 57628a540e4011645b9f4c515787c464, type: 3}
 --- !u!1 &696097576 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: c37b1ccfbc7ed274eb99f9d40e72c4e6, type: 3}
@@ -8981,6 +8960,7 @@ GameObject:
   - component: {fileID: 9157046241563192786}
   - component: {fileID: 9157046241563192787}
   - component: {fileID: 9157046241563192788}
+  - component: {fileID: 9157046241563192789}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -9087,6 +9067,28 @@ MonoBehaviour:
     RotationAcceleration: 0
     RotationDeceleration: 0
     MaxFuel: 0
+--- !u!114 &9157046241563192789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157046241563192774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17521fe96376253408089a477b54eadc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tutorialImage: {fileID: 1398747831}
+  _tutorialPanel: {fileID: 1578878543}
+  _campExplainImages:
+  - {fileID: 21300000, guid: 7e04fd253eccb5745a51dd72f29a4099, type: 3}
+  - {fileID: 21300000, guid: 506328f3b78c49a4c83bf17bfc198002, type: 3}
+  _oceanExplainImages:
+  - {fileID: 21300000, guid: 918dba48542e75547b99a5d5e7d8189b, type: 3}
+  - {fileID: 21300000, guid: 57628a540e4011645b9f4c515787c464, type: 3}
+  _aquariumExplainImages:
+  - {fileID: 21300000, guid: 86f36d23e9734ca4285369dd20474a19, type: 3}
 --- !u!1001 &9157046241592702456
 PrefabInstance:
   m_ObjectHideFlags: 0
