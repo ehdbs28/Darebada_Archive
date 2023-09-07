@@ -70,8 +70,9 @@ public class AquariumBoids : MonoBehaviour
         AuariumBoidUnit currUnit = Instantiate(boidUnitPrefab, this.transform.position + randomVec, randomRot);
         currUnit.transform.SetParent(this.transform);
         currUnit.transform.localPosition = this.transform.localPosition + randomVec;
-        currUnit.IsMove = true;
         currUnit.InitializeUnit(this, Random.Range(speedRange.x, speedRange.y), _fishData, transform.position);
+        Fishes.Add(currUnit.gameObject);
+        currUnit.IsMove =true;
     }
     public void SetMove(bool val)
     {

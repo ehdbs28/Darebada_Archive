@@ -13,8 +13,16 @@ public class Fishbowl :  Facility
 {
     public Dictionary <string, AquariumBoids> boids = new Dictionary<string, AquariumBoids>();
     public List<GameObject> boidObjects = new List<GameObject>();
+    public List<Transform> decoTrs= new List<Transform>();
     public GameObject boidObject;
-    public int MaxCount
+    public GameObject decoObject;
+    public DecoController decoController;
+    public int MaxDecoCount
+    {
+        get { return level * 3; }
+        private set { }
+    }
+    public int MaxFishCount
     {
         get { return level * 3; }
         private set { }
@@ -27,11 +35,29 @@ public class Fishbowl :  Facility
         {
             curCnt += boid.Value.Fishes.Count;
         }
-        if (MaxCount - curCnt >0)
+        Debug.Log(MaxDecoCount - curCnt); ;
+        if (MaxFishCount - curCnt >0)
         {
             return true;
         }
         return false;
+    }
+    public void AddDeco(int idx)
+    {
+        if (!decoController)
+        {
+            GameObject decoConObj = Instantiate(new GameObject());
+            decoController = decoConObj.AddComponent<DecoController>();
+            decoConObj.transform.SetParent(transform, false);
+            decoController.decoObject = decoObject.GetComponent<Deco>();
+            decoController.decoPositions = decoTrs;
+        }
+
+        if (MaxDecoCount - decoController.decos.Count > 0)
+        {
+            Debug.Log(MaxDecoCount - decoController.decos.Count);
+            decoController.AddDeco( AquariumManager.Instance.decoVisuals[idx]);
+        }
     }
     public void AddFIsh(FishDataUnit fishData)
     {
@@ -64,7 +90,7 @@ public class Fishbowl :  Facility
         newOne.boids = boids;
         newOne.level = level+1;
         newOne.boidObjects = boidObjects;
-        
+        newOne.decoController= decoController;
         foreach(GameObject obj in  boidObjects)
         {
             Debug.Log(obj.name);
@@ -72,6 +98,8 @@ public class Fishbowl :  Facility
             obj.GetComponent<AquariumBoids>().SetPosZero();
             obj.GetComponent<AquariumBoids>().SetMove(false);
         }
+        decoController.decoPositions = newOne.decoTrs;
+        decoController.gameObject.transform.SetParent(newOne.transform); 
         Destroy(gameObject);
         return newOne;
 

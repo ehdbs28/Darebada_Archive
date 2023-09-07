@@ -58,7 +58,14 @@ public class AuariumBoidUnit : MonoBehaviour
     [SerializeField]
     private Vector3 boundsOffset;
 
-    public bool IsMove =true;
+    [SerializeField] private bool _isMove;
+    public bool IsMove
+    {
+        get { return _isMove; }
+        set { _isMove = value;
+            Debug.Log(_isMove);
+        }
+    }
     public void InitializeUnit(AquariumBoids _boids, float _speed, FishDataUnit _fishSO, Vector3 offset)
     {
         myBoids = _boids;
@@ -73,8 +80,9 @@ public class AuariumBoidUnit : MonoBehaviour
         calculateEgoVectorCoroutine = StartCoroutine("CalculateEgoVectorCoroutine");
         //_bait = GameObject.Find("Bait");
         //_baitVec = _bait.transform.position;
-        //_skinnedMR = GetComponentInChildren<SkinnedMeshRenderer>();
-        //_skinnedMR.sharedMesh = _fishSO.Mesh;
+        _skinnedMR = GetComponentInChildren<SkinnedMeshRenderer>();
+        _skinnedMR.sharedMesh = _fishSO.Visual.VisualMesh;
+        _skinnedMR.material = _fishSO.Visual.MainMat;
     }
 
     #endregion

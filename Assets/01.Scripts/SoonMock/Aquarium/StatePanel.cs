@@ -31,7 +31,14 @@ public class StatePanel : MonoBehaviour
     public FishDataUnit tempUnit;
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.S)) {
+
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
+
+            upgradeObj.GetComponent<Fishbowl>().AddDeco(0);
+        }
+        if (Input.GetKeyDown(KeyCode.S)) {
             upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
 
             upgradeObj.GetComponent<Fishbowl>().AddFIsh(tempUnit);

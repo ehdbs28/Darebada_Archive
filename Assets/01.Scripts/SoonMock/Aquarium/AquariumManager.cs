@@ -29,6 +29,8 @@ public class AquariumManager : MonoBehaviour, IManager
     public Material mossMat;
     public Transform facilityParent;
     public List<GameObject> fishBowls = new List<GameObject>();
+    public int fishbowlCnt = 0;
+    public List<DecoVisualSO> decoVisuals = new List<DecoVisualSO>();
     [SerializeField] Color pureWaterColor;
     [SerializeField] Color corruptedWaterColor;
     #region "�ڿ� �� ��ҵ�"
@@ -104,9 +106,7 @@ public class AquariumManager : MonoBehaviour, IManager
     [SerializeField] GameObject _snackShopObject;
     [SerializeField] GameObject _roadTileObject;
     [SerializeField] GameObject _buildPanel;
-    public int decoCount = 0;
-    public List<GameObject> aquaObject = new List<GameObject>();
-    public List<Facility> aquarium = new List<Facility>();
+    public int decoCnt = 0;
     public List<NavMeshSurface> roadSurfaces;
     public Transform endTarget;
 
@@ -144,10 +144,10 @@ public class AquariumManager : MonoBehaviour, IManager
             state = STATE.MOVE;
             Debug.Log(state);
 
-            aquaObject.Add(facilityObj.gameObject);
             if (facilityObj.GetComponent<Fishbowl>())
             {
-                aquarium.Add(facilityObj);
+            fishbowlCnt++;
+
             }
             facilityObj = null;
         }
@@ -210,22 +210,6 @@ public class AquariumManager : MonoBehaviour, IManager
         state = STATE.BUILD;
         roadSurfaces.Add(roadTile.GetComponent<NavMeshSurface>());
         FindObjectOfType<GridManager>().ShowGrid();
-    }
-    public GameObject AddFish(int id, Transform parent)
-    {
-        GameObject fish = Instantiate(_fishObject);
-        fish.transform.parent = parent;
-        fish.transform.localPosition = new Vector3(Random.Range(-0.8f,0.8f), Random.Range(0.2f,1f), Random.Range(-0.8f, 0.8f));
-        fish.transform.rotation = Quaternion.Euler(0, Random.Range(0,360), 0);
-        return fish;
-    }
-    public GameObject AddDeco(int id, Transform parent)
-    {
-        GameObject deco = Instantiate(_decoObject);
-        deco.transform.parent = parent;
-        deco.GetComponent<Deco>().SetId(id);
-        deco.transform.localPosition = deco.GetComponent<Deco>().pos;
-        return deco;
     }
 
     private void OnTouchHandle(){
@@ -299,9 +283,9 @@ public class AquariumManager : MonoBehaviour, IManager
 
     public void UpdateManager()
     {
-        EntrancePercent = Mathf.Clamp((float)((float)aquaObject.Count / (float)EntranceFee) * 100f, 0f, 200f);
+        EntrancePercent = Mathf.Clamp((float)((float)fishbowlCnt/ (float)EntranceFee) * 100f, 0f, 200f);
         Reputation = Mathf.Clamp((EntrancePercent / 100f * CleanScore / 100f * ArtScore / 100f) * 100f + PromotionPoint,0,100);
-        ArtScore = Mathf.Clamp(((float)(decoCount / 2) / aquarium.Count) * 100, 0, 100);
+        ArtScore = Mathf.Clamp(((float)(decoCnt / 2) / decoCnt) * 100, 0, 100);
         if (state == STATE.BUILD)   
         {
             RaycastHit hit;
