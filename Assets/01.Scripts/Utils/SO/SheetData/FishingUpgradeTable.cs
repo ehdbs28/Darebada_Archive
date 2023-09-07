@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class FishingUpgradeUnit{
-    public List<float> Price = new List<float>();
+    public List<int> Price = new List<int>();
     public List<float> Value = new List<float>();
     public int MaxLevel = 0;
 }
@@ -19,7 +19,7 @@ public class FishingUpgradeTable : LoadableData
 
         string[] priceArray = dataArr[1].Split(",");
         for(int i = 0; i < priceArray.Length; i++){
-            DataTable[Size].Price.Add(float.Parse(priceArray[i]));
+            DataTable[Size].Price.Add(int.Parse(priceArray[i]));
         }
 
         string[] valueArray = dataArr[2].Split(",");    

@@ -8,8 +8,10 @@ public sealed class UIFishingBuyElement : UIInteractionElement
     private VisualElement _visualImage;
     
     private VisualElement _percentElement;
+    
     private Label _levelLabel;
     private Label _valueLabel;
+    private Label _priceLabel;
 
     FishingUpgradeTable _dataTable;
 
@@ -21,15 +23,22 @@ public sealed class UIFishingBuyElement : UIInteractionElement
         _dataTable = GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.FishingUpgradeData) as FishingUpgradeTable;
         FindElement();
         AddEvent();
+        
+        LabelUpdate();
+        ChangeValue();
+        ChangePrice();
     }
 
     protected override void AddEvent()
     {
         _interactionBtn.RegisterCallback<ClickEvent>(e => {
-            GameManager.Instance.GetManager<FishingUpgradeManager>().Upgrade(_idx);
-            LabelUpdate();
-            ChangeValue();
-            PlayParticle();
+            if (GameManager.Instance.GetManager<FishingUpgradeManager>().Upgrade(_idx))
+            {
+                LabelUpdate();
+                ChangeValue();
+                ChangePrice();
+                PlayParticle();
+            }
         });
     }
 
@@ -40,6 +49,7 @@ public sealed class UIFishingBuyElement : UIInteractionElement
         _percentElement = _root.Q<VisualElement>("value");
         _levelLabel = _root.Q<Label>("level");
         _valueLabel = _root.Q<Label>("value-text");
+        _priceLabel = _root.Q<Label>("gold-text");
     }
 
     private void PlayParticle()
@@ -68,7 +78,7 @@ public sealed class UIFishingBuyElement : UIInteractionElement
             break;
         }
 
-        _levelLabel.text = $"Lv {level.ToString("D2")}";
+        _levelLabel.text = $"Lv {level:D2}";
         _valueLabel.text = $"{_dataTable.DataTable[_idx].Value[level - 1]}";
     }
 
@@ -93,5 +103,26 @@ public sealed class UIFishingBuyElement : UIInteractionElement
 
         percent = (float)cur / (float)max;
         _percentElement.transform.scale = new Vector3(percent, 1);
+    }
+
+    private void ChangePrice()
+    {
+        FishingData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData) as FishingData;
+
+        int level = 0;
+
+        switch(_idx){
+            case 0:
+                level = data.StringLength_Level;
+                break;
+            case 1:
+                level = data.StringStrength_Level;
+                break;
+            case 2:
+                level = data.ThrowPower_Level;
+                break;
+        }
+
+        _priceLabel.text = $"{_dataTable.DataTable[_idx].Price[level - 1]}";
     }
 }

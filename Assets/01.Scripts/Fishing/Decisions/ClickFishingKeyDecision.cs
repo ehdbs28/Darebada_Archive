@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ClickFishingKeyDecision : FishingDecision
 {
-    bool _result = false;
+    private  bool _result = false;
+    private bool _prevResult = false;
 
     public void AddEvent()
     {
@@ -20,15 +21,28 @@ public class ClickFishingKeyDecision : FishingDecision
 
     public override bool MakeADecision()
     {
-        return _result;
+        if (_prevResult != _result)
+            _prevResult = _result;
+
+        if((_result && !IsReverse) || (!_result && IsReverse))
+        {
+            _result = false;
+            return _prevResult;
+        }
+        else
+        {
+            return _result;
+        }
     }
 
     private void OnTouch(){
-        _result = true;
+        if(_prevResult == _result)
+            _result = true;
     }
 
     private void OnTouchUp()
     {
-        _result = false;
+        if(_prevResult == _result)
+            _result = false;
     }
 }

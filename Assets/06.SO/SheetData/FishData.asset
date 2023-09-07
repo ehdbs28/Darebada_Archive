@@ -619,7 +619,7 @@ MonoBehaviour:
         \uC644\uB450\uCF69\uB9CC \uD55C \uC54C\uC744 \uBB34\uB824 3\uC5B5 \uAC1C\uB098
         \uB0B3\uB294\uB2E4\uACE0 \uD55C\uB2E4.\r"
     - Name: "\uB300\uC655\uC624\uC9D5\uC5B4"
-      Visual: {fileID: 0}
+      Visual: {fileID: 11400000, guid: eb703f23c8d72475da0b598a870e9903, type: 2}
       Price: 5000
       Habitat: 4
       Rarity: 4

@@ -20,14 +20,20 @@ public class ShopManager : IManager
     {
     }
 
-    public void PurchaseItem(int idx)
+    public bool PurchaseItem(int idx)
     {
         if (_itemStock[idx] == 0)
-            return;
+            return false;
 
-        _itemStock[idx]--;
-        ((FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData)).ItemVal[idx]++;
-        GameManager.Instance.GetManager<MoneyManager>().Payment(_dataTable.DataTable[idx].Price);
+        bool success = false;
+        GameManager.Instance.GetManager<MoneyManager>().Payment(_dataTable.DataTable[idx].Price, () =>
+        {
+            _itemStock[idx]--;
+            ((FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData)).ItemVal[idx]++;
+            success = true;
+        });
+
+        return success;
     }
 
     public bool IsInStock(int idx)

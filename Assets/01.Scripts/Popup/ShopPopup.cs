@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 
 public class ShopPopup : UIPopup
 {
+    [SerializeField] private VisualTreeAsset _invenUnitTemplete;
+    
     private VisualElement _exitBtn;
 
     private VisualElement _sellBtn;
@@ -49,11 +51,8 @@ public class ShopPopup : UIPopup
         for(int i = 0; i < _contents.childCount; i++){
             VisualElement contentRoot = _contents.ElementAt(i);
 
-            Debug.Log(contentRoot.name);
-            Debug.Log(i);
-
             if(i == 0){
-                _sellContent = new UISellContent(contentRoot, i);
+                _sellContent = new UISellContent(_invenUnitTemplete, contentRoot, i);
             }
             else{
                 _buyContent = new UIBuyContent(contentRoot, i);

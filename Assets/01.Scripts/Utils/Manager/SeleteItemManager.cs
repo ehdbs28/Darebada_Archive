@@ -14,22 +14,23 @@ public class SeleteItemManager : IManager
         
     }
     
-    public void EquipItem(FishingItemType type)
+    public bool EquipItem(FishingItemType type)
     {
-        Debug.Log(type);
         FishingData data = (FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData);
 
         if (type == FishingItemType.None)
         {
             data.CurSelectedItem = type;
-            return;
+            return false;
         }
         
         if (data.ItemVal[(int)type] <= 0)
-            return;
+            return false;
 
         data.ItemVal[(int)type]--;
         data.CurSelectedItem = type;
+
+        return true;
     }
 
     public void ResetManager()

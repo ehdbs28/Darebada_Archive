@@ -9,7 +9,7 @@ public class ShopItemUnit
     public string Name;
     public Sprite Image;
     public string Desc;
-    public float Price;
+    public int Price;
     public int Durability;
 }
 
@@ -27,7 +27,7 @@ public class ShopItemDataTable : LoadableData
         // Image는 나중에 가져오기
 
         DataTable[Size].Desc = dataArr[1];
-        DataTable[Size].Price = float.Parse(dataArr[2]);
+        DataTable[Size].Price = int.Parse(dataArr[2]);
         DataTable[Size].Durability = int.Parse(dataArr[3]);
 
         Size++;
