@@ -23,7 +23,7 @@ public class FishingData : SaveData
         ItemVal = data.ItemVal;
     }
 
-    protected override void Reset()
+    public override void Reset()
     {
         ThrowPower_Level = 1;
         StringLength_Level = 1;

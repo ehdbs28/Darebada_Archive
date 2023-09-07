@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingManager : MonoBehaviour, IManager
+public class SettingManager : IManager
 {
     public bool IsBgsOff;
     public bool IsSEOff;

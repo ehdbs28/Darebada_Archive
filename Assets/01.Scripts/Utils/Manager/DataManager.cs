@@ -29,6 +29,8 @@ public class DataManager : IManager
         if(!Directory.Exists(DATA_PATH))
             Directory.CreateDirectory(DATA_PATH);
 
+        #region Add Data
+
         _dataUnits.Add(DataType.BoatData, new BoatData(DATA_PATH, "BoatData"));
         _dataUnits.Add(DataType.FishingData, new FishingData(DATA_PATH, "FishingData"));
         _dataUnits.Add(DataType.DictionaryData, new DictionaryData(DATA_PATH, "DictionaryData"));
@@ -36,6 +38,8 @@ public class DataManager : IManager
         _dataUnits.Add(DataType.GameData, new GameData(DATA_PATH, "GameData"));
         _dataUnits.Add(DataType.InventoryData, new InventoryData(DATA_PATH, "InventoryData"));
 
+        #endregion
+        
         LoadData();
         SaveDataAll();
     }
@@ -55,6 +59,14 @@ public class DataManager : IManager
         foreach(var data in _dataUnits.Values){
             SaveData(data);
         }
+    }
+
+    public void ResetData()
+    {
+        foreach(var data in _dataUnits.Values){
+            data.Reset();
+        }
+        SaveDataAll();
     }
 
     public SaveData GetData(DataType type){

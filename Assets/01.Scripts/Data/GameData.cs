@@ -25,7 +25,7 @@ public class GameData : SaveData
         HoldingLetter = data.HoldingLetter;
     }
 
-    protected override void Reset()
+    public override void Reset()
     {
         GameTime = 0.0f;
         TotalDay = 0;
