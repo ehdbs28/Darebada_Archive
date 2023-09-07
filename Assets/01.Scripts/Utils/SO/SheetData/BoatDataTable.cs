@@ -37,9 +37,11 @@ public class BoatDataTable : LoadableData
         DataTable[Size].RotationAcceleration = float.Parse(dataArr[8]);
         DataTable[Size].RotationDeceleration = float.Parse(dataArr[9]);
         DataTable[Size].MaxFuel = float.Parse(dataArr[10]);
-
+        
+        #if UNITY_EDITOR
         string path = $"Assets/06.SO/BoatVisual/{Size:D2}.{dataArr[1]}.asset";
         DataTable[Size].Visual = AssetDatabase.LoadAssetAtPath<BoatVisual>(path);
+        #endif
         
         ++Size;
     }

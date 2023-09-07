@@ -18,7 +18,6 @@ public class DataManager : IManager
     public void InitManager() {
         _dataUnits = new Dictionary<DataType, SaveData>();
 
-        // 모바일 빌드 시에는 바꿔야 해
         #if UNITY_ANDROID
         DATA_PATH = Application.persistentDataPath + "/Save";
         #endif
