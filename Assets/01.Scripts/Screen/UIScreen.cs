@@ -38,7 +38,7 @@ public abstract class UIScreen : MonoBehaviour, IUI
 
     public void RemoveRoot()
     {
-
+        RemoveEvent();
     }
 
     public abstract void AddEvent();
