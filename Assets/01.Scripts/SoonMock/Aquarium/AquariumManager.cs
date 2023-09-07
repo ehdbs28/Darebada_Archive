@@ -11,12 +11,16 @@ using UnityEngine.UI;
 
 public class AquariumManager : MonoBehaviour, IManager
 {
-    private AquariumManager _instance;
-    public AquariumManager Instance
+    static private AquariumManager _instance;
+    static public AquariumManager Instance
     {
         get
         {
-            if (_instance == null) _instance = this;
+            if (_instance == null)
+            {
+                if(FindObjectOfType<AquariumManager>()) _instance = FindObjectOfType<AquariumManager>(); 
+                else _instance = new AquariumManager();
+            }
             return _instance;
         }
         private set { _instance = value; }
@@ -24,6 +28,7 @@ public class AquariumManager : MonoBehaviour, IManager
     public Material fishBowlMat;
     public Material mossMat;
     public Transform facilityParent;
+    public List<GameObject> fishBowls = new List<GameObject>();
     [SerializeField] Color pureWaterColor;
     [SerializeField] Color corruptedWaterColor;
     #region "�ڿ� �� ��ҵ�"
@@ -181,7 +186,6 @@ public class AquariumManager : MonoBehaviour, IManager
         Fishbowl fishBowl = Instantiate(_fishBowlObject).GetComponent<Fishbowl>();
         fishBowl.transform.localPosition = Vector3.zero;
         facilityObj = fishBowl;
-
         state = STATE.BUILD;
         FindObjectOfType<GridManager>().ShowGrid();
         //    else floor.transform.localPosition = new Vector3(_floorSize.x / 2+10, 0, 0);
@@ -244,6 +248,13 @@ public class AquariumManager : MonoBehaviour, IManager
             {
                 facilityObj.transform.parent = facilityParent;
             FindObjectOfType<GridManager>().HideGrid();
+                if(facilityObj.GetComponent<Fishbowl>())
+                {
+                    foreach(var v in facilityObj.GetComponent<Fishbowl>().boids)
+                    {
+                        v.Value.SetMove(true);
+                    }
+                }
                 if (facilityObj.GetComponent<NavMeshSurface>())
                 {
                     foreach(var s in roadSurfaces)
@@ -262,8 +273,8 @@ public class AquariumManager : MonoBehaviour, IManager
 
     public void ResetManager()
     {
-        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchHandle;
-        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUpHandle;
+        //GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchHandle;
+        //GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUpHandle;
 
     }
 

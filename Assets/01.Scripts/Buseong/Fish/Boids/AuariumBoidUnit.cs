@@ -15,7 +15,6 @@ public class AuariumBoidUnit : MonoBehaviour
 
     private float additionalSpeed = 0;
     private bool isEnemy;
-
     private MeshRenderer myMeshRenderer;
     private TrailRenderer myTrailRenderer;
     [SerializeField] private Color myColor;
@@ -52,14 +51,15 @@ public class AuariumBoidUnit : MonoBehaviour
     private Vector3 _baitVec;
 
     [SerializeField]
-    private FishSO _unitData;
+    private FishDataUnit _unitData;
 
     private SkinnedMeshRenderer _skinnedMR;
 
     [SerializeField]
     private Vector3 boundsOffset;
 
-    public void InitializeUnit(AquariumBoids _boids, float _speed, FishSO _fishSO, Vector3 offset)
+    public bool IsMove =true;
+    public void InitializeUnit(AquariumBoids _boids, float _speed, FishDataUnit _fishSO, Vector3 offset)
     {
         myBoids = _boids;
         speed = _speed;
@@ -71,54 +71,57 @@ public class AuariumBoidUnit : MonoBehaviour
 
         findNeighbourCoroutine = StartCoroutine("FindNeighbourCoroutine");
         calculateEgoVectorCoroutine = StartCoroutine("CalculateEgoVectorCoroutine");
-        _bait = GameObject.Find("Bait");
-        _baitVec = _bait.transform.position;
-        _skinnedMR = GetComponentInChildren<SkinnedMeshRenderer>();
-        _skinnedMR.sharedMesh = _fishSO.Mesh;
+        //_bait = GameObject.Find("Bait");
+        //_baitVec = _bait.transform.position;
+        //_skinnedMR = GetComponentInChildren<SkinnedMeshRenderer>();
+        //_skinnedMR.sharedMesh = _fishSO.Mesh;
     }
 
     #endregion
-
     void Update()
     {
-        if (additionalSpeed > 0)
-            additionalSpeed -= Time.deltaTime;
-
-        //필요한 모든 벡터
-        Vector3 cohesionVec = CalculateCohesionVector() * myBoids.cohesionWeight;
-        Vector3 alignmentVec = CalculateAlignmentVector() * myBoids.alignmentWeight;
-        Vector3 separationVec = CalculateSeparationVector() * myBoids.separationWeight;
-        // 추가적인 방향
-        Vector3 boundsVec = CalculateBoundsVector() * myBoids.boundsWeight;
-        Vector3 obstacleVec = CalculateObstacleVector() * myBoids.obstacleWeight;
-        Vector3 egoVec = egoVector * myBoids.egoWeight;
-
-        if (IsSensed)
+        if(IsMove)
         {
-            myBoids.Fishes.Remove(this.gameObject);
-            targetVec = _bait.transform.position - transform.position;
-        }
-        else
-        {
-            targetVec = cohesionVec + alignmentVec + separationVec + boundsVec + obstacleVec + egoVec;
-        }
 
-        if (!IsBite)
-        {
-            targetVec = Vector3.Lerp(this.transform.forward, targetVec, Time.deltaTime);
-            targetVec = targetVec.normalized;
-            if (targetVec == Vector3.zero)
-                targetVec = egoVector;
+            if (additionalSpeed > 0)
+                additionalSpeed -= Time.deltaTime;
 
-            this.transform.rotation = Quaternion.LookRotation(targetVec);
-            this.transform.position += targetVec * (_unitData.Speed + additionalSpeed) * Time.deltaTime;
-        }
-        else
-        {
-            this.transform.rotation = Quaternion.LookRotation(targetVec);
-            this.transform.position = _bait.transform.position;
-        }
+            //필요한 모든 벡터
+            Vector3 cohesionVec = CalculateCohesionVector() * myBoids.cohesionWeight;
+            Vector3 alignmentVec = CalculateAlignmentVector() * myBoids.alignmentWeight;
+            Vector3 separationVec = CalculateSeparationVector() * myBoids.separationWeight;
+            // 추가적인 방향
+            Vector3 boundsVec = CalculateBoundsVector() * myBoids.boundsWeight;
+            Vector3 obstacleVec = CalculateObstacleVector() * myBoids.obstacleWeight;
+            Vector3 egoVec = egoVector * myBoids.egoWeight;
 
+            if (IsSensed)
+            {
+                myBoids.Fishes.Remove(this.gameObject);
+                targetVec = _bait.transform.position - transform.position;
+            }
+            else
+            {
+                targetVec = cohesionVec + alignmentVec + separationVec + boundsVec + obstacleVec + egoVec;
+            }
+
+            if (!IsBite)
+            {
+                targetVec = Vector3.Lerp(this.transform.forward, targetVec, Time.deltaTime);
+                targetVec = targetVec.normalized;
+                if (targetVec == Vector3.zero)
+                    targetVec = egoVector;
+
+                this.transform.rotation = Quaternion.LookRotation(targetVec);
+                this.transform.position += targetVec * (_unitData.Speed + additionalSpeed) * Time.deltaTime;
+            }
+            else
+            {
+                this.transform.rotation = Quaternion.LookRotation(targetVec);
+                this.transform.position = _bait.transform.position;
+            }
+        }
+        if (Vector3.Distance(this.transform.position, myBoids.transform.position) > 7f) this.transform.localPosition = Vector3.zero;
     }
 
 

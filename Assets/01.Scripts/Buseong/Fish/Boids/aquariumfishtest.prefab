@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 1077685155167219870}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: -1.542, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1072952385234190856}
@@ -190,7 +190,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.25, z: 0.85}
+  m_Size: {x: 0.2, y: 0.025, z: 0.2}
   m_Center: {x: 0, y: 0.02, z: 0}
 --- !u!114 &1109294677504467282
 MonoBehaviour:
@@ -209,7 +209,7 @@ MonoBehaviour:
   rotateSpeed: 1
   isHit: 0
   hitDist: 0.1
-  hitRange: 0.2
+  hitRange: 0.59
 --- !u!23 &2449031815007423680
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetVec: {x: 0, y: 0, z: 0}
   myColor: {r: 0, g: 0, b: 0, a: 0}
-  obstacleDistance: 3
+  obstacleDistance: 0.8
   FOVAngle: 120
   maxNeighbourCount: 50
   neighbourDistance: 10
@@ -283,7 +283,22 @@ MonoBehaviour:
   IsBite: 0
   IsSensed: 0
   _baitVec: {x: 0, y: 0, z: 0}
-  _unitData: {fileID: 11400000, guid: f0cb100749bebb545b2a0bfc0acf6e25, type: 2}
+  _unitData:
+    Name: 1
+    Visual: {fileID: 0}
+    Price: 0
+    Habitat: 0
+    Rarity: 0
+    Speed: 3
+    InvenSizeX: 0
+    InvenSizeY: 0
+    MinLenght: 0
+    MaxLenght: 0
+    MinWeight: 0
+    MaxWeight: 0
+    SpawnPercent: 0
+    Favorites: []
+    Description: 
   boundsOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1077998122877351990
 GameObject:

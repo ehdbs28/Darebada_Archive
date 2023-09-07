@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using JetBrains.Annotations;
+using System.Linq;
 
 public class AquariumBoids : MonoBehaviour
 {
     #region Variables & Initializer
     [Header("Boid Options")]
-    [SerializeField] private AuariumBoidUnit boidUnitPrefab;
-    [Range(5, 5000)]
+    public AuariumBoidUnit boidUnitPrefab;
+    [Range(1, 15)]
     public int boidCount;
-    [Range(10, 100)]
-    public float spawnRange = 30;
+    [Range(0.00001f, 3f)]
+    public float spawnRange = 0.0001f;
     public Vector2 speedRange;
 
     [Range(0, 10)]
@@ -24,18 +26,19 @@ public class AquariumBoids : MonoBehaviour
     [Range(0, 100)]
     public float boundsWeight = 1;
     [Range(0, 100)]
-    public float obstacleWeight = 10;
+    public float obstacleWeight = 50;
     [Range(0, 10)]
     public float egoWeight = 1;
 
 
     public BoidUnit currUnit;
     private MeshRenderer boundMR;
+    public FishDataUnit FishData
+    {
+        get => _fishData;
+        set=>_fishData= value;
+    }
     [SerializeField] LayerMask unitLayer;
-
-    [Header("Camera")]
-    [SerializeField] CinemachineVirtualCamera originCam;
-    [SerializeField] CinemachineFreeLook unitCam;
 
     [Header("OPTIONAL")]
     public bool ShowBounds = false;
@@ -47,21 +50,35 @@ public class AquariumBoids : MonoBehaviour
     public Color[] GizmoColors;
 
     [SerializeField]
-    private FishSO _fishData;
-    public List<GameObject> Fishes;
+    private FishDataUnit _fishData;
+    public List<GameObject> Fishes = new List<GameObject>();
 
-    void Start()
+    public void SetPosZero()
+    {
+        foreach (GameObject obj in Fishes)
+        {
+            obj.transform.position = Vector3.zero;
+        }
+    }
+    public void GenerateBoids()
     {
         // Generate Boids
         boundMR = GetComponentInChildren<MeshRenderer>();
-        for (int i = 0; i < boidCount; i++)
+        Vector3 randomVec = Random.insideUnitSphere;
+        randomVec *= spawnRange;
+        Quaternion randomRot = Quaternion.Euler(0, Random.Range(0, 360f), 0);
+        AuariumBoidUnit currUnit = Instantiate(boidUnitPrefab, this.transform.position + randomVec, randomRot);
+        currUnit.transform.SetParent(this.transform);
+        currUnit.transform.localPosition = this.transform.localPosition + randomVec;
+        currUnit.IsMove = true;
+        currUnit.InitializeUnit(this, Random.Range(speedRange.x, speedRange.y), _fishData, transform.position);
+    }
+    public void SetMove(bool val)
+    {
+        List<AuariumBoidUnit> fishs = GetComponentsInChildren<AuariumBoidUnit>().ToList<AuariumBoidUnit>();
+        for(int i = 0; i < fishs.Count; i++)
         {
-            Vector3 randomVec = Random.insideUnitSphere;
-            randomVec *= spawnRange;
-            Quaternion randomRot = Quaternion.Euler(0, Random.Range(0, 360f), 0);
-            AuariumBoidUnit currUnit = Instantiate(boidUnitPrefab, this.transform.position + randomVec, randomRot);
-            currUnit.transform.SetParent(this.transform);
-            currUnit.InitializeUnit(this, Random.Range(speedRange.x, speedRange.y), _fishData, transform.position);
+            fishs[i].IsMove = val;
         }
     }
     #endregion

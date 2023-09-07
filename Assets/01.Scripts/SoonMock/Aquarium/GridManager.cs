@@ -48,7 +48,6 @@ public class GridManager : MonoBehaviour
         {
             for (int j = 0; j < height; j++)
             {
-                Debug.Log(i + height + j);
                 grids[i * (int)height+j].gameObject.SetActive(true);
                 grids[i * (int)height + j].transform.localPosition = new Vector3(i * _distance + _distance/2, 0, j * _distance + _distance/2);
 
