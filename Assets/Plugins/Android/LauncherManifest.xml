@@ -16,4 +16,6 @@
                  android:allowBackup="false"
                  android:fullBackupContent="false"
                  tools:replace="android:allowBackup"/>
+    
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
 </manifest>
