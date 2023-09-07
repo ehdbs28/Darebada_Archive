@@ -37,7 +37,8 @@ public class FishingThrowingState : FishingState
     {
         base.UpdateState();
 
-        if(_isThrowing == false){
+        if (_isThrowing == false)
+        {
             _bobberTrm.position = _bobberPos.position;
             _bobberTrm.rotation = Quaternion.LookRotation(Vector3.down);
         }
@@ -48,7 +49,8 @@ public class FishingThrowingState : FishingState
         _controller.AnimatorController.OnAnimationEvent -= OnAnimationEndHandle;
     }
 
-    private IEnumerator ThrowTo(){
+    private IEnumerator ThrowTo()
+    {
         Vector3 start = _bobberTrm.position;
         Vector3 end = _startPos + (_controller.ActionData.LastThrowDirection.normalized * _controller.ActionData.LastChargingPower);
         end.y = 0;
@@ -60,13 +62,14 @@ public class FishingThrowingState : FishingState
 
         float v0 = (end - start).y - _gravity;
 
-        while(percent < 1){
+        while (percent < 1)
+        {
             currentTime += _controller.DataSO.ThrowingSpeed * Time.deltaTime;
             percent = currentTime / throwTime;
 
             Vector3 pos = Vector3.Lerp(start, end, percent);
             // _bobberTrm.rotation = Quaternion.LookRotation((Vector3.Lerp(start, end, percent + 0.1f) - pos).normalized);
-            pos.y = start.y + (v0 * percent) +  (_gravity * percent * percent);
+            pos.y = start.y + (v0 * percent) + (_gravity * percent * percent);
             _bobberTrm.position = pos;
 
             yield return null;
@@ -75,7 +78,8 @@ public class FishingThrowingState : FishingState
         _controller.ActionData.IsUnderWater = true;
     }
 
-    private void OnAnimationEndHandle(){
+    private void OnAnimationEndHandle()
+    {
         _isThrowing = true;
         GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.BOBBER_FOLLOW);
         StartCoroutine(ThrowTo());
