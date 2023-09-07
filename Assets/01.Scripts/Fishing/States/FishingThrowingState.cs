@@ -26,6 +26,7 @@ public class FishingThrowingState : FishingState
 
     public override void EnterState()
     {
+        GameManager.Instance.GetManager<CameraManager>()._isCanRotate = false;
         _isThrowing = false;
         _startPos = _bobberTrm.position;
         _playerTrm.LookAt(_controller.ActionData.LastThrowDirection);

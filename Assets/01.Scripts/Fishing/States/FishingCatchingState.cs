@@ -8,6 +8,7 @@ public class FishingCatchingState : FishingState
     private Transform _bobberTrm;
 
     private bool _isReadyToCatch;
+    public bool IsReadyToCatch => _isReadyToCatch;
 
     private Vector3 _start;
     private Vector3 _end;
@@ -93,6 +94,7 @@ public class FishingCatchingState : FishingState
         _controller.Bait.StartCheck = true;
 
         //_start = new Vector3(_controller.ActionData.InitPosition.x, 0, _controller.ActionData.InitPosition.z);
+        GameManager.Instance.GetManager<CameraManager>()._isCanRotate = true;
     }
 
     private Vector3 GetLerpPos(){
