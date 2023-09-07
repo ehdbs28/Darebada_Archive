@@ -38,12 +38,12 @@ public class InventoryUnit
     {
         this.data = data;
         this.size = size;
-        inner = _root.Q<VisualElement>("inner");
     }
 
     public void Generate(VisualElement root)
     {
         _root = root;
+        inner = _root.Q<VisualElement>("inner");
         Setting();
     }
     
