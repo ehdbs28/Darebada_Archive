@@ -31,7 +31,7 @@ public class CameraManager : MonoBehaviour, IManager
             _isCanRotate = true;
         });
 
-        ((RotateCam)_currentActiveVCam).SetCanRotate(_isCanRotate ? 300 : 0);
+        SetCanRotate();
     }
 
     public VCam SetVCam(CameraState state){
@@ -63,6 +63,13 @@ public class CameraManager : MonoBehaviour, IManager
 
     public void SetVCamList(List<VCam> vCamList){
         _virtualCams = vCamList;
+    }
+
+    public void SetCanRotate()
+    {
+        if (_currentActiveVCam != _rotateVCam) return;
+        ((RotateCam)_currentActiveVCam).SetCanRotate(_isCanRotate);
+        ((RotateCam)_currentActiveVCam).SetCanRotateSpeed(_isCanRotate ? 300 : 0);
     }
 
     public void ResetManager(){}

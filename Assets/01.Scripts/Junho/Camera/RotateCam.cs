@@ -42,7 +42,12 @@ public class RotateCam : VCam
         }
     }
 
-    public void SetCanRotate(int value)
+    public void SetCanRotate(bool value)
+    {
+        _freelookCam.enabled = value;
+    }
+    
+    public void SetCanRotateSpeed(int value)
     {
         _freelookCam.m_XAxis.m_MaxSpeed = value;
     }
