@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74090b99fbe44cbfae795585793646f2, type: 3}
-  m_Name: 03.SunFish
+  m_Name: 02.SunFish
   m_EditorClassIdentifier: 
   VisualMesh: {fileID: -786094527952433715, guid: 43bf16810e14f462a9fcb29f78020e4e, type: 3}
   Profile: {fileID: 774205066, guid: cb074786530dc4baf810fa8f4b378c24, type: 3}

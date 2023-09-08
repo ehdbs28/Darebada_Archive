@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74090b99fbe44cbfae795585793646f2, type: 3}
-  m_Name: 04.SwordFish
+  m_Name: 03.SwordFish
   m_EditorClassIdentifier: 
   VisualMesh: {fileID: -7291459837081820365, guid: b7bc867cc208f4186a4908de28c27207, type: 3}
   Profile: {fileID: 1538442029, guid: 008d7c20dbb8c4495b71e43ea8c6f870, type: 3}
