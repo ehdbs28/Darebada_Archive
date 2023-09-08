@@ -21,7 +21,7 @@ MonoBehaviour:
       Price: 25
       Habitat: 0
       Rarity: 1
-      Speed: 0.5
+      Speed: 2.5
       InvenSizeX: 3
       InvenSizeY: 2
       MinLenght: 50
@@ -43,7 +43,7 @@ MonoBehaviour:
       Price: 25
       Habitat: 0
       Rarity: 1
-      Speed: 1
+      Speed: 3
       InvenSizeX: 3
       InvenSizeY: 2
       MinLenght: 50
@@ -63,7 +63,7 @@ MonoBehaviour:
       Price: 25
       Habitat: 0
       Rarity: 1
-      Speed: 0.5
+      Speed: 2.5
       InvenSizeX: 4
       InvenSizeY: 3
       MinLenght: 20
@@ -83,7 +83,7 @@ MonoBehaviour:
       Price: 50
       Habitat: 0
       Rarity: 2
-      Speed: 1
+      Speed: 3
       InvenSizeX: 4
       InvenSizeY: 2
       MinLenght: 70
@@ -105,7 +105,7 @@ MonoBehaviour:
       Price: 100
       Habitat: 0
       Rarity: 3
-      Speed: 2
+      Speed: 4
       InvenSizeX: 5
       InvenSizeY: 2
       MinLenght: 200
@@ -127,7 +127,7 @@ MonoBehaviour:
       Price: 100
       Habitat: 1
       Rarity: 1
-      Speed: 1
+      Speed: 3
       InvenSizeX: 4
       InvenSizeY: 2
       MinLenght: 135
@@ -148,7 +148,7 @@ MonoBehaviour:
       Price: 100
       Habitat: 1
       Rarity: 1
-      Speed: 1
+      Speed: 3
       InvenSizeX: 3
       InvenSizeY: 2
       MinLenght: 50
@@ -168,7 +168,7 @@ MonoBehaviour:
       Price: 100
       Habitat: 1
       Rarity: 1
-      Speed: 1
+      Speed: 3
       InvenSizeX: 1
       InvenSizeY: 1
       MinLenght: 25
@@ -189,7 +189,7 @@ MonoBehaviour:
       Price: 300
       Habitat: 1
       Rarity: 2
-      Speed: 1
+      Speed: 3
       InvenSizeX: 1
       InvenSizeY: 1
       MinLenght: 10
@@ -209,7 +209,7 @@ MonoBehaviour:
       Price: 300
       Habitat: 1
       Rarity: 2
-      Speed: 0.75
+      Speed: 2.75
       InvenSizeX: 1
       InvenSizeY: 1
       MinLenght: 2
@@ -229,7 +229,7 @@ MonoBehaviour:
       Price: 500
       Habitat: 2
       Rarity: 1
-      Speed: 1
+      Speed: 3
       InvenSizeX: 2
       InvenSizeY: 1
       MinLenght: 15
@@ -249,7 +249,7 @@ MonoBehaviour:
       Price: 500
       Habitat: 2
       Rarity: 1
-      Speed: 1.5
+      Speed: 3.5
       InvenSizeX: 3
       InvenSizeY: 2
       MinLenght: 75
@@ -270,7 +270,7 @@ MonoBehaviour:
       Price: 700
       Habitat: 2
       Rarity: 2
-      Speed: 1
+      Speed: 3
       InvenSizeX: 3
       InvenSizeY: 3
       MinLenght: 30
@@ -291,7 +291,7 @@ MonoBehaviour:
       Price: 1250
       Habitat: 3
       Rarity: 2
-      Speed: 3
+      Speed: 5
       InvenSizeX: 4
       InvenSizeY: 2
       MinLenght: 200
@@ -311,7 +311,7 @@ MonoBehaviour:
       Price: 1250
       Habitat: 3
       Rarity: 2
-      Speed: 1.5
+      Speed: 3.5
       InvenSizeX: 3
       InvenSizeY: 2
       MinLenght: 100
@@ -335,7 +335,7 @@ MonoBehaviour:
       Price: 3000
       Habitat: 3
       Rarity: 3
-      Speed: 0.5
+      Speed: 2.5
       InvenSizeX: 4
       InvenSizeY: 4
       MinLenght: 150
@@ -356,7 +356,7 @@ MonoBehaviour:
       Price: 3300
       Habitat: 4
       Rarity: 1
-      Speed: 2
+      Speed: 4
       InvenSizeX: 3
       InvenSizeY: 2
       MinLenght: 60
@@ -376,7 +376,7 @@ MonoBehaviour:
       Price: 4500
       Habitat: 4
       Rarity: 2
-      Speed: 2
+      Speed: 4
       InvenSizeX: 5
       InvenSizeY: 4
       MinLenght: 550
@@ -398,7 +398,7 @@ MonoBehaviour:
       Price: 4500
       Habitat: 4
       Rarity: 2
-      Speed: 1.5
+      Speed: 3.5
       InvenSizeX: 4
       InvenSizeY: 3
       MinLenght: 300
@@ -419,7 +419,7 @@ MonoBehaviour:
       Price: 4500
       Habitat: 4
       Rarity: 2
-      Speed: 2.5
+      Speed: 4.5
       InvenSizeX: 5
       InvenSizeY: 2
       MinLenght: 200
@@ -441,7 +441,7 @@ MonoBehaviour:
       Price: 7000
       Habitat: 4
       Rarity: 3
-      Speed: 2
+      Speed: 4
       InvenSizeX: 4
       InvenSizeY: 3
       MinLenght: 300
@@ -462,7 +462,7 @@ MonoBehaviour:
       Price: 7000
       Habitat: 4
       Rarity: 3
-      Speed: 1
+      Speed: 5
       InvenSizeX: 5
       InvenSizeY: 4
       MinLenght: 600

@@ -28,16 +28,16 @@ public class DictionaryUnit
         }
         
         DictionaryData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.DictionaryData) as DictionaryData;
-        _dataUnit = data.Units.List.Find(unit => unit.Name == root.name);
+        _dataUnit = data.Units.List.Find(unit => unit.Name == dataUnit.Name);
 
-        // IsUnknown = _dataUnit == null;
+        IsUnknown = _dataUnit == null;
         
-        // if(IsUnknown){
-            // root.AddToClassList("unknown");
-        // }
-        // else{
-            // root.RemoveFromClassList("unknown");
-        // }
+        if(IsUnknown){
+            root.AddToClassList("unknown");
+        }
+        else{
+            root.RemoveFromClassList("unknown");
+        }
     }
 }
     
