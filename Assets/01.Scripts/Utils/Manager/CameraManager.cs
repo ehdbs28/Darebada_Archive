@@ -26,7 +26,7 @@ public class CameraManager : MonoBehaviour, IManager
         GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += (() => _isCanRotate = false);
         GameManager.Instance.GetManager<InputManager>().OnTouchEvent += (() => _isCanRotate = true);
 
-        ((RotateCam)_currentActiveVCam).SetCanRotate(_isCanRotate);
+        ((RotateCam)_currentActiveVCam).SetCanRotate(_isCanRotate ? 300 : 0);
     }
 
     public VCam SetVCam(CameraState state){
