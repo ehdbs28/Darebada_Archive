@@ -19,7 +19,7 @@ AudioMixerController:
   - guid: 753ab82cb9e374197bf86cd9dc4ea77d
     name: bgm
   - guid: 2b5ad3b822f104a0299a6293244bdc18
-    name: sfx
+    name: effect
   m_AudioMixerGroupViews:
   - guids:
     - e067263567cd443838dc7838ab76c728
