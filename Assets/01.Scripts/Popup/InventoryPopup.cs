@@ -18,8 +18,7 @@ public class InventoryPopup : UIPopup
 
     private InventoryTile[,] _tiles;
     
-    [SerializeField]
-    private List<InventoryUnit> _units;
+    private InventoryData _data;
 
     public int selectedIndex = -1;
     
@@ -73,61 +72,20 @@ public class InventoryPopup : UIPopup
     public override void RemoveRoot()
     {
         selectedIndex = -1;
-        InventoryData data = (InventoryData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.InventoryData);
-        data.Units.List = _units;
         base.RemoveRoot();
     }
 
     private void GenerateInventoryUnit()
     {
-        InventoryData data = (InventoryData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.InventoryData);
-        _units = data.Units.List;
-        foreach (InventoryUnit unit in _units)
+        _data = (InventoryData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.InventoryData);
+        
+        foreach (var unit in _data.Units.List)
         {
             VisualElement root = _unitTemplate.Instantiate();
             root = root.Q("inventory-unit");
             unit.Generate(root);
             _unitParent.Add(root);
-            
-            //���� ��ġ���� ¥�ߵ� 
-            /*for (int i = 0; i < InventoryManager.BoardSizeY; i++)
-            {
-                for (int j = 0; j < InventoryManager.BoardSizeX; j++)
-                {
-                    if (Search(unit.MinX, unit.MaxX, unit.MinY, unit.MaxY))
-                    {
-                        print("here");
-                        unit.Move(new Vector2(j, i));            
-                    }
-                }  
-            }*/
         }
-    }
-
-    public bool Search(int minX, int maxX, int minY, int maxY) // ���� �� �ִ���
-    {
-        if (selectedIndex == -1)
-            return false;
-
-        if (_units[selectedIndex].MinX < 0 
-            || _units[selectedIndex].MaxX > InventoryManager.BoardSizeX 
-            || _units[selectedIndex].MinY < 0 
-            || _units[selectedIndex].MaxY > InventoryManager.BoardSizeY)
-            return false;
-        
-        foreach (var unit in _units)
-        {
-            if(unit != _units[selectedIndex])
-            {
-                if ((minX >= unit.MinX && maxX <= unit.MaxX)
-              && (minY >= unit.MinY && maxY <= unit.MaxY))
-                {
-                    return false;
-                }
-            }
-        }
-
-        return true;
     }
 
     public override void AddEvent()
@@ -141,21 +99,21 @@ public class InventoryPopup : UIPopup
             if (selectedIndex == -1)
                 return;
             
-            if (_units[selectedIndex] != null)
+            if (_data.Units.List[selectedIndex] != null)
             {
-                _units[selectedIndex].rotate--;
-                if (_units[selectedIndex].rotate < 0) _units[selectedIndex].rotate = 3;
+                _data.Units.List[selectedIndex].rotate--;
+                if (_data.Units.List[selectedIndex].rotate < 0) _data.Units.List[selectedIndex].rotate = 3;
 
-                if (Search(_units[selectedIndex].MinX, _units[selectedIndex].MaxX, _units[selectedIndex].MinY, _units[selectedIndex].MaxY))
+                if (GameManager.Instance.GetManager<InventoryManager>().Search(_data.Units.List[selectedIndex], _data.Units.List[selectedIndex].MinX, _data.Units.List[selectedIndex].MaxX, _data.Units.List[selectedIndex].MinY, _data.Units.List[selectedIndex].MaxY))
                 {
-                    _units[selectedIndex].Rotate(-90f);
+                    _data.Units.List[selectedIndex].Rotate(-90f);
                 }
                 else
                 {
-                    if (_units[selectedIndex].rotate + 1 > 3)
-                        _units[selectedIndex].rotate = 0;
+                    if (_data.Units.List[selectedIndex].rotate + 1 > 3)
+                        _data.Units.List[selectedIndex].rotate = 0;
                     else
-                        _units[selectedIndex].rotate++;
+                        _data.Units.List[selectedIndex].rotate++;
                 }
             }
         });
@@ -165,21 +123,21 @@ public class InventoryPopup : UIPopup
             if (selectedIndex == -1)
                 return;
             
-            if(_units[selectedIndex] != null)
+            if(_data.Units.List[selectedIndex] != null)
             {
-                _units[selectedIndex].rotate++;
-                if (_units[selectedIndex].rotate > 3) _units[selectedIndex].rotate = 0;
+                _data.Units.List[selectedIndex].rotate++;
+                if (_data.Units.List[selectedIndex].rotate > 3) _data.Units.List[selectedIndex].rotate = 0;
 
-                if (Search(_units[selectedIndex].MinX, _units[selectedIndex].MaxX, _units[selectedIndex].MinY, _units[selectedIndex].MaxY))
+                if (GameManager.Instance.GetManager<InventoryManager>().Search(_data.Units.List[selectedIndex], _data.Units.List[selectedIndex].MinX, _data.Units.List[selectedIndex].MaxX, _data.Units.List[selectedIndex].MinY, _data.Units.List[selectedIndex].MaxY))
                 {
-                    _units[selectedIndex].Rotate(90f);
+                    _data.Units.List[selectedIndex].Rotate(90f);
                 }
                 else
                 {
-                    if (_units[selectedIndex].rotate - 1 < 0)
-                        _units[selectedIndex].rotate = 3;
+                    if (_data.Units.List[selectedIndex].rotate - 1 < 0)
+                        _data.Units.List[selectedIndex].rotate = 3;
                     else 
-                        _units[selectedIndex].rotate--;
+                        _data.Units.List[selectedIndex].rotate--;
                 }
             }
         });
@@ -196,26 +154,34 @@ public class InventoryPopup : UIPopup
                     if (selectedIndex == -1)
                         return;
 
-                    if (_units[selectedIndex] != null)
+                    if (_data.Units.List[selectedIndex] != null)
                     {
-                        if (Search(_units[selectedIndex].MinX, _units[selectedIndex].MaxX, _units[selectedIndex].MinY, _units[selectedIndex].MaxY))
+                        Vector2 prevPos = new Vector2(_data.Units.List[selectedIndex].posX, _data.Units.List[selectedIndex].posY);
+                        _data.Units.List[selectedIndex].Move(new Vector2(_tiles[i1, j1].xIdx, _tiles[i1, j1].yIdx));
+                        
+                        if (!GameManager.Instance.GetManager<InventoryManager>().Search(_data.Units.List[selectedIndex], _data.Units.List[selectedIndex].MinX, _data.Units.List[selectedIndex].MaxX, _data.Units.List[selectedIndex].MinY, _data.Units.List[selectedIndex].MaxY))
                         {
-                            Debug.Log($"SelectedIndex: {selectedIndex}");
-                            _units[selectedIndex].Move(new Vector2(_tiles[i1, j1].xIdx, _tiles[i1, j1].yIdx));
+                            _data.Units.List[selectedIndex].Move(prevPos);
                         }
                     }
                 });
             }
         }
 
-        for (int i = 0; i < _units.Count; i++)
+        for (int i = 0; i < _data.Units.List.Count; i++)
         {
             int i1 = i;
             
-            _units[i].Root.RegisterCallback<ClickEvent>(e =>
+            _data.Units.List[i].Root.RegisterCallback<ClickEvent>(e =>
             {
+                if (selectedIndex != -1)
+                {
+                    _data.Units.List[selectedIndex].Selected(false);
+                }
+                
                 selectedIndex = i1;
-                _selectedUnitImage.style.backgroundImage = new StyleBackground(_units[i1].data.Visual.Profile);
+                _data.Units.List[i1].Selected(true);
+                _selectedUnitImage.style.backgroundImage = new StyleBackground(_data.Units.List[i1].data.Visual.Profile);
             });
         }
     }
