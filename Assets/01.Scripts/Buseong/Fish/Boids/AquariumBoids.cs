@@ -51,16 +51,23 @@ public class AquariumBoids : MonoBehaviour
 
     [SerializeField]
     private FishDataUnit _fishData;
-    public List<GameObject> Fishes = new List<GameObject>();
+    public List<AuariumBoidUnit> Fishes = new List<AuariumBoidUnit>();
 
     public void SetPosZero()
     {
-        foreach (GameObject obj in Fishes)
+        foreach (AuariumBoidUnit obj in Fishes)
         {
             obj.transform.position = Vector3.zero;
         }
     }
-    public void GenerateBoids()
+    public void FindNeighbour()
+    {
+        foreach(AuariumBoidUnit unit in Fishes)
+        {
+            unit.StartCoroutine("FindNeighbourCoroutine");
+        }
+    }
+    public AuariumBoidUnit GenerateBoids()
     {
         // Generate Boids
         boundMR = GetComponentInChildren<MeshRenderer>();
@@ -71,8 +78,9 @@ public class AquariumBoids : MonoBehaviour
         currUnit.transform.SetParent(this.transform);
         currUnit.transform.localPosition = this.transform.localPosition + randomVec;
         currUnit.InitializeUnit(this, Random.Range(speedRange.x, speedRange.y), _fishData, transform.position);
-        Fishes.Add(currUnit.gameObject);
+        Fishes.Add(currUnit);
         currUnit.IsMove =true;
+        return currUnit;
     }
     public void SetMove(bool val)
     {

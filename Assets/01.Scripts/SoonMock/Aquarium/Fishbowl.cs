@@ -14,6 +14,7 @@ public class Fishbowl :  Facility
     public Dictionary <string, AquariumBoids> boids = new Dictionary<string, AquariumBoids>();
     public List<GameObject> boidObjects = new List<GameObject>();
     public List<Transform> decoTrs= new List<Transform>();
+    public List<AuariumBoidUnit> fishs = new List<AuariumBoidUnit>();
     public GameObject boidObject;
     public GameObject decoObject;
     public DecoController decoController;
@@ -35,7 +36,7 @@ public class Fishbowl :  Facility
         {
             curCnt += boid.Value.Fishes.Count;
         }
-        Debug.Log(MaxDecoCount - curCnt); ;
+        Debug.Log(MaxFishCount - curCnt); ;
         if (MaxFishCount - curCnt >0)
         {
             return true;
@@ -59,13 +60,33 @@ public class Fishbowl :  Facility
             decoController.AddDeco( AquariumManager.Instance.decoVisuals[idx]);
         }
     }
+    public void RemoveDeco(int idx)
+    {
+        if (!decoController)
+        {
+            GameObject decoConObj = Instantiate(new GameObject());
+            decoController = decoConObj.AddComponent<DecoController>();
+            decoConObj.transform.SetParent(transform, false);
+            decoController.decoObject = decoObject.GetComponent<Deco>();
+            decoController.decoPositions = decoTrs;
+        }
+        string decoName = AquariumManager.Instance.decoVisuals[idx].Name;
+        for(int i = 0; i <  decoController.decos.Count; i++)
+        {
+            if (decoController.decos[i].visualSO.Name == decoName)
+            {
+                decoController.RemoveDeco(i);
+                i = -1;
+            }
+        }
+    }
     public void AddFIsh(FishDataUnit fishData)
     {
         if(CheckRemainedFishs())
         {
             if(boids.ContainsKey(fishData.Name))
             {
-                boids[fishData.Name].GenerateBoids();
+                fishs.Add(boids[fishData.Name].GenerateBoids());
             }else
             {
                 GameObject tmp = new GameObject(fishData.Name);
@@ -79,11 +100,23 @@ public class Fishbowl :  Facility
                 boid.boundsWeight = 2;
                 boid.obstacleWeight = 100;
                 boid.egoWeight = 0.5f;
-                boid.GenerateBoids();
+                fishs.Add( boid.GenerateBoids());
+
             }
 
         }
     }
+    public void RemoveFish(int idx)
+    {
+        AquariumBoids selectedBoid =  fishs[idx].myBoids;
+        GameObject obj = selectedBoid.Fishes[0].gameObject;
+        selectedBoid.Fishes.RemoveAt(0);
+        fishs.RemoveAt(idx);
+        Destroy(obj);
+        selectedBoid.FindNeighbour();
+        
+    }
+    
     public Fishbowl Upgrade()
     {
         Fishbowl newOne = Instantiate(AquariumManager.Instance.fishBowls[level], transform.position, Quaternion.identity).GetComponent<Fishbowl>();
@@ -91,15 +124,20 @@ public class Fishbowl :  Facility
         newOne.level = level+1;
         newOne.boidObjects = boidObjects;
         newOne.decoController= decoController;
+        newOne.fishs = fishs;
         foreach(GameObject obj in  boidObjects)
-        {
-            Debug.Log(obj.name);
+        { 
             obj.transform.parent = newOne.transform;
             obj.GetComponent<AquariumBoids>().SetPosZero();
             obj.GetComponent<AquariumBoids>().SetMove(false);
         }
-        decoController.decoPositions = newOne.decoTrs;
-        decoController.gameObject.transform.SetParent(newOne.transform); 
+        if(decoController)
+        {
+
+            decoController.decoPositions = newOne.decoTrs;
+            decoController.gameObject.transform.SetParent(newOne.transform);
+
+        }
         Destroy(gameObject);
         return newOne;
 

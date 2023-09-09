@@ -48,6 +48,18 @@ public class StatePanel : MonoBehaviour
         upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
             UpgradeLevel();
         }
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
+            upgradeObj.GetComponent<Fishbowl>().RemoveFish(0);
+
+        }
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
+            upgradeObj.GetComponent<Fishbowl>().RemoveDeco(0);
+        }
+
     }
     public void UpgradeLevel()
     {

@@ -6,7 +6,7 @@ public class AuariumBoidUnit : MonoBehaviour
 {
     #region Variables & Initializer
     [Header("Info")]
-    private AquariumBoids myBoids;
+    public AquariumBoids myBoids;
     private List<AuariumBoidUnit> neighbours = new List<AuariumBoidUnit>();
 
     public Vector3 targetVec;
@@ -105,7 +105,7 @@ public class AuariumBoidUnit : MonoBehaviour
 
             if (IsSensed)
             {
-                myBoids.Fishes.Remove(this.gameObject);
+                myBoids.Fishes.Remove(this);
                 targetVec = _bait.transform.position - transform.position;
             }
             else

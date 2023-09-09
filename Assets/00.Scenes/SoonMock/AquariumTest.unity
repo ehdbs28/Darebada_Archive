@@ -446,14 +446,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 803397027680250735, guid: 7a79f81f57f3f4546ba1450de0481fea, type: 3}
-      propertyPath: boidObject
-      value: 
-      objectReference: {fileID: 1077685155167219870, guid: 676b613e8ea2d9d488fce2168e0ff1d0, type: 3}
-    - target: {fileID: 4050112872264089069, guid: 7a79f81f57f3f4546ba1450de0481fea, type: 3}
-      propertyPath: m_Layer
-      value: 18
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a79f81f57f3f4546ba1450de0481fea, type: 3}
 --- !u!1001 &1881580131569969004
@@ -511,5 +503,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7600918715572421717, guid: 97b6db28d67a4d34ca8a29743390d718, type: 3}
+      propertyPath: tempUnit.Visual
+      value: 
+      objectReference: {fileID: 11400000, guid: a3ae2b3a9074445aabd0858bc77aefb6, type: 2}
+    - target: {fileID: 7600918715572421723, guid: 97b6db28d67a4d34ca8a29743390d718, type: 3}
+      propertyPath: decoVisuals.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600918715572421723, guid: 97b6db28d67a4d34ca8a29743390d718, type: 3}
+      propertyPath: decoVisuals.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 944c9397a26b61b4ebe3a9475364afed, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97b6db28d67a4d34ca8a29743390d718, type: 3}
