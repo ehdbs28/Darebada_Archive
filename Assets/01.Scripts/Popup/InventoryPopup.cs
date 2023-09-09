@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 public class InventoryPopup : UIPopup
 {
     private VisualElement _exitBtn;
+
+    private VisualElement _selectedUnitImage;
     private VisualElement _rightRotateBtn;
     private VisualElement _leftRotateBtn;
 
@@ -15,6 +17,7 @@ public class InventoryPopup : UIPopup
     private VisualElement _unitParent;
 
     private InventoryTile[,] _tiles;
+    
     [SerializeField]
     private List<InventoryUnit> _units;
 
@@ -86,7 +89,7 @@ public class InventoryPopup : UIPopup
             unit.Generate(root);
             _unitParent.Add(root);
             
-            //À¯´Ö À§Ä¡·ÎÁ÷ Â¥¾ßµÊ 
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ Â¥ï¿½ßµï¿½ 
             /*for (int i = 0; i < InventoryManager.BoardSizeY; i++)
             {
                 for (int j = 0; j < InventoryManager.BoardSizeX; j++)
@@ -101,7 +104,7 @@ public class InventoryPopup : UIPopup
         }
     }
 
-    public bool Search(int minX, int maxX, int minY, int maxY) // ³õÀ» ¼ö ÀÖ´ÂÁö
+    public bool Search(int minX, int maxX, int minY, int maxY) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½
     {
         if (selectedIndex == -1)
             return false;
@@ -212,6 +215,7 @@ public class InventoryPopup : UIPopup
             _units[i].Root.RegisterCallback<ClickEvent>(e =>
             {
                 selectedIndex = i1;
+                _selectedUnitImage.style.backgroundImage = new StyleBackground(_units[i1].data.Visual.Profile);
             });
         }
     }
@@ -221,6 +225,8 @@ public class InventoryPopup : UIPopup
     public override void FindElement()
     {
         _exitBtn = _root.Q<VisualElement>("exit-btn");
+
+        _selectedUnitImage = _root.Q<VisualElement>("selected-object").Q("inner");
         _rightRotateBtn = _root.Q<VisualElement>("rotate-right-btn");
         _leftRotateBtn = _root.Q<VisualElement>("rotate-left-btn");
 

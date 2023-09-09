@@ -14,7 +14,7 @@ public class InventoryUnit
     
     [HideInInspector]
     public FishDataUnit data;
-    
+
     [HideInInspector]
     public List<Vector2> rotateVals = new()
     {
