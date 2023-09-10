@@ -87,15 +87,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator AutoSave(float delay)
     {
-        while (true)
+        while (Application.isPlaying)
         {
-            //  DataManager dataManager = GetManager<DataManager>();
-            //  GameData gameData = dataManager.GetData(DataType.GameData) as GameData;
-
-            // gameData.LastWorldTime = GetManager<TimeManager>();
-
-            //GetManager<DataManager>().SaveDataAll();
-
+            GetManager<DataManager>().SaveDataAll();
             yield return new WaitForSecondsRealtime(delay);
         }
     }

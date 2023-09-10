@@ -27,21 +27,24 @@ public class TimeManager : IManager
 
     public GameDate DateTime { get; private set; } = new GameDate(0, 3, 0);
 
+    private GameData _gameData;
+
     public event Action<int, int, float> OnTimeChangedEvent = null;
     public event Action<GameDate> OnDayChangedEvent = null; 
 
     public void InitManager()
     {
-        GameData gameData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData;
+        _gameData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData;
         
-        _currentTime = gameData.GameTime;
-        _totalDay = gameData.TotalDay;
-        DateTime = new GameDate(gameData.GameDateTime.Year, gameData.GameDateTime.Month, gameData.GameDateTime.Day);
+        _currentTime = _gameData.GameTime;
+        _totalDay = _gameData.TotalDay;
+        DateTime = _gameData.GameDateTime;
     }
 
     public void UpdateManager()
     {
         _currentTime += Time.deltaTime * _timeScale;
+        _gameData.GameTime = _currentTime;
         OnTimeChangedEvent?.Invoke(Mathf.FloorToInt(Hour), Mathf.FloorToInt(Minute), _currentTime);
         CheckDayCount();
     }
@@ -60,6 +63,9 @@ public class TimeManager : IManager
                     DateTime.Month = 1; 
                 }
             }
+
+            _gameData.TotalDay = _totalDay;
+            _gameData.GameDateTime = DateTime;
 
             OnDayChangedEvent?.Invoke(DateTime);
         }

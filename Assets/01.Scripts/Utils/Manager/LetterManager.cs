@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core;
 using Unity.VisualScripting;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class LetterManager : MonoBehaviour, IManager
 {
-    private List<LetterUnit> _letters;
-    public List<LetterUnit> Letters => _letters;
+    public List<LetterUnit> Letters => (GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData)?.HoldingLetter.List;
     
     [SerializeField]
     private LetterTemplateSO ThanksTemplate;
@@ -119,15 +119,15 @@ public class LetterManager : MonoBehaviour, IManager
 
     public void RemoveLetter(LetterUnit unit)
     {
-        _letters.Remove(unit);
+        Letters.Remove(unit);
     }
 
     private void AddLetter(LetterUnit unit){
-        _letters.Add(unit);
+        Letters.Add(unit);
     }
 
     public void ResetManager()
     {
-        _letters = new List<LetterUnit>();
+        Letters.Clear();
     }
 }
