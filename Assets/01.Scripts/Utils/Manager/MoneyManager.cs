@@ -30,11 +30,11 @@ public class MoneyManager : IManager
 
     public void Payment(int value, Action CallBack)
     {
+        _gameData.HoldingGold -= value;
+        CallBack?.Invoke();
+        OnGoldChange?.Invoke(_gameData.HoldingGold);
         if (_gameData.HoldingGold >= value)
         {
-            _gameData.HoldingGold -= value;
-            CallBack?.Invoke();
-            OnGoldChange?.Invoke(_gameData.HoldingGold);
         }
         else
         {

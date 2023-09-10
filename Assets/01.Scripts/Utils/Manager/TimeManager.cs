@@ -8,6 +8,8 @@ using System;
 public class TimeManager : IManager
 {
     private float _currentTime = 0f;
+    public float CurrentTime => _currentTime;
+    
     private int _totalDay = 0;
 
     private float _timeScale = 1f;

@@ -27,6 +27,9 @@ public class LetterManager : MonoBehaviour, IManager
     public void InitManager()
     {
         ResetManager();
+        
+        _lastSendTime = GameManager.Instance.GetManager<TimeManager>().CurrentTime;
+        _sendDelay = Random.Range(200, 300f) + Random.Range(0, _sendDelayOffset);
 
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += SendSpecialLetter;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += SendReportLetter;
@@ -55,8 +58,7 @@ public class LetterManager : MonoBehaviour, IManager
             }
 
             _lastSendTime = currentTime;
-            _sendDelay = 5f;
-            // _sendDelay = Random.Range(200, 300f) + Random.Range(0, _sendDelayOffset);
+            _sendDelay = Random.Range(200, 300f) + Random.Range(0, _sendDelayOffset);
             
             GameManager.Instance.GetManager<UIManager>().Notification("새로운 편지가 도착했습니다.", 1.5f);
         }
@@ -70,6 +72,7 @@ public class LetterManager : MonoBehaviour, IManager
         int employeeSalary = 0;
         int manageCost = 0;
         AddReportLetter(entranceRevenue, etcRevenue, managerSalary, employeeSalary, manageCost, gameDate);
+        
         GameManager.Instance.GetManager<UIManager>().Notification("새로운 편지가 도착했습니다.", 1.5f);
     }
     
