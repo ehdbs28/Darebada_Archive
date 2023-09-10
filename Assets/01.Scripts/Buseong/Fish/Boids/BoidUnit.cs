@@ -72,9 +72,9 @@ public class BoidUnit : MonoBehaviour
 
         findNeighbourCoroutine = StartCoroutine("FindNeighbourCoroutine");
         calculateEgoVectorCoroutine = StartCoroutine("CalculateEgoVectorCoroutine");
-        _bait = GameObject.Find("Bait");
-        _baitVec = _bait.transform.position;
-        _skinnedMR = GetComponentInChildren<SkinnedMeshRenderer>();
+        //_bait = GameObject.Find("Bait");
+        //_baitVec = _bait.transform.position;
+        //_skinnedMR = GetComponentInChildren<SkinnedMeshRenderer>();
         //_skinnedMR.sharedMesh = _fishSO.Mesh; //나중에 시트에 여기 Mesh 추가해야함
     }
 
