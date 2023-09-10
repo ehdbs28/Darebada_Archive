@@ -25,77 +25,20 @@ public class AquariumManager : MonoBehaviour, IManager
         }
         private set { _instance = value; }
     }
-    public Material fishBowlMat;
-    public Material mossMat;
     public Transform facilityParent;
     public List<GameObject> fishBowls = new List<GameObject>();
-    public int fishbowlCnt = 0;
     public List<DecoVisualSO> decoVisuals = new List<DecoVisualSO>();
-    [SerializeField] Color pureWaterColor;
-    [SerializeField] Color corruptedWaterColor;
-    #region "�ڿ� �� ��ҵ�"
-    [SerializeField] private int _cleanScore;
-    public int CleanScore
-    {
-        get { return _cleanScore; }
-        set {
-            _cleanScore = value;
-            if (_cleanScore < 50)
-            {
-
-                fishBowlMat.SetColor("Color_77A2EDE9", pureWaterColor);
-            }
-            else {
-                fishBowlMat.SetColor("Color_77A2EDE9", corruptedWaterColor);
-            }
-            mossMat.SetFloat("_ShowValue", 1f - CleanScore / 100f + 0.3f);
-            Debug.Log("Clean");
-        }
-    }
-
-    [SerializeField] private int _promotionPoint;
-    public int PromotionPoint
-    {
-        get { return _promotionPoint; }
-        set { _promotionPoint = value; }
-    }
-    [SerializeField] private int _entrancefee;
-    public int EntranceFee
-    {
-        get { return _entrancefee; }
-        set { _entrancefee = value; }
-    }
-    [SerializeField] private float _entrancePercent;
-    public float EntrancePercent
-    {
-        get { return _entrancePercent; }
-        set { _entrancePercent = value; }
-    }
-    [SerializeField] private float _reputation;
-    public float Reputation
-    {
-        get { return _reputation; }
-        set { _reputation = value; }
-    }
-    [SerializeField] private float _artScore;
-    public float ArtScore
-    {
-        get { return _artScore; }
-        set { _artScore = value; }
-    }
-    [SerializeField] private Vector3 _floorSize = new Vector3(1,1,1);
+    [SerializeField] private Vector3 _floorSize = new Vector3(1, 1, 1);
     public Vector3 FloorSize
     {
         get { return _floorSize; }
         set { _floorSize = value; }
     }
-    #endregion
-    [SerializeField] int _promoDispointAmount;
+
     //�̱���
     //�ؾ��� ��= �̱��� ���ֱ�
     //ũ�� ����
     [SerializeField] GameObject floor;
-    [SerializeField] private int _horizontalCount = 5;
     [SerializeField] ParticleSystem _cleaningParticle;
     [SerializeField] ParticleSystem _cleaningParticleSystemObject;
     [SerializeField] GameObject _walls;
@@ -105,10 +48,7 @@ public class AquariumManager : MonoBehaviour, IManager
     [SerializeField] GameObject _decoObject;
     [SerializeField] GameObject _snackShopObject;
     [SerializeField] GameObject _roadTileObject;
-    [SerializeField] GameObject _buildPanel;
-    public int decoCnt = 0;
     public List<NavMeshSurface> roadSurfaces;
-    public Transform endTarget;
 
 
     public LayerMask facilityLayer;
@@ -146,7 +86,7 @@ public class AquariumManager : MonoBehaviour, IManager
 
             if (facilityObj.GetComponent<Fishbowl>())
             {
-            fishbowlCnt++;
+            GameManager.Instance.GetManager<AquariumNumericalManager>().fishbowlCnt++;
 
             }
             facilityObj = null;
@@ -156,7 +96,7 @@ public class AquariumManager : MonoBehaviour, IManager
     }
     public void Promotion(int amount)
     {
-            PromotionPoint += amount;
+        GameManager.Instance.GetManager<AquariumNumericalManager>().PromotionPoint += amount;
     }
     public void ChangeSize(float x, float y)
     {
@@ -283,9 +223,6 @@ public class AquariumManager : MonoBehaviour, IManager
 
     public void UpdateManager()
     {
-        EntrancePercent = Mathf.Clamp((float)((float)fishbowlCnt/ (float)EntranceFee) * 100f, 0f, 200f);
-        Reputation = Mathf.Clamp((EntrancePercent / 100f * CleanScore / 100f * ArtScore / 100f) * 100f + PromotionPoint,0,100);
-        ArtScore = Mathf.Clamp(((float)(decoCnt / 2) / decoCnt) * 100, 0, 100);
         if (state == STATE.BUILD)   
         {
             RaycastHit hit;
@@ -303,7 +240,7 @@ public class AquariumManager : MonoBehaviour, IManager
     [ContextMenu("Cleaning")]
     public void Cleaning(int value)
     {
-        CleanScore -= value;
+        GameManager.Instance.GetManager<AquariumNumericalManager>().CleanScore -= value;
         if(!_cleaningParticle )
         {
             ParticleSystem particle = Instantiate(_cleaningParticleSystemObject, Camera.main.transform);
@@ -314,12 +251,6 @@ public class AquariumManager : MonoBehaviour, IManager
         _cleaningParticle.transform.localRotation = Quaternion.identity;
         _cleaningParticle.Play();
         
-    }
-    public void OnDayChange(int year, int month, int day)
-    {
-        CleanScore = (int)Mathf.Clamp(CleanScore - Reputation * 3, 0, 100);
-        int dispointAmount = _promotionPoint;
-        if (PromotionPoint > 0) PromotionPoint -=dispointAmount;
     }
     
 }

@@ -15,7 +15,7 @@ public class DecoController : MonoBehaviour
         deco.transform.localPosition = decoPositions[Random.Range(0, decoPositions.Count)].localPosition;
         decos.Add(deco);
         deco.Initialize(visual);
-        AquariumManager.Instance.decoCnt++;
+        GameManager.Instance.GetManager<AquariumNumericalManager>().decoCnt++;
         SetDecoPositions();
 
     }
@@ -25,7 +25,7 @@ public class DecoController : MonoBehaviour
         Deco removableObj = decos[idx];
         Destroy(removableObj.gameObject);
         decos.RemoveAt(idx);
-        AquariumManager.Instance.decoCnt--;
+        GameManager.Instance.GetManager<AquariumNumericalManager>().decoCnt--;
         SetDecoPositions();
     }
     public void SetDecoPositions()
