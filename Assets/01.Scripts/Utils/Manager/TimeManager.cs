@@ -33,7 +33,7 @@ public class TimeManager : IManager
     public GameDate DateTime { get; private set; } = new GameDate(0, 3, 0);
 
     public event Action<int, int> OnTimeChangedEvent = null;
-    public event Action<int, int, int> OnDayChangedEvent = null; 
+    public event Action<GameDate> OnDayChangedEvent = null; 
 
     public void InitManager()
     {
@@ -44,18 +44,21 @@ public class TimeManager : IManager
         OnDayChangedEvent += SendSpecification;
         DateTime = new GameDate(gameData.GameDateTime.Year, gameData.GameDateTime.Month, gameData.GameDateTime.Day);
     }
-    public void SendSpecification(int year, int month, int day)
+    
+    public void SendSpecification(GameDate dateTime)
     {
         int ent=0, etc=0, man=0, empl=0,manage=0;
-        GameManager.Instance.GetManager<LetterManager>().SendReportLetter(ent, etc, man, empl, manage, DateTime);
+        GameManager.Instance.GetManager<LetterManager>().SendReportLetter(ent, etc, man, empl, manage, dateTime);
     }
-    public void SendRequestMail(int year, int month, int day)
+    
+    public void SendRequestMail(GameDate dateTime)
     {
-        GameManager.Instance.GetManager<LetterManager>().SendRequestLetter(DateTime);
+        GameManager.Instance.GetManager<LetterManager>().SendRequestLetter(dateTime);
     }
-    public void SendReviewMail(int year, int month , int day)
+    
+    public void SendReviewMail(GameDate dateTime)
     {
-        GameManager.Instance.GetManager<LetterManager>().SendReviewLetter(DateTime);
+        GameManager.Instance.GetManager<LetterManager>().SendReviewLetter(dateTime);
     }
 
     public void UpdateManager()
@@ -83,7 +86,7 @@ public class TimeManager : IManager
                 }
             }
 
-            OnDayChangedEvent?.Invoke(DateTime.Year, DateTime.Month, DateTime.Day);
+            OnDayChangedEvent?.Invoke(DateTime);
         }
     }
 

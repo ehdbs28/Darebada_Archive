@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 
 public class ShopManager : IManager
@@ -41,7 +42,7 @@ public class ShopManager : IManager
         return _itemStock[idx] > 0;
     }
 
-    private void ReStockHandle(int year = 0, int month = 0, int day = 0)
+    private void ReStockHandle(GameDate gameDate = null)
     {
         for (int i = 0; i < _dataTable.Size; i++)
         {

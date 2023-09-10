@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -69,9 +70,9 @@ public class AquariumEditScreen : UIScreen
         _timeText.text = $"{hour.ToString("D2")}:{minute.ToString("D2")}";
     }
 
-    private void OnChangedDay(int year, int month, int day)
+    private void OnChangedDay(GameDate gameDate)
     {
-        _dateText.text = $"{year}년째, {month}월{day}일";
+        _dateText.text = $"{gameDate.Year}년째, {gameDate.Month}월{gameDate.Day}일";
     }
 
     private void OnTouchHandle(){
