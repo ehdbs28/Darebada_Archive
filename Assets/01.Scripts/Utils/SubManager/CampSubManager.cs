@@ -45,6 +45,7 @@ public class CampSubManager : MonoBehaviour, IManager
     {
         _boatMeshFilter.mesh = dataUnit.Visual.VisualMesh;
         _boatMeshRenderer.material = dataUnit.Visual.MainMat;
+        _boatMeshFilter.GetComponent<OutlineNormalsCalculator>().OutLineCalc();
     }
 
     private void ShowTitle()

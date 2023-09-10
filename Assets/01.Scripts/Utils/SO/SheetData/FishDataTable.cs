@@ -55,7 +55,6 @@ public class FishDataTable : LoadableData
         #if UNITY_EDITOR
         string path = $"Assets/06.SO/FishVisual/{(int)DataTable[Size].Habitat:D2}.{DataTable[Size].Habitat}/{_localFishCnt:D2}.{dataArr[1]}.asset";
         DataTable[Size].Visual = AssetDatabase.LoadAssetAtPath<FishVisual>(path);
-        Debug.Log(DataTable[Size].Visual);
         #endif
         
         string[] favorites = dataArr[13].Split(",");
