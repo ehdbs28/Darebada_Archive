@@ -34,9 +34,9 @@ public class InventoryUnit
         this.size = size;
 
         rotateVals[0] = new Vector2(size.x, size.y);
-        rotateVals[1] = new Vector2(-size.y, size.x);
+        rotateVals[1] = new Vector2(-size.y, -size.x);
         rotateVals[2] = new Vector2(-size.x, -size.y);
-        rotateVals[3] = new Vector2(-size.y, -size.x);
+        rotateVals[3] = new Vector2(-size.y, size.x);
     }
 
     public void Generate(VisualElement root)
