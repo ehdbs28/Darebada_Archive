@@ -28,11 +28,11 @@ public class InventoryPopup : UIPopup
 
         _documentRoot = document.rootVisualElement.Q("main-container");
 
-        if (clearScreen && _documentRoot.childCount >= 2)
-        {
-            for (int i = 0; i < _documentRoot.childCount; i++)
+        if(clearScreen && _documentRoot.childCount >= 3){
+            for(int i = 0; i < _documentRoot.childCount; i++)
             {
-                if (_documentRoot.ElementAt(i).ClassListContains("blur-panel")) continue;
+                if(_documentRoot.ElementAt(i).ClassListContains("blur-panel") || _documentRoot.ElementAt(i).ClassListContains("notification")) 
+                    continue;
                 _documentRoot.RemoveAt(i);
             }
         }
