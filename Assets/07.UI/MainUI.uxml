@@ -16,6 +16,7 @@
     <Style src="project://database/Assets/07.UI/ItemSelectUI.uss?fileID=7433441132597879392&amp;guid=8e57ddc35d86a47d4b4e7bff39edba91&amp;type=3#ItemSelectUI" />
     <Style src="project://database/Assets/07.UI/AquariumManageUI.uss?fileID=7433441132597879392&amp;guid=b9de445fa38cb3f42b5e22fac48e3a93&amp;type=3#AquariumManageUI" />
     <Style src="project://database/Assets/07.UI/CatchedFishCheckingUi.uss?fileID=7433441132597879392&amp;guid=ac6062999b897ae4aaa3070c0d9e7972&amp;type=3#CatchedFishCheckingUi" />
+    <Style src="project://database/Assets/07.UI/LetterUnit.uss?fileID=7433441132597879392&amp;guid=cb6e0c60d859140a6bfec988fb1fbe98&amp;type=3#LetterUnit" />
     <ui:VisualElement name="main-container" picking-mode="Ignore" style="width: 100%; height: 100%; display: flex;">
         <ui:VisualElement name="blur-panel" class="blur-panel" />
     </ui:VisualElement>

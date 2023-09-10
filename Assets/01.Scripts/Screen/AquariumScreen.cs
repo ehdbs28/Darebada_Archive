@@ -69,7 +69,7 @@ public class AquariumScreen : UIScreen
         _editorBtn = _root.Q<VisualElement>("editor-btn");
     }
 
-    private void OnChangedTime(int hour, int minute)
+    private void OnChangedTime(int hour, int minute, float currentTime)
     {
         _timeText.text = $"{hour.ToString("D2")}:{minute.ToString("D2")}";
     }

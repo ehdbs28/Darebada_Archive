@@ -8660,6 +8660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: 4801d7ffb1bbe5d46be7ea18f68f07a0, type: 3}
   _letterTemplete: {fileID: 9197481963319205126, guid: 3f5d9b8f31c4f4e7cbacc96a6eae128f, type: 3}
+  _requestLetterTemplete: {fileID: 9197481963319205126, guid: 2f3cc72bba5fa4606a01a027f9574b23, type: 3}
 --- !u!4 &9157046241256461561
 Transform:
   m_ObjectHideFlags: 0
@@ -9333,7 +9334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9157046241563192774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.866, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9416,6 +9417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThanksTemplate: {fileID: 11400000, guid: 159fe55d68cee3b4788c0e686fc4e24d, type: 2}
   RequestTemplate: {fileID: 11400000, guid: c93ff49bf95c66847bfda072ae3d375a, type: 2}
+  _sendDelayOffset: 30
 --- !u!114 &9157046241563192786
 MonoBehaviour:
   m_ObjectHideFlags: 0

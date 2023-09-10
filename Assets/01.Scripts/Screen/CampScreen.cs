@@ -62,7 +62,7 @@ public class CampScreen : UIScreen
         _dictionaryBtn = _root.Q<VisualElement>("dictionary-btn");
     }
 
-    private void OnChangedTime(int hour, int minute)
+    private void OnChangedTime(int hour, int minute, float currentTime)
     {
         _timeText.text = $"{hour:D2}:{minute:D2}";
     }

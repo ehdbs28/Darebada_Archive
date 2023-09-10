@@ -65,7 +65,7 @@ public class AquariumEditScreen : UIScreen
         _addPlantBtn = _root.Q<VisualElement>("add-plant-btn");
     }
 
-    private void OnChangedTime(int hour, int minute)
+    private void OnChangedTime(int hour, int minute, float currentTime)
     {
         _timeText.text = $"{hour.ToString("D2")}:{minute.ToString("D2")}";
     }
