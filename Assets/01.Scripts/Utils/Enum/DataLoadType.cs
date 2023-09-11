@@ -3,4 +3,5 @@ public enum DataLoadType{
     FishingUpgradeData,
     ShopItemData,
     BoatData,
+    ChallengeData,
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,10 +14,17 @@ public class CampScreen : UIScreen
     private VisualElement _letterBtn;
     private VisualElement _dictionaryBtn;
 
+    public override void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
+    {
+        base.SetUp(document, clearScreen, blur, timeStop);
+        _goldText.text = "$0";
+    }
+
     public override void AddEvent()
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
+        GameManager.Instance.GetManager<MoneyManager>().OnGoldChange += OnChangeGold;
 
         _settingBtn.RegisterCallback<ClickEvent>(e =>
         {
@@ -35,8 +43,6 @@ public class CampScreen : UIScreen
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Dictionary);
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
         });
-
-        //_goldText.text = $"{MoneyManager.Instance.goldTxt.text}";
     }
     
     public override void RemoveEvent()
@@ -56,14 +62,18 @@ public class CampScreen : UIScreen
         _dictionaryBtn = _root.Q<VisualElement>("dictionary-btn");
     }
 
-    private void OnChangedTime(int hour, int minute)
+    private void OnChangedTime(int hour, int minute, float currentTime)
     {
-        _timeText.text = $"{hour.ToString("D2")}:{minute.ToString("D2")}";
+        _timeText.text = $"{hour:D2}:{minute:D2}";
     }
 
-    private void OnChangedDay(int year, int month, int day)
+    private void OnChangedDay(GameDate gameDate)
     {
-        _dateText.text = $"{year}년째, {month}월{day}일";
+        _dateText.text = $"{gameDate.Year}년째, {gameDate.Month}월{gameDate.Day}일";
     }
 
+    private void OnChangeGold(int holdingGold)
+    {
+        _goldText.text = $"${holdingGold:N}";
+    }
 }

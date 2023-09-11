@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/ChallengeUI.uss?fileID=7433441132597879392&amp;guid=c028b0329a247c64ea0e7e52795ae339&amp;type=3#ChallengeUI" />
+    <Style src="project://database/Assets/07.UI/ChallengeTemplate.uss?fileID=7433441132597879392&amp;guid=d501f6c441e5d43449c85a325f341008&amp;type=3#ChallengeTemplate" />
+    <ui:VisualElement name="challenge-container" style="width: 80%; height: 70%; position: absolute; left: 10%; top: 15%;">
+        <ui:VisualElement name="header" style="flex-basis: 7.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0; background-color: rgb(0, 151, 217); border-top-left-radius: 20px; border-top-right-radius: 20px;">
+            <ui:VisualElement name="exit-btn" style="width: 35px; height: 35px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); position: absolute; right: 30px;" />
+            <ui:Label text="버킷리스트" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 40px; position: absolute; color: rgb(255, 255, 255);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="contents" style="background-color: rgb(222, 221, 216); flex-grow: 1; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px;">
+            <ui:VisualElement name="content" style="background-color: rgba(255, 255, 255, 0.78); flex-grow: 1; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px;">
+                <ui:ScrollView name="challenge-list" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

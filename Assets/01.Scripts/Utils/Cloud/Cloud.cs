@@ -19,6 +19,11 @@ public class Cloud : MonoBehaviour
     private void Update()
     {
         if (!(transform.position.z >= _bound.x)) return;
+        Movement();
+    }
+
+    private void Movement()
+    {
         Vector3 pos = transform.position;
         pos.z = _bound.y;
         transform.position = pos;

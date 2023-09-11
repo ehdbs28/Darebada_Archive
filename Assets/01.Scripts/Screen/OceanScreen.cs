@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static Core.Define;
@@ -9,11 +10,13 @@ public class OceanScreen : UIScreen
     private Label _timeText;
     private Label _dateText;
 
-    private VisualElement _settingBtn;
+    private VisualElement _backpackBtn;
     private VisualElement _gobackBtn;
     private VisualElement _letterBtn;
     private VisualElement _dictionaryBtn;
     private VisualElement _inventoryBtn;
+
+    private VisualElement _challengeBtn;
 
     private UICompass _compass;
     private UIBoatFuel _boatDurability;
@@ -49,15 +52,14 @@ public class OceanScreen : UIScreen
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
 
-        _settingBtn.RegisterCallback<ClickEvent>(e => {
+        _backpackBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
-            Debug.Log("설정");
-            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Setting);
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.ItemSelect);
         });
 
         _gobackBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
-            Debug.Log("돌아가기");
+            GameManager.Instance.GetManager<GameSceneManager>().ChangeScene(GameSceneType.Camp);
         });
 
         _letterBtn.RegisterCallback<ClickEvent>(e => {
@@ -74,6 +76,11 @@ public class OceanScreen : UIScreen
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Inventory);
         });
+
+        _challengeBtn.RegisterCallback<ClickEvent>(e =>
+        {
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Challenge);
+        });
     }
 
     public override void RemoveEvent()
@@ -88,11 +95,13 @@ public class OceanScreen : UIScreen
         _timeText = _root.Q<Label>("time-text");
         _dateText = _root.Q<Label>("date-text");
 
-        _settingBtn = _root.Q<VisualElement>("setting-btn");
+        _backpackBtn = _root.Q<VisualElement>("backpack-btn");
         _gobackBtn = _root.Q<VisualElement>("goto-btn");
         _letterBtn = _root.Q<VisualElement>("letter-btn");
         _dictionaryBtn = _root.Q<VisualElement>("dictionary-btn");
         _inventoryBtn = _root.Q<VisualElement>("inventory-btn");
+
+        _challengeBtn = _root.Q<VisualElement>("complete-box");
 
         VisualElement compassRoot = _root.Q<VisualElement>("compass");
         _compass = new UICompass(compassRoot);
@@ -108,11 +117,11 @@ public class OceanScreen : UIScreen
         _boatDurability.SetColor();
     }
 
-    private void OnChangedTime(int hour, int minute){
+    private void OnChangedTime(int hour, int minute, float currentTime){
         _timeText.text = $"{hour:D2}:{minute:D2}";
     }
 
-    private void OnChangedDay(int year, int month, int day){
-        _dateText.text = $"{year}년째, {month}월{day}일";
+    private void OnChangedDay(GameDate gamedate){
+        _dateText.text = $"{gamedate.Year}년째, {gamedate.Month}월{gamedate.Day}일";
     }
 }

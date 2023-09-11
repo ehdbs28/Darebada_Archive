@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FishingReelUpState : FishingState
@@ -83,17 +84,42 @@ public class FishingReelUpState : FishingState
 
                 GameManager.Instance.GetManager<InventoryManager>().AddUnit(dataUnit, size);
                 
+                DictionaryData data = (DictionaryData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.DictionaryData);
+                DictionaryDataUnit unit = data.Units.List.Find(unit => unit.Name == dataUnit.Name);
+
+                if(unit == null)
+                {
+                    data.Units.List.Add(new DictionaryDataUnit
+                    {
+                        Name = dataUnit.Name,
+                        Image = dataUnit.Visual.Profile,
+                        Desc = dataUnit.Description,
+                        Habitat = dataUnit.Habitat,
+                        Favorites = dataUnit.Favorites,
+                        MaxLenght = _controller.Bait.CatchedFish.ActionData.Lenght,
+                        MaxWeight = _controller.Bait.CatchedFish.ActionData.Weight,
+                        IsDotated = false
+                    });
+                }
+                else
+                {
+                    unit.MaxLenght = Mathf.Max(unit.MaxLenght, _controller.Bait.CatchedFish.ActionData.Lenght);
+                    unit.MaxWeight = Mathf.Max(unit.MaxWeight, _controller.Bait.CatchedFish.ActionData.Weight);
+                }
+
                 _controller.Bait.CatchedFish.SuccessCatching(
                     _controller.transform.position,
                     _jumpUpHeight,
                     _rotateSpeedX,
                     _rotateSpeedZ
                 );
-                
+
                 _controller.Bait.CatchedFish = null;
 
                 //((CatchedFishCheckingPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.CatchedFishChecking)).dataUnit = dataUnit;
                 //GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.CatchedFishChecking);
+
+                GameManager.Instance.GetManager<ChallengeManager>().Renewal(ChallengeType.FishCount, 1);
             }
         }
     }

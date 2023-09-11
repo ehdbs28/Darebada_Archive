@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BoatData
   m_EditorClassIdentifier: 
   Type: 3
-  Size: 5
+  Size: 4
   DataTable:
     _data:
     - Name: "\uCD08\uBCF4\uC6A9 \uBCF4\uD2B8"
@@ -60,14 +60,3 @@ MonoBehaviour:
       RotationAcceleration: 10
       RotationDeceleration: 10
       MaxFuel: 700
-    - Name: "\uC804\uC124\uC758 \uBCF4\uD2B8"
-      Price: 10000
-      Visual: {fileID: 11400000, guid: 95e6800b1b4df452faa97438ce6a6b0f, type: 2}
-      MaxSpeed: 15
-      ForwardAcceleration: 18
-      BackwardAcceleration: 7
-      Deceleration: 13
-      RotationSpeed: 5
-      RotationAcceleration: 10
-      RotationDeceleration: 10
-      MaxFuel: 1000

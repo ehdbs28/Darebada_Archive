@@ -15,6 +15,9 @@ public class LetterPopup : UIPopup
 
     [SerializeField]
     private VisualTreeAsset _letterTemplete;
+    
+    [SerializeField]
+    private VisualTreeAsset _requestLetterTemplete;
 
     public override void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
     {
@@ -22,9 +25,10 @@ public class LetterPopup : UIPopup
 
         _documentRoot = document.rootVisualElement.Q("main-container");
 
-        if(clearScreen && _documentRoot.childCount >= 2){
+        if(clearScreen && _documentRoot.childCount >= 3){
             for(int i = 0; i < _documentRoot.childCount; i++){
-                if(_documentRoot.ElementAt(i).ClassListContains("blur-panel")) continue;
+                if(_documentRoot.ElementAt(i).ClassListContains("blur-panel") || _documentRoot.ElementAt(i).ClassListContains("notification")) 
+                    continue;
                 _documentRoot.RemoveAt(i);
             }
         }
@@ -48,8 +52,16 @@ public class LetterPopup : UIPopup
 
     private void GenerateLetterUnit(){
         List<LetterUnit> letterUnits = GameManager.Instance.GetManager<LetterManager>().Letters;
+        _letters.Clear();
         for(int i = 0; i < letterUnits.Count; i++){
-            _letters.Add(new UILetterUnit(_letterTemplete, _letterPerent));
+            if (letterUnits[i].Type == LetterType.Request)
+            {
+                _letters.Add(new UIRequestLetterUnit(_requestLetterTemplete, _letterPerent));
+            }
+            else
+            {
+                _letters.Add(new UILetterUnit(_letterTemplete, _letterPerent));
+            }
             _letters[i].Generate(letterUnits[i]);
         }
     }
@@ -83,13 +95,16 @@ public class LetterPopup : UIPopup
 
         _deleteBtn.RegisterCallback<ClickEvent>(e =>
         {
+            HashSet<UILetterUnit> toRemove = new HashSet<UILetterUnit>();
             foreach(UILetterUnit letter in _letters)
             {
                 if (letter.IsOpen)
                 {
                     letter.Remove();
+                    toRemove.Add(letter);
                 }
             }
+            _letters.RemoveAll(toRemove.Contains);
         });
     }
     

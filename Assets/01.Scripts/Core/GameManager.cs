@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         _managers.Add(new TimeManager());
         _managers.Add(transform.Find("UIManager").GetComponent<UIManager>());
         _managers.Add(transform.Find("SoundManager").GetComponent<SoundManager>());
-        //_managers.Add(GetComponent<DayCycleManager>());
+        _managers.Add(GetComponent<DayCycleManager>());
         // _managers.Add(new AddressableAssetsManager());
         _managers.Add(new FishingUpgradeManager());
         _managers.Add(new SeleteItemManager());
@@ -82,21 +82,16 @@ public class GameManager : MonoBehaviour
         _managers.Add(new InventoryManager());
         _managers.Add(new LoadingManager());
         _managers.Add(new SettingManager());
-        _managers.Add(GetComponent<TutorialManager>());
+        _managers.Add(GetComponent<AquariumNumericalManager>());
+        _managers.Add(new ChallengeManager());
         _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
     }
 
     private IEnumerator AutoSave(float delay)
     {
-        while (true)
+        while (Application.isPlaying)
         {
-            //  DataManager dataManager = GetManager<DataManager>();
-            //  GameData gameData = dataManager.GetData(DataType.GameData) as GameData;
-
-            // gameData.LastWorldTime = GetManager<TimeManager>();
-
-            //GetManager<DataManager>().SaveDataAll();
-
+            GetManager<DataManager>().SaveDataAll();
             yield return new WaitForSecondsRealtime(delay);
         }
     }

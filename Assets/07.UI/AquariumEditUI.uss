@@ -1,6 +1,6 @@
 .facility-btn > #image {
-    width: 90%;
-    height: 90%;
+    width: 75%;
+    height: 75%;
 }
 
 .facility-btn > #text {
@@ -15,9 +15,9 @@
     padding-top: 10px;
     padding-bottom: 10px;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.59);
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    justify-content: space-between;
 }

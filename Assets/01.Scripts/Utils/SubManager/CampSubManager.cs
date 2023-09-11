@@ -17,13 +17,23 @@ public class CampSubManager : MonoBehaviour, IManager
     private float _titleDelayOffset = 1.5f;
 
     private bool _touch;
+    private bool _onTitleView = false;
     
     public void EnterSceneEvent()
     {
         GameManager.Instance.Managers.Add(this);
         BoatDataUnit boatDataUnit = GameManager.Instance.GetManager<BoatManager>().CurrentBoatData;
         SetBoatVisual(boatDataUnit);
-        ShowTitle();
+        if (!_onTitleView)
+        {
+            ShowTitle();
+            _onTitleView = true;
+        }
+        else
+        {
+            GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.CAMP);
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Camp);
+        }
     }
 
     public void ExitSceneEvent()
@@ -35,6 +45,7 @@ public class CampSubManager : MonoBehaviour, IManager
     {
         _boatMeshFilter.mesh = dataUnit.Visual.VisualMesh;
         _boatMeshRenderer.material = dataUnit.Visual.MainMat;
+        _boatMeshFilter.GetComponent<OutlineNormalsCalculator>().OutLineCalc();
     }
 
     private void ShowTitle()
@@ -64,11 +75,10 @@ public class CampSubManager : MonoBehaviour, IManager
         GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTitleTouchEvent;
         titleScreen.TapToStart.visible = false;
         
-        
         GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.CAMP);
         
         curTime = duration - _titleDelayOffset;
-        percent = 0f;
+        percent = 1f;
         
         while (percent >= 0f)
         {

@@ -27,7 +27,7 @@ public sealed class UIShopUnit : UIInteractionElement
         _imageBox.style.backgroundImage = new StyleBackground(_unit.Image);
         _nameLabel.text = _unit.Name;
         _descLabel.text = _unit.Desc;
-        _priceLabel.text = $"{_unit.Price} $";
+        _priceLabel.text = $"{_unit.Price}";
     }
 
     protected override void FindElement(){
@@ -43,11 +43,11 @@ public sealed class UIShopUnit : UIInteractionElement
             if(!GameManager.Instance.GetManager<ShopManager>().IsInStock(_unit.Index))
                 return;
 
-            GameManager.Instance.GetManager<ShopManager>().PurchaseItem(_unit.Index);            
+            if(GameManager.Instance.GetManager<ShopManager>().PurchaseItem(_unit.Index))            
+                PlayParticle();
+            
             if(!GameManager.Instance.GetManager<ShopManager>().IsInStock(_unit.Index))
                 Toggle(true);
-            
-            PlayParticle();
         });
     }
     

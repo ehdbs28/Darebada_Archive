@@ -41,39 +41,10 @@
             </ui:VisualElement>
             <ui:VisualElement name="chllenge-box" picking-mode="Ignore" class="challenge" style="top: 30%;">
                 <ui:VisualElement name="name-box" picking-mode="Ignore">
-                    <ui:Label text="나보단 작지" display-tooltip-when-elided="true" name="name" picking-mode="Ignore" class="text" style="height: 100%; -unity-text-align: middle-center;" />
-                    <ui:VisualElement name="complete-box" picking-mode="Ignore">
+                    <ui:Label text="버킷리스트" display-tooltip-when-elided="true" name="name" picking-mode="Ignore" class="text" style="height: 100%; -unity-text-align: middle-center;" />
+                    <ui:VisualElement name="complete-box">
                         <ui:VisualElement name="complete" picking-mode="Ignore">
                             <ui:VisualElement name="image" picking-mode="Ignore" />
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                </ui:VisualElement>
-                <ui:VisualElement name="element-box" picking-mode="Ignore" style="width: 307px;">
-                    <ui:VisualElement name="test-fish-one" class="fish-element">
-                        <ui:VisualElement name="inner">
-                            <ui:VisualElement name="fish-image" />
-                            <ui:VisualElement name="star-container">
-                                <ui:VisualElement name="star" />
-                            </ui:VisualElement>
-                            <ui:VisualElement name="check" />
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="test-fish-two" class="fish-element">
-                        <ui:VisualElement name="inner">
-                            <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishVisual/Icon/BlueTang.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#BlueTang&apos;);" />
-                            <ui:VisualElement name="star-container">
-                                <ui:VisualElement name="star" />
-                            </ui:VisualElement>
-                            <ui:VisualElement name="check" />
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="test-fish-two" class="fish-element">
-                        <ui:VisualElement name="inner">
-                            <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishVisual/Icon/BlueTang.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#BlueTang&apos;);" />
-                            <ui:VisualElement name="star-container">
-                                <ui:VisualElement name="star" />
-                            </ui:VisualElement>
-                            <ui:VisualElement name="check" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
@@ -107,9 +78,9 @@
                     <ui:Label text="인벤토리" display-tooltip-when-elided="true" name="btn-text" class="text" style="-unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
                     <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/InventoryBtn.png?fileID=21300000&amp;guid=d0aefb3f46be6cd478bdb5b18b67159e&amp;type=3#InventoryBtn&apos;);" />
                 </ui:VisualElement>
-                <ui:VisualElement name="setting-btn" class="btn" style="justify-content: space-between;">
-                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/SettingBtn.png?fileID=21300000&amp;guid=48944fcf0120dbf43943dfe04aa0900d&amp;type=3#SettingBtn&apos;);" />
-                    <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                <ui:VisualElement name="backpack-btn" class="btn" style="justify-content: space-between;">
+                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Menu%208%20Icon.png?fileID=21300000&amp;guid=346e3b2dceb1a6c458d4271b170b3bd5&amp;type=3#Free Flat Menu 8 Icon&apos;);" />
+                    <ui:Label text="배낭" display-tooltip-when-elided="true" name="btn-text" class="text" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

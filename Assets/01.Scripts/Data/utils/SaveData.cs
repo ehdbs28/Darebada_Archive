@@ -26,5 +26,5 @@ public abstract class SaveData
     }
 
     protected abstract void LoadData(string json);
-    protected abstract void Reset();
+    public abstract void Reset();
 }

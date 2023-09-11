@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class BoatDataUnit{
     public string Name;
-    public float Price;
+    public int Price;
     public BoatVisual Visual;
     public float MaxSpeed;
     public float ForwardAcceleration;
@@ -27,7 +27,7 @@ public class BoatDataTable : LoadableData
         DataTable.Add(new BoatDataUnit());
 
         DataTable[Size].Name = dataArr[0];
-        DataTable[Size].Price = float.Parse(dataArr[2]);
+        DataTable[Size].Price = int.Parse(dataArr[2]);
         
         DataTable[Size].MaxSpeed = float.Parse(dataArr[3]);
         DataTable[Size].ForwardAcceleration = float.Parse(dataArr[4]);
@@ -37,9 +37,11 @@ public class BoatDataTable : LoadableData
         DataTable[Size].RotationAcceleration = float.Parse(dataArr[8]);
         DataTable[Size].RotationDeceleration = float.Parse(dataArr[9]);
         DataTable[Size].MaxFuel = float.Parse(dataArr[10]);
-
+        
+        #if UNITY_EDITOR
         string path = $"Assets/06.SO/BoatVisual/{Size:D2}.{dataArr[1]}.asset";
         DataTable[Size].Visual = AssetDatabase.LoadAssetAtPath<BoatVisual>(path);
+        #endif
         
         ++Size;
     }

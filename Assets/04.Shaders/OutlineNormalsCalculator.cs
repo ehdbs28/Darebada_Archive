@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,12 @@ public class OutlineNormalsCalculator : MonoBehaviour {
         public Vector3 accumulatedNormal;
     }
 
-    private void Start() {
+    private void Start()
+    {
+        OutLineCalc();
+    }
+
+    public void OutLineCalc() {
         Mesh mesh = GetComponent<MeshFilter>().mesh;
 
         Vector3[] vertices = mesh.vertices;

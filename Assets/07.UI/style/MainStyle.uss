@@ -71,3 +71,24 @@
 
 .interaction-btn {
 }
+
+.notification {
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    translate: -50% 0;
+    height: 175px;
+    bottom: auto;
+    top: -25%;
+    background-color: rgba(0, 0, 0, 0.78);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition-property: top, opacity;
+    transition-duration: 0.5s, 0.5s;
+    opacity: 0;
+}
+
+.notification.on {
+    top: 0;
+    opacity: 1;
+}

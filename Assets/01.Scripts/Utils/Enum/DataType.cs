@@ -6,4 +6,5 @@ public enum DataType
     BiomeData,
     GameData,
     InventoryData,
+    ChallengeData,
 }

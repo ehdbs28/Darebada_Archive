@@ -62,6 +62,7 @@ public class SettingPopup : UIPopup
             if (_isBgsOff)
             {
                 _isBgsOff = false;
+                GameManager.Instance.GetManager<SoundManager>().Mute(SoundEnum.BGM, _isBgsOff);
                 _bgSoundBtn.RemoveFromClassList("disable");
                 _bgMuteBtn.AddToClassList("disable");
             }
@@ -72,6 +73,7 @@ public class SettingPopup : UIPopup
             if(_isBgsOff != true)
             {
                 _isBgsOff = true;
+                GameManager.Instance.GetManager<SoundManager>().Mute(SoundEnum.BGM, _isBgsOff);
                 _bgSoundBtn.AddToClassList("disable");
                 _bgMuteBtn.RemoveFromClassList("disable");
             }
@@ -82,6 +84,7 @@ public class SettingPopup : UIPopup
             if (_isSEOff)
             {
                 _isSEOff = false;
+                GameManager.Instance.GetManager<SoundManager>().Mute(SoundEnum.EFFECT, _isSEOff);
                 _effectSoundBtn.RemoveFromClassList("disable");
                 _effectMuteBtn.AddToClassList("disable");
             }
@@ -92,6 +95,7 @@ public class SettingPopup : UIPopup
             if(_isSEOff != true)
             {
                 _isSEOff = true;
+                GameManager.Instance.GetManager<SoundManager>().Mute(SoundEnum.EFFECT, _isSEOff);
                 _effectSoundBtn.AddToClassList("disable");
                 _effectMuteBtn.RemoveFromClassList("disable");
             }
@@ -102,6 +106,7 @@ public class SettingPopup : UIPopup
             if (_isNSOff)
             {
                 _isNSOff = false;
+                // GameManager.Instance.GetManager<SoundManager>().Mute(SoundEnum.EFFECT, _isSEOff);
                 _natureSoundBtn.RemoveFromClassList("disable");
                 _natureMuteBtn.AddToClassList("disable");
             }
@@ -112,6 +117,7 @@ public class SettingPopup : UIPopup
             if(_isNSOff != true)
             {
                 _isNSOff = true;
+                // GameManager.Instance.GetManager<SoundManager>().Mute(SoundEnum.EFFECT, _isSEOff);
                 _natureSoundBtn.AddToClassList("disable");
                 _natureMuteBtn.RemoveFromClassList("disable");
             }
@@ -119,12 +125,12 @@ public class SettingPopup : UIPopup
 
         _resetBtn.RegisterCallback<ClickEvent>(e =>
         {
-            Debug.Log("µ¥ÀÌÅÍ ÃÊ±âÈ­");
+            GameManager.Instance.GetManager<DataManager>().ResetData();
         });
 
         _creditBtn.RegisterCallback<ClickEvent>(e =>
         {
-            Debug.Log("Å©·¹µ÷ Ãâ·Â");
+            Debug.Log("Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½");
         });
     }
 

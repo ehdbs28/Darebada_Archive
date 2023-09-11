@@ -8,9 +8,9 @@
             <ui:Label text="바이옴 선택" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 50px; position: absolute; color: rgb(255, 255, 255);" />
         </ui:VisualElement>
         <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgb(222, 221, 216);">
-            <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden; padding-left: 3px; padding-right: 3px; padding-top: 3px; padding-bottom: 3px;">
-                <ui:VisualElement name="contents" style="flex-direction: row; width: 502%; height: 100%; right: 0;">
-                    <ui:VisualElement name="rich-ocene" class="biome lock" style="justify-content: center; background-image: url(&apos;project://database/Assets/05.Assets/UI/BiomeImage/0_RichOcene.png?fileID=2800000&amp;guid=c980bad6ee88d47eb908450ccc3aa082&amp;type=3#0_RichOcene&apos;);">
+            <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+                <ui:VisualElement name="contents" style="flex-direction: row; width: 500%; height: 100%; right: 0; justify-content: flex-start;">
+                    <ui:VisualElement name="rich-ocene" class="biome lock" style="justify-content: center; background-image: url(&apos;project://database/Assets/05.Assets/UI/BiomeImage/0_RichOcene.png?fileID=2800000&amp;guid=c980bad6ee88d47eb908450ccc3aa082&amp;type=3#0_RichOcene&apos;); align-items: center;">
                         <ui:VisualElement name="selected-mark" style="position: absolute; width: 50%; height: 10%; align-items: center; justify-content: center;">
                             <ui:Label text="현재위치" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px;" />
                         </ui:VisualElement>
@@ -27,7 +27,7 @@
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
-                            <ui:Label text="개쩌는 물고기를 잡으면. 풍요의 바다&#10;로 이동할 수 있습니다 ." display-tooltip-when-elided="true" name="text" class="text" style="font-size: 35px; -unity-text-align: upper-center;" />
+                            <ui:Label text="수면 아래 초승달을 클리어하면 &#10;풍요의 바다로 갈 수 있습니다. " display-tooltip-when-elided="true" name="text" class="text" style="font-size: 35px; -unity-text-align: upper-center; white-space: normal;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="south-ocene" class="biome lock" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/BiomeImage/1_SouthOcene.png?fileID=2800000&amp;guid=d369126ed29be4b0fa4f4b00dea936f5&amp;type=3#1_SouthOcene&apos;);">
@@ -44,27 +44,7 @@
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
-                            <ui:Label text="개쩌는 물고기를 잡으면. 풍요의 바다&#10;로 이동할 수 있습니다 ." display-tooltip-when-elided="true" name="text" class="text" style="font-size: 35px; -unity-text-align: upper-center;" />
-                        </ui:VisualElement>
-                        <ui:VisualElement name="selected-mark" style="position: absolute; width: 50%; height: 10%; align-items: center; justify-content: center;">
-                            <ui:Label text="현재위치" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px;" />
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="rainy-ocene" class="biome lock" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/BiomeImage/2_RainyOcene.png?fileID=2800000&amp;guid=f0b4fcbb4f501420cae29014074978d5&amp;type=3#2_RainyOcene&apos;);">
-                        <ui:VisualElement name="moveto-btn" style="position: absolute; width: 50%; height: 15%; align-items: center; justify-content: center;">
-                            <ui:VisualElement name="image" style="margin-bottom: 10px; width: 125px; height: 125px; background-image: url(&apos;project://database/Assets/05.Assets/UI/boatImage.png?fileID=21300000&amp;guid=2e54a477946f7104981b7751c7b9f272&amp;type=3#boatImage&apos;);" />
-                            <ui:Label text="이동하기" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px;" />
-                        </ui:VisualElement>
-                        <ui:VisualElement name="achivement-content" style="position: absolute; width: 100%; height: 50%; align-items: center; justify-content: center;">
-                            <ui:VisualElement name="fish-image" class="challenge-fish-element fish-element" style="width: 300px; height: 300px; margin-right: 0; margin-bottom: 50px;">
-                                <ui:VisualElement name="inner">
-                                    <ui:VisualElement name="fish-image" />
-                                    <ui:VisualElement name="star-container">
-                                        <ui:VisualElement name="star" style="width: 45px; height: 45px;" />
-                                    </ui:VisualElement>
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                            <ui:Label text="개쩌는 물고기를 잡으면. 풍요의 바다&#10;로 이동할 수 있습니다 ." display-tooltip-when-elided="true" name="text" class="text" style="font-size: 35px; -unity-text-align: upper-center;" />
+                            <ui:Label text="수면 아래 초승달을 클리어하면&#10;남쪽의 바다로 출항할 수 있습니다." display-tooltip-when-elided="true" name="text" class="text" style="font-size: 35px; -unity-text-align: upper-center; white-space: normal;" />
                         </ui:VisualElement>
                         <ui:VisualElement name="selected-mark" style="position: absolute; width: 50%; height: 10%; align-items: center; justify-content: center;">
                             <ui:Label text="현재위치" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px;" />
@@ -84,7 +64,27 @@
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
-                            <ui:Label text="개쩌는 물고기를 잡으면. 풍요의 바다&#10;로 이동할 수 있습니다 ." display-tooltip-when-elided="true" name="text" class="text" style="font-size: 35px; -unity-text-align: upper-center;" />
+                            <ui:Label text="작디작은 무지개를 클리어하면&#10;추위의 바다로 출항할 수 있습니다." display-tooltip-when-elided="true" name="text" class="text" style="font-size: 35px; -unity-text-align: upper-center;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="selected-mark" style="position: absolute; width: 50%; height: 10%; align-items: center; justify-content: center;">
+                            <ui:Label text="현재위치" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="rainy-ocene" class="biome lock" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/BiomeImage/2_RainyOcene.png?fileID=2800000&amp;guid=f0b4fcbb4f501420cae29014074978d5&amp;type=3#2_RainyOcene&apos;);">
+                        <ui:VisualElement name="moveto-btn" style="position: absolute; width: 50%; height: 15%; align-items: center; justify-content: center;">
+                            <ui:VisualElement name="image" style="margin-bottom: 10px; width: 125px; height: 125px; background-image: url(&apos;project://database/Assets/05.Assets/UI/boatImage.png?fileID=21300000&amp;guid=2e54a477946f7104981b7751c7b9f272&amp;type=3#boatImage&apos;);" />
+                            <ui:Label text="이동하기" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="achivement-content" style="position: absolute; width: 100%; height: 50%; align-items: center; justify-content: center;">
+                            <ui:VisualElement name="fish-image" class="challenge-fish-element fish-element" style="width: 300px; height: 300px; margin-right: 0; margin-bottom: 50px;">
+                                <ui:VisualElement name="inner">
+                                    <ui:VisualElement name="fish-image" />
+                                    <ui:VisualElement name="star-container">
+                                        <ui:VisualElement name="star" style="width: 45px; height: 45px;" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:Label text="바다에 뜬 연을 클리어하면&#10;비의 바다로 출항할 수 있습니다." display-tooltip-when-elided="true" name="text" class="text" style="font-size: 35px; -unity-text-align: upper-center; white-space: normal;" />
                         </ui:VisualElement>
                         <ui:VisualElement name="selected-mark" style="position: absolute; width: 50%; height: 10%; align-items: center; justify-content: center;">
                             <ui:Label text="현재위치" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px;" />
@@ -104,7 +104,7 @@
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
-                            <ui:Label text="개쩌는 물고기를 잡으면. 풍요의 바다&#10;로 이동할 수 있습니다 ." display-tooltip-when-elided="true" name="text" class="text" style="font-size: 35px; -unity-text-align: upper-center;" />
+                            <ui:Label text="행운의 상징을 클리어하면&#10;고요의 바다로 출항할 수 있습니다." display-tooltip-when-elided="true" name="text" class="text" style="font-size: 35px; -unity-text-align: upper-center;" />
                         </ui:VisualElement>
                         <ui:VisualElement name="selected-mark" style="position: absolute; width: 50%; height: 10%; align-items: center; justify-content: center;">
                             <ui:Label text="현재위치" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 40px;" />

@@ -33,9 +33,11 @@ public sealed class UIBoatBuyElement : UIInteractionElement
         _interactionBtn.RegisterCallback<ClickEvent>(e => {
             switch(_buyState){
                 case BoatBuyState.Sale:
-                    GameManager.Instance.GetManager<MoneyManager>().Payment(_dataTable.DataTable[_idx].Price);
-                    ChangeState(BoatBuyState.Bought);
-                    PlayParticle();
+                    GameManager.Instance.GetManager<MoneyManager>().Payment(_dataTable.DataTable[_idx].Price, () =>
+                    {
+                        ChangeState(BoatBuyState.Bought);
+                        PlayParticle();
+                    });
                     break;
                 case BoatBuyState.Bought:
                     BoatChange();
@@ -111,7 +113,7 @@ public sealed class UIBoatBuyElement : UIInteractionElement
             _root.RemoveFromClassList("unlock");
             _root.RemoveFromClassList("select");
 
-            _infoLabel.text = $"$ {_dataTable.DataTable[_idx].Price}";
+            _infoLabel.text = $"{_dataTable.DataTable[_idx].Price}";
         }
         else if(next == BoatBuyState.Equip){
             _root.AddToClassList("unlock");

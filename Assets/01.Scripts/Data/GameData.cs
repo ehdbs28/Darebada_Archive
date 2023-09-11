@@ -6,7 +6,7 @@ using Core;
 public class GameData : SaveData
 {
     public float GameTime = 0.0f;
-    public int TotalDay = 0;
+    public int TotalDay = 1;
     public GameDate GameDateTime = null;
     public int HoldingGold = 0;
     public SerializeList<LetterUnit> HoldingLetter = new SerializeList<LetterUnit>();
@@ -31,10 +31,10 @@ public class GameData : SaveData
         AquariumTutorial = data.AquariumTutorial;
     }
 
-    protected override void Reset()
+    public override void Reset()
     {
         GameTime = 0.0f;
-        TotalDay = 0;
+        TotalDay = 1;
         GameDateTime = new GameDate(0, 3, 0);
         HoldingGold = 0;
         HoldingLetter = new SerializeList<LetterUnit>();

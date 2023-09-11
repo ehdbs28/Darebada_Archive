@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74090b99fbe44cbfae795585793646f2, type: 3}
+  m_Name: 00.Tuna
+  m_EditorClassIdentifier: 
+  VisualMesh: {fileID: 6427212609357056810, guid: 6e6d43eb416924e74b95a2832a03abaf, type: 3}
+  Profile: {fileID: 1027711888, guid: 20adebb6fafba439cb9cb13255aa0c13, type: 3}
+  MainMat: {fileID: 2100000, guid: b93ed310dd227483aa02ea5582f1a96c, type: 2}

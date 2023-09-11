@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 
 public class ShopManager : IManager
@@ -20,14 +21,20 @@ public class ShopManager : IManager
     {
     }
 
-    public void PurchaseItem(int idx)
+    public bool PurchaseItem(int idx)
     {
         if (_itemStock[idx] == 0)
-            return;
+            return false;
 
-        _itemStock[idx]--;
-        ((FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData)).ItemVal[idx]++;
-        GameManager.Instance.GetManager<MoneyManager>().Payment(_dataTable.DataTable[idx].Price);
+        bool success = false;
+        GameManager.Instance.GetManager<MoneyManager>().Payment(_dataTable.DataTable[idx].Price, () =>
+        {
+            _itemStock[idx]--;
+            ((FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData)).ItemVal[idx]++;
+            success = true;
+        });
+
+        return success;
     }
 
     public bool IsInStock(int idx)
@@ -35,7 +42,7 @@ public class ShopManager : IManager
         return _itemStock[idx] > 0;
     }
 
-    private void ReStockHandle(int year = 0, int month = 0, int day = 0)
+    private void ReStockHandle(GameDate gameDate = null)
     {
         for (int i = 0; i < _dataTable.Size; i++)
         {

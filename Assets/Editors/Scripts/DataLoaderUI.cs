@@ -93,6 +93,9 @@ public class DataLoaderUI : EditorWindow
                         case DataLoadType.BoatData:
                             _loader.HandleData<BoatDataTable>(data, DataLoadType.BoatData, out lineNum);
                         break;
+                        case DataLoadType.ChallengeData:
+                            _loader.HandleData<ChallengeDataTable>(data, DataLoadType.ChallengeData, out lineNum);
+                            break;
                     }
                     AddLog($"{lineNum - 1}개의 데이터가 정상적으로 생성되었습니다.");
                 }

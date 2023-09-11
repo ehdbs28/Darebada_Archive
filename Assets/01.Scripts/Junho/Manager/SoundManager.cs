@@ -80,6 +80,11 @@ public class SoundManager : MonoBehaviour, IManager
         }
     }
 
+    public void Mute(SoundEnum type, bool mute)
+    {
+        _masterMixer.SetFloat(type.ToString().ToLower(), mute ? -80 : 0);
+    }
+
     public void ClickSound()
     {
         Play(uiClickSoundClip, SoundEnum.EFFECT);
@@ -105,7 +110,5 @@ public class SoundManager : MonoBehaviour, IManager
 
         if (!fadeIn)
             Play(source.clip, type);
-
-        yield break;
     }
 }

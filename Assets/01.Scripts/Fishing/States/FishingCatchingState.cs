@@ -36,7 +36,9 @@ public class FishingCatchingState : FishingState
 
     public override void EnterState()
     {
-        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouch;
+        ((FishingScreen)GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.Fishing))
+            .ReelUpBtnClickEvent += ReelUp;
+        
         GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Fishing);
 
         _start = _bobberTrm.position;
@@ -55,21 +57,27 @@ public class FishingCatchingState : FishingState
 
     public override void ExitState()
     {
+        ((FishingScreen)GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.Fishing))
+            .ReelUpBtnClickEvent -= ReelUp;
+        
         GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouch;
+    }
+
+    private void ReelUp()
+    {
+        percent -= _controller.DataSO.ThrowingSpeed * Time.deltaTime / _throwTime;
+        _bobberTrm.position = GetLerpPos();
+
+        if (percent <= 0)
+        {
+            _controller.ActionData.IsFishing = false;
+            _controller.ActionData.IsUnderWater = false;
+        }
     }
 
     private void OnTouch()
     {
-        if(_isReadyToCatch){
-            percent -= _controller.DataSO.ThrowingSpeed * Time.deltaTime / _throwTime;
-            _bobberTrm.position = GetLerpPos();
-
-            if(percent <= 0){
-                _controller.ActionData.IsFishing = false;
-                _controller.ActionData.IsUnderWater = false;
-            }
-        }
-        else{
+        if(!_isReadyToCatch){
             percent = 1f;
             _isReadyToCatch = true;
             _controller.Bait.StartCheck = true;

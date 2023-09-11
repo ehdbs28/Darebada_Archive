@@ -274,13 +274,6 @@
     justify-content: flex-start;
 }
 
-.fish-element #star {
-    width: 20px;
-    height: 20px;
-    background-image: url('project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Star%20Filled%20Icon.png?fileID=21300000&guid=0579b86233f138a43b5a174d669f362b&type=3#Free Flat Star Filled Icon');
-    margin-right: 3px;
-}
-
 .fish-element #check {
     position: absolute;
     bottom: 2px;
