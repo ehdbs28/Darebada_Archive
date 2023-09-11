@@ -1,0 +1,5 @@
+.AddButton {
+    background-color: rgba(0, 0, 0, 255);
+    height: 80%;
+    width: 45%;
+}
