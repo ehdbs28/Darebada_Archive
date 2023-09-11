@@ -18,6 +18,9 @@ public class LetterPopup : UIPopup
     
     [SerializeField]
     private VisualTreeAsset _requestLetterTemplete;
+    
+    [SerializeField]
+    private VisualTreeAsset _reportLetterTemplete;
 
     public override void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
     {
@@ -57,6 +60,10 @@ public class LetterPopup : UIPopup
             if (letterUnits[i].Type == LetterType.Request)
             {
                 _letters.Add(new UIRequestLetterUnit(_requestLetterTemplete, _letterPerent));
+            }
+            else if (letterUnits[i].Type == LetterType.Report)
+            {
+                _letters.Add(new UIReportLetterUnit(_reportLetterTemplete, _letterPerent, letterUnits[i].Value));
             }
             else
             {

@@ -8821,6 +8821,7 @@ MonoBehaviour:
   _treeAsset: {fileID: 9197481963319205126, guid: 4801d7ffb1bbe5d46be7ea18f68f07a0, type: 3}
   _letterTemplete: {fileID: 9197481963319205126, guid: 3f5d9b8f31c4f4e7cbacc96a6eae128f, type: 3}
   _requestLetterTemplete: {fileID: 9197481963319205126, guid: 2f3cc72bba5fa4606a01a027f9574b23, type: 3}
+  _reportLetterTemplete: {fileID: 9197481963319205126, guid: 8e65c005319c1429b828453a455215cd, type: 3}
 --- !u!4 &9157046241256461561
 Transform:
   m_ObjectHideFlags: 0

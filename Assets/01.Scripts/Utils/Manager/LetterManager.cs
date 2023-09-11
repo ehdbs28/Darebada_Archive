@@ -66,11 +66,14 @@ public class LetterManager : MonoBehaviour, IManager
     
     private void SendReportLetter(GameDate gameDate)
     {
-        int entranceRevenue = 0;
-        int etcRevenue = 0;
-        int managerSalary = 0;
-        int employeeSalary = 0;
-        int manageCost = 0;
+        var aquaManager = GameManager.Instance.GetManager<AquariumNumericalManager>();
+        
+        int entranceRevenue = aquaManager.CustomerCnt * aquaManager.EntranceFee;
+        int etcRevenue = aquaManager.shopRevenue;
+        int managerSalary = aquaManager.shopRevenue / 10 * 2;
+        int employeeSalary = aquaManager.employeeCnt * 100;
+        int manageCost = aquaManager.cleanServiceAmount * 500;
+
         AddReportLetter(entranceRevenue, etcRevenue, managerSalary, employeeSalary, manageCost, gameDate);
         
         GameManager.Instance.GetManager<UIManager>().Notification("새로운 편지가 도착했습니다.", 1.5f);
@@ -106,15 +109,28 @@ public class LetterManager : MonoBehaviour, IManager
     
     public void AddReportLetter(int entranceRevenue, int etcRevenue, int managerSalary, int employeeSalary, int manageCost, GameDate date)
     {
-        // 아쿠아리움 만들고 나서 다시 해야함
-        // GameDate n_date = new GameDate(date.Year,date.Month,date.Day);
-        // string s_date = $"{date.Month}M {date.Day}D";
-        // string title = date + "";//InsertTitle
-        // string desc = $"{entranceRevenue}\n{etcRevenue}\n\n{managerSalary}\n{employeeSalary}\n{manageCost}";//InsertDesc
-        // string from = "AquariumManager";
-        // LetterUnit letter = new LetterUnit();
-        // letter.Setup(LetterType.Thanks, title, desc, n_date, from);
-        // AddLetter(letter);
+        int total = entranceRevenue + etcRevenue + managerSalary + employeeSalary + manageCost;
+        
+        string title = $"{date.Month}월 {date.Day}일 명세서";
+        
+        string desc = $"입장료 수익:\n" +
+                      $"부가구역 수:\n\n" +
+                      $"관리인 임금:\n" +
+                      $"직원 임금:\n" +
+                      $"아쿠아리움 관리비:\n\n" +
+                      $"총 수익:";
+        
+        string value = $"+{entranceRevenue}\n" +
+                       $"+{etcRevenue}\n\n" +
+                       $"-{managerSalary}\n" +
+                       $"-{employeeSalary}\n" +
+                       $"-{manageCost}\n\n" +
+                       $"{(total >= 0 ? '+' : '-')}{total}";
+        
+        string from = "아쿠아리움 관리인";
+        LetterUnit letter = new LetterUnit();
+        letter.Setup(LetterType.Report, title, desc, date, from, value);
+        AddLetter(letter);
     }
 
     public void RemoveLetter(LetterUnit unit)

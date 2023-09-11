@@ -113,7 +113,6 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
         CleanScore = (int)Mathf.Clamp(CleanScore - Reputation * 3, 0, 100);
         int dispointAmount = _promotionPoint;
         if (PromotionPoint > 0) PromotionPoint -= dispointAmount;
-        //GameManager.Instance.GetManager<LetterManager>().SendReportLetter(customerCnt * EntranceFee, shopRevenue, shopRevenue /10 * 2, employeeCnt * 100, cleanServiceAmount * 500, GameManager.Instance.GetManager<TimeManager>().DateTime);
         GameManager.Instance.GetManager<MoneyManager>().AddMoney(CustomerCnt * EntranceFee + shopRevenue - employeeCnt * 100 - cleanServiceAmount - shopRevenue / 10 * 2);
     }
 }
