@@ -36,11 +36,13 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
         get { return _promotionPoint; }
         set { _promotionPoint = value; }
     }
-    [SerializeField] private int _entrancefee;
     public int EntranceFee
     {
-        get { return _entrancefee; }
-        set { _entrancefee = value; }
+        get
+        {
+            int star = (int)_reputation / 20;
+            return star * 15;
+        }
     }
     [SerializeField] private float _entrancePercent;
     public float EntrancePercent
@@ -60,11 +62,21 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
         get { return _artScore; }
         set { _artScore = value; }
     }
+
+    public int CustomerCnt
+    {
+        get
+        {
+            int star = (int)_reputation / 20;
+            return star * 10;
+        }    
+    }
+    
     public int decoCnt = 0;
     public int fishbowlCnt = 0;
     public int shopCnt = 0;
+    public int roadCnt = 0;
 
-    public int customerCnt;
     public int shopRevenue;
     public int employeeCnt;
     public int cleanServiceAmount;
@@ -102,6 +114,6 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
         int dispointAmount = _promotionPoint;
         if (PromotionPoint > 0) PromotionPoint -= dispointAmount;
         //GameManager.Instance.GetManager<LetterManager>().SendReportLetter(customerCnt * EntranceFee, shopRevenue, shopRevenue /10 * 2, employeeCnt * 100, cleanServiceAmount * 500, GameManager.Instance.GetManager<TimeManager>().DateTime);
-        GameManager.Instance.GetManager<MoneyManager>().AddMoney(customerCnt * EntranceFee + shopRevenue - employeeCnt * 100 - cleanServiceAmount - shopRevenue / 10 * 2);
+        GameManager.Instance.GetManager<MoneyManager>().AddMoney(CustomerCnt * EntranceFee + shopRevenue - employeeCnt * 100 - cleanServiceAmount - shopRevenue / 10 * 2);
     }
 }
