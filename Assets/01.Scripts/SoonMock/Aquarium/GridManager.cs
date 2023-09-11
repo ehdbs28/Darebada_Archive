@@ -9,11 +9,6 @@ public class GridManager : MonoBehaviour
     public float width;
     public float height;
     [SerializeField] float _distance;
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.D)) ShowGrid();
-        
-    }
     public void HideGrid()
     {
         for(int i = 0; i <  grids.Count; i++)
@@ -24,7 +19,7 @@ public class GridManager : MonoBehaviour
     public void CreateGrids()
     {
         //Vector3 floorSize = GameManager.Instance.GetManager<AquariumManager>().FloorSize;
-        Vector3 floorSize = FindObjectOfType<AquariumManager>().FloorSize;
+        Vector3 floorSize = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize;
 
         width = floorSize.x * 4;
         height = floorSize.z * 4;
@@ -41,10 +36,8 @@ public class GridManager : MonoBehaviour
     {
         //Vector3 floorSize = GameManager.Instance.GetManager<AquariumManager>().FloorSize;
         CreateGrids();
-        Vector3 floorSize = FindObjectOfType<AquariumManager>().FloorSize;
-        Debug.Log(width);
-        Debug.Log(height);
-        for(int i = 0; i < width; i++)
+        Vector3 floorSize = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize;
+        for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < height; j++)
             {

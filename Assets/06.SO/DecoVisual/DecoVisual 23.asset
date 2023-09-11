@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81caa226b21e2cc498a9f5b2c763b655, type: 3}
+  m_Name: DecoVisual 23
+  m_EditorClassIdentifier: 
+  Name: Starfish00
+  mesh: {fileID: 4300000, guid: c2b7e26c01b98fb42a81539529f80214, type: 3}
+  mainMat: {fileID: 2100000, guid: c53ab002e1cd24a27a02b1967dd615da, type: 2}

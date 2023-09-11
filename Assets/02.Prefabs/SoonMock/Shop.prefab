@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7093342818365394691}
   - component: {fileID: 5013749932455902153}
   - component: {fileID: 5932928864050922610}
-  - component: {fileID: 5932928864050922611}
+  - component: {fileID: 1616837853802868855}
   m_Layer: 6
   m_Name: Shop
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6815237680566344220}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 17.321136, y: 1.6526532, z: 3.2936907}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,9 +96,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.311186, y: 8.8856, z: 9.544439}
+  m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 4.425178, z: 0}
---- !u!114 &5932928864050922611
+--- !u!114 &1616837853802868855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,14 +107,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 6815237680566344220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cb82970667a54e4797d86123c3d02c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 743ca448eb2fe984c89bec44edfb5e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isCollision: 0
   _layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   _collider: {fileID: 0}
-  cost: 0
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 2097152
+  employee: 0
   level: 1
-  amount: 0

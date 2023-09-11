@@ -30,7 +30,7 @@ public class GameScene : PoolableMono
 
         GameManager.Instance.GetManager<UIManager>().ShowPanel(_initScreenType);
         
-        OnEnterScene?.Invoke();
+        OnEnterScene?.Invoke(); 
     }
     
     public void ExitScene(){

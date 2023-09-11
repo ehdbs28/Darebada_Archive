@@ -106,6 +106,7 @@ public class Fishbowl :  Facility
 
         }
     }
+
     public void RemoveFish(int idx)
     {
         AquariumBoids selectedBoid =  fishs[idx].myBoids;
@@ -117,7 +118,7 @@ public class Fishbowl :  Facility
         
     }
     
-    public Fishbowl Upgrade()
+    public void Upgrade()
     {
         Fishbowl newOne = Instantiate(AquariumManager.Instance.fishBowls[level], transform.position, Quaternion.identity).GetComponent<Fishbowl>();
         newOne.boids = boids;
@@ -138,8 +139,11 @@ public class Fishbowl :  Facility
             decoController.gameObject.transform.SetParent(newOne.transform);
 
         }
-        Destroy(gameObject);
-        return newOne;
+        Destroy(gameObject); 
+        AquariumManager.Instance.facilityObj = this;
+        AquariumManager.Instance.state = AquariumManager.STATE.BUILD;
+        FindObjectOfType<GridManager>().ShowGrid();
+
 
     }
     private void Awake()
