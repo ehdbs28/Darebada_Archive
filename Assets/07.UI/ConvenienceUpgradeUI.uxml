@@ -1,11 +1,55 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="Convenience-container" style="width: 85%; height: 75%; position: absolute; left: 7.5%; top: 15%;">
+    <Style src="project://database/Assets/07.UI/ConvenienceUpgradeUI.uss?fileID=7433441132597879392&amp;guid=684d48aa7fb738740a71ad62bbd3af47&amp;type=3#ConvenienceUpgradeUI" />
+    <ui:VisualElement name="Convenience-container" style="width: 85%; height: 75%; position: absolute; left: 7.5%; top: 12.5%;">
         <ui:VisualElement name="header" style="flex-basis: 5.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0; background-color: rgba(0, 151, 217, 0.96); border-top-left-radius: 20px; border-top-right-radius: 20px;">
             <ui:VisualElement name="exit-btn" style="width: 45px; height: 45px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); position: absolute; right: 30px;" />
             <ui:Label text="편의시설 강화" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 50px; position: absolute; color: rgb(255, 255, 255);" />
         </ui:VisualElement>
-        <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgb(222, 221, 216); padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px;">
-            <ui:VisualElement name="content" style="background-color: rgba(255, 255, 255, 0.78); flex-grow: 1;" />
+        <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgb(222, 221, 216); padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+            <ui:VisualElement name="content" style="background-color: rgba(255, 255, 255, 0.78); flex-grow: 1; padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px; justify-content: space-between;">
+                <ui:VisualElement name="personnel-container" style="width: 100%; height: 50%;">
+                    <ui:VisualElement name="personnel-header" style="width: 100%; height: 15%; background-color: rgba(154, 154, 154, 0.96); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                        <ui:Label text="직원 추가" display-tooltip-when-elided="true" name="header-text" style="width: 100%; height: 100%; color: rgb(255, 255, 255); font-size: 40px; -unity-font-style: bold; -unity-text-align: middle-center;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="personnel-container" style="flex-direction: column; width: 100%; height: 85%; align-items: center;">
+                        <ui:VisualElement name="personnel-info" style="flex-grow: 1; justify-content: center; width: 100%;">
+                            <ui:VisualElement name="image-container" style="flex-basis: 70%; padding-left: 33%; padding-right: 33%; padding-top: 2%; padding-bottom: 2%;">
+                                <ui:VisualElement name="image-bg" style="width: 100%; height: 100%; background-color: rgb(255, 167, 76); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center;">
+                                    <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20People%203%20Icon.png?fileID=2800000&amp;guid=8cac3f9b9c687694f93a46e1b6aaf3aa&amp;type=3#Free Flat People 3 Icon&apos;); width: 90%; height: 90%;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:Label text="대충 이런저런 내용이 들어가야함" display-tooltip-when-elided="true" name="personnel-text" style="flex-basis: 30%; color: rgb(111, 111, 111); -unity-text-align: middle-center; font-size: 30px;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="personnel-btn" style="width: 100%; justify-content: center; align-items: center; height: 20%;">
+                            <ui:VisualElement name="image" style="background-color: rgb(99, 99, 99); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; width: 100%; height: 90%; flex-direction: row; justify-content: center; align-items: center;">
+                                <ui:VisualElement name="money-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=2800000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); width: 40px; height: 40px; margin-right: 10px;" />
+                                <ui:Label text="100000$" display-tooltip-when-elided="true" name="personnel-text" style="-unity-font-style: normal; font-size: 30px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="personnel-container" style="width: 100%; height: 50%;">
+                    <ui:VisualElement name="personnel-header" style="width: 100%; height: 15%; background-color: rgba(154, 154, 154, 0.96); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                        <ui:Label text="직원 추가" display-tooltip-when-elided="true" name="header-text" style="width: 100%; height: 100%; color: rgb(255, 255, 255); font-size: 40px; -unity-font-style: bold; -unity-text-align: middle-center;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="personnel-container" style="flex-direction: column; width: 100%; height: 85%; align-items: center;">
+                        <ui:VisualElement name="personnel-info" style="flex-grow: 1; justify-content: center; width: 100%;">
+                            <ui:VisualElement name="image-container" style="flex-basis: 70%; padding-left: 33%; padding-right: 33%; padding-top: 2%; padding-bottom: 2%;">
+                                <ui:VisualElement name="image-bg" style="width: 100%; height: 100%; background-color: rgb(255, 167, 76); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center;">
+                                    <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20People%203%20Icon.png?fileID=2800000&amp;guid=8cac3f9b9c687694f93a46e1b6aaf3aa&amp;type=3#Free Flat People 3 Icon&apos;); width: 90%; height: 90%;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:Label text="대충 이런저런 내용이 들어가야함" display-tooltip-when-elided="true" name="personnel-text" style="flex-basis: 30%; color: rgb(111, 111, 111); -unity-text-align: middle-center; font-size: 30px;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="personnel-btn" style="width: 100%; justify-content: center; align-items: center; height: 20%;">
+                            <ui:VisualElement name="image" style="background-color: rgb(99, 99, 99); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; width: 100%; height: 90%; flex-direction: row; justify-content: center; align-items: center;">
+                                <ui:VisualElement name="money-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=2800000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); width: 40px; height: 40px; margin-right: 10px;" />
+                                <ui:Label text="100000$" display-tooltip-when-elided="true" name="personnel-text" style="-unity-font-style: normal; font-size: 30px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="footer" />
     </ui:VisualElement>
