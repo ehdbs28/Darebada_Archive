@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Rendering.Universal;
 using UnityEngine;
@@ -139,10 +140,15 @@ public class AquariumManager : MonoBehaviour
     {
 
         _build = GetComponent<BuildFacility>();
+        Define.MainCam.clearFlags = CameraClearFlags.SolidColor;
+        Define.MainCam.backgroundColor = Color.black;
         ChangeSize(0, 0);
         ResetManager();
     }
-
+    public void ReleaseManager()
+    {
+        Define.MainCam.clearFlags = CameraClearFlags.Skybox;
+    }
     public void SetPos()
     {
         if(state==STATE.BUILD)
