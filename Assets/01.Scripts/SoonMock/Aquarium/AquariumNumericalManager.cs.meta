@@ -3,7 +3,9 @@ guid: 40731534b9da85d40b40aadb12b1442e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fishBowlMat: {fileID: 2100000, guid: 8e3b2afd2ffa03c43b53cbae6268d4eb, type: 2}
+  - mossMat: {fileID: 2100000, guid: 2b6d1c6a3a628cf4b86395686e30b43b, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

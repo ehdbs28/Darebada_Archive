@@ -28,7 +28,7 @@ public class GameSceneManager : IManager
         if (next != GameSceneType.Ocean)
         {
             if (next == GameSceneType.Loading) return;
-
+            //Debug.Log(_activeScene);
             _bgmClip = _activeScene.GetComponent<AudioSource>().clip;
             GameManager.Instance.GetManager<SoundManager>().Play(_bgmClip, SoundEnum.BGM);
         }
