@@ -28,7 +28,8 @@ public class DataLoader
         lineNum = 1;
 
         for(lineNum = 1; lineNum < lines.Length; lineNum++){
-            string[] dataArr = lines[lineNum].Split("\t");
+            string[] dataArr = lines[lineNum].Split("\r");
+            dataArr = dataArr[0].Split("\t");
             switch(type){
                 case DataLoadType.FishData:
                     AddData<FishDataTable>(type, asset as FishDataTable, dataArr, lines[lineNum], assetPath);
@@ -41,6 +42,9 @@ public class DataLoader
                     break;
                 case DataLoadType.BoatData:
                     AddData<BoatDataTable>(type, asset as BoatDataTable, dataArr, lines[lineNum], assetPath);
+                    break;
+                case DataLoadType.ChallengeData:
+                    AddData<ChallengeDataTable>(type, asset as ChallengeDataTable, dataArr, lines[lineNum], assetPath);
                     break;
             }
         }

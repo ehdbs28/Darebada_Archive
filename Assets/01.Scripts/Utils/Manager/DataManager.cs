@@ -36,6 +36,7 @@ public class DataManager : IManager
         _dataUnits.Add(DataType.BiomeData, new BiomeData(DATA_PATH, "BiomeData"));
         _dataUnits.Add(DataType.GameData, new GameData(DATA_PATH, "GameData"));
         _dataUnits.Add(DataType.InventoryData, new InventoryData(DATA_PATH, "InventoryData"));
+        _dataUnits.Add(DataType.ChallengeData, new ChallengeData(DATA_PATH, "ChallengeData"));
 
         LoadData();
         SaveDataAll();

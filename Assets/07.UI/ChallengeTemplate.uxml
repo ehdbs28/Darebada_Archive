@@ -1,20 +1,24 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/07.UI/ChallengeTemplate.uss?fileID=7433441132597879392&amp;guid=d501f6c441e5d43449c85a325f341008&amp;type=3#ChallengeTemplate" />
-    <ui:VisualElement name="challenge-template" class="challenge-unit" style="background-color: rgb(222, 221, 216); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; justify-content: space-around;">
-        <ui:VisualElement name="title-container" style="height: 20%; -unity-text-align: middle-left; margin-bottom: 2%; flex-shrink: 0;">
-            <ui:Label text="도전 과제 1" display-tooltip-when-elided="true" name="title-text" style="width: 100%; height: 100%; color: rgb(111, 111, 111); font-size: 50px; -unity-font-style: bold;" />
-        </ui:VisualElement>
-        <ui:VisualElement name="contents" style="height: 40%; justify-content: flex-start; flex-shrink: 0;">
-            <ui:VisualElement name="current-state" style="flex-direction: row; justify-content: space-between; margin-bottom: 2%;">
-                <ui:Label text="개쩌는 물고기를 10마리 포획" display-tooltip-when-elided="true" name="info-text" style="font-size: 25px; color: rgb(111, 111, 111); -unity-font-style: bold;" />
-                <ui:Label text="4/10마리" display-tooltip-when-elided="true" name="current-state-text" style="color: rgb(111, 111, 111); font-size: 25px; -unity-font-style: bold;" />
+    <ui:VisualElement name="template-container" class="challenge-unit" style="flex-direction: row; background-color: rgb(222, 221, 216); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; justify-content: space-around; padding-left: 1.5%; margin-bottom: 20px; height: 110%;">
+        <ui:VisualElement name="challenge-template" style="background-color: rgb(222, 221, 216); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; justify-content: space-around; flex-grow: 1;">
+            <ui:VisualElement name="title-container" style="height: 20%; -unity-text-align: middle-left; margin-bottom: 2%; flex-shrink: 0;">
+                <ui:Label text="도전 과제 1" display-tooltip-when-elided="true" name="title-text" style="width: 100%; height: 100%; color: rgb(111, 111, 111); font-size: 50px; -unity-font-style: bold;" />
             </ui:VisualElement>
-            <ui:VisualElement name="gauge" style="background-color: rgb(154, 154, 154); height: 50%;">
-                <ui:VisualElement name="gauge-value" style="background-color: rgb(255, 167, 76); height: 100%; width: 40%;" />
+            <ui:VisualElement name="contents" style="height: 40%; justify-content: flex-start; flex-shrink: 0;">
+                <ui:VisualElement name="current-state" style="flex-direction: row; justify-content: space-between; margin-bottom: 2%;">
+                    <ui:Label text="개쩌는 물고기를 10마리 포획" display-tooltip-when-elided="true" name="info-text" style="font-size: 25px; color: rgb(111, 111, 111); -unity-font-style: bold;" />
+                    <ui:Label text="4/10마리" display-tooltip-when-elided="true" name="current-state-text" style="color: rgb(111, 111, 111); font-size: 25px; -unity-font-style: bold;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="gauge" style="background-color: rgb(154, 154, 154); height: 50%;">
+                    <ui:VisualElement name="gauge-value" style="background-color: rgb(255, 167, 76); height: 100%; width: 40%;" />
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="clear-panel" style="position: absolute; left: 32.5%; top: 35%; width: 40%; height: 50%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; background-color: rgba(0, 0, 0, 0.59);">
-            <ui:Label text="Clear!" display-tooltip-when-elided="true" name="clear-text" style="-unity-text-align: middle-center; width: 100%; height: 100%; font-size: 60px;" />
+        <ui:VisualElement name="clear-check" style="width: 7%; height: 100%; justify-content: center; align-items: center; margin-left: 2%;">
+            <ui:VisualElement name="check-box" style="width: 50px; height: 50px; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
+            <ui:VisualElement name="check" style="position: absolute; width: 80px; height: 80px; background-image: url(&apos;project://database/Assets/05.Assets/UI/checkicon.png?fileID=21300000&amp;guid=dc1dd9baefcf1be43b1b5cb7c29c140d&amp;type=3#checkicon&apos;); bottom: 30%; opacity: 0;" />
         </ui:VisualElement>
+        <ui:VisualElement name="touch-box" style="position: absolute; width: 100%; height: 100%; left: 2%; top: 13%;" />
     </ui:VisualElement>
 </ui:UXML>

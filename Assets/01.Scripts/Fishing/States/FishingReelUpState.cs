@@ -94,6 +94,8 @@ public class FishingReelUpState : FishingState
 
                 //((CatchedFishCheckingPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.CatchedFishChecking)).dataUnit = dataUnit;
                 //GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.CatchedFishChecking);
+
+                GameManager.Instance.GetManager<ChallengeManager>().Renewal(ChallengeType.FishCount, 1);
             }
         }
     }

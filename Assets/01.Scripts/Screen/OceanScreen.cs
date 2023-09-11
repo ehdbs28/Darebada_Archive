@@ -15,6 +15,8 @@ public class OceanScreen : UIScreen
     private VisualElement _dictionaryBtn;
     private VisualElement _inventoryBtn;
 
+    private VisualElement _challengeBtn;
+
     private UICompass _compass;
     private UIBoatFuel _boatDurability;
     private BoatControllerUI _controllerUI;
@@ -70,9 +72,15 @@ public class OceanScreen : UIScreen
         });
 
         _inventoryBtn.RegisterCallback<ClickEvent>(e => {
-            GameManager.Instance.GetManager<SoundManager>().ClickSound();
-            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Inventory);
+            //GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            //GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Inventory);
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Challenge);
         });
+
+        //_challengeBtn.RegisterCallback<ClickEvent>(e =>
+        //{
+        //    GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Challenge);
+        //});
     }
 
     public override void RemoveEvent()
@@ -92,6 +100,8 @@ public class OceanScreen : UIScreen
         _letterBtn = _root.Q<VisualElement>("letter-btn");
         _dictionaryBtn = _root.Q<VisualElement>("dictionary-btn");
         _inventoryBtn = _root.Q<VisualElement>("inventory-btn");
+
+        _challengeBtn = _root.Q<VisualElement>("complete-box");
 
         VisualElement compassRoot = _root.Q<VisualElement>("compass");
         _compass = new UICompass(compassRoot);

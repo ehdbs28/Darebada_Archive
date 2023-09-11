@@ -26,6 +26,7 @@ public class MoneyManager : IManager
     {
         _gameData.HoldingGold += value;
         OnGoldChange?.Invoke(_gameData.HoldingGold);
+        GameManager.Instance.GetManager<ChallengeManager>().Renewal(ChallengeType.Revenue, value);
     }
 
     public void Payment(int value, Action CallBack)
@@ -35,6 +36,7 @@ public class MoneyManager : IManager
             _gameData.HoldingGold -= value;
             CallBack?.Invoke();
             OnGoldChange?.Invoke(_gameData.HoldingGold);
+            GameManager.Instance.GetManager<ChallengeManager>().Renewal(ChallengeType.AmountSpent, value);
         }
         else
         {

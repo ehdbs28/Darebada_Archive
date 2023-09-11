@@ -8014,6 +8014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: 1cf757d173f399d499d6374c605716cb, type: 3}
+  _invenUnitTemplete: {fileID: 0}
 --- !u!114 &9157046241256461541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8040,6 +8041,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 9197481963319205126, guid: cd28bd4ff336fea4f9aa1142fe04709b, type: 3}
+  _dictionatyUnit: {fileID: 0}
+  _fishRarityStar: {fileID: 0}
 --- !u!114 &9157046241256461543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8107,6 +8110,7 @@ GameObject:
   - component: {fileID: 9157046241256461567}
   - component: {fileID: 9157046241256461568}
   - component: {fileID: 9157046241256461569}
+  - component: {fileID: 9157046241256461570}
   m_Layer: 0
   m_Name: Popups
   m_TagString: Untagged
@@ -8224,6 +8228,20 @@ MonoBehaviour:
     SpawnPercent: 0
     Favorites: []
     Description: 
+--- !u!114 &9157046241256461570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157046241256461562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe1b67f4a6fcb44ea57a512890b4e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _treeAsset: {fileID: 9197481963319205126, guid: 7807cc6782b36224e813dec992483431, type: 3}
+  _unitTemplate: {fileID: 9197481963319205126, guid: 7eaebe1311bf24c4b90ec03c81bd2b17, type: 3}
 --- !u!1001 &9157046241337288318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8811,6 +8829,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5787b17bd3b9942ed86210b49d3a170e, type: 2}
   - {fileID: 11400000, guid: 8b15ce9c6b3a74eb59bffa7bc014ade2, type: 2}
   - {fileID: 11400000, guid: 0b4f45c10a3234f8abd667d34aa0db50, type: 2}
+  - {fileID: 11400000, guid: d35a45b10e924494893b61c02684df17, type: 2}
 --- !u!114 &9157046241563192785
 MonoBehaviour:
   m_ObjectHideFlags: 0

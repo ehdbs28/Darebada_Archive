@@ -1,7 +1,6 @@
 .challenge-unit {
     height: 100%;
     margin-bottom: 10px;
-    padding-left: 2%;
     padding-right: 2%;
     padding-top: 2%;
     padding-bottom: 2%;
