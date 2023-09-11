@@ -26,6 +26,65 @@
             </ui:VisualElement>
             <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
                 <ui:VisualElement name="contents" style="flex-direction: row; width: 400%; height: 100%; right: 0; min-width: auto; min-height: auto;">
+                    <ui:VisualElement name="addfish-content" style="width: 50%; height: 100%; min-width: auto; min-height: auto; align-items: center;">
+                        <ui:VisualElement name="InventoryUI" style="flex-basis: 100%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; background-color: rgba(255, 255, 255, 0.78); align-items: stretch; width: 100%;">
+                            <ui:VisualElement name="inventory" style="width: 100%; translate: 0 0; transform-origin: top; height: 100%; margin-bottom: 0; align-items: stretch;">
+                                <ui:VisualElement name="units" style="height: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px; background-color: rgba(255, 255, 255, 0.78); width: 100%; position: relative; flex-direction: row; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; justify-content: center; align-items: center; flex-wrap: wrap; padding-left: 2%; padding-right: 2%; padding-top: 2.5%; padding-bottom: 2%;">
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 120px; width: 120px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="addfish-btn" style="flex-basis: 10%; background-color: rgba(78, 209, 1, 0.78); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 40px; align-items: center; justify-content: center; width: 75%;">
+                            <ui:Label text="추가하기" display-tooltip-when-elided="true" name="addfish-text" style="-unity-font-definition: url(&apos;project://database/Assets/08.Fonts/ChosunSg%20SDF.asset?fileID=11400000&amp;guid=4760111a33bf49246b70c208541fdf41&amp;type=2#ChosunSg SDF&apos;); color: rgb(255, 255, 255); font-size: 60px;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
                     <ui:VisualElement name="fishbowl-content" style="width: 50%; height: 100%;">
                         <ui:VisualElement name="fishbowlState-name" style="height: 100px; padding-bottom: 20px; width: 100%;">
                             <ui:VisualElement name="name-box" style="width: 100%; height: 100%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; background-color: rgb(154, 154, 154);">
@@ -36,65 +95,6 @@
                             <ui:VisualElement name="upgrade-btn" style="flex-direction: column; background-color: rgba(78, 209, 1, 0.78); flex-basis: 20%; width: 50%; margin-bottom: 40px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center;">
                                 <ui:Label text="비용 : n&#10;업그레이드" display-tooltip-when-elided="true" name="upgrade-text" style="-unity-font-definition: url(&apos;project://database/Assets/08.Fonts/ChosunSg%20SDF.asset?fileID=11400000&amp;guid=4760111a33bf49246b70c208541fdf41&amp;type=2#ChosunSg SDF&apos;); color: rgb(255, 255, 255); font-size: 50px; -unity-text-align: middle-center;" />
                             </ui:VisualElement>
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="addfish-content" style="width: 50%; height: 100%; min-width: auto; min-height: auto;">
-                        <ui:VisualElement name="InventoryUI" style="flex-basis: 75%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; background-color: rgba(255, 255, 255, 0.78); align-items: stretch;">
-                            <ui:VisualElement name="inventory" style="width: 100%; translate: 0 0; transform-origin: top; height: 100%; margin-bottom: 0; align-items: stretch;">
-                                <ui:VisualElement name="units" style="height: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px; background-color: rgba(255, 255, 255, 0.78); width: 100%; position: relative; flex-direction: row; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; justify-content: center; align-items: center; flex-wrap: wrap; padding-left: 2%; padding-right: 2%; padding-top: 2.5%; padding-bottom: 2%;">
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                    <ui:VisualElement name="inventory-unit" class="shop-unit shop-inventory-unit" style="height: 95px; width: 120px;" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="addfish-btn" style="flex-basis: 20%; background-color: rgba(78, 209, 1, 0.78); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-top: 40px; align-items: center; justify-content: center;">
-                            <ui:Label text="추가하기" display-tooltip-when-elided="true" name="addfish-text" style="-unity-font-definition: url(&apos;project://database/Assets/08.Fonts/ChosunSg%20SDF.asset?fileID=11400000&amp;guid=4760111a33bf49246b70c208541fdf41&amp;type=2#ChosunSg SDF&apos;); color: rgb(255, 255, 255); font-size: 80px;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="deco-content" style="width: 50%; height: 100%; min-width: auto; min-height: auto;">
