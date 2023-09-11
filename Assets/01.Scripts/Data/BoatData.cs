@@ -22,7 +22,7 @@ public class BoatData : SaveData
         Fuel = data.Fuel;
     }
 
-    protected override void Reset()
+    public override void Reset()
     {
         CurrentBoat = null;
         BoatPurchaseDetail = new int[5] { 

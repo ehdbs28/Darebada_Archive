@@ -43,7 +43,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 50, y: 10, z: 50}
+  m_Size: {x: 500, y: 10, z: 500}
   m_Center: {x: 0, y: -25, z: 0}
 --- !u!1 &1053838561737180241
 GameObject:
@@ -241,7 +241,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 50, y: 10, z: 50}
+  m_Size: {x: 500, y: 10, z: 500}
   m_Center: {x: 0, y: -20, z: 0}
 --- !u!1 &1574587758065708956
 GameObject:
@@ -456,7 +456,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 50, y: 10, z: 50}
+  m_Size: {x: 500, y: 10, z: 500}
   m_Center: {x: 0, y: -5, z: 0}
 --- !u!1 &2469838622008235703
 GameObject:
@@ -1398,7 +1398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb2cdb6f1142544283672765db14ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 1660670363764953929}
+  _target: {fileID: 3485983324164895182}
 --- !u!114 &5031617503960171387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1762,7 +1762,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 50, y: 10, z: 50}
+  m_Size: {x: 500, y: 10, z: 500}
   m_Center: {x: 0, y: -10, z: 0}
 --- !u!1 &6341304952135378512
 GameObject:
@@ -1996,7 +1996,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 50, y: 10, z: 50}
+  m_Size: {x: 500, y: 10, z: 500}
   m_Center: {x: 0, y: -15, z: 0}
 --- !u!1 &9218953130305332162
 GameObject:

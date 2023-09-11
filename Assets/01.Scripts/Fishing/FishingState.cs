@@ -22,8 +22,10 @@ public abstract class FishingState : MonoBehaviour, IState
 
     public virtual void UpdateState()
     {
-        foreach(var t in _transitions){
-            if(t.CheckDecision()){
+        foreach (var t in _transitions)
+        {
+            if (t.CheckDecision())
+            {
                 _controller.ChangedState(t.NextState);
                 break;
             }

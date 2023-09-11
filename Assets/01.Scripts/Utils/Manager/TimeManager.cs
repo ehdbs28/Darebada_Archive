@@ -8,21 +8,16 @@ using System;
 public class TimeManager : IManager
 {
     private float _currentTime = 0f;
+    public float CurrentTime => _currentTime;
+    
     private int _totalDay = 0;
-
+    
     private float _timeScale = 1f;
-    public float TimeScale {
-        get{
-            return _timeScale;
-        }
+    public float TimeScale
+    {
+        get => _timeScale;
         set{
-            if(value < 0f){
-                Time.timeScale = 0f;
-                _timeScale = 0f;
-                return;
-            }
-
-            _timeScale = value;
+            _timeScale = Mathf.Clamp(value, 0f, 1f);
             Time.timeScale = _timeScale;
         }
     }
@@ -32,44 +27,30 @@ public class TimeManager : IManager
 
     public GameDate DateTime { get; private set; } = new GameDate(0, 3, 0);
 
-    public event Action<int, int> OnTimeChangedEvent = null;
-    public event Action<int, int, int> OnDayChangedEvent = null; 
+    private GameData _gameData;
+
+    public event Action<int, int, float> OnTimeChangedEvent = null;
+    public event Action<GameDate> OnDayChangedEvent = null; 
 
     public void InitManager()
     {
-        GameData gameData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData;
+        _gameData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData;
         
-        _currentTime = gameData.GameTime;
-        _totalDay = gameData.TotalDay;
-        OnDayChangedEvent += SendSpecification;
-        DateTime = new GameDate(gameData.GameDateTime.Year, gameData.GameDateTime.Month, gameData.GameDateTime.Day);
-    }
-    public void SendSpecification(int year, int month, int day)
-    {
-        int ent=0, etc=0, man=0, empl=0,manage=0;
-        GameManager.Instance.GetManager<LetterManager>().SendReportLetter(ent, etc, man, empl, manage, DateTime);
-    }
-    public void SendRequestMail(int year, int month, int day)
-    {
-        GameManager.Instance.GetManager<LetterManager>().SendRequestLetter(DateTime);
-    }
-    public void SendReviewMail(int year, int month , int day)
-    {
-        GameManager.Instance.GetManager<LetterManager>().SendReviewLetter(DateTime);
+        _currentTime = _gameData.GameTime;
+        _totalDay = _gameData.TotalDay;
+        DateTime = _gameData.GameDateTime;
     }
 
     public void UpdateManager()
     {
         _currentTime += Time.deltaTime * _timeScale;
-        OnTimeChangedEvent?.Invoke(Mathf.FloorToInt(Hour), Mathf.FloorToInt(Minute));
+        _gameData.GameTime = _currentTime;
+        OnTimeChangedEvent?.Invoke(Mathf.FloorToInt(Hour), Mathf.FloorToInt(Minute), _currentTime);
         CheckDayCount();
     }
 
     private void CheckDayCount(){
         if(_currentTime >= _totalDay * DayDelay){
-            // ?�루가 지??
-            //GameManager.Instance.GetManager<LetterManager>().SendReportLetter();
-
             ++DateTime.Day;
             ++_totalDay;
 
@@ -83,7 +64,10 @@ public class TimeManager : IManager
                 }
             }
 
-            OnDayChangedEvent?.Invoke(DateTime.Year, DateTime.Month, DateTime.Day);
+            _gameData.TotalDay = _totalDay;
+            _gameData.GameDateTime = DateTime;
+
+            OnDayChangedEvent?.Invoke(DateTime);
         }
     }
 

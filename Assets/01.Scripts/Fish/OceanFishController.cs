@@ -54,6 +54,7 @@ public class OceanFishController : ModuleController
 
         _actionData.Lenght = Random.Range(data.MinLenght, data.MaxLenght);
         float normalizedLenght = (_actionData.Lenght - data.MinLenght) / (data.MaxLenght - data.MinLenght);
+        normalizedLenght = Mathf.Lerp(0.5f, 1f, normalizedLenght);
         _actionData.Weight = normalizedLenght * (data.MaxWeight - data.MinWeight) + data.MinWeight;
 
         transform.localScale = Vector3.one * normalizedLenght;

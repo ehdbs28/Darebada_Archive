@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static Core.Define;
@@ -107,11 +108,11 @@ public class OceanScreen : UIScreen
         _boatDurability.SetColor();
     }
 
-    private void OnChangedTime(int hour, int minute){
+    private void OnChangedTime(int hour, int minute, float currentTime){
         _timeText.text = $"{hour:D2}:{minute:D2}";
     }
 
-    private void OnChangedDay(int year, int month, int day){
-        _dateText.text = $"{year}년째, {month}월{day}일";
+    private void OnChangedDay(GameDate gamedate){
+        _dateText.text = $"{gamedate.Year}년째, {gamedate.Month}월{gamedate.Day}일";
     }
 }

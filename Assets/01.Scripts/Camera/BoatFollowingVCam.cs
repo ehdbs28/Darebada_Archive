@@ -27,7 +27,7 @@ public class BoatFollowingVCam : VCam
     }
 
     private void OnScreenClick(){
-        CinemachineFramingTransposer framingTransposer = _virtualCam.GetCinemachineComponent<CinemachineFramingTransposer>();
+        CinemachineFramingTransposer framingTransposer = ((CinemachineVirtualCamera)_virtualCam).GetCinemachineComponent<CinemachineFramingTransposer>();
         Vector3 offset = framingTransposer.m_TrackedObjectOffset;
 
         GameManager.Instance.GetManager<CameraManager>().SetRotateCam(
@@ -36,7 +36,8 @@ public class BoatFollowingVCam : VCam
             _virtualCam.transform.position,
             _virtualCam.transform.rotation,
             new Vector3(0f, offset.y, 0f),
-            _state
+            _state,
+            _virtualCam.transform.position
         );
     }
 }

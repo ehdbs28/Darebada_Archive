@@ -16,7 +16,16 @@
     <Style src="project://database/Assets/07.UI/ItemSelectUI.uss?fileID=7433441132597879392&amp;guid=8e57ddc35d86a47d4b4e7bff39edba91&amp;type=3#ItemSelectUI" />
     <Style src="project://database/Assets/07.UI/AquariumManageUI.uss?fileID=7433441132597879392&amp;guid=b9de445fa38cb3f42b5e22fac48e3a93&amp;type=3#AquariumManageUI" />
     <Style src="project://database/Assets/07.UI/CatchedFishCheckingUi.uss?fileID=7433441132597879392&amp;guid=ac6062999b897ae4aaa3070c0d9e7972&amp;type=3#CatchedFishCheckingUi" />
+    <Style src="project://database/Assets/07.UI/LetterUnit.uss?fileID=7433441132597879392&amp;guid=cb6e0c60d859140a6bfec988fb1fbe98&amp;type=3#LetterUnit" />
     <ui:VisualElement name="main-container" picking-mode="Ignore" style="width: 100%; height: 100%; display: flex;">
         <ui:VisualElement name="blur-panel" class="blur-panel" />
+        <ui:VisualElement name="notification" class="notification">
+            <ui:VisualElement name="content" style="width: 100%; height: 100%; padding-top: 20px; flex-direction: row; align-items: center; padding-left: 5px; padding-right: 5px; padding-bottom: 20px; justify-content: center;">
+                <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/ParticleImage/Demo/Sprites/4Star.png?fileID=-242451938&amp;guid=74ac16302f2994b898e17f225c303437&amp;type=3#4Star_0&apos;); width: 75px; height: 75px; flex-shrink: 0; margin-right: 0;" />
+                <ui:VisualElement name="text-panel" style="padding-left: 8px; padding-right: 8px; padding-top: 12px; padding-bottom: 12px;">
+                    <ui:Label display-tooltip-when-elided="true" name="text" class="text" style="color: rgb(255, 255, 255); font-size: 29px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -1,6 +1,6 @@
 [System.Serializable]
 public enum LetterType{
-    Report,
-    Thanks,
+    Report = 0,
+    Thanks = 1,
     Request,
 }

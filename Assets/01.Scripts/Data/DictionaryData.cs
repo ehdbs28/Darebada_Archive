@@ -30,7 +30,7 @@ public class DictionaryData : SaveData
         Units = data.Units;
     }
 
-    protected override void Reset()
+    public override void Reset()
     {
         Units = new SerializeList<DictionaryDataUnit>();
     }

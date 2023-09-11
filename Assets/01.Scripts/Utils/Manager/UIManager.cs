@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Core;
 using UnityEngine;
 using UnityEngine.UIElements;
+using DG.Tweening;
 
 public class UIManager : MonoBehaviour, IManager
 {
@@ -36,14 +37,21 @@ public class UIManager : MonoBehaviour, IManager
     public PopupType ActivePopup => _activePopup;
     public UGUIType ActiveUGUI => _activeUGUI;
 
+    private VisualElement _notificationPanel;
+    private Label _notificationLabel;
+
+    private Coroutine _notificationRoutine = null;
+
     public void InitManager()
     {
         _document =  GetComponent<UIDocument>();
-        //_blurDocument = GameObject.Find("Settings/Blur Screen/BlurUI").GetComponent<UIDocument>();
 
         Transform screenTrm = transform.Find("Screens");
         Transform popupTrm = transform.Find("Popups");
         Transform uguiTrm = transform.Find("UGUIPopups");
+
+        _notificationPanel = _document.rootVisualElement.Q("notification");
+        _notificationLabel = _notificationPanel.Q("text-panel").Q<Label>("text");
 
         foreach(ScreenType type in Enum.GetValues(typeof(ScreenType))){
             UIScreen screen = screenTrm.GetComponent($"{type}Screen") as UIScreen;
@@ -122,6 +130,24 @@ public class UIManager : MonoBehaviour, IManager
 
     public UGUIPopup GetPanel(UGUIType type){
         return _uguis[type];
+    }
+
+    public void Notification(string desc, float duration)
+    {
+        if (_notificationRoutine != null)
+            return;
+        
+        _notificationRoutine = StartCoroutine(NotificationRoutine(desc, duration));
+    }
+
+    private IEnumerator NotificationRoutine(string desc, float duration)
+    {
+        _notificationLabel.text = desc;
+        _notificationPanel.AddToClassList("on");
+        yield return new WaitForSecondsRealtime(0.5f + duration);
+        _notificationPanel.RemoveFromClassList("on");
+        yield return new WaitForSecondsRealtime(0.5f);
+        _notificationRoutine = null;
     }
 
     public bool OnElement(Vector2 screenPos){
