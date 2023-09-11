@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class AquariumManager : MonoBehaviour, IManager
+public class AquariumManager : MonoBehaviour
 {
     static private AquariumManager _instance;
     static public AquariumManager Instance
@@ -28,26 +28,20 @@ public class AquariumManager : MonoBehaviour, IManager
     public Transform facilityParent;
     public List<GameObject> fishBowls = new List<GameObject>();
     public List<DecoVisualSO> decoVisuals = new List<DecoVisualSO>();
-    [SerializeField] private Vector3 _floorSize = new Vector3(1, 1, 1);
-    public Vector3 FloorSize
+    public enum STATE
     {
-        get { return _floorSize; }
-        set { _floorSize = value; }
+        NORMAL,
+        MOVE,
+        BUILD
     }
-
-    //�̱���
-    //�ؾ��� ��= �̱��� ���ֱ�
-    //ũ�� ����
+    public STATE state = STATE.NORMAL;
     [SerializeField] GameObject floor;
-    [SerializeField] ParticleSystem _cleaningParticle;
-    [SerializeField] ParticleSystem _cleaningParticleSystemObject;
     [SerializeField] GameObject _walls;
-    //�����Ƹ��� �� �ü���
     [SerializeField] GameObject _fishBowlObject;
-    [SerializeField] GameObject _fishObject;
-    [SerializeField] GameObject _decoObject;
     [SerializeField] GameObject _snackShopObject;
     [SerializeField] GameObject _roadTileObject;
+    [SerializeField] ParticleSystem _cleaningParticle;
+    [SerializeField] ParticleSystem _cleaningParticleSystemObject;
     public List<NavMeshSurface> roadSurfaces;
 
 
@@ -56,27 +50,14 @@ public class AquariumManager : MonoBehaviour, IManager
 
     [SerializeField] private BuildFacility _build;
 
-    public enum STATE
-    {
-        NORMAL,
-        MOVE,
-        BUILD
-    }
-    public STATE state = STATE.NORMAL;
-    #region 디버그용
         public void Start()
         {
             InitManager();
         }
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.L)) Cleaning(10);
-            if (Input.GetKeyDown(KeyCode.K)) ChangeSize(0.5f,0.5f);
-            if (Input.GetKeyDown(KeyCode.Semicolon)) AddFishBowl();
-            if (Input.GetKeyDown(KeyCode.I)) SetPos();
             UpdateManager();
         }
-    #endregion
     public void SetFacilityPos()
     {
         if (facilityObj.CheckCollision())
@@ -93,15 +74,16 @@ public class AquariumManager : MonoBehaviour, IManager
         }
         FindObjectOfType<GridManager>().ShowGrid();
 
-    }
+    }   
     public void Promotion(int amount)
     {
         GameManager.Instance.GetManager<AquariumNumericalManager>().PromotionPoint += amount;
     }
     public void ChangeSize(float x, float y)
     {
-        _floorSize += new Vector3(x, 1, y);
-        floor.transform.localScale = _floorSize;
+        GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize += new Vector3(x, 1, y);
+        floor.transform.localScale = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize;
+        Vector3 FloorSize = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize;
         floor.GetComponent<MeshRenderer>().material.mainTextureScale = new Vector2(4 * FloorSize.x, 4 * FloorSize.z);
         
         _walls.transform.GetChild(0).localScale = new Vector3(FloorSize.x*10, 10, 0);
@@ -170,8 +152,7 @@ public class AquariumManager : MonoBehaviour, IManager
         {
             if (facilityObj && facilityObj.GetComponent<Facility>().CheckCollision())
             {
-                facilityObj.transform.parent = facilityParent;
-            FindObjectOfType<GridManager>().HideGrid();
+                FindObjectOfType<GridManager>().HideGrid();
                 if(facilityObj.GetComponent<Fishbowl>())
                 {
                     foreach(var v in facilityObj.GetComponent<Fishbowl>().boids)
@@ -187,8 +168,7 @@ public class AquariumManager : MonoBehaviour, IManager
                     }
                 }
                 facilityObj = null;
-            state = STATE.NORMAL;
-                
+                state = STATE.NORMAL;
             }
 
         };
@@ -237,7 +217,7 @@ public class AquariumManager : MonoBehaviour, IManager
             }
         }
     }
-    [ContextMenu("Cleaning")]
+
     public void Cleaning(int value)
     {
         GameManager.Instance.GetManager<AquariumNumericalManager>().CleanScore -= value;

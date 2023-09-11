@@ -154,11 +154,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _collider: {fileID: 0}
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 2097152
   boidObjects: []
   decoTrs:
   - {fileID: 6898404409161417157}
   - {fileID: 2113660259941043367}
   - {fileID: 6718406943030563478}
+  fishs: []
   boidObject: {fileID: 1077685155167219870, guid: 676b613e8ea2d9d488fce2168e0ff1d0, type: 3}
   decoObject: {fileID: 5569415285745657373, guid: 6779645e7be82934ca1abf42f658a72a, type: 3}
   decoController: {fileID: 0}

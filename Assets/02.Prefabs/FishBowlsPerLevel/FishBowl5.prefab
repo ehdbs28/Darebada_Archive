@@ -1404,6 +1404,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _collider: {fileID: 0}
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 2097152
   boidObjects: []
   decoTrs:
   - {fileID: 4245390253044128199}

@@ -103,6 +103,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _collider: {fileID: 0}
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 2097152
 --- !u!65 &6960615078316295871
 BoxCollider:
   m_ObjectHideFlags: 0
