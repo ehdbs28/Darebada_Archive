@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74090b99fbe44cbfae795585793646f2, type: 3}
   m_Name: 00.Trout
   m_EditorClassIdentifier: 
-  VisualMesh: {fileID: 0}
-  Profile: {fileID: 0}
-  MainMat: {fileID: 0}
+  VisualMesh: {fileID: -4170565208921116089, guid: 14ac63451ff7d9c4d9204377f050cccb, type: 3}
+  Profile: {fileID: 418686460, guid: 9c4d1735499334296b50d808861786ff, type: 3}
+  MainMat: {fileID: 2100000, guid: 36f731047268e42f694cdd413367fbf0, type: 2}

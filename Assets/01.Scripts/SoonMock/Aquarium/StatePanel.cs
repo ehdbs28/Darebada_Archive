@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.AddressableAssets.Settings.GroupSchemas;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -25,27 +26,65 @@ public class StatePanel : MonoBehaviour
     Facility _script;
     private void OnEnable()
     {
-        _script = upgradeObj.GetComponent<Facility>();
+
+    }
+    public FishDataUnit tempUnit;
+    public void Update()
+    {
+
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
+
+            upgradeObj.GetComponent<Fishbowl>().AddDeco(0);
+        }
+        if (Input.GetKeyDown(KeyCode.S)) {
+            upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
+
+            upgradeObj.GetComponent<Fishbowl>().AddFIsh(tempUnit);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+        upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
+            UpgradeLevel();
+        }
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
+            upgradeObj.GetComponent<Fishbowl>().RemoveFish(0);
+
+        }
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
+            upgradeObj.GetComponent<Fishbowl>().RemoveDeco(0);
+        }
 
     }
     public void UpgradeLevel()
     {
         //물고기 최대량 추가
+        _script = upgradeObj .GetComponent<Facility>();
         if(_script.GetComponent<Fishbowl>())
         {
-            _script.GetComponent<Fishbowl>().Upgrade();
-        }else if(_script.GetComponent<SnackShop>())
+            _script = _script.GetComponent<Fishbowl>().Upgrade();
+            AquariumManager.Instance.facilityObj = _script;
+            AquariumManager.Instance.state = AquariumManager.STATE.BUILD;
+            FindObjectOfType<GridManager>().ShowGrid();
+
+        }
+        else if(_script.GetComponent<SnackShop>())
         {
             _script.GetComponent<SnackShop>().Upgrade();
         }
     }
-    public void AddFish()
+    public void AddFish(FishDataUnit dataUnit)
     {
         //물고기 추가
         if (_script.GetComponent<Fishbowl>())
         {
             Debug.Log("asdf");
-            _script.GetComponent<Fishbowl>().AddFish(selectedFish,selectedAmount);
+            _script.GetComponent<Fishbowl>().AddFIsh(dataUnit);
         }
 
     }
@@ -53,7 +92,7 @@ public class StatePanel : MonoBehaviour
     {
         if (_script.GetComponent<Fishbowl>())
         {
-            _script.GetComponent<Fishbowl>().AddDeco(selectedDeco);
+            //_script.GetComponent<Fishbowl>().AddDeco(selectedDeco);
         }
     }
     public void ClosePanel()

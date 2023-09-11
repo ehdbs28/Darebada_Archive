@@ -6,8 +6,8 @@ public class GridManager : MonoBehaviour
 {
     public GameObject gridObject;
     public List<GridCell> grids;
-    public int width;
-    public int height;
+    public float width;
+    public float height;
     [SerializeField] float _distance;
     private void Update()
     {
@@ -26,8 +26,8 @@ public class GridManager : MonoBehaviour
         //Vector3 floorSize = GameManager.Instance.GetManager<AquariumManager>().FloorSize;
         Vector3 floorSize = FindObjectOfType<AquariumManager>().FloorSize;
 
-        width = (int)floorSize.x * 4;
-        height = (int)floorSize.y * 4;
+        width = floorSize.x * 4;
+        height = floorSize.z * 4;
         if (width * height >= grids.Count)
         {
             while(width * height > grids.Count)
@@ -48,9 +48,8 @@ public class GridManager : MonoBehaviour
         {
             for (int j = 0; j < height; j++)
             {
-                Debug.Log(i + height + j);
-                grids[i * height+j].gameObject.SetActive(true);
-                grids[i * height + j].transform.localPosition = new Vector3(i * _distance + _distance/2, 0, j * _distance + _distance/2);
+                grids[i * (int)height+j].gameObject.SetActive(true);
+                grids[i * (int)height + j].transform.localPosition = new Vector3(i * _distance + _distance/2, 0, j * _distance + _distance/2);
 
             }
         }

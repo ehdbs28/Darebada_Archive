@@ -17,7 +17,7 @@ public class BiomeData : SaveData
         Biomes = data.Biomes;
     }
 
-    protected override void Reset()
+    public override void Reset()
     {
         Biomes = new List<bool>();
         for(int i = 0; i < (int)OceanType.Count; i++){

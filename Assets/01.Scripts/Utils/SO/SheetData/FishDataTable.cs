@@ -29,7 +29,6 @@ public class FishDataTable : LoadableData
     private OceanType _prevOceanType = OceanType.RichOcean;
     private int _localFishCnt = 0;
 
-    #if UNITY_EDITOR
     public override void AddData(string[] dataArr)
     {
         DataTable.Add(new FishDataUnit());
@@ -53,9 +52,11 @@ public class FishDataTable : LoadableData
             _prevOceanType = DataTable[Size].Habitat;
         }
         
+        #if UNITY_EDITOR
         string path = $"Assets/06.SO/FishVisual/{(int)DataTable[Size].Habitat:D2}.{DataTable[Size].Habitat}/{_localFishCnt:D2}.{dataArr[1]}.asset";
         DataTable[Size].Visual = AssetDatabase.LoadAssetAtPath<FishVisual>(path);
-
+        #endif
+        
         string[] favorites = dataArr[13].Split(",");
         DataTable[Size].Favorites = new List<string>();
         foreach(var f in favorites){
@@ -67,7 +68,6 @@ public class FishDataTable : LoadableData
         ++Size;
         ++_localFishCnt;
     }
-    #endif
 
     public override void Clear()
     {

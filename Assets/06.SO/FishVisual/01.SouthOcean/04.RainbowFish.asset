@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74090b99fbe44cbfae795585793646f2, type: 3}
   m_Name: 04.RainbowFish
   m_EditorClassIdentifier: 
-  VisualMesh: {fileID: 0}
-  Profile: {fileID: 0}
-  MainMat: {fileID: 0}
+  VisualMesh: {fileID: 3100006622114138374, guid: a8fd0d08c30426d4c978a4998752cf7d, type: 3}
+  Profile: {fileID: -1060613122, guid: 977e721c2b4914d37ba6806aa32da78c, type: 3}
+  MainMat: {fileID: 2100000, guid: b3ac53ca7aff544d0ab0f89ff21056b2, type: 2}

@@ -30,7 +30,7 @@ public class OceanManager : IManager
 
     private float _boundHeight;
 
-    private const int MaxFishCount = 50;
+    private const int MaxFishCount = 150;
     
     public void InitManager()
     {
@@ -48,11 +48,6 @@ public class OceanManager : IManager
             _spawnableFishDatas.Clear();
             _currentSpawnFishes.Clear();
             
-            _totalSpawnPercent = 0f;
-            for (int i = 0; i < _dataTable.Size; i++)
-            {
-                _totalSpawnPercent += _dataTable.DataTable[i].SpawnPercent;
-            }
             _activeOcean = GameManager.Instance.GetManager<PoolManager>().Pop($"{_type.ToString()}Scene") as Ocean;
 
             _bgmClip = _activeOcean.gameObject.GetComponent<AudioSource>().clip;
@@ -85,11 +80,13 @@ public class OceanManager : IManager
 
     public void GenerateFish()
     {
+        _totalSpawnPercent = 0f;
         for (int i = 0; i < _dataTable.Size; i++)
         {
             if (_dataTable.DataTable[i].Habitat == _type)
             {
                 _spawnableFishDatas.Add(_dataTable.DataTable[i]);
+                _totalSpawnPercent += _dataTable.DataTable[i].SpawnPercent;
             }
         }
 

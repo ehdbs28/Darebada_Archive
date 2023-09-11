@@ -9,13 +9,14 @@ public class UILetterUnit
     
     private ScrollView _parent;
 
-    private VisualElement _templeteContainer;
-    private VisualElement _root;
+    protected VisualElement _root;
 
     private Label _titleLabel;
     private Label _fromLabel;
     private Label _dateLabel;
     private Label _descLabel;
+
+    private LetterUnit _unit;
 
     private bool _isOpen;
     public bool IsOpen => _isOpen;
@@ -26,17 +27,19 @@ public class UILetterUnit
         _isOpen = false;
     }
 
-    public void Generate(LetterUnit unit){
-        _templeteContainer = _templete.Instantiate();
-        _root = _templeteContainer.Q<VisualElement>("letter-unit");
-        _parent.contentContainer.Add(_templeteContainer);
+    public virtual void Generate(LetterUnit unit){
+        var templeteContainer = _templete.Instantiate();
+        _root = templeteContainer.Q<VisualElement>("letter-unit");
+        _parent.contentContainer.Add(_root);
 
         FindElement();
         Setting(unit);
         AddEvent();
     }
 
-    private void Setting(LetterUnit unit){
+    private void Setting(LetterUnit unit)
+    {
+        _unit = unit;
         switch(unit.Type){
             case LetterType.Report:
                 _root.AddToClassList("report");
@@ -55,14 +58,14 @@ public class UILetterUnit
         _descLabel.text = unit.Desc;
     }
 
-    private void FindElement(){
+    protected virtual void FindElement(){
         _titleLabel = _root.Q<Label>("title-text");
         _fromLabel = _root.Q<Label>("name-text");
         _dateLabel = _root.Q<Label>("date-text");
         _descLabel = _root.Q<Label>("desc-text");
     }
 
-    private void AddEvent(){
+    protected virtual void AddEvent(){
         _root.RegisterCallback<ClickEvent>(e =>
         {
             Toggle(!_isOpen);
@@ -81,6 +84,7 @@ public class UILetterUnit
     }
 
     public void Remove(){
-        _parent.Remove(_templeteContainer);
+        _parent.Remove(_root);
+        GameManager.Instance.GetManager<LetterManager>().RemoveLetter(_unit);
     }
 }

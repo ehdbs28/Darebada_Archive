@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74090b99fbe44cbfae795585793646f2, type: 3}
   m_Name: 01.Salmon
   m_EditorClassIdentifier: 
-  VisualMesh: {fileID: 0}
-  Profile: {fileID: 0}
-  MainMat: {fileID: 0}
+  VisualMesh: {fileID: 7834934524071737294, guid: ae51ad94fa7d3764d957aa512d506d00, type: 3}
+  Profile: {fileID: 1409868257, guid: 157d0dee0466a4fda8053474cee71703, type: 3}
+  MainMat: {fileID: 2100000, guid: b3ac53ca7aff544d0ab0f89ff21056b2, type: 2}
