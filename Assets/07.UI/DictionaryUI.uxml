@@ -3,7 +3,7 @@
     <Style src="project://database/Assets/07.UI/OceanUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceanUI" />
     <Style src="project://database/Assets/07.UI/LetterUI.uss?fileID=7433441132597879392&amp;guid=0ff408542c843224b959d6961bacb71f&amp;type=3#LetterUI" />
     <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
-    <ui:VisualElement name="dictionary-container" style="width: 80%; height: 70%; left: 10%; top: 15%; background-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; position: absolute;">
+    <ui:VisualElement name="dictionary-container" style="width: 85%; height: 75%; left: 7.5%; top: 15%; background-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; position: absolute;">
         <ui:VisualElement name="header" style="flex-basis: 7.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0; background-color: rgba(0, 151, 217, 0.96);">
             <ui:VisualElement name="exit-btn" style="width: 35px; height: 35px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); right: 30px; position: absolute;" />
             <ui:Label text="도감" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 40px; position: absolute;" />
@@ -17,7 +17,7 @@
                 <ui:VisualElement name="fish-image-box" style="flex-basis: 30%; align-items: center; justify-content: center; margin-bottom: 20px;">
                     <ui:VisualElement name="fish-unit" style="width: 600px; height: 300px; margin-right: 0; border-top-left-radius: 10px; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; background-color: rgba(255, 255, 255, 0.29); padding-left: 3px; padding-right: 0; padding-top: 0; padding-bottom: 0;">
                         <ui:VisualElement name="inner" style="overflow: hidden; width: 100%; height: 100%; padding-left: 2px; padding-right: 0; padding-top: 0; padding-bottom: 0; background-color: rgba(0, 0, 0, 0.49); border-top-left-radius: 8px; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;">
-                            <ui:VisualElement name="fish-image" style="width: 100%; height: 100%; scale: -1 1; background-image: url(&apos;project://database/Assets/05.Assets/FishIcon/Croaker.png?fileID=21300000&amp;guid=c908cdb7a9a3ef148a811d8db13bfcab&amp;type=3#Croaker&apos;); right: 0; position: absolute;" />
+                            <ui:VisualElement name="fish-image" style="width: 100%; height: 100%; scale: -1 1; background-image: url(&apos;project://database/Assets/05.Assets/FishVisual/Icon/Croaker.png?fileID=21300000&amp;guid=c908cdb7a9a3ef148a811d8db13bfcab&amp;type=3#Croaker&apos;); right: 0; position: absolute;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>

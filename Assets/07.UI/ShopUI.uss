@@ -95,8 +95,8 @@
 }
 
 .shop-inventory-unit {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     background-color: rgba(0, 0, 0, 0.59);
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
