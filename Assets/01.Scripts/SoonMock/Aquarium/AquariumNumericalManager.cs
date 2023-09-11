@@ -1,3 +1,4 @@
+using Core;
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
@@ -95,12 +96,12 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
         ArtScore = Mathf.Clamp(((float)(decoCnt / 2) / decoCnt) * 100, 10, 100);
     }
 
-    public void OnDayChange(int year, int month, int day)
+    public void OnDayChange(GameDate dateTime)
     {
         CleanScore = (int)Mathf.Clamp(CleanScore - Reputation * 3, 0, 100);
         int dispointAmount = _promotionPoint;
         if (PromotionPoint > 0) PromotionPoint -= dispointAmount;
-        GameManager.Instance.GetManager<LetterManager>().SendReportLetter(customerCnt * EntranceFee, shopRevenue, shopRevenue /10 * 2, employeeCnt * 100, cleanServiceAmount * 500, GameManager.Instance.GetManager<TimeManager>().DateTime);
+        //GameManager.Instance.GetManager<LetterManager>().SendReportLetter(customerCnt * EntranceFee, shopRevenue, shopRevenue /10 * 2, employeeCnt * 100, cleanServiceAmount * 500, GameManager.Instance.GetManager<TimeManager>().DateTime);
         GameManager.Instance.GetManager<MoneyManager>().AddMoney(customerCnt * EntranceFee + shopRevenue - employeeCnt * 100 - cleanServiceAmount - shopRevenue / 10 * 2);
     }
 }
