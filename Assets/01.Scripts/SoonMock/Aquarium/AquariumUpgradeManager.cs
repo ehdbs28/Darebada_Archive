@@ -45,22 +45,6 @@ public class AquariumUpgradeManager : MonoBehaviour
     
     public void OpenUpgradePanel()
     {
-        if (GameManager.Instance.GetManager<AquariumManager>().state == AquariumManager.STATE.MOVE)
-        {
-            RaycastHit hit;
-            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask))
-            {
-                if (hit.collider.GetComponent<Fishbowl>())
-                {
-                    //OpenPanel(fishbowlUpgradePanel, hit.collider.gameObject);
-                }
-                else if (hit.collider.GetComponent<SnackShop>())
-                {
-                    //OpenPanel(shopUpgradePanel, hit.collider.gameObject);
-                }
-            }
-        }
     }
 
     public void OpenPanel(StatePanel statePanel, GameObject selectedObject)

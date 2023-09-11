@@ -8,4 +8,5 @@ public class DecoVisualSO : ScriptableObject
     public string Name;
     public Mesh mesh;
     public Material mainMat;
+    public Sprite sprite;
 }

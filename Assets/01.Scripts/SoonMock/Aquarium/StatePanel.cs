@@ -32,34 +32,6 @@ public class StatePanel : MonoBehaviour
     public void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
-
-            upgradeObj.GetComponent<Fishbowl>().AddDeco(0);
-        }
-        if (Input.GetKeyDown(KeyCode.S)) {
-            upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
-
-            upgradeObj.GetComponent<Fishbowl>().AddFIsh(tempUnit);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-        upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
-            UpgradeLevel();
-        }
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
-            upgradeObj.GetComponent<Fishbowl>().RemoveFish(0);
-
-        }
-        if(Input.GetKeyDown(KeyCode.G))
-        {
-            upgradeObj = FindObjectOfType<Fishbowl>().gameObject;
-            upgradeObj.GetComponent<Fishbowl>().RemoveDeco(0);
-        }
-
     }
     public void UpgradeLevel()
     {
@@ -67,10 +39,6 @@ public class StatePanel : MonoBehaviour
         _script = upgradeObj .GetComponent<Facility>();
         if(_script.GetComponent<Fishbowl>())
         {
-            _script = _script.GetComponent<Fishbowl>().Upgrade();
-            AquariumManager.Instance.facilityObj = _script;
-            AquariumManager.Instance.state = AquariumManager.STATE.BUILD;
-            FindObjectOfType<GridManager>().ShowGrid();
 
         }
         else if(_script.GetComponent<SnackShop>())
