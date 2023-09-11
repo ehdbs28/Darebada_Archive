@@ -11,7 +11,7 @@ public class TimeManager : IManager
     public float CurrentTime => _currentTime;
     
     private int _totalDay = 0;
-
+    
     private float _timeScale = 1f;
     public float TimeScale
     {
@@ -39,6 +39,8 @@ public class TimeManager : IManager
         _currentTime = _gameData.GameTime;
         _totalDay = _gameData.TotalDay;
         DateTime = _gameData.GameDateTime;
+
+        _timeScale = 20f;
     }
 
     public void UpdateManager()

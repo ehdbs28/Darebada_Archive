@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using AssetKits.ParticleImage.Enumerations;
 using UnityEngine;
 
 public class DayCycleManager : MonoBehaviour, IManager
 {
     [SerializeField]
     private Light _directionalLight;
+
+    [SerializeField]
+    private Light _reverseDirectionalLight;
 
     [SerializeField]
     private LightingPreset _lightingPreset;
@@ -16,8 +20,11 @@ public class DayCycleManager : MonoBehaviour, IManager
     [SerializeField]
     private Transform _cloudParent;
 
-    [SerializeField]
+    [SerializeField] 
     private Transform _cloudBoundFront, _cloudBoundBack;
+    
+    [SerializeField]
+    private Material _cloudMaterial;
 
     private bool _isDay = false;
 
@@ -47,9 +54,12 @@ public class DayCycleManager : MonoBehaviour, IManager
             return;
 
         _isDay = (GameManager.Instance.GetManager<TimeManager>().Hour >= 5 && GameManager.Instance.GetManager<TimeManager>().Hour <= 20);
-
+        
+        float timePercent = GameManager.Instance.GetManager<TimeManager>().Hour / 24f;
+        
         PlayNightParticle();
-        UpdateLighting(GameManager.Instance.GetManager<TimeManager>().Hour / 24f);
+        UpdateLighting(timePercent);
+        UpdateCloudMaterial(timePercent);
     }
 
     private void UpdateLighting(float timePercent){
@@ -58,8 +68,16 @@ public class DayCycleManager : MonoBehaviour, IManager
         
         if(_directionalLight != null){
             _directionalLight.color = _lightingPreset.DirectionalColor.Evaluate(timePercent);
-            _directionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 170f, 0f)); 
+            _directionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 170f, 0f));
+            _reverseDirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) + 90f, 170f, 0f));
         }
+    }
+
+    private void UpdateCloudMaterial(float timePercent)
+    {
+        Vector2 tiling = _cloudMaterial.mainTextureScale;
+        tiling.x = 2 + timePercent * 2f;
+        _cloudMaterial.mainTextureScale = tiling;
     }
 
     private void PlayNightParticle(){

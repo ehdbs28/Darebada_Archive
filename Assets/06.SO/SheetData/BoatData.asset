@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BoatData
   m_EditorClassIdentifier: 
   Type: 3
-  Size: 5
+  Size: 4
   DataTable:
     _data:
     - Name: "\uCD08\uBCF4\uC6A9 \uBCF4\uD2B8"
