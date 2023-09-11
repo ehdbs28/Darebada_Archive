@@ -35,7 +35,7 @@ public class ChallengeUnit
 
         TouchBox.RegisterCallback<ClickEvent>(e =>
         {
-            if (!_data.units[idx].isReceipt)
+            if (!_data.units[idx].isReceipt && _data.units[idx].isClear)
             {
                 GameManager.Instance.GetManager<MoneyManager>().AddMoney(compensation);
                 _data.units[idx].isReceipt = true;
@@ -48,6 +48,8 @@ public class ChallengeUnit
         if (curState >= Target)
         {
             _data.units[_idx].isClear = true;
+            if(TargetFishName != "")
+                GameManager.Instance.GetManager<ChallengeManager>().BiomeData.Biomes[_idx + 1] = true;
             CheckBox.style.opacity = new StyleFloat(100f);
         }
     }
@@ -63,14 +65,14 @@ public class ChallengeUnit
         switch (Type)
         {
             case ChallengeType.Revenue:
-                _curState = GameManager.Instance.GetManager<ChallengeManager>().TotalRevenue;
+                _curState = _data.units[_idx].totalValue;
                 break;
             case ChallengeType.AmountSpent:
-                _curState = GameManager.Instance.GetManager<ChallengeManager>().TotalAmountSpent;
+                _curState = _data.units[_idx].totalValue;
                 break;
             case ChallengeType.FishCount:
                 if(TargetFishName == "")
-                    _curState = GameManager.Instance.GetManager<ChallengeManager>().TotalFishcount;
+                    _curState = _data.units[_idx].totalValue;
                 else
                 {
                     if (_data.units[_idx].isClear)

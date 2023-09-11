@@ -19,6 +19,7 @@ public class ChallengeManager : IManager
     public int TotalFishcount => _totalFishCount;
 
     private ChallengeData _data;
+    public BiomeData BiomeData;
 
     public void Renewal(ChallengeType type, int addValue)
     {
@@ -41,19 +42,18 @@ public class ChallengeManager : IManager
         {
             if (!_data.units[i].isClear)
             {
-                int curState = 0;
                 switch (_challenges[i].Type)
                 {
                     case ChallengeType.Revenue:
-                        curState = _totalRevenue;
+                        _data.units[i].totalValue = _totalRevenue;
                         break;
                     case ChallengeType.AmountSpent:
-                        curState = _totalAmountSpent;
+                        _data.units[i].totalValue = _totalAmountSpent;
                         break;
                     case ChallengeType.FishCount:
                         if(_challenges[i].TargetFishName == "")
                         {
-                            curState = _totalFishCount;
+                            _data.units[i].totalValue = _totalFishCount;
                         }
                         else
                         {
@@ -62,19 +62,19 @@ public class ChallengeManager : IManager
 
                             if(dataUnit == null)
                             {
-                                curState = 0;
+                                _data.units[i].totalValue = 0;
                             }
                             else
                             {
                                 Debug.Log(1);
-                                curState = 1;
+                                _data.units[i].totalValue = 1;
                             }
                         }
                         break;
                     default:
                         break;
                 }
-                _challenges[i].CheckConditions(curState) ;
+                _challenges[i].CheckConditions(_data.units[i].totalValue) ;
 
             }
         };
@@ -89,6 +89,7 @@ public class ChallengeManager : IManager
             _challenges.Add(new ChallengeUnit());
         }
         _data = (ChallengeData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.ChallengeData);
+        BiomeData = (BiomeData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.BiomeData);
     }
 
     public void ResetManager()

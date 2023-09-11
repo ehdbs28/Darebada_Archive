@@ -73,15 +73,14 @@ public class OceanScreen : UIScreen
         });
 
         _inventoryBtn.RegisterCallback<ClickEvent>(e => {
-            //GameManager.Instance.GetManager<SoundManager>().ClickSound();
-            //GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Inventory);
-            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Challenge);
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Inventory);
         });
 
-        //_challengeBtn.RegisterCallback<ClickEvent>(e =>
-        //{
-        //    GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Challenge);
-        //});
+        _challengeBtn.RegisterCallback<ClickEvent>(e =>
+        {
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Challenge);
+        });
     }
 
     public override void RemoveEvent()

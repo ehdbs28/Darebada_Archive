@@ -41,39 +41,10 @@
             </ui:VisualElement>
             <ui:VisualElement name="chllenge-box" picking-mode="Ignore" class="challenge" style="top: 30%;">
                 <ui:VisualElement name="name-box" picking-mode="Ignore">
-                    <ui:Label text="나보단 작지" display-tooltip-when-elided="true" name="name" picking-mode="Ignore" class="text" style="height: 100%; -unity-text-align: middle-center;" />
-                    <ui:VisualElement name="complete-box" picking-mode="Ignore">
+                    <ui:Label text="버킷리스트" display-tooltip-when-elided="true" name="name" picking-mode="Ignore" class="text" style="height: 100%; -unity-text-align: middle-center;" />
+                    <ui:VisualElement name="complete-box">
                         <ui:VisualElement name="complete" picking-mode="Ignore">
                             <ui:VisualElement name="image" picking-mode="Ignore" />
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                </ui:VisualElement>
-                <ui:VisualElement name="element-box" picking-mode="Ignore" style="width: 307px;">
-                    <ui:VisualElement name="test-fish-one" class="fish-element">
-                        <ui:VisualElement name="inner">
-                            <ui:VisualElement name="fish-image" />
-                            <ui:VisualElement name="star-container">
-                                <ui:VisualElement name="star" />
-                            </ui:VisualElement>
-                            <ui:VisualElement name="check" />
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="test-fish-two" class="fish-element">
-                        <ui:VisualElement name="inner">
-                            <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishVisual/Icon/BlueTang.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#BlueTang&apos;);" />
-                            <ui:VisualElement name="star-container">
-                                <ui:VisualElement name="star" />
-                            </ui:VisualElement>
-                            <ui:VisualElement name="check" />
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                    <ui:VisualElement name="test-fish-two" class="fish-element">
-                        <ui:VisualElement name="inner">
-                            <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishVisual/Icon/BlueTang.png?fileID=21300000&amp;guid=b62342c4c70392f40995fff11705ad09&amp;type=3#BlueTang&apos;);" />
-                            <ui:VisualElement name="star-container">
-                                <ui:VisualElement name="star" />
-                            </ui:VisualElement>
-                            <ui:VisualElement name="check" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>

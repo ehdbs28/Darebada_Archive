@@ -90,7 +90,7 @@ Material:
     - _Dist: 0.3
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Frequence: 2
+    - _Frequence: 0.2
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0

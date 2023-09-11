@@ -25,7 +25,7 @@ public class ChallengeData : SaveData
         units = data.units;
     }
 
-    protected override void Reset()
+    public override void Reset()
     {
         units = new ChallengeSaveData[7];
         for(int i = 0; i < 7; i++)
