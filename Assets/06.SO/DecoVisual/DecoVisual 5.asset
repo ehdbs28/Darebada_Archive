@@ -15,3 +15,4 @@ MonoBehaviour:
   Name: Clam03R
   mesh: {fileID: 4300000, guid: 5905a029400577e46adaaa039b57dac4, type: 3}
   mainMat: {fileID: 2100000, guid: c53ab002e1cd24a27a02b1967dd615da, type: 2}
+  sprite: {fileID: -702419000, guid: 147a6de8df7006448b96f4fade3d2f0e, type: 3}
