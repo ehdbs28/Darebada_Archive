@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81caa226b21e2cc498a9f5b2c763b655, type: 3}
   m_Name: DecoVisual 31
   m_EditorClassIdentifier: 
-  Name: 
-  mesh: {fileID: 0}
+  Name: Starfish02Y
+  mesh: {fileID: 4300000, guid: 7d3d8055dba2da842af48f5cd296d12f, type: 3}
   mainMat: {fileID: 2100000, guid: c53ab002e1cd24a27a02b1967dd615da, type: 2}

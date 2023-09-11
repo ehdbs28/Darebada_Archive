@@ -30,9 +30,9 @@ public class AquariumManager : MonoBehaviour
     public List<DecoVisualSO> decoVisuals = new List<DecoVisualSO>();
     public enum STATE
     {
-        NORMAL,
-        MOVE,
-        BUILD
+        NORMAL,//플레이어 조작
+        CAMERAMOVE,//카메라이동. 눌러서 이동한다
+        BUILD//아쿠아리움 오브젝트를 설치한다.
     }
     public STATE state = STATE.NORMAL;
     [SerializeField] GameObject floor;
@@ -62,15 +62,13 @@ public class AquariumManager : MonoBehaviour
     {
         if (facilityObj.CheckCollision())
         {
-            state = STATE.MOVE;
-            Debug.Log(state);
-
+            
             if (facilityObj.GetComponent<Fishbowl>())
             {
-            GameManager.Instance.GetManager<AquariumNumericalManager>().fishbowlCnt++;
-
+                GameManager.Instance.GetManager<AquariumNumericalManager>().fishbowlCnt++;
             }
             facilityObj = null;
+            state = STATE.CAMERAMOVE;
         }
         FindObjectOfType<GridManager>().ShowGrid();
 
@@ -82,6 +80,7 @@ public class AquariumManager : MonoBehaviour
     public void ChangeSize(float x, float y)
     {
         GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize += new Vector3(x, 1, y);
+        Debug.Log(floor);
         floor.transform.localScale = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize;
         Vector3 FloorSize = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize;
         floor.GetComponent<MeshRenderer>().material.mainTextureScale = new Vector2(4 * FloorSize.x, 4 * FloorSize.z);
@@ -124,7 +123,6 @@ public class AquariumManager : MonoBehaviour
     }
     public void AddRoadTile()
     {
-        //_buildPanel.SetActive(false);
         RoadTile roadTile = Instantiate(_roadTileObject).GetComponent<RoadTile>();
         
         roadTile.transform.localPosition = Vector3.zero;
@@ -142,8 +140,7 @@ public class AquariumManager : MonoBehaviour
 
         _build = GetComponent<BuildFacility>();
         ChangeSize(0, 0);
-        //GameManager.Instance.GetManager<InputManager>().OnMouseClickEvent += MouseClickHandle;
-        //GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnDayChange;
+        ResetManager();
     }
 
     public void SetPos()
@@ -170,15 +167,13 @@ public class AquariumManager : MonoBehaviour
                 facilityObj = null;
                 state = STATE.NORMAL;
             }
-
         };
-        
     }
 
     public void ResetManager()
     {
-        //GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchHandle;
-        //GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUpHandle;
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchHandle;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUpHandle;
 
     }
 
@@ -203,12 +198,15 @@ public class AquariumManager : MonoBehaviour
 
     public void UpdateManager()
     {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            FindObjectOfType<Fishbowl>().Upgrade();
+        }
         if (state == STATE.BUILD)   
         {
             RaycastHit hit;
-            //Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().MousePosition);
-            //나중에 돌려놔야함
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (facilityObj != null && Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
             {
 
@@ -230,7 +228,6 @@ public class AquariumManager : MonoBehaviour
         _cleaningParticle.transform.localPosition = Vector3.forward;
         _cleaningParticle.transform.localRotation = Quaternion.identity;
         _cleaningParticle.Play();
-        
     }
     
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81caa226b21e2cc498a9f5b2c763b655, type: 3}
   m_Name: DecoVisual 11
   m_EditorClassIdentifier: 
-  Name: 
-  mesh: {fileID: 0}
+  Name: GiantKelp01
+  mesh: {fileID: 4300000, guid: eb87d91fb6993b945bfa84f8061b10b1, type: 3}
   mainMat: {fileID: 2100000, guid: c53ab002e1cd24a27a02b1967dd615da, type: 2}

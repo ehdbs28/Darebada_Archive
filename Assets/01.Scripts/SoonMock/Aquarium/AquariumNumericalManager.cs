@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AquariumNumericalManager : IManager
+public class AquariumNumericalManager : MonoBehaviour,IManager
 {
     public Material fishBowlMat;
     public Material mossMat;
@@ -61,6 +61,7 @@ public class AquariumNumericalManager : IManager
     }
     public int decoCnt = 0;
     public int fishbowlCnt = 0;
+    public int shopCnt = 0;
 
     public int customerCnt;
     public int shopRevenue;
