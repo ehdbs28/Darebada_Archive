@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         _managers.Add(new InventoryManager());
         _managers.Add(new LoadingManager());
         _managers.Add(new SettingManager());
-        _managers.Add(GetComponent<AquariumNumericalManager>());
+        //_managers.Add(GetComponent<AquariumNumericalManager>());
         _managers.Add(new ChallengeManager());
         _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
     }
