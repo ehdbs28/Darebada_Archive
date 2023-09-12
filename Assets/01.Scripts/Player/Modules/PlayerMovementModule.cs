@@ -71,6 +71,11 @@ public class PlayerMovementModule : CommonModule<PlayerController>
     public override void FixedUpdateModule()
     {
         _characterController.Move(_movement * (_currentVelocity * Time.deltaTime));
+        float mx = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize.x * 5;
+        float mz = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize.z * 5;
+        float x = transform.position.x;
+        float z = transform.position.z;
+        _controller.transform.position = new Vector3(Mathf.Clamp(x, -mx +0.3f, mx -0.3f), 0, Mathf.Clamp(z, -mz +0.3f, mz -0.3f));
     }
 
     private void Movement(){

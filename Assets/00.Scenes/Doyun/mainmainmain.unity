@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 981434834}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8858,6 +8858,7 @@ GameObject:
   - component: {fileID: 9157046241256461567}
   - component: {fileID: 9157046241256461568}
   - component: {fileID: 9157046241256461569}
+  - component: {fileID: 9157046241256461570}
   m_Layer: 0
   m_Name: Popups
   m_TagString: Untagged
@@ -8975,6 +8976,20 @@ MonoBehaviour:
     SpawnPercent: 0
     Favorites: []
     Description: 
+--- !u!114 &9157046241256461570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157046241256461562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe1b67f4a6fcb44ea57a512890b4e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _treeAsset: {fileID: 9197481963319205126, guid: 7807cc6782b36224e813dec992483431, type: 3}
+  _unitTemplate: {fileID: 9197481963319205126, guid: 7eaebe1311bf24c4b90ec03c81bd2b17, type: 3}
 --- !u!1001 &9157046241337288318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9541,6 +9556,7 @@ GameObject:
   - component: {fileID: 9157046241563192786}
   - component: {fileID: 9157046241563192787}
   - component: {fileID: 9157046241563192788}
+  - component: {fileID: 9157046241563192789}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -9585,6 +9601,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 926b021f2ef9c455980d617fe0c357d5, type: 2}
   - {fileID: 11400000, guid: 8b15ce9c6b3a74eb59bffa7bc014ade2, type: 2}
   - {fileID: 11400000, guid: 0b4f45c10a3234f8abd667d34aa0db50, type: 2}
+  - {fileID: 11400000, guid: d35a45b10e924494893b61c02684df17, type: 2}
 --- !u!114 &9157046241563192785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9650,6 +9667,39 @@ MonoBehaviour:
     RotationAcceleration: 0
     RotationDeceleration: 0
     MaxFuel: 0
+--- !u!114 &9157046241563192789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157046241563192774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40731534b9da85d40b40aadb12b1442e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishBowlMat: {fileID: 2100000, guid: 8e3b2afd2ffa03c43b53cbae6268d4eb, type: 2}
+  mossMat: {fileID: 2100000, guid: 2b6d1c6a3a628cf4b86395686e30b43b, type: 2}
+  pureWaterColor: {r: 0, g: 0, b: 0, a: 0}
+  corruptedWaterColor: {r: 0, g: 0, b: 0, a: 0}
+  _cleanScore: 0
+  _promotionPoint: 0
+  _entrancefee: 0
+  _entrancePercent: 0
+  _reputation: 0
+  _artScore: 0
+  decoCnt: 0
+  fishbowlCnt: 0
+  shopCnt: 0
+  customerCnt: 0
+  shopRevenue: 0
+  employeeCnt: 0
+  cleanServiceAmount: 0
+  fishBowls: []
+  decoVisuals: []
+  _promoDispointAmount: 0
+  _floorSize: {x: 1, y: 1, z: 1}
 --- !u!1001 &9157046241592702456
 PrefabInstance:
   m_ObjectHideFlags: 0
