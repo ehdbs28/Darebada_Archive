@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 public class CampScreen : UIScreen
 {
     private Label _timeText;
+    private Label _yearText;
     private Label _dateText;
     private Label _goldText;
 
@@ -17,6 +18,7 @@ public class CampScreen : UIScreen
     public override void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
     {
         base.SetUp(document, clearScreen, blur, timeStop);
+        OnChangedDay(GameManager.Instance.GetManager<TimeManager>().DateTime);
         _goldText.text = "$0";
     }
 
@@ -54,6 +56,7 @@ public class CampScreen : UIScreen
     public override void FindElement()
     {
         _timeText = _root.Q<Label>("time-text");
+        _yearText = _root.Q<Label>("year-text");
         _dateText = _root.Q<Label>("date-text");
         _goldText = _root.Q("money-container").Q<Label>("text");
 
@@ -69,7 +72,8 @@ public class CampScreen : UIScreen
 
     private void OnChangedDay(GameDate gameDate)
     {
-        _dateText.text = $"{gameDate.Year}년째, {gameDate.Month}월{gameDate.Day}일";
+        _yearText.text = $"{gameDate.Year}년째";
+        _dateText.text = $"{gameDate.Month}월{gameDate.Day}일";
     }
 
     private void OnChangeGold(int holdingGold)
