@@ -69,7 +69,7 @@ public class CameraManager : MonoBehaviour, IManager
     {
         if (_currentActiveVCam != _rotateVCam) return;
         ((RotateCam)_currentActiveVCam).SetCanRotate(_isCanRotate);
-        ((RotateCam)_currentActiveVCam).SetCanRotateSpeed(_isCanRotate ? 300 : 0);
+        ((RotateCam)_currentActiveVCam).SetCanRotateSpeed(_isCanRotate ? 700 : 0);
     }
 
     public void ResetManager(){}
