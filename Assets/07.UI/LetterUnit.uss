@@ -60,3 +60,7 @@
 .letter-unit.request #type-image {
     background-image: url('project://database/Assets/05.Assets/UI/questicon.png?fileID=21300000&guid=c3de7621bc9d2024198c14afb4c93f01&type=3#questicon');
 }
+
+.letter-unit.report.on {
+    margin-bottom: 385px;
+}
