@@ -56,8 +56,8 @@ public class DictionaryDetail
         }
         _favoriteLabel.text = favoriteValue;
 
-        _weightLabel.text = data.MaxWeight.ToString();
-        _lenghtLabel.text = data.MaxLenght.ToString();
+        _weightLabel.text = (Mathf.Round(data.MaxWeight * 10) / 10).ToString();
+        _lenghtLabel.text = (Mathf.Round(data.MaxLenght * 10) / 10).ToString();
 
         if(data.IsDotated){
             _donateLabel.text = "박물관에 기증됨";
