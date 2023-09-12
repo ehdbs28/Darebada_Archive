@@ -43,20 +43,9 @@ public class ChallengeUnit
         });
     }
 
-    public void CheckConditions(int curState)
-    {
-        if (curState >= Target)
-        {
-            _data.units[_idx].isClear = true;
-            if(TargetFishName != "")
-                GameManager.Instance.GetManager<ChallengeManager>().BiomeData.Biomes[_idx + 1] = true;
-            CheckBox.style.opacity = new StyleFloat(100f);
-        }
-    }
-
     private void Setting(ChallengeDataUnit data)
     {
-        //½ºÇÁ·¹µå½ÃÆ®¿¡¼­ Á¦¸ñ/³»¿ë/ÁøÃ´µµ/¸ñÇ¥/º¸»ó µî °¡Á®¿ÍÁà¾ßÇÔ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½Ã´ï¿½ï¿½/ï¿½ï¿½Ç¥/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
         TargetFishName = data.TargetFishName;
         ChallengeTitle.text = data.Title;

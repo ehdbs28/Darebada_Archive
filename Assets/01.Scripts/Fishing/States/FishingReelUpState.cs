@@ -80,10 +80,7 @@ public class FishingReelUpState : FishingState
             if (_controller.Bait.CatchedFish != null)
             {
                 FishDataUnit dataUnit = _controller.Bait.CatchedFish.DataUnit;
-                Vector2 size = new Vector2(dataUnit.InvenSizeX, dataUnit.InvenSizeY);
 
-                GameManager.Instance.GetManager<InventoryManager>().AddUnit(dataUnit, size);
-                
                 DictionaryData data = (DictionaryData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.DictionaryData);
                 DictionaryDataUnit unit = data.Units.List.Find(unit => unit.Name == dataUnit.Name);
 
@@ -113,11 +110,6 @@ public class FishingReelUpState : FishingState
                     _rotateSpeedX,
                     _rotateSpeedZ
                 );
-
-                _controller.Bait.CatchedFish = null;
-
-                //((CatchedFishCheckingPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.CatchedFishChecking)).dataUnit = dataUnit;
-                //GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.CatchedFishChecking);
 
                 GameManager.Instance.GetManager<ChallengeManager>().Renewal(ChallengeType.FishCount, 1);
             }

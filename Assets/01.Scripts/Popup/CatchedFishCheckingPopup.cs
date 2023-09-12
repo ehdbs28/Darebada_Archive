@@ -43,8 +43,9 @@ public class CatchedFishCheckingPopup : UIPopup
 
         _captureBtn.RegisterCallback<ClickEvent>(e =>
         {
-            //������ �Է��ؼ� �κ��丮�� �־������
-            Debug.Log("������ �Է�");
+            Vector2 size = new Vector2(dataUnit.InvenSizeX, dataUnit.InvenSizeY);
+            GameManager.Instance.GetManager<InventoryManager>().AddUnit(dataUnit, size);
+            RemoveRoot();
         });
     }
 

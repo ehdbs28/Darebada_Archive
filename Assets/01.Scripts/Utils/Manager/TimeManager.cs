@@ -39,8 +39,6 @@ public class TimeManager : IManager
         _currentTime = _gameData.GameTime;
         _totalDay = _gameData.TotalDay;
         DateTime = _gameData.GameDateTime;
-
-        _timeScale = 20f;
     }
 
     public void UpdateManager()

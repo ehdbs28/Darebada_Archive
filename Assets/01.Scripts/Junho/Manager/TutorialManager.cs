@@ -15,6 +15,9 @@ public class TutorialManager : MonoBehaviour, IManager
     private int idx = 0;
     private GameSceneType _sceneType;
 
+    private bool _inTut;
+    public bool InTut => _inTut;   
+
     public void ResetManager(){}
     public void InitManager()
     {
@@ -27,7 +30,8 @@ public class TutorialManager : MonoBehaviour, IManager
         print("startTutorial");
         idx = 0;
         _sceneType = sceneType;
-        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += StartTutorial;
+        _inTut = true;
+        GameManager.Instance.GetManager<InputManager>().OnTutorialClick += StartTutorial;
         StartTutorial();
     }
 
@@ -35,7 +39,8 @@ public class TutorialManager : MonoBehaviour, IManager
     {
         if (!value)
         {
-            GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= StartTutorial;
+            _inTut = false;
+            GameManager.Instance.GetManager<InputManager>().OnTutorialClick -= StartTutorial;
         }
         
         _tutorialImage.gameObject.SetActive(value);
@@ -51,17 +56,29 @@ public class TutorialManager : MonoBehaviour, IManager
         if (_sceneType == GameSceneType.Camp)
         {
             if (idx == _campExplainImages.Count) EndTutorial(_sceneType);
-            if (gameData.CampTutorial) return;
+            if (gameData.CampTutorial)
+            {
+                _inTut = false;
+                return;
+            }
         }
         if (_sceneType == GameSceneType.Ocean)
         {
             if (idx == _oceanExplainImages.Count) EndTutorial(_sceneType);
-            if (gameData.OceanTutorial) return;
+            if (gameData.OceanTutorial)
+            {
+                _inTut = false;
+                return;
+            }
         }
         if (_sceneType == GameSceneType.Aquarium)
         {
             if (idx == _campExplainImages.Count) EndTutorial(_sceneType);
-            if (gameData.CampTutorial) return;
+            if (gameData.CampTutorial)
+            {
+                _inTut = false;
+                return;
+            }
         }
         
         ShowTutorial(true);
@@ -75,8 +92,9 @@ public class TutorialManager : MonoBehaviour, IManager
     {
         print("TutorialEnd");
         GameData gameData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData;
-        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= StartTutorial;
+        GameManager.Instance.GetManager<InputManager>().OnTutorialClick -= StartTutorial;
         ShowTutorial(false);
+        _inTut = false;
 
         if (sceneType == GameSceneType.Camp)
             gameData.CampTutorial = true;
