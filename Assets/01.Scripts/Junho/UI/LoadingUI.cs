@@ -20,7 +20,9 @@ public class LoadingUI : MonoBehaviour
 
     private void OnEnable()
     {   
-        _loadingSceneStayTime = Random.Range(1f, 1f);
+        _loadingSceneStayTime = Random.Range(2f, 2.8f);
+        time = 0;
+        print("stayTime : " + _loadingSceneStayTime);
         if (GameManager.Instance.GetManager<LoadingManager>().IsStart)
         {
             GameManager.Instance.GetManager<LoadingManager>().IsLoading = true;
