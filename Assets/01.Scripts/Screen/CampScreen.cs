@@ -51,6 +51,7 @@ public class CampScreen : UIScreen
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent -= OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent -= OnChangedDay;
+        GameManager.Instance.GetManager<MoneyManager>().OnGoldChange -= OnChangeGold;
     }
 
     public override void FindElement()

@@ -46,8 +46,8 @@
         <ui:VisualElement name="footer-container" picking-mode="Ignore" style="justify-content: flex-end;">
             <ui:VisualElement name="btn-container" style="flex-direction: row; padding-bottom: 2%; background-color: rgba(0, 0, 0, 0.6); justify-content: space-around; padding-left: 4%; padding-right: 4%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; width: 100%;">
                 <ui:VisualElement name="dictionary-btn" class="btn" style="justify-content: space-between; bottom: auto; width: 125px; height: 125px;">
-                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/DictionaryBtn.png?fileID=21300000&amp;guid=9223b27d818517a4ca40413508c457d2&amp;type=3#DictionaryBtn&apos;); width: 80%; height: 80%; bottom: 5px;" />
-                    <ui:Label text="도감" display-tooltip-when-elided="true" name="btn-text" class="text" />
+                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/HomeBtn.png?fileID=21300000&amp;guid=ea6a00900a0c55249822155052fef9a0&amp;type=3#HomeBtn&apos;); width: 80%; height: 80%; bottom: 5px;" />
+                    <ui:Label text="마을로" display-tooltip-when-elided="true" name="btn-text" class="text" />
                 </ui:VisualElement>
                 <ui:VisualElement name="manage-btn" class="btn" style="justify-content: space-between; bottom: auto; width: 125px; height: 125px;">
                     <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Person%20Icon.png?fileID=21300000&amp;guid=cac9f704575bbe744b68791d16b1806a&amp;type=3#Free Flat Person Icon&apos;); width: 80%; height: 80%;" />
@@ -57,13 +57,13 @@
                     <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Menu%2010%20Icon.png?fileID=21300000&amp;guid=461c7ab371b3c814e836b1682d4162b3&amp;type=3#Free Flat Menu 10 Icon&apos;); width: 70%; height: 70%;" />
                     <ui:Label text="에디터" display-tooltip-when-elided="true" name="btn-text" class="text" />
                 </ui:VisualElement>
-                <ui:VisualElement name="setting-btn" class="btn" style="justify-content: space-between; bottom: auto; width: 125px; height: 125px;">
-                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/SettingBtn.png?fileID=21300000&amp;guid=48944fcf0120dbf43943dfe04aa0900d&amp;type=3#SettingBtn&apos;); width: 80%; height: 80%;" />
-                    <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" />
-                </ui:VisualElement>
                 <ui:VisualElement name="letter-btn" class="btn" style="justify-content: space-between; bottom: auto; width: 125px; height: 125px;">
                     <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/LetterBtn.png?fileID=21300000&amp;guid=332f170688482d64691e85ccd750ecfe&amp;type=3#LetterBtn&apos;);" />
                     <ui:Label text="편지함" display-tooltip-when-elided="true" name="btn-text" class="text" />
+                </ui:VisualElement>
+                <ui:VisualElement name="setting-btn" class="btn" style="justify-content: space-between; bottom: auto; width: 125px; height: 125px;">
+                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/SettingBtn.png?fileID=21300000&amp;guid=48944fcf0120dbf43943dfe04aa0900d&amp;type=3#SettingBtn&apos;); width: 80%; height: 80%;" />
+                    <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

@@ -117,10 +117,13 @@ public class PlayerMovementModule : CommonModule<PlayerController>
     
     private void OnTouch()
     {
-        _moveStart = true;
-        _movePivot = GameManager.Instance.GetManager<InputManager>().TouchPosition;
-        _joyStick = (JoyStickPopup)GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.JoyStick);
-        _joyStick.SetInitPos(_movePivot);
+        if (AquariumManager.Instance.state == AquariumManager.STATE.NORMAL)
+        {
+            _moveStart = true;
+            _movePivot = GameManager.Instance.GetManager<InputManager>().TouchPosition;
+            _joyStick = (JoyStickPopup)GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.JoyStick);
+            _joyStick.SetInitPos(_movePivot);
+        }
     }
 
     private void OnTouchUp()
