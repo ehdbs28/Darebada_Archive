@@ -22,18 +22,22 @@ public class TutorialManager : MonoBehaviour, IManager
     }
     public void UpdateManager(){}
 
-    public void OnClickEvent(GameSceneType sceneType)
+    public void OnTutorial(GameSceneType sceneType)
     {
         print("startTutorial");
         idx = 0;
         _sceneType = sceneType;
-        // 클릭, 터치
         GameManager.Instance.GetManager<InputManager>().OnTouchEvent += StartTutorial;
         StartTutorial();
     }
 
     private void ShowTutorial(bool value)
     {
+        if (!value)
+        {
+            GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= StartTutorial;
+        }
+        
         _tutorialImage.gameObject.SetActive(value);
         _tutorialPanel.gameObject.SetActive(value);
     }
@@ -43,7 +47,7 @@ public class TutorialManager : MonoBehaviour, IManager
         GameData gameData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData;
         
         print(_sceneType);
-        // 이거 나중에 유지보수 때 바꿔야 함 일단 기능만 구현함
+        
         if (_sceneType == GameSceneType.Camp)
         {
             if (idx == _campExplainImages.Count) EndTutorial(_sceneType);
@@ -59,8 +63,7 @@ public class TutorialManager : MonoBehaviour, IManager
             if (idx == _campExplainImages.Count) EndTutorial(_sceneType);
             if (gameData.CampTutorial) return;
         }
-
-
+        
         ShowTutorial(true);
 
         if (_sceneType == GameSceneType.Camp) _tutorialImage.sprite = _campExplainImages[idx++];
@@ -82,7 +85,4 @@ public class TutorialManager : MonoBehaviour, IManager
         else if (sceneType == GameSceneType.Aquarium)
             gameData.AquariumTutorial = true;
     }
-
-
-
 }

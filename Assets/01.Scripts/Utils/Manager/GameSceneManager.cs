@@ -35,7 +35,7 @@ public class GameSceneManager : IManager
 
         if (next == GameSceneType.Loading || next == GameSceneType.Camp) return;
 
-        GameManager.Instance.GetManager<TutorialManager>().OnClickEvent(next);
+        GameManager.Instance.GetManager<TutorialManager>().OnTutorial(next);
     }
 
     public void InitManager(){}

@@ -59,9 +59,9 @@ public class GameManager : MonoBehaviour
 
     private void AddManager()
     {
-        _managers.Add(new GameSceneManager());
         _managers.Add(new DataManager());
         _managers.Add(GetComponent<SheetDataManager>());
+        _managers.Add(new GameSceneManager());
         _managers.Add(new MoneyManager());
         _managers.Add(GetComponent<InputManager>());
         _managers.Add(GetComponent<CameraManager>());
@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour
         _managers.Add(transform.Find("UIManager").GetComponent<UIManager>());
         _managers.Add(transform.Find("SoundManager").GetComponent<SoundManager>());
         _managers.Add(GetComponent<DayCycleManager>());
-        // _managers.Add(new AddressableAssetsManager());
         _managers.Add(new FishingUpgradeManager());
         _managers.Add(new SeleteItemManager());
         _managers.Add(GetComponent<MiniGameManager>());
@@ -82,7 +81,7 @@ public class GameManager : MonoBehaviour
         _managers.Add(new InventoryManager());
         _managers.Add(new LoadingManager());
         _managers.Add(new SettingManager());
-        //_managers.Add(GetComponent<AquariumNumericalManager>());
+        _managers.Add(GetComponent<AquariumNumericalManager>());
         _managers.Add(new ChallengeManager());
         _managers.Add(GetComponent<TutorialManager>());
         _poolingList.Pairs.ForEach(pair => GetManager<PoolManager>().CreatePool(pair.Prefab, pair.Count));
