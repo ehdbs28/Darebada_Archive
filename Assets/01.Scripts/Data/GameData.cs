@@ -33,9 +33,9 @@ public class GameData : SaveData
 
     public override void Reset()
     {
-        GameTime = 0.0f;
+        GameTime = 360f;
         TotalDay = 1;
-        GameDateTime = new GameDate(0, 3, 0);
+        GameDateTime = new GameDate(0, 3, 1);
         HoldingGold = 0;
         HoldingLetter = new SerializeList<LetterUnit>();
         CampTutorial = false;
