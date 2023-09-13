@@ -19,7 +19,7 @@ public class CampScreen : UIScreen
     {
         base.SetUp(document, clearScreen, blur, timeStop);
         OnChangedDay(GameManager.Instance.GetManager<TimeManager>().DateTime);
-        _goldText.text = "$0";
+        OnChangeGold((GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData).HoldingGold);
     }
 
     public override void AddEvent()
@@ -51,6 +51,7 @@ public class CampScreen : UIScreen
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent -= OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent -= OnChangedDay;
+        GameManager.Instance.GetManager<MoneyManager>().OnGoldChange -= OnChangeGold;
     }
 
     public override void FindElement()

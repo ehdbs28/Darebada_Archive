@@ -21,12 +21,12 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden;">
-                <ui:VisualElement name="gold-content" class="gold-content">
-                    <ui:VisualElement name="gold-image" style="width: 5%; height: 70%; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
-                    <ui:Label text="1,418 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 30px; left: -25px;" />
-                </ui:VisualElement>
                 <ui:VisualElement name="contents" style="flex-direction: row; width: 200%; height: 100%; right: 0;">
                     <ui:VisualElement name="boat-content" style="height: 100%; width: 50%; align-items: center;">
+                        <ui:VisualElement name="gold-content" class="gold-content">
+                            <ui:VisualElement name="gold-image" style="width: 5%; height: 70%; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
+                            <ui:Label text="1,418 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 30px; left: -25px;" />
+                        </ui:VisualElement>
                         <ui:ScrollView name="boat-items" style="width: 100%;">
                             <ui:VisualElement name="boat_1" class="boat-item" style="height: 700px;">
                                 <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: none; -unity-background-image-tint-color: rgb(0, 0, 0); border-top-left-radius: 10px; border-top-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 100px; flex-shrink: 0; background-color: rgba(154, 154, 154, 0.96);">
@@ -191,6 +191,10 @@
                         </ui:ScrollView>
                     </ui:VisualElement>
                     <ui:VisualElement name="fishing-content" style="width: 50%; height: 100%;">
+                        <ui:VisualElement name="gold-content" class="gold-content">
+                            <ui:VisualElement name="gold-image" style="width: 5%; height: 70%; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
+                            <ui:Label text="1,418 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 30px; left: -25px;" />
+                        </ui:VisualElement>
                         <ui:VisualElement name="upgrade-items" style="flex-grow: 1;">
                             <ui:VisualElement name="max-power" class="fishing-item">
                                 <ui:VisualElement name="header" style="width: 100%; height: 100px; background-image: none; -unity-background-image-tint-color: rgba(255, 255, 255, 0.2); border-top-left-radius: 10px; border-top-right-radius: 10px; align-items: center; justify-content: center; flex-basis: 70px; flex-shrink: 0; background-color: rgba(154, 154, 154, 0.96);">

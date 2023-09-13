@@ -9875,8 +9875,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishBowlMat: {fileID: 2100000, guid: 8e3b2afd2ffa03c43b53cbae6268d4eb, type: 2}
   mossMat: {fileID: 2100000, guid: 2b6d1c6a3a628cf4b86395686e30b43b, type: 2}
-  pureWaterColor: {r: 0, g: 0, b: 0, a: 0}
-  corruptedWaterColor: {r: 0, g: 0, b: 0, a: 0}
+  pureWaterColor: {r: 1, g: 1, b: 1, a: 1}
+  corruptedWaterColor: {r: 0, g: 0, b: 0, a: 1}
   _cleanScore: 0
   _promotionPoint: 0
   _entrancePercent: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,6 +40,12 @@ public class PlayerMovementModule : CommonModule<PlayerController>
 
         GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouch;
         GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUp;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouch;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent -= OnTouchUp;
     }
 
     public override void UpdateModule()
@@ -117,10 +124,13 @@ public class PlayerMovementModule : CommonModule<PlayerController>
     
     private void OnTouch()
     {
-        _moveStart = true;
-        _movePivot = GameManager.Instance.GetManager<InputManager>().TouchPosition;
-        _joyStick = (JoyStickPopup)GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.JoyStick);
-        _joyStick.SetInitPos(_movePivot);
+        if (AquariumManager.Instance.state == AquariumManager.STATE.NORMAL)
+        {
+            _moveStart = true;
+            _movePivot = GameManager.Instance.GetManager<InputManager>().TouchPosition;
+            _joyStick = (JoyStickPopup)GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.JoyStick);
+            _joyStick.SetInitPos(_movePivot);
+        }
     }
 
     private void OnTouchUp()

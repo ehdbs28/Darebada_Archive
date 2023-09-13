@@ -64,7 +64,7 @@
             <ui:VisualElement name="button-panel" style="flex-direction: row; width: 125%; height: 100%; justify-content: space-around; align-items: flex-start; background-color: rgba(0, 0, 0, 0.27); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; bottom: 10px; padding-left: 30px; padding-right: 30px; padding-top: 30px; padding-bottom: 25px;">
                 <ui:VisualElement name="goto-btn" class="btn" style="justify-content: space-between;">
                     <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Home%20Icon.png?fileID=21300000&amp;guid=2776e7415ee80d54b8ba0b71a8f22d19&amp;type=3#Free Flat Home Icon&apos;);" />
-                    <ui:Label text="집으로" display-tooltip-when-elided="true" name="btn-text" class="text" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                    <ui:Label text="마을로" display-tooltip-when-elided="true" name="btn-text" class="text" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="letter-btn" class="btn" style="justify-content: space-between;">
                     <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/LetterBtn.png?fileID=21300000&amp;guid=332f170688482d64691e85ccd750ecfe&amp;type=3#LetterBtn&apos;); bottom: 2px; width: 100%; height: 100%;" />

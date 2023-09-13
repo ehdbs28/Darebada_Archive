@@ -9,6 +9,7 @@ public class PoolableUIMovementParticle : PoolableUIParticle
     public void SetDestination(Vector2 screenPos)
     {
         _destination = screenPos;
+        _destination.y *= -1;
         GameManager.Instance.GetManager<UIManager>().DestinationRectTrm.anchoredPosition = _destination;
     }
 

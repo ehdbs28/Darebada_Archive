@@ -19,13 +19,20 @@ public class UIPopupContent
         _index = index;
         FindElement();
         AddEvent();
+        OnGoldChanged((GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData).HoldingGold);
     }
 
     protected virtual void FindElement(){
         _goldLabel = _root.Q<Label>("gold-text");
     }
 
-    protected virtual void AddEvent(){
-        // connect gold event
+    protected virtual void AddEvent()
+    {
+        GameManager.Instance.GetManager<MoneyManager>().OnGoldChange += OnGoldChanged;
+    }
+
+    private void OnGoldChanged(int gold)
+    {
+        _goldLabel.text = $"{gold:N}";
     }
 }
