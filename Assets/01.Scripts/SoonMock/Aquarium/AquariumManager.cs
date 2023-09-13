@@ -32,7 +32,7 @@ public class AquariumManager : MonoBehaviour
     public enum STATE
     {
         NORMAL,//플레이어 조작
-        CAMERAMOVE,//카메라이동. 눌러서 이동한다
+        CAMMOVE,//카메라이동. 눌러서 이동한다
         BUILD//아쿠아리움 오브젝트를 설치한다.
     }
     public STATE state = STATE.NORMAL;
@@ -48,6 +48,10 @@ public class AquariumManager : MonoBehaviour
     [Header("LayerMask")]
     public LayerMask facilityLayer;
     public LayerMask gridLayer;
+
+    public float touchDist;
+    public Vector2 touchedVec;
+
 
     public Facility facilityObj;
 
@@ -71,7 +75,7 @@ public class AquariumManager : MonoBehaviour
                 GameManager.Instance.GetManager<AquariumNumericalManager>().fishbowlCnt++;
             }
             facilityObj = null;
-            state = STATE.CAMERAMOVE;
+            state = STATE.CAMMOVE;
         }
         FindObjectOfType<GridManager>().ShowGrid();
 
@@ -137,8 +141,6 @@ public class AquariumManager : MonoBehaviour
         FindObjectOfType<GridManager>().ShowGrid();
     }
 
-    private void OnTouchHandle(){
-    }
 
     public void GenerateCustomer()
     {
@@ -194,11 +196,14 @@ public class AquariumManager : MonoBehaviour
 
     public void ResetManager()
     {
-        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchHandle;
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchDownHandle;
         GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUpHandle;
 
     }
-
+    private void OnTouchDownHandle()
+    {
+        touchedVec = GameManager.Instance.GetManager<InputManager>().TouchPosition;
+    }
     private void OnTouchUpHandle()
     {
         if(state==STATE.BUILD)
@@ -212,6 +217,16 @@ public class AquariumManager : MonoBehaviour
             }
             else
             {
+            }
+        }else if(state == STATE.CAMMOVE &&Vector2.Distance(touchedVec, GameManager.Instance.GetManager<InputManager>().TouchPosition) <= touchDist)
+        {
+
+            RaycastHit hit;
+            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+            {
+                facilityObj = hit.collider.GetComponent<Facility>();
+                state = STATE.BUILD;
             }
         }
     }
