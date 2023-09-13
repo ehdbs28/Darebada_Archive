@@ -48,11 +48,11 @@ public class InventoryUnit
     
     public void Setting()
     {
-        _root.style.width = size.x * 115;
-        _root.style.height = size.y * 115;
-        
-        _inner.style.width = size.x * 115;
-        _inner.style.height = size.y * 115;
+        _root.style.width = new StyleLength(new Length(size.x * 15.25f, LengthUnit.Percent));
+        _root.style.height = new StyleLength(new Length(11.5f + (size.y * 11.6f), LengthUnit.Percent));
+
+        _inner.style.width = new StyleLength(new Length(size.x * 15.25f, LengthUnit.Percent));
+        _inner.style.height = new StyleLength(new Length(11.5f + (size.y * 11.6f), LengthUnit.Percent));
 
         Move(new Vector2(posX, posY));
         Selected(false);
@@ -74,7 +74,7 @@ public class InventoryUnit
     {
         posX = (int)pos.x;
         posY = (int)pos.y;
-        _root.style.left = pos.x * 115 + 16.5f;
-        _root.style.top = pos.y * 115 + 30.5f;
+        _root.style.left = pos.x * 134.5f + 45;
+        _root.style.top = pos.y * 122 + 36;
     }
 }
