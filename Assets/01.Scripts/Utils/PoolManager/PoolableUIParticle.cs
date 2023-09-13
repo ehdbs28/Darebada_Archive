@@ -13,7 +13,8 @@ public class PoolableUIParticle : PoolableMono
 
     public void SetPoint(Vector2 screenPos)
     {
-        screenPos.y *= -1f;
+        if(screenPos.y >= 0)
+            screenPos.y *= -1f;
         _rTrm.anchoredPosition = screenPos;
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,6 +40,12 @@ public class PlayerMovementModule : CommonModule<PlayerController>
 
         GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouch;
         GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUp;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouch;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent -= OnTouchUp;
     }
 
     public override void UpdateModule()

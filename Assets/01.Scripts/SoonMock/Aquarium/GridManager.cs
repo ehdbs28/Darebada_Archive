@@ -16,7 +16,7 @@ public class GridManager : MonoBehaviour
             grids[i].gameObject.SetActive(false);
         }
     }
-    public void CreateGrids()
+    private void CreateGrids()
     {
         //Vector3 floorSize = GameManager.Instance.GetManager<AquariumManager>().FloorSize;
         Vector3 floorSize = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize;

@@ -28,6 +28,8 @@ public class AquariumEditScreen : UIScreen
 
             
         OnChangedDay(GameManager.Instance.GetManager<TimeManager>().DateTime);
+        OnChangedGold((GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData).HoldingGold);
+
         _editCam = (AquariumEditVCam)GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.AQUARIUM_EDIT);
         _playerTrm = _editCam.transform.parent.Find("Player");
         var pos = _playerTrm.position - (new Vector3(1, 0, 1) * 5f);
@@ -52,18 +54,19 @@ public class AquariumEditScreen : UIScreen
         });
 
         _addTankBtn.RegisterCallback<ClickEvent>(e => {
-            //GameManager.Instance.GetManager<SoundManager>().ClickSound();
-            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.TankUpgrade);
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            AquariumManager.Instance.AddFishBowl();
         });
 
         _addPlantBtn.RegisterCallback<ClickEvent>(e => {
-            //GameManager.Instance.GetManager<SoundManager>().ClickSound();
-            //GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.);
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            AquariumManager.Instance.AddSnackShop();
         });
 
         _addRoadBtn.RegisterCallback<ClickEvent>(e =>
         {
-            //GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            AquariumManager.Instance.AddRoadTile();
         });
     }
 
@@ -107,10 +110,13 @@ public class AquariumEditScreen : UIScreen
     }
 
     private void OnTouchHandle(){
-        Vector3 point = GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint("Facility");
+        if (AquariumManager.Instance.state == AquariumManager.STATE.CAMERAMOVE)
+        {
+            Vector3 point = GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint("Facility");
 
-        if(point != Vector3.zero){
-            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.TankUpgrade);
+            if(point != Vector3.zero){
+                GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.TankUpgrade);
+            }
         }
     }
 }

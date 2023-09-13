@@ -26,7 +26,7 @@ public class GameData : SaveData
         GameDateTime = data.GameDateTime;
         HoldingGold = data.HoldingGold;
         HoldingLetter = data.HoldingLetter;
-        CampTutorial = data.OceanTutorial;
+        CampTutorial = data.CampTutorial;
         OceanTutorial = data.OceanTutorial;
         AquariumTutorial = data.AquariumTutorial;
     }

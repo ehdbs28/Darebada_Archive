@@ -24,6 +24,7 @@ public class AquariumScreen : UIScreen
     {
         base.SetUp(document, clearScreen, blur, timeStop);
         OnChangedDay(GameManager.Instance.GetManager<TimeManager>().DateTime);
+        OnChangedGold((GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData).HoldingGold);
     }
 
     public override void AddEvent()

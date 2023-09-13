@@ -19,7 +19,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
-                <ui:VisualElement name="contents" style="flex-direction: row-reverse; width: 200%; height: 100%; right: 0;">
+                <ui:VisualElement name="contents" style="flex-direction: row; width: 200%; height: 100%; right: 0;">
                     <ui:VisualElement name="clean-content" style="width: 50%; height: 100%;">
                         <ui:VisualElement name="gold-content" class="gold-content">
                             <ui:VisualElement name="gold-image" style="width: 5%; height: 70%; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
@@ -28,12 +28,12 @@
                         <ui:VisualElement name="clean-items" style="flex-grow: 1;">
                             <ui:VisualElement name="staff" class="fishing-item">
                                 <ui:VisualElement name="header" style="align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <ui:Label text="직원 고용" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center;" />
+                                    <ui:Label text="대청소 실시" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="info" style="flex-basis: 70%;">
                                     <ui:VisualElement name="staff-image" class="cleaning-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/free-icon-cleaning-staff-4221647.png?fileID=21300000&amp;guid=4d71411ce9a8b37478ea0653d5cf2a56&amp;type=3#free-icon-cleaning-staff-4221647&apos;);" />
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
-                                        <ui:Label text="보유 직원 1 / 5" display-tooltip-when-elided="true" name="cnt" class="text" />
+                                        <ui:Label text="사용 가능" display-tooltip-when-elided="true" name="cnt" class="text" />
                                         <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px; background-color: rgb(222, 221, 216); justify-content: center; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
                                             <ui:Label text="청결도 관리" display-tooltip-when-elided="true" name="name-text" class="text" style="align-items: flex-end;">
                                                 <ui:Label text="+5%" display-tooltip-when-elided="true" name="value-text" class="text" style="font-size: 25px;" />
@@ -47,7 +47,7 @@
                                 <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; align-items: center; justify-content: center; flex-direction: row;">
                                         <ui:VisualElement name="gold-image" />
-                                        <ui:Label text="500 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
+                                        <ui:Label text="250" display-tooltip-when-elided="true" name="gold-text" class="text" />
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
@@ -72,7 +72,7 @@
                                 <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; align-items: center; justify-content: center; flex-direction: row;">
                                         <ui:VisualElement name="gold-image" />
-                                        <ui:Label text="250 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
+                                        <ui:Label text="500" display-tooltip-when-elided="true" name="gold-text" class="text" />
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
@@ -97,7 +97,7 @@
                                 <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; align-items: center; justify-content: center; flex-direction: row;">
                                         <ui:VisualElement name="gold-image" />
-                                        <ui:Label text="1,000 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
+                                        <ui:Label text="1,000" display-tooltip-when-elided="true" name="gold-text" class="text" />
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
@@ -130,7 +130,7 @@
                                 <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; align-items: center; justify-content: center; flex-direction: row;">
                                         <ui:VisualElement name="gold-image" />
-                                        <ui:Label text="100 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
+                                        <ui:Label text="100" display-tooltip-when-elided="true" name="gold-text" class="text" />
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
@@ -155,7 +155,7 @@
                                 <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; align-items: center; justify-content: center; flex-direction: row;">
                                         <ui:VisualElement name="gold-image" />
-                                        <ui:Label text="500 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
+                                        <ui:Label text="500" display-tooltip-when-elided="true" name="gold-text" class="text" />
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
@@ -180,7 +180,7 @@
                                 <ui:VisualElement name="buy-btn" style="align-items: center; justify-content: center; flex-basis: 16%; flex-shrink: 0;">
                                     <ui:VisualElement name="price" style="width: 100%; height: 60px; align-items: center; justify-content: center; flex-direction: row;">
                                         <ui:VisualElement name="gold-image" />
-                                        <ui:Label text="1,000 $" display-tooltip-when-elided="true" name="gold-text" class="text" />
+                                        <ui:Label text="1,000" display-tooltip-when-elided="true" name="gold-text" class="text" />
                                     </ui:VisualElement>
                                 </ui:VisualElement>
                             </ui:VisualElement>
