@@ -22,6 +22,13 @@ public class FishingIdleState : FishingState
     {
         GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Ocean);
 
+        if (_controller.Bait.CatchedFish != null)
+        {
+            ((CatchedFishCheckingPopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.CatchedFishChecking)).dataUnit = _controller.Bait.CatchedFish.DataUnit;
+            GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.CatchedFishChecking);
+            _controller.Bait.CatchedFish = null;
+        }
+
         _controller.ActionData.IsFishing = false;
         GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.BOAT_FOLLOW);
     }

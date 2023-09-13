@@ -90,6 +90,7 @@ public class CampSubManager : MonoBehaviour, IManager
 
         yield return new WaitForSeconds(_titleDelayOffset);
         
+        GameManager.Instance.GetManager<TutorialManager>().OnTutorial(GameSceneType.Camp);
         GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Camp);
     }
 

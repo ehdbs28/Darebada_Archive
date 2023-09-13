@@ -23,8 +23,8 @@ public class CatchedFishCheckingPopup : UIPopup
     {
         _nameText.text = data.Name;
         _fishImage.style.backgroundImage = new StyleBackground(data.Visual.Profile);
-        _weightText.text = (Random.Range(data.MinWeight, data.MaxWeight)).ToString();
-        _lengthText.text = (Random.Range(data.MinLenght, data.MaxLenght)).ToString();
+        _weightText.text = (Mathf.Round(Random.Range(data.MinWeight, data.MaxWeight) * 10) / 10).ToString();
+        _lengthText.text = (Mathf.Round(Random.Range(data.MinLenght, data.MaxLenght) * 10) / 10).ToString();
         _description.text = data.Description;
     }
 
@@ -43,8 +43,9 @@ public class CatchedFishCheckingPopup : UIPopup
 
         _captureBtn.RegisterCallback<ClickEvent>(e =>
         {
-            //������ �Է��ؼ� �κ��丮�� �־������
-            Debug.Log("������ �Է�");
+            Vector2 size = new Vector2(dataUnit.InvenSizeX, dataUnit.InvenSizeY);
+            GameManager.Instance.GetManager<InventoryManager>().AddUnit(dataUnit, size);
+            RemoveRoot();
         });
     }
 

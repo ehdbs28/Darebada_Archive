@@ -127,6 +127,8 @@ public class AquariumManager : MonoBehaviour
     public void AddRoadTile()
     {
         RoadTile roadTile = Instantiate(_roadTileObject).GetComponent<RoadTile>();
+
+        GameManager.Instance.GetManager<AquariumNumericalManager>().roadCnt++;
         
         roadTile.transform.localPosition = Vector3.zero;
         facilityObj = roadTile;
@@ -136,6 +138,18 @@ public class AquariumManager : MonoBehaviour
     }
 
     private void OnTouchHandle(){
+    }
+
+    public void GenerateCustomer()
+    {
+        if (GameManager.Instance.GetManager<AquariumNumericalManager>().roadCnt <= 0)
+            return;
+
+        for (int i = 0; i < GameManager.Instance.GetManager<AquariumNumericalManager>().CustomerCnt; i++)
+        {
+            int type = Random.Range(1, 4);
+            CustomerController customer = GameManager.Instance.GetManager<PoolManager>().Pop($"Customer{type}") as CustomerController;
+        }
     }
 
     public void InitManager()

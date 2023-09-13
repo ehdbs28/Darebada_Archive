@@ -15,3 +15,4 @@ MonoBehaviour:
   Name: Starfish01Y
   mesh: {fileID: 4300000, guid: 54a8d92f1c57b5a479cd4c720b32ba72, type: 3}
   mainMat: {fileID: 2100000, guid: c53ab002e1cd24a27a02b1967dd615da, type: 2}
+  sprite: {fileID: 1237185759, guid: ec3f09662e0390549a40b97959ad4397, type: 3}

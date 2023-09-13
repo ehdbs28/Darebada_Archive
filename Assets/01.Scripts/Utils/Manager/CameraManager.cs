@@ -12,6 +12,7 @@ public class CameraManager : MonoBehaviour, IManager
     private VCam _rotateVCam;
     public VCam RotateVCam => _rotateVCam;
     public bool _isCanRotate = true;
+    public bool _isStopRotate = false;
 
     private List<VCam> _virtualCams = new List<VCam>();
 
@@ -21,6 +22,16 @@ public class CameraManager : MonoBehaviour, IManager
 
     public void UpdateManager() {
         _currentActiveVCam?.UpdateCam();
+        
+        if (_currentActiveVCam != _rotateVCam) return;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += (() => _isCanRotate = false);
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent += (() =>
+        {
+            if (_isStopRotate) return;
+            _isCanRotate = true;
+        });
+
+        SetCanRotate();
     }
 
     public VCam SetVCam(CameraState state){
@@ -52,6 +63,13 @@ public class CameraManager : MonoBehaviour, IManager
 
     public void SetVCamList(List<VCam> vCamList){
         _virtualCams = vCamList;
+    }
+
+    public void SetCanRotate()
+    {
+        if (_currentActiveVCam != _rotateVCam) return;
+        ((RotateCam)_currentActiveVCam).SetCanRotate(_isCanRotate);
+        ((RotateCam)_currentActiveVCam).SetCanRotateSpeed(_isCanRotate ? 700 : 0);
     }
 
     public void ResetManager(){}

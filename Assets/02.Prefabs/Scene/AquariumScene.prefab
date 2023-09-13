@@ -143,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970356274400009159}
   m_LocalRotation: {x: 0.20313035, y: 0.45475227, z: -0.10735254, w: 0.8604731}
-  m_LocalPosition: {x: -3.9267201, y: 4.1104984, z: -3.7637863}
+  m_LocalPosition: {x: -3.92672, y: 4.1104984, z: -3.7637863}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -953,6 +953,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7600918715572421723}
         m_TargetAssemblyTypeName: AquariumManager, Assembly-CSharp
         m_MethodName: InitManager
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7600918715572421723}
+        m_TargetAssemblyTypeName: AquariumManager, Assembly-CSharp
+        m_MethodName: GenerateCustomer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

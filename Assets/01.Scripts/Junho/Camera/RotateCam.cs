@@ -26,11 +26,11 @@ public class RotateCam : VCam
 
     public override void UpdateCam()
     {
-        if (!GameManager.Instance.GetManager<CameraManager>()._isCanRotate)
-        {
-            _freelookCam.Follow = null;
-            _freelookCam.LookAt = null;
-        }
+        //if (!GameManager.Instance.GetManager<CameraManager>()._isCanRotate)
+        //{
+        //    _freelookCam.Follow = null;
+        //    _freelookCam.LookAt = null;
+        //}
     }
 
     public void SetCamPos(float height, float radius)
@@ -40,5 +40,15 @@ public class RotateCam : VCam
             _freelookCam.m_Orbits[i].m_Height = height;
             _freelookCam.m_Orbits[i].m_Radius = radius;
         }
+    }
+
+    public void SetCanRotate(bool value)
+    {
+        _freelookCam.enabled = value;
+    }
+    
+    public void SetCanRotateSpeed(int value)
+    {
+        _freelookCam.m_XAxis.m_MaxSpeed = value;
     }
 }

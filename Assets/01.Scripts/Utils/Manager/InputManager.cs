@@ -12,6 +12,8 @@ public class InputManager : MonoBehaviour, IManager
     public event Action OnTouchUpEvent = null;
     public event Action<Vector2> OnTouchPosition = null;
 
+    public event Action OnTutorialClick = null;
+
     private Vector2 _touchPosition;
     public Vector2 TouchPosition => _touchPosition;
 
@@ -37,12 +39,21 @@ public class InputManager : MonoBehaviour, IManager
         if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
             return;
 
+        if (GameManager.Instance.GetManager<TutorialManager>().InTut)
+        {
+            OnTutorialClick?.Invoke();
+            return;
+        }
+
         OnTouchEvent?.Invoke();
     }
     
     private void TouchUpHandle(InputAction.CallbackContext context)
     {
         if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
+            return;
+        
+        if (GameManager.Instance.GetManager<TutorialManager>().InTut)
             return;
         
         OnTouchUpEvent?.Invoke();
@@ -63,12 +74,21 @@ public class InputManager : MonoBehaviour, IManager
         if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
             return;
 
+        if (GameManager.Instance.GetManager<TutorialManager>().InTut)
+        {
+            OnTutorialClick?.Invoke();
+            return;
+        }
+
         OnTouchEvent?.Invoke();
     }
     
     private void MouseUpHandle(InputAction.CallbackContext context)
     {
         if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
+            return;
+        
+        if (GameManager.Instance.GetManager<TutorialManager>().InTut)
             return;
         
         OnTouchUpEvent?.Invoke();

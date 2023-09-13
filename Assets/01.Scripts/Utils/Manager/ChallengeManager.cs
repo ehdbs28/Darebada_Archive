@@ -74,10 +74,20 @@ public class ChallengeManager : IManager
                     default:
                         break;
                 }
-                _challenges[i].CheckConditions(_data.units[i].totalValue) ;
-
+                CheckConditions(_data.units[i].totalValue, _challenges[i].Target, i);
             }
         };
+    }
+    
+    public void CheckConditions(int curState, int target, int idx)
+    {
+        if (curState >= target)
+        {
+            _data.units[idx].isClear = true;
+
+            if(_challenges[idx].TargetFishName != null || _challenges[idx].TargetFishName != "")
+                BiomeData.Biomes[idx + 1] = true;
+        }
     }
 
     public void InitManager()

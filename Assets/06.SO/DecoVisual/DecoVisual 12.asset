@@ -15,3 +15,4 @@ MonoBehaviour:
   Name: Grass00
   mesh: {fileID: 4300000, guid: 44f7acb2053d6244695b771edef8d381, type: 3}
   mainMat: {fileID: 2100000, guid: c53ab002e1cd24a27a02b1967dd615da, type: 2}
+  sprite: {fileID: -1685982771, guid: 115a35fb36b3b0641a009203666c0f03, type: 3}

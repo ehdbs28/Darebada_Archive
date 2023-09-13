@@ -26,6 +26,11 @@ public class FishingThrowingState : FishingState
 
     public override void EnterState()
     {
+        GameManager.Instance.GetManager<CameraManager>()._isStopRotate = true;
+        GameManager.Instance.GetManager<CameraManager>()._isCanRotate = false;
+
+        GameManager.Instance.GetManager<CameraManager>().SetCanRotate();
+
         _isThrowing = false;
         _startPos = _bobberTrm.position;
         _playerTrm.LookAt(_controller.ActionData.LastThrowDirection);
@@ -76,6 +81,7 @@ public class FishingThrowingState : FishingState
         }
 
         _controller.ActionData.IsUnderWater = true;
+        GameManager.Instance.GetManager<CameraManager>()._isStopRotate = false;
     }
 
     private void OnAnimationEndHandle()

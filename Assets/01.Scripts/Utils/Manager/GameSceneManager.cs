@@ -32,6 +32,10 @@ public class GameSceneManager : IManager
             _bgmClip = _activeScene.GetComponent<AudioSource>().clip;
             GameManager.Instance.GetManager<SoundManager>().Play(_bgmClip, SoundEnum.BGM);
         }
+
+        if (next == GameSceneType.Loading || next == GameSceneType.Camp) return;
+
+        GameManager.Instance.GetManager<TutorialManager>().OnTutorial(next);
     }
 
     public void InitManager(){}

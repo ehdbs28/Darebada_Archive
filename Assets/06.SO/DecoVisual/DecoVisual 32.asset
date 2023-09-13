@@ -15,3 +15,4 @@ MonoBehaviour:
   Name: TableCoral00
   mesh: {fileID: 4300000, guid: 561d3a421707f5a439491abc9d3289c6, type: 3}
   mainMat: {fileID: 2100000, guid: c53ab002e1cd24a27a02b1967dd615da, type: 2}
+  sprite: {fileID: -1872051413, guid: de56d96829d2f7946b90f9d7050b1e51, type: 3}

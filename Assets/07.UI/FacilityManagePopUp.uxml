@@ -1,0 +1,36 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="manage-container" picking-mode="Ignore" style="width: 85%; height: 75%; background-color: rgba(255, 255, 255, 0.2); position: absolute; left: 7.5%; top: 15%; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; border-top-left-radius: 20px; border-top-right-radius: 20px;">
+        <ui:VisualElement name="header" style="flex-basis: 5.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0; background-color: rgba(0, 151, 217, 0.96); border-top-left-radius: 20px; border-top-right-radius: 20px;">
+            <ui:VisualElement name="exit-btn" style="width: 45px; height: 45px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); position: absolute; right: 30px;" />
+            <ui:Label text="아쿠아리움 관리" display-tooltip-when-elided="true" name="window-label" enable-rich-text="false" class="text" style="font-size: 50px; position: absolute; color: rgb(255, 255, 255);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgb(222, 221, 216); border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;">
+            <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 40px; margin-bottom: 40px; flex-grow: 1; overflow: hidden;">
+                <ui:VisualElement name="contents" style="flex-direction: column; width: 100%; height: 100%; right: auto; min-width: auto; min-height: auto;">
+                    <ui:VisualElement name="shopmanage-name" style="height: 100px; padding-bottom: 20px; width: 100%;">
+                        <ui:VisualElement name="name-box" style="width: 100%; height: 100%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; background-color: rgb(154, 154, 154);">
+                            <ui:Label text="상점 관리" display-tooltip-when-elided="true" name="name-text" class="text" style="-unity-text-align: middle-center; width: 100%; height: 100%; font-size: 40px;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="auqariummanage-content" style="flex-basis: 100%; background-color: rgba(255, 255, 255, 0.78); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: flex-start;">
+                        <ui:VisualElement name="shop-image" style="flex-basis: auto; width: 90%; margin-left: 0; margin-right: 0; margin-top: 30px; margin-bottom: 30px; height: 60%; background-image: url(&apos;project://database/Assets/05.Assets/UI/BiomeImage/2_RainyOcene.png?fileID=2800000&amp;guid=f0b4fcbb4f501420cae29014074978d5&amp;type=3#2_RainyOcene&apos;); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;" />
+                        <ui:VisualElement name="shopupgrade-btn" style="width: 80%; height: 10%; background-color: rgba(78, 209, 1, 0.78); align-items: center; justify-content: center; margin-top: 30px; margin-bottom: 30px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                            <ui:Label text="업그레이드" display-tooltip-when-elided="true" name="shopupgrade-text" style="-unity-font-definition: url(&apos;project://database/Assets/08.Fonts/ChosunSg%20SDF.asset?fileID=11400000&amp;guid=4760111a33bf49246b70c208541fdf41&amp;type=2#ChosunSg SDF&apos;); color: rgb(255, 255, 255); font-size: 50px;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="employee-content" style="margin-top: 30px; margin-bottom: 30px; width: 100%; height: 10%; align-items: center; justify-content: center; flex-direction: row;">
+                            <ui:VisualElement name="minus-btn" style="flex-grow: 0; height: 70%; width: 10%; background-color: rgba(78, 209, 1, 0.78); justify-content: center; align-items: center; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                                <ui:VisualElement name="minus-image" style="flex-grow: 0; width: 80%; height: 80%; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Hyphen%20Icon.png?fileID=21300000&amp;guid=540b141eb0ec4494d9b42bd9ea32cd93&amp;type=3#Free Flat Hyphen Icon&apos;);" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="employeecount" style="flex-grow: 0; height: 70%; width: 30%; background-color: rgb(99, 99, 99); align-items: center; justify-content: center; color: rgb(255, 255, 255);">
+                                <ui:Label text="N" display-tooltip-when-elided="true" name="employcount-text" style="-unity-font-definition: url(&apos;project://database/Assets/08.Fonts/ChosunSg%20SDF.asset?fileID=11400000&amp;guid=4760111a33bf49246b70c208541fdf41&amp;type=2#ChosunSg SDF&apos;); font-size: 50px;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="plus-btn" style="flex-grow: 0; height: 70%; width: 10%; background-color: rgba(78, 209, 1, 0.78); justify-content: center; align-items: center; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                                <ui:VisualElement name="plus-image" style="width: 80%; height: 80%; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Hat%20Solid%20Blank%20Icon.png?fileID=2800000&amp;guid=9a363b86d8dc1f9469388fb98608bb7b&amp;type=3#Free Flat Hat Solid Blank Icon&apos;);" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

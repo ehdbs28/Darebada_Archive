@@ -7,8 +7,9 @@ using static Core.Define;
 
 public class OceanScreen : UIScreen
 {
-    private Label _timeText;
+    private Label _yearText;
     private Label _dateText;
+    private Label _timeText;
 
     private VisualElement _backpackBtn;
     private VisualElement _gobackBtn;
@@ -31,6 +32,7 @@ public class OceanScreen : UIScreen
     {
         base.SetUp(document, clearScreen);
         _boatController = GameObject.Find("Boat").GetComponent<BoatController>();
+        OnChangedDay(GameManager.Instance.GetManager<TimeManager>().DateTime);
     }
 
     private void Update() {
@@ -92,8 +94,9 @@ public class OceanScreen : UIScreen
 
     public override void FindElement()
     {
-        _timeText = _root.Q<Label>("time-text");
-        _dateText = _root.Q<Label>("date-text");
+        _yearText = _root.Q<Label>("year");
+        _dateText = _root.Q<Label>("date");
+        _timeText = _root.Q<Label>("time");
 
         _backpackBtn = _root.Q<VisualElement>("backpack-btn");
         _gobackBtn = _root.Q<VisualElement>("goto-btn");
@@ -121,7 +124,9 @@ public class OceanScreen : UIScreen
         _timeText.text = $"{hour:D2}:{minute:D2}";
     }
 
-    private void OnChangedDay(GameDate gamedate){
-        _dateText.text = $"{gamedate.Year}년째, {gamedate.Month}월{gamedate.Day}일";
+    private void OnChangedDay(GameDate gamedate)
+    {
+        _yearText.text = $"{gamedate.Year}년째";
+        _dateText.text = $"{gamedate.Month}월 {gamedate.Day}일";
     }
 }
