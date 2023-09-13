@@ -14,9 +14,22 @@ public class Shop : Facility
         private set { 
         }
     }
-    public void AddEmployee(int amount)
+    public void AddEmployee()
     {
-        employee += amount;
+        if(employee < level * 3)
+        {
+            GameManager.Instance.GetManager<AquariumNumericalManager>().employeeCnt++;
+            employee ++;
+        }
+    }
+    public void SubEmployee()
+    {
+
+        if (employee > 0)
+        {
+            GameManager.Instance.GetManager<AquariumNumericalManager>().employeeCnt--;
+            employee--;
+        }
     }
     public void LevelUp()
     {
