@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/07.UI/FishbowlManagePopUp.uss?fileID=7433441132597879392&amp;guid=24cacd8839f47304686ace75b08f5225&amp;type=3#FishbowlManagePopUp" />
     <Style src="project://database/Assets/07.UI/ShopUI.uss?fileID=7433441132597879392&amp;guid=117492bc78fab3f4aa683150d95bda77&amp;type=3#ShopUI" />
+    <Style src="project://database/Assets/07.UI/AquariumManageUI.uss?fileID=7433441132597879392&amp;guid=b9de445fa38cb3f42b5e22fac48e3a93&amp;type=3#AquariumManageUI" />
     <ui:VisualElement name="upgrade-container" style="width: 85%; height: 75%; background-color: rgba(255, 255, 255, 0.2); position: absolute; left: 7.5%; top: 15%;">
         <ui:VisualElement name="header" style="flex-basis: 5.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0; background-color: rgba(0, 151, 217, 0.96);">
             <ui:VisualElement name="exit-btn" style="width: 45px; height: 45px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); position: absolute; right: 30px;" />
@@ -8,23 +9,27 @@
         </ui:VisualElement>
         <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgb(222, 221, 216); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
             <ui:VisualElement name="menu-selecter" style="flex-basis: 8%; flex-direction: row; align-items: center; justify-content: center; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 40px; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); border-bottom-width: 2px; border-top-width: 2px; background-color: rgb(255, 167, 76); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
-                <ui:VisualElement name="fishbowl-btn" style="flex-basis: 50%; margin-right: 50px; margin-left: 50px; height: 100%; justify-content: center;">
+                <ui:VisualElement name="fishbowl-btn" style="flex-basis: 100%; height: 100%; justify-content: center;">
                     <ui:Label text="수조 강화" display-tooltip-when-elided="true" name="fishbowl-text" class="text" style="font-size: 35px; -unity-text-align: middle-center;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="line" style="width: 3px; height: 70px; background-color: rgb(255, 255, 255);" />
-                <ui:VisualElement name="addfish-btn" style="flex-basis: 50%; margin-right: 50px; margin-left: 50px; height: 100%; justify-content: center;">
+                <ui:VisualElement name="addfish-btn" style="flex-basis: 100%; height: 100%; justify-content: center;">
                     <ui:Label text="물고기 추가" display-tooltip-when-elided="true" name="addfish-text" class="text" style="font-size: 35px; -unity-text-align: middle-center;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="line" style="width: 3px; height: 70px; background-color: rgb(255, 255, 255);" />
-                <ui:VisualElement name="deco-btn" style="flex-basis: 50%; margin-right: 50px; margin-left: 50px; height: 100%; justify-content: center;">
+                <ui:VisualElement name="deco-btn" style="flex-basis: 100%; height: 100%; justify-content: center;">
                     <ui:Label text="장식 추가" display-tooltip-when-elided="true" name="deco-text" class="text" style="font-size: 35px; -unity-text-align: middle-center;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="line" style="width: 3px; height: 70px; background-color: rgb(255, 255, 255);" />
-                <ui:VisualElement name="removefish-btn" style="flex-basis: 50%; margin-right: 50px; margin-left: 50px; height: 100%; justify-content: center;">
+                <ui:VisualElement name="removefish-btn" style="flex-basis: 100%; height: 100%; justify-content: center;">
                     <ui:Label text="물고기 제거" display-tooltip-when-elided="true" name="removefish-text" class="text" style="font-size: 35px; -unity-text-align: middle-center;" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                <ui:VisualElement name="gold-content" class="gold-content">
+                    <ui:VisualElement name="gold-image" style="width: 5%; height: 70%; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
+                    <ui:Label text="1,418 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 30px; left: -25px;" />
+                </ui:VisualElement>
                 <ui:VisualElement name="contents" style="flex-direction: row; width: 400%; height: 100%; right: 0; min-width: auto; min-height: auto;">
                     <ui:VisualElement name="fishbowl-content" style="width: 50%; height: 100%;">
                         <ui:VisualElement name="fishbowlState-name" style="height: 100px; padding-bottom: 20px; width: 100%;">

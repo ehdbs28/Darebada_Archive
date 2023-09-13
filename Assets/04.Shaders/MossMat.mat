@@ -45,7 +45,7 @@ Material:
     - _NoisePow: 100
     - _QueueControl: 0
     - _QueueOffset: -50
-    - _ShowValue: 1.3
+    - _ShowValue: 21474838
     m_Colors:
     - _Color: {r: 0.08368153, g: 0.2924528, b: 0, a: 0}
   m_BuildTextureStacks: []

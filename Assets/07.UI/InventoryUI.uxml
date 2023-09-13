@@ -7,15 +7,7 @@
             <ui:Label text="인벤토리" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 40px; position: absolute; color: rgb(255, 255, 255);" />
         </ui:VisualElement>
         <ui:VisualElement name="units-container" style="flex-basis: 74.5%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; align-items: center; justify-content: center; flex-shrink: 0; background-color: rgb(222, 221, 216);">
-            <ui:VisualElement name="units" style="height: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px; background-color: rgba(255, 255, 255, 0.78); width: 100%; flex-wrap: wrap; position: relative; justify-content: center; align-items: center; padding-left: 5%;">
-                <ui:VisualElement name="inventory-unit" class="inventory-unit" />
-                <ui:VisualElement name="inventory-unit" class="inventory-unit" />
-                <ui:VisualElement name="inventory-unit" class="inventory-unit" />
-                <ui:VisualElement name="inventory-unit" class="inventory-unit" />
-                <ui:VisualElement name="inventory-unit" class="inventory-unit" />
-                <ui:VisualElement name="inventory-unit" class="inventory-unit" />
-                <ui:VisualElement name="inventory-unit" class="inventory-unit" />
-                <ui:VisualElement name="inventory-unit" class="inventory-unit" />
+            <ui:VisualElement name="units" style="height: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px; background-color: rgba(255, 255, 255, 0.78); width: 100%; flex-wrap: wrap; position: relative; justify-content: center; align-items: center; padding-left: 4%;">
                 <ui:VisualElement name="inventory-unit" class="inventory-unit" />
                 <ui:VisualElement name="inventory-unit" class="inventory-unit" />
                 <ui:VisualElement name="inventory-unit" class="inventory-unit" />

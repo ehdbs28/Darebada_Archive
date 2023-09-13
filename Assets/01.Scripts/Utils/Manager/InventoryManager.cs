@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 
 public class InventoryManager : IManager
 {
-    public const int BoardSizeX = 7;
+    public const int BoardSizeX = 6;
     public const int BoardSizeY = 8;
 
     private InventoryData _data;
@@ -28,7 +28,7 @@ public class InventoryManager : IManager
         }
         else
         {
-            Debug.Log("인벤에 자리가 없음");
+            Debug.Log("?�벤???�리가 ?�음");
         }
     }
 

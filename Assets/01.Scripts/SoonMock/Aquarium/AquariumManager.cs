@@ -45,8 +45,10 @@ public class AquariumManager : MonoBehaviour
     [SerializeField] ParticleSystem _cleaningParticleSystemObject;
     public List<NavMeshSurface> roadSurfaces;
 
-
+    [Header("LayerMask")]
     public LayerMask facilityLayer;
+    public LayerMask gridLayer;
+
     public Facility facilityObj;
 
     [SerializeField] private BuildFacility _build;
@@ -100,7 +102,7 @@ public class AquariumManager : MonoBehaviour
         _walls.transform.GetChild(3).localScale = new Vector3(FloorSize.z * 10, 10, 0);
         _walls.transform.GetChild(3).localRotation = Quaternion.Euler(0, -90, 0);
         _walls.transform.GetChild(3).position = new Vector3(-FloorSize.x * 10 / 2, 5, 0);
-
+        
     }
     public void AddFishBowl()
     {
@@ -204,14 +206,12 @@ public class AquariumManager : MonoBehaviour
 
             RaycastHit hit;
             Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, gridLayer))
             {
-                facilityObj = hit.collider.GetComponent<Facility>();
+                SetPos();
             }
             else
             {
-                facilityObj = null;
-
             }
         }
     }
@@ -227,7 +227,7 @@ public class AquariumManager : MonoBehaviour
             RaycastHit hit;
             Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
             //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (facilityObj != null && Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
+            if (facilityObj != null && Physics.Raycast(ray, out hit, Mathf.Infinity, gridLayer))
             {
 
                 if (_build == null) _build = gameObject.AddComponent<BuildFacility>();
