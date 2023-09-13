@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/07.UI/FishbowlManagePopUp.uss?fileID=7433441132597879392&amp;guid=24cacd8839f47304686ace75b08f5225&amp;type=3#FishbowlManagePopUp" />
     <Style src="project://database/Assets/07.UI/ShopUI.uss?fileID=7433441132597879392&amp;guid=117492bc78fab3f4aa683150d95bda77&amp;type=3#ShopUI" />
+    <Style src="project://database/Assets/07.UI/AquariumManageUI.uss?fileID=7433441132597879392&amp;guid=b9de445fa38cb3f42b5e22fac48e3a93&amp;type=3#AquariumManageUI" />
     <ui:VisualElement name="upgrade-container" style="width: 85%; height: 75%; background-color: rgba(255, 255, 255, 0.2); position: absolute; left: 7.5%; top: 15%;">
         <ui:VisualElement name="header" style="flex-basis: 5.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0; background-color: rgba(0, 151, 217, 0.96);">
             <ui:VisualElement name="exit-btn" style="width: 45px; height: 45px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); position: absolute; right: 30px;" />
@@ -25,6 +26,10 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                <ui:VisualElement name="gold-content" class="gold-content">
+                    <ui:VisualElement name="gold-image" style="width: 5%; height: 70%; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
+                    <ui:Label text="1,418 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 30px; left: -25px;" />
+                </ui:VisualElement>
                 <ui:VisualElement name="contents" style="flex-direction: row; width: 400%; height: 100%; right: 0; min-width: auto; min-height: auto;">
                     <ui:VisualElement name="fishbowl-content" style="width: 50%; height: 100%;">
                         <ui:VisualElement name="fishbowlState-name" style="height: 100px; padding-bottom: 20px; width: 100%;">
