@@ -1183,6 +1183,9 @@ MonoBehaviour:
   roadSurfaces: []
   facilityLayer:
     serializedVersion: 2
+    m_Bits: 64
+  gridLayer:
+    serializedVersion: 2
     m_Bits: 1048576
   facilityObj: {fileID: 0}
   _build: {fileID: 0}
