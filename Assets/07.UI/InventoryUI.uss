@@ -1,6 +1,6 @@
 .inventory-unit {
-    width: 115px;
-    height: 115px;
+    width: 16%;
+    height: 12%;
     background-color: rgba(0, 0, 0, 0.59);
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
