@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3001866001306174208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1986372448678407514}
+  m_Layer: 0
+  m_Name: FacilityObjs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1986372448678407514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3001866001306174208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7466582137896294901}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3724514831077464936
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,6 +63,7 @@ Transform:
   - {fileID: 4672333863279730252}
   - {fileID: 4672333862592323453}
   - {fileID: 4672333864073207558}
+  - {fileID: 1986372448678407514}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8947be22c7a8e4bb7ba69fb4c47c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facilityParent: {fileID: 0}
+  facilityParent: {fileID: 1986372448678407514}
   fishBowls:
   - {fileID: 803397027680250729, guid: 7a79f81f57f3f4546ba1450de0481fea, type: 3}
   - {fileID: 2043904805419853297, guid: bb3834b319aa720428a308fd0d6b9ae0, type: 3}
@@ -70,8 +102,6 @@ MonoBehaviour:
   gridLayer:
     serializedVersion: 2
     m_Bits: 1048576
-  touchDist: 0
-  touchedVec: {x: 0, y: 0}
   facilityObj: {fileID: 0}
   _build: {fileID: 0}
 --- !u!1 &4672333862592323452

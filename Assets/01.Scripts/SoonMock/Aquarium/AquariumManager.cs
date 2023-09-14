@@ -26,15 +26,19 @@ public class AquariumManager : MonoBehaviour
         }
         private set { _instance = value; }
     }
+    
     public Transform facilityParent;
+
     public List<GameObject> fishBowls = new List<GameObject>();
     public List<DecoVisualSO> decoVisuals = new List<DecoVisualSO>();
+    
     public enum STATE
     {
         NORMAL,//플레이어 조작
         CAMMOVE,//카메라이동. 눌러서 이동한다
         BUILD//아쿠아리움 오브젝트를 설치한다.
     }
+    
     public STATE state = STATE.NORMAL;
     [SerializeField] GameObject floor;
     [SerializeField] GameObject _walls;
@@ -57,23 +61,7 @@ public class AquariumManager : MonoBehaviour
     {
         UpdateManager();
     }
-    
-    // public void SetFacilityPos()
-    // {
-    //     if (facilityObj.CheckCollision())
-    //     {
-    //         
-    //         if (facilityObj.GetComponent<Fishbowl>())
-    //         {
-    //             GameManager.Instance.GetManager<AquariumNumericalManager>().fishbowlCnt++;
-    //         }
-    //         facilityObj = null;
-    //         state = STATE.CAMMOVE;
-    //     }
-    //     FindObjectOfType<GridManager>().ShowGrid();
-    //
-    // }
-    
+
     public void Promotion(int amount)
     {
         GameManager.Instance.GetManager<AquariumNumericalManager>().PromotionPoint += amount;
@@ -106,18 +94,15 @@ public class AquariumManager : MonoBehaviour
     
     public void AddFishBowl()
     {
-        //if (_buildPanel) _buildPanel.SetActive(false);
         Fishbowl fishBowl = Instantiate(_fishBowlObject).GetComponent<Fishbowl>();
         fishBowl.transform.localPosition = Vector3.zero;
         facilityObj = fishBowl;
         state = STATE.BUILD;
         FindObjectOfType<GridManager>().ShowGrid();
-        //    else floor.transform.localPosition = new Vector3(_floorSize.x / 2+10, 0, 0);
     }
     
     public void AddSnackShop()
     {
-        //_buildPanel.SetActive(false);
         Shop snackShop = Instantiate(_snackShopObject).GetComponent<Shop>();
         snackShop.transform.localPosition = Vector3.zero;
         facilityObj = snackShop;
@@ -128,9 +113,7 @@ public class AquariumManager : MonoBehaviour
     public void AddRoadTile()
     {
         RoadTile roadTile = Instantiate(_roadTileObject).GetComponent<RoadTile>();
-
         GameManager.Instance.GetManager<AquariumNumericalManager>().roadCnt++;
-        
         roadTile.transform.localPosition = Vector3.zero;
         facilityObj = roadTile;
         state = STATE.BUILD;
@@ -152,7 +135,6 @@ public class AquariumManager : MonoBehaviour
 
     public void InitManager()
     {
-
         _build = GetComponent<BuildFacility>();
         Define.MainCam.clearFlags = CameraClearFlags.SolidColor;
         Define.MainCam.backgroundColor = Color.black;
@@ -201,6 +183,7 @@ public class AquariumManager : MonoBehaviour
                     }
                 }
                 
+                facilityObj.transform.SetParent(facilityParent);
                 facilityObj = null;
             }
         };

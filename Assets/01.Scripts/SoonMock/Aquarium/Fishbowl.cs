@@ -115,7 +115,6 @@ public class Fishbowl :  Facility
         fishs.RemoveAt(idx);
         Destroy(obj);
         selectedBoid.FindNeighbour();
-        
     }
     
     public void Upgrade()
@@ -143,8 +142,6 @@ public class Fishbowl :  Facility
         AquariumManager.Instance.facilityObj = this;
         AquariumManager.Instance.state = AquariumManager.STATE.BUILD;
         FindObjectOfType<GridManager>().ShowGrid();
-
-
     }
     private void Awake()
     {
