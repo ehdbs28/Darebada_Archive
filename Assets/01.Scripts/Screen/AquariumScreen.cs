@@ -55,7 +55,7 @@ public class AquariumScreen : UIScreen
 
         _editorBtn.RegisterCallback<ClickEvent>(e =>
         {
-            AquariumManager.Instance.state = AquariumManager.STATE.CAMERAMOVE;
+            AquariumManager.Instance.state = AquariumManager.STATE.CAMMOVE;
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.AquariumEdit);
         });
