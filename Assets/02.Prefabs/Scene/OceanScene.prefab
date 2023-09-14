@@ -1398,6 +1398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb2cdb6f1142544283672765db14ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fishingController: {fileID: 489975743684832532}
+  _targetState: {fileID: 4013939300731314918}
   _target: {fileID: 3485983324164895182}
 --- !u!114 &5031617503960171387
 MonoBehaviour:
@@ -1703,6 +1705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54121598d5a9aaa4c8443f9dd0b7ea4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boatController: {fileID: 4013939298695840645}
+  _targetState: {fileID: 4013939299713938472}
   _target: {fileID: 1094923478570612052}
 --- !u!114 &5031617505588885335
 MonoBehaviour:
