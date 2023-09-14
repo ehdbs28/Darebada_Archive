@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: SeaAnamone00
   mesh: {fileID: 4300000, guid: 05e8a3dc685dc78419af1a788ef76279, type: 3}
-  mainMat: {fileID: 2100000, guid: c53ab002e1cd24a27a02b1967dd615da, type: 2}
+  mainMat: {fileID: 2100000, guid: 6c9706fa7b3bc7e4b9212fde94332a8b, type: 2}
   sprite: {fileID: 554922336, guid: 1892b5ea3933ce640a76863309a0f0e8, type: 3}

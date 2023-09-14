@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DecoController : MonoBehaviour
@@ -19,6 +20,7 @@ public class DecoController : MonoBehaviour
         SetDecoPositions();
 
     }
+    
     public void RemoveDeco(int idx)
     {
         Debug.Log("RemoveDeco idx : " + idx);
@@ -28,6 +30,13 @@ public class DecoController : MonoBehaviour
         GameManager.Instance.GetManager<AquariumNumericalManager>().decoCnt--;
         SetDecoPositions();
     }
+
+    public bool AlreadyHadDeco(int idx)
+    {
+        var visualSO = AquariumManager.Instance.decoVisuals[idx];
+        return decos.Exists(deco => deco.visualSO == visualSO); 
+    }
+    
     public void SetDecoPositions()
     {
         for(int i = 0; i < decos.Count; i++)

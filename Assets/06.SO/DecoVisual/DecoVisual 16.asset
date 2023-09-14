@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Kelp02
   mesh: {fileID: 4300000, guid: ba319e642a7a05341860a3be256b1bdd, type: 3}
-  mainMat: {fileID: 2100000, guid: c53ab002e1cd24a27a02b1967dd615da, type: 2}
+  mainMat: {fileID: 2100000, guid: 6c9706fa7b3bc7e4b9212fde94332a8b, type: 2}
   sprite: {fileID: -1442337552, guid: ba1cf25029f6a8e4fb97dc4889197e7d, type: 3}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: TubeSponge00
   mesh: {fileID: 4300002, guid: b2235d838a1160643a3eb1d968b4b5b4, type: 3}
-  mainMat: {fileID: 2100000, guid: c53ab002e1cd24a27a02b1967dd615da, type: 2}
+  mainMat: {fileID: 2100000, guid: 6c9706fa7b3bc7e4b9212fde94332a8b, type: 2}
   sprite: {fileID: -1981893460, guid: 83e4034c0ee8af44fa0dd8712daf1eda, type: 3}

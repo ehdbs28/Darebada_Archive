@@ -43,6 +43,7 @@ public class Fishbowl :  Facility
         }
         return false;
     }
+    
     public void AddDeco(int idx)
     {
         if (!decoController)
@@ -60,6 +61,7 @@ public class Fishbowl :  Facility
             decoController.AddDeco( AquariumManager.Instance.decoVisuals[idx]);
         }
     }
+    
     public void RemoveDeco(int idx)
     {
         if (!decoController)
@@ -80,6 +82,7 @@ public class Fishbowl :  Facility
             }
         }
     }
+    
     public void AddFIsh(FishDataUnit fishData)
     {
         if(CheckRemainedFishs())
