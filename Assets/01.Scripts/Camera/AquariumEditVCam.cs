@@ -54,7 +54,7 @@ public class AquariumEditVCam : VCam
 
     private void OnTouch()
     {
-        if (AquariumManager.Instance.state == AquariumManager.STATE.CAMERAMOVE)
+        if (AquariumManager.Instance.state == AquariumManager.STATE.CAMMOVE)
         {
             if (!_isMovement)
             {
