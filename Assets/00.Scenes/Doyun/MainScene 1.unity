@@ -17906,7 +17906,7 @@ MonoBehaviour:
   _sfxGroup: {fileID: 6756156973440018856, guid: 6431badfb864549e39fc2966cf353784, type: 2}
   uiClickSoundClip: {fileID: 8300000, guid: 1e7a587164fcbef45b40536469e6c432, type: 3}
   playerThrowingSoundClip: {fileID: 8300000, guid: 38a4d267a171b754483f5ea9e34707bf, type: 3}
-  soundFadeOnTime: 0
+  soundFadeOnTime: 1
 --- !u!1 &1868393485 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 09062dc0008857b46aaacdb7206f1453, type: 3}
