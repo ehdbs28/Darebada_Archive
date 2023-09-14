@@ -49,41 +49,36 @@ public class AquariumManager : MonoBehaviour
     public LayerMask facilityLayer;
     public LayerMask gridLayer;
 
-    public float touchDist;
-    public Vector2 touchedVec;
-
-
     public Facility facilityObj;
 
     [SerializeField] private BuildFacility _build;
-
-        public void Start()
-        {
-            InitManager();
-        }
-        private void Update()
-        {
-            UpdateManager();
-        }
-    public void SetFacilityPos()
+    
+    private void Update()
     {
-        if (facilityObj.CheckCollision())
-        {
-            
-            if (facilityObj.GetComponent<Fishbowl>())
-            {
-                GameManager.Instance.GetManager<AquariumNumericalManager>().fishbowlCnt++;
-            }
-            facilityObj = null;
-            state = STATE.CAMMOVE;
-        }
-        FindObjectOfType<GridManager>().ShowGrid();
-
-    }   
+        UpdateManager();
+    }
+    
+    // public void SetFacilityPos()
+    // {
+    //     if (facilityObj.CheckCollision())
+    //     {
+    //         
+    //         if (facilityObj.GetComponent<Fishbowl>())
+    //         {
+    //             GameManager.Instance.GetManager<AquariumNumericalManager>().fishbowlCnt++;
+    //         }
+    //         facilityObj = null;
+    //         state = STATE.CAMMOVE;
+    //     }
+    //     FindObjectOfType<GridManager>().ShowGrid();
+    //
+    // }
+    
     public void Promotion(int amount)
     {
         GameManager.Instance.GetManager<AquariumNumericalManager>().PromotionPoint += amount;
     }
+    
     public void ChangeSize(float x, float y)
     {
         GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize += new Vector3(x, 1, y);
@@ -108,6 +103,7 @@ public class AquariumManager : MonoBehaviour
         _walls.transform.GetChild(3).position = new Vector3(-FloorSize.x * 10 / 2, 5, 0);
         
     }
+    
     public void AddFishBowl()
     {
         //if (_buildPanel) _buildPanel.SetActive(false);
@@ -118,16 +114,17 @@ public class AquariumManager : MonoBehaviour
         FindObjectOfType<GridManager>().ShowGrid();
         //    else floor.transform.localPosition = new Vector3(_floorSize.x / 2+10, 0, 0);
     }
+    
     public void AddSnackShop()
     {
         //_buildPanel.SetActive(false);
-        SnackShop snackShop = Instantiate(_snackShopObject).GetComponent<SnackShop>();
-        
+        Shop snackShop = Instantiate(_snackShopObject).GetComponent<Shop>();
         snackShop.transform.localPosition = Vector3.zero;
         facilityObj = snackShop;
         state = STATE.BUILD;
         FindObjectOfType<GridManager>().ShowGrid();
     }
+    
     public void AddRoadTile()
     {
         RoadTile roadTile = Instantiate(_roadTileObject).GetComponent<RoadTile>();
@@ -140,7 +137,6 @@ public class AquariumManager : MonoBehaviour
         roadSurfaces.Add(roadTile.GetComponent<NavMeshSurface>());
         FindObjectOfType<GridManager>().ShowGrid();
     }
-
 
     public void GenerateCustomer()
     {
@@ -163,17 +159,32 @@ public class AquariumManager : MonoBehaviour
         ChangeSize(0, 0);
         ResetManager();
     }
+    
     public void ReleaseManager()
     {
+        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouchDownHandle;
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent -= TouchUpHandle;
         Define.MainCam.clearFlags = CameraClearFlags.Skybox;
     }
-    public void SetPos()
+
+    private void TouchUpHandle()
     {
-        if(state==STATE.BUILD)
+        if (state == STATE.BUILD)
         {
-            if (facilityObj && facilityObj.GetComponent<Facility>().CheckCollision())
+            ((AquariumEditScreen)GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.AquariumEdit))
+                .TouchHandleManaged(true);
+            state = STATE.CAMMOVE;
+        }
+    }
+    
+    private void SetPos()
+    {
+        if(state == STATE.BUILD)
+        {
+            if (facilityObj != null)
             {
                 FindObjectOfType<GridManager>().HideGrid();
+                
                 if(facilityObj.GetComponent<Fishbowl>())
                 {
                     foreach(var v in facilityObj.GetComponent<Fishbowl>().boids)
@@ -181,6 +192,7 @@ public class AquariumManager : MonoBehaviour
                         v.Value.SetMove(true);
                     }
                 }
+                
                 if (facilityObj.GetComponent<NavMeshSurface>())
                 {
                     foreach(var s in roadSurfaces)
@@ -188,8 +200,8 @@ public class AquariumManager : MonoBehaviour
                         s.BuildNavMesh();
                     }
                 }
+                
                 facilityObj = null;
-                state = STATE.NORMAL;
             }
         };
     }
@@ -197,56 +209,33 @@ public class AquariumManager : MonoBehaviour
     public void ResetManager()
     {
         GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchDownHandle;
-        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUpHandle;
-
+        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += TouchUpHandle;
     }
+    
     private void OnTouchDownHandle()
     {
-        touchedVec = GameManager.Instance.GetManager<InputManager>().TouchPosition;
-    }
-    private void OnTouchUpHandle()
-    {
-        if(state==STATE.BUILD)
+        if(state == STATE.BUILD)
         {
-
             RaycastHit hit;
             Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, gridLayer))
             {
                 SetPos();
             }
-            else
-            {
-            }
-        }else if(state == STATE.CAMMOVE &&Vector2.Distance(touchedVec, GameManager.Instance.GetManager<InputManager>().TouchPosition) <= touchDist)
-        {
-
-            RaycastHit hit;
-            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, facilityLayer))
-            {
-                facilityObj = hit.collider.GetComponent<Facility>();
-                state = STATE.BUILD;
-            }
         }
     }
 
     public void UpdateManager()
     {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            FindObjectOfType<Fishbowl>().Upgrade();
-        }
         if (state == STATE.BUILD)   
         {
             RaycastHit hit;
             Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
-            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
             if (facilityObj != null && Physics.Raycast(ray, out hit, Mathf.Infinity, gridLayer))
             {
-
                 if (_build == null) _build = gameObject.AddComponent<BuildFacility>();
-                facilityObj.transform.position = _build.GetFacilityPos() + Vector3.up*2;
+                facilityObj.transform.position = hit.transform.position + Vector3.up * 0.01f;
             }
         }
     }
@@ -254,9 +243,9 @@ public class AquariumManager : MonoBehaviour
     public void Cleaning(int value)
     {
         GameManager.Instance.GetManager<AquariumNumericalManager>().CleanScore -= value;
-        if(!_cleaningParticle )
+        if(!_cleaningParticle)
         {
-            ParticleSystem particle = Instantiate(_cleaningParticleSystemObject, Camera.main.transform);
+            ParticleSystem particle = Instantiate(_cleaningParticleSystemObject, Define.MainCam.transform);
             particle.transform.position = Vector3.zero;
             _cleaningParticle = particle;
         }

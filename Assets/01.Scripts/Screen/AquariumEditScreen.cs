@@ -37,6 +37,18 @@ public class AquariumEditScreen : UIScreen
         _editCam.SetPosition(pos);
     }
 
+    public void TouchHandleManaged(bool attach)
+    {
+        if (attach)
+        {
+            GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchHandle;    
+        }
+        else
+        {
+            GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouchHandle;
+        }
+    }
+
     public override void AddEvent()
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
@@ -55,17 +67,20 @@ public class AquariumEditScreen : UIScreen
 
         _addTankBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            TouchHandleManaged(false);
             AquariumManager.Instance.AddFishBowl();
         });
 
         _addPlantBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            TouchHandleManaged(false);
             AquariumManager.Instance.AddSnackShop();
         });
 
         _addRoadBtn.RegisterCallback<ClickEvent>(e =>
         {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            TouchHandleManaged(false);
             AquariumManager.Instance.AddRoadTile();
         });
     }
