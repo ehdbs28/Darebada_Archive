@@ -51,8 +51,6 @@ public class TutorialManager : MonoBehaviour, IManager
     {
         GameData gameData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData;
         
-        print(_sceneType);
-        
         if (_sceneType == GameSceneType.Camp)
         {
             if (idx == _campExplainImages.Count) EndTutorial(_sceneType);
