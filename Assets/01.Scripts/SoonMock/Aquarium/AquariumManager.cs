@@ -10,6 +10,13 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
+public enum FacilityType
+{
+    Fishbowl,
+    Shop,
+    Road,
+}
+
 public class AquariumManager : MonoBehaviour
 {
     static private AquariumManager _instance;
@@ -97,6 +104,7 @@ public class AquariumManager : MonoBehaviour
         Fishbowl fishBowl = Instantiate(_fishBowlObject).GetComponent<Fishbowl>();
         fishBowl.transform.localPosition = Vector3.zero;
         facilityObj = fishBowl;
+        facilityObj.type = FacilityType.Fishbowl;
         state = STATE.BUILD;
         FindObjectOfType<GridManager>().ShowGrid();
     }
@@ -106,6 +114,7 @@ public class AquariumManager : MonoBehaviour
         Shop snackShop = Instantiate(_snackShopObject).GetComponent<Shop>();
         snackShop.transform.localPosition = Vector3.zero;
         facilityObj = snackShop;
+        facilityObj.type = FacilityType.Shop;
         state = STATE.BUILD;
         FindObjectOfType<GridManager>().ShowGrid();
     }
@@ -116,6 +125,7 @@ public class AquariumManager : MonoBehaviour
         GameManager.Instance.GetManager<AquariumNumericalManager>().roadCnt++;
         roadTile.transform.localPosition = Vector3.zero;
         facilityObj = roadTile;
+        facilityObj.type = FacilityType.Road;
         state = STATE.BUILD;
         roadSurfaces.Add(roadTile.GetComponent<NavMeshSurface>());
         FindObjectOfType<GridManager>().ShowGrid();
@@ -166,23 +176,24 @@ public class AquariumManager : MonoBehaviour
             if (facilityObj != null)
             {
                 FindObjectOfType<GridManager>().HideGrid();
-                
-                if(facilityObj.GetComponent<Fishbowl>())
+
+                if (facilityObj is Fishbowl)
                 {
+                    GameManager.Instance.GetManager<AquariumNumericalManager>().fishbowlCnt++;
                     foreach(var v in facilityObj.GetComponent<Fishbowl>().boids)
                     {
                         v.Value.SetMove(true);
                     }
                 }
-                
-                if (facilityObj.GetComponent<NavMeshSurface>())
+                else if (facilityObj is RoadTile)
                 {
+                    GameManager.Instance.GetManager<AquariumNumericalManager>().roadCnt++;
                     foreach(var s in roadSurfaces)
                     {
                         s.BuildNavMesh();
                     }
                 }
-                
+
                 facilityObj.transform.SetParent(facilityParent);
                 facilityObj = null;
             }

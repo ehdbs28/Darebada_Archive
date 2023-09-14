@@ -7,10 +7,7 @@ public class SnackShop : Facility
     public int cost;
     public int level = 1;
     public int amount;
-    public override Facility OnTouched()
-    {
-        return this;
-    }
+    
     private void OnEnable()
     {
         cost = level * 900;

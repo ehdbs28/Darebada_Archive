@@ -35,8 +35,4 @@ public class Shop : Facility
     {
         level++;
     }
-    public override Facility OnTouched()
-    {
-        return this;
-    }
 }

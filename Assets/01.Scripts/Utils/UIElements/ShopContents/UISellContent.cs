@@ -79,7 +79,10 @@ public class UISellContent : UIPopupContent
                 return;
             
             GameManager.Instance.GetManager<MoneyManager>().AddMoney(_selectUnit.data.Price);
+            (GameManager.Instance.GetManager<DataManager>().GetData(DataType.InventoryData) as InventoryData)
+                ?.Units.List.Remove(_selectUnit);
             _invenContent.Remove(_selectUnit.Root);
+            
             _selectUnit = null;
             
             PlayParticle();    

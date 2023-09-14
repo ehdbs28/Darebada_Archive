@@ -151,9 +151,4 @@ public class Fishbowl :  Facility
         
         _collider = GetComponent<Collider>();
     }
-
-    public override Facility OnTouched()
-    {
-        return this;
-    }
 }
