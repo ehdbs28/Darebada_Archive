@@ -85,7 +85,7 @@ public class ChallengeManager : IManager
         {
             _data.units[idx].isClear = true;
 
-            if(_challenges[idx].TargetFishName != null || _challenges[idx].TargetFishName != "")
+            if(!string.IsNullOrEmpty(_challenges[idx].TargetFishName))
                 BiomeData.Biomes[idx + 1] = true;
         }
     }

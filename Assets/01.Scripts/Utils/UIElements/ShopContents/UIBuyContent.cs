@@ -14,6 +14,7 @@ public class UIBuyContent : UIPopupContent
         for(int i = 0; i < table.Size; i++){
             _buyContent.Add(new UIShopUnit(
                 _items[i],
+                _goldLabel,
                 table.DataTable[i]
             ));
         }

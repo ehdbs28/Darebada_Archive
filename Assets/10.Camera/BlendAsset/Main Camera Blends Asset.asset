@@ -111,7 +111,7 @@ MonoBehaviour:
     m_To: RotateCamJ
     m_Blend:
       m_Style: 1
-      m_Time: 0.3
+      m_Time: 0.2
       m_CustomCurve:
         serializedVersion: 2
         m_Curve:
@@ -158,7 +158,7 @@ MonoBehaviour:
     m_To: '**ANY CAMERA**'
     m_Blend:
       m_Style: 1
-      m_Time: 0.3
+      m_Time: 0.2
       m_CustomCurve:
         serializedVersion: 2
         m_Curve:

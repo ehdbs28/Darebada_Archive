@@ -12,9 +12,12 @@ public sealed class UIShopUnit : UIInteractionElement
     private Label _descLabel;
     private Label _priceLabel;
 
-    public UIShopUnit(VisualElement root, ShopItemUnit unit) : base(root)
+    private VisualElement _goldElem;
+
+    public UIShopUnit(VisualElement root, VisualElement goldElem, ShopItemUnit unit) : base(root)
     {
         _unit = unit;
+        _goldElem = goldElem;
         
         Toggle(!GameManager.Instance.GetManager<ShopManager>().IsInStock(_unit.Index));
 
@@ -55,10 +58,11 @@ public sealed class UIShopUnit : UIInteractionElement
     {
         Vector2 particlePos = GameManager.Instance.GetManager<UIManager>()
             .GetElementPos(_interactionBtn, new Vector2(0.5f, 0.5f));
-        // Vector2 destinationPos = GameManager.Instance.GetManager<UIManager>()
-        //     .GetElementPos()
+        Vector2 destinationPos = GameManager.Instance.GetManager<UIManager>()
+            .GetElementPos(_goldElem, new Vector2(0.5f, 0.5f));
 
         PoolableUIMovementParticle particle = GameManager.Instance.GetManager<PoolManager>().Pop("MoneyFeedback") as PoolableUIMovementParticle;
+        particle.SetDestination(destinationPos);
         particle.SetPoint(particlePos);
         particle.Play();
     }

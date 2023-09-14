@@ -1,1 +1,1 @@
-{"Units":{"List":[]}}
+{"Units":{"List":[{"posX":0,"posY":0,"rotate":0,"size":{"x":3.0,"y":2.0},"data":{"Name":"농어","Visual":{"instanceID":31244},"Price":25,"Habitat":0,"Rarity":1,"Speed":3.0,"InvenSizeX":3,"InvenSizeY":2,"MinLenght":50.0,"MaxLenght":80.0,"MinWeight":2.0,"MaxWeight":5.0,"SpawnPercent":25.0,"Favorites":["11","22","33"],"Description":"봄~여름에는 얕은 바다로 모이고, 가을이 되어 날씨가 쌀쌀해지면 번식 후 깊은 바다로 이동한다.\r"},"rotateVals":[{"x":3.0,"y":2.0},{"x":-2.0,"y":-3.0},{"x":-3.0,"y":-2.0},{"x":-2.0,"y":3.0}]}]}}

@@ -14,11 +14,14 @@ public sealed class UIBoatBuyElement : UIInteractionElement
 
     private BoatDataTable _dataTable;
 
-    public UIBoatBuyElement(VisualElement elementRoot, int idx) : base(elementRoot)
+    private VisualElement _goldElem;
+
+    public UIBoatBuyElement(VisualElement elementRoot, VisualElement goldElem, int idx) : base(elementRoot)
     {
         BoatData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.BoatData) as BoatData;
 
         _idx = idx;
+        _goldElem = goldElem;
         _buyState = (BoatBuyState)data.BoatPurchaseDetail[_idx];
         _dataTable = GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.BoatData) as BoatDataTable;
 
@@ -51,10 +54,11 @@ public sealed class UIBoatBuyElement : UIInteractionElement
     {
         Vector2 particlePos = GameManager.Instance.GetManager<UIManager>()
             .GetElementPos(_interactionBtn, new Vector2(0.5f, 0.5f));
-        // Vector2 destinationPos = GameManager.Instance.GetManager<UIManager>()
-        //     .GetElementPos()
+        Vector2 destinationPos = GameManager.Instance.GetManager<UIManager>()
+            .GetElementPos(_goldElem, new Vector2(0.5f, 0.5f));
 
         PoolableUIMovementParticle particle = GameManager.Instance.GetManager<PoolManager>().Pop("MoneyFeedback") as PoolableUIMovementParticle;
+        particle.SetDestination(destinationPos);
         particle.SetPoint(particlePos);
         particle.Play();
     }
