@@ -37,6 +37,7 @@ public class AquariumScreen : UIScreen
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnChangedDay;
         GameManager.Instance.GetManager<MoneyManager>().OnGoldChange += OnChangedGold;
+        GameManager.Instance.GetManager<AquariumNumericalManager>().OnReputationChanged += OnChangedReputation;
 
         _settingBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
@@ -70,6 +71,7 @@ public class AquariumScreen : UIScreen
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent -= OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent -= OnChangedDay;
+        GameManager.Instance.GetManager<AquariumNumericalManager>().OnReputationChanged -= OnChangedReputation;
     }
 
     public override void FindElement()

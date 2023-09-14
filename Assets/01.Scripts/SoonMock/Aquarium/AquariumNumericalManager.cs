@@ -1,5 +1,6 @@
 using Core;
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -85,6 +86,8 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
     public List<DecoVisualSO> decoVisuals = new List<DecoVisualSO>();
 
     [SerializeField] int _promoDispointAmount;
+
+    public event Action<float, float, float, float> OnReputationChanged;
     public void InitManager()
     {
         ResetManager();
