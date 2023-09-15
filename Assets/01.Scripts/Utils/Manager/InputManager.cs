@@ -22,8 +22,12 @@ public class InputManager : MonoBehaviour, IManager
 
     public void Awake()
     {
-        if(_canInitSetting)
+        if (_canInitSetting)
+        {
+            Application.targetFrameRate = 60;
             InitManager();
+        }
+
     }
 
     public void InitManager()
