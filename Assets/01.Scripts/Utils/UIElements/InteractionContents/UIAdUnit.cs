@@ -37,9 +37,9 @@ public class UIAdUnit : UIInteractionElement
 
     private void PlayParticle()
     {
-        var dest = GameManager.Instance.GetManager<UIManager>().GetElementPos(_gold, new Vector2(0.5f, 0.5f));
+        var dest = GameManager.Instance.GetManager<UIManager>().GetElementPos(_interactionBtn, new Vector2(0.5f, 0.5f));
         var particlePos = GameManager.Instance.GetManager<UIManager>()
-            .GetElementPos(_interactionBtn, new Vector2(0.5f, 0.5f));
+            .GetElementPos(_gold, new Vector2(0.5f, 0.5f));
         var particle = GameManager.Instance.GetManager<PoolManager>().Pop("MoneyFeedback") as PoolableUIMovementParticle;
         particle.SetDestination(dest);
         particle.SetPoint(particlePos);
