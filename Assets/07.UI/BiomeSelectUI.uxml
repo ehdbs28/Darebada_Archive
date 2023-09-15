@@ -38,7 +38,7 @@
                         <ui:VisualElement name="achivement-content" style="position: absolute; width: 100%; height: 50%; align-items: center; justify-content: center;">
                             <ui:VisualElement name="fish-image" class="challenge-fish-element fish-element" style="width: 300px; height: 300px; margin-right: 0; margin-bottom: 50px;">
                                 <ui:VisualElement name="inner">
-                                    <ui:VisualElement name="fish-image" />
+                                    <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishVisual/Icon/Dolphin.png?fileID=-150544154&amp;guid=e1787bac4344b454a8e9f56193040245&amp;type=3#Dolphin_0&apos;);" />
                                     <ui:VisualElement name="star-container">
                                         <ui:VisualElement name="star" style="width: 45px; height: 45px;" />
                                     </ui:VisualElement>
@@ -58,7 +58,7 @@
                         <ui:VisualElement name="achivement-content" style="position: absolute; width: 100%; height: 50%; align-items: center; justify-content: center;">
                             <ui:VisualElement name="fish-image" class="challenge-fish-element fish-element" style="width: 300px; height: 300px; margin-right: 0; margin-bottom: 50px;">
                                 <ui:VisualElement name="inner">
-                                    <ui:VisualElement name="fish-image" />
+                                    <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishVisual/Icon/RainbowFish.png?fileID=-1060613122&amp;guid=977e721c2b4914d37ba6806aa32da78c&amp;type=3#RainbowFish_0&apos;);" />
                                     <ui:VisualElement name="star-container">
                                         <ui:VisualElement name="star" style="width: 45px; height: 45px;" />
                                     </ui:VisualElement>
@@ -78,7 +78,7 @@
                         <ui:VisualElement name="achivement-content" style="position: absolute; width: 100%; height: 50%; align-items: center; justify-content: center;">
                             <ui:VisualElement name="fish-image" class="challenge-fish-element fish-element" style="width: 300px; height: 300px; margin-right: 0; margin-bottom: 50px;">
                                 <ui:VisualElement name="inner">
-                                    <ui:VisualElement name="fish-image" />
+                                    <ui:VisualElement name="fish-image" style="width: 100%; background-image: url(&apos;project://database/Assets/05.Assets/FishVisual/Icon/StingRay.png?fileID=2093935028&amp;guid=9513ce1bdf46a4155b73f4248dc47434&amp;type=3#StingRay_0&apos;);" />
                                     <ui:VisualElement name="star-container">
                                         <ui:VisualElement name="star" style="width: 45px; height: 45px;" />
                                     </ui:VisualElement>
@@ -98,7 +98,7 @@
                         <ui:VisualElement name="achivement-content" style="position: absolute; width: 100%; height: 50%; align-items: center; justify-content: center;">
                             <ui:VisualElement name="fish-image" class="challenge-fish-element fish-element" style="width: 300px; height: 300px; margin-right: 0; margin-bottom: 50px;">
                                 <ui:VisualElement name="inner">
-                                    <ui:VisualElement name="fish-image" />
+                                    <ui:VisualElement name="fish-image" style="background-image: url(&apos;project://database/Assets/05.Assets/FishVisual/Icon/SunFish.png?fileID=774205066&amp;guid=cb074786530dc4baf810fa8f4b378c24&amp;type=3#SunFish_0&apos;); width: 100%;" />
                                     <ui:VisualElement name="star-container">
                                         <ui:VisualElement name="star" style="width: 45px; height: 45px;" />
                                     </ui:VisualElement>

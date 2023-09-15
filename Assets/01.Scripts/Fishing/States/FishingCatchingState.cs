@@ -71,6 +71,11 @@ public class FishingCatchingState : FishingState
 
         if (percent <= 0)
         {
+            if (_controller.Bait.CatchedFish != null)
+            {
+                _controller.Bait.CatchedFish.GetoutBait();    
+            }
+            
             _controller.ActionData.IsFishing = false;
             _controller.ActionData.IsUnderWater = false;
         }
