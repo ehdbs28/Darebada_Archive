@@ -43,8 +43,6 @@ namespace ES3Types
 			writer.WriteProperty("treeLODBiasMultiplier", instance.treeLODBiasMultiplier, ES3Type_float.Instance);
 			writer.WriteProperty("collectDetailPatches", instance.collectDetailPatches, ES3Type_bool.Instance);
 			writer.WriteProperty("editorRenderFlags", instance.editorRenderFlags, ES3Internal.ES3TypeMgr.GetOrCreateES3Type(typeof(UnityEngine.TerrainRenderFlags)));
-			writer.WriteProperty("bakeLightProbesForTrees", instance.bakeLightProbesForTrees, ES3Type_bool.Instance);
-			writer.WriteProperty("deringLightProbesForTrees", instance.deringLightProbesForTrees, ES3Type_bool.Instance);
 			writer.WriteProperty("preserveTreePrototypeLayers", instance.preserveTreePrototypeLayers, ES3Type_bool.Instance);
 			writer.WriteProperty("renderingLayerMask", instance.renderingLayerMask, ES3Type_uint.Instance);
 			writer.WriteProperty("enabled", instance.enabled, ES3Type_bool.Instance);
@@ -138,15 +136,6 @@ namespace ES3Types
 						break;
 					case "editorRenderFlags":
 						instance.editorRenderFlags = reader.Read<UnityEngine.TerrainRenderFlags>();
-						break;
-					case "bakeLightProbesForTrees":
-						instance.bakeLightProbesForTrees = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-						break;
-					case "deringLightProbesForTrees":
-						instance.deringLightProbesForTrees = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-						break;
-					case "preserveTreePrototypeLayers":
-						instance.preserveTreePrototypeLayers = reader.Read<System.Boolean>(ES3Type_bool.Instance);
 						break;
 					case "renderingLayerMask":
 						instance.renderingLayerMask = reader.Read<System.UInt32>(ES3Type_uint.Instance);

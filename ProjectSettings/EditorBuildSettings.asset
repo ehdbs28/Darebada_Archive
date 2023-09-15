@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/00.Scenes/SoonMock/StoryScene.unity
+    guid: 4c7f5956dd210a947b6107af27c10817
+  - enabled: 1
     path: Assets/00.Scenes/Doyun/MainScene 1.unity
     guid: db6f5a409db315a42a4468d11f9175b1
   m_configObjects:

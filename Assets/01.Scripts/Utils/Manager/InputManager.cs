@@ -17,6 +17,15 @@ public class InputManager : MonoBehaviour, IManager
     private Vector2 _touchPosition;
     public Vector2 TouchPosition => _touchPosition;
 
+    [SerializeField]
+    private bool _canInitSetting = false;
+
+    public void Awake()
+    {
+        if(_canInitSetting)
+            InitManager();
+    }
+
     public void InitManager()
     {
         _inputAction = new GameInputControls();
@@ -36,10 +45,10 @@ public class InputManager : MonoBehaviour, IManager
 
     private void TouchHandle(InputAction.CallbackContext context)
     {
-        if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
+        if(GameManager.Instance != null && GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
             return;
 
-        if (GameManager.Instance.GetManager<TutorialManager>().InTut)
+        if (GameManager.Instance != null && GameManager.Instance.GetManager<TutorialManager>().InTut)
         {
             OnTutorialClick?.Invoke();
             return;
@@ -50,7 +59,7 @@ public class InputManager : MonoBehaviour, IManager
     
     private void TouchUpHandle(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance.GetManager<TutorialManager>().InTut)
+        if (GameManager.Instance != null && GameManager.Instance.GetManager<TutorialManager>().InTut)
             return;
         
         OnTouchUpEvent?.Invoke();
@@ -68,10 +77,10 @@ public class InputManager : MonoBehaviour, IManager
 
     private void MouseClickHandle(InputAction.CallbackContext context)
     {
-        if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
+        if(GameManager.Instance != null && GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
             return;
 
-        if (GameManager.Instance.GetManager<TutorialManager>().InTut)
+        if (GameManager.Instance != null && GameManager.Instance.GetManager<TutorialManager>().InTut)
         {
             OnTutorialClick?.Invoke();
             return;
@@ -82,7 +91,7 @@ public class InputManager : MonoBehaviour, IManager
     
     private void MouseUpHandle(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance.GetManager<TutorialManager>().InTut)
+        if (GameManager.Instance != null && GameManager.Instance.GetManager<TutorialManager>().InTut)
             return;
         
         OnTouchUpEvent?.Invoke();

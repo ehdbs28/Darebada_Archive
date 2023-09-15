@@ -1,12 +1,5 @@
-using Cinemachine;
-using JetBrains.Annotations;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using Unity.VisualScripting;
-using UnityEditor.AddressableAssets.Build.AnalyzeRules;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 
 public class Fishbowl :  Facility

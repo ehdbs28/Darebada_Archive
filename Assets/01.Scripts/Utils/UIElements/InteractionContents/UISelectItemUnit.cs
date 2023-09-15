@@ -1,7 +1,6 @@
 using System.Text;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Debug = System.Diagnostics.Debug;
 
 public sealed class UISelectItemUnit : UIInteractionElement
 {
