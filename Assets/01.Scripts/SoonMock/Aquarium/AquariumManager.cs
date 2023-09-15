@@ -163,6 +163,14 @@ public class AquariumManager : MonoBehaviour
     {
         if (state == STATE.BUILD)
         {
+            RaycastHit hit;
+            Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, gridLayer))
+            {
+                SetPos();
+            }
+
+            _isBuild = false;
             ((AquariumEditScreen)GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.AquariumEdit))
                 .TouchHandleManaged(true);
             state = STATE.CAMMOVE;
@@ -205,6 +213,8 @@ public class AquariumManager : MonoBehaviour
         GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchDownHandle;
         GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += TouchUpHandle;
     }
+
+    private bool _isBuild = false;
     
     private void OnTouchDownHandle()
     {
@@ -214,14 +224,14 @@ public class AquariumManager : MonoBehaviour
             Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, gridLayer))
             {
-                SetPos();
+                _isBuild = true;
             }
         }
     }
 
     public void UpdateManager()
     {
-        if (state == STATE.BUILD)   
+        if (state == STATE.BUILD && _isBuild)   
         {
             RaycastHit hit;
             Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
