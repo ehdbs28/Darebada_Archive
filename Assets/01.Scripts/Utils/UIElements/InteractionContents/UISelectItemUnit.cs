@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -16,10 +17,14 @@ public sealed class UISelectItemUnit : UIInteractionElement
 
     private StringBuilder _countSb;
 
-    public UISelectItemUnit(VisualElement root, ShopItemUnit unit) : base(root)
+    private FishingData _data;
+    private List<UISelectItemUnit> _units;
+
+    public UISelectItemUnit(VisualElement root, ShopItemUnit unit, List<UISelectItemUnit> units) : base(root)
     {
         _countSb = new StringBuilder();
         _unit = unit;
+        _units = units;
         
         FindElement();
         Setting();
@@ -28,9 +33,9 @@ public sealed class UISelectItemUnit : UIInteractionElement
 
     private void UpdateUnitState()
     {
-        FishingData data = (FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData);
+        _data = (FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData);
 
-        int count = data.ItemVal[_unit.Index];
+        int count = _data.ItemVal[_unit.Index];
         
         _countSb.Clear();
         _countSb.Append(count.ToString());
@@ -38,7 +43,7 @@ public sealed class UISelectItemUnit : UIInteractionElement
 
         _countLable.text = _countSb.ToString();
         
-        if(data.CurSelectedItem == (FishingItemType)_unit.Index)
+        if(_data.CurSelectedItem == (FishingItemType)_unit.Index)
             _root.AddToClassList("equip");
         else
             _root.RemoveFromClassList("equip");
@@ -61,10 +66,16 @@ public sealed class UISelectItemUnit : UIInteractionElement
     {
         _interactionBtn.RegisterCallback<ClickEvent>(e =>
         {
+            if (_data.CurSelectedItem == (FishingItemType)_unit.Index)
+                return;
+            
             if (GameManager.Instance.GetManager<SeleteItemManager>().EquipItem((FishingItemType)_unit.Index))
             {
                 PlayParticle();
-                UpdateUnitState();
+                foreach (var unit in _units)
+                {
+                    unit.UpdateUnitState();
+                }
             }
         });
     }
