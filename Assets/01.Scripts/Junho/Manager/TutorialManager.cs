@@ -27,7 +27,6 @@ public class TutorialManager : MonoBehaviour, IManager
 
     public void OnTutorial(GameSceneType sceneType)
     {
-        print("startTutorial");
         idx = 0;
         _sceneType = sceneType;
         _inTut = true;

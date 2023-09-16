@@ -39,23 +39,26 @@ public class InventoryUnit
         rotateVals[3] = new Vector2(-size.y, size.x);
     }
 
-    public void Generate(VisualElement root)
+    public void Generate(VisualElement root, bool setting = true)
     {
         _root = root;
         _inner = _root.Q<VisualElement>("inner");
-        Setting();
+        Setting(setting);
     }
     
-    public void Setting()
+    public void Setting(bool setting)
     {
-        _root.style.width = new StyleLength(new Length(size.x * 15.25f, LengthUnit.Percent));
-        _root.style.height = new StyleLength(new Length(11.5f + (size.y * 11.6f), LengthUnit.Percent));
+        if (setting)
+        {
+            _root.style.width = new StyleLength(new Length(size.x * 15.25f, LengthUnit.Percent));
+            _root.style.height = new StyleLength(new Length(11.5f + (size.y * 11.6f), LengthUnit.Percent));
 
-        _inner.style.width = new StyleLength(new Length(size.x * 15.25f, LengthUnit.Percent));
-        _inner.style.height = new StyleLength(new Length(11.5f + (size.y * 11.6f), LengthUnit.Percent));
+            _inner.style.width = new StyleLength(new Length(size.x * 15.25f, LengthUnit.Percent));
+            _inner.style.height = new StyleLength(new Length(11.5f + (size.y * 11.6f), LengthUnit.Percent));
 
-        Move(new Vector2(posX, posY));
-        Selected(false);
+            Move(new Vector2(posX, posY));
+            Selected(false);
+        }
 
         _root.style.backgroundImage = new StyleBackground(data.Visual.Profile);
     }

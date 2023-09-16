@@ -127,10 +127,15 @@ public class AquariumEditScreen : UIScreen
     private void OnTouchHandle(){
         if (AquariumManager.Instance.state == AquariumManager.STATE.CAMMOVE)
         {
-            Vector3 point = GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint("Facility");
+            Vector3 point = GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint(out var hit, "Facility");
 
             if(point != Vector3.zero){
-                GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.TankUpgrade);
+                if (hit.collider.TryGetComponent<Fishbowl>(out var fishbowl))
+                {
+                    ((TankUpgradePopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.TankUpgrade))
+                        .SetFishBowl(fishbowl);
+                    GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.TankUpgrade);
+                }
             }
         }
     }

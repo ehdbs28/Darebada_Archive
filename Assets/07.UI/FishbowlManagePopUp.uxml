@@ -10,38 +10,38 @@
         <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgb(222, 221, 216); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
             <ui:VisualElement name="menu-selecter" style="flex-basis: 8%; flex-direction: row; align-items: center; justify-content: center; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 40px; border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); border-bottom-width: 2px; border-top-width: 2px; background-color: rgb(255, 167, 76); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
                 <ui:VisualElement name="fishbowl-btn" style="flex-basis: 100%; height: 100%; justify-content: center;">
-                    <ui:Label text="수조 강화" display-tooltip-when-elided="true" name="fishbowl-text" class="text" style="font-size: 35px; -unity-text-align: middle-center;" />
+                    <ui:Label text="수조 강화" display-tooltip-when-elided="true" name="fishbowl-text" class="text" style="font-size: 35px; -unity-text-align: middle-center; color: rgba(245, 245, 245, 255);" />
                 </ui:VisualElement>
                 <ui:VisualElement name="line" style="width: 3px; height: 70px; background-color: rgb(255, 255, 255);" />
                 <ui:VisualElement name="addfish-btn" style="flex-basis: 100%; height: 100%; justify-content: center;">
-                    <ui:Label text="물고기 추가" display-tooltip-when-elided="true" name="addfish-text" class="text" style="font-size: 35px; -unity-text-align: middle-center;" />
+                    <ui:Label text="물고기 추가" display-tooltip-when-elided="true" name="addfish-text" class="text" style="font-size: 35px; -unity-text-align: middle-center; color: rgba(255, 255, 255, 255);" />
                 </ui:VisualElement>
                 <ui:VisualElement name="line" style="width: 3px; height: 70px; background-color: rgb(255, 255, 255);" />
                 <ui:VisualElement name="deco-btn" style="flex-basis: 100%; height: 100%; justify-content: center;">
-                    <ui:Label text="장식 추가" display-tooltip-when-elided="true" name="deco-text" class="text" style="font-size: 35px; -unity-text-align: middle-center;" />
+                    <ui:Label text="장식 추가" display-tooltip-when-elided="true" name="deco-text" class="text" style="font-size: 35px; -unity-text-align: middle-center; color: rgba(255, 255, 255, 255);" />
                 </ui:VisualElement>
                 <ui:VisualElement name="line" style="width: 3px; height: 70px; background-color: rgb(255, 255, 255);" />
                 <ui:VisualElement name="removefish-btn" style="flex-basis: 100%; height: 100%; justify-content: center;">
-                    <ui:Label text="물고기 제거" display-tooltip-when-elided="true" name="removefish-text" class="text" style="font-size: 35px; -unity-text-align: middle-center;" />
+                    <ui:Label text="물고기 제거" display-tooltip-when-elided="true" name="removefish-text" class="text" style="font-size: 35px; -unity-text-align: middle-center; color: rgba(255, 255, 255, 255);" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="content-container" style="margin-left: 40px; margin-right: 40px; margin-top: 0; margin-bottom: 40px; flex-grow: 1; overflow: hidden; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
-                <ui:VisualElement name="gold-content" class="gold-content">
-                    <ui:VisualElement name="gold-image" style="width: 5%; height: 70%; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
-                    <ui:Label text="1,418 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 30px; left: -25px;" />
-                </ui:VisualElement>
                 <ui:VisualElement name="contents" style="flex-direction: row; width: 400%; height: 100%; right: 0; min-width: auto; min-height: auto;">
                     <ui:VisualElement name="fishbowl-content" style="width: 50%; height: 100%;">
+                        <ui:VisualElement name="gold-content" class="gold-content">
+                            <ui:VisualElement name="gold-image" style="width: 5%; height: 70%; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 25px; left: -25px;" />
+                            <ui:Label text="1,418 $" display-tooltip-when-elided="true" name="gold-text" class="text" style="font-size: 30px; left: -25px;" />
+                        </ui:VisualElement>
                         <ui:VisualElement name="fishbowlState-name" style="height: 100px; padding-bottom: 20px; width: 100%;">
                             <ui:VisualElement name="name-box" style="width: 100%; height: 100%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; background-color: rgb(154, 154, 154);">
                                 <ui:Label text="업그레이드" display-tooltip-when-elided="true" name="name-text" class="text" style="-unity-text-align: middle-center; width: 100%; height: 100%; font-size: 40px;" />
                             </ui:VisualElement>
                         </ui:VisualElement>
                         <ui:VisualElement name="fishbowl-image" style="flex-grow: 0; flex-basis: 100%; background-color: rgba(255, 255, 255, 0.78); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; flex-direction: column; align-items: center; justify-content: space-between;">
-                            <ui:VisualElement name="bowl-image" style="height: 500px; width: 500px; margin-top: 30%;" />
-                            <ui:VisualElement name="upgrade-btn" style="flex-direction: row; background-color: rgba(78, 209, 1, 0.78); flex-basis: 20%; width: 50%; margin-bottom: 40px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: space-around;">
-                                <ui:VisualElement name="money-image" style="width: 15%; height: 25%; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=2800000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;);" />
-                                <ui:Label display-tooltip-when-elided="true" name="upgrade-text" style="-unity-font-definition: url(&apos;project://database/Assets/08.Fonts/ChosunSg%20SDF.asset?fileID=11400000&amp;guid=4760111a33bf49246b70c208541fdf41&amp;type=2#ChosunSg SDF&apos;); color: rgb(255, 255, 255); font-size: 50px; -unity-text-align: middle-center;" />
+                            <ui:VisualElement name="bowl-image" style="height: 650px; width: 650px; margin-top: 10%; background-image: url(&apos;project://database/Assets/03.Materials/image_3.png?fileID=21300000&amp;guid=53f76709cc98bba42bb80952b2aee9fd&amp;type=3#image_3&apos;);" />
+                            <ui:VisualElement name="upgrade-btn" style="flex-direction: row; background-color: rgba(78, 209, 1, 0.78); flex-basis: 20%; width: 50%; margin-bottom: 40px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center;">
+                                <ui:VisualElement name="money-image" style="width: 15%; height: 25%; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=2800000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 20px;" />
+                                <ui:Label display-tooltip-when-elided="true" name="upgrade-text" text="1,000" class="text" style="-unity-font-definition: url(&apos;project://database/Assets/08.Fonts/ChosunSg%20SDF.asset?fileID=11400000&amp;guid=4760111a33bf49246b70c208541fdf41&amp;type=2#ChosunSg SDF&apos;); color: rgb(255, 255, 255); font-size: 50px; -unity-text-align: middle-center; -unity-font-style: bold;" />
                             </ui:VisualElement>
                         </ui:VisualElement>
                     </ui:VisualElement>

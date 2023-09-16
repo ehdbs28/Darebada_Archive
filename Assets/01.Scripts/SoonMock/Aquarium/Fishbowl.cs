@@ -22,6 +22,7 @@ public class Fishbowl :  Facility
         private set { }
     }
     public int level = 1;
+    
     public bool CheckRemainedFishs()
     {
         int curCnt = 0;
@@ -74,6 +75,20 @@ public class Fishbowl :  Facility
                 i = -1;
             }
         }
+    }
+
+    public bool AlreadyHadDeco(int idx)
+    {
+        if (!decoController)
+        {
+            GameObject decoConObj = Instantiate(new GameObject());
+            decoController = decoConObj.AddComponent<DecoController>();
+            decoConObj.transform.SetParent(transform, false);
+            decoController.decoObject = decoObject.GetComponent<Deco>();
+            decoController.decoPositions = decoTrs;
+        }
+
+        return decoController.AlreadyHadDeco(idx);
     }
     
     public void AddFIsh(FishDataUnit fishData)
@@ -139,9 +154,9 @@ public class Fishbowl :  Facility
         AquariumManager.Instance.state = AquariumManager.STATE.BUILD;
         FindObjectOfType<GridManager>().ShowGrid();
     }
+    
     private void Awake()
     {
-        
         _collider = GetComponent<Collider>();
     }
 }

@@ -16,8 +16,8 @@ public class UIDecoUnit
         _root = root;
         _fishbowl = fishbowl;
         _idx = idx;
-
-        _isEquip = fishbowl.decoController.AlreadyHadDeco(idx);
+        
+        _isEquip = fishbowl.AlreadyHadDeco(idx);
         
         FindElement();
         AddEvent();

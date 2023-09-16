@@ -19865,7 +19865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c780360b78bbf14c903d4f822050930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _treeAsset: {fileID: 9197481963319205126, guid: 38ddfc815f706854e9d2566f0c5222f9, type: 3}
+  _treeAsset: {fileID: 9197481963319205126, guid: c1325a2731b07b24d89154b1da665078, type: 3}
+  _inventoryUnitTemplete: {fileID: 9197481963319205126, guid: dd14a9e2a90663d44b629d666ae1dd88, type: 3}
 --- !u!114 &9157046241256461565
 MonoBehaviour:
   m_ObjectHideFlags: 0

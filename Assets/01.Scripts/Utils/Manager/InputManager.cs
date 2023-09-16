@@ -117,10 +117,11 @@ public class InputManager : MonoBehaviour, IManager
             _inputAction.Touch.Disable();
     }
 
-    public Vector3 GetMouseRayPoint(string layerName = "Ground"){
+    public Vector3 GetMouseRayPoint(out RaycastHit hitInfo, string layerName = "Ground"){
         Ray ray = Define.MainCam.ScreenPointToRay(_touchPosition);
         RaycastHit hit;
         bool isHit = Physics.Raycast(ray, out hit,Mathf.Infinity, LayerMask.GetMask(layerName));
+        hitInfo = hit;
         return (isHit) ? hit.point : Vector3.zero;
     }
 

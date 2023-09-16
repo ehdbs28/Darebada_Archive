@@ -9,9 +9,6 @@ public class BoatFollowingVCam : VCam
     private BoatController _boatController;
     
     [SerializeField]
-    private FishingState _targetState;
-    
-    [SerializeField]
     private Transform _target;
 
     public override void SelectVCam()

@@ -22,6 +22,8 @@ public class UIDecoContent
         for (int i = 0; i < unitParent.childCount; i++)
         {
             var unitElem = unitParent.ElementAt(i);
+            if(unitElem.name == "deco-unit-nonuse")
+                continue;
             _decoUnits.Add(new UIDecoUnit(unitElem, _fishbowl, i));
         }
     }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 public struct UIFishDeleteUnit
@@ -36,11 +37,23 @@ public class UIFishDeleteContent
         for (int i = 0; i < _unitParent.childCount; i++)
         {
             var unit = _unitParent.ElementAt(i);
-            var unitData = _fishbowl.fishs[i].UnitData;
+            var imageBox = unit.Q("fish-image");
+            FishDataUnit unitData = null;
 
-            unit.Q("???").style.backgroundImage = new StyleBackground(unitData.Visual.Profile);
-            
-            _units.Add(new UIFishDeleteUnit{ root = unit, dataUnit = unitData, idx = i });
+            if (imageBox != null)
+            {
+                if (i < _fishbowl.fishs.Count)
+                {
+                    unitData = _fishbowl.fishs[i].UnitData;
+                    unit.Q("fish-image").style.backgroundImage = new StyleBackground(unitData.Visual.Profile);
+                }
+                else
+                {
+                    unit.Q("fish-image").style.backgroundImage = null;
+                }
+
+                _units.Add(new UIFishDeleteUnit{ root = unit, dataUnit = unitData, idx = i });
+            }
         }
     }
 
