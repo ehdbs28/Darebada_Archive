@@ -70,8 +70,8 @@ public class TutorialManager : MonoBehaviour, IManager
         }
         if (_sceneType == GameSceneType.Aquarium)
         {
-            if (idx == _campExplainImages.Count) EndTutorial(_sceneType);
-            if (gameData.CampTutorial)
+            if (idx == _aquariumExplainImages.Count) EndTutorial(_sceneType);
+            if (gameData.AquariumTutorial)
             {
                 _inTut = false;
                 return;
