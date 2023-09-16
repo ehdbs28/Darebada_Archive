@@ -22,7 +22,11 @@ Material:
     m_TexEnvs:
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 7bab9ac1487e10c40b9ed77d4c551e04, type: 3}
+<<<<<<< Updated upstream
         m_Scale: {x: 2.3590279, y: 1}
+=======
+        m_Scale: {x: 3.378303, y: 1}
+>>>>>>> Stashed changes
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats: []

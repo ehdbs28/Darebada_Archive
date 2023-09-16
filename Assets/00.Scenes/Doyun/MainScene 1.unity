@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 981434834}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 6.35, z: -10}
+  m_FollowOffset: {x: 0, y: 6.350955, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -11404,7 +11404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 6.35, z: -10}
+  m_FollowOffset: {x: 0, y: 6.350955, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -12419,7 +12419,11 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
+<<<<<<< Updated upstream
     m_MaxSpeed: 300
+=======
+    m_MaxSpeed: 0
+>>>>>>> Stashed changes
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
@@ -12447,11 +12451,11 @@ MonoBehaviour:
   m_BindingMode: 5
   m_SplineCurvature: 0.2
   m_Orbits:
-  - m_Height: 6.35
+  - m_Height: 6.350955
     m_Radius: 10
-  - m_Height: 6.35
+  - m_Height: 6.350955
     m_Radius: 10
-  - m_Height: 6.35
+  - m_Height: 6.350955
     m_Radius: 10
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
@@ -17721,7 +17725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 6.35, z: -10}
+  m_FollowOffset: {x: 0, y: 6.350955, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
