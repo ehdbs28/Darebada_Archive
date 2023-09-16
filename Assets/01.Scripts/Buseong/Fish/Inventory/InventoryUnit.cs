@@ -39,16 +39,16 @@ public class InventoryUnit
         rotateVals[3] = new Vector2(-size.y, size.x);
     }
 
-    public void Generate(VisualElement root, bool setting = true)
+    public void Generate(VisualElement root, bool setting = true, bool shop = false)
     {
         _root = root;
         _inner = _root.Q<VisualElement>("inner");
-        Setting(setting);
+        Setting(setting, shop);
     }
     
-    public void Setting(bool setting)
+    public void Setting(bool setting, bool shop)
     {
-        if (setting)
+        if (setting && shop == false)
         {
             _root.style.width = new StyleLength(new Length(size.x * 15.9f + 0.2f, LengthUnit.Percent));
             _root.style.height = new StyleLength(new Length(size.y * 12f, LengthUnit.Percent));
@@ -57,6 +57,17 @@ public class InventoryUnit
             _inner.style.height = new StyleLength(new Length(100f, LengthUnit.Percent));
 
             Move(new Vector2(posX, posY));
+            Selected(false);
+        }
+        else if (shop)
+        {
+            _root.style.width = new StyleLength(new Length(size.x * 15f, LengthUnit.Percent));
+            _root.style.height = new StyleLength(new Length(size.y * 11f, LengthUnit.Percent));
+
+            _inner.style.width = new StyleLength(new Length(100f, LengthUnit.Percent));
+            _inner.style.height = new StyleLength(new Length(100f, LengthUnit.Percent));
+
+            Move(new Vector2(posX, posY), shop);
             Selected(false);
         }
 
@@ -73,14 +84,22 @@ public class InventoryUnit
         _root.style.rotate = new Rotate(_root.style.rotate.value.angle.value + val);
     }
 
-    public void Move(Vector2 pos)
+    public void Move(Vector2 pos, bool shop = false)
     {
         posX = (int)pos.x;
         posY = (int)pos.y;
         Debug.Log($"posX: {posX}");
         Debug.Log($"posY: {posY}");
-        _root.style.left = new StyleLength(new Length(posX * new Length(15.9f, LengthUnit.Percent).value + 4.2f, LengthUnit.Percent));
-        _root.style.top = new StyleLength(new Length(posY * new Length(12f, LengthUnit.Percent).value + 2f, LengthUnit.Percent));
+        if (!shop)
+        {
+            _root.style.left = new StyleLength(new Length(posX * new Length(15.9f, LengthUnit.Percent).value + 4.2f, LengthUnit.Percent));
+            _root.style.top = new StyleLength(new Length(posY * new Length(12f, LengthUnit.Percent).value + 2f, LengthUnit.Percent));
+        }
+        else
+        {
+            _root.style.left = new StyleLength(new Length(posX * 15f + 27.1f, LengthUnit.Percent));
+            _root.style.top = new StyleLength(new Length(posY * 11f + 4.3f, LengthUnit.Percent));
+        }
         Debug.Log($"left: {_root.style.left}");
         Debug.Log($"top: {_root.style.top}");
     }
