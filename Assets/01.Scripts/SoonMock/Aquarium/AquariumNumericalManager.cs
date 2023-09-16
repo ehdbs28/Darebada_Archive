@@ -110,7 +110,7 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
         EntrancePercent = Mathf.Clamp((float)((float)fishbowlCnt / (float)EntranceFee) * 100f, 10f, 200f);
         ArtScore = Mathf.Clamp(decoCnt / 2f / (float)fishbowlCnt * 100f, 10f, 100f);
         Reputation = Mathf.Clamp(((100 - CleanScore) / 100f) * (ArtScore / 100f) * 100f + PromotionPoint, 10, 100);
-        //OnReputationChanged?.Invoke(EntrancePercent, _cleanScore, _artScore, _reputation);
+        OnReputationChanged?.Invoke(EntrancePercent, _cleanScore, _artScore, _reputation);
     }
 
     public void OnDayChange(GameDate dateTime)
