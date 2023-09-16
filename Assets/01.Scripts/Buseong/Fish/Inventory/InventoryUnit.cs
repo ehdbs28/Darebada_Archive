@@ -48,11 +48,14 @@ public class InventoryUnit
     
     public void Setting()
     {
-        _root.style.width = new StyleLength(new Length(size.x * 15.25f, LengthUnit.Percent));
-        _root.style.height = new StyleLength(new Length(11.5f + (size.y * 11.6f), LengthUnit.Percent));
+        _root.style.width = new StyleLength(new Length(size.x * 15.9f + 0.2f, LengthUnit.Percent));
+        _root.style.height = new StyleLength(new Length(size.y * 12f, LengthUnit.Percent));
 
-        _inner.style.width = new StyleLength(new Length(size.x * 15.25f, LengthUnit.Percent));
-        _inner.style.height = new StyleLength(new Length(11.5f + (size.y * 11.6f), LengthUnit.Percent));
+        Debug.Log($"width: {_root.style.width}");
+        Debug.Log($"height: {_root.style.height}");
+
+        _inner.style.width = new StyleLength(new Length(100f, LengthUnit.Percent));
+        _inner.style.height = new StyleLength(new Length(100f, LengthUnit.Percent));
 
         Move(new Vector2(posX, posY));
         Selected(false);
@@ -74,7 +77,11 @@ public class InventoryUnit
     {
         posX = (int)pos.x;
         posY = (int)pos.y;
-        _root.style.left = pos.x * 134.5f + 45;
-        _root.style.top = pos.y * 122 + 36;
+        Debug.Log($"posX: {posX}");
+        Debug.Log($"posY: {posY}");
+        _root.style.left = new StyleLength(new Length(posX * new Length(15.9f, LengthUnit.Percent).value + 4.2f, LengthUnit.Percent));
+        _root.style.top = new StyleLength(new Length(posY * new Length(12f, LengthUnit.Percent).value + 2f, LengthUnit.Percent));
+        Debug.Log($"left: {_root.style.left}");
+        Debug.Log($"top: {_root.style.top}");
     }
 }
