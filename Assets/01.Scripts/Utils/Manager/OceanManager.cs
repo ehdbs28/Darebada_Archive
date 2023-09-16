@@ -30,7 +30,7 @@ public class OceanManager : IManager
 
     private float _boundHeight;
 
-    private const int MaxFishCount = 150;
+    private const int MaxFishCount = 500;
     
     public void InitManager()
     {

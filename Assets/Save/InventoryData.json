@@ -1,1 +1,1 @@
-{"Units":{"List":[{"posX":0,"posY":6,"rotate":0,"size":{"x":5.0,"y":2.0},"data":{"Name":"돌고래","Visual":{"instanceID":40810},"Price":100,"Habitat":0,"Rarity":3,"Speed":4.0,"InvenSizeX":5,"InvenSizeY":2,"MinLenght":200.0,"MaxLenght":400.0,"MinWeight":150.0,"MaxWeight":650.0,"SpawnPercent":10.0,"Favorites":["11","22","33"],"Description":"돌고래라는 단어는 주둥이가 나온 게 꼭 돼지주둥이 같아서 돼지의 옛 명칭인 '돌'이 붙은 돌+고래에서 변형된 말이라고 한다.\r"},"rotateVals":[{"x":5.0,"y":2.0},{"x":-2.0,"y":-5.0},{"x":-5.0,"y":-2.0},{"x":-2.0,"y":5.0}]}]}}
+{"Units":{"List":[]}}
