@@ -46,7 +46,7 @@ public class UISellContent : UIPopupContent
         {
             VisualElement root = unitTemplete.Instantiate();
             root = root.Q("inventory-unit");
-            unit.Generate(root);
+            unit.Generate(root, true, true);
             _invenContent.Add(root);
             
             unit.Root.RegisterCallback<ClickEvent>(evt =>
