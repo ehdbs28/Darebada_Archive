@@ -12,6 +12,7 @@ public class DictionaryDataUnit{
     public List<string> Favorites;
     public float MaxLenght;
     public float MaxWeight;
+    public int Count;
     public bool IsDotated;
 }
 
