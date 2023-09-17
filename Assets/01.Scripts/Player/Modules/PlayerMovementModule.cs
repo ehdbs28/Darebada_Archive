@@ -23,29 +23,52 @@ public class PlayerMovementModule : CommonModule<PlayerController>
     [SerializeField] 
     private float _maxDistance;
 
+    private Transform _rootTrm = null;
+
     private float _currentVelocity;
     private float _currentMaxVelocity;
+
+    private bool _eventAdded = false;
 
     private JoyStickPopup _joyStick = null;
     
     public override void SetUp(Transform rootTrm)
     {
         base.SetUp(rootTrm);
-
+        _rootTrm = rootTrm;
         _characterController = rootTrm.GetComponent<CharacterController>();
 
         _canMove = false;
         _moveStart = false;
         _currentVelocity = 0f;
 
+        _eventAdded = true;
         GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouch;
         GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUp;
     }
+    private void OnEnable()
+    {
+        if(!_eventAdded&&_rootTrm != null)
+        {
+            base.SetUp(_rootTrm);
+            _characterController = _rootTrm.GetComponent<CharacterController>();
+            _canMove = false;
+            _moveStart = false;
+            _currentVelocity = 0f;
 
+            GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouch;
+            GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent += OnTouchUp;
+            _eventAdded= true;
+        }
+    }
     private void OnDisable()
     {
-        GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouch;
-        GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent -= OnTouchUp;
+        if(_eventAdded)
+        {
+            GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouch;
+            GameManager.Instance.GetManager<InputManager>().OnTouchUpEvent -= OnTouchUp;
+            _eventAdded = false;
+        }
     }
 
     public override void UpdateModule()
@@ -133,7 +156,6 @@ public class PlayerMovementModule : CommonModule<PlayerController>
     {
         if (AquariumManager.Instance.state == AquariumManager.STATE.NORMAL)
         {
-            Debug.Log("∞»±‚ Ω√¿€");
             _moveStart = true;
             _movePivot = GameManager.Instance.GetManager<InputManager>().TouchPosition;
             _joyStick = (JoyStickPopup)GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.JoyStick);
@@ -145,7 +167,6 @@ public class PlayerMovementModule : CommonModule<PlayerController>
     {
         if (AquariumManager.Instance.state == AquariumManager.STATE.NORMAL)
         {
-            Debug.Log("∞»±‚ ≥°");
             _moveStart = false;
             if (_joyStick != null)
             {

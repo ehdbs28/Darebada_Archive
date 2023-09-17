@@ -39,7 +39,6 @@ public class AquariumScreen : UIScreen
         GameManager.Instance.GetManager<MoneyManager>().OnGoldChange += OnChangedGold;
         GameManager.Instance.GetManager<AquariumNumericalManager>().OnReputationChanged += OnChangedReputation;
 
-        Debug.Log(1);
         _settingBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Setting);
