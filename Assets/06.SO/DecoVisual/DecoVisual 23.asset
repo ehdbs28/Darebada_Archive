@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Starfish00
   mesh: {fileID: 4300000, guid: c2b7e26c01b98fb42a81539529f80214, type: 3}
-  mainMat: {fileID: 2100000, guid: c53ab002e1cd24a27a02b1967dd615da, type: 2}
+  mainMat: {fileID: 2100000, guid: 6c9706fa7b3bc7e4b9212fde94332a8b, type: 2}
   sprite: {fileID: -964297506, guid: 6ff610e4f3fb14e4188ed19366186c67, type: 3}

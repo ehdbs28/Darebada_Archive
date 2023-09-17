@@ -33,7 +33,7 @@ public class ItemSelectPopup : UIPopup
         
         for (int i = 0; i < unitElements.Count; i++)
         {
-            _units.Add(new UISelectItemUnit(unitElements[i], table.DataTable[i]));
+            _units.Add(new UISelectItemUnit(unitElements[i], table.DataTable[i], _units));
         }
     }
 }

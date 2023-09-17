@@ -39,23 +39,37 @@ public class InventoryUnit
         rotateVals[3] = new Vector2(-size.y, size.x);
     }
 
-    public void Generate(VisualElement root)
+    public void Generate(VisualElement root, bool setting = true, bool shop = false)
     {
         _root = root;
         _inner = _root.Q<VisualElement>("inner");
-        Setting();
+        Setting(setting, shop);
     }
     
-    public void Setting()
+    public void Setting(bool setting, bool shop)
     {
-        _root.style.width = new StyleLength(new Length(size.x * 15.25f, LengthUnit.Percent));
-        _root.style.height = new StyleLength(new Length(11.5f + (size.y * 11.6f), LengthUnit.Percent));
+        if (setting && shop == false)
+        {
+            _root.style.width = new StyleLength(new Length(size.x * 15.9f + 0.2f, LengthUnit.Percent));
+            _root.style.height = new StyleLength(new Length(size.y * 12f, LengthUnit.Percent));
 
-        _inner.style.width = new StyleLength(new Length(size.x * 15.25f, LengthUnit.Percent));
-        _inner.style.height = new StyleLength(new Length(11.5f + (size.y * 11.6f), LengthUnit.Percent));
+            _inner.style.width = new StyleLength(new Length(100f, LengthUnit.Percent));
+            _inner.style.height = new StyleLength(new Length(100f, LengthUnit.Percent));
 
-        Move(new Vector2(posX, posY));
-        Selected(false);
+            Move(new Vector2(posX, posY));
+            Selected(false);
+        }
+        else if (shop)
+        {
+            _root.style.width = new StyleLength(new Length(size.x * 15f, LengthUnit.Percent));
+            _root.style.height = new StyleLength(new Length(size.y * 11f, LengthUnit.Percent));
+
+            _inner.style.width = new StyleLength(new Length(100f, LengthUnit.Percent));
+            _inner.style.height = new StyleLength(new Length(100f, LengthUnit.Percent));
+
+            Move(new Vector2(posX, posY), shop);
+            Selected(false);
+        }
 
         _root.style.backgroundImage = new StyleBackground(data.Visual.Profile);
     }
@@ -70,11 +84,23 @@ public class InventoryUnit
         _root.style.rotate = new Rotate(_root.style.rotate.value.angle.value + val);
     }
 
-    public void Move(Vector2 pos)
+    public void Move(Vector2 pos, bool shop = false)
     {
         posX = (int)pos.x;
         posY = (int)pos.y;
-        _root.style.left = pos.x * 134.5f + 45;
-        _root.style.top = pos.y * 122 + 36;
+        Debug.Log($"posX: {posX}");
+        Debug.Log($"posY: {posY}");
+        if (!shop)
+        {
+            _root.style.left = new StyleLength(new Length(posX * new Length(15.9f, LengthUnit.Percent).value + 4.2f, LengthUnit.Percent));
+            _root.style.top = new StyleLength(new Length(posY * new Length(12f, LengthUnit.Percent).value + 2f, LengthUnit.Percent));
+        }
+        else
+        {
+            _root.style.left = new StyleLength(new Length(posX * 15f + 27.1f, LengthUnit.Percent));
+            _root.style.top = new StyleLength(new Length(posY * 11f + 4.3f, LengthUnit.Percent));
+        }
+        Debug.Log($"left: {_root.style.left}");
+        Debug.Log($"top: {_root.style.top}");
     }
 }

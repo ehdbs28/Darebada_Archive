@@ -6,6 +6,9 @@ using Cinemachine;
 public class BoatFollowingVCam : VCam
 {
     [SerializeField]
+    private BoatController _boatController;
+    
+    [SerializeField]
     private Transform _target;
 
     public override void SelectVCam()
@@ -26,7 +29,11 @@ public class BoatFollowingVCam : VCam
     {
     }
 
-    private void OnScreenClick(){
+    private void OnScreenClick()
+    {
+        if (_boatController.BoatActionData.IsMoveBoat)
+            return;
+
         CinemachineFramingTransposer framingTransposer = ((CinemachineVirtualCamera)_virtualCam).GetCinemachineComponent<CinemachineFramingTransposer>();
         Vector3 offset = framingTransposer.m_TrackedObjectOffset;
 

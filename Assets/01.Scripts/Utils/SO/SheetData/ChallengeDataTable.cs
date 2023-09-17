@@ -18,7 +18,6 @@ public class ChallengeDataTable : LoadableData
 {
     public DataTable<ChallengeDataUnit> DataTable = new DataTable<ChallengeDataUnit>();
 
-    #if UNITY_EDITOR
     public override void AddData(string[] dataArr)
     {
         DataTable.Add(new ChallengeDataUnit());
@@ -32,5 +31,4 @@ public class ChallengeDataTable : LoadableData
 
         ++Size;
     }
-    #endif
 }

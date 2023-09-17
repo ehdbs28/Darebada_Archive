@@ -19,7 +19,7 @@ public class UICleanContent : UIPopupContent
         
         for (int i = 0; i < cleanItemParent.childCount; i++)
         {
-            _cleanUnits.Add(new UICleanUnit(cleanItemParent.ElementAt(i), price, value));
+            _cleanUnits.Add(new UICleanUnit(cleanItemParent.ElementAt(i), _goldLabel, price, value));
             price *= 2;
             value *= 2;
         }

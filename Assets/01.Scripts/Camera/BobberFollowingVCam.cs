@@ -5,6 +5,12 @@ using UnityEngine;
 public class BobberFollowingVCam : VCam
 {
     [SerializeField]
+    private FishingController _fishingController;
+
+    [SerializeField]
+    private FishingState _targetState;
+    
+    [SerializeField]
     private Transform _target;
 
     public override void SelectVCam()
@@ -26,6 +32,9 @@ public class BobberFollowingVCam : VCam
     }
 
     private void OnScreenClick(){
+        if (_fishingController.CurrentState != _targetState)
+            return;
+
         GameManager.Instance.GetManager<CameraManager>().SetRotateCam(
             _target,
             Vector3.Distance(_target.position, _virtualCam.transform.position),

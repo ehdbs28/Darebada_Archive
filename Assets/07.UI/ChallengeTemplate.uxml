@@ -3,12 +3,12 @@
     <ui:VisualElement name="template-container" class="challenge-unit" style="flex-direction: row; background-color: rgb(222, 221, 216); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; justify-content: space-around; padding-left: 1.5%; margin-bottom: 20px; height: 110%;">
         <ui:VisualElement name="challenge-template" style="background-color: rgb(222, 221, 216); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; justify-content: space-around; flex-grow: 1;">
             <ui:VisualElement name="title-container" style="height: 20%; -unity-text-align: middle-left; margin-bottom: 2%; flex-shrink: 0;">
-                <ui:Label text="도전 과제 1" display-tooltip-when-elided="true" name="title-text" style="width: 100%; height: 100%; color: rgb(111, 111, 111); font-size: 50px; -unity-font-style: bold;" />
+                <ui:Label text="도전 과제 1" display-tooltip-when-elided="true" name="title-text" class="text" style="width: 100%; height: 100%; color: rgb(111, 111, 111); font-size: 50px; -unity-font-style: bold;" />
             </ui:VisualElement>
             <ui:VisualElement name="contents" style="height: 40%; justify-content: flex-start; flex-shrink: 0;">
                 <ui:VisualElement name="current-state" style="flex-direction: row; justify-content: space-between; margin-bottom: 2%;">
-                    <ui:Label text="개쩌는 물고기를 10마리 포획" display-tooltip-when-elided="true" name="info-text" style="font-size: 25px; color: rgb(111, 111, 111); -unity-font-style: bold;" />
-                    <ui:Label text="4/10마리" display-tooltip-when-elided="true" name="current-state-text" style="color: rgb(111, 111, 111); font-size: 25px; -unity-font-style: bold;" />
+                    <ui:Label text="개쩌는 물고기를 10마리 포획" display-tooltip-when-elided="true" name="info-text" class="text" style="font-size: 25px; color: rgb(111, 111, 111); -unity-font-style: bold;" />
+                    <ui:Label text="4/10마리" display-tooltip-when-elided="true" name="current-state-text" class="text" style="color: rgb(111, 111, 111); font-size: 25px; -unity-font-style: bold;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="gauge" style="background-color: rgb(154, 154, 154); height: 50%;">
                     <ui:VisualElement name="gauge-value" style="background-color: rgb(255, 167, 76); height: 100%; width: 40%;" />

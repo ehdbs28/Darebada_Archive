@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Conch00
   mesh: {fileID: 4300000, guid: 9f54640a4267dc74a8d98ae1623ecfb3, type: 3}
-  mainMat: {fileID: 2100000, guid: c53ab002e1cd24a27a02b1967dd615da, type: 2}
+  mainMat: {fileID: 2100000, guid: 6c9706fa7b3bc7e4b9212fde94332a8b, type: 2}
   sprite: {fileID: -1081433236, guid: 086ce6a9f2281eb468246db6322081bd, type: 3}

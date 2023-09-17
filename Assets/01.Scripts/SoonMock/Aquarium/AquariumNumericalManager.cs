@@ -1,5 +1,6 @@
 using Core;
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -85,6 +86,8 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
     public List<DecoVisualSO> decoVisuals = new List<DecoVisualSO>();
 
     [SerializeField] int _promoDispointAmount;
+
+    public event Action<float, float, float, float> OnReputationChanged;
     public void InitManager()
     {
         ResetManager();
@@ -103,9 +106,11 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
 
     public void UpdateManager()
     {
+        CleanScore = Mathf.Clamp(_cleanScore, 0, 100);
         EntrancePercent = Mathf.Clamp((float)((float)fishbowlCnt / (float)EntranceFee) * 100f, 10f, 200f);
-        Reputation = Mathf.Clamp((EntrancePercent / 100f * (100-CleanScore )/ 100f * ArtScore / 100f) * 100f + PromotionPoint, 10, 100);
-        ArtScore = Mathf.Clamp(((float)(decoCnt / 2) / decoCnt) * 100, 10, 100);
+        ArtScore = Mathf.Clamp(decoCnt / 2f / (float)fishbowlCnt * 100f, 10f, 100f);
+        Reputation = Mathf.Clamp(((100 - CleanScore) / 100f) * (ArtScore / 100f) * 100f + PromotionPoint, 10, 100);
+        OnReputationChanged?.Invoke(EntrancePercent, _cleanScore, _artScore, _reputation);
     }
 
     public void OnDayChange(GameDate dateTime)

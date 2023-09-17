@@ -17,6 +17,19 @@ public class InputManager : MonoBehaviour, IManager
     private Vector2 _touchPosition;
     public Vector2 TouchPosition => _touchPosition;
 
+    [SerializeField]
+    private bool _canInitSetting = false;
+
+    public void Awake()
+    {
+        if (_canInitSetting)
+        {
+            Application.targetFrameRate = 60;
+            InitManager();
+        }
+
+    }
+
     public void InitManager()
     {
         _inputAction = new GameInputControls();
@@ -39,10 +52,10 @@ public class InputManager : MonoBehaviour, IManager
 
     private void TouchHandle(InputAction.CallbackContext context)
     {
-        if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
+        if(GameManager.Instance != null && GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
             return;
 
-        if (GameManager.Instance.GetManager<TutorialManager>().InTut)
+        if (GameManager.Instance != null && GameManager.Instance.GetManager<TutorialManager>().InTut)
         {
             OnTutorialClick?.Invoke();
             return;
@@ -52,7 +65,7 @@ public class InputManager : MonoBehaviour, IManager
     
     private void TouchUpHandle(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance.GetManager<TutorialManager>().InTut)
+        if (GameManager.Instance != null && GameManager.Instance.GetManager<TutorialManager>().InTut)
             return;
         
         OnTouchUpEvent?.Invoke();
@@ -70,10 +83,10 @@ public class InputManager : MonoBehaviour, IManager
 
     private void MouseClickHandle(InputAction.CallbackContext context)
     {
-        if(GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
+        if(GameManager.Instance != null && GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
             return;
 
-        if (GameManager.Instance.GetManager<TutorialManager>().InTut)
+        if (GameManager.Instance != null && GameManager.Instance.GetManager<TutorialManager>().InTut)
         {
             OnTutorialClick?.Invoke();
             return;
@@ -84,7 +97,7 @@ public class InputManager : MonoBehaviour, IManager
     
     private void MouseUpHandle(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance.GetManager<TutorialManager>().InTut)
+        if (GameManager.Instance != null && GameManager.Instance.GetManager<TutorialManager>().InTut)
             return;
         
         OnTouchUpEvent?.Invoke();
@@ -106,10 +119,11 @@ public class InputManager : MonoBehaviour, IManager
             _inputAction.Touch.Disable();
     }
 
-    public Vector3 GetMouseRayPoint(string layerName = "Ground"){
+    public Vector3 GetMouseRayPoint(out RaycastHit hitInfo, string layerName = "Ground"){
         Ray ray = Define.MainCam.ScreenPointToRay(_touchPosition);
         RaycastHit hit;
         bool isHit = Physics.Raycast(ray, out hit,Mathf.Infinity, LayerMask.GetMask(layerName));
+        hitInfo = hit;
         return (isHit) ? hit.point : Vector3.zero;
     }
 

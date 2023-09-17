@@ -37,6 +37,18 @@ public class AquariumEditScreen : UIScreen
         _editCam.SetPosition(pos);
     }
 
+    public void TouchHandleManaged(bool attach)
+    {
+        if (attach)
+        {
+            GameManager.Instance.GetManager<InputManager>().OnTouchEvent += OnTouchHandle;    
+        }
+        else
+        {
+            GameManager.Instance.GetManager<InputManager>().OnTouchEvent -= OnTouchHandle;
+        }
+    }
+
     public override void AddEvent()
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnChangedTime;
@@ -55,17 +67,20 @@ public class AquariumEditScreen : UIScreen
 
         _addTankBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            TouchHandleManaged(false);
             AquariumManager.Instance.AddFishBowl();
         });
 
         _addPlantBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            TouchHandleManaged(false);
             AquariumManager.Instance.AddSnackShop();
         });
 
         _addRoadBtn.RegisterCallback<ClickEvent>(e =>
         {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
+            TouchHandleManaged(false);
             AquariumManager.Instance.AddRoadTile();
         });
     }
@@ -112,10 +127,15 @@ public class AquariumEditScreen : UIScreen
     private void OnTouchHandle(){
         if (AquariumManager.Instance.state == AquariumManager.STATE.CAMMOVE)
         {
-            Vector3 point = GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint("Facility");
+            Vector3 point = GameManager.Instance.GetManager<InputManager>().GetMouseRayPoint(out var hit, "Facility");
 
             if(point != Vector3.zero){
-                GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.TankUpgrade);
+                if (hit.collider.TryGetComponent<Fishbowl>(out var fishbowl))
+                {
+                    ((TankUpgradePopup)GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.TankUpgrade))
+                        .SetFishBowl(fishbowl);
+                    GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.TankUpgrade);
+                }
             }
         }
     }

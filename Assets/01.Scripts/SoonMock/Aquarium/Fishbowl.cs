@@ -1,12 +1,5 @@
-using Cinemachine;
-using JetBrains.Annotations;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using Unity.VisualScripting;
-using UnityEditor.AddressableAssets.Build.AnalyzeRules;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 
 public class Fishbowl :  Facility
@@ -29,6 +22,7 @@ public class Fishbowl :  Facility
         private set { }
     }
     public int level = 1;
+    
     public bool CheckRemainedFishs()
     {
         int curCnt = 0;
@@ -43,6 +37,7 @@ public class Fishbowl :  Facility
         }
         return false;
     }
+    
     public void AddDeco(int idx)
     {
         if (!decoController)
@@ -60,6 +55,7 @@ public class Fishbowl :  Facility
             decoController.AddDeco( AquariumManager.Instance.decoVisuals[idx]);
         }
     }
+    
     public void RemoveDeco(int idx)
     {
         if (!decoController)
@@ -80,6 +76,21 @@ public class Fishbowl :  Facility
             }
         }
     }
+
+    public bool AlreadyHadDeco(int idx)
+    {
+        if (!decoController)
+        {
+            GameObject decoConObj = Instantiate(new GameObject());
+            decoController = decoConObj.AddComponent<DecoController>();
+            decoConObj.transform.SetParent(transform, false);
+            decoController.decoObject = decoObject.GetComponent<Deco>();
+            decoController.decoPositions = decoTrs;
+        }
+
+        return decoController.AlreadyHadDeco(idx);
+    }
+    
     public void AddFIsh(FishDataUnit fishData)
     {
         if(CheckRemainedFishs())
@@ -115,7 +126,6 @@ public class Fishbowl :  Facility
         fishs.RemoveAt(idx);
         Destroy(obj);
         selectedBoid.FindNeighbour();
-        
     }
     
     public void Upgrade()
@@ -143,17 +153,10 @@ public class Fishbowl :  Facility
         AquariumManager.Instance.facilityObj = this;
         AquariumManager.Instance.state = AquariumManager.STATE.BUILD;
         FindObjectOfType<GridManager>().ShowGrid();
-
-
     }
+    
     private void Awake()
     {
-        
         _collider = GetComponent<Collider>();
-    }
-
-    public override Facility OnTouched()
-    {
-        return this;
     }
 }

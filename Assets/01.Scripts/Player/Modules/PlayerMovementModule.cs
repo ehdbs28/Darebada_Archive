@@ -50,39 +50,46 @@ public class PlayerMovementModule : CommonModule<PlayerController>
 
     public override void UpdateModule()
     {
-        if(_moveStart){
-            Vector3 mousePos = GameManager.Instance.GetManager<InputManager>().TouchPosition;
-
-            float distance = Vector3.Distance(_movePivot, mousePos);
-
-            _canMove = distance >= _minDistance;
-
-            if (_canMove)
+        if (AquariumManager.Instance.state == AquariumManager.STATE.NORMAL)
+        {
+            if (_moveStart)
             {
-                _currentMaxVelocity = Mathf.Lerp(0f, _controller.DataSO.MaxSpeed, distance / _maxDistance);
+                Vector3 mousePos = GameManager.Instance.GetManager<InputManager>().TouchPosition;
+
+                float distance = Vector3.Distance(_movePivot, mousePos);
+
+                _canMove = distance >= _minDistance;
+
+                if (_canMove)
+                {
+                    _currentMaxVelocity = Mathf.Lerp(0f, _controller.DataSO.MaxSpeed, distance / _maxDistance);
+                }
+                else
+                {
+                    _currentMaxVelocity = 0f;
+                }
+
+                _dir = (mousePos - _movePivot).normalized;
+
+                if (_joyStick != null)
+                    _joyStick.SetDirPos(_dir * _currentMaxVelocity);
             }
-            else
-            {
-                _currentMaxVelocity = 0f;
-            }
-            
-            _dir = (mousePos - _movePivot).normalized;
-            
-            if(_joyStick != null)
-                _joyStick.SetDirPos(_dir * _currentMaxVelocity);
+
+            Movement();
         }
-
-        Movement();
     }
 
     public override void FixedUpdateModule()
     {
-        _characterController.Move(_movement * (_currentVelocity * Time.deltaTime));
-        float mx = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize.x * 5;
-        float mz = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize.z * 5;
-        float x = transform.position.x;
-        float z = transform.position.z;
-        _controller.transform.position = new Vector3(Mathf.Clamp(x, -mx +0.3f, mx -0.3f), 0, Mathf.Clamp(z, -mz +0.3f, mz -0.3f));
+        if (AquariumManager.Instance.state == AquariumManager.STATE.NORMAL)
+        {
+            _characterController.Move(_movement * (_currentVelocity * Time.deltaTime));
+            float mx = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize.x * 5;
+            float mz = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize.z * 5;
+            float x = transform.position.x;
+            float z = transform.position.z;
+            _controller.transform.position = new Vector3(Mathf.Clamp(x, -mx +0.3f, mx -0.3f), 0, Mathf.Clamp(z, -mz +0.3f, mz -0.3f));
+        }
     }
 
     private void Movement(){
@@ -135,11 +142,14 @@ public class PlayerMovementModule : CommonModule<PlayerController>
 
     private void OnTouchUp()
     {
-        _moveStart = false;
-        if (_joyStick != null)
+        if (AquariumManager.Instance.state == AquariumManager.STATE.NORMAL)
         {
-            _joyStick.RemoveRoot();
-            _joyStick = null;
+            _moveStart = false;
+            if (_joyStick != null)
+            {
+                _joyStick.RemoveRoot();
+                _joyStick = null;
+            }
         }
     }
 }

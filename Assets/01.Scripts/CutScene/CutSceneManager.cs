@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR;
 
@@ -14,6 +16,7 @@ public class CutSceneManager : MonoBehaviour
     public bool isScrolled;
     [SerializeField] int _currentImage;
     [SerializeField] bool _onCor;
+    [SerializeField] private InputManager _inputManager;
  
     public enum ProgressState
     {
@@ -22,7 +25,12 @@ public class CutSceneManager : MonoBehaviour
         TOUCHABLE
     }
     public ProgressState progressState = ProgressState.READY;
-    
+
+    private void Start()
+    {
+        _inputManager.OnTouchEvent += Touch;
+    }
+
     IEnumerator FadeOut(float time)
     {
         progressState = ProgressState.READY;
@@ -38,6 +46,7 @@ public class CutSceneManager : MonoBehaviour
         _onCor = false;
         progressState = ProgressState.TOUCHABLE;
     }
+    
     IEnumerator FadeIn(float time)
     {
         progressState = ProgressState.READY;
@@ -54,6 +63,7 @@ public class CutSceneManager : MonoBehaviour
         _onCor = false;
         progressState = ProgressState.TOUCHABLE;
     }
+    
     IEnumerator ScrollUp(float time)
     {
         progressState = ProgressState.READY;
@@ -68,42 +78,49 @@ public class CutSceneManager : MonoBehaviour
         _onCor = false;
         progressState = ProgressState.TOUCHABLE;
     }
+    
     public IEnumerator ShowNext()
     {
-        Debug.Log("Asdf");
-        if(_currentImage != cutSceneImages.Count-2)
+        if (_currentImage == cutSceneImages.Count - 1)
         {
             yield return StartCoroutine(FadeOut(1));
-            _currentImage++;
-            cutSceneImage.sprite = cutSceneImages[_currentImage];
-            StartCoroutine(FadeIn(1));
-        }else if(!isScrolled)
-        {
-            StartCoroutine(ScrollUp(1));
-            isScrolled= true;
-        }else if (_currentImage == cutSceneImages.Count-1) 
-        {
             SetStart();
-        }else
-        {
-            yield return StartCoroutine(FadeOut(1));
-            _currentImage++;
-            cutSceneImage.sprite = cutSceneImages[_currentImage];
-            StartCoroutine(FadeIn(1));
-
         }
-
+        else
+        {
+            if(_currentImage != cutSceneImages.Count-2)
+            {
+                yield return StartCoroutine(FadeOut(1));
+                _currentImage++;
+                cutSceneImage.sprite = cutSceneImages[_currentImage];
+                StartCoroutine(FadeIn(1));
+            }else if(!isScrolled)
+            {
+                StartCoroutine(ScrollUp(1));
+                isScrolled= true;
+            }
+            else
+            {
+                yield return StartCoroutine(FadeOut(1));
+                _currentImage++;
+                cutSceneImage.sprite = cutSceneImages[_currentImage];
+                StartCoroutine(FadeIn(1));
+            }
+        }
     }
-    private void Update()
+
+    private void Touch()
     {
-        if (Input.GetMouseButtonDown(0) && progressState == ProgressState.TOUCHABLE)
+        if (progressState == ProgressState.TOUCHABLE)
         {
             StartCoroutine(ShowNext());
         }
     }
+    
     public void SetStart()
     {
-        //게임 시작할 때 쓸걸 넣어야함
+        _inputManager.OnTouchEvent -= Touch;
+        SceneManager.LoadScene("MainScene 1");
     }
 
 }

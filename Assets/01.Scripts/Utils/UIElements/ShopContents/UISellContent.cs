@@ -46,7 +46,7 @@ public class UISellContent : UIPopupContent
         {
             VisualElement root = unitTemplete.Instantiate();
             root = root.Q("inventory-unit");
-            unit.Generate(root);
+            unit.Generate(root, true, true);
             _invenContent.Add(root);
             
             unit.Root.RegisterCallback<ClickEvent>(evt =>
@@ -79,7 +79,10 @@ public class UISellContent : UIPopupContent
                 return;
             
             GameManager.Instance.GetManager<MoneyManager>().AddMoney(_selectUnit.data.Price);
+            (GameManager.Instance.GetManager<DataManager>().GetData(DataType.InventoryData) as InventoryData)
+                ?.Units.List.Remove(_selectUnit);
             _invenContent.Remove(_selectUnit.Root);
+            
             _selectUnit = null;
             
             PlayParticle();    
@@ -89,9 +92,9 @@ public class UISellContent : UIPopupContent
     private void PlayParticle()
     {
         Vector2 particlePos = GameManager.Instance.GetManager<UIManager>()
+            .GetElementPos(_goldLabel, new Vector2(0.5f, 0.5f));
+        Vector2 destinationPos = GameManager.Instance.GetManager<UIManager>()
             .GetElementPos(_sellBtn, new Vector2(0.5f, 0.5f));
-        // Vector2 destinationPos = GameManager.Instance.GetManager<UIManager>()
-        //     .GetElementPos()
 
         PoolableUIMovementParticle particle = GameManager.Instance.GetManager<PoolManager>().Pop("MoneyFeedback") as PoolableUIMovementParticle;
         particle.SetPoint(particlePos);

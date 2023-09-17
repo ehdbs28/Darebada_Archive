@@ -53,6 +53,8 @@ public class AuariumBoidUnit : MonoBehaviour
     [SerializeField]
     private FishDataUnit _unitData;
 
+    public FishDataUnit UnitData => _unitData;
+
     private SkinnedMeshRenderer _skinnedMR;
 
     [SerializeField]
@@ -94,11 +96,11 @@ public class AuariumBoidUnit : MonoBehaviour
             if (additionalSpeed > 0)
                 additionalSpeed -= Time.deltaTime;
 
-            //ÇÊ¿äÇÑ ¸ðµç º¤ÅÍ
+            //ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             Vector3 cohesionVec = CalculateCohesionVector() * myBoids.cohesionWeight;
             Vector3 alignmentVec = CalculateAlignmentVector() * myBoids.alignmentWeight;
             Vector3 separationVec = CalculateSeparationVector() * myBoids.separationWeight;
-            // Ãß°¡ÀûÀÎ ¹æÇâ
+            // ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             Vector3 boundsVec = CalculateBoundsVector() * myBoids.boundsWeight;
             Vector3 obstacleVec = CalculateObstacleVector() * myBoids.obstacleWeight;
             Vector3 egoVec = egoVector * myBoids.egoWeight;
@@ -165,7 +167,7 @@ public class AuariumBoidUnit : MonoBehaviour
         Vector3 cohesionVec = Vector3.zero;
         if (neighbours.Count > 0)
         {
-            // ÀÌ¿ô unitµéÀÇ À§Ä¡ ´õÇÏ±â
+            // ï¿½Ì¿ï¿½ unitï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ï±ï¿½
             for (int i = 0; i < neighbours.Count; i++)
             {
                 cohesionVec += neighbours[i].transform.position;
@@ -173,11 +175,11 @@ public class AuariumBoidUnit : MonoBehaviour
         }
         else
         {
-            // ÀÌ¿ôÀÌ ¾øÀ¸¸é vector3.zero ¹ÝÈ¯
+            // ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ vector3.zero ï¿½ï¿½È¯
             return cohesionVec;
         }
 
-        // Áß½É À§Ä¡·ÎÀÇ º¤ÅÍ Ã£±â
+        // ï¿½ß½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
         cohesionVec /= neighbours.Count;
         cohesionVec -= transform.position;
         cohesionVec.Normalize();
@@ -189,7 +191,7 @@ public class AuariumBoidUnit : MonoBehaviour
         Vector3 alignmentVec = transform.forward;
         if (neighbours.Count > 0)
         {
-            // ÀÌ¿ôµéÀÌ ÇâÇÏ´Â ¹æÇâÀÇ Æò±Õ ¹æÇâÀ¸·Î ÀÌµ¿
+            // ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
             for (int i = 0; i < neighbours.Count; i++)
             {
                 alignmentVec += neighbours[i].transform.forward;
@@ -197,7 +199,7 @@ public class AuariumBoidUnit : MonoBehaviour
         }
         else
         {
-            // ÀÌ¿ôÀÌ ¾øÀ¸¸é ±×³É forward·Î ÀÌµ¿
+            // ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×³ï¿½ forwardï¿½ï¿½ ï¿½Ìµï¿½
             return alignmentVec;
         }
 
@@ -211,7 +213,7 @@ public class AuariumBoidUnit : MonoBehaviour
         Vector3 separationVec = Vector3.zero;
         if (neighbours.Count > 0)
         {
-            // ÀÌ¿ôµéÀ» ÇÇÇÏ´Â ¹æÇâÀ¸·Î ÀÌµ¿
+            // ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
             for (int i = 0; i < neighbours.Count; i++)
             {
                 separationVec += (transform.position - neighbours[i].transform.position);
@@ -219,7 +221,7 @@ public class AuariumBoidUnit : MonoBehaviour
         }
         else
         {
-            // ÀÌ¿ôÀÌ ¾øÀ¸¸é vector.zero ¹ÝÈ¯
+            // ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ vector.zero ï¿½ï¿½È¯
             return separationVec;
         }
         separationVec /= neighbours.Count;

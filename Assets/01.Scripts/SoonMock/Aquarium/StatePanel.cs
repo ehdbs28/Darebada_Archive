@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.AddressableAssets.Settings.GroupSchemas;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -35,7 +34,7 @@ public class StatePanel : MonoBehaviour
     }
     public void UpgradeLevel()
     {
-        //¹°°í±â ÃÖ´ë·® Ãß°¡
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ë·® ï¿½ß°ï¿½
         _script = upgradeObj .GetComponent<Facility>();
         if(_script.GetComponent<Fishbowl>())
         {
@@ -48,7 +47,7 @@ public class StatePanel : MonoBehaviour
     }
     public void AddFish(FishDataUnit dataUnit)
     {
-        //¹°°í±â Ãß°¡
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
         if (_script.GetComponent<Fishbowl>())
         {
             Debug.Log("asdf");

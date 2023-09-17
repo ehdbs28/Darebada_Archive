@@ -6,6 +6,7 @@ public class BuildFacility : MonoBehaviour
 {
     [SerializeField] private Vector3 _objectPosition;
     [SerializeField] private Vector3 _beforeVector; 
+    
     public Vector3 GetFacilityPos()
     {
         RaycastHit hit;
