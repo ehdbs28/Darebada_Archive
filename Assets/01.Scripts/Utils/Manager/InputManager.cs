@@ -35,14 +35,17 @@ public class InputManager : MonoBehaviour, IManager
         _inputAction = new GameInputControls();
         
         EnableInputAction(true);
-        _inputAction.Touch.Touch.performed += TouchHandle;
-        _inputAction.Touch.Touch.canceled += TouchUpHandle;
-        _inputAction.Touch.TouchPosition.performed += TouchPositionHandle;
+        //_inputAction.Touch.Touch.performed += TouchHandle;
+        //_inputAction.Touch.Touch.canceled += TouchUpHandle;
+        //OnTouchPosition += (Vector2 pos) => { Debug.Log(pos); };
+        //_inputAction.Touch.TouchPosition.performed += TouchPositionHandle;
         
         _inputAction.Mouse.Enable();
         _inputAction.Mouse.Click.performed += MouseClickHandle;
         _inputAction.Mouse.Click.canceled += MouseUpHandle;
         _inputAction.Mouse.MousePos.performed += MousePosHandle;
+
+        
     }
 
     #region MOBILE INPUT
@@ -57,7 +60,6 @@ public class InputManager : MonoBehaviour, IManager
             OnTutorialClick?.Invoke();
             return;
         }
-
         OnTouchEvent?.Invoke();
     }
     
