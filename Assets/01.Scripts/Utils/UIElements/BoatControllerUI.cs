@@ -54,8 +54,6 @@ public class BoatControllerUI
         if (!_isClick)
             return;
 
-        Debug.Log(1);
-
         float cur = mousePos.y;
 
         if (cur < _startPos)

@@ -39,6 +39,7 @@ public class AquariumScreen : UIScreen
         GameManager.Instance.GetManager<MoneyManager>().OnGoldChange += OnChangedGold;
         GameManager.Instance.GetManager<AquariumNumericalManager>().OnReputationChanged += OnChangedReputation;
 
+        Debug.Log(1);
         _settingBtn.RegisterCallback<ClickEvent>(e => {
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
             GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.Setting);
@@ -71,6 +72,7 @@ public class AquariumScreen : UIScreen
     {
         GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent -= OnChangedTime;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent -= OnChangedDay;
+        GameManager.Instance.GetManager<MoneyManager>().OnGoldChange -= OnChangedGold;
         GameManager.Instance.GetManager<AquariumNumericalManager>().OnReputationChanged -= OnChangedReputation;
     }
 
@@ -89,6 +91,7 @@ public class AquariumScreen : UIScreen
         _editorBtn = _root.Q<VisualElement>("editor-btn");
 
         _reputableText = _root.Q<Label>("reputable-star");
+        
         _cleanGauge = _root.Q<VisualElement>("clean-reputable").Q<VisualElement>("inner-gauge");
         _artGauge = _root.Q<VisualElement>("design-reputable").Q<VisualElement>("inner-gauge");
         _entranceGauge = _root.Q<VisualElement>("price-reputable").Q<VisualElement>("inner-gauge");
@@ -113,19 +116,14 @@ public class AquariumScreen : UIScreen
     private void OnChangedReputation(float price, float clean, float art, float reputation)
     {
         string stars = "";
-        for (int i = 0; i < (int)GameManager.Instance.GetManager<AquariumNumericalManager>().Reputation / 20; ++i)
+        for (int i = 0; i < reputation / 20; ++i)
         {
-            //Debug.Log($"reputation {GameManager.Instance.GetManager<AquariumNumericalManager>().Reputation / 20}");
             stars += "★";
-            //_reputableText.text += "★";
         }
         _reputableText.text = stars;
-
-        _cleanGauge.style.scale = new StyleScale(new Scale(new Vector3(GameManager.Instance.GetManager<AquariumNumericalManager>().CleanScore * 0.01f, 1, 0)));
-        //_cleanGauge.style.width = new StyleLength(new Length(100 - GameManager.Instance.GetManager<AquariumNumericalManager>().CleanScore, LengthUnit.Percent));
-        _artGauge.style.scale = new StyleScale(new Scale(new Vector3(GameManager.Instance.GetManager<AquariumNumericalManager>().ArtScore * 0.01f, 1, 0)));
-        //_artGauge.style.width = new StyleLength(new Length(GameManager.Instance.GetManager<AquariumNumericalManager>().ArtScore, LengthUnit.Percent));
-        _entranceGauge.style.scale = new StyleScale(new Scale(new Vector3(GameManager.Instance.GetManager<AquariumNumericalManager>().EntrancePercent * 0.01f, 1, 0)));
-        //_entranceGauge.style.width = new StyleLength(new Length(GameManager.Instance.GetManager<AquariumNumericalManager>().EntrancePercent, LengthUnit.Percent));
+        
+        _cleanGauge.style.scale = new StyleScale(new Scale(new Vector3(clean / 100, 1, 0)));
+        _artGauge.style.scale = new StyleScale(new Scale(new Vector3(art / 100, 1, 0)));
+        _entranceGauge.style.scale = new StyleScale(new Scale(new Vector3(price / 100, 1, 0)));
     }
 }

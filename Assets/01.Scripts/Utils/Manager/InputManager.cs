@@ -83,8 +83,10 @@ public class InputManager : MonoBehaviour, IManager
 
     private void MouseClickHandle(InputAction.CallbackContext context)
     {
-        if(GameManager.Instance != null && GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
+        if (GameManager.Instance != null && GameManager.Instance.GetManager<UIManager>().OnElement(_touchPosition))
+        {
             return;
+        }
 
         if (GameManager.Instance != null && GameManager.Instance.GetManager<TutorialManager>().InTut)
         {

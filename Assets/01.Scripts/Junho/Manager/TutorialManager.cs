@@ -87,7 +87,6 @@ public class TutorialManager : MonoBehaviour, IManager
 
     private void EndTutorial(GameSceneType sceneType)
     {
-        print("TutorialEnd");
         GameData gameData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData;
         GameManager.Instance.GetManager<InputManager>().OnTutorialClick -= StartTutorial;
         ShowTutorial(false);

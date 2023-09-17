@@ -88,8 +88,6 @@ public class InventoryUnit
     {
         posX = (int)pos.x;
         posY = (int)pos.y;
-        Debug.Log($"posX: {posX}");
-        Debug.Log($"posY: {posY}");
         if (!shop)
         {
             _root.style.left = new StyleLength(new Length(posX * new Length(15.9f, LengthUnit.Percent).value + 4.2f, LengthUnit.Percent));
@@ -100,7 +98,5 @@ public class InventoryUnit
             _root.style.left = new StyleLength(new Length(posX * 15f + 27.1f, LengthUnit.Percent));
             _root.style.top = new StyleLength(new Length(posY * 11f + 4.3f, LengthUnit.Percent));
         }
-        Debug.Log($"left: {_root.style.left}");
-        Debug.Log($"top: {_root.style.top}");
     }
 }

@@ -107,9 +107,18 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
     public void UpdateManager()
     {
         CleanScore = Mathf.Clamp(_cleanScore, 0, 100);
-        EntrancePercent = Mathf.Clamp((float)((float)fishbowlCnt / (float)EntranceFee) * 100f, 10f, 200f);
-        ArtScore = Mathf.Clamp(decoCnt / 2f / (float)fishbowlCnt * 100f, 10f, 100f);
-        Reputation = Mathf.Clamp(((100 - CleanScore) / 100f) * (ArtScore / 100f) * 100f + PromotionPoint, 10, 100);
+    
+        if (EntranceFee == 0)
+            EntrancePercent = 0;
+        else
+            EntrancePercent = Mathf.Clamp((float)((float)fishbowlCnt / (float)EntranceFee) * 100f, 0f, 200f);
+
+        if (fishbowlCnt == 0)
+            ArtScore = 0;
+        else
+            ArtScore = Mathf.Clamp(decoCnt / 2f / (float)fishbowlCnt * 100f, 0f, 100f);
+    
+        Reputation = Mathf.Clamp(((100 - CleanScore) / 100f) * (ArtScore / 100f) * 100f + PromotionPoint, 0, 100);
         OnReputationChanged?.Invoke(EntrancePercent, _cleanScore, _artScore, _reputation);
     }
 

@@ -19,19 +19,27 @@ public class CatchedFishCheckingPopup : UIPopup
 
     public FishDataUnit dataUnit;
 
-    public void SetData(FishDataUnit data)
+    public void SetData()
     {
-        _nameText.text = data.Name;
-        _fishImage.style.backgroundImage = new StyleBackground(data.Visual.Profile);
-        _weightText.text = (Mathf.Round(Random.Range(data.MinWeight, data.MaxWeight) * 10) / 10).ToString();
-        _lengthText.text = (Mathf.Round(Random.Range(data.MinLenght, data.MaxLenght) * 10) / 10).ToString();
-        _description.text = data.Description;
+        _nameText.text = dataUnit.Name;
+        
+        DictionaryData dicData = GameManager.Instance.GetManager<DataManager>()
+            .GetData(DataType.DictionaryData) as DictionaryData;
+        var unit = dicData.Units.List.Find(unit => unit.Name == dataUnit.Name);
+
+        if (unit != null)
+            _catchedNumText.text = $"{unit.Count}마리";
+
+        _fishImage.style.backgroundImage = new StyleBackground(dataUnit.Visual.Profile);
+        _weightText.text = (Mathf.Round(Random.Range(dataUnit.MinWeight, dataUnit.MaxWeight) * 10) / 10).ToString();
+        _lengthText.text = (Mathf.Round(Random.Range(dataUnit.MinLenght, dataUnit.MaxLenght) * 10) / 10).ToString();
+        _description.text = dataUnit.Description;
     }
 
     public override void SetUp(UIDocument document, bool clearScreen = true, bool blur = true, bool timeStop = true)
     {
         base.SetUp(document, clearScreen, blur, timeStop);
-        SetData(dataUnit);
+        SetData();
     }
 
     public override void AddEvent()

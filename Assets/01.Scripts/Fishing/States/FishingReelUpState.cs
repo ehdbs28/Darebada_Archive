@@ -95,11 +95,13 @@ public class FishingReelUpState : FishingState
                         Favorites = dataUnit.Favorites,
                         MaxLenght = _controller.Bait.CatchedFish.ActionData.Lenght,
                         MaxWeight = _controller.Bait.CatchedFish.ActionData.Weight,
+                        Count = 1,
                         IsDotated = false
                     });
                 }
                 else
                 {
+                    unit.Count++;
                     unit.MaxLenght = Mathf.Max(unit.MaxLenght, _controller.Bait.CatchedFish.ActionData.Lenght);
                     unit.MaxWeight = Mathf.Max(unit.MaxWeight, _controller.Bait.CatchedFish.ActionData.Weight);
                 }
