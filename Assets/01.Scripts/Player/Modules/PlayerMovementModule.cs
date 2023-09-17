@@ -133,6 +133,7 @@ public class PlayerMovementModule : CommonModule<PlayerController>
     {
         if (AquariumManager.Instance.state == AquariumManager.STATE.NORMAL)
         {
+            Debug.Log("∞»±‚ Ω√¿€");
             _moveStart = true;
             _movePivot = GameManager.Instance.GetManager<InputManager>().TouchPosition;
             _joyStick = (JoyStickPopup)GameManager.Instance.GetManager<UIManager>().ShowPanel(UGUIType.JoyStick);
@@ -144,6 +145,7 @@ public class PlayerMovementModule : CommonModule<PlayerController>
     {
         if (AquariumManager.Instance.state == AquariumManager.STATE.NORMAL)
         {
+            Debug.Log("∞»±‚ ≥°");
             _moveStart = false;
             if (_joyStick != null)
             {
