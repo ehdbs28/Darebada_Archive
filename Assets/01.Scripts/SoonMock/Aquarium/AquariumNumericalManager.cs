@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class AquariumNumericalManager : MonoBehaviour,IManager
 {
+    [SerializeField] private GameObject _aquariumInitObj;
+    public GameObject AquariumInitObj => _aquariumInitObj;
+    
     public Material fishBowlMat;
     public Material mossMat;
     [SerializeField] Color pureWaterColor;

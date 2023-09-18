@@ -7,4 +7,5 @@ public enum DataType
     GameData,
     InventoryData,
     ChallengeData,
+    AquariumSaveData,
 }

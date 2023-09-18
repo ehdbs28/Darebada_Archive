@@ -38,6 +38,12 @@ public class DataManager : IManager
         _dataUnits.Add(DataType.GameData, new GameData(DATA_PATH, "GameData"));
         _dataUnits.Add(DataType.InventoryData, new InventoryData(DATA_PATH, "InventoryData"));
         _dataUnits.Add(DataType.ChallengeData, new ChallengeData(DATA_PATH, "ChallengeData"));
+        _dataUnits.Add(DataType.AquariumSaveData, new AquariumSaveData(
+            "AquariumSaveKey",
+            GameManager.Instance.GetManager<AquariumNumericalManager>().AquariumInitObj,
+            DATA_PATH,
+            "AquariumSaveData")
+        );
 
         #endregion
         

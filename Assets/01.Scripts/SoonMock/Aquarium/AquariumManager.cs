@@ -66,7 +66,7 @@ public class AquariumManager : MonoBehaviour
         GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize += new Vector3(x, 1, y);
         floor.transform.localScale = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize;
         Vector3 FloorSize = GameManager.Instance.GetManager<AquariumNumericalManager>().FloorSize;
-        floor.GetComponent<MeshRenderer>().material.mainTextureScale = new Vector2(4 * FloorSize.x, 4 * FloorSize.z);
+        floor.GetComponent<MeshRenderer>().sharedMaterial.mainTextureScale = new Vector2(4 * FloorSize.x, 4 * FloorSize.z);
         
         _walls.transform.GetChild(0).localScale = new Vector3(FloorSize.x*10, 10, 0);
         _walls.transform.GetChild(0).position = new Vector3(0, 5, -FloorSize.z * 10/2);

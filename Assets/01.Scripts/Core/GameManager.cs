@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameSceneType _startSceneType;
 
+    public bool OnTitle { get; set; } = false;
+
     private void Awake()
     {
         if (Instance != null)
