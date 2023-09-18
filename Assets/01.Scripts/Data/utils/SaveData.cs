@@ -5,13 +5,13 @@ using UnityEngine;
 
 public abstract class SaveData
 {
-    private string _savePath;
+    protected string _savePath;
 
     public SaveData(string FILE_PATH, string name){
         _savePath = $"{FILE_PATH}/{name}.json";
     }
 
-    public void Load(){
+    public virtual void Load(){
         if(File.Exists(_savePath)){
             string data = File.ReadAllText(_savePath);
             LoadData(data);
@@ -21,10 +21,10 @@ public abstract class SaveData
         }
     }
 
-    public void Save(string data){
+    public virtual void Save(string data = ""){
         File.WriteAllText(_savePath, data);
     }
 
-    protected abstract void LoadData(string json);
+    protected abstract void LoadData(string json = "");
     public abstract void Reset();
 }

@@ -19,10 +19,12 @@ public class TutorialManager : MonoBehaviour, IManager
     public bool InTut => _inTut;   
 
     public void ResetManager(){}
+    
     public void InitManager()
     {
         ShowTutorial(false);
     }
+    
     public void UpdateManager(){}
 
     public void OnTutorial(GameSceneType sceneType)
@@ -52,7 +54,12 @@ public class TutorialManager : MonoBehaviour, IManager
         
         if (_sceneType == GameSceneType.Camp)
         {
-            if (idx == _campExplainImages.Count) EndTutorial(_sceneType);
+            if (idx == _campExplainImages.Count)
+            {
+                EndTutorial(_sceneType);
+                return;
+            }
+            
             if (gameData.CampTutorial)
             {
                 _inTut = false;
@@ -61,7 +68,12 @@ public class TutorialManager : MonoBehaviour, IManager
         }
         if (_sceneType == GameSceneType.Ocean)
         {
-            if (idx == _oceanExplainImages.Count) EndTutorial(_sceneType);
+            if (idx == _oceanExplainImages.Count)
+            {
+                EndTutorial(_sceneType);
+                return;
+            }
+            
             if (gameData.OceanTutorial)
             {
                 _inTut = false;
@@ -70,7 +82,12 @@ public class TutorialManager : MonoBehaviour, IManager
         }
         if (_sceneType == GameSceneType.Aquarium)
         {
-            if (idx == _aquariumExplainImages.Count) EndTutorial(_sceneType);
+            if (idx == _aquariumExplainImages.Count)
+            {
+                EndTutorial(_sceneType);
+                return;
+            }
+            
             if (gameData.AquariumTutorial)
             {
                 _inTut = false;

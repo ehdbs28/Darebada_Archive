@@ -18,6 +18,9 @@ public class MainSceneObjectManager : MonoBehaviour
 
     private void MouseClickHandle()
     {
+        if (GameManager.Instance.GetManager<TutorialManager>().InTut)
+            return;
+        
         Ray ray = Define.MainCam.ScreenPointToRay(GameManager.Instance.GetManager<InputManager>().TouchPosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask))

@@ -6636,7 +6636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneType: 0
-  _initScreenType: 5
+  _initScreenType: 6
   _initCamState: 0
   _lastCamState: 2
   _vCamList:

@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83b3b01c1033e1428b24c782ecd7398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
+  _target: {fileID: 2695662300675242706}
 --- !u!114 &970356274400009161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneType: 2
-  _initScreenType: 3
+  _initScreenType: 4
   _initCamState: 6
   _lastCamState: 8
   _vCamList:
@@ -379,8 +379,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5008393250151910826}
-        m_TargetAssemblyTypeName: SavedObject, Assembly-CSharp
-        m_MethodName: Load
+        m_TargetAssemblyTypeName: AquariumSubManager, Assembly-CSharp
+        m_MethodName: OnEnterScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -394,8 +394,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5008393250151910826}
-        m_TargetAssemblyTypeName: SavedObject, Assembly-CSharp
-        m_MethodName: Save
+        m_TargetAssemblyTypeName: AquariumSubManager, Assembly-CSharp
+        m_MethodName: OnExitScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -510,12 +510,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5632686494114645740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a70eb15bd03f432482ab8a9080653c33, type: 3}
+  m_Script: {fileID: 11500000, guid: 14d42b734661432a8e82eaff95bd5613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: Aquarium
-  _initObj: {fileID: 3724514831077464936, guid: a480736dc264d4f1c902228a103c8cc3, type: 3}
-  _floorMat: {fileID: 2100000, guid: c7aba96e173f7184885bfa4b055d395b, type: 2}
 --- !u!1 &7181232692004257801
 GameObject:
   m_ObjectHideFlags: 0

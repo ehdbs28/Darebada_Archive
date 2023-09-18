@@ -13,5 +13,6 @@ public enum PopupType{
     Setting,
     CatchedFishChecking,
     Challenge,
+    DataRemoveCheck,
 }
 

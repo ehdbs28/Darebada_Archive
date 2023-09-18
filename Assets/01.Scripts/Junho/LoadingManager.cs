@@ -43,6 +43,7 @@ public class LoadingManager : IManager
     {
         _root = GameManager.Instance.GetManager<UIManager>().Document.rootVisualElement.Q("main-container");
     }
+    
     public void ResetManager(){}
     public void UpdateManager(){}
 }

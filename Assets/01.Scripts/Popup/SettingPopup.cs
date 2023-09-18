@@ -125,12 +125,14 @@ public class SettingPopup : UIPopup
 
         _resetBtn.RegisterCallback<ClickEvent>(e =>
         {
-            GameManager.Instance.GetManager<DataManager>().ResetData();
+            ((DataRemoveCheckPopup)GameManager.Instance.GetManager<UIManager>().ShowPanel(PopupType.DataRemoveCheck, false))
+                .SetBasePopup(this);
         });
 
         _creditBtn.RegisterCallback<ClickEvent>(e =>
         {
-            Debug.Log("ũ���� ���");
+            RemoveRoot();
+            GameManager.Instance.GetManager<GameSceneManager>().ChangeScene(GameSceneType.Credit);
         });
     }
 

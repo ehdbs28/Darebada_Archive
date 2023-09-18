@@ -7,11 +7,24 @@ using System;
 
 public class TimeManager : IManager
 {
-    private float _currentTime = 0f;
-    public float CurrentTime => _currentTime;
-    
-    private int _totalDay = 0;
-    
+    public float CurrentTime
+    {
+        get => _gameData.GameTime;
+        private set => _gameData.GameTime = value;
+    }
+
+    private int TotalDay
+    {
+        get => _gameData.TotalDay;
+        set => _gameData.TotalDay = value;
+    }
+
+    public GameDate DateTime
+    {
+        get => _gameData.GameDateTime;
+        private set => _gameData.GameDateTime = value;
+    }
+
     private float _timeScale = 1f;
     public float TimeScale
     {
@@ -22,10 +35,9 @@ public class TimeManager : IManager
         }
     }
 
-    public float Hour => _currentTime % DayDelay / HourDelay;
-    public float Minute => (int)(_currentTime % DayDelay / MinuteDelay % 12) * 5;
+    public float Hour => CurrentTime % DayDelay / HourDelay;
+    private float Minute => (int)(CurrentTime % DayDelay / MinuteDelay % 12) * 5;
 
-    public GameDate DateTime { get; private set; } = new GameDate(0, 3, 0);
 
     private GameData _gameData;
 
@@ -35,24 +47,20 @@ public class TimeManager : IManager
     public void InitManager()
     {
         _gameData = GameManager.Instance.GetManager<DataManager>().GetData(DataType.GameData) as GameData;
-        
-        _currentTime = _gameData.GameTime;
-        _totalDay = _gameData.TotalDay;
-        DateTime = _gameData.GameDateTime;
     }
 
     public void UpdateManager()
     {
-        _currentTime += Time.deltaTime * _timeScale;
-        _gameData.GameTime = _currentTime;
-        OnTimeChangedEvent?.Invoke(Mathf.FloorToInt(Hour), Mathf.FloorToInt(Minute), _currentTime);
+        CurrentTime += Time.deltaTime * _timeScale;
+        _gameData.GameTime = CurrentTime;
+        OnTimeChangedEvent?.Invoke(Mathf.FloorToInt(Hour), Mathf.FloorToInt(Minute), CurrentTime);
         CheckDayCount();
     }
 
     private void CheckDayCount(){
-        if(_currentTime >= _totalDay * DayDelay){
+        if(CurrentTime >= TotalDay * DayDelay){
             ++DateTime.Day;
-            ++_totalDay;
+            ++TotalDay;
 
             if(DateTime.Day > GameTime.DayPerMonth[DateTime.Month % 12]){
                 DateTime.Day = 1;
@@ -64,7 +72,7 @@ public class TimeManager : IManager
                 }
             }
 
-            _gameData.TotalDay = _totalDay;
+            _gameData.TotalDay = TotalDay;
             _gameData.GameDateTime = DateTime;
 
             OnDayChangedEvent?.Invoke(DateTime);
