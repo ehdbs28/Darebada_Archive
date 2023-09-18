@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class AquariumSaveData : SaveData
 {
-    public GameObject AquariumObject = null;
-    
     private string _key;
     private GameObject _initObj;
 
@@ -14,30 +12,29 @@ public class AquariumSaveData : SaveData
         _savePath = $"{FILE_PATH}/{name}";
     }
 
-    public override void Save(string data = "")
+    public void SaveObj(GameObject obj)
     {
-        ES3.Save<GameObject>(_key, AquariumObject);
+        ES3.Save<GameObject>(_key, obj);
     }
 
-    public override void Load()
+    public GameObject LoadObj()
     {
         if (ES3.KeyExists(_key))
         {
-            AquariumObject = ES3.Load<GameObject>(_key);
+            return ES3.Load<GameObject>(_key);
         }
         else
         {
-            Reset();
+            return _initObj;
         }
     }
 
     protected override void LoadData(string json)
     {
-        
     }
 
     public override void Reset()
     {
-        AquariumObject = _initObj;
+        ES3.DeleteKey(_key);
     }
 }

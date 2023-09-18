@@ -12,7 +12,16 @@ public class FishingChargingState : FishingState
     private Transform _bobberTrm;
     private Transform _playerTrm;
 
-    private float _maxChargingPower => _controller.DataSO.MaxChargingPower;
+    private float _maxChargingPower
+    {
+        get
+        {
+            var sheetdata = (FishingUpgradeTable)GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.FishingUpgradeData);
+            var data = (FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData);
+
+            return sheetdata.DataTable[0].Value[data.ThrowPower_Level];
+        }
+    }
     private float _currentChargingPower = 0f;
     private float _powerDir = 1f;
 
@@ -53,7 +62,7 @@ public class FishingChargingState : FishingState
 
         _currentChargingPower += _powerDir * _controller.DataSO.ChargingSpeed * Time.deltaTime;
 
-        if(_currentChargingPower >= _controller.DataSO.MaxChargingPower || _currentChargingPower <= 0f)
+        if(_currentChargingPower >= _maxChargingPower || _currentChargingPower <= 0f)
             _powerDir *= -1;
 
         (GameManager.Instance.GetManager<UIManager>().GetPanel(PopupType.Casting) as CastingPopup).SetValue(_currentChargingPower / _maxChargingPower);

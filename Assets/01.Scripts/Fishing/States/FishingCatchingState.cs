@@ -13,7 +13,16 @@ public class FishingCatchingState : FishingState
     private Vector3 _start;
     private Vector3 _end;
 
-    private float _stringLength => _controller.DataSO.StringLength;
+    private float _stringLength
+    {
+        get
+        {
+            var sheetdata = (FishingUpgradeTable)GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.FishingUpgradeData);
+            var data = (FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData);
+
+            return sheetdata.DataTable[1].Value[data.StringLength_Level];
+        }
+    }
 
     private float _throwTime;
     private float _currentTime = 0f;

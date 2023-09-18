@@ -8,14 +8,8 @@ public class AquariumSubManager : MonoBehaviour
 
     public void OnEnterScene()
     {
-        var aquariumObj = ((AquariumSaveData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.AquariumSaveData)).AquariumObject;
-        
-        if (_aquariumObj != null)
-        {
-            Destroy(_aquariumObj);   
-        }
-
-        _aquariumObj = aquariumObj;
+        _aquariumObj = ((AquariumSaveData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.AquariumSaveData))
+            .LoadObj();
 
         _aquariumObj = Instantiate(_aquariumObj, transform, true);
 
@@ -29,6 +23,7 @@ public class AquariumSubManager : MonoBehaviour
     {
         _aquariumObj.GetComponent<AquariumManager>().ReleaseManager();
         ((AquariumSaveData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.AquariumSaveData))
-            .AquariumObject = _aquariumObj;
+            .SaveObj(_aquariumObj);
+        Destroy(_aquariumObj);
     }
 }

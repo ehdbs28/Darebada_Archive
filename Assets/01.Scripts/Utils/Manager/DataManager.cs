@@ -53,17 +53,26 @@ public class DataManager : IManager
 
     private void LoadData(){
         foreach(var data in _dataUnits.Values){
+            if(data is AquariumSaveData)
+                continue;
+            
             data.Load();
         }
     }
 
     private void SaveData(SaveData data){
+        if(data is AquariumSaveData)
+            return;
+        
         string stringData = JsonUtility.ToJson(data);
         data.Save(stringData);
     }
 
     public void SaveDataAll(){
         foreach(var data in _dataUnits.Values){
+            if(data is AquariumSaveData)
+                continue;
+            
             SaveData(data);
         }
     }
