@@ -150,7 +150,7 @@ public class Fishbowl :  Facility
 
         }
         Destroy(gameObject); 
-        AquariumManager.Instance.facilityObj = this;
+        AquariumManager.Instance.facilityObj = newOne;
         AquariumManager.Instance.state = AquariumManager.STATE.BUILD;
         FindObjectOfType<GridManager>().ShowGrid();
     }
