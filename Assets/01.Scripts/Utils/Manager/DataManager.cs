@@ -38,7 +38,7 @@ public class DataManager : IManager
         _dataUnits.Add(DataType.GameData, new GameData(DATA_PATH, "GameData"));
         _dataUnits.Add(DataType.InventoryData, new InventoryData(DATA_PATH, "InventoryData"));
         _dataUnits.Add(DataType.ChallengeData, new ChallengeData(DATA_PATH, "ChallengeData"));
-
+        _dataUnits.Add(DataType.AquariumData, new AquariumData(DATA_PATH, "AquariumData"));
         #endregion
         
         LoadData();

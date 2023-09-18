@@ -37,7 +37,6 @@ public class InputManager : MonoBehaviour, IManager
         EnableInputAction(true);
         _inputAction.Touch.Touch.performed += TouchHandle;
         _inputAction.Touch.Touch.canceled += TouchUpHandle;
-        OnTouchPosition += (Vector2 pos) => { Debug.Log(pos); };
         _inputAction.Touch.TouchPosition.performed += TouchPositionHandle;
 
         _inputAction.Mouse.Enable();
