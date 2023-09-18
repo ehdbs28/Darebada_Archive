@@ -44,7 +44,7 @@ public class DataManager : IManager
             DATA_PATH,
             "AquariumSaveData")
         );
-
+        _dataUnits.Add(DataType.AquariumData, new AquariumData(DATA_PATH, "AquariumData"));
         #endregion
         
         LoadData();

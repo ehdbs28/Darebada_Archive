@@ -93,6 +93,17 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
     public event Action<float, float, float, float> OnReputationChanged;
     public void InitManager()
     {
+        GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += (int a, int b, float c) =>
+        {
+            AquariumData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.AquariumData) as AquariumData;
+            data.CleanScore = CleanScore;
+            data.CleanService_Amount = cleanServiceAmount;
+            data.Decoration_Count = decoCnt;
+            data.Fishbowl_Count = fishbowlCnt;
+            data.PromotionPoint = PromotionPoint;
+            data.Road_Count = roadCnt;
+            data.Shop_Count = shopCnt;
+        };
         ResetManager();
     }
     [SerializeField] private Vector3 _floorSize = new Vector3(1, 1, 1);
@@ -109,6 +120,8 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
 
     public void UpdateManager()
     {
+
+        GameManager.Instance.GetManager<DataManager>().SaveDataAll();
         CleanScore = Mathf.Clamp(_cleanScore, 0, 100);
     
         if (EntranceFee == 0)
