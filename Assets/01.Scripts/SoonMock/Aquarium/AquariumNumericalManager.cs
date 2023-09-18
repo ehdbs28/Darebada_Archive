@@ -100,7 +100,7 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
             data.PromotionPoint = PromotionPoint;
             data.Road_Count = roadCnt;
             data.Shop_Count = shopCnt;
-        }
+        };
         ResetManager();
     }
     [SerializeField] private Vector3 _floorSize = new Vector3(1, 1, 1);
