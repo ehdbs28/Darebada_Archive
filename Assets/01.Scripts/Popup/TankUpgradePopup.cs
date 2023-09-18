@@ -62,7 +62,7 @@ public class TankUpgradePopup : UIPopup
         _fishDeleteBtn = _root.Q("removefish-btn");
 
         VisualElement bowlUpgradeRoot = _contents.Q("fishbowl-content");
-        _bowlUpgradeContent = new UIBowlUpgradeContent(bowlUpgradeRoot, _fishbowl);
+        _bowlUpgradeContent = new UIBowlUpgradeContent(this, bowlUpgradeRoot, _fishbowl);
         
         VisualElement fishAddRoot = _contents.Q("addfish-content");
         _fishAddContent = new UIFishAddContent(fishAddRoot, _inventoryUnitTemplete, _fishbowl);

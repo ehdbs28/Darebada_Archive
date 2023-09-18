@@ -9,8 +9,11 @@ public class UIBowlUpgradeContent
     private Label _goldLabel;
     private VisualElement _upgradeBtn;
 
-    public UIBowlUpgradeContent(VisualElement root, Fishbowl fishbowl)
+    private TankUpgradePopup _popup;
+
+    public UIBowlUpgradeContent(TankUpgradePopup popup, VisualElement root, Fishbowl fishbowl)
     {
+        _popup = popup;
         _root = root;
         _fishbowl = fishbowl;
         
@@ -38,6 +41,7 @@ public class UIBowlUpgradeContent
         {
             GameManager.Instance.GetManager<MoneyManager>().Payment(1000, () =>
             {
+                _popup.RemoveRoot();
                 _fishbowl.Upgrade();
                 PlayParticle();
             });

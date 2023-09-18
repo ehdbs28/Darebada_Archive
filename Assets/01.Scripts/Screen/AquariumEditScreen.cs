@@ -65,13 +65,20 @@ public class AquariumEditScreen : UIScreen
             GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Aquarium);
         });
 
-        _addTankBtn.RegisterCallback<ClickEvent>(e => {
+        _addTankBtn.RegisterCallback<ClickEvent>(e =>
+        {
+            if (AquariumManager.Instance.state == AquariumManager.STATE.BUILD)
+                return;
+            
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
             TouchHandleManaged(false);
             AquariumManager.Instance.AddFishBowl();
         });
 
         _addPlantBtn.RegisterCallback<ClickEvent>(e => {
+            if (AquariumManager.Instance.state == AquariumManager.STATE.BUILD)
+                return;
+            
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
             TouchHandleManaged(false);
             AquariumManager.Instance.AddSnackShop();
@@ -79,6 +86,9 @@ public class AquariumEditScreen : UIScreen
 
         _addRoadBtn.RegisterCallback<ClickEvent>(e =>
         {
+            if (AquariumManager.Instance.state == AquariumManager.STATE.BUILD)
+                return;
+            
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
             TouchHandleManaged(false);
             AquariumManager.Instance.AddRoadTile();
