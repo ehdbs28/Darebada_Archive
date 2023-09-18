@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneType: 1
-  _initScreenType: 1
+  _initScreenType: 2
   _initCamState: 3
   _lastCamState: 5
   _vCamList:
@@ -1706,7 +1706,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boatController: {fileID: 4013939298695840645}
-  _targetState: {fileID: 4013939299713938472}
   _target: {fileID: 1094923478570612052}
 --- !u!114 &5031617505588885335
 MonoBehaviour:

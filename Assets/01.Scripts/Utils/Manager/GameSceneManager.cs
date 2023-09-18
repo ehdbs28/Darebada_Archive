@@ -19,13 +19,21 @@ public class GameSceneManager : IManager
             GameManager.Instance.GetManager<PoolManager>().Push(_activeScene);   
         }
 
+        var prevScene = _activeSceneType;
+
         next = GameManager.Instance.GetManager<LoadingManager>().OnLoading(next);
         
         _activeScene = GameManager.Instance.GetManager<PoolManager>().Pop($"{next}Scene") as GameScene;
         GameManager.Instance.GetManager<SoundManager>().Stop();
+
+        if (next == GameSceneType.Credit)
+        {
+            _activeScene.GetComponent<CreditScene>().prevScene = prevScene;
+        }
+
         _activeScene?.EnterScene();
  
-        if (next != GameSceneType.Ocean)
+        if (next != GameSceneType.Ocean && next != GameSceneType.Credit)
         {
             if (next == GameSceneType.Loading) return;
             //Debug.Log(_activeScene);
@@ -33,7 +41,7 @@ public class GameSceneManager : IManager
             GameManager.Instance.GetManager<SoundManager>().Play(_bgmClip, SoundEnum.BGM);
         }
 
-        if (next == GameSceneType.Loading || next == GameSceneType.Camp) return;
+        if (next == GameSceneType.Loading || next == GameSceneType.Camp || next == GameSceneType.Credit) return;
 
         GameManager.Instance.GetManager<TutorialManager>().OnTutorial(next);
     }

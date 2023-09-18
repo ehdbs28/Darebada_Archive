@@ -131,7 +131,8 @@ public class SettingPopup : UIPopup
 
         _creditBtn.RegisterCallback<ClickEvent>(e =>
         {
-            Debug.Log("ũ���� ���");
+            RemoveRoot();
+            GameManager.Instance.GetManager<GameSceneManager>().ChangeScene(GameSceneType.Credit);
         });
     }
 

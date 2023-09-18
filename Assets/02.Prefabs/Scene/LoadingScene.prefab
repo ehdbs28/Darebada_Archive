@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841fb136e2f2f3a40ba1983a9f5f676e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneType: 3
+  _sceneType: 4
   _initScreenType: 0
   _initCamState: 0
   _lastCamState: 0

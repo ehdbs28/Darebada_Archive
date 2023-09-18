@@ -54,6 +54,9 @@ public class UIManager : MonoBehaviour, IManager
         _notificationLabel = _notificationPanel.Q("text-panel").Q<Label>("text");
 
         foreach(ScreenType type in Enum.GetValues(typeof(ScreenType))){
+            if(type == ScreenType.None)
+                continue;
+            
             UIScreen screen = screenTrm.GetComponent($"{type}Screen") as UIScreen;
 
             if(screen == null){
@@ -88,7 +91,8 @@ public class UIManager : MonoBehaviour, IManager
     }
 
     public UIScreen ShowPanel(ScreenType type, bool clearScreen = true){
-        _screens[_activeScreen].RemoveEvent();
+        if(_activeScreen != ScreenType.None)
+            _screens[_activeScreen].RemoveEvent();
 
         if(_screens[type] != null){
             _screens[type]?.SetUp(_document, clearScreen);

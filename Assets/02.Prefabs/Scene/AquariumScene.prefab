@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneType: 2
-  _initScreenType: 3
+  _initScreenType: 4
   _initCamState: 6
   _lastCamState: 8
   _vCamList:
@@ -513,7 +513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d42b734661432a8e82eaff95bd5613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _floorMat: {fileID: 2100000, guid: c7aba96e173f7184885bfa4b055d395b, type: 2}
 --- !u!1 &7181232692004257801
 GameObject:
   m_ObjectHideFlags: 0
