@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 
 public class ChallengeManager : IManager
 {
-    private List<ChallengeUnit> _challenges;
-    public List<ChallengeUnit> Challenges => _challenges;
+    private List<ChallengeDataUnit> _challenges;
+    public List<ChallengeDataUnit> Challenges => _challenges;
 
     private int _totalRevenue;
     public int TotalRevenue => _totalRevenue;
@@ -54,20 +54,31 @@ public class ChallengeManager : IManager
                         if(_challenges[i].TargetFishName == "")
                         {
                             _data.units[i].totalValue = _totalFishCount;
+                            Debug.Log(_challenges[i].TargetFishName);
+                            Debug.Log($"일반 퀘스트 {i}: {_data.units[i].totalValue}");
                         }
                         else
                         {
                             DictionaryData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.DictionaryData) as DictionaryData;
                             DictionaryDataUnit dataUnit = data.Units.List.Find(unit => unit.Name == _challenges[i].TargetFishName);
+                            int num = 0;
+                            data.Units.List.ForEach(unit =>
+                            {
+                                Debug.Log($"{num++}번째 TargetFishName: {unit.Name}");
+                                Debug.Log(unit.Name == _challenges[i].TargetFishName);
+                            });
+
+                            Debug.Log($"TEST{i}: {dataUnit == null}");
 
                             if(dataUnit == null)
                             {
                                 _data.units[i].totalValue = 0;
+                                Debug.Log($"못 잡음 {i}: {_data.units[i].totalValue}");
                             }
                             else
                             {
-                                Debug.Log(1);
                                 _data.units[i].totalValue = 1;
+                                Debug.Log($"이미 잡음 {i}: {_data.units[i].totalValue}");
                             }
                         }
                         break;
@@ -84,7 +95,7 @@ public class ChallengeManager : IManager
         if (curState >= target)
         {
             _data.units[idx].isClear = true;
-
+            Debug.Log($"TEST{idx}: {!(_challenges[idx].TargetFishName == "")}");
             if(!string.IsNullOrEmpty(_challenges[idx].TargetFishName))
                 BiomeData.Biomes[idx + 1] = true;
         }
@@ -92,11 +103,12 @@ public class ChallengeManager : IManager
 
     public void InitManager()
     {
-        _challenges = new List<ChallengeUnit>();
-        int size = ((ChallengeDataTable)GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.ChallengeData)).Size;
-        for(int i = 0; i < size; ++i)
+        _challenges = new List<ChallengeDataUnit>();
+
+        var sheetData = (ChallengeDataTable)GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.ChallengeData);
+        for(int i = 0; i < sheetData.Size; ++i)
         {
-            _challenges.Add(new ChallengeUnit());
+            _challenges.Add(sheetData.DataTable[i]);
         }
         _data = (ChallengeData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.ChallengeData);
         BiomeData = (BiomeData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.BiomeData);

@@ -21,25 +21,25 @@ MonoBehaviour:
       Target: 1
       Compensation: 500
       Type: 2
-      TargetFishName: Dolphin
+      TargetFishName: "\uB3CC\uACE0\uB798"
     - Title: "\uC791\uB514\uC791\uC740 \uBB34\uC9C0\uAC1C"
       Info: "\uB808\uC778\uBCF4\uC6B0 \uD53C\uC26C 1\uB9C8\uB9AC \uC7A1\uAE30"
       Target: 1
       Compensation: 750
       Type: 2
-      TargetFishName: RainbowFish
+      TargetFishName: "\uB808\uC778\uBCF4\uC6B0\uD53C\uC26C"
     - Title: "\uBC14\uB2E4\uC5D0 \uB72C \uC5F0"
       Info: "\uAC00\uC624\uB9AC 1\uB9C8\uB9AC \uC7A1\uAE30"
       Target: 1
       Compensation: 1000
       Type: 2
-      TargetFishName: StingRay
+      TargetFishName: "\uAC00\uC624\uB9AC"
     - Title: "\uD589\uC6B4\uC758 \uC0C1\uC9D5"
       Info: "\uAC1C\uBCF5\uCE58 1\uB9C8\uB9AC \uC7A1\uAE30"
       Target: 1
       Compensation: 1500
       Type: 2
-      TargetFishName: SunFish
+      TargetFishName: "\uAC1C\uBCF5\uCE58"
     - Title: "\uBC88 \uB9CC\uD07C \uC4F4\uB2E4"
       Info: "\uB204\uC801 \uC7AC\uD654 \uC0AC\uC6A9\uB7C9 10000\uC6D0 \uC774\uC0C1"
       Target: 10000
