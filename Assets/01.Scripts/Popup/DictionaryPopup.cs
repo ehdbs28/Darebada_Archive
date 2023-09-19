@@ -24,8 +24,8 @@ public class DictionaryPopup : UIPopup
             GameManager.Instance.GetManager<SoundManager>().ClickSound();
             RemoveRoot();
         });
-
-        foreach(var unit in _fishes){
+        GameManager.Instance.GetManager<DataManager>().GetData(DataType.DictionaryData).Load();
+        foreach (var unit in _fishes){
             unit.Root.RegisterCallback<ClickEvent>(e => {
                 if(unit.IsUnknown)
                     return;
@@ -46,6 +46,7 @@ public class DictionaryPopup : UIPopup
 
     public override void FindElement()
     {
+        _fishes.Clear();
         _exitBtn = _root.Q<VisualElement>("exit-btn");
         _container = _root.Q<VisualElement>("contents");
 
