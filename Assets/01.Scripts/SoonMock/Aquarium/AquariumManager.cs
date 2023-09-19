@@ -189,7 +189,11 @@ public class AquariumManager : MonoBehaviour
                     GameManager.Instance.GetManager<AquariumNumericalManager>().roadCnt++;
                     foreach(var s in roadSurfaces)
                     {
-                        s.BuildNavMesh();
+                        if(s!=null)
+                        {
+
+                            s.BuildNavMesh();
+                        }
                     }
                 }
 

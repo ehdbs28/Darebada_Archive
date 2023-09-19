@@ -59,10 +59,21 @@ public class AquariumEditScreen : UIScreen
 
         _backBtn.RegisterCallback<ClickEvent>(e =>
         {
-            AquariumManager.Instance.state = AquariumManager.STATE.NORMAL;
-            GameManager.Instance.GetManager<SoundManager>().ClickSound();
-            GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.PLAYER_FOLLOW);
-            GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Aquarium);
+            if(AquariumManager.Instance.state == AquariumManager.STATE.CAMMOVE)
+            {
+                AquariumManager.Instance.state = AquariumManager.STATE.NORMAL;
+                GameManager.Instance.GetManager<SoundManager>().ClickSound();
+                GameManager.Instance.GetManager<CameraManager>().SetVCam(CameraState.PLAYER_FOLLOW);
+                GameManager.Instance.GetManager<UIManager>().ShowPanel(ScreenType.Aquarium);
+
+            }else if(AquariumManager.Instance.state == AquariumManager.STATE.BUILD)
+            {
+                GameManager.Instance.GetManager<SoundManager>().ClickSound();
+                AquariumManager.Destroy(AquariumManager.Instance.facilityObj.gameObject);
+                AquariumManager.Instance.facilityObj = null;
+                FindObjectOfType<GridManager>().HideGrid();
+                AquariumManager.Instance.state = AquariumManager.STATE.CAMMOVE;
+            }
         });
 
         _addTankBtn.RegisterCallback<ClickEvent>(e =>
