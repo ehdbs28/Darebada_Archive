@@ -20,7 +20,7 @@ public class FishingCatchingState : FishingState
             var sheetdata = (FishingUpgradeTable)GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.FishingUpgradeData);
             var data = (FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData);
 
-            return sheetdata.DataTable[1].Value[data.StringLength_Level];
+            return sheetdata.DataTable[1].Value[data.StringLength_Level-1];
         }
     }
 

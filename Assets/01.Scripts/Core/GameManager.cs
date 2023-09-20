@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
         AddManager();
 
         _managers.ForEach(manager => manager.InitManager());
+        VisitedData data = (VisitedData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.VisitedData);
+        data.GameVisitedCount++;
+
     }
 
     private void Start()

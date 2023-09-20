@@ -10,10 +10,16 @@ public class ShopManager : IManager
     
     public void InitManager()
     {
+        VisitedData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.VisitedData) as VisitedData;
         _dataTable = ((ShopItemDataTable)GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.ShopItemData));
         _itemStock = new int[_dataTable.Size];
-        
-        ReStockHandle();
+        for(int i = 0; i < _itemStock.Length; i++)
+        {
+            if (_itemStock[i] > 0 ||data.GameVisitedCount<2)
+            {
+                ReStockHandle();
+            }
+        }
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += ReStockHandle;
     }
 

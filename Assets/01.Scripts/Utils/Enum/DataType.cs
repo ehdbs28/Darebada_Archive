@@ -9,4 +9,5 @@ public enum DataType
     ChallengeData,
     AquariumSaveData,
     AquariumData,
+    VisitedData,
 }

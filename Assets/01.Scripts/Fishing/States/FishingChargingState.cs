@@ -19,7 +19,7 @@ public class FishingChargingState : FishingState
             var sheetdata = (FishingUpgradeTable)GameManager.Instance.GetManager<SheetDataManager>().GetData(DataLoadType.FishingUpgradeData);
             var data = (FishingData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.FishingData);
 
-            return sheetdata.DataTable[0].Value[data.ThrowPower_Level];
+            return sheetdata.DataTable[0].Value[data.ThrowPower_Level-1];
         }
     }
     private float _currentChargingPower = 0f;
