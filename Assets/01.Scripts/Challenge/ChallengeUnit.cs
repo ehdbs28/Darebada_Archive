@@ -1,4 +1,5 @@
 using Core;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 [System.Serializable]
@@ -37,12 +38,24 @@ public class ChallengeUnit
         {
             if (!_data.units[idx].isReceipt && _data.units[idx].isClear)
             {
+                PlayParticle();
                 GameManager.Instance.GetManager<MoneyManager>().AddMoney(compensation);
                 _data.units[idx].isReceipt = true;
             }
         });
     }
+    private void PlayParticle()
+    {
+        Vector2 particlePos = GameManager.Instance.GetManager<UIManager>()
+            .GetElementPos(TouchBox, new Vector2(0.5f, 0.5f));
+        Vector2 destinationPos = GameManager.Instance.GetManager<UIManager>()
+            .GetElementPos(TouchBox, new Vector2(0.5f, 0.5f));
 
+        PoolableUIMovementParticle particle = GameManager.Instance.GetManager<PoolManager>().Pop("MoneyFeedback") as PoolableUIMovementParticle;
+        particle.SetDestination(destinationPos);
+        particle.SetPoint(particlePos);
+        particle.Play();
+    }
     private void Setting(ChallengeDataUnit data)
     {
         //���������Ʈ���� ����/����/��ô��/��ǥ/���� �� �����������
