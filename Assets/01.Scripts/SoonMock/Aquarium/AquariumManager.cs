@@ -135,7 +135,18 @@ public class AquariumManager : MonoBehaviour
         {
             Instance = this;
         }
-        
+        if(Instance == this)
+        {
+
+            AquariumManager[] other = FindObjectsOfType<AquariumManager>();
+            foreach (AquariumManager badThing in other)
+            {
+                if (badThing != this)
+                {
+                    Destroy(badThing.gameObject);
+                }
+            }
+        }
         _build = GetComponent<BuildFacility>();
         Define.MainCam.clearFlags = CameraClearFlags.SolidColor;
         Define.MainCam.backgroundColor = Color.black;

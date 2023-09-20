@@ -24,6 +24,6 @@ public class AquariumSubManager : MonoBehaviour
         _aquariumObj.GetComponent<AquariumManager>().ReleaseManager();
         ((AquariumSaveData)GameManager.Instance.GetManager<DataManager>().GetData(DataType.AquariumSaveData))
             .SaveObj(_aquariumObj);
-        Destroy(_aquariumObj);
+        Destroy(_aquariumObj.gameObject);
     }
 }
