@@ -113,10 +113,11 @@ MonoBehaviour:
   isCollision: 0
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   _collider: {fileID: 0}
   _wallLayer:
     serializedVersion: 2
     m_Bits: 2097152
+  type: 1
   employee: 0
   level: 1

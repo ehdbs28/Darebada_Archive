@@ -171,11 +171,6 @@ public class AquariumManager : MonoBehaviour
             {
                 SetPos();
             }
-
-            _isBuild = false;
-            ((AquariumEditScreen)GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.AquariumEdit))
-                .TouchHandleManaged(true);
-            state = STATE.CAMMOVE;
         }
     }
     
@@ -183,7 +178,7 @@ public class AquariumManager : MonoBehaviour
     {
         if(state == STATE.BUILD)
         {
-            if (facilityObj != null)
+            if (facilityObj != null && facilityObj.IsCollision())
             {
                 FindObjectOfType<GridManager>().HideGrid();
 
@@ -207,6 +202,10 @@ public class AquariumManager : MonoBehaviour
                         }
                     }
                 }
+                _isBuild = false;
+                ((AquariumEditScreen)GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.AquariumEdit))
+                    .TouchHandleManaged(true);
+                state = STATE.CAMMOVE;
 
                 facilityObj.transform.SetParent(facilityParent);
                 facilityObj = null;
