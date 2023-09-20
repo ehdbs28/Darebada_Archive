@@ -98,6 +98,7 @@ public class FishingReelUpState : FishingState
                         Count = 1,
                         IsDotated = false
                     });
+                    data.Save();
                 }
                 else
                 {
@@ -115,7 +116,9 @@ public class FishingReelUpState : FishingState
 
                 GameManager.Instance.GetManager<ChallengeManager>().Renewal(ChallengeType.FishCount, 1);
             }
+
         }
+
     }
 
     private void OnFail()

@@ -135,7 +135,18 @@ public class AquariumManager : MonoBehaviour
         {
             Instance = this;
         }
-        
+        if(Instance == this)
+        {
+
+            AquariumManager[] other = FindObjectsOfType<AquariumManager>();
+            foreach (AquariumManager badThing in other)
+            {
+                if (badThing != this)
+                {
+                    Destroy(badThing.gameObject);
+                }
+            }
+        }
         _build = GetComponent<BuildFacility>();
         Define.MainCam.clearFlags = CameraClearFlags.SolidColor;
         Define.MainCam.backgroundColor = Color.black;
@@ -160,11 +171,6 @@ public class AquariumManager : MonoBehaviour
             {
                 SetPos();
             }
-
-            _isBuild = false;
-            ((AquariumEditScreen)GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.AquariumEdit))
-                .TouchHandleManaged(true);
-            state = STATE.CAMMOVE;
         }
     }
     
@@ -172,7 +178,7 @@ public class AquariumManager : MonoBehaviour
     {
         if(state == STATE.BUILD)
         {
-            if (facilityObj != null)
+            if (facilityObj != null && facilityObj.IsCollision())
             {
                 FindObjectOfType<GridManager>().HideGrid();
 
@@ -189,9 +195,17 @@ public class AquariumManager : MonoBehaviour
                     GameManager.Instance.GetManager<AquariumNumericalManager>().roadCnt++;
                     foreach(var s in roadSurfaces)
                     {
-                        s.BuildNavMesh();
+                        if(s!=null)
+                        {
+
+                            s.BuildNavMesh();
+                        }
                     }
                 }
+                _isBuild = false;
+                ((AquariumEditScreen)GameManager.Instance.GetManager<UIManager>().GetPanel(ScreenType.AquariumEdit))
+                    .TouchHandleManaged(true);
+                state = STATE.CAMMOVE;
 
                 facilityObj.transform.SetParent(facilityParent);
                 facilityObj = null;

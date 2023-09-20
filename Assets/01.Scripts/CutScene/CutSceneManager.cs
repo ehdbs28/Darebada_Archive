@@ -17,7 +17,7 @@ public class CutSceneManager : MonoBehaviour
     [SerializeField] int _currentImage;
     [SerializeField] bool _onCor;
     [SerializeField] private InputManager _inputManager;
- 
+    
     public enum ProgressState
     {
         START,
@@ -29,6 +29,7 @@ public class CutSceneManager : MonoBehaviour
     private void Start()
     {
         _inputManager.OnTouchEvent += Touch;
+        if (PlayerPrefs.GetInt("End", 0) == 1) SetStart();
     }
 
     IEnumerator FadeOut(float time)
@@ -119,6 +120,7 @@ public class CutSceneManager : MonoBehaviour
     
     public void SetStart()
     {
+        PlayerPrefs.SetInt("End", 1);
         _inputManager.OnTouchEvent -= Touch;
         SceneManager.LoadScene("MainScene 1");
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class BoatMovementModule : CommonModule<BoatController>
@@ -40,6 +41,10 @@ public class BoatMovementModule : CommonModule<BoatController>
     public override void FixedUpdateModule()
     {
         _rigid.velocity = _movement * _currentVelocity;
+        Vector3 trPos =_rigid.transform.position;
+        trPos.x = Mathf.Clamp(trPos.x, -180, 180);
+        trPos.z = Mathf.Clamp(trPos.z, -180, 180);
+        _rigid.transform.position = trPos;
     }
 
     public void SetMovementValue(float value){

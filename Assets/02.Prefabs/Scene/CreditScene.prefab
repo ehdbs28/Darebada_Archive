@@ -485,13 +485,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: "[Developer]\n\n\uB3C4\uC724(\uD300\uC7A5, \uBA54\uC778\uAC1C\uBC1C)\n\uC21C\uBAA9(\uC11C\uBE0C\uAC1C\uBC1C)\n\uBD80\uC131(\uC11C\uBE0C\uAC1C\uBC1C,
     \uBA54\uC778\uAE30\uD68D)\n\uC900\uD638(\uC11C\uBE0C\uAC1C\uBC1C)\n\n\n\n\n[License]\n\n\uC5F4\uAE30\uAD6C
-    \uC544\uC774\uCF58\n(https://www.flaticon.com/kr/free-icon/dirigible_4852573)\n\n\uD64D\uBCF4\uC9C0
-    \uC544\uC774\uCF58\n(https://www.flaticon.com/kr/free-icon/flyer_9156848)\n\n\uCCAD\uC18C
-    \uC544\uC774\uCF58\n(https://www.flaticon.com/kr/free-icon/house-cleaning_4326454)\n\n\uCCAD\uC18C
-    \uC9C1\uC6D0 \uC544\uC774\uCF58\n(https://www.flaticon.com/kr/free-icon/cleaning-staff_4221647)\n\n\uBE57\uC790\uB8E8
-    \uC544\uC774\uCF58\n(https://www.flaticon.com/kr/free-icon/cleaning_573848)\n\n\uD578\uB4DC\uD3F0
-    \uC544\uC774\uCF58\n(https://www.flaticon.com/kr/free-icon/mobile-advertisement_10272514)\n\n\n\n\n[Special
-    Thanks]\n\n\uC774\uC900\uC6A9\n\uC120\uC0DD\uB2D8\n\n\uC720\uC7AC\uD604\n\uC120\uC0DD\uB2D8\n\n\uACBD\uB3D9\uC5FD\n\n\uBC15\uADDC\uD604\n\n\uC720\uD558\uC900\n\n\uD64D\uC2B9\uAE30"
+    \uC544\uC774\uCF58\n(https://www.flaticon.com/kr/\nfree-icon/dirigible_4852573)\n\n\uD64D\uBCF4\uC9C0
+    \uC544\uC774\uCF58\n(https://www.flaticon.com/kr/\nfree-icon/flyer_9156848)\n\n\uCCAD\uC18C
+    \uC544\uC774\uCF58\n(https://www.flaticon.com/kr/\nfree-icon/house-cleaning_4326454)\n\n\uCCAD\uC18C
+    \uC9C1\uC6D0 \uC544\uC774\uCF58\n(https://www.flaticon.com/kr/\nfree-icon/cleaning-staff_4221647)\n\n\uBE57\uC790\uB8E8
+    \uC544\uC774\uCF58\n(https://www.flaticon.com/kr/\nfree-icon/cleaning_573848)\n\n\uD578\uB4DC\uD3F0
+    \uC544\uC774\uCF58\n(https://www.flaticon.com/kr/\nfree-icon/mobile-advertisement_10272514)\n\n\n\n\n[Special
+    Thanks]\n\n\uC774\uC900\uC6A9\n\uC120\uC0DD\uB2D8\n\n\uC774\uC885\uCC3D\n\uC120\uC0DD\uB2D8\n\n\uC720\uC7AC\uD604\n\uC120\uC0DD\uB2D8\n\n\uACBD\uB3D9\uC5FD\n\n\uBC15\uADDC\uD604\n\n\uC720\uD558\uC900\n\n\uD64D\uC2B9\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ed2dd947f6cd94d8da65b5c08335239e, type: 2}
   m_sharedMaterial: {fileID: -2624732829170207529, guid: ed2dd947f6cd94d8da65b5c08335239e, type: 2}
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0f03c918de576425d8b84cca1c832e41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8d3c80f855e78a43ab4d0f381a9d2b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
