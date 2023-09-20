@@ -93,17 +93,6 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
     public event Action<float, float, float, float> OnReputationChanged;
     public void InitManager()
     {
-        GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += (int a, int b, float c) =>
-        {
-            AquariumData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.AquariumData) as AquariumData;
-            data.CleanScore = CleanScore;
-            data.CleanService_Amount = cleanServiceAmount;
-            data.Decoration_Count = decoCnt;
-            data.Fishbowl_Count = fishbowlCnt;
-            data.PromotionPoint = PromotionPoint;
-            data.Road_Count = roadCnt;
-            data.Shop_Count = shopCnt;
-        };
         ResetManager();
     }
     [SerializeField] private Vector3 _floorSize = new Vector3(1, 1, 1);
@@ -115,6 +104,19 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
 
     public void ResetManager()
     {
+        GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent -= OnTimeChange;
+        GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent -= OnDayChange;
+
+        AquariumData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.AquariumData) as AquariumData;
+        CleanScore = data.CleanScore;
+        cleanServiceAmount = data.CleanService_Amount;
+        decoCnt = data.Decoration_Count;
+        fishbowlCnt = data.Fishbowl_Count;
+        PromotionPoint = data.PromotionPoint;
+        roadCnt = data.Road_Count;
+        shopCnt = data.Shop_Count;
+
+        GameManager.Instance.GetManager<TimeManager>().OnTimeChangedEvent += OnTimeChange;
         GameManager.Instance.GetManager<TimeManager>().OnDayChangedEvent += OnDayChange;
     }
 
@@ -136,6 +138,18 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
     
         Reputation = Mathf.Clamp(((100 - CleanScore) / 100f) * (ArtScore / 100f) * 100f + PromotionPoint, 0, 100);
         OnReputationChanged?.Invoke(EntrancePercent, _cleanScore, _artScore, _reputation);
+    }
+
+    public void OnTimeChange(int hour, int min, float curTime)
+    {
+        AquariumData data = GameManager.Instance.GetManager<DataManager>().GetData(DataType.AquariumData) as AquariumData;
+        data.CleanScore = CleanScore;
+        data.CleanService_Amount = cleanServiceAmount;
+        data.Decoration_Count = decoCnt;
+        data.Fishbowl_Count = fishbowlCnt;
+        data.PromotionPoint = PromotionPoint;
+        data.Road_Count = roadCnt;
+        data.Shop_Count = shopCnt;
     }
 
     public void OnDayChange(GameDate dateTime)

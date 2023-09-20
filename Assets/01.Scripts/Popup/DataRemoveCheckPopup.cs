@@ -20,6 +20,7 @@ public class DataRemoveCheckPopup : UIPopup
         _enterBtn.RegisterCallback<ClickEvent>(e =>
         {
             GameManager.Instance.GetManager<DataManager>().ResetData();
+            GameManager.Instance.GetManager<AquariumNumericalManager>().ResetManager();
             base.RemoveRoot();
             _basePopup.RemoveRoot();
 
