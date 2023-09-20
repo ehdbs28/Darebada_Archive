@@ -149,10 +149,10 @@ public class Fishbowl :  Facility
             decoController.gameObject.transform.SetParent(newOne.transform);
 
         }
-        Destroy(gameObject); 
         AquariumManager.Instance.facilityObj = newOne;
         AquariumManager.Instance.state = AquariumManager.STATE.BUILD;
         FindObjectOfType<GridManager>().ShowGrid();
+        Destroy(gameObject); 
     }
     
     private void Awake()

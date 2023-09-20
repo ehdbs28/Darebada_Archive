@@ -65,6 +65,7 @@ public class MiniGameManager : MonoBehaviour, IManager
 
         for(int i = 0; i < _points.Count; i++){
             result = IsCollisionEnter(_points[i].Point, _points[i].Thickness, cursor);
+            print(result);
             if(result)
                 break;
         }
@@ -77,9 +78,13 @@ public class MiniGameManager : MonoBehaviour, IManager
         float max = center + thickness;
 
         if(max > 360){
-            max -= 360;
+            max %= 360;
+        }
+        if (min > 360){
+            min %= 360;
         }
 
+        print($"min : {min}, max : {max}, cursor : {cursor}");
         if(min > max){
             return cursor <= max || cursor >= min;
         }

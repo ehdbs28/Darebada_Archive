@@ -35,8 +35,8 @@
                                     <ui:VisualElement name="performance" style="flex-grow: 1; height: 100%; justify-content: center;">
                                         <ui:Label text="사용 가능" display-tooltip-when-elided="true" name="cnt" class="text" />
                                         <ui:VisualElement name="value" class="performance-graph" style="height: 75px; margin-top: 20px; background-color: rgb(222, 221, 216); justify-content: center; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
-                                            <ui:Label text="청결도 관리" display-tooltip-when-elided="true" name="name-text" class="text" style="align-items: flex-end;">
-                                                <ui:Label text="+5%" display-tooltip-when-elided="true" name="value-text" class="text" style="font-size: 25px;" />
+                                            <ui:Label text="청결도 개선" display-tooltip-when-elided="true" name="name-text" class="text" style="align-items: flex-end;">
+                                                <ui:Label text="5%" display-tooltip-when-elided="true" name="value-text" class="text" style="font-size: 25px;" />
                                             </ui:Label>
                                             <ui:VisualElement name="graph" style="width: 100%; height: 50%; background-color: rgb(173, 173, 171); margin-top: 10px;">
                                                 <ui:VisualElement name="value" style="width: 100%; height: 100%; background-color: rgb(255, 167, 76); transform-origin: left; scale: 0.1 1;" />

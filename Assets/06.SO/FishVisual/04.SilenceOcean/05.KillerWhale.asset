@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VisualMesh: {fileID: -5965967093557348664, guid: 7957238d5491d4cccbbcf64255f459c9, type: 3}
   Profile: {fileID: -2033727707, guid: 969897b7dd6184806b973c77ac028911, type: 3}
-  MainMat: {fileID: 2100000, guid: b93ed310dd227483aa02ea5582f1a96c, type: 2}
+  MainMat: {fileID: 2100000, guid: 4fb81c735f4a0124eb6adee649668577, type: 2}
