@@ -52,7 +52,7 @@ public class Fishbowl :  Facility
         if (MaxDecoCount - decoController.decos.Count > 0)
         {
             Debug.Log(MaxDecoCount - decoController.decos.Count);
-            decoController.AddDeco( AquariumManager.Instance.decoVisuals[idx]);
+            decoController.AddDeco(GameManager.Instance.GetManager<AquariumNumericalManager>().visualSOs[idx]);
         }
     }
     
@@ -66,7 +66,7 @@ public class Fishbowl :  Facility
             decoController.decoObject = decoObject.GetComponent<Deco>();
             decoController.decoPositions = decoTrs;
         }
-        string decoName = AquariumManager.Instance.decoVisuals[idx].Name;
+        string decoName = GameManager.Instance.GetManager<AquariumNumericalManager>().visualSOs[idx].Name;
         for(int i = 0; i <  decoController.decos.Count; i++)
         {
             if (decoController.decos[i].visualSO.Name == decoName)

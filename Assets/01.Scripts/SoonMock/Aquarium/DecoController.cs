@@ -33,7 +33,7 @@ public class DecoController : MonoBehaviour
 
     public bool AlreadyHadDeco(int idx)
     {
-        var visualSO = AquariumManager.Instance.decoVisuals[idx];
+        var visualSO = GameManager.Instance.GetManager<AquariumNumericalManager>().visualSOs[idx];
         return decos.Exists(deco => deco.visualSO == visualSO); 
     }
     

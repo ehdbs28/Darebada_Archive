@@ -20800,6 +20800,7 @@ MonoBehaviour:
   _aquariumInitObj: {fileID: 3724514831077464936, guid: a480736dc264d4f1c902228a103c8cc3, type: 3}
   fishBowlMat: {fileID: 2100000, guid: 8e3b2afd2ffa03c43b53cbae6268d4eb, type: 2}
   mossMat: {fileID: 2100000, guid: 2b6d1c6a3a628cf4b86395686e30b43b, type: 2}
+  visualSOs: []
   pureWaterColor: {r: 1, g: 1, b: 1, a: 1}
   corruptedWaterColor: {r: 0, g: 0, b: 0, a: 1}
   _cleanScore: 0
@@ -20815,7 +20816,41 @@ MonoBehaviour:
   employeeCnt: 0
   cleanServiceAmount: 0
   fishBowls: []
-  decoVisuals: []
+  decoVisuals:
+  - {fileID: 11400000, guid: 63b3903c956ab3844b3c328463368044, type: 2}
+  - {fileID: 11400000, guid: 38c71acc7e9b2a74fa263d7c7912e527, type: 2}
+  - {fileID: 11400000, guid: d4f11f753937f6642b2f99286b5d763f, type: 2}
+  - {fileID: 11400000, guid: a1fd0f55d8541114cb698c39ca45b1c1, type: 2}
+  - {fileID: 11400000, guid: 5ecf69d77fb3085409c80a0da8ee969f, type: 2}
+  - {fileID: 11400000, guid: 66184917b8aa48346a3599e3caa44d48, type: 2}
+  - {fileID: 11400000, guid: 6fede22b1b49ef24facb95bc145d3b3b, type: 2}
+  - {fileID: 11400000, guid: b4804428a2a1bb24db081e094dabb4b4, type: 2}
+  - {fileID: 11400000, guid: 38479e7a8bb07774cbf25ded0ee1e11f, type: 2}
+  - {fileID: 11400000, guid: c504409112e7143409cc73a70598c070, type: 2}
+  - {fileID: 11400000, guid: 44a70eb92a360484598b749387d6d9fd, type: 2}
+  - {fileID: 11400000, guid: c6c299041f440694d83b715b220a80e6, type: 2}
+  - {fileID: 11400000, guid: a009cfe8194a5914fb87978bedbd9f93, type: 2}
+  - {fileID: 11400000, guid: a4d2fd3ef61164340aa8883f2b71d049, type: 2}
+  - {fileID: 11400000, guid: 141038b821ac67f4ca1ab4a993357110, type: 2}
+  - {fileID: 11400000, guid: c877e234186767d46897f7eb41701325, type: 2}
+  - {fileID: 11400000, guid: 7a3af78e5cc624e4c8f1f745fc4db6ee, type: 2}
+  - {fileID: 11400000, guid: f926ca2d5ba84c94cade3b19eff5746f, type: 2}
+  - {fileID: 11400000, guid: 9909a3d5be705c54eb4628c4ae32e69b, type: 2}
+  - {fileID: 11400000, guid: 863baf8d3f363d34caa4aafdb9d97157, type: 2}
+  - {fileID: 11400000, guid: ce17b60021deae54ab79472916ac7f0a, type: 2}
+  - {fileID: 11400000, guid: 7f2f31f704fbe784e8a69b1ca43cbca0, type: 2}
+  - {fileID: 11400000, guid: a8d762303a5043949bec0deba8b0bde6, type: 2}
+  - {fileID: 11400000, guid: a027e6273c633ef40b19368f551000dd, type: 2}
+  - {fileID: 11400000, guid: 40f62356b3189684c8ade8c01ebbd86e, type: 2}
+  - {fileID: 11400000, guid: 1065ebbc363359e42a3f0df27cb0cc41, type: 2}
+  - {fileID: 11400000, guid: 3ed7dba8a99be6040bfc88fc042b3a5c, type: 2}
+  - {fileID: 11400000, guid: baaacf3a837458a4b8f44b8c08cde2fc, type: 2}
+  - {fileID: 11400000, guid: 3be311b085419534c9d21db9e5b6055a, type: 2}
+  - {fileID: 11400000, guid: 8b66e6a033c68dc4a8ac0edc5139e424, type: 2}
+  - {fileID: 11400000, guid: 229c5bbb561d11848bc8f68420f5e81d, type: 2}
+  - {fileID: 11400000, guid: 4923d4a90359a1b47aa711796d05b986, type: 2}
+  - {fileID: 11400000, guid: 40bb5e293dc73b042b1ba641fde29ec3, type: 2}
+  - {fileID: 11400000, guid: 4fc91d1306e888848a4747a6269fce30, type: 2}
   _promoDispointAmount: 0
   _floorSize: {x: 1, y: 1, z: 1}
 --- !u!114 &9157046241563192790

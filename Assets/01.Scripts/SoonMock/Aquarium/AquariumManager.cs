@@ -24,7 +24,6 @@ public class AquariumManager : MonoBehaviour
     public Transform facilityParent;
 
     public List<GameObject> fishBowls = new List<GameObject>();
-    public List<DecoVisualSO> decoVisuals = new List<DecoVisualSO>();
     
     public enum STATE
     {
