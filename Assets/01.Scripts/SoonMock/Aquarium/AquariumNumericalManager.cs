@@ -12,9 +12,9 @@ public class AquariumNumericalManager : MonoBehaviour,IManager
     
     public Material fishBowlMat;
     public Material mossMat;
+    public List<DecoVisualSO> visualSOs;
     [SerializeField] Color pureWaterColor;
     [SerializeField] Color corruptedWaterColor;
-
     [SerializeField] private int _cleanScore;
     public int CleanScore
     {
