@@ -83,6 +83,7 @@ public class FishingCatchingState : FishingState
             if (_controller.Bait.CatchedFish != null)
             {
                 _controller.Bait.CatchedFish.GetoutBait();    
+                _controller.Bait.CatchedFish = null;
             }
             
             _controller.ActionData.IsFishing = false;

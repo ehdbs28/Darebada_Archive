@@ -22,6 +22,8 @@ public class FishMovementModule : CommonModule<OceanFishController>
     private BoxCollider _bound;
 
     private float _currentVelocity;
+    
+    private float _onGroundTime;
 
     public override void SetUp(Transform rootTrm)
     {
@@ -43,6 +45,7 @@ public class FishMovementModule : CommonModule<OceanFishController>
         {
             Turn();
         }
+
     }
 
     public override void FixedUpdateModule()
