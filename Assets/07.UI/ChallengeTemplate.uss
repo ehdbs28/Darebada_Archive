@@ -1,0 +1,16 @@
+.challenge-unit {
+    height: 100%;
+    margin-bottom: 10px;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.challenge-btn {
+    height: 100%;
+    flex-basis: 18%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

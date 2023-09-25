@@ -1,0 +1,10 @@
+.sound-btn {
+    width: 85px;
+    height: 85px;
+    margin-right: 50px;
+    -unity-background-image-tint-color: rgb(255, 167, 76);
+}
+
+.sound-btn.disable {
+    -unity-background-image-tint-color: rgba(99, 99, 99, 0.39);
+}

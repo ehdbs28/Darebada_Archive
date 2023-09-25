@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74090b99fbe44cbfae795585793646f2, type: 3}
+  m_Name: 01.WhaleShark
+  m_EditorClassIdentifier: 
+  VisualMesh: {fileID: 4962674595949412021, guid: be78af705b226406ead1e5e92ba32935, type: 3}
+  Profile: {fileID: 502662147, guid: cb495235db5fa4ab1880276475fe473c, type: 3}
+  MainMat: {fileID: 2100000, guid: 2955bfd8337b64838b8672539e376d2c, type: 2}

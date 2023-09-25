@@ -1,0 +1,81 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
+    <Style src="project://database/Assets/07.UI/ItemSelectUI.uss?fileID=7433441132597879392&amp;guid=8e57ddc35d86a47d4b4e7bff39edba91&amp;type=3#ItemSelectUI" />
+    <ui:VisualElement name="item-select-container" style="width: 85%; height: 75%; background-color: rgba(255, 255, 255, 0.2); position: absolute; left: 7.5%; top: 12.5%;">
+        <ui:VisualElement name="header" style="flex-basis: 5.5%; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-direction: row; align-items: center; flex-shrink: 0; margin-bottom: 0; background-color: rgba(0, 151, 217, 0.96);">
+            <ui:VisualElement name="exit-btn" style="width: 45px; height: 45px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Button%20Blank%20Cross%20Icon.png?fileID=21300000&amp;guid=dfcc201f2cac247418588a8f8601299a&amp;type=3#Free Flat Button Blank Cross Icon&apos;); position: absolute; right: 30px;" />
+            <ui:Label text="배낭" display-tooltip-when-elided="true" name="window-label" class="text" style="font-size: 50px; position: absolute; color: rgb(255, 255, 255);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgb(222, 221, 216);">
+            <ui:ScrollView name="content" style="padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; background-color: rgb(222, 221, 216);">
+                <ui:VisualElement name="division-header" style="width: 100%; height: 100px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; justify-content: center; background-color: rgba(154, 154, 154, 0.78);">
+                    <ui:Label text="고급 미끼" display-tooltip-when-elided="true" name="header-text" class="text" style="-unity-text-align: middle-center; font-size: 45px; color: rgb(255, 255, 255);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="select-item" class="select-item">
+                    <ui:VisualElement name="info">
+                        <ui:VisualElement name="item-image" style="width: 125px; height: 125px; background-image: url(&apos;project://database/Assets/05.Assets/ShopItemVisual/LV1_lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#LV1_lure&apos;); margin-right: 30px;" />
+                        <ui:VisualElement name="info-text">
+                            <ui:Label text="★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="font-size: 40px; margin-bottom: 10px;" />
+                            <ui:Label text="★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="font-size: 30px; -unity-font-style: normal;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="equip-btn" class="interaction-btn" style="align-items: center; justify-content: center;">
+                        <ui:VisualElement name="info-field">
+                            <ui:Label text="장착하기" display-tooltip-when-elided="true" name="equipable-text" class="text" style="font-size: 35px;" />
+                        </ui:VisualElement>
+                        <ui:Label text="X개 보유중" display-tooltip-when-elided="true" name="count-text" class="text" />
+                        <ui:Label text="장착중" display-tooltip-when-elided="true" name="equip-text" class="text" style="position: absolute; font-size: 35px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="select-item" class="select-item">
+                    <ui:VisualElement name="info">
+                        <ui:VisualElement name="item-image" style="width: 125px; height: 125px; background-image: url(&apos;project://database/Assets/05.Assets/ShopItemVisual/LV1_lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#LV1_lure&apos;); margin-right: 30px;" />
+                        <ui:VisualElement name="info-text">
+                            <ui:Label text="★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="font-size: 40px; margin-bottom: 10px;" />
+                            <ui:Label text="★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="font-size: 30px; -unity-font-style: normal;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="equip-btn" class="interaction-btn" style="align-items: center; justify-content: center;">
+                        <ui:VisualElement name="info-field">
+                            <ui:Label text="장착하기" display-tooltip-when-elided="true" name="equipable-text" class="text" style="font-size: 35px;" />
+                        </ui:VisualElement>
+                        <ui:Label text="X개 보유중" display-tooltip-when-elided="true" name="count-text" class="text" />
+                        <ui:Label text="장착중" display-tooltip-when-elided="true" name="equip-text" class="text" style="position: absolute; font-size: 35px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="select-item" class="select-item">
+                    <ui:VisualElement name="info">
+                        <ui:VisualElement name="item-image" style="width: 125px; height: 125px; background-image: url(&apos;project://database/Assets/05.Assets/ShopItemVisual/LV1_lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#LV1_lure&apos;); margin-right: 30px;" />
+                        <ui:VisualElement name="info-text">
+                            <ui:Label text="★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="font-size: 40px; margin-bottom: 10px;" />
+                            <ui:Label text="★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="font-size: 30px; -unity-font-style: normal;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="equip-btn" class="interaction-btn" style="align-items: center; justify-content: center;">
+                        <ui:VisualElement name="info-field">
+                            <ui:Label text="장착하기" display-tooltip-when-elided="true" name="equipable-text" class="text" style="font-size: 35px;" />
+                        </ui:VisualElement>
+                        <ui:Label text="X개 보유중" display-tooltip-when-elided="true" name="count-text" class="text" />
+                        <ui:Label text="장착중" display-tooltip-when-elided="true" name="equip-text" class="text" style="position: absolute; font-size: 35px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="select-item" class="select-item">
+                    <ui:VisualElement name="info">
+                        <ui:VisualElement name="item-image" style="width: 125px; height: 125px; background-image: url(&apos;project://database/Assets/05.Assets/ShopItemVisual/LV1_lure.png?fileID=21300000&amp;guid=b13e7ba119ed84a4487ae143079fcd95&amp;type=3#LV1_lure&apos;); margin-right: 30px;" />
+                        <ui:VisualElement name="info-text">
+                            <ui:Label text="★ 미끼" display-tooltip-when-elided="true" name="item-name" class="text" style="font-size: 40px; margin-bottom: 10px;" />
+                            <ui:Label text="★★ 물고기를 위한 미끼입니다." display-tooltip-when-elided="true" name="item-desc" class="text" style="font-size: 30px; -unity-font-style: normal;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="equip-btn" class="interaction-btn" style="align-items: center; justify-content: center;">
+                        <ui:VisualElement name="info-field">
+                            <ui:Label text="장착하기" display-tooltip-when-elided="true" name="equipable-text" class="text" style="font-size: 35px;" />
+                        </ui:VisualElement>
+                        <ui:Label text="X개 보유중" display-tooltip-when-elided="true" name="count-text" class="text" />
+                        <ui:Label text="장착중" display-tooltip-when-elided="true" name="equip-text" class="text" style="position: absolute; font-size: 35px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:ScrollView>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,28 @@
+.inventory-unit {
+    width: 16%;
+    height: 12%;
+    background-color: rgba(0, 0, 0, 0.59);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-left-width: 1.5px;
+    border-right-width: 1.5px;
+    border-top-width: 1.5px;
+    border-bottom-width: 1.5px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    flex-shrink: 0;
+}
+
+.fish-item {
+    transform-origin: left top;
+}

@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Editors/UI/DataContent.uss?fileID=7433441132597879392&amp;guid=de9431ef483c5d949a993113de4f1d19&amp;type=3#DataContent" />
+    <ui:VisualElement name="data-content" class="data">
+        <ui:VisualElement name="icon-box">
+            <ui:VisualElement name="icon" />
+        </ui:VisualElement>
+        <ui:VisualElement name="text-box">
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="name-text" />
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="type-text" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

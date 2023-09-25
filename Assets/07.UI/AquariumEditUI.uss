@@ -1,0 +1,23 @@
+.facility-btn > #image {
+    width: 75%;
+    height: 75%;
+}
+
+.facility-btn > #text {
+    font-size: 35px;
+}
+
+.facility-btn {
+    width: 200px;
+    height: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    justify-content: space-between;
+}

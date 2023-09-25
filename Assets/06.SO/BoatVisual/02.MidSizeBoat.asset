@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a8f8895c54488a950d34d929fb4cde, type: 3}
+  m_Name: 02.MidSizeBoat
+  m_EditorClassIdentifier: 
+  VisualMesh: {fileID: -373106911500964818, guid: 13bb152287b654c639917f4391f0ba85, type: 3}
+  MainMat: {fileID: 2100000, guid: 2b438c435a3e84bc18e25b5c93ae6593, type: 2}

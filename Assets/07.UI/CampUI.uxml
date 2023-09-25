@@ -1,0 +1,33 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/CampUI.uss?fileID=7433441132597879392&amp;guid=870c7f81e78494c4794883e1a9367d4b&amp;type=3#CampUI" />
+    <Style src="project://database/Assets/07.UI/OceanUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceanUI" />
+    <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
+    <ui:VisualElement name="container" picking-mode="Ignore" style="flex-direction: column;">
+        <ui:VisualElement name="header-container" picking-mode="Ignore" style="flex-grow: 1; flex-direction: column-reverse; align-items: stretch; justify-content: space-between;">
+            <ui:VisualElement name="btn-container" style="flex-direction: row; padding-bottom: 2%; background-color: rgba(0, 0, 0, 0.6); justify-content: space-around; padding-left: 4%; padding-right: 4%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                <ui:VisualElement name="letter-btn" class="btn" style="justify-content: space-between; bottom: auto;">
+                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/LetterBtn.png?fileID=21300000&amp;guid=332f170688482d64691e85ccd750ecfe&amp;type=3#LetterBtn&apos;);" />
+                    <ui:Label text="편지함" display-tooltip-when-elided="true" name="btn-text" class="text" />
+                </ui:VisualElement>
+                <ui:VisualElement name="dictionary-btn" class="btn" style="justify-content: space-between; bottom: auto;">
+                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/DictionaryBtn.png?fileID=21300000&amp;guid=9223b27d818517a4ca40413508c457d2&amp;type=3#DictionaryBtn&apos;);" />
+                    <ui:Label text="도감" display-tooltip-when-elided="true" name="btn-text" class="text" />
+                </ui:VisualElement>
+                <ui:VisualElement name="setting-btn" class="btn" style="justify-content: space-between; bottom: auto;">
+                    <ui:VisualElement name="icon-image" style="background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Sprite/SettingBtn.png?fileID=21300000&amp;guid=48944fcf0120dbf43943dfe04aa0900d&amp;type=3#SettingBtn&apos;);" />
+                    <ui:Label text="설정" display-tooltip-when-elided="true" name="btn-text" class="text" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="game-data" picking-mode="Ignore">
+                <ui:Label text="1년째" display-tooltip-when-elided="true" name="year-text" class="text" />
+                <ui:Label text="7월14일" display-tooltip-when-elided="true" name="date-text" class="text" />
+                <ui:Label text="08:22" display-tooltip-when-elided="true" name="time-text" class="text" />
+                <ui:VisualElement name="line" />
+                <ui:VisualElement name="money-container" style="width: 350px; height: 75px; background-image: none; -unity-background-image-tint-color: rgba(0, 0, 0, 0.6); flex-direction: row; align-items: center; padding-left: 10px; background-color: rgba(0, 0, 0, 0);">
+                    <ui:VisualElement name="icon-image" style="width: 50px; height: 50px; background-image: url(&apos;project://database/Assets/05.Assets/UI/whiteMoneyIcon.png?fileID=21300000&amp;guid=c3498719f3551d6499ab184e62fc6e5c&amp;type=3#whiteMoneyIcon&apos;); margin-right: 20px;" />
+                    <ui:Label text="$5,678" display-tooltip-when-elided="true" name="text" class="text" style="font-size: 30px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,57 @@
+#game-data {
+    width: 310px;
+    height: 270px;
+    top: 2%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#game-data > #year-text {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+#game-data > #date-text {
+    font-size: 35px;
+    letter-spacing: 7px;
+    margin-bottom: 20px;
+}
+
+#game-data > #time-text {
+    font-size: 25px;
+    letter-spacing: 7px;
+}
+
+#game-data > #line {
+    background-color: rgba(255, 255, 255, 0.59);
+    height: 5px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.blur-panel {
+    width: 0;
+    height: 0;
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.blur-panel.on {
+    display: flex;
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.71);
+}

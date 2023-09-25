@@ -1,0 +1,32 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/CampUI.uss?fileID=7433441132597879392&amp;guid=870c7f81e78494c4794883e1a9367d4b&amp;type=3#CampUI" />
+    <Style src="project://database/Assets/07.UI/CastingUI.uss?fileID=7433441132597879392&amp;guid=d42b8236218386449a4cc99d1fc4b2b1&amp;type=3#CastingUI" />
+    <Style src="project://database/Assets/07.UI/DictionaryUI.uss?fileID=7433441132597879392&amp;guid=1f2b4b5cbf925ee40bb912cbc9d3a094&amp;type=3#DictionaryUI" />
+    <Style src="project://database/Assets/07.UI/FishingUI.uss?fileID=7433441132597879392&amp;guid=29867eabdce6ad54f8950f3c56199a91&amp;type=3#FishingUI" />
+    <Style src="project://database/Assets/07.UI/InventoryUI.uss?fileID=7433441132597879392&amp;guid=0ca47a3b021bcbe4fab0fb3d1ecc47d5&amp;type=3#InventoryUI" />
+    <Style src="project://database/Assets/07.UI/LetterUI.uss?fileID=7433441132597879392&amp;guid=0ff408542c843224b959d6961bacb71f&amp;type=3#LetterUI" />
+    <Style src="project://database/Assets/07.UI/OceanUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceanUI" />
+    <Style src="project://database/Assets/07.UI/ShopUI.uss?fileID=7433441132597879392&amp;guid=117492bc78fab3f4aa683150d95bda77&amp;type=3#ShopUI" />
+    <Style src="project://database/Assets/07.UI/UpgradeUI.uss?fileID=7433441132597879392&amp;guid=60dd650f3094eb54d8dccfa431f11e5c&amp;type=3#UpgradeUI" />
+    <Style src="project://database/Assets/07.UI/style/MainStyle.uss?fileID=7433441132597879392&amp;guid=2dba0565cc3fe0d45986c97279ff5ac8&amp;type=3#MainStyle" />
+    <Style src="project://database/Assets/07.UI/AquariumUI.uss?fileID=7433441132597879392&amp;guid=71878df49f8ca784c99eee85be9f2546&amp;type=3#AquariumUI" />
+    <Style src="project://database/Assets/07.UI/AquariumEditUI.uss?fileID=7433441132597879392&amp;guid=ac84073f61c7dc04a81e859695f19072&amp;type=3#AquariumEditUI" />
+    <Style src="project://database/Assets/07.UI/SettingUI.uss?fileID=7433441132597879392&amp;guid=13d6884cee4b145448657ba29fec3299&amp;type=3#SettingUI" />
+    <Style src="project://database/Assets/07.UI/BiomeSelectUI.uss?fileID=7433441132597879392&amp;guid=c8011813a4d7fc844b0a4fa2073c31f2&amp;type=3#BiomeSelectUI" />
+    <Style src="project://database/Assets/07.UI/ItemSelectUI.uss?fileID=7433441132597879392&amp;guid=8e57ddc35d86a47d4b4e7bff39edba91&amp;type=3#ItemSelectUI" />
+    <Style src="project://database/Assets/07.UI/AquariumManageUI.uss?fileID=7433441132597879392&amp;guid=b9de445fa38cb3f42b5e22fac48e3a93&amp;type=3#AquariumManageUI" />
+    <Style src="project://database/Assets/07.UI/CatchedFishCheckingUi.uss?fileID=7433441132597879392&amp;guid=ac6062999b897ae4aaa3070c0d9e7972&amp;type=3#CatchedFishCheckingUi" />
+    <Style src="project://database/Assets/07.UI/LetterUnit.uss?fileID=7433441132597879392&amp;guid=cb6e0c60d859140a6bfec988fb1fbe98&amp;type=3#LetterUnit" />
+    <Style src="project://database/Assets/07.UI/FishbowlManagePopUp.uss?fileID=7433441132597879392&amp;guid=24cacd8839f47304686ace75b08f5225&amp;type=3#FishbowlManagePopUp" />
+    <ui:VisualElement name="main-container" picking-mode="Ignore" style="width: 100%; height: 100%; display: flex;">
+        <ui:VisualElement name="blur-panel" class="blur-panel" />
+        <ui:VisualElement name="notification" class="notification">
+            <ui:VisualElement name="content" style="width: 100%; height: 100%; padding-top: 20px; flex-direction: row; align-items: center; padding-left: 5px; padding-right: 5px; padding-bottom: 20px; justify-content: center;">
+                <ui:VisualElement name="image" style="background-image: url(&apos;project://database/Assets/ParticleImage/Demo/Sprites/4Star.png?fileID=-242451938&amp;guid=74ac16302f2994b898e17f225c303437&amp;type=3#4Star_0&apos;); width: 75px; height: 75px; flex-shrink: 0; margin-right: 0;" />
+                <ui:VisualElement name="text-panel" style="padding-left: 8px; padding-right: 8px; padding-top: 12px; padding-bottom: 12px;">
+                    <ui:Label display-tooltip-when-elided="true" name="text" class="text" style="color: rgb(255, 255, 255); font-size: 29px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/07.UI/FishingUI.uss?fileID=7433441132597879392&amp;guid=29867eabdce6ad54f8950f3c56199a91&amp;type=3#FishingUI" />
+    <Style src="project://database/Assets/07.UI/OceanUI.uss?fileID=7433441132597879392&amp;guid=df2009f88d298c24c97cda75fa0e0084&amp;type=3#OceanUI" />
+    <ui:VisualElement name="container" picking-mode="Ignore" style="align-items: center;">
+        <ui:VisualElement name="depth-of-water-container" picking-mode="Ignore" style="position: absolute; left: 20px; width: 100px; height: 35%; align-items: center; top: 20%;">
+            <ui:VisualElement name="start" style="flex-basis: 1%; width: 40px; background-color: rgba(255, 255, 255, 0.59);" />
+            <ui:VisualElement name="meter-line" style="width: 10px; background-color: rgba(255, 255, 255, 0.59); flex-basis: 80%; flex-grow: 1; align-items: flex-start; justify-content: center;">
+                <ui:VisualElement name="cursor" style="position: absolute; width: 30px; height: 30px; left: 20px; background-image: url(&apos;project://database/Assets/05.Assets/UI/Icons/Flat%20Icons%20[Free]/Free%20Flat%20Arrow%205%20W%20Icon.png?fileID=21300000&amp;guid=323bd73710daae84dbc6117dacc5c496&amp;type=3#Free Flat Arrow 5 W Icon&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.59); translate: 0 -50%; top: 30%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="end" style="flex-basis: 1%; width: 40px; background-color: rgba(255, 255, 255, 0.59);" />
+            <ui:Label display-tooltip-when-elided="true" name="height-text" text="15M" class="text" style="position: absolute; bottom: -40px; font-size: 30px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="reel-up-btn" style="position: absolute; bottom: 20%; width: 300px; height: 300px; background-image: url(&apos;project://database/Assets/05.Assets/UI/ReelUpBtnImage.png?fileID=-1711321895&amp;guid=de1ddba7e52da4a8cad1e176da8aa75d&amp;type=3#ReelUpBtnImage_0&apos;);" />
+    </ui:VisualElement>
+</ui:UXML>

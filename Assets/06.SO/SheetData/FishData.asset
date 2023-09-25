@@ -1,0 +1,481 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021049894ef2c614993138c891557a54, type: 3}
+  m_Name: FishData
+  m_EditorClassIdentifier: 
+  Type: 0
+  Size: 22
+  DataTable:
+    _data:
+    - Name: "\uC1A1\uC5B4"
+      Visual: {fileID: 11400000, guid: ce3eff7eb990b4bf5bb51a82077be021, type: 2}
+      Price: 25
+      Habitat: 0
+      Rarity: 1
+      Speed: 2.5
+      InvenSizeX: 3
+      InvenSizeY: 2
+      MinLenght: 50
+      MaxLenght: 70
+      MinWeight: 4
+      MaxWeight: 6
+      SpawnPercent: 25
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uBC14\uB2E4\uC5D0\uC11C 2~3\uB144 \uC0B4\uB2E4\uAC00 \uC54C\uC744
+        \uB0B3\uAE30 \uC704\uD574 \uB2E4\uC2DC \uAC15\uC73C\uB85C \uC624\uAE30\uB3C4
+        \uD55C\uB2E4. \uC5F0\uC5B4\uB9CC\uD07C \uB369\uCE58\uAC00 \uD06C\uACE0 \uD798\uC774
+        \uC88B\uC544 \uBD81\uBBF8\uC758 \uC2A4\uD3EC\uCE20 \uB09A\uC2DC \uB300\uC0C1\uC5B4\uC885\uC73C\uB85C
+        \uAC01\uAD11\uBC1B\uB294\uB2E4.\r"
+    - Name: "\uB18D\uC5B4"
+      Visual: {fileID: 11400000, guid: 8e707bf77b0d94b08b0bb624a770abc6, type: 2}
+      Price: 25
+      Habitat: 0
+      Rarity: 1
+      Speed: 3
+      InvenSizeX: 3
+      InvenSizeY: 2
+      MinLenght: 50
+      MaxLenght: 80
+      MinWeight: 2
+      MaxWeight: 5
+      SpawnPercent: 25
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uBD04~\uC5EC\uB984\uC5D0\uB294 \uC595\uC740 \uBC14\uB2E4\uB85C
+        \uBAA8\uC774\uACE0, \uAC00\uC744\uC774 \uB418\uC5B4 \uB0A0\uC528\uAC00 \uC300\uC300\uD574\uC9C0\uBA74
+        \uBC88\uC2DD \uD6C4 \uAE4A\uC740 \uBC14\uB2E4\uB85C \uC774\uB3D9\uD55C\uB2E4.\r"
+    - Name: "\uC789\uC5B4"
+      Visual: {fileID: 11400000, guid: fd1666df9fb5046ed9fceaa08055e53b, type: 2}
+      Price: 25
+      Habitat: 0
+      Rarity: 1
+      Speed: 2.5
+      InvenSizeX: 4
+      InvenSizeY: 3
+      MinLenght: 20
+      MaxLenght: 110
+      MinWeight: 30
+      MaxWeight: 80
+      SpawnPercent: 20
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uD55C\uAD6D\uC5D0\uC11C\uB294 \uC2E0\uD654 \uC18D \uBB3C\uACE0\uAE30\uB85C
+        \uBD88\uB9B0\uB2E4. \uC61B \uC18D\uC124\uB85C \uC789\uC5B4\uB294 \uBBFC\uBB3C\uC6A9\uC655\uC758
+        \uC544\uB4E4\uC774\uB77C\uACE0 \uD55C\uB2E4.\r"
+    - Name: "\uBBFC\uBB3C\uAF2C\uCE58\uACE0\uAE30"
+      Visual: {fileID: 11400000, guid: 5851753ec0f9944919fcc3a936ea8544, type: 2}
+      Price: 50
+      Habitat: 0
+      Rarity: 2
+      Speed: 3
+      InvenSizeX: 4
+      InvenSizeY: 2
+      MinLenght: 70
+      MaxLenght: 120
+      MinWeight: 15
+      MaxWeight: 40
+      SpawnPercent: 20
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uD06C\uAE30\uB3C4 \uD06C\uAE30 \uC190\uB9DB\uC774 \uC88B\uC544\uC11C
+        \uC575\uAE00\uB7EC\uB4E4\uC774 \uB9CE\uC774 \uB178\uB9AC\uB294 \uC5B4\uC885.
+        \uC0AC\uB0E5\uACFC \uAE09\uB958\uC5D0 \uC800\uD56D\uD558\uAE30 \uC704\uD574
+        \uC21C\uAC04\uC801\uC778 \uD30C\uB2E5\uAC70\uB9BC\uC774 \uC0C1\uB2F9\uD788
+        \uD798 \uC13C \uD3B8\uC774\uB2E4.\r"
+    - Name: "\uB3CC\uACE0\uB798"
+      Visual: {fileID: 11400000, guid: 1c039a080ae384ee2892d6b0a5961cef, type: 2}
+      Price: 100
+      Habitat: 0
+      Rarity: 3
+      Speed: 4
+      InvenSizeX: 5
+      InvenSizeY: 2
+      MinLenght: 200
+      MaxLenght: 400
+      MinWeight: 150
+      MaxWeight: 650
+      SpawnPercent: 10
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uB3CC\uACE0\uB798\uB77C\uB294 \uB2E8\uC5B4\uB294 \uC8FC\uB465\uC774\uAC00
+        \uB098\uC628 \uAC8C \uAF2D \uB3FC\uC9C0\uC8FC\uB465\uC774 \uAC19\uC544\uC11C
+        \uB3FC\uC9C0\uC758 \uC61B \uBA85\uCE6D\uC778 '\uB3CC'\uC774 \uBD99\uC740
+        \uB3CC+\uACE0\uB798\uC5D0\uC11C \uBCC0\uD615\uB41C \uB9D0\uC774\uB77C\uACE0
+        \uD55C\uB2E4.\r"
+    - Name: "\uBA54\uAE30"
+      Visual: {fileID: 11400000, guid: a3ae2b3a9074445aabd0858bc77aefb6, type: 2}
+      Price: 100
+      Habitat: 1
+      Rarity: 1
+      Speed: 3
+      InvenSizeX: 4
+      InvenSizeY: 2
+      MinLenght: 135
+      MaxLenght: 200
+      MinWeight: 80
+      MaxWeight: 100
+      SpawnPercent: 25
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uC785\uAC00\uC758 \uBBFC\uAC10\uD55C \uC218\uC5FC\uC73C\uB85C
+        \uBC14\uB2E5\uC744 \uD6CD\uACE0 \uB2E4\uB2C8\uBA74\uC11C \uD070 \uC785\uC73C\uB85C
+        \uC0BC\uD0AC \uC218 \uC788\uB294 \uD55C \uB2E5\uCE58\uB294 \uB300\uB85C \uBA39\uC5B4
+        \uC0BC\uD0A8\uB2E4.\r"
+    - Name: "\uBE68\uAC04\uD1B5\uB3D4"
+      Visual: {fileID: 11400000, guid: bce6f8139877a4a49a8dae4f9db153be, type: 2}
+      Price: 100
+      Habitat: 1
+      Rarity: 1
+      Speed: 3
+      InvenSizeX: 3
+      InvenSizeY: 2
+      MinLenght: 50
+      MaxLenght: 100
+      MinWeight: 10
+      MaxWeight: 22
+      SpawnPercent: 25
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uD770\uC0B4\uC0DD\uC120\uC758 \uB300\uD45C\uC8FC\uC790. \uC0DD\uC120\uC758
+        \uC655\uC774\uB77C\uACE0\uB3C4 \uBD88\uB9B0\uB2E4. \uAC8C\uC784 \uBB3C\uACE0\uAE30\uB85C
+        \uC790\uC8FC \uC4F0\uC778\uB2E4.\r"
+    - Name: "\uB0A8\uC591\uC950\uB3D4"
+      Visual: {fileID: 11400000, guid: 874b090d5f557462cb60785e289a88e3, type: 2}
+      Price: 100
+      Habitat: 1
+      Rarity: 1
+      Speed: 3
+      InvenSizeX: 1
+      InvenSizeY: 1
+      MinLenght: 25
+      MaxLenght: 31
+      MinWeight: 0.2
+      MaxWeight: 0.6
+      SpawnPercent: 25
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uBB3C\uACE0\uAE30 \uC8FC\uC81C\uC5D0 \uAE30\uC0C1\uACFC \uCDE8\uCE68
+        \uC2DC\uAC04\uC774 \uC77C\uC815\uD558\uB2E4. \uD53D\uC0AC\uC758 \uC7A5\uD3B8
+        \uC560\uB2C8\uBA54\uC774\uC158 '\uB2C8\uBAA8\uB97C \uCC3E\uC544\uC11C'\uB97C
+        \uD1B5\uD574 \uC720\uBA85\uD574\uC84C\uB2E4.\r"
+    - Name: "\uD770\uB3D9\uAC00\uB9AC"
+      Visual: {fileID: 11400000, guid: 02b2a19cfc22f43059f1d3d7819375e4, type: 2}
+      Price: 300
+      Habitat: 1
+      Rarity: 2
+      Speed: 3
+      InvenSizeX: 1
+      InvenSizeY: 1
+      MinLenght: 10
+      MaxLenght: 25
+      MinWeight: 0.1
+      MaxWeight: 0.5
+      SpawnPercent: 7.5
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uC601\uD654 '\uB2C8\uBAA8\uB97C \uCC3E\uC544\uC11C'\uC758 \uADF8
+        \uBB3C\uACE0\uAE30\uC774\uB2E4. \uB9D0\uBBF8\uC798\uC758 \uB3C5\uC5D0 \uBA74\uC5ED\uC774
+        \uC788\uB2E4.\r"
+    - Name: "\uB808\uC778\uBCF4\uC6B0\uD53C\uC26C"
+      Visual: {fileID: 11400000, guid: e1eb5be28ba404c63a4ae3e404aa4b9b, type: 2}
+      Price: 300
+      Habitat: 1
+      Rarity: 2
+      Speed: 2.75
+      InvenSizeX: 1
+      InvenSizeY: 1
+      MinLenght: 2
+      MaxLenght: 5
+      MinWeight: 0.05
+      MaxWeight: 0.2
+      SpawnPercent: 7.5
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uC2DC\uC57C\uAC01\uC5D0 \uB530\uB77C \uBE44\uB298\uC774 \uB2E4\uC591\uD55C
+        \uC0C9\uC744 \uAC00\uC838 \uBB34\uC9C0\uAC1C\uACE0\uAE30\uB77C\uACE0 \uBD88\uB9B0\uB2E4.
+        \uC790\uB784\uC218\uB85D \uBE44\uB298 \uBE5B\uC774 \uAC15\uD574\uC9C4\uB2E4.\r"
+    - Name: "\uC740\uC5B4"
+      Visual: {fileID: 11400000, guid: 73b3eb867ff044efc93a2e082b171ddf, type: 2}
+      Price: 500
+      Habitat: 2
+      Rarity: 1
+      Speed: 3
+      InvenSizeX: 2
+      InvenSizeY: 1
+      MinLenght: 15
+      MaxLenght: 30
+      MinWeight: 0.5
+      MaxWeight: 1
+      SpawnPercent: 30
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uACE0\uAE09\uC2DD\uC7AC\uB85C \uC774\uB984\uC744 \uB5A8\uCE5C\uB2E4.
+        \uD2B9\uD788 \uC0B4\uACFC \uB0B4\uC7A5\uC5D0 \uBC30\uC5B4\uB4E0 \uD2B9\uC720\uC758
+        \uD5A5\uC774 \uC77C\uD488\uC774\uB2E4.\r"
+    - Name: "\uC5F0\uC5B4"
+      Visual: {fileID: 11400000, guid: b7e49dae5fb8a49e39e5f48a392d860d, type: 2}
+      Price: 500
+      Habitat: 2
+      Rarity: 1
+      Speed: 3.5
+      InvenSizeX: 3
+      InvenSizeY: 2
+      MinLenght: 75
+      MaxLenght: 150
+      MinWeight: 9
+      MaxWeight: 13
+      SpawnPercent: 30
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uC131\uCCB4\uAC00 \uB418\uBA74 \uAC15\uC744 \uAC70\uC2AC\uB7EC
+        \uC62C\uB77C\uC640 \uC54C\uC744 \uB0B3\uB294 \uC2B5\uC131\uC774 \uC788\uB2E4.
+        \uC774 \uB3C5\uD2B9\uD55C \uC2B5\uC131\uC73C\uB85C \uC778\uD574 \uC0DD\uD0DC\uACC4\uC5D0
+        \uC601\uD5A5\uC744 \uC81C\uACF5\uD558\uB294 \uC5ED\uD560\uC744 \uD55C\uB2E4.\r"
+    - Name: "\uAC00\uC624\uB9AC"
+      Visual: {fileID: 11400000, guid: 34717b2a16e1a4196bc6f470682fe616, type: 2}
+      Price: 700
+      Habitat: 2
+      Rarity: 2
+      Speed: 3
+      InvenSizeX: 3
+      InvenSizeY: 3
+      MinLenght: 30
+      MaxLenght: 50
+      MinWeight: 5
+      MaxWeight: 7
+      SpawnPercent: 30
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uACFC\uAC70 \uD2B9\uC720\uC758 \uBB34\uC11C\uC6B4 \uC0DD\uAE40\uC0C8\uB85C\uC778\uD574
+        \uC120\uC6D0\uB4E4\uC5D0\uAC90 \uBC14\uB2E4\uC758 \uC545\uB9C8\uB098 \uB9C8\uADC0\uB85C
+        \uC5EC\uACA8\uC9C0\uBA70 \uACF5\uD3EC\uC758 \uB300\uC0C1\uC774\uC5C8\uB2E4\uACE0
+        \uD55C\uB2E4.\r"
+    - Name: "\uCC38\uCE58"
+      Visual: {fileID: 11400000, guid: 69f81e188def04bc78f9694df0978e2a, type: 2}
+      Price: 1250
+      Habitat: 3
+      Rarity: 2
+      Speed: 5
+      InvenSizeX: 4
+      InvenSizeY: 2
+      MinLenght: 200
+      MaxLenght: 500
+      MinWeight: 100
+      MaxWeight: 300
+      SpawnPercent: 25
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uBC14\uB2E4\uC758 \uB2ED\uACE0\uAE30\uB77C\uB294 \uBCC4\uBA85\uC744
+        \uAC00\uC9C0\uACE0 \uC788\uB2E4. \uD1B5\uC870\uB9BC\uC774\uB098 \uD68C, \uB0C9\uB3D9\uC2DD\uD488\uC73C\uB85C\uC368
+        \uC0AC\uB78C\uB4E4\uC5D0\uAC8C \uC778\uAE30\uC788\uB294 \uBB3C\uACE0\uAE30\uC774\uB2E4.\r"
+    - Name: "\uB9CC\uC0C8\uAE30"
+      Visual: {fileID: 11400000, guid: 7652e83b37f444566b1d817cce655b65, type: 2}
+      Price: 1250
+      Habitat: 3
+      Rarity: 2
+      Speed: 3.5
+      InvenSizeX: 3
+      InvenSizeY: 2
+      MinLenght: 100
+      MaxLenght: 200
+      MinWeight: 20
+      MaxWeight: 40
+      SpawnPercent: 15
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uC774\uB984\uC740 \uAF64 \uC0DD\uC18C\uD558\uC9C0\uB9CC \uADF8
+        \uD2B9\uC774\uD55C \uC0DD\uAE40\uC0C8\uC5D0 \uC0C1\uB2F9\uD788 \uD070 \uC5B4\uC885\uC778\uC9C0\uB77C
+        \uC5EC\uB7EC \uB9E4\uCCB4\uC5D0 \uC790\uC8FC \uBCF4\uC778\uB2E4. \uC720\uBA85\uD55C
+        \uD604\uB300 \uC18C\uC124 \"\uB178\uC778\uACFC \uBC14\uB2E4\"\uC5D0\uC11C
+        \uB4F1\uC7A5\uD55C\uB2E4. \uC601\uC5B4\uB85C \"dolphinfish\"\uC778\uC9C0\uB77C
+        \uB3CC\uACE0\uB798\uB85C \uC624\uC5ED\uC744 \uD55C \uACBD\uC6B0\uAC00 \uC885\uC885
+        \uC788\uB2E4.\r"
+    - Name: "\uAC1C\uBCF5\uCE58"
+      Visual: {fileID: 11400000, guid: d1dee299935e14550a13486b10fef8e0, type: 2}
+      Price: 3000
+      Habitat: 3
+      Rarity: 3
+      Speed: 2.5
+      InvenSizeX: 4
+      InvenSizeY: 4
+      MinLenght: 150
+      MaxLenght: 180
+      MinWeight: 250
+      MaxWeight: 500
+      SpawnPercent: 8
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uBAA8\uB4E0 \uC5B4\uB958 \uC911 \uAC00\uC7A5 \uB9CE\uC740 \uC218\uC758
+        \uC54C\uC744 \uB0B3\uB294\uB2E4. \uD06C\uAE30\uAC00 1.2m\uC778 \uAC1C\uBCF5\uCE58\uAC00
+        \uC644\uB450\uCF69\uB9CC \uD55C \uC54C\uC744 \uBB34\uB824 3\uC5B5 \uAC1C\uB098
+        \uB0B3\uB294\uB2E4\uACE0 \uD55C\uB2E4.\r"
+    - Name: "\uBBFC\uC5B4"
+      Visual: {fileID: 11400000, guid: 5bf65489f196244aa96e5bb497980870, type: 2}
+      Price: 3300
+      Habitat: 4
+      Rarity: 1
+      Speed: 4
+      InvenSizeX: 3
+      InvenSizeY: 2
+      MinLenght: 60
+      MaxLenght: 90
+      MinWeight: 2
+      MaxWeight: 15
+      SpawnPercent: 20
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uBBFC\uC5B4\uB294 \uBD80\uB808\uB97C \uC774\uC6A9\uD558\uC5EC
+        \uB9C8\uCE58 \uAC1C\uAD6C\uB9AC\uCC98\uB7FC '\uBD80\uC6B1 \uBD80\uC6B1'\uD558\uB294
+        \uC6B8\uC74C \uC18C\uB9AC\uB97C \uB0BC \uC218 \uC788\uB2E4.\r"
+    - Name: "\uACE0\uB798\uC0C1\uC5B4"
+      Visual: {fileID: 11400000, guid: b320b2de95b754d5dad2025b8f9176aa, type: 2}
+      Price: 4500
+      Habitat: 4
+      Rarity: 2
+      Speed: 4
+      InvenSizeX: 5
+      InvenSizeY: 4
+      MinLenght: 550
+      MaxLenght: 1000
+      MinWeight: 300
+      MaxWeight: 9000
+      SpawnPercent: 12.5
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uB9E4\uC6B0 \uD76C\uAE30\uD558\uACE0, \uC704\uD5D8\uC0DD\uBB3C\uB3C4
+        \uC544\uB2CC\uB370\uB2E4 \uAC70\uB300\uD558\uAE30\uAE4C\uC9C0 \uD558\uB2C8
+        \uC2A4\uCFE0\uBC84 \uB2E4\uC774\uBE59 \uC911\uC5D0 \uC57C\uC0DD \uACE0\uB798\uC0C1\uC5B4\uB97C
+        \uB9CC\uB098\uB294 \uAC83\uC740 \uB300\uB2E8\uD55C \uD589\uC6B4\uC73C\uB85C
+        \uC5EC\uACA8\uC9C4\uB2E4.\r"
+    - Name: "\uADC0\uC0C1\uC5B4"
+      Visual: {fileID: 11400000, guid: cedc48aefe5304fc5a76b2ef8301c4c3, type: 2}
+      Price: 4500
+      Habitat: 4
+      Rarity: 2
+      Speed: 3.5
+      InvenSizeX: 4
+      InvenSizeY: 3
+      MinLenght: 300
+      MaxLenght: 500
+      MinWeight: 200
+      MaxWeight: 450
+      SpawnPercent: 12.5
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uBA38\uB9AC \uBAA8\uC591\uC774 \uB9DD\uCE58\uCC98\uB7FC \uC0DD\uACA8\uC11C
+        \uB9DD\uCE58\uC0C1\uC5B4\uB77C\uACE0\uB3C4 \uBD88\uB9B0\uB2E4. \uC0C1\uC5B4
+        \uC911\uC5D0\uC11C\uB3C4 \uAC00\uC7A5 \uB9DB\uC788\uB294 \uC0C1\uC5B4\uB77C\uACE0
+        \uD55C\uB2E4.\r"
+    - Name: "\uD669\uC0C8\uCE58"
+      Visual: {fileID: 11400000, guid: 0ff2afd490c9443ccbdb2db47947942a, type: 2}
+      Price: 4500
+      Habitat: 4
+      Rarity: 2
+      Speed: 4.5
+      InvenSizeX: 5
+      InvenSizeY: 2
+      MinLenght: 200
+      MaxLenght: 350
+      MinWeight: 300
+      MaxWeight: 500
+      SpawnPercent: 12.5
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uC131\uC9C8\uC774 \uB9E4\uC6B0 \uC0AC\uB098\uC6CC \uB09A\uC2DC\uC5D0
+        \uAC78\uB9AC\uAC70\uB098 \uC0AC\uB78C\uC774 \uD3EC\uD68D \uBAA9\uC801\uC73C\uB85C
+        \uACF5\uACA9\uD558\uB2E4\uAC00 \uC8FC\uB465\uC774\uB85C \uC0AC\uB78C\uC758
+        \uBAB8\uC744 \uAD00\uD1B5\uC2DC\uD0A4\uAC70\uB098 \uBC30 \uC704\uB85C \uB6F0\uC5B4\uC62C\uB77C
+        \uACF5\uACA9\uD558\uAE30\uB3C4 \uD55C\uB2E4.\r"
+    - Name: "\uBC31\uC0C1\uC544\uB9AC"
+      Visual: {fileID: 11400000, guid: 52cbf8dba30d844c9818e9da25524b78, type: 2}
+      Price: 7000
+      Habitat: 4
+      Rarity: 3
+      Speed: 4
+      InvenSizeX: 4
+      InvenSizeY: 3
+      MinLenght: 300
+      MaxLenght: 450
+      MinWeight: 400
+      MaxWeight: 800
+      SpawnPercent: 8
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uC138\uACC4\uC5D0\uC11C \uAC00\uC7A5 \uD070 \uD3EC\uC2DD\uC131
+        \uC5B4\uB958\uC774\uB2E4. \uC0C1\uC5B4\uB4E4 \uC911 \uAC00\uC7A5 \uC798 \uC54C\uB824\uC9C4
+        \uC0C1\uC5B4\uB85C, \uC601\uD654 '\uC8E0\uC2A4'\uB97C \uD1B5\uD574\uC11C
+        \uAC00\uC7A5 \uC798 \uC54C\uB824\uC838 \uC788\uB2E4.\r"
+    - Name: "\uBC94\uACE0\uB798"
+      Visual: {fileID: 11400000, guid: f3bfa8c17dd614733a667c9a5af1f7df, type: 2}
+      Price: 7000
+      Habitat: 4
+      Rarity: 3
+      Speed: 5
+      InvenSizeX: 5
+      InvenSizeY: 4
+      MinLenght: 600
+      MaxLenght: 800
+      MinWeight: 3000
+      MaxWeight: 4000
+      SpawnPercent: 8
+      Favorites:
+      - 11
+      - 22
+      - 33
+      Description: "\uC5BC\uAD74 \uCABD \uD558\uC580 \uC5BC\uB8E9\uC774 \uB9C8\uCE58
+        \uB208\uCC98\uB7FC \uBCF4\uC774\uC9C0\uB9CC \uC2E4\uC81C\uB85C\uB294 \uADF8
+        \uBC11, \uC55E\uCABD\uC5D0 \uCD08\uB871\uCD08\uB871\uD55C \uB208\uC774 \uC788\uB2E4.
+        \uD558\uC9C0\uB9CC \uBAB8 \uBC30\uACBD\uC0C9\uACFC \uC11E\uC5EC \uC798 \uBCF4\uC774\uC9C0
+        \uC54A\uB294\uB2E4."

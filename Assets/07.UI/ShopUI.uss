@@ -1,0 +1,120 @@
+.buy-item {
+    width: 100%;
+    height: 200px;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.buy-item > #info {
+    flex-basis: 70%;
+    background-color: rgba(255, 255, 255, 0.78);
+    margin-right: 15px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.buy-item > #buy-btn {
+    flex-grow: 1;
+    background-color: rgba(78, 209, 1, 0.78);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.buy-item.soldout {
+}
+
+.buy-item #price {
+    width: 100%;
+    height: 60px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.buy-item #buy-text {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+}
+
+.buy-item.soldout #price {
+    width: 0;
+    height: 0;
+    display: none;
+    visibility: hidden;
+}
+
+.buy-item.soldout #buy-text {
+    display: none;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.buy-item #soldout-text {
+    display: none;
+    visibility: hidden;
+}
+
+.buy-item.soldout #soldout-text {
+    display: flex;
+    visibility: visible;
+    width: auto;
+    height: auto;
+}
+
+.buy-item.soldout > #buy-btn {
+    background-color: rgba(255, 255, 255, 0.78);
+}
+
+.inventory-unit.shop-unit {
+    width: 12.5%;
+    height: 12.5%;
+}
+
+.fish-element.shop-unit {
+}
+
+.buy-item #item-name {
+    color: rgb(111, 111, 111);
+    font-size: 35px;
+}
+
+.buy-item #item-desc {
+    color: rgb(111, 111, 111);
+    font-size: 25px;
+}
+
+.shop-inventory-unit {
+    width: 13%;
+    height: 11%;
+    background-color: rgba(0, 0, 0, 0.59);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-left-width: 1.5px;
+    border-right-width: 1.5px;
+    border-top-width: 1.5px;
+    border-bottom-width: 1.5px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    flex-basis: 15%;
+}

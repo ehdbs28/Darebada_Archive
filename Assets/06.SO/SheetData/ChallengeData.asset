@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0937aefd000e884abb83aafbb6f951b, type: 3}
+  m_Name: ChallengeData
+  m_EditorClassIdentifier: 
+  Type: 4
+  Size: 7
+  DataTable:
+    _data:
+    - Title: "\uC218\uBA74 \uC544\uB798 \uCD08\uC2B9\uB2EC"
+      Info: "\uB3CC\uACE0\uB798 1\uB9C8\uB9AC \uC7A1\uAE30"
+      Target: 1
+      Compensation: 500
+      Type: 2
+      TargetFishName: "\uB3CC\uACE0\uB798"
+    - Title: "\uC791\uB514\uC791\uC740 \uBB34\uC9C0\uAC1C"
+      Info: "\uB808\uC778\uBCF4\uC6B0 \uD53C\uC26C 1\uB9C8\uB9AC \uC7A1\uAE30"
+      Target: 1
+      Compensation: 750
+      Type: 2
+      TargetFishName: "\uB808\uC778\uBCF4\uC6B0\uD53C\uC26C"
+    - Title: "\uBC14\uB2E4\uC5D0 \uB72C \uC5F0"
+      Info: "\uAC00\uC624\uB9AC 1\uB9C8\uB9AC \uC7A1\uAE30"
+      Target: 1
+      Compensation: 1000
+      Type: 2
+      TargetFishName: "\uAC00\uC624\uB9AC"
+    - Title: "\uD589\uC6B4\uC758 \uC0C1\uC9D5"
+      Info: "\uAC1C\uBCF5\uCE58 1\uB9C8\uB9AC \uC7A1\uAE30"
+      Target: 1
+      Compensation: 1500
+      Type: 2
+      TargetFishName: "\uAC1C\uBCF5\uCE58"
+    - Title: "\uBC88 \uB9CC\uD07C \uC4F4\uB2E4"
+      Info: "\uB204\uC801 \uC7AC\uD654 \uC0AC\uC6A9\uB7C9 10000\uC6D0 \uC774\uC0C1"
+      Target: 10000
+      Compensation: 2000
+      Type: 1
+      TargetFishName: 
+    - Title: "\uD2F0\uB04C \uBAA8\uC544 \uD0DC\uC0B0"
+      Info: "\uB204\uC801 \uC7AC\uD654 \uD68D\uB4DD\uB7C9 10000\uC6D0 \uC774\uC0C1"
+      Target: 10000
+      Compensation: 2000
+      Type: 0
+      TargetFishName: 
+    - Title: "\uB098\uB984 \uBCA0\uD14C\uB791"
+      Info: "\uB204\uC801 \uBB3C\uACE0\uAE30 \uD3EC\uD68D \uC218 50\uB9C8\uB9AC \uC774\uC0C1"
+      Target: 50
+      Compensation: 2000
+      Type: 2
+      TargetFishName: 

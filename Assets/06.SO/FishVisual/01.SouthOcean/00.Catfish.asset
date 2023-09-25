@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74090b99fbe44cbfae795585793646f2, type: 3}
+  m_Name: 00.Catfish
+  m_EditorClassIdentifier: 
+  VisualMesh: {fileID: 4300000, guid: 51c0da36ba74b4433aaea494a37371a7, type: 3}
+  Profile: {fileID: 70366421, guid: c5377162a8d196347ad84003479193a4, type: 3}
+  MainMat: {fileID: 2100000, guid: c5e9365b789d7416688b8ef3b873d2d7, type: 2}

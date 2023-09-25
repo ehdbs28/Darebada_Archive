@@ -1,0 +1,30 @@
+.catched-btn {
+    width: 25%;
+    height: 100%;
+}
+
+.catched-btn#release-btn {
+    background-color: rgba(250, 65, 65, 0.96);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    width: 30%;
+}
+
+.catched-btn#capture-btn {
+    background-color: rgba(78, 209, 1, 0.96);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 30%;
+}
+
+.info {
+    flex-basis: 5%;
+}

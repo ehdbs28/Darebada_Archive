@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74bc49d5e145cd44a5f5dcb4e669e7f, type: 3}
+  m_Name: BoatData
+  m_EditorClassIdentifier: 
+  Type: 3
+  Size: 4
+  DataTable:
+    _data:
+    - Name: "\uCD08\uBCF4\uC6A9 \uBCF4\uD2B8"
+      Price: 0
+      Visual: {fileID: 11400000, guid: 99a2f1801760a4085a14ffe32f392dfd, type: 2}
+      MaxSpeed: 5
+      ForwardAcceleration: 10
+      BackwardAcceleration: 3
+      Deceleration: 5
+      RotationSpeed: 1
+      RotationAcceleration: 10
+      RotationDeceleration: 10
+      MaxFuel: 100
+    - Name: "\uC2A4\uD53C\uB4DC \uBCF4\uD2B8"
+      Price: 300
+      Visual: {fileID: 11400000, guid: ed3975cdb97824c9e84f973c82de757f, type: 2}
+      MaxSpeed: 7
+      ForwardAcceleration: 12
+      BackwardAcceleration: 4
+      Deceleration: 7
+      RotationSpeed: 2
+      RotationAcceleration: 10
+      RotationDeceleration: 10
+      MaxFuel: 300
+    - Name: "\uC911\uACAC \uBCF4\uD2B8"
+      Price: 1000
+      Visual: {fileID: 11400000, guid: 601490bd505074b599a191ab03b0d58d, type: 2}
+      MaxSpeed: 10
+      ForwardAcceleration: 14
+      BackwardAcceleration: 5
+      Deceleration: 9
+      RotationSpeed: 3
+      RotationAcceleration: 10
+      RotationDeceleration: 10
+      MaxFuel: 500
+    - Name: "\uCD5C\uACE0\uAE09 \uBCF4\uD2B8"
+      Price: 5000
+      Visual: {fileID: 11400000, guid: 2a8bad326d69a4301bf2e53531ca40a2, type: 2}
+      MaxSpeed: 12
+      ForwardAcceleration: 16
+      BackwardAcceleration: 6
+      Deceleration: 11
+      RotationSpeed: 4
+      RotationAcceleration: 10
+      RotationDeceleration: 10
+      MaxFuel: 700

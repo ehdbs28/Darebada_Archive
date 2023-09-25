@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81caa226b21e2cc498a9f5b2c763b655, type: 3}
+  m_Name: DecoVisual 10
+  m_EditorClassIdentifier: 
+  Name: GiantKelp00
+  mesh: {fileID: 4300000, guid: 0546778bf7e80cf44bb89734e08cea3c, type: 3}
+  mainMat: {fileID: 2100000, guid: 6c9706fa7b3bc7e4b9212fde94332a8b, type: 2}
+  sprite: {fileID: 2116418743, guid: 49a2748d1adc3ab47ade0d235f95eca7, type: 3}
